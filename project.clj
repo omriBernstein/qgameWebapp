@@ -8,6 +8,7 @@
                  [ring/ring-devel "1.1.8"]
                  [http-kit "2.0.0"]
                  [compojure "1.1.5"]
-                 [ring-cors "0.1.0"]]
+                 [ring-cors "0.1.0"]
+                 [org.clojars.hippiccolo/qgame "0.1.2"]] ;;qgame
   :main happy-dashboard.core
   :min-lein-version "2.0.0")

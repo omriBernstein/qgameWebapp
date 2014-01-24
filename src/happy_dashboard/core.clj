@@ -2,7 +2,8 @@
   (:use [compojure.core :only (defroutes GET)]
         ring.util.response
         ring.middleware.cors
-        org.httpkit.server)
+        org.httpkit.server
+        qgame.api) ;;qgame
   (:require [compojure.route :as route]
             [compojure.handler :as handler]
             [ring.middleware.reload :as reload]
@@ -22,7 +23,14 @@
 (future (loop []
           (doseq [client @clients]
             (send! (key client) (generate-string
-                                 {:happiness (rand 10)})
+                                 {:happiness
+                                  ;(rand 10) ;;qgame
+                                  (->> (execute-program {:num-qubits 1} ;;qgame
+                                                        '((qnot 0))) ;;qgame
+                                    first ;;qgame
+                                    :amplitudes ;;qgame
+                                    first) ;;qgame
+                                  })
                    false))
           (Thread/sleep 5000)
           (recur)))
