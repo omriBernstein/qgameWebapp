@@ -1,8 +1,5 @@
-(defproject happy-dashboard "0.1.0-SNAPSHOT"
-  :description "A dashboard that shows how happy the world is."
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+(defproject qgameWebapp "0.1.0-SNAPSHOT"
+  :description "The qgame web app."
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [cheshire "5.2.0"]
                  [ring/ring-devel "1.1.8"]
@@ -10,5 +7,5 @@
                  [compojure "1.1.5"]
                  [ring-cors "0.1.0"]
                  [org.clojars.hippiccolo/qgame "0.1.2"]] ;;qgame
-  :main happy-dashboard.core
+  :main qgameWebapp.core
   :min-lein-version "2.0.0")

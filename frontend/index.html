@@ -8,10 +8,10 @@
 
 <script type="text/javascript">
 var data = [], timestamps = [];
-var socket = new WebSocket("ws://localhost:8080/happiness");
+var socket = new WebSocket("ws://localhost:8080/qgame");
 
 socket.onmessage = function(event) {
-            data.push(JSON.parse(event.data)["happiness"]);
+            data.push(JSON.parse(event.data)["qgame"]);
             timestamps.push(new Date);
             refreshChart();}
 
@@ -24,10 +24,18 @@ function zip(arrays) {
         return arrays.map(function(array){return array[i];});
     });
 }
+
+function sendNumber(){
+	socket.send(document.forms.numInput.textVal.value);
+}
 </script>
 </head>
 
 <body>
+  <form name="numInput" onsubmit="sendNumber()">
+  	<input name="textVal" type="textarea"></input>
+  	<button type="submit">Submit</button>
+  </form>
   <div id="chart" style="height: 300px;"></div>
 </body>
 </html>
