@@ -11,8 +11,6 @@
 
 (def clients (atom {}))
 
-(def thing (atom 0))
-
 (defn ws
   [req]
   (with-channel req con
@@ -20,22 +18,14 @@
     (println con " connected")
     (on-receive con
                 (fn [received]
-                  (reset! thing (Integer/parseInt received))))
+                  (use 'qgame.api)
+                  (send! con (generate-string
+                               (execute-program {:num-qubits 2}
+                                                (list (read-string received))))
+                   false)))
     (on-close con (fn [status]
                     (swap! clients dissoc con)
                     (println con " disconnected. status: " status)))))
-
-(future (loop []
-          (doseq [client @clients]
-            (send! (key client) (generate-string
-                                 {:qgame (-> (execute-program {:num-qubits 1}
-                                                               '((qnot 0)))
-                                              first
-                                              :amplitudes
-                                              (nth @thing))})
-                   false))
-          (Thread/sleep 5000)
-          (recur)))
 
 (defroutes routes
   (GET "/qgame" [] ws))

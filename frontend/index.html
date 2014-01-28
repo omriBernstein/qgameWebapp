@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript"
-        src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="chartkick.js"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script type="text/javascript">
-var data = [], timestamps = [];
-var socket = new WebSocket("ws://localhost:8080/qgame");
+var socket = new WebSocket("ws://localhost:8080/qgame"),
+  resultsList = "";
 
 socket.onmessage = function(event) {
-            data.push(JSON.parse(event.data)["qgame"]);
-            timestamps.push(new Date);
-            refreshChart();}
+            resultsList += event.data + "<br>";
+            $("#results").html(resultsList);
+          }
 
-function refreshChart(){
-    new Chartkick.LineChart("chart", zip([timestamps,data]));
+function sendInstruction(){
+  socket.send($("#textVal").val());
 }
 
-function zip(arrays) {
-    return arrays[0].map(function(_,i){
-        return arrays.map(function(array){return array[i];});
-    });
-}
-
-function sendNumber(){
-	socket.send(document.forms.numInput.textVal.value);
-}
 </script>
 </head>
 
 <body>
-  <form name="numInput" onsubmit="sendNumber()">
-  	<input name="textVal" type="textarea"></input>
-  	<button type="submit">Submit</button>
-  </form>
-  <div id="chart" style="height: 300px;"></div>
+  	<input id="textVal" type="textarea"></input>
+  	<button onclick="sendInstruction()">GO</button>
+    <div id="results"></div>
 </body>
 </html>
