@@ -3,7 +3,7 @@
         ring.util.response
         ring.middleware.cors
         org.httpkit.server
-        qgame.api) ;;qgame
+        qgame.api)
   (:require [compojure.route :as route]
             [compojure.handler :as handler]
             [ring.middleware.reload :as reload]
@@ -14,11 +14,11 @@
 (defn ws
   [req]
   (with-channel req con
+    (use 'qgame.api)
     (swap! clients assoc con true)
     (println con " connected")
     (on-receive con
                 (fn [received]
-                  (use 'qgame.api)
                   (send! con (generate-string
                                (execute-program {:num-qubits 2}
                                                 (list (read-string received))))
