@@ -6,7 +6,9 @@
                  [http-kit "2.0.0"]
                  [compojure "1.1.5"]
                  [ring-cors "0.1.0"]
-                 [org.clojars.hippiccolo/qgame "0.1.2"]]
+                 [hiccup "1.0.0"]
+                 [org.clojars.hippiccolo/qgame "0.1.2"]
+                 [com.keminglabs/c2 "0.2.3"]]
   :plugins [[lein-cljsbuild "0.3.0"]]
   :cljsbuild {:builds [{:source-paths ["src-cljs"]
                         :compiler {:output-to "static/visualizer.js"

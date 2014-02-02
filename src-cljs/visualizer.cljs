@@ -1,4 +1,7 @@
-(ns visualizer)
+(ns visualizer
+  (:use [c2.core :only [unify]]
+        [hiccup.core :only [html]])
+  (:require [c2.scale :as scale]))
 
 (def i (js/$ "#input"))
 
@@ -17,9 +20,21 @@
 
 (set! (.-onmessage conn)
   (fn [e]
-    (.html (js/$ "#results")
-           (str (.html (js/$ "#results"))
-                (.-data e) "<br>"))))
+    (.log js/console e)
+    (let [prob-A (.-a (.parse js/JSON (.-data e)))
+          prob-B (.-b (.parse js/JSON (.-data e)))
+          width 100
+          bar-height 100
+          data {"A" prob-A
+                "B" prob-B}
+          s (scale/linear :domain [0 bar-height]
+                          :range [0 width])]
+      (.html (js/$ "#bars") (html
+       (unify data (fn [[label prob]]
+                     [:div {:style {:height bar-height
+                                    :width (s prob)
+                                    :background-color "gray"}}
+                      [:span {:style {:color "white"}} label]])))))))
 
 (defn send-instruction []
   (.log js/console "sending...")

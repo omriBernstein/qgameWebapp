@@ -11,6 +11,15 @@
 
 (def clients (atom {}))
 
+(defn exec-and-return
+  [instructions]
+  (let [qsys (->> instructions
+                  (execute-program {:num-qubits 2})
+                  first)]
+    (zipmap [:a :b]
+            (map #(probability-of qsys % 1)
+                 [0 1]))))
+
 (defn ws
   [req]
   (with-channel req con
@@ -19,10 +28,10 @@
     (println con " connected")
     (on-receive con
                 (fn [received]
-                  (send! con (generate-string
-                               (execute-program {:num-qubits 2}
-                                                (list (read-string received))))
-                   false)))
+                  (println received)
+                  (send! con
+                         (-> received read-string exec-and-return generate-string)
+                         false)))
     (on-close con (fn [status]
                     (swap! clients dissoc con)
                     (println con " disconnected. status: " status)))))
