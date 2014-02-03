@@ -26955,12 +26955,149 @@ c2.core.unify = function() {
   unify.cljs$lang$arity$variadic = unify__delegate;
   return unify
 }();
+goog.provide("hiccups.runtime");
+goog.require("cljs.core");
+goog.require("clojure.string");
+hiccups.runtime.re_tag = /([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?/;
+hiccups.runtime.character_escapes = cljs.core.PersistentArrayMap.fromArrays(["&", "<", ">", '"'], ["&amp;", "&lt;", "&gt;", "&quot;"]);
+hiccups.runtime.container_tags = cljs.core.PersistentHashSet.fromArray(["dd", "head", "a", "b", "body", "pre", "form", "iframe", "dl", "em", "fieldset", "i", "h1", "h2", "span", "h3", "script", "html", "h4", "h5", "h6", "table", "dt", "div", "style", "label", "option", "ul", "strong", "canvas", "textarea", "li", "ol"]);
+hiccups.runtime.as_str = function as_str(x) {
+  if(function() {
+    var or__3943__auto__ = cljs.core.keyword_QMARK_.call(null, x);
+    if(or__3943__auto__) {
+      return or__3943__auto__
+    }else {
+      return cljs.core.symbol_QMARK_.call(null, x)
+    }
+  }()) {
+    return cljs.core.name.call(null, x)
+  }else {
+    return[cljs.core.str(x)].join("")
+  }
+};
+hiccups.runtime._STAR_html_mode_STAR_ = "\ufdd0'xml";
+hiccups.runtime.xml_mode_QMARK_ = function xml_mode_QMARK_() {
+  return cljs.core._EQ_.call(null, hiccups.runtime._STAR_html_mode_STAR_, "\ufdd0'xml")
+};
+hiccups.runtime.in_mode = function in_mode(mode, f) {
+  var _STAR_html_mode_STAR_3298 = hiccups.runtime._STAR_html_mode_STAR_;
+  try {
+    hiccups.runtime._STAR_html_mode_STAR_ = mode;
+    return f.call(null)
+  }finally {
+    hiccups.runtime._STAR_html_mode_STAR_ = _STAR_html_mode_STAR_3298
+  }
+};
+hiccups.runtime.escape_html = function escape_html(text) {
+  return clojure.string.escape.call(null, hiccups.runtime.as_str.call(null, text), hiccups.runtime.character_escapes)
+};
+hiccups.runtime.h = hiccups.runtime.escape_html;
+hiccups.runtime.end_tag = function end_tag() {
+  if(cljs.core.truth_(hiccups.runtime.xml_mode_QMARK_.call(null))) {
+    return" />"
+  }else {
+    return">"
+  }
+};
+hiccups.runtime.xml_attribute = function xml_attribute(name, value) {
+  return[cljs.core.str(" "), cljs.core.str(hiccups.runtime.as_str.call(null, name)), cljs.core.str('="'), cljs.core.str(hiccups.runtime.escape_html.call(null, value)), cljs.core.str('"')].join("")
+};
+hiccups.runtime.render_attribute = function render_attribute(p__3300) {
+  var vec__3302 = p__3300;
+  var name = cljs.core.nth.call(null, vec__3302, 0, null);
+  var value = cljs.core.nth.call(null, vec__3302, 1, null);
+  if(value === true) {
+    if(cljs.core.truth_(hiccups.runtime.xml_mode_QMARK_.call(null))) {
+      return hiccups.runtime.xml_attribute.call(null, name, name)
+    }else {
+      return[cljs.core.str(" "), cljs.core.str(hiccups.runtime.as_str.call(null, name))].join("")
+    }
+  }else {
+    if(cljs.core.not.call(null, value)) {
+      return""
+    }else {
+      if("\ufdd0'else") {
+        return hiccups.runtime.xml_attribute.call(null, name, value)
+      }else {
+        return null
+      }
+    }
+  }
+};
+hiccups.runtime.render_attr_map = function render_attr_map(attrs) {
+  return cljs.core.apply.call(null, cljs.core.str, cljs.core.sort.call(null, cljs.core.map.call(null, hiccups.runtime.render_attribute, attrs)))
+};
+hiccups.runtime.normalize_element = function normalize_element(p__3303) {
+  var vec__3306 = p__3303;
+  var tag = cljs.core.nth.call(null, vec__3306, 0, null);
+  var content = cljs.core.nthnext.call(null, vec__3306, 1);
+  if(!function() {
+    var or__3943__auto__ = cljs.core.keyword_QMARK_.call(null, tag);
+    if(or__3943__auto__) {
+      return or__3943__auto__
+    }else {
+      var or__3943__auto____$1 = cljs.core.symbol_QMARK_.call(null, tag);
+      if(or__3943__auto____$1) {
+        return or__3943__auto____$1
+      }else {
+        return cljs.core.string_QMARK_.call(null, tag)
+      }
+    }
+  }()) {
+    throw[cljs.core.str(tag), cljs.core.str(" is not a valid tag name")].join("");
+  }else {
+  }
+  var vec__3307 = cljs.core.re_matches.call(null, hiccups.runtime.re_tag, hiccups.runtime.as_str.call(null, tag));
+  var _ = cljs.core.nth.call(null, vec__3307, 0, null);
+  var tag__$1 = cljs.core.nth.call(null, vec__3307, 1, null);
+  var id = cljs.core.nth.call(null, vec__3307, 2, null);
+  var class$ = cljs.core.nth.call(null, vec__3307, 3, null);
+  var tag_attrs = cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":id, "\ufdd0'class":cljs.core.truth_(class$) ? clojure.string.replace.call(null, class$, ".", " ") : null});
+  var map_attrs = cljs.core.first.call(null, content);
+  if(cljs.core.map_QMARK_.call(null, map_attrs)) {
+    return cljs.core.PersistentVector.fromArray([tag__$1, cljs.core.merge.call(null, tag_attrs, map_attrs), cljs.core.next.call(null, content)], true)
+  }else {
+    return cljs.core.PersistentVector.fromArray([tag__$1, tag_attrs, content], true)
+  }
+};
+hiccups.runtime.render_element = function render_element(element) {
+  var vec__3309 = hiccups.runtime.normalize_element.call(null, element);
+  var tag = cljs.core.nth.call(null, vec__3309, 0, null);
+  var attrs = cljs.core.nth.call(null, vec__3309, 1, null);
+  var content = cljs.core.nth.call(null, vec__3309, 2, null);
+  if(cljs.core.truth_(function() {
+    var or__3943__auto__ = content;
+    if(cljs.core.truth_(or__3943__auto__)) {
+      return or__3943__auto__
+    }else {
+      return hiccups.runtime.container_tags.call(null, tag)
+    }
+  }())) {
+    return[cljs.core.str("<"), cljs.core.str(tag), cljs.core.str(hiccups.runtime.render_attr_map.call(null, attrs)), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, content)), cljs.core.str("</"), cljs.core.str(tag), cljs.core.str(">")].join("")
+  }else {
+    return[cljs.core.str("<"), cljs.core.str(tag), cljs.core.str(hiccups.runtime.render_attr_map.call(null, attrs)), cljs.core.str(hiccups.runtime.end_tag.call(null))].join("")
+  }
+};
+hiccups.runtime.render_html = function render_html(x) {
+  if(cljs.core.vector_QMARK_.call(null, x)) {
+    return hiccups.runtime.render_element.call(null, x)
+  }else {
+    if(cljs.core.seq_QMARK_.call(null, x)) {
+      return cljs.core.apply.call(null, cljs.core.str, cljs.core.map.call(null, render_html, x))
+    }else {
+      if("\ufdd0'else") {
+        return hiccups.runtime.as_str.call(null, x)
+      }else {
+        return null
+      }
+    }
+  }
+};
 goog.provide("visualizer");
 goog.require("cljs.core");
 goog.require("c2.core");
-goog.require("hiccup.core");
+goog.require("hiccups.runtime");
 goog.require("c2.scale");
-goog.require("hiccup.core");
 goog.require("c2.core");
 visualizer.i = $("#input");
 visualizer.conn = new WebSocket("ws://localhost:8080/qgame");
@@ -26974,15 +27111,44 @@ visualizer.conn.onmessage = function(e) {
   var prob_B = JSON.parse(e.data).b;
   var width = 100;
   var bar_height = 100;
-  var data = cljs.core.ObjMap.fromObject(["A", "B"], {"A":prob_A, "B":prob_B});
   var s = c2.scale.linear.call(null, "\ufdd0'domain", cljs.core.PersistentVector.fromArray([0, bar_height], true), "\ufdd0'range", cljs.core.PersistentVector.fromArray([0, width], true));
-  return $("#bars").html(hiccup.core.html.call(null, c2.core.unify.call(null, data, function(p__3092) {
-    var vec__3093 = p__3092;
-    var label = cljs.core.nth.call(null, vec__3093, 0, null);
-    var prob = cljs.core.nth.call(null, vec__3093, 1, null);
+  var data = cljs.core.ObjMap.fromObject(["A", "B"], {"A":s.call(null, prob_A), "B":s.call(null, prob_B)});
+  console.log([cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
+    var iter__2611__auto__ = function iter__6500(s__6501) {
+      return new cljs.core.LazySeq(null, false, function() {
+        var s__6501__$1 = s__6501;
+        while(true) {
+          var temp__4092__auto__ = cljs.core.seq.call(null, s__6501__$1);
+          if(temp__4092__auto__) {
+            var xs__4579__auto__ = temp__4092__auto__;
+            var vec__6503 = cljs.core.first.call(null, xs__4579__auto__);
+            var label = cljs.core.nth.call(null, vec__6503, 0, null);
+            var scaled = cljs.core.nth.call(null, vec__6503, 1, null);
+            return cljs.core.cons.call(null, [cljs.core.str("<div"), cljs.core.str(' style="{:height bar-height, :width scaled, :background-color &quot;gray&quot;}"'), cljs.core.str(">"), cljs.core.str("<span"), cljs.core.str(' style="{:color &quot;white&quot;}"'), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, label)), cljs.core.str("</span>"), cljs.core.str("</div>")].join(""), iter__6500.call(null, cljs.core.rest.call(null, s__6501__$1)))
+          }else {
+            return null
+          }
+          break
+        }
+      }, null)
+    };
+    return iter__2611__auto__.call(null, data)
+  }()))].join(""));
+  console.log(data);
+  console.log(c2.core.unify.call(null, data, function(p__6504) {
+    var vec__6505 = p__6504;
+    var label = cljs.core.nth.call(null, vec__6505, 0, null);
+    var prob = cljs.core.nth.call(null, vec__6505, 1, null);
     return cljs.core.PersistentVector.fromArray(["\ufdd0'div", cljs.core.ObjMap.fromObject(["\ufdd0'style"], {"\ufdd0'style":cljs.core.ObjMap.fromObject(["\ufdd0'height", "\ufdd0'width", "\ufdd0'background-color"], {"\ufdd0'height":bar_height, "\ufdd0'width":s.call(null, prob), "\ufdd0'background-color":"gray"})}), cljs.core.PersistentVector.fromArray(["\ufdd0'span", cljs.core.ObjMap.fromObject(["\ufdd0'style"], {"\ufdd0'style":cljs.core.ObjMap.fromObject(["\ufdd0'color"], {"\ufdd0'color":"white"})}), 
     label], true)], true)
-  })))
+  }));
+  return $("#bars").html([cljs.core.str(hiccups.runtime.render_html.call(null, c2.core.unify.call(null, data, function(p__6506) {
+    var vec__6507 = p__6506;
+    var label = cljs.core.nth.call(null, vec__6507, 0, null);
+    var prob = cljs.core.nth.call(null, vec__6507, 1, null);
+    return cljs.core.PersistentVector.fromArray(["\ufdd0'div", cljs.core.ObjMap.fromObject(["\ufdd0'style"], {"\ufdd0'style":cljs.core.ObjMap.fromObject(["\ufdd0'height", "\ufdd0'width", "\ufdd0'background-color"], {"\ufdd0'height":bar_height, "\ufdd0'width":s.call(null, prob), "\ufdd0'background-color":"gray"})}), cljs.core.PersistentVector.fromArray(["\ufdd0'span", cljs.core.ObjMap.fromObject(["\ufdd0'style"], {"\ufdd0'style":cljs.core.ObjMap.fromObject(["\ufdd0'color"], {"\ufdd0'color":"white"})}), 
+    label], true)], true)
+  })))].join(""))
 };
 visualizer.send_instruction = function send_instruction() {
   console.log("sending...");

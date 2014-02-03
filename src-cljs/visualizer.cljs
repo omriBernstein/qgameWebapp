@@ -1,7 +1,8 @@
 (ns visualizer
-  (:use [c2.core :only [unify]]
-        [hiccup.core :only [html]])
-  (:require [c2.scale :as scale]))
+  (:use [c2.core :only [unify]])
+  (:use-macros [hiccups.core :only [html]])
+  (:require [c2.scale :as scale]
+            [hiccups.runtime :as hiccupsrt])) 
 
 (def i (js/$ "#input"))
 
@@ -25,10 +26,21 @@
           prob-B (.-b (.parse js/JSON (.-data e)))
           width 100
           bar-height 100
-          data {"A" prob-A
-                "B" prob-B}
           s (scale/linear :domain [0 bar-height]
-                          :range [0 width])]
+                          :range [0 width])
+          data {"A" (s prob-A)
+                "B" (s prob-B)}]
+      (.log js/console (html (for [[label scaled] data]
+                               [:div {:style {:height bar-height
+                                              :width scaled
+                                              :background-color "gray"}}
+                                [:span {:style {:color "white"}} label]])))
+      (.log js/console data)
+      (.log js/console (unify data (fn [[label prob]]
+                     [:div {:style {:height bar-height
+                                    :width (s prob)
+                                    :background-color "gray"}}
+                      [:span {:style {:color "white"}} label]])))
       (.html (js/$ "#bars") (html
        (unify data (fn [[label prob]]
                      [:div {:style {:height bar-height
