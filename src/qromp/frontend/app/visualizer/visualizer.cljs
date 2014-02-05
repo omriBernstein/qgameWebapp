@@ -7,7 +7,7 @@
 (def i (js/$ "#input"))
 
 (def conn 
-  (js/WebSocket. "ws://localhost:8080/qgame"))
+  (js/WebSocket. "ws://localhost:8080/socky"))
 
 #_(set! (.-onopen conn)
   (fn [e]

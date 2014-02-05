@@ -1,4 +1,4 @@
-(ns qgameWebapp.core
+(ns qromp.backend.core
   (:use [compojure.core :only (defroutes GET)]
         ring.util.response
         ring.middleware.cors
@@ -37,7 +37,7 @@
                     (println con " disconnected. status: " status)))))
 
 (defroutes routes
-  (GET "/qgame" [] ws))
+  (GET "/socky" [] ws))
 
 (def application (-> (handler/site routes)
                      reload/wrap-reload
