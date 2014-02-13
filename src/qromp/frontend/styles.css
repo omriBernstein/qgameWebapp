@@ -1,0 +1,90 @@
+html {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: 'Helvetica', sans-serif;
+	font-size: 10px;
+	color: #424242;
+	width: 80%;
+	padding: 0 1em;
+	margin: 0 auto;
+	min-width: 64.8em;
+	max-width: 93em;
+}
+
+a:hover {
+	color: black;
+	border-bottom: 1px solid black;
+}
+
+#header {
+	margin-bottom: .5em;
+}
+
+#header div {
+	display: inline-block;
+}
+
+#banner {
+	width: 48%;
+}
+
+#title {
+	font-size: 5em;
+}
+
+#tagline {
+	padding-left: .5em;
+	font-size: 1.3em;
+	color: #7e7e7e
+}
+
+#menuContainer {
+	width: 52%;
+	text-align: right;
+}
+
+#menu {
+	font-size: 1.6em;
+}
+
+#menu>div {
+	text-align: right;
+	padding-left: 2em;
+}
+
+#REPL {
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+#REPL>div {
+	height: 46em;
+}
+
+#editor {
+	overflow: auto;
+	border: 1px solid #dddddd;
+	box-sizing: border-box;
+}
+
+#textInput {
+	overflow: scroll;
+}
+
+#visualizer {
+	float: right;
+	overflow: hidden;
+	width: 46em;
+	background-color: #F5F1FA;
+	margin-left: 1em;
+}
+
+#diagram {
+	width: 100%;
+	height: 24em;
+	border: 1px solid #dddddd;
+	box-sizing: border-box;
+}
