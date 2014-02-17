@@ -72,6 +72,7 @@ a:hover {
 
 #textInput {
 	overflow: scroll;
+	height: 100%;
 }
 
 #visualizer {
