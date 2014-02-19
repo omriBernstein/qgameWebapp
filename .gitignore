@@ -12,3 +12,7 @@ pom.xml.asc
 .lein-repl-history
 /design/mockup.sketch
 static/scripts/ace/
+out
+repl
+src/repl-connect.cljs
+src_deprecated
