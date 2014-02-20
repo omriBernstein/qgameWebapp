@@ -89,3 +89,10 @@ a:hover {
 	border: 1px solid #dddddd;
 	box-sizing: border-box;
 }
+
+/*--- ACE ---*/
+
+.ace_gutter-cell {
+	padding-left: .6em !important;
+	padding-right: .6em !important;
+}

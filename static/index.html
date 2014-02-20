@@ -1,7 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<style>
+		html {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		body {
+			font-family: 'Helvetica', sans-serif;
+			font-size: 10px;
+			color: #424242;
+			width: 80%;
+			padding: 0 1em;
+			margin: 0 auto;
+			min-width: 64.8em;
+			max-width: 93em;
+		}
+
+		a:hover {
+			color: black;
+			border-bottom: 1px solid black;
+		}
+
+		#header {
+			margin-bottom: .5em;
+		}
+
+		#header div {
+			display: inline-block;
+		}
+
+		#banner {
+			width: 48%;
+		}
+
+		#title {
+			font-size: 5em;
+		}
+
+		#tagline {
+			padding-left: .5em;
+			font-size: 1.3em;
+			color: #7e7e7e
+		}
+
+		#menuContainer {
+			width: 52%;
+			text-align: right;
+		}
+
+		#menu {
+			font-size: 1.6em;
+		}
+
+		#menu>div {
+			text-align: right;
+			padding-left: 2em;
+		}
+
+		#REPL {
+			overflow: hidden;
+			margin-bottom: 1em;
+		}
+
+		#REPL>div {
+			height: 46em;
+		}
+
+		#editor {
+			overflow: auto;
+			border: 1px solid #dddddd;
+			box-sizing: border-box;
+		}
+
+		#textInput {
+			overflow: scroll;
+			height: 100%;
+		}
+
+		#visualizer {
+			float: right;
+			overflow: hidden;
+			width: 46em;
+			background-color: #F5F1FA;
+			margin-left: 1em;
+		}
+
+		#diagram {
+			width: 100%;
+			height: 24em;
+			border: 1px solid #dddddd;
+			box-sizing: border-box;
+		}
+
+		/*--- ACE ---*/
+
+		.ace_gutter-cell {
+			padding-left: .6em !important;
+			padding-right: .6em !important;
+		}
+	</style>
+	<!-- <link href="styles.css" rel="stylesheet" type="text/css" /> -->
 	<title>qromp</title>
 </head>
 <body>
@@ -21,10 +121,13 @@
   	</div>
   	<div id="app">
 	  	<div id="REPL">
-	  		<div id="visualizer"></div><!--
-	  	 --><div id="editor">
+	  		<div id="visualizer">
+	  			<span style="font-size: 1.2em" >Number of qubits: </span><input id="qubits" size="1" value="1" type="text" ></input>
+	  		</div><!--
+	  	 --><div style="position:relative;" id="editor">
 		  		<div id="reference"></div><!--
-		  	 --><div id="textInput"></div>
+		  	 --><div id="textInput"></div><!--
+		  	 --><button id="evaluate" style="position: absolute; bottom: 0; right: 0; z-index: 10; border: 0; cursor: pointer;">Evaluate</button>
 		  	</div>
 		</div>
 		<div id="diagram">
@@ -33,11 +136,11 @@
 		</div>
     </div>
 </body>
-<script type="text/javascript" src="scripts/ace/ace.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
 <script>
+	var evaluate = document.getElementById("evaluate"),
+		qubits = document.getElementById("qubits");
     var editor = ace.edit("textInput");
-    editor.setTheme("ace/theme/chrome");
-    editor.getSession().setMode("ace/mode/javascript");
 </script>
-<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="qromp.js"></script>
 </html>
