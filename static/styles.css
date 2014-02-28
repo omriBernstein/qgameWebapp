@@ -14,6 +14,12 @@ body {
 	max-width: 93em;
 }
 
+/* Aded by knod */
+a {
+	color: black;
+	text-decoration: none;
+}
+
 a:hover {
 	color: black;
 	border-bottom: 1px solid black;
@@ -35,6 +41,11 @@ a:hover {
 	font-size: 5em;
 }
 
+/* Aded by knod */
+#title a:hover {
+	border: none;
+}
+
 #tagline {
 	padding-left: .5em;
 	font-size: 1.3em;
@@ -54,6 +65,8 @@ a:hover {
 	text-align: right;
 	padding-left: 2em;
 }
+
+/*--- SIMULATOR ---*/
 
 #REPL {
 	overflow: hidden;
