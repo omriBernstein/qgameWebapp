@@ -313,7 +313,7 @@ var textEditor = {
 
 		// Get the .text-row's of the editor. Means
 		// $editor can be any parent
-		$textAreas = $editor.find(".text-row");
+		$textAreas = $editor.find("textarea");
 		// The string that will be returned
 		var editorStr = "";
 
