@@ -1,3 +1,18 @@
+/* visualizer.js
+* Created by: 
+* Date created: 
+* Uses http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js
+* to render visual representation of qubits.
+* 
+* TODO:
+* - Comment
+* - qubitAttr - misspelled?
+* - Create an enclosure
+* - Change var i to ii
+* - Create jQuery vars in for loops
+* 
+*/
+
 function positionQubits(newNum){
 	var oldNum = $qubitElements.children().length,
 		change = newNum - oldNum;
@@ -13,7 +28,8 @@ function positionQubits(newNum){
 			}
 		} else {
 			for (var i = 0; i < change; i++){
-				$qubitElements.append("<div><canvas class='qubit' /><canvas class='upP' /><canvas class='downP' /></div>");
+				$qubitElements.append("<div><canvas class='qubit' />" +
+					"<canvas class='upP' /><canvas class='downP' /></div>");
 			}
 		}
 	renderQubits();
@@ -23,9 +39,17 @@ function positionQubits(newNum){
 function renderQubits(){
 	for (var i = 0; i < $qubitsInput.val(); i++){
 			$($qubitElements.children()[i]).css({
-				"-webkit-transform": "translate(-50%, -50%) rotate(" + qubitAttr.rotate * i + "deg) translateY(" + qubitAttr.translate + "px) rotate(-" + qubitAttr.rotate * i + "deg) rotate(90deg) scale(" + qubitAttr.scale + ")"
+				"-webkit-transform": "translate(-50%, -50%) rotate(" +
+					qubitAttr.rotate * i + "deg) translateY(" +
+					qubitAttr.translate + "px) rotate(-" +
+					qubitAttr.rotate * i + "deg) rotate(90deg) scale("
+					+ qubitAttr.scale + ")"
 			});
-			renderQubit(i, $($qubitElements.children()[i]).children(".qubit"), $($qubitElements.children()[i]).children(".upP"), $($qubitElements.children()[i]).children(".downP"));
+			renderQubit(
+				i, $($qubitElements.children()[i]).children(".qubit"),
+				$($qubitElements.children()[i]).children(".upP"),
+				$($qubitElements.children()[i]).children(".downP")
+			);
 		}
 }
 
@@ -34,15 +58,19 @@ function renderQubit(qubitID, $qubitCanvas, $upPhaseCanvas, $downPhaseCanvas){
 		ctxQ = $qubitCanvas[0].getContext('2d'),
 		ctxUpP = $upPhaseCanvas[0].getContext('2d'),
 		ctxDownP = $downPhaseCanvas[0].getContext('2d');
-	new Chart(ctxQ).Pie([{value: qubit.DOWN.prob, color: "#9a3535"}, {value: qubit.UP.prob, color: "#3e3e97"}], {animation: false, segmentShowStroke: false});
+	new Chart(ctxQ).Pie([{value: qubit.DOWN.prob, color: "#9a3535"},
+		{value: qubit.UP.prob, color: "#3e3e97"}],
+		{animation: false, segmentShowStroke: false});
 	phaseCircle(ctxUpP, "#3e3e97");
 	phaseCircle(ctxDownP, "#9a3535");
 
 	$upPhaseCanvas.css({
-		"-webkit-transform": "rotate(-" + qubit.UP.phase + "deg) translateY(-82px) rotate(" + qubit.UP.phase + "deg)"
+		"-webkit-transform": "rotate(-" + qubit.UP.phase +
+			"deg) translateY(-82px) rotate(" + qubit.UP.phase + "deg)"
 	});
 	$downPhaseCanvas.css({
-		"-webkit-transform": "rotate(-" + qubit.DOWN.phase + "deg) translateY(-82px) rotate(" + qubit.DOWN.phase + "deg)"
+		"-webkit-transform": "rotate(-" + qubit.DOWN.phase +
+			"deg) translateY(-82px) rotate(" + qubit.DOWN.phase + "deg)"
 	});
 }
 

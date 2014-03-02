@@ -9,7 +9,9 @@
 * - Why isn't everything in $(document).ready()?
 * - Add comments on functionality
 * - Decouple ace
+* 
 * ---	Visualizer	---
+* - qubitAttr - misspelled?
 * 
 * ---	Editor		---
 * - Should text editor key functions be called on
@@ -17,6 +19,10 @@
 * 
 * 
 */
+
+// Has to be global for now, too much changing to
+// do without discussion
+var qubitAttr;
 
 // Elements requested before document ready may not
 // always be found, but I see that you wanted global
@@ -35,7 +41,6 @@ $(document).ready(function() {
 	// editor = ace.edit("ace"),
 	qubits = [];
 	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}};
-	var qubitAttr;
 
 	// ORIGINAL, ACE, ETC:
 	// *** VISULIZER *** \\
