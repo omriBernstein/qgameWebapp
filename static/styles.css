@@ -117,9 +117,6 @@ a:hover {
 	overflow: auto;
 }
 
-/* New stuff has to be worked out*/
-/* Seems to be working */
-/************/
 #textInput {
 	position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
 	width: 100%;
@@ -188,8 +185,6 @@ a:hover {
 	border: 0;
 	cursor: pointer;
 }
-/**************/
-
 
 /*#ace {
 	overflow: hidden;
