@@ -8,6 +8,9 @@
 * 2. http://stackoverflow.com/questions/6683046/how-do-i-move-the-cursor-to-the-front-of-a-textbox-which-has-text-in-it
 * 
 * ToDo:
+* - Create a "editor" var that has the property
+* .getValue() that calls getAllText() in here
+* so that we can play nice with the demo for now
 * - Figure out why .num-row height doesn't change when
 * pasting text or deleting selected text. (on keyup?)
 * - [Not done, somewhat better somehow] Figure out why
@@ -301,18 +304,26 @@ var textEditor = {
 		$rowToSize.data("numRow").outerHeight($rowToSize.outerHeight());
 	},
 
-	getValue: function ($editor) {
+	getAllText: function ($editor) {
 		/* ($ collection) -> Str
 
 		Gets the text from every textarea in $editor
 		and returns. Each textarea is on a new line.
 		*/
 
+		// Get the text-areas of the editor
+		$textAreas = $editor.children();
+
 		// The string that will be returned
+		var editorStr = "";
+
 		// For every existing textarea
+		$textAreas.each(function (ii, elem) {
+			console.log("Row number: " + ii);
 			// Get the value of the text area
 			// if it's not the last line
 				// Append a new line character
+		})
 
 		// Return that string
 	},
