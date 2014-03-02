@@ -1,5 +1,8 @@
-/* knod 02/28/14
+/*
 * texteditor.js
+* Created by: knod
+* Date created: 02/28/14
+* Last edited?: 
 * Manages the changing inputs of the visualizer's editor
 * 
 * Sources:
@@ -17,6 +20,8 @@
 * blank for the evaluate button?
 * 
 * DONE:
+* - [DONE] Fix delete deactivate row error on deleting in
+* empty top row.
 * - [DONE, keypress propagation or automatic padding/
 * height] FIGURE OUT WHY A TEXTAREA HAS AN EXTRA SPACE
 *  AT THE BOTTOM AND HOW TO GET RID OF IT.
@@ -92,7 +97,7 @@ var textEditor = {
 		else if (key.keyCode == 8) {
 
 			// Do not remove the first row
-			if ($(".text-row").length - 1) {
+			if ( Math.max(0, $(".text-row").index($textRow)) ) {
 				// If there's no text in the row
 				if (!$textRow.val()) {
 					// Run a function in texteditor.js that removes a
