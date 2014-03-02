@@ -36,12 +36,24 @@
 	  		<div id="visualizer">
 	  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="20" value="1" type="number"></input></span>
 	  			<div id="qubitElements"></div>
-	  		</div><!--
-	  	 --><div style="position:relative;" id="editor">
-		  		<div id="reference"></div><!--
-		  	 --><div id="ace"></div><!--
-		  	 --><button id="evaluate" style="position: absolute; bottom: 0; right: 0; z-index: 10; border: 0; cursor: pointer;">Evaluate</button>
-		  	</div>
+	  		</div>
+	  	 	<div id="editor">
+	  			<div id="scrollable-area">
+			  		<div id="textInput">
+	  					<div id="num-gutter"></div>
+			  			<div id="row-num-col">
+			  				<!-- To be filled dynamically later -->
+			  			</div>
+			  			<div id="text-areas">
+			  				<!-- To be filled dynamically later -->
+			  			</div>
+			  	 	</div>
+			  		<div id="reference">asfasdf</div>
+			  	</div>
+			  	<div id="editor-footer">
+		  	 	<button id="evaluate">Evaluate</button>
+		  	 	</div>
+			</div>
 		</div>
 		<div id="diagram">
 			<div id="partsBin"></div><!--
