@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<style>
 		html {
 			padding: 0px;
@@ -115,6 +116,9 @@
 		}
 	</style>
 	<!-- <link href="styles.css" rel="stylesheet" type="text/css" /> -->
+=======
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+>>>>>>> upstream/master
 	<title>qromp</title>
 	<!-- knod: I suggest a different title, something more descriptive -->
 	<!-- Quantum computer simulator and reference -->
@@ -138,11 +142,12 @@
   	<div id="app">
 	  	<div id="REPL">
 	  		<div id="visualizer">
-	  			<span style="font-size: 1.2em" >Number of qubits: </span><input id="qubits" size="1" value="1" type="text" ></input>
+	  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="20" value="1" type="number"></input></span>
+	  			<div id="qubitElements"></div>
 	  		</div><!--
 	  	 --><div style="position:relative;" id="editor">
 		  		<div id="reference"></div><!--
-		  	 --><div id="textInput"></div><!--
+		  	 --><div id="ace"></div><!--
 		  	 --><button id="evaluate" style="position: absolute; bottom: 0; right: 0; z-index: 10; border: 0; cursor: pointer;">Evaluate</button>
 		  	</div>
 		</div>
@@ -152,11 +157,10 @@
 		</div>
     </div>
 </body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
-<script>
-	var evaluate = document.getElementById("evaluate"),
-		qubits = document.getElementById("qubits");
-    var editor = ace.edit("textInput");
-</script>
+<script type="text/javascript" src="setup.js"></script>
 <script type="text/javascript" src="qromp.js"></script>
+<script type="text/javascript" src="visualizer.js"></script>
 </html>

@@ -9,7 +9,7 @@ body {
 	color: #424242;
 	width: 80%;
 	padding: 0 1em;
-	margin: 0 auto;
+	margin: 0 auto 3em auto;
 	min-width: 64.8em;
 	max-width: 93em;
 }
@@ -78,22 +78,55 @@ a:hover {
 }
 
 #editor {
-	overflow: auto;
+	overflow: hidden;
 	border: 1px solid #dddddd;
 	box-sizing: border-box;
 }
 
-#textInput {
-	overflow: scroll;
+#ace {
+	overflow: hidden;
 	height: 100%;
+	width: 100%;
 }
 
 #visualizer {
+	position: relative;
 	float: right;
 	overflow: hidden;
 	width: 46em;
 	background-color: #F5F1FA;
 	margin-left: 1em;
+}
+
+#numQubits {
+	font-size: 1.2em;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#qubitsInput {
+	width: 30px;
+}
+
+#qubitElements {
+	position: relative;
+}
+
+#qubitElements div {
+	position: absolute;
+	top: 23em;
+	left: 23em;
+	width: 300px;
+	height: 150px;
+}
+
+canvas {
+	position: absolute;
+}
+
+.downP, .upP {
+	opacity: .5;
 }
 
 #diagram {
