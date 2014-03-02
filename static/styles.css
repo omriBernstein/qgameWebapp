@@ -1,4 +1,4 @@
-/* Created by: 
+ Created by: 
 * 02-03/14
 * 
 * Sources:
@@ -6,6 +6,7 @@
 * 2. http://css-tricks.com/box-sizing/
 * 
 * ToDo:
+* - Integrate knod's changes
 * - Figure out how to stack #scrollable-area on top of eval
 * button without resorting to hard pixels. Table?
 * - Should we do box-sizing for all textareas?
@@ -96,6 +97,7 @@ a:hover {
 	height: 46em;
 }
 
+/*--- Editor ---*/
 #editor {
 	overflow: hidden;
 	border: 1px solid #dddddd;
@@ -113,6 +115,7 @@ a:hover {
 }
 
 /* New stuff has to be worked out*/
+/* Seems to be working */
 /************/
 #textInput {
 	position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
@@ -191,8 +194,8 @@ a:hover {
 	width: 100%;
 }*/
 
+/*--- Visualizer ---*/
 #visualizer {
-	position: relative;
 	float: right;
 	overflow: hidden;
 	width: 46em;
@@ -200,15 +203,22 @@ a:hover {
 	margin-left: 1em;
 }
 
+#visualizer>div {
+	margin: .5em;
+}
+
+#visualizer-buffer>span {
+	font-size: 1.5em;
+}
+
 #numQubits {
 	font-size: 1.2em;
-	position: absolute;
-	left: 0;
-	top: 0;
+	position: relative;
 }
 
 #qubitsInput {
 	width: 30px;
+	font-size: .8em;
 }
 
 #qubitElements {
@@ -231,15 +241,19 @@ canvas {
 	opacity: .5;
 }
 
+/*--- Diagram ---*/
 #diagram {
 	width: 100%;
 	height: 24em;
 	border: 1px solid #dddddd;
-	box-sizing: border-box;
+	/* Is box-sizing needed? */
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 /*--- ACE ---*/
-
+/*
 .ace_gutter-cell {
 	padding-left: .6em !important;
 	padding-right: .6em !important;
