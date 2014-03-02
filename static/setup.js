@@ -29,6 +29,12 @@ var qubitAttr;
 // vars. There's another way to do that, and I'll
 // implement it, but it can be better to keep vars
 // out of global scope for human readability
+
+// Also because var names like "evaluate"
+// could very easily be accidentally overriden.
+// I can do it another way with an initializing
+// function or something if they're not used in
+// other scripts
 $(document).ready(function() {
 
 	// ORIGINAL, ACE (fourth line down) :
