@@ -1,8 +1,6 @@
-/*
-* texteditor.js
+/* texteditor.js
 * Created by: knod
 * Date created: 02/28/14
-* Last edited?: 
 * Manages the changing inputs of the visualizer's editor
 * 
 * Sources:

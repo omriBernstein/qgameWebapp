@@ -1,7 +1,8 @@
-/*
+/* setup.js
 * Created by: 
 * Date:
 * Event listeners and main functions to run simulator
+* Perhaps other "pages" too in future
 * 
 * TODO:
 * ---	General		---
