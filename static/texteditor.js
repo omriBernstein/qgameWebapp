@@ -300,4 +300,20 @@ var textEditor = {
 		textEditor.resizeTextArea($rowToSize);
 		$rowToSize.data("numRow").outerHeight($rowToSize.outerHeight());
 	},
+
+	getValue: function ($editor) {
+		/* ($ collection) -> Str
+
+		Gets the text from every textarea in $editor
+		and returns. Each textarea is on a new line.
+		*/
+
+		// The string that will be returned
+		// For every existing textarea
+			// Get the value of the text area
+			// if it's not the last line
+				// Append a new line character
+
+		// Return that string
+	},
 }
