@@ -6,6 +6,7 @@
 * Sources:
 * 1. http://stackoverflow.com/questions/15076201/html-css-sticky-footer-growing-content
 * 2. http://css-tricks.com/box-sizing/
+* 3. http://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent
 * 
 * ToDo:
 * - Integrate knod's changes
@@ -198,6 +199,9 @@ a:hover {
 
 /*--- Visualizer ---*/
 #visualizer {
+	/* positions #qubitElements correctly*/
+	/* Almost Sources (3) */
+	position: relative;
 	float: right;
 	overflow: hidden;
 	width: 46em;
@@ -207,6 +211,12 @@ a:hover {
 
 #visualizer>div {
 	margin: .5em;
+}
+
+#visualizer-buffer {
+	/* Musn't define position: anything here
+	will alter position of #qubitElements*/
+	/* Almost Sources (3) */
 }
 
 #visualizer-buffer>span {
@@ -224,7 +234,8 @@ a:hover {
 }
 
 #qubitElements {
-	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 #qubitElements div {
