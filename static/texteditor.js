@@ -16,6 +16,8 @@
 * all the .text-rows to get the right height.
 * - Do we want the bottom line of the editor to remain
 * blank for the evaluate button?
+* - Make cursor re-focus on last position in editor after
+* "Evaluate" has been pressed.
 * 
 * DONE:
 * - [DONE] Fix delete deactivate row error on deleting in
