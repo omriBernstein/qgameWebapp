@@ -34,10 +34,7 @@ var evaluate = document.getElementById("evaluate"),
 
 // Another global, to match the current generated js
 var editor = {
-		getValue: function (editor) {
-			$editor = $(editor);
-			return(textEditor.getAllText($("#editor")));
-		}
+		getValue: function () {return(textEditor.getAllText($("#editor")));}
 	};
 
 // Elements requested before document ready may not
