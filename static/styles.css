@@ -115,6 +115,9 @@ a:hover {
 	/* Nope, percent worked just as well */
 	height: 43.6em; /* Space left for evaluate at bottom */
 	overflow: auto;
+	/* Puts #reference in the right place */
+	/* See #qubitElements notes */
+	position: relative;
 }
 
 #textInput {
