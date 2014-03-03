@@ -23,11 +23,11 @@ function positionQubits(newNum){
 				rotate: 360 / newNum
 			};
 		if (change < 0){
-			for (var i = 0; i > change; i --){
-				$qubitElements.children()[i + oldNum - 1].remove();
+			for (var ii = 0; ii > change; ii--){
+				$qubitElements.children()[ii + oldNum - 1].remove();
 			}
 		} else {
-			for (var i = 0; i < change; i++){
+			for (var ii = 0; ii < change; ii++){
 				$qubitElements.append("<div><canvas class='qubit' />" +
 					"<canvas class='upP' /><canvas class='downP' /></div>");
 			}
@@ -37,18 +37,18 @@ function positionQubits(newNum){
 }
 
 function renderQubits(){
-	for (var i = 0; i < $qubitsInput.val(); i++){
-			$($qubitElements.children()[i]).css({
+	for (var ii = 0; ii < $qubitsInput.val(); ii++){
+			$($qubitElements.children()[ii]).css({
 				"-webkit-transform": "translate(-50%, -50%) rotate(" +
-					qubitAttr.rotate * i + "deg) translateY(" +
+					qubitAttr.rotate * ii + "deg) translateY(" +
 					qubitAttr.translate + "px) rotate(-" +
-					qubitAttr.rotate * i + "deg) rotate(90deg) scale("
+					qubitAttr.rotate * ii + "deg) rotate(90deg) scale("
 					+ qubitAttr.scale + ")"
 			});
 			renderQubit(
-				i, $($qubitElements.children()[i]).children(".qubit"),
-				$($qubitElements.children()[i]).children(".upP"),
-				$($qubitElements.children()[i]).children(".downP")
+				ii, $($qubitElements.children()[ii]).children(".qubit"),
+				$($qubitElements.children()[ii]).children(".upP"),
+				$($qubitElements.children()[ii]).children(".downP")
 			);
 		}
 }
