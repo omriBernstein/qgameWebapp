@@ -20,11 +20,25 @@
 * 
 */
 
-// Has to be global for now, too much changing to
-// do without discussion
-var qubitAttr;
+// ORIGINAL, ACE (fourth line down) :
+// *** ? *** \\
+// GLOBAL VARS
+// And another five bite the dust
+var evaluate = document.getElementById("evaluate"),
+	$qubitsInput = $("#qubitsInput"),
+	$qubitElements = $("#qubitElements"),
+	// editor = ace.edit("ace"),
+	qubits = [],
+	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
+	qubitAttr;
+
 // Another global, to match the current generated js
-var editor
+var editor = {
+		getValue: function (editor) {
+			$editor = $(editor);
+			return(textEditor.getAllText($("#editor")));
+		}
+	};
 
 // Elements requested before document ready may not
 // always be found, but I see that you wanted global
@@ -39,31 +53,16 @@ var editor
 // other scripts
 $(document).ready(function() {
 
-	// ORIGINAL, ACE (fourth line down) :
-	// *** ? *** \\
-	// GLOBAL VARS
-	$qubitsInput = $("#qubitsInput");
-	$qubitElements = $("#qubitElements");
-	evaluate = $("#evaluate");
-	// // Tells ace where to put it's editor
-	// editor = ace.edit("ace"),
-	qubits = [];
-	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}};
-
 	// ORIGINAL, ACE, ETC:
 	// *** VISULIZER *** \\
 	positionQubits($qubitsInput.val());
 	// editor.getSession().setUseWrapMode(true);
 
-	// ORIGINAL, ACE, ETC:
 	// *** ? *** \\
+	// Didn't bite the dust in here!!
 	$qubitsInput.change(function() {
 		positionQubits($qubitsInput.val());
 	});
-
-	editor = {
-		getValue: function ($editor) {return(textEditor.getAllText($editor));}
-	}
 
 	// KNOD:
 	// *** TEXT EDITOR *** \\
@@ -97,3 +96,4 @@ $(document).ready(function() {
 	})
 	;
 });
+

@@ -309,6 +309,8 @@ var textEditor = {
 
 		Gets the text from every textarea in $editor
 		and returns. Each textarea is on a new line.
+
+		ex: ((u-theta 0.6 0))
 		*/
 
 		// Get the .text-row's of the editor. Means
