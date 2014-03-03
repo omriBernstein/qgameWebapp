@@ -6,25 +6,35 @@
 * 
 * TODO:
 * - Comment
-* - qubitAttr - misspelled?
+* - ?? Did this used to have this functionality:
+* when something had already been evaluated and
+* the input was increased, the new cirlces would
+* already have the evaluated appearance??
+* 	- If not, if we want them to, we just run
+*	evaluate when an input is changed
 * - Create an enclosure
-* - Change var i to ii
-* - Create jQuery vars in for loops
+* 
+* DONE:
+* - [DONE] Create jQuery vars in for loops
+* - [DONE] Change var i to ii
+* - [NOPE] qubitAttr - misspelled?
 * 
 */
 
 function positionQubits(newNum){
-	var oldNum = $qubitElements.children().length,
+	// This first for speed
+	var qubitChildren = $qubitElements.children(),
+		oldNum = qubitChildren.length,
 		change = newNum - oldNum;
 	if (change){
 		qubitAttr = {
-				scale: Math.pow((14/15), newNum - 1),
-				translate: 95 * Math.pow(newNum - 1, 1/4),
-				rotate: 360 / newNum
-			};
+			scale: Math.pow((14/15), newNum - 1),
+			translate: 95 * Math.pow(newNum - 1, 1/4),
+			rotate: 360 / newNum
+		};
 		if (change < 0){
 			for (var ii = 0; ii > change; ii--){
-				$qubitElements.children()[ii + oldNum - 1].remove();
+				qubitChildren[ii + oldNum - 1].remove();
 			}
 		} else {
 			for (var ii = 0; ii < change; ii++){
@@ -37,18 +47,23 @@ function positionQubits(newNum){
 }
 
 function renderQubits(){
-	for (var ii = 0; ii < $qubitsInput.val(); ii++){
-		$($qubitElements.children()[ii]).css({
+	// For speed
+	var inputNum = $qubitsInput.val(),
+	qubitChildren = $qubitElements.children();
+
+	for (var ii = 0; ii < inputNum; ii++){
+		// For speed
+		var $thisChild = $(qubitChildren[ii]);
+
+		$thisChild.css({
 			"-webkit-transform": "translate(-50%, -50%) rotate(" +
 				qubitAttr.rotate * ii + "deg) translateY(" +
 				qubitAttr.translate + "px) rotate(-" +
 				qubitAttr.rotate * ii + "deg) rotate(90deg) scale("
 				+ qubitAttr.scale + ")"
 		});
-		renderQubit(
-			ii, $($qubitElements.children()[ii]).children(".qubit"),
-			$($qubitElements.children()[ii]).children(".upP"),
-			$($qubitElements.children()[ii]).children(".downP")
+		renderQubit(ii, $thisChild.children(".qubit"),
+			$thisChild.children(".upP"), $thisChild.children(".downP")
 		);
 	}
 }
