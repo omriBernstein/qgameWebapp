@@ -6,7 +6,7 @@
   :plugins [[lein-cljsbuild "1.0.2"]]
   :cljsbuild {:builds [{:source-paths ["src"]
                         :compiler {:output-to "static/qromp.js"
-                                   :optimizations :whitespace
+                                   :optimizations :simple
                                    :pretty-print true
                                    :foreign-libs [{:file "http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"
                                                    :provides ["math.js"]}]}}]}
