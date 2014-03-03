@@ -70,8 +70,10 @@ var textEditor = {
 		// Do we want to focus the mouse here at the start?
 		$newTextRow.focus();
 		// Somehow the focus() is not triggering activateRow()
-
+		// Colors the row the active row colors
 		textEditor.activateRow($newTextRow);
+		// Numbers the row
+		textEditor.updateNums();
 	},
 
 	keyFilter: function (key, $textRow) {
