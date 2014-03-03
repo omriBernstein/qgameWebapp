@@ -23,6 +23,8 @@
 // Has to be global for now, too much changing to
 // do without discussion
 var qubitAttr;
+// Another global, to match the current generated js
+var editor
 
 // Elements requested before document ready may not
 // always be found, but I see that you wanted global
@@ -58,6 +60,10 @@ $(document).ready(function() {
 	$qubitsInput.change(function() {
 		positionQubits($qubitsInput.val());
 	});
+
+	editor = {
+		getValue: function ($editor) {return(textEditor.getAllText($editor));}
+	}
 
 	// KNOD:
 	// *** TEXT EDITOR *** \\

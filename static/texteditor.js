@@ -8,9 +8,6 @@
 * 2. http://stackoverflow.com/questions/6683046/how-do-i-move-the-cursor-to-the-front-of-a-textbox-which-has-text-in-it
 * 
 * ToDo:
-* - Create a "editor" var that has the property
-* .getValue() that calls getAllText() in here
-* so that we can play nice with the demo for now
 * - Figure out why .num-row height doesn't change when
 * pasting text or deleting selected text. (on keyup?)
 * - [Not done, somewhat better somehow] Figure out why
@@ -23,6 +20,9 @@
 * "Evaluate" has been pressed.
 * 
 * DONE:
+* - [DONE] Create a "editor" var that has the property
+* .getValue() that calls getAllText() in here
+* so that we can play nice with the demo for now
 * - [DONE] Fix delete deactivate row error on deleting in
 * empty top row.
 * - [DONE, keypress propagation or automatic padding/
