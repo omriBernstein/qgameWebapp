@@ -7,7 +7,12 @@
 * TODO:
 * - Comment
 * - Where is the event button listener...?
-* - [Done?] ?? Did this used to have this functionality:
+* - How about if the person only writes the code
+* partially, then increases qubits? Their code will
+* be evaluated with errors. Perhaps only last
+* non-error code is run? [?UNDO THIS, THE OLD THING
+* WAS ON PURPOSE? No, Omri's saying he wants it. I
+* dunno! Done?] ?? Did this used to have this functionality:
 * when something had already been evaluated and
 * the input was increased, the new cirlces would
 * already have the evaluated appearance??
@@ -45,7 +50,7 @@ function positionQubits(newNum){
 					"<canvas class='upP' /><canvas class='downP' /></div>");
 			}
 			// Then re-evaluate (or set all to start again so
-				// it's clear it needs to be re-evaluated)
+			// it's clear it needs to be re-evaluated)
 			$("#evaluate").trigger("click");
 		}
 	renderQubits();

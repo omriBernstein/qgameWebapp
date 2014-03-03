@@ -8,13 +8,13 @@
 * ---	General		---
 * - Why isn't everything in $(document).ready()?
 * - Add comments on functionality
-* - Decouple ace
 * - Evaluate then refocus
 * - No error on empty editor
 * - Experiment with moving script calls around till we find
 * the culprit
 * - Retry enclosing the generated code
-* - Everything happens on one page
+* - Everything happens on one page (no need for link to
+* "home page", instead can press 'x' or 'back')
 * 
 * ---	Visualizer	---
 * - qubitAttr - misspelled?
@@ -23,6 +23,8 @@
 * - Should text editor key functions be called on
 * keypress instead in case they hold a key down?
 * 
+* DONE:
+* - [DONE] Decouple ace
 * 
 */
 

@@ -9,12 +9,14 @@
 * 3. http://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent
 * 
 * ToDo:
-* - Integrate knod's changes
+* - #reference doesn't stay put on scrolling, attach to
+* non-scrolling parent.
 * - Figure out how to stack #scrollable-area on top of eval
 * button without resorting to hard pixels. Table?
 * - Should we do box-sizing for all textareas?
 * 
 * DONE:
+* - [DONE] Integrate knod's changes
 * - [DONE] Fix text-row width so it actually fills the rest
 * of the space always
 * - [DONE] Fix editor height not matching visualizer height
