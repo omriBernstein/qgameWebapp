@@ -4,15 +4,15 @@ Date created:
 Visual representation of quantum computing functions
 
 TODO:
-- That error gone for some reason, now this error:
+
+DONE:
+- [FIXED!] That error gone for some reason, now this error:
 (when trying to run a function)
 "Uncaught ReferenceError: mathjs is not defined"
 here: qrompsimple.js:20514
 code:
 qgame.utils.math = {};
 qgame.utils.math.math = mathjs();
-
-DONE:
 - [GONE] Adding qromp simple gets this error:
 "Uncaught Error: EOF while reading"
 here: qrompsimple.js:13979
@@ -100,6 +100,7 @@ enclosures! Bah! -->
 <script type="text/javascript" src="texteditor.js"></script>
 <!-- <script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script> -->
 <script type="text/javascript" src="setup.js"></script>
+<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
 <script type="text/javascript" src="qrompsimple.js"></script>
 <script type="text/javascript" src="visualizer.js"></script>
 </html>
