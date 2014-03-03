@@ -9,6 +9,12 @@
 * - Why isn't everything in $(document).ready()?
 * - Add comments on functionality
 * - Decouple ace
+* - Evaluate then refocus
+* - No error on empty editor
+* - Experiment with moving script calls around till we find
+* the culprit
+* - Retry enclosing the generated code
+* - Everything happen on one page
 * 
 * ---	Visualizer	---
 * - qubitAttr - misspelled?
@@ -93,4 +99,3 @@ $(document).ready(function() {
 	})
 	;
 });
-

@@ -38,19 +38,19 @@ function positionQubits(newNum){
 
 function renderQubits(){
 	for (var ii = 0; ii < $qubitsInput.val(); ii++){
-			$($qubitElements.children()[ii]).css({
-				"-webkit-transform": "translate(-50%, -50%) rotate(" +
-					qubitAttr.rotate * ii + "deg) translateY(" +
-					qubitAttr.translate + "px) rotate(-" +
-					qubitAttr.rotate * ii + "deg) rotate(90deg) scale("
-					+ qubitAttr.scale + ")"
-			});
-			renderQubit(
-				ii, $($qubitElements.children()[ii]).children(".qubit"),
-				$($qubitElements.children()[ii]).children(".upP"),
-				$($qubitElements.children()[ii]).children(".downP")
-			);
-		}
+		$($qubitElements.children()[ii]).css({
+			"-webkit-transform": "translate(-50%, -50%) rotate(" +
+				qubitAttr.rotate * ii + "deg) translateY(" +
+				qubitAttr.translate + "px) rotate(-" +
+				qubitAttr.rotate * ii + "deg) rotate(90deg) scale("
+				+ qubitAttr.scale + ")"
+		});
+		renderQubit(
+			ii, $($qubitElements.children()[ii]).children(".qubit"),
+			$($qubitElements.children()[ii]).children(".upP"),
+			$($qubitElements.children()[ii]).children(".downP")
+		);
+	}
 }
 
 function renderQubit(qubitID, $qubitCanvas, $upPhaseCanvas, $downPhaseCanvas){
@@ -58,9 +58,9 @@ function renderQubit(qubitID, $qubitCanvas, $upPhaseCanvas, $downPhaseCanvas){
 		ctxQ = $qubitCanvas[0].getContext('2d'),
 		ctxUpP = $upPhaseCanvas[0].getContext('2d'),
 		ctxDownP = $downPhaseCanvas[0].getContext('2d');
-	new Chart(ctxQ).Pie([{value: qubit.DOWN.prob, color: "#9a3535"},
+	new Chart(ctxQ).Pie( [{value: qubit.DOWN.prob, color: "#9a3535"},
 		{value: qubit.UP.prob, color: "#3e3e97"}],
-		{animation: false, segmentShowStroke: false});
+		{animation: false, segmentShowStroke: false} );
 	phaseCircle(ctxUpP, "#3e3e97");
 	phaseCircle(ctxDownP, "#9a3535");
 
