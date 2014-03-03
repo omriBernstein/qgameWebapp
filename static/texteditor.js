@@ -313,18 +313,29 @@ var textEditor = {
 
 		// Get the .text-row's of the editor. Means
 		// $editor can be any parent
-		$textAreas = $editor.find("textarea");
+		var $textAreas = $editor.find("textarea");
+		// How many text areas are there?
+		var numAreas = $textAreas.length;
+		// What's the last index in the group?
+		var highestIndex = numAreas - 1;
+
 		// The string that will be returned
 		var editorStr = "";
 
 		// For every existing textarea
-		$textAreas.each(function (ii, elem) {
-			console.log("Row number: " + ii);
-			// Get the value of the text area
-			// if it's not the last line
-				// Append a new line character
+		$textAreas.each(function (ii) {
+			// Make loop faster
+			var $this = $(this);
+
+			// Append the value of this textarea to the string
+			editorStr += $this.val();
+			// Append a new line character
+			editorStr += "\n";
 		})
 
-		// Return that string
+		// When that's all done, take away the last excess /n
+		editorStr = editorStr.substring(0, editorStr.length - 1);
+		// and return that string
+		return(editorStr);
 	},
 }
