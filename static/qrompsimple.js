@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var COMPILED = !0, goog = goog || {};
 goog.global = this;
 goog.DEBUG = !0;
@@ -21854,3 +21855,4 @@ var qromp = {response:function() {
   return renderQubits();
 }};
 goog.events.listen(evaluate, goog.events.EventType.CLICK, qromp.response);
+});
