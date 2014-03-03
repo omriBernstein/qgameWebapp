@@ -14,7 +14,7 @@
 * - Experiment with moving script calls around till we find
 * the culprit
 * - Retry enclosing the generated code
-* - Everything happen on one page
+* - Everything happens on one page
 * 
 * ---	Visualizer	---
 * - qubitAttr - misspelled?
