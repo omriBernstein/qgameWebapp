@@ -9,7 +9,8 @@
 * - Why isn't everything in $(document).ready()?
 * - Add comments on functionality
 * - Evaluate then refocus
-* - No error on empty editor
+* - Take away error message on empty editor? (not
+* crucial, doesn't stop functionality)
 * - Experiment with moving script calls around till we find
 * the culprit
 * - Retry enclosing the generated code
@@ -17,13 +18,16 @@
 * "home page", instead can press 'x' or 'back')
 * 
 * ---	Visualizer	---
-* - qubitAttr - misspelled?
 * 
 * ---	Editor		---
 * - Should text editor key functions be called on
 * keypress instead in case they hold a key down?
+* - Perhaps keydown or key up should
+* $("#evaluate").trigger("click"); but onl if that
+* wont' result in an error
 * 
 * DONE:
+* - [NOPE] qubitAttr - misspelled?
 * - [DONE] Decouple ace
 * 
 */

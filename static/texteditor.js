@@ -8,6 +8,10 @@
 * 2. http://stackoverflow.com/questions/6683046/how-do-i-move-the-cursor-to-the-front-of-a-textbox-which-has-text-in-it
 * 
 * ToDo:
+* - Fix #1 Cannot delete linebreak for non-blank lines
+* where if line 2 has text and line one is empty, you
+* can't go to the beginning of line 2 and press delete
+* to remove that empty row
 * - Figure out why .num-row height doesn't change when
 * pasting text or deleting selected text. (on keyup?)
 * - [Not done, somewhat better somehow] Figure out why
@@ -22,21 +26,6 @@
 * DONE:
 * - [DONE] Fix deleting line also deleting last letter
 * of previous line
-* - [DONE] Create a "editor" var that has the property
-* .getValue() that calls getAllText() in here
-* so that we can play nice with the demo for now
-* - [DONE] Fix delete deactivate row error on deleting in
-* empty top row.
-* - [DONE, keypress propagation or automatic padding/
-* height] FIGURE OUT WHY A TEXTAREA HAS AN EXTRA SPACE
-*  AT THE BOTTOM AND HOW TO GET RID OF IT.
-* - [DONE, keypress propagation] Make textareas empty
-* on creation so that you don't have to delete twice to
-* delete an area you click into, though this should be
-* better once we make the initial textarea just one line
-* high. .val("") doesn't work.
-* [DONE] - The first text input does not have row one
-* as it's data value
 * 
 */
 

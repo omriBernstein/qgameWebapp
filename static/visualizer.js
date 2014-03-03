@@ -23,9 +23,6 @@
 * - Create an enclosure
 * 
 * DONE:
-* - [DONE] Create jQuery vars in for loops
-* - [DONE] Change var i to ii
-* - [NOPE] qubitAttr - misspelled?
 * 
 */
 
