@@ -8,10 +8,10 @@
 * 2. http://stackoverflow.com/questions/6683046/how-do-i-move-the-cursor-to-the-front-of-a-textbox-which-has-text-in-it
 * 
 * ToDo:
-* - Fix #1 Cannot delete linebreak for non-blank lines
-* where if line 2 has text and line one is empty, you
-* can't go to the beginning of line 2 and press delete
-* to remove that empty row
+* - Fix pressing enter in the middle of text doesn't
+* make a new row populated with that text
+* - Fix deleting the beginning of text doesn't move the
+* text up to the previous row
 * - Figure out why .num-row height doesn't change when
 * pasting text or deleting selected text. (on keyup?)
 * - [Not done, somewhat better somehow] Figure out why
@@ -24,6 +24,10 @@
 * "Evaluate" has been pressed.
 * 
 * DONE:
+* - [DONE] Fix #1 Cannot delete linebreak for non-blank lines
+* where if line 2 has text and line one is empty, you
+* can't go to the beginning of line 2 and press delete
+* to remove that empty row
 * - [DONE] Fix deleting line also deleting last letter
 * of previous line
 * 
@@ -92,6 +96,9 @@ var textEditor = {
 		// DELETE
 		else if (key.keyCode == 8) {
 
+			// Get the cursor position. Sources (1)
+			var cursorPos = $textRow.prop("selectionStart");
+
 			// Do not remove the first row
 			if ( Math.max(0, $(".text-row").index($textRow)) ) {
 				// If there's no text in the row
@@ -105,6 +112,15 @@ var textEditor = {
 					// Now won't delete first letter of prev line
 					key.preventDefault();
 				}
+				// Otherwise, if the cursor is at the
+				// beginning of a textarea and the prev row
+				// is empty (check for selectionEnd just
+				// in case they have all the text selected
+				// and want to just delete that)
+				else if (!cursorPos && $textRow.prev().val() == "") {
+					// Delete the previous row
+					textEditor.removeRow($textRow.prev());
+				}
 			}
 		}
 
@@ -116,7 +132,7 @@ var textEditor = {
 				// Get the cursor position. Sources (1)
 				var cursorPos = $textRow.prop("selectionStart");
 
-				// If the cursor is at the start position
+				// If the cursor is at the start of the textarea
 				if (!cursorPos) {
 
 					// Get the previous .text-row element
