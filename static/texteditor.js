@@ -20,6 +20,8 @@
 * "Evaluate" has been pressed.
 * 
 * DONE:
+* - [DONE] Fix deleting line also deleting last letter
+* of previous line
 * - [DONE] Create a "editor" var that has the property
 * .getValue() that calls getAllText() in here
 * so that we can play nice with the demo for now
@@ -108,11 +110,13 @@ var textEditor = {
 					// Run a function in texteditor.js that removes a
 					// line and updates the row numbers
 					textEditor.removeRow($textRow);
+					// Don't delete more than you should or something
+					key.stopPropagation();
+					// Just had to .preventDefault in this scope!
+					// Now won't delete first letter of prev line
+					key.preventDefault();
 				}
 			}
-			// Don't delete more than you should or something
-			key.stopPropagation();
-			// .preventDefault would prevent all deleting
 		}
 
 		// UP ARROW
