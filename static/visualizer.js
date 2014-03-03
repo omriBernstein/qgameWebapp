@@ -6,12 +6,15 @@
 * 
 * TODO:
 * - Comment
-* - ?? Did this used to have this functionality:
+* - Where is the event button listener...?
+* - [Done?] ?? Did this used to have this functionality:
 * when something had already been evaluated and
 * the input was increased, the new cirlces would
 * already have the evaluated appearance??
 * 	- If not, if we want them to, we just run
-*	evaluate when an input is changed
+* 	evaluate when an input is changed
+* 	- Or reset the circles visually so it's
+* 	clear they need to be re-evaluated
 * - Create an enclosure
 * 
 * DONE:
@@ -41,6 +44,9 @@ function positionQubits(newNum){
 				$qubitElements.append("<div><canvas class='qubit' />" +
 					"<canvas class='upP' /><canvas class='downP' /></div>");
 			}
+			// Then re-evaluate (or set all to start again so
+				// it's clear it needs to be re-evaluated)
+			$("#evaluate").trigger("click");
 		}
 	renderQubits();
 	}
