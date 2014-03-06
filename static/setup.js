@@ -19,37 +19,9 @@
 * 
 * ---	Visualizer	---
 * 
-* ---	Editor		---
-* - Should text editor key functions be called on
-* keypress instead in case they hold a key down?
-* - Perhaps keydown or key up should
-* $("#evaluate").trigger("click"); but onl if that
-* wont' result in an error
-* 
 * DONE:
-* - [DONE] Resize textarea's on window reszie
-* - [NOPE] qubitAttr - misspelled?
-* - [DONE] Decouple ace
 * 
 */
-
-// ORIGINAL, ACE (fourth line down) :
-// *** ? *** \\
-// GLOBAL VARS
-// And another five bite the dust
-var evaluate = document.getElementById("evaluate"),
-	$qubitsInput = $("#qubitsInput"),
-	$qubitElements = $("#qubitElements"),
-	editor = ace.edit("ace"),
-	qubits = [],
-	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
-	qubitAttr;
-
-// knod's editor
-// Another global, to match the current generated js
-// var editor = {
-// 		getValue: function () {return(textEditor.getAllText($("#editor")));}
-// 	};
 
 // Elements requested before document ready may not
 // always be found, but I see that you wanted global
@@ -63,41 +35,29 @@ var evaluate = document.getElementById("evaluate"),
 // function or something if they're not used in
 // other scripts
 
-$(document).ready(function() {
+// *** SETUP *** \\
+// --- Visualizer? --- \\
+// - Global vars - \\
+// evaluate must be a DOM object, not a $ collection
+var evaluate = document.getElementById("evaluate"),
+	$qubitsInput = $("#qubitsInput"),
+	$qubitElements = $("#qubitElements"),
+	editor = ace.edit("ace"),
+	qubits = [],
+	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
+	qubitAttr;
 
-	// ORIGINAL, ACE, ETC:
-	// *** VISULIZER *** \\
+$(document).ready(function() {
+	// *** SETUP ***\\
+
+	// --- Visualizer --- \\
 	positionQubits($qubitsInput.val());
 	editor.getSession().setUseWrapMode(true);
 
-	// *** ? *** \\
-	// Didn't bite the dust in here!!
+	// *** EVENT LISTENERS ***\\
+
+	// Display the images for the changed number of qubits
 	$qubitsInput.change(function() {
 		positionQubits($qubitsInput.val());
 	});
-
-	// // KNOD:
-	// // *** TEXT EDITOR *** \\
-
-	// // Create the first editor row
-	// textEditor.firstRow();
-
-	// $("#text-areas")
-	// // *Has* to be .on, *has* to be delegation
-	// // Make a tutorial about that somewhere
-	// // Depending on what key is pressed in a .text-row field
-	// .on("keydown", ".text-row", function (key) {
-	// 	textEditor.keyFilter(key, key.keyCode, $(this));
-	// })
-	// // Helps a bit withresizing after deleting section or
-	// // pasting, esp with clicking out of the area after
-	// .on("keyup", ".text-row", function (key) {textEditor.resizeRow($(this));})
-	// // Color the focused row the active colors
-	// .on("focus", ".text-row", function () {textEditor.activateRow($(this));})
-	// // Remove the color from the unfocused rows. Look
-	// // into keeping last active row colored when none are active
-	// .on("blur", ".text-row", function () {textEditor.deactivateRow($(this));})
-	// ;
-
-	// $(window).on("resize", function (key) {textEditor.resizeRow($(".text-row"));});
 });
