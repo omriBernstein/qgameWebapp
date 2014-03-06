@@ -63,9 +63,9 @@ a:hover {
 	font-size: 5em;
 }
 
-#title a:hover {
+/*#title a:hover {
 	border: none;
-}
+}*/
 
 #tagline {
 	padding-left: .5em;
@@ -99,7 +99,10 @@ a:hover {
 }
 
 /*--- Editor ---*/
+
+/* ace editor: */
 #editor {
+	position: relative; /* Puts #reference in the right place */
 	overflow: hidden;
 	border: 1px solid #dddddd;
 	/* Is box-sizing needed? */
@@ -108,89 +111,119 @@ a:hover {
 	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#scrollable-area {
-	/* em means on cmd+ eval button still has room, I think */
-	/* Nope, percent worked just as well */
-	height: 43.6em; /* Space left for evaluate at bottom */
-	overflow: auto;
-	/* Puts #reference in the right place */
-	/* See #qubitElements notes */
-	position: relative;
-}
+		/* for knod's editor: */
+		/*#editor {
+			overflow: hidden;
+			border: 1px solid #dddddd;
+			/* Is box-sizing needed? */
+			/*-webkit-box-sizing: border-box;*/ /* Safari/Chrome, other WebKit */
+			/*-moz-box-sizing: border-box;*/    /* Firefox, other Gecko */
+			/*box-sizing: border-box;*/         /* Opera/IE 8+ */
+		/*}*/
 
-#textInput {
-	position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
-	width: 100%;
-	/*border-bottom: 1px solid #dddddd;*/
-	overflow: hidden;
-	min-height: 100%;
-}
+		#scrollable-area {
+			/* em means on cmd+ eval button still has room, I think */
+			/* Nope, percent worked just as well */
+			height: 43.6em; /* Space left for evaluate at bottom */
+			overflow: auto;
+			/* Puts #reference in the right place */
+			/* See #qubitElements notes */
+			position: relative;}
 
-#textInput>div {
-	font-size: 15px;
-}
+		#textInput {
+			position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
+			width: 100%;
+			/*border-bottom: 1px solid #dddddd;*/
+			overflow: hidden;
+			min-height: 100%;
+		}
 
-#num-gutter {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 22px; /*Must be same as #row-num-col*/
-	height: 100%;
-	background: #f0f0f0;
-	z-index: -1; /*Somehow this works even though sibs have no position:absolute*/
-}
+		#textInput>div {
+			font-size: 15px;
+		}
 
-#row-num-col {
-	width: 22px; /*Must be same as #num-gutter*/
-	float: left;
-}
+		#num-gutter {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 22px; /*Must be same as #row-num-col*/
+			height: 100%;
+			background: #f0f0f0;
+			z-index: -1; /*Somehow this works even though sibs have no position:absolute*/
+		}
 
-#text-areas {
-	overflow: hidden;
-}
+		#row-num-col {
+			width: 22px; /*Must be same as #num-gutter*/
+			float: left;
+		}
 
-.num-row {
-	text-align: right;
-	padding: 1px 4px 1px 0;
-}
+		#text-areas {
+			overflow: hidden;
+		}
 
-/* .text-row's are textareas */
-.text-row {
-	outline: none;
-	display: block;
-	padding: 1px 6px;
-	width: 100%;
-	font-size: 15px;
-	border: none;
-	resize: none;
-	/* Maybe we should make this for all textareas. Will there be others? */
-	/* Sources (2) */
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-}
+		.num-row {
+			text-align: right;
+			padding: 1px 4px 1px 0;
+		}
 
+		/* .text-row's are textareas */
+		.text-row {
+			outline: none;
+			display: block;
+			padding: 1px 6px;
+			width: 100%;
+			font-size: 15px;
+			border: none;
+			resize: none;
+			/* Maybe we should make this for all textareas. Will there be others? */
+			/* Sources (2) */
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			box-sizing: border-box;         /* Opera/IE 8+ */
+		}
+
+/* ace reference: */
 #reference {
 	position: absolute;
 	right: 0;
 	top: 0;
+	z-index: 100;
 }
 
+			/* knod's reference: */
+			/*#reference {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}*/
+
+/*--- Ace ---*/
+#ace {
+	height: 436px; /* Space left for evaluate at bottom */
+	/* See #qubitElements notes in #visualizer-buffer */
+	position: relative;
+	width: 100%;
+	/*border-bottom: 1px solid #dddddd;*/
+	overflow: scroll;
+}
+
+.ace_gutter-cell {
+	padding-left: .6em !important;
+	padding-right: .6em !important;
+}
+
+/*--- Editor footer ---*/
 #editor-footer {
 	text-align: right;
 	width: 100%;
 }
 
+/*evaluate inline style="position: absolute; bottom: 0;
+right: 0; z-index: 10; border: 0; cursor: pointer;"*/
 #evaluate {
 	position:relative;
 	border: 0;
 	cursor: pointer;
-}
-
-#ace {
-	overflow: hidden;
-	height: 100%;
-	width: 100%;
 }
 
 /*--- Visualizer ---*/
@@ -260,11 +293,4 @@ canvas {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-/*--- ACE ---*/
-
-.ace_gutter-cell {
-	padding-left: .6em !important;
-	padding-right: .6em !important;
 }
