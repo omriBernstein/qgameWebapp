@@ -38,26 +38,36 @@
 // *** SETUP *** \\
 // --- Visualizer? --- \\
 // - Global vars - \\
+// qromp.js uses these, can't have a namespace atm
 // evaluate must be a DOM object, not a $ collection
 var evaluate = document.getElementById("evaluate"),
-	$qubitsInput = $("#qubitsInput"),
-	$qubitElements = $("#qubitElements"),
+	// $qubitsInput = $("#qubitsInput"),
+	// Only visualizer.js needed this, it can fetch it
+	// $qubitElements = $("#qubitElements"),
 	editor = ace.edit("ace"),
-	qubits = [],
-	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
-	qubitAttr;
+	qubits = [] // used in qrompsimple.js, I believe
+	//,
+	// Moved to visualizer.js enclosure vis
+	// defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
+	// qubitAttr;
+	;
 
 $(document).ready(function() {
 	// *** SETUP ***\\
 
+	// We will temporarily solve this by also putting this
+	// in here so it actually get defined on doc ready
+	evaluate = document.getElementById("evaluate");
+	var $qubitsInput = $("#qubitsInput");
+
 	// --- Visualizer --- \\
-	positionQubits($qubitsInput.val());
+	vis.positionQubits($qubitsInput.val());
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
 
 	// Display the images for the changed number of qubits
 	$qubitsInput.change(function() {
-		positionQubits($qubitsInput.val());
+		vis.positionQubits($qubitsInput.val());
 	});
 });
