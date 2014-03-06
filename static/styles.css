@@ -187,11 +187,11 @@ a:hover {
 	cursor: pointer;
 }
 
-/*#ace {
+#ace {
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
-}*/
+}
 
 /*--- Visualizer ---*/
 #visualizer {
@@ -263,7 +263,7 @@ canvas {
 }
 
 /*--- ACE ---*/
-/*
+
 .ace_gutter-cell {
 	padding-left: .6em !important;
 	padding-right: .6em !important;
