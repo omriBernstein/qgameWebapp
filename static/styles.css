@@ -63,9 +63,9 @@ a:hover {
 	font-size: 5em;
 }
 
-/*#title a:hover {
+#title a:hover {
 	border: none;
-}*/
+}
 
 #tagline {
 	padding-left: .5em;
