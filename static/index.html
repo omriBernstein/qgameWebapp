@@ -12,11 +12,7 @@ DONE:
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Why did git put "HEAD" and "upstream/master" in here? -->
-<!-- <<<<<<< HEAD
-======= -->
 	<link href="styles.css" rel="stylesheet" type="text/css" />
-<!-- >>>>>>> upstream/master -->
 	<title>qromp</title>
 	<!-- knod: I suggest a different title, something more descriptive -->
 	<!-- Quantum computer simulator and reference -->
@@ -30,11 +26,11 @@ DONE:
 	 --><div id="menuContainer">
 		  	<div id="menu">
 		  		<!-- knod: A home button? -->
-			  	<div><a href="index.html">simulator</a></div><!--
-			 --><div><a href="help.html">help</a></div><!--
-			 --><div><a href="examples.html">examples</a></div><!--
-			 --><div><a href="lessons.html">lessons</a></div><!--
-			 --><div><a href="about.html">about</a></div>
+			  	<div><a>simulator</a></div><!--
+			 --><div><a>help</a></div><!--
+			 --><div><a>examples</a></div><!--
+			 --><div><a>lessons</a></div><!--
+			 --><div><a>about</a></div>
 		  	</div>
 	  	</div>
   	</div>
@@ -43,26 +39,16 @@ DONE:
 	  		<div id="visualizer">
 	  			<div id="visualizer-buffer">
 		  			<div id="qubitElements"></div>
-		  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="20" value="1" type="number"></span>
+		  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="9" value="1" type="number"></span>
 		  		</div>
 	  		</div>
 	  	 	<div id="editor">
-	  			<div id="scrollable-area">
-			  		<div id="textInput">
-	  					<div id="num-gutter"></div>
-			  			<div id="row-num-col">
-			  				<!-- To be filled dynamically later -->
-			  			</div>
-			  			<div id="text-areas">
-			  				<!-- To be filled dynamically later -->
-			  			</div>
-			  	 	</div>
-			  		<div id="reference">[tbd]</div>
-			  	</div>
-			  	<div id="editor-footer">
-		  	 		<button id="evaluate">Evaluate</button>
-		  	 	</div>
-			</div>
+		  		<div id="reference">tbd</div><!--
+		  		--><div id="ace"></div><!--
+		  		--><div id="editor-footer">
+		  			<button id="evaluate">Evaluate</button>
+		  		</div>
+		  	</div>
 		</div>
 		<div id="diagram">
 			Examples (best place for now?):
@@ -83,8 +69,8 @@ Will experiment more later. This is what happens without
 enclosures! Bah! -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
-<script type="text/javascript" src="texteditor.js"></script>
-<!-- <script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script> -->
+<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="texteditor.js"></script> -->
 <script type="text/javascript" src="setup.js"></script>
 <script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
 <script type="text/javascript" src="qrompsimple.js"></script>

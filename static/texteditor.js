@@ -22,6 +22,11 @@
 * blank for the evaluate button?
 * - Make cursor re-focus on last position in editor after
 * "Evaluate" has been pressed.
+* - Should text editor key functions be called on
+* keypress instead in case they hold a key down?
+* - Perhaps keydown or key up should
+* $("#evaluate").trigger("click"); but onl if that
+* wont' result in an error
 * 
 * DONE:
 * - [DONE] Fix #1 Cannot delete linebreak for non-blank lines
@@ -33,6 +38,41 @@
 * 
 */
 
+// // knod's editor
+// // Another global, to match the current generated js
+// var editor = {
+// 		getValue: function () {return(textEditor.getAllText($("#editor")));}
+// 	};
+
+// $(document).ready(function() {
+// 	// *** SETUP ***\\
+// 	// *** TEXT EDITOR *** \\
+// 	// Create the first editor row
+// 	textEditor.firstRow();
+
+// 	// *** EVENT LISTENERS ***\\
+// 	$("#text-areas")
+// 	// *Has* to be .on, *has* to be delegation
+// 	// Make a tutorial about that somewhere
+// 	// Depending on what key is pressed in a .text-row field
+// 	.on("keydown", ".text-row", function (key) {
+// 		textEditor.keyFilter(key, key.keyCode, $(this));
+// 	})
+// 	// Helps a bit withresizing after deleting section or
+// 	// pasting, esp with clicking out of the area after
+// 	.on("keyup", ".text-row", function (key) {textEditor.resizeRow($(this));})
+// 	// Color the focused row the active colors
+// 	.on("focus", ".text-row", function () {textEditor.activateRow($(this));})
+// 	// Remove the color from the unfocused rows. Look
+// 	// into keeping last active row colored when none are active
+// 	.on("blur", ".text-row", function () {textEditor.deactivateRow($(this));})
+// 	;
+
+// 	$(window).on("resize", function (key) {textEditor.resizeRow($(".text-row"));});
+// });
+
+// *** OPERATIONAL *** \\
+// Enclosure for texteditor functions
 var textEditor = {
 	/* Enclosure for text editor functions */
 
