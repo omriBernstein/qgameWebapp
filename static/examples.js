@@ -55,11 +55,13 @@ var less = {
 		// Same width and height as ace
 		$("#scrollable-area").css("width", $("#editor").outerWidth());
 		$("#scrollable-area").css("height", $(".ace_scroller").outerHeight());
-		// Top ribbon height same
+		// Top ribbon and textarea height same
 		$("#top-ribbon").css("height", $(".ace_active-line").outerHeight());
-		// Corner height and width same
+		// Corner and textrow height and width same
 		$(".num-row").css("height", $(".ace_active-line").outerHeight());
-		$(".num-row").css("width", $(".ace_gutter").outerWidth());
+		$(".num-row").css("width", "100%");
+		$(".text-row").css("height", $(".ace_active-line").outerHeight());
+		$(".text-row").css("width", "100%");
 		// Gutter width same
 		$("#num-gutter").css("width", $(".ace_gutter").outerWidth());
 		
@@ -76,7 +78,7 @@ var less = {
 		editor.getSession().setValue("");
 		// Wish I could put some kind of delay here...
 		// Don't know what could have happened between then and now
-		less.resize();
+		// less.resize();
 
 		// // Changing ace editor (as soon as you type text
 		// // it gets small again)
@@ -91,9 +93,12 @@ var less = {
 		$("#ace").fadeOut(200, function () {
 			// Make fake ace relative
 			$("#scrollable-area").css({position: "relative", width: "100%"});
+			// $("#REPL").animate({"height": "930px"});
+			// $("#editor").animate({"height": "100%"});
+			// $("#scrollable-area").animate({"height": "100%"});
 			// Narrow the width of visualizer till it's gone
 			$("#visualizer").animate({"width":["toggle","swing"]}
-				, 1000, "linear");
+				, 900, "linear");
 		});
 	},
 
@@ -104,7 +109,7 @@ var less = {
 
 		// Bring the visualizer back
 		$("#visualizer").animate({"width":["toggle","swing"]}
-			, 1000, "linear"
+			, 900, "linear"
 			, function () {
 				// Then restore our fake to it's factory settings
 				// so that ace won't be pushed of the page

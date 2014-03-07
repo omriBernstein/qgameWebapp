@@ -106,7 +106,7 @@ a:hover {
 	width: 3000px;
 	height: 16px; /* Must be same as ace */
 	background: #f0f0f0;
-	z-index: -1;
+	z-index: -10;
 }
 		/* for knod's editor: */
 		/*#editor {
@@ -126,12 +126,12 @@ a:hover {
 			/* Puts #reference in the right place */
 			/* See #qubitElements notes */
 			position: relative;
-			z-index: -1;
+			z-index: 10;
 			/* For ace version */
 			position: absolute;
 			left: 0;
 			top: 0;
-			/*z-index: -1;*/
+			z-index: 0;
 			background: lightblue;
 		}
 
@@ -191,6 +191,18 @@ a:hover {
 			box-sizing: border-box;         /* Opera/IE 8+ */
 			/* For ace version */
 			background: #f0f0f0;
+			color: rgb(0, 0, 0);
+			cursor: text;
+			display: block;
+			font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+			font-size: 12px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			height: 16px;
+			line-height: normal;
+			white-space: nowrap;
+			width: auto;
 		}
 
 /* ace reference: */
