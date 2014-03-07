@@ -43,7 +43,7 @@ $(document).ready(function() {
 	);
 
 	// --- Examples --- \\
-	$("#examples>a").on("click", function() {$(this).children("ul").toggle();});
+	$("#examples>a").on("click", function() {$("#examples").children("ul").toggle();});
 	$("#examples li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
