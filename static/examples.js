@@ -54,6 +54,8 @@ $(document).ready(function() {
 		else {less.closeLess();}
 		count++
 	});
+	// If the sim isn't showing, clicking reference (now an "X")
+	// should animate it to be shown
 	$("#reference").click(function () {
 		if (!less.isSim) {less.closeLess();}
 	});
@@ -78,14 +80,14 @@ var ex = {
 				$("#evaluate").trigger("click");
 				}
 				, less.slideTime + less.fadeTime + 5 // Need +5?
-			);
-		}
+			);  // end of setTimeout
+		}  // end if
 		// Otherwise do it without delay
 		else {
 			// Replace any text with new text, evaluate
 			editor.getSession().setValue($thisElem.text());
 			$("#evaluate").trigger("click");
-		}
+		}  // end else
 	}
 };
 
@@ -105,16 +107,18 @@ var less = {
 	refPad: null,
 
 	resize: function () {
-		/*
+		/* (None) -> None
+
+		Stores some dimension variables (perhaps move that)
+		and sizes the fake ace editor to match the real one
 		*/
 
 		// Remember various starting measurements
 		less.visWidth = $("#visualizer").width();
 		less.refPad = $("#reference").css("padding");
-		// Same width and height as ace
-		$("#scrollable-area").css("width", $("#editor").outerWidth());
+		// Elements to same dimensions as ace
+		// Whole area and #top-ribbon height same
 		$("#scrollable-area").css("height", $(".ace_scroller").outerHeight());
-		// Top ribbon and textarea height same
 		$("#top-ribbon").css("height", $(".ace_active-line").outerHeight());
 		// Corner and textrow height and width same
 		$(".num-row").css("height", $(".ace_active-line").outerHeight());
@@ -131,8 +135,10 @@ var less = {
 	openLess: function () {
 		/* (None) -> None
 
-		Resize everything to let lessons fill the page
-		Now crazy stuff, not sure how this will work
+		If less.closeLess is done animating, hide the
+		ace editor and resize the visualizer to let
+		the fake ace editor (just looks like it, with
+		possibly a search bar) fill the width of the page.
 		*/
 		if (less.canToggle) {
 			// Disallow toggling
@@ -154,8 +160,8 @@ var less = {
 			
 			// Fade out ace fast
 			$("#ace").fadeOut(less.fadeTime, function () {
-				// Make fake ace relative
-				$("#scrollable-area").css({position: "relative", width: "100%"});
+				// Make fake ace relative and flexible width
+				$("#scrollable-area").css({position: "relative"});
 				// $("#REPL").animate({"height": "930px"});
 				// $("#editor").animate({"height": "100%"});
 				// $("#scrollable-area").animate({"height": "100%"});
@@ -166,23 +172,27 @@ var less = {
 						less.canToggle = true;
 						// For things that may want to get the simulator back
 						less.isSim = false;
-						// Reference will be an x to indicate closing
+						// Reference will be an X to indicate closing
 						$("#reference").text("X")
 							.css({"padding-right": "5px"});
-					});
-			});
-		}
+				});  // end of visualizer animate contraction
+			});  // end of ace fadeOut
+		}  // end of canToggle
 	},
 
 	closeLess: function () {
 		/* (None) -> None
 		
+		If less.openLess() is done animating, undo what
+		that function did.
 		*/
 
 		if (less.canToggle) {
 			// Disallow toggling
 			less.canToggle = false;
 
+			// Restore reference to whatever it was
+			$("#reference").text("tbd").css("padding", less.refPad);
 			// Bring the visualizer back
 			$("#visualizer").animate({"width":less.visWidth + "px"}
 				, less.slideTime, "swing"
@@ -198,10 +208,8 @@ var less = {
 						less.canToggle = true;
 						// For things that may want to get the simulator back
 						less.isSim = true;
-						// Restore reference to whatever it was
-						$("#reference").text("tbd").css("padding", less.refPad);
-	        		});
-	        });
-		}
+	        		});  // end of ace fadeIn
+	        });  // end of visualizer animate expansion
+		}  // end of canToggle
 	},
 };
