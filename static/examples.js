@@ -16,12 +16,21 @@
 $(document).ready(function() {
 	// *** SETUP ***\\
 	// --- Lessons --- \\
+	var count = 0;
 	less.resize();
 
 	// *** EVENT LISTENERS ***\\
+	// --- Examples --- \\
 	$("#examples li").click(function() {ex.pasteEx($(this));});
+
+	// --- Lessons --- \\
+	// Make it look like the editor is expanding to fill the page
 	$("#lessons").click(function () {
-		less.openLess();
+		// A way to toggle, since I couldn't figure out .toggle
+		// Change it, restore it, and allow the cycle to progress
+		if (count%2 == 0){less.openLess();}
+		else {less.closeLess();}
+		count++
 	});
 });
 
@@ -63,38 +72,46 @@ var less = {
 		Now crazy stuff, not sure how this will work
 		*/
 
+		// Get rid of any text in there
 		editor.getSession().setValue("");
+		// Wish I could put some kind of delay here...
+		// Don't know what could have happened between then and now
 		less.resize();
-		document.getElementsByClassName("ace_content")[0].style.width="100%";
+
+		// // Changing ace editor (as soon as you type text
+		// // it gets small again)
+		// editor.setShowPrintMargin(false);
+		// $($(".ace_content")[0]).css("width","100%");
+		// $("#visualizer").animate(
+		// 	{"width":["toggle","swing"]},1000, "linear",
+		// 	{progress: function () {$("#ace").css("width", $("#editor").innerWidth());}}
+		// );
+		
 		// Fade out ace fast
-		// $("#ace").fadeOut(200, function () {
-			$("#visualizer").animate({
-	            "width":["toggle","swing"]
-	            // to move it towards the right and, probably, off-screen.
-	        	},1000, "linear", {progress: function () {
-	        		$("#ace").css("width", $("#editor").innerWidth());
-	        		// document.getElementsByClassName("ace_content")[0].style.width = "100px";
-	        		// $($(".ace_content")[0]).css("width", $(".ace_scroller").innerWidth());
-	        	}}
-        	);
-		// });
-
-		// $('#ace').animate({
-
-		// })
-
-		// function resizeAce() {
-		//   return $('#editor').height($().height());
-		// };
-		// //listen for changes
-		// $(window).resize(resizeAce);
-		// //set initially
-		// resizeAce();
-        //#scrollable-area width to 100%, linear?
+		$("#ace").fadeOut(200, function () {
+			// Make fake ace relative
+			$("#scrollable-area").css({position: "relative", width: "100%"});
+			// Narrow the width of visualizer till it's gone
+			$("#visualizer").animate({"width":["toggle","swing"]}
+				, 1000, "linear");
+		});
 	},
 
 	closeLess: function () {
+		/* (None) -> None
+		
+		*/
 
-
+		// Bring the visualizer back
+		$("#visualizer").animate({"width":["toggle","swing"]}
+			, 1000, "linear"
+			, function () {
+				// Then restore our fake to it's factory settings
+				// so that ace won't be pushed of the page
+				$("#scrollable-area").css({position: "absolute"});
+				// Fade ace in
+        		$("#ace").fadeIn(200);
+        	}
+        );
 	},
 };
