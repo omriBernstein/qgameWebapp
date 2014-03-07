@@ -3,6 +3,18 @@
 * Date created: 03/06/14
 * Menu item styles
 * 
+* Notes:
+* 1. Theory: Because #menu changed it's width based
+* on the width of the contents and the contents'
+* padding was a percentage of #menu's width, when
+* #example's dropdown menu came down and made #menu's
+*  width a little larger, everyone's padding changed
+* too. That then kept the width of #menu at the
+* changed width. I'm not sure why it happening three
+* times is what would get things to settle down, and
+* why just increasing #example's padding % width
+* didn't do the trick though.
+* 
 * Sources:
 * 
 * ToDo:
@@ -25,30 +37,35 @@
 }
 
 #menu {
-	font-size: 1.6em;
+	/* This seems to fix #examples changing widths
+	and things piling on top of each other till it
+	settles down. Notes (1) */
+	width: 100%;
+	font-size: 17px;
 }
 
 .top-menu {
 	position: relative;
 	text-align: center;
-	padding-right: 1.8em;
+	/* % was making weird stuff happen. Notes (1) */
+	padding-right: 6%;
 	padding-left: 4px;
 	border-radius: 2px 2px 0 0;
 	border: 1px solid white;
 }
 
 .top-menu:last-of-type {
-	padding-right: 5px;
+	padding-right: 3px;
 }
 
 /* For older browsers */
 #tm-right {
-	padding-right: 5px;
+	padding-right: 3px;
 }
 
 li {
 	list-style-type: none;
-	padding-bottom: .2px;
+	padding-bottom: 1px;
 }
 
 /* Not super necessary, just nice */
@@ -63,6 +80,7 @@ li:last-of-type {
 	min-width: 100%;
 	padding: 0;
 	margin: 0px;
+	text-align: left;
 	font-size: 14px;
 	z-index: 100;
 	background: inherit;

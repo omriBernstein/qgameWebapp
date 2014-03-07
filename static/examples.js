@@ -25,7 +25,8 @@ $(document).ready(function() {
 	// Get rid of border?
 	$(".top-menu").hover(
 		function () {
-			$(this).children(".menu-items").show();
+// *** This *seems* to be where the weird padding change is coming from *** \\
+			$(this).children(".menu-items").show();  // Here
 			$(this).css("background", props.activeNum);
 		}
 		, function () {
