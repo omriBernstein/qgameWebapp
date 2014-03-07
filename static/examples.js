@@ -204,9 +204,18 @@ var less = {
 		if (less.canToggle) {
 			// Disallow toggling
 			less.canToggle = false;
+			// For things that may want to get the simulator back
+			// and to prevent #reference from becoming bold
+			// though that doesn't work if it's right at the beginning
+			less.isSim = true;
 
 			// Restore reference to whatever it was
-			$("#reference").text("tbd").css("padding", less.refPad);
+			$("#reference").text("tbd")
+				.css("padding", less.refPad)
+				// Make sure this is removed, otherwise if it was
+				// hovered over, it waits till part way through
+				// the animation
+				.removeClass("bold");
 			// Bring the visualizer back
 			$("#visualizer").animate({"width":less.visWidth + "px"}
 				, less.slideTime, "swing"
@@ -214,7 +223,7 @@ var less = {
 					// Then restore our fake to it's factory settings
 					// so that ace won't be pushed of the page
 					$("#scrollable-area").css({position: "absolute"});
-					// Fade ace in
+					// Fade ace in, then
 	        		$("#ace").fadeIn(less.fadeTime, function () {
 						// Set the future "search bar" area to empty again
 						$(".text-row").val("");
@@ -222,8 +231,6 @@ var less = {
 						$("#lessons").css("border", less.menuBorder);
 						// Re-allow toggling now
 						less.canToggle = true;
-						// For things that may want to get the simulator back
-						less.isSim = true;
 	        		});  // end of ace fadeIn
 	        });  // end of visualizer animate expansion
 		}  // end of canToggle
