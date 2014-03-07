@@ -61,7 +61,7 @@ $(document).ready(function() {
 	})
 	// Make it bold when hovered over
 	.hover(function () {
-		$(this).toggleClass("bold");
+		if (!less.isSim) {$(this).toggleClass("bold");}
 	})
 	;
 });
