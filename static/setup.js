@@ -52,10 +52,11 @@ var evaluate = document.getElementById("evaluate"),
 	// qubitAttr;
 	;
 
-// The colors used in the doc
-var colors = {
+// The hard coded colors and other properties used in the doc
+var props = {
 	activeText: "#f0f0f0",
-	activeNum: "#dcdcdc"
+	activeNum: "#dcdcdc",
+	grayBorder: "1px solid #dddddd"
 };
 
 $(document).ready(function() {

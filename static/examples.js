@@ -26,7 +26,7 @@ $(document).ready(function() {
 	$(".top-menu").hover(
 		function () {
 			$(this).children(".menu-items").show();
-			$(this).css("background", colors.activeNum);
+			$(this).css("background", props.activeNum);
 		}
 		, function () {
 			$(this).children(".menu-items").hide();
@@ -35,7 +35,7 @@ $(document).ready(function() {
 	);
 	$("li").hover(
 		function () {
-			$(this).css("background", colors.activeText);
+			$(this).css("background", props.activeText);
 		},
 		function () {
 			$(this).css("background", "inherit");
@@ -94,7 +94,7 @@ var ex = {
 var less = {
 	// Is the simulator showing?
 	isSim: true,
-	// Has one toggle completed?
+	// Has one toggle animation completed?
 // [Something to do with "width",["toggle","swing"]] Why isn't this working?
 	canToggle: true,
 	// Animation times
@@ -144,9 +144,11 @@ var less = {
 			// Disallow toggling
 			less.canToggle = false;
 			// Get rid of any text in there
-			editor.getSession().setValue("");
+			// Hiding it gets rid of the text anyway
+			// editor.getSession().setValue("");
+
+			// Don't know what could have happened between then and now, resize
 			// Wish I could put some kind of delay here...
-			// Don't know what could have happened between then and now
 			// less.resize();
 
 			// // Changing ace editor (as soon as you type text
