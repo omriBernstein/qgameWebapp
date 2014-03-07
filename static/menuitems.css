@@ -34,6 +34,7 @@
 	padding-right: 1.8em;
 	padding-left: 4px;
 	border-radius: 2px 2px 0 0;
+	border: 1px solid white;
 }
 
 .top-menu:last-of-type {

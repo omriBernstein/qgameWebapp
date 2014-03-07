@@ -100,11 +100,12 @@ var less = {
 	// Animation times
 	fadeTime: 200,
 	slideTime: 900,
-
 	// Remember the width of the visualizer
 	visWidth: null,
 	// Remember #reference's padding
 	refPad: null,
+	// Remember starting border color of top menu items
+	menuBorder: null,
 
 	resize: function () {
 		/* (None) -> None
@@ -113,9 +114,11 @@ var less = {
 		and sizes the fake ace editor to match the real one
 		*/
 
-		// Remember various starting measurements
+		// Set the various properties that need remembering
 		less.visWidth = $("#visualizer").width();
 		less.refPad = $("#reference").css("padding");
+		less.menuBorder = $(".top-menu").css("border");
+
 		// Elements to same dimensions as ace
 		// Whole area and #top-ribbon height same
 		$("#scrollable-area").css("height", $(".ace_scroller").outerHeight());
@@ -131,6 +134,7 @@ var less = {
 	},
 
 // Maybe put queue to false
+// 
 
 	openLess: function () {
 		/* (None) -> None
@@ -150,6 +154,9 @@ var less = {
 			// Don't know what could have happened between then and now, resize
 			// Wish I could put some kind of delay here...
 			// less.resize();
+
+			// Show that "lessons" is active
+			$("#lessons").css("border", props.grayBorder);
 
 			// // Changing ace editor (as soon as you type text
 			// // it gets small again)
@@ -206,6 +213,8 @@ var less = {
 	        		$("#ace").fadeIn(less.fadeTime, function () {
 						// Set the future "search bar" area to empty again
 						$(".text-row").val("");
+						// Show that "lessons" is inactive
+						$("#lessons").css("border", less.menuBorder);
 						// Re-allow toggling now
 						less.canToggle = true;
 						// For things that may want to get the simulator back
