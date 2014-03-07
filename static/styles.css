@@ -210,7 +210,13 @@ a:hover {
 	position: absolute;
 	right: 0;
 	top: 0;
+	padding: 1px 3px;
+	font-size: 12px;
 	z-index: 100;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	cursor: default;
 }
 
 			/* knod's reference: */

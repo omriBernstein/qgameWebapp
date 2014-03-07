@@ -52,6 +52,12 @@ var evaluate = document.getElementById("evaluate"),
 	// qubitAttr;
 	;
 
+// The colors used in the doc
+var colors = {
+	activeText: "#f0f0f0",
+	activeNum: "#dcdcdc"
+};
+
 $(document).ready(function() {
 	// *** SETUP ***\\
 
@@ -70,24 +76,4 @@ $(document).ready(function() {
 	$qubitsInput.change(function() {
 		vis.positionQubits($qubitsInput.val());
 	});
-	// Show menu items on hover
-	// Get rid of border?
-	$(".top-menu").hover(
-		function () {
-			$(this).children(".menu-items").show();
-			$(this).css("background", "lightgray");
-		}
-		, function () {
-			$(this).children(".menu-items").hide();
-			$(this).css("background", "none");
-		}
-	);
-	$("li").hover(
-		function () {
-			$(this).css("background", "#f0f0f0");
-		},
-		function () {
-			$(this).css("background", "inherit");
-		}
-	);
 });
