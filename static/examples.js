@@ -27,11 +27,11 @@ $(document).ready(function() {
 		function () {
 // *** This *seems* to be where the weird padding change is coming from *** \\
 			$(this).children(".menu-items").show();  // Here
-			$(this).css("background", props.activeNum);
+			$(this).css("background-color", props.activeNum);
 		}
 		, function () {
 			$(this).children(".menu-items").hide();
-			$(this).css("background", "none");
+			$(this).css("background-color", "none");
 		}
 	);
 	$("li").hover(

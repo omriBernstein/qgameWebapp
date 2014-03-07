@@ -66,8 +66,8 @@ $(document).ready(function() {
 	// *** SETUP ***\\
 	// Initialize properties to match current styles
 	// Sources (1)
-	props.activeText = $(".active-row").css("background");
-	props.activeNum = $(".active-num").css("background");
+	props.activeText = $(".active-row").css("background-color");
+	props.activeNum = $(".active-num").css("background-color");
 	props.activeBorder = $(".active-border").css("border");
 	props.inactiveBorder = $(".inactive-border").css("border");
 
