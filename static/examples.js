@@ -126,6 +126,8 @@ var less = {
         		$("#ace").fadeIn(200);
         });
 
+		// Set the future "search bar" area to empty again
+		$("#scrollable-area").val("");
 		// For things that may want to get the simulator back
 		less.isSim = true;
 	},
