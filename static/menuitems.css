@@ -25,25 +25,25 @@
 }
 
 #menu {
-	font-size: 1.6em;
+	font-size: 17px;
 }
 
 .top-menu {
 	position: relative;
 	text-align: center;
-	padding-right: 1.8em;
+	padding-right: 5%;
 	padding-left: 4px;
 	border-radius: 2px 2px 0 0;
 	border: 1px solid white;
 }
 
 .top-menu:last-of-type {
-	padding-right: 5px;
+	padding-right: 3px;
 }
 
 /* For older browsers */
 #tm-right {
-	padding-right: 5px;
+	padding-right: 3px;
 }
 
 li {
