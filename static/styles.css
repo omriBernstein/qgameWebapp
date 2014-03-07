@@ -19,6 +19,29 @@
 * 
 */
 
+/* To establish some preset parameters */
+/* For our memory and for use in js initialization */
+#styles {
+	display: none;
+}
+
+.active-row {
+	background: #f0f0f0;
+}
+
+.active-num {
+	background: #dcdcdc;
+}
+
+.active-border {
+	border: 1px solid #dddddd;
+}
+
+.inactive-border {
+	border: 1px solid white;
+}
+
+/* Now on to the doc */
 html {
 	padding: 0px;
 	margin: 0px;

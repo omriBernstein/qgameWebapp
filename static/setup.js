@@ -4,6 +4,9 @@
 * Event listeners and main functions to run simulator
 * Perhaps other "pages" too in future
 * 
+* Sources:
+* 1. http://stackoverflow.com/questions/11978174/read-a-css-property-of-a-not-yet-added-to-the-dom-div
+* 
 * TODO:
 * ---	General		---
 * - Why isn't everything in $(document).ready()?
@@ -46,24 +49,31 @@ var evaluate = document.getElementById("evaluate"),
 	// $qubitElements = $("#qubitElements"),
 	editor = ace.edit("ace"),
 	qubits = [] // used in qrompsimple.js, I believe
-	//,
-	// Moved to visualizer.js enclosure vis
+	//, Moved to visualizer.js enclosure vis
 	// defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
 	// qubitAttr;
 	;
 
 // The hard coded colors and other properties used in the doc
 var props = {
-	activeText: "#f0f0f0",
-	activeNum: "#dcdcdc",
-	grayBorder: "1px solid #dddddd"
+	activeText: null
+	, activeNum: null
+	, activeBorder: null
+	, inactiveBorder: null
 };
 
 $(document).ready(function() {
 	// *** SETUP ***\\
+	// Initialize properties to match current styles
+	// Sources (1)
+	props.activeText = $(".active-row").css("background");
+	props.activeNum = $(".active-num").css("background");
+	props.activeBorder = $(".active-border").css("border");
+	props.inactiveBorder = $(".inactive-border").css("border");
 
-	// We will temporarily solve this by also putting this
-	// in here so it actually get defined on doc ready
+	// We will temporarily solve necessity for uninstantiated
+	// globas by also putting init in here so they
+	// actually get defined on doc ready
 	evaluate = document.getElementById("evaluate");
 	var $qubitsInput = $("#qubitsInput");
 

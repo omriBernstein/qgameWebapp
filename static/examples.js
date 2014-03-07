@@ -35,7 +35,7 @@ $(document).ready(function() {
 	);
 	$("li").hover(
 		function () {
-			$(this).css("background", props.activeText);
+			$(this).css({"background": props.activeText});
 		},
 		function () {
 			$(this).css("background", "inherit");
@@ -43,6 +43,7 @@ $(document).ready(function() {
 	);
 
 	// --- Examples --- \\
+	$("#examples").click(function() {$(this).children("ul").toggle();});
 	$("#examples li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
@@ -62,8 +63,7 @@ $(document).ready(function() {
 	// Make it bold when hovered over
 	.hover(function () {
 		if (!less.isSim) {$(this).toggleClass("bold");}
-	})
-	;
+	});
 });
 
 var ex = {
@@ -109,8 +109,6 @@ var less = {
 	visWidth: null,
 	// Remember #reference's padding
 	refPad: null,
-	// Remember starting border color of top menu items
-	menuBorder: null,
 
 	resize: function () {
 		/* (None) -> None
@@ -122,7 +120,6 @@ var less = {
 		// Set the various properties that need remembering
 		less.visWidth = $("#visualizer").width();
 		less.refPad = $("#reference").css("padding");
-		less.menuBorder = $(".top-menu").css("border");
 
 		// Elements to same dimensions as ace
 		// Whole area and #top-ribbon height same
@@ -161,7 +158,7 @@ var less = {
 			// less.resize();
 
 			// Show that "lessons" is active
-			$("#lessons").css("border", props.grayBorder);
+			$("#lessons").css("border", props.activeBorder);
 
 			// // Changing ace editor (as soon as you type text
 			// // it gets small again)
@@ -228,7 +225,7 @@ var less = {
 						// Set the future "search bar" area to empty again
 						$(".text-row").val("");
 						// Show that "lessons" is inactive
-						$("#lessons").css("border", less.menuBorder);
+						$("#lessons").css("border", props.inactiveBorder);
 						// Re-allow toggling now
 						less.canToggle = true;
 	        		});  // end of ace fadeIn
