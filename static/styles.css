@@ -35,6 +35,10 @@ body {
 	max-width: 93em;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 /* Bascially for the menus */
 a {
 	color: black;

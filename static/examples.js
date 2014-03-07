@@ -58,7 +58,12 @@ $(document).ready(function() {
 	// should animate it to be shown
 	$("#reference").click(function () {
 		if (!less.isSim) {less.closeLess();}
-	});
+	})
+	// Make it bold when hovered over
+	.hover(function () {
+		$(this).toggleClass("bold");
+	})
+	;
 });
 
 var ex = {
