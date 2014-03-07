@@ -10,6 +10,8 @@
 * 
 */
 
+// Ok, this will be all the menu items right now
+
 // Just so I don't have to keep copying and pasting examples goddamnit
 $(document).ready(function() {
 	// *** SETUP ***\\
@@ -31,3 +33,4 @@ var ex = {
 		$("#evaluate").trigger("click");
 	}
 }
+
