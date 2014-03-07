@@ -42,6 +42,9 @@ var ex = {
 		it into the editor, and evaluate
 		*/
 
+		// If the simulator isn't there, get it back
+		if (!less.isSim) {less.closeLess();}
+
 		editor.getSession().setValue("");
 		editor.insert($thisElem.text());
 		$("#evaluate").trigger("click");
@@ -49,6 +52,8 @@ var ex = {
 };
 
 var less = {
+	isSim: true,
+
 	resize: function () {
 		/*
 		*/
@@ -100,6 +105,9 @@ var less = {
 			$("#visualizer").animate({"width":["toggle","swing"]}
 				, 900, "linear");
 		});
+
+		// For things that may want to get the simulator back
+		less.isSim = false;
 	},
 
 	closeLess: function () {
@@ -116,7 +124,9 @@ var less = {
 				$("#scrollable-area").css({position: "absolute"});
 				// Fade ace in
         		$("#ace").fadeIn(200);
-        	}
-        );
+        });
+
+		// For things that may want to get the simulator back
+		less.isSim = true;
 	},
 };
