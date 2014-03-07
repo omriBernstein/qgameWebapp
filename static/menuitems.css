@@ -1,0 +1,63 @@
+/* menus.css
+* Created by: knod, 
+* Date created: 03/06/14
+* Menu item styles
+* 
+* Sources:
+* 
+* ToDo:
+* 
+* DONE:
+* 
+*/
+
+/*--- Menu ---*/
+#menuContainer {
+	width: 52%;
+	text-align: right;
+}
+
+#menu {
+	font-size: 1.6em;
+}
+
+.top-menu {
+	position: relative;
+	text-align: center;
+	padding-right: 1.8em;
+	padding-left: 4px;
+	border-radius: 2px 2px 0 0;
+}
+
+.top-menu:last-of-type {
+	padding-right: 5px;
+}
+
+/* For older browsers */
+#tm-right {
+	padding-right: 5px;
+}
+
+li {
+	list-style-type: none;
+	padding-bottom: .2px;
+}
+
+/* Not super necessary, just nice */
+li:last-of-type {
+	padding-bottom: 2px;
+}
+
+.menu-items {
+	display: none;
+	position: absolute;
+	left: 0;
+	min-width: 100%;
+	padding: 0;
+	margin: 0px;
+	font-size: 14px;
+	z-index: 100;
+	background: inherit;
+	color: black;
+	/*border: 1px solid #dddddd;*/
+}
