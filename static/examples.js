@@ -71,21 +71,19 @@ var ex = {
 		if (!less.isSim) {
 			less.closeLess();
 			// Wait till animation is over, I think it's
-			// not pasting stuff while sim is hidden
+			// not pasting text while sim is hidden
 			setTimeout(function () {
-				// Empty the text, insert new text, evaluate
-				editor.getSession().setValue("");
-				editor.insert($thisElem.text());
+				// Replace any text with new text, evaluate
+				editor.getSession().setValue($thisElem.text());
 				$("#evaluate").trigger("click");
 				}
-				, less.slideTime + less.fadeTime + 5
+				, less.slideTime + less.fadeTime + 5 // Need +5?
 			);
 		}
 		// Otherwise do it without delay
 		else {
-			// Empty the text, insert new text, evaluate
-			editor.getSession().setValue("");
-			editor.insert($thisElem.text());
+			// Replace any text with new text, evaluate
+			editor.getSession().setValue($thisElem.text());
 			$("#evaluate").trigger("click");
 		}
 	}
