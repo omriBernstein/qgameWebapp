@@ -43,7 +43,7 @@
 // - Global vars - \\
 // qromp.js uses these, can't have a namespace atm
 // evaluate must be a DOM object, not a $ collection
-var evaluate = document.getElementById("evaluate"),
+var evaluate = null,
 	// $qubitsInput = $("#qubitsInput"),
 	// Only visualizer.js needed this, it can fetch it
 	// $qubitElements = $("#qubitElements"),
@@ -75,6 +75,8 @@ $(document).ready(function() {
 	// globas by also putting init in here so they
 	// actually get defined on doc ready
 	evaluate = document.getElementById("evaluate");
+	editor = ace.edit("ace");
+	qubits = [];
 	var $qubitsInput = $("#qubitsInput");
 
 	// --- Visualizer --- \\
