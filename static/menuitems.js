@@ -1,9 +1,7 @@
 /* menuitems.js
 * Created by: 
 * Date: 03/07/14
-* Menu items
-* 
-* Testing branching
+* Menu item functionality
 * 
 * TODO:
 * 
