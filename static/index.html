@@ -24,7 +24,7 @@ DONE:
 	<script type="text/javascript" src="qrompsimple.js"></script>
 	<script type="text/javascript" src="visualizer.js"></script>
 	<script type="text/javascript" src="menuitems.js"></script>
-	<script type="text/javascript" src="setup.js"></script>
+<!-- ***** setup.js is at the bottom past </body> ***** -->
 	<title>qromp</title>
 	<!-- knod: I suggest a different title, something more descriptive -->
 	<!-- Quantum computer simulator and reference -->
@@ -95,9 +95,9 @@ DONE:
     </div>
 </body>
 
-	<!-- Had to move these down here to get things to work
-	Will experiment more later. This is what happens without
-	enclosures! Bah! -->
+	<!-- Everything except setup.js works at the top, not sure
+	why qrompsimple.js is calling stuff before document is ready -->
 	<!-- <script type="text/javascript" src="texteditor.js"></script> -->
 	<!-- <script type="text/javascript" src="examples.js"></script> -->
+	<script type="text/javascript" src="setup.js"></script>
 </html>

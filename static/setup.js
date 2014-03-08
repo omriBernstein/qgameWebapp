@@ -43,12 +43,12 @@
 // - Global vars - \\
 // qromp.js uses these, can't have a namespace atm
 // evaluate must be a DOM object, not a $ collection
-var evaluate = null,
+var evaluate = document.getElementById("evaluate"),
 	// $qubitsInput = $("#qubitsInput"),
 	// Only visualizer.js needed this, it can fetch it
 	// $qubitElements = $("#qubitElements"),
-	editor = ace.edit("ace"),
-	qubits = [] // used in qrompsimple.js, I believe
+	editor = null,
+	qubits = null // used in qrompsimple.js, I believe
 	//, Moved to visualizer.js enclosure vis
 	// defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
 	// qubitAttr;
