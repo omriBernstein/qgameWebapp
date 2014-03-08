@@ -55,7 +55,8 @@ DONE:
 	  	</div>
   	</div>
   	<div id="panes">
-	  	<div id="app">
+  		<!-- Simulator -->
+	  	<div id="app" class="pane">
 		  	<div id="REPL">
 		  		<div id="visualizer">
 		  			<div id="visualizer-buffer">
@@ -84,8 +85,10 @@ DONE:
 			 --><div id="circuit"></div>
 			</div>
 	    </div>
-	    <div id="lessons-pane">Lessons</div>
-	    <div id="examples-pane">Examples</div>
+	    <!-- Lessons -->
+	    <div id="lessons-pane" class="pane not-sim">Lessons</div>
+	    <!-- Editor -->
+	    <div id="examples-pane" class="pane not-sim">Examples</div>
 	</div>
 
     <!-- Sources (1), need styles in the DOM to access them -->
