@@ -45,15 +45,15 @@ $(document).ready(function() {
 
 	// --- Examples --- \\
 	// Bring in and take out examples "pane"
-	$($("#examples").children()[0]).on("click", function() {
-		// $("#examples").children("ul").toggle();
+	$($("#examples-menu").children()[0]).on("click", function() {
+		// $("#examples-menu").children("ul").toggle();
 	});
 	// Keeping these here because *soooo* much more convenient
-	$("#examples li").click(function() {ex.pasteEx($(this));});
+	$("#examples-menu li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
 	// Bring in and take out lessons "pane"
-	$("#lessons").click(function () {
+	$("#lessons-menu").click(function () {
 		// A way to toggle, since I couldn't figure out .toggle
 		// Change it, restore it, and allow the cycle to progress
 		if (count%2 == 0){less.openLess();}
@@ -128,7 +128,7 @@ var less = {
 			less.canToggle = false;
 
 			// Show that "lessons" is active
-			$("#lessons").css("border", props.activeBorder);
+			$("#lessons-menu").css("border", props.activeBorder);
 			
 						less.canToggle = true;
 						// For things that may want to get the simulator back
@@ -151,7 +151,7 @@ var less = {
 			// though that doesn't work if it's right at the beginning
 			less.isSim = true;
 
-						$("#lessons").css("border", props.inactiveBorder);
+						$("#lessons-menu").css("border", props.inactiveBorder);
 						// Re-allow toggling now
 						less.canToggle = true;
 
