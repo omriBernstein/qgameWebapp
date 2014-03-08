@@ -37,8 +37,8 @@ $(document).ready(function() {
 	$("li").hover(
 		function () {
 			$(this).css({"background": props.activeText});
-		},
-		function () {
+		}
+		, function () {
 			$(this).css("background", "inherit");
 		}
 	);
@@ -100,17 +100,17 @@ var ex = {
 
 var less = {
 	// Is the simulator showing?
-	isSim: true,
+	isSim: true
 	// Has one toggle animation completed?
 // [Something to do with "width",["toggle","swing"]] Why isn't this working?
-	canToggle: true,
+	, canToggle: true
 	// Animation times
-	fadeTime: 200,
-	slideTime: 900,
+	, fadeTime: 200
+	, slideTime: 900
 	// Remember the width of the visualizer
-	visWidth: null,
+	, visWidth: null
 	// Remember #reference's padding
-	refPad: null,
+	, refPad: null,
 
 // Maybe put queue to false
 
