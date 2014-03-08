@@ -129,10 +129,14 @@ var less = {
 
 			// Show that "lessons" is active
 			$("#lessons-menu").css("border", props.activeBorder);
-			
-						less.canToggle = true;
-						// For things that may want to get the simulator back
-						less.isSim = false;
+
+			// Hide #examples (if it's open)
+			$("#examples-pane").animate({"right": "100%"}, 400);
+			$("#lessons-pane").animate({"left": "0"}, 400);
+			// Re-allow toggling now
+			less.canToggle = true;
+			// For things that may want to get the simulator back
+			less.isSim = false;
 		}  // end of canToggle
 	},
 
@@ -151,9 +155,12 @@ var less = {
 			// though that doesn't work if it's right at the beginning
 			less.isSim = true;
 
-						$("#lessons-menu").css("border", props.inactiveBorder);
-						// Re-allow toggling now
-						less.canToggle = true;
+			// Slide this element to the right again
+			$("#lessons-pane").animate({"left": "100%"}, 400);
+			// Restore menu item to unselected
+			$("#lessons-menu").css("border", props.inactiveBorder);
+			// Re-allow toggling now
+			less.canToggle = true;
 
 		}  // end of canToggle
 	},
