@@ -37,15 +37,6 @@ $(document).ready(function() {
 	// Show panes on click
 	$(".top-menu").not($(".menu-items"))
 		.on("click", function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
-		// Highlight top menu items on hover
-		.on("mouseenter", function () {
-			$(this).find(".menu-items").show();
-			$(this).css("background-color", props.activeNum);
-		})
-		.on("mouseleave", function () {
-			$(this).find(".menu-items").hide();
-			$(this).css("background-color", "none");
-		});
 
 	// This will go away
 	// Highlight dropdown menu items on hover

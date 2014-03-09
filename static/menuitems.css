@@ -33,7 +33,6 @@
 	/* Rules below not implemented in browsers yet '11 */
 	-o-user-select: none;
 	user-select: none;
-	cursor: default;
 }
 
 #menu {
