@@ -90,17 +90,15 @@ var mItems = {
 	// Has one toggle animation completed?
 // [Something to do with "width",["toggle","swing"]] Why isn't this working?
 	, canToggle: true
-	// Animation times
-	, fadeTime: 200
-	, slideTime: 900
-	// Remember the width of the visualizer
-	, visWidth: null
-	// Remember #reference's padding
-	, refPad: null,
+	// // Animation times
+	// , fadeTime: 200
+	, slideTime: 600
+	// // Remember the width of the visualizer
+	// , visWidth: null
+	// // Remember #reference's padding
+	// , refPad: null
 
-// Maybe put queue to false
-
-	togglePane: function ($clickedItem, $thisTarget) {
+	, togglePane: function ($clickedItem, $thisTarget) {
 		/* ($, $) -> None
 
 		If previous pane toggles are finished, puts a
@@ -167,11 +165,11 @@ var mItems = {
 		console.log("1 out of canToggle");
 	},
 
-	// Whatever pane is on top:
+	// Reveal a lower pane by removing all the panes above it:
 	// If the top layer is removed
 		// remove all layers
 		// set layers var to 0 (1?)
-	// If a bottom layer is revealed
+	// If a bottom layer is requested
 		// remove all layers above it
 		// set their layer to null
 	// If a layer is added, give it the next number
