@@ -4,11 +4,20 @@
 * Menu item functionality
 * 
 * TODO:
+* - Make a version of examples that's on the same page
+* - Take out the dropdown menu
+* - Try adding a top bar above the app
+* - (Possibly) separate the toggle function into 3
+* parts: toggle, open, close
+* - Make a version that pushes what's on top to the
+* right as well as brings things out from the left
+* (basically has multiple layers and top layers are
+* removed first when appropriate)
+* 
+* DONE:
 * - [DONE] If we really do completely separate "panes" for
 * each menu item, make a data value for each thing's
 * "pane" so they can all be called the same way.
-* 
-* DONE:
 * 
 */
 
