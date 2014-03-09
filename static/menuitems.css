@@ -63,6 +63,11 @@
 	padding-right: 3px;
 }
 
+/* Just while there's a dropdown */
+.top-menu>div {
+	background-color: inherit;
+}
+
 li {
 	list-style-type: none;
 	padding-bottom: 1px;
@@ -82,7 +87,7 @@ li:last-of-type {
 	margin: 0px;
 	text-align: left;
 	font-size: 14px;
-	z-index: 100;
+	z-index: 200;
 	background: inherit;
 	color: black;
 	/*border: 1px solid #dddddd;*/

@@ -15,57 +15,71 @@
 // Just so I don't have to keep copying and pasting examples goddamnit
 $(document).ready(function() {
 	// *** SETUP ***\\
-	// --- Lessons --- \\
 	// A way to toggle till I figure out how that works
 	var count = 0;
+	// Associate top menu options with panes
+	$("#lessons-menu").data("pane", $("#lessons-pane"));
+	$("#examples-menu").data("pane", $("#examples-pane"));
+
 
 	// *** EVENT LISTENERS ***\\
 	// -- All -- \\
-	// Show menu items on hover
 	// Get rid of border?
-	$(".top-menu").hover(
-		function () {
-// *** This *seems* to be where the weird padding change is coming from *** \\
-			$(this).children(".menu-items").show();  // Here
-			$(this).css("background-color", props.activeNum);
-		}
-		, function () {
-			$(this).children(".menu-items").hide();
-			$(this).css("background-color", "none");
-		}
-	);
+	// Show panes on click
+	$(".top-menu").not($(".menu-items"))
+		.click(function (thisEv) {less.openLess($(this), $(thisEv.target));})
+		// Highlight top menu items on hover
+		.hover(function () {
+	// *** This *seems* to be where the weird padding change is coming from *** \\
+				$(this).find(".menu-items").show();  // Here
+				$(this).css("background-color", props.activeNum);
+			}
+			, function () {
+				$(this).find(".menu-items").hide();
+				$(this).css("background-color", "none");
+			}
+		)
+	;
+
+	// This will go away
+	// Highlight dropdown menu items on hover
 	$("li").hover(
 		function () {
-			$(this).css({"background": props.activeText});
+			$(this).css({"background-color": props.activeText});
 		}
 		, function () {
-			$(this).css("background", "inherit");
+			$(this).css("background-color", "inherit");
 		}
 	);
 
 	// --- Examples --- \\
-	// Bring in and take out examples "pane"
-	$($("#examples-menu").children()[0]).on("click", function() {
-		// $("#examples-menu").children("ul").toggle();
+	// Make dropdown appear and disappear on click
+	$(".top-menu").on("click", function(thisEv) {
+		var $target = $(thisEv.target);
+		$(this).children().attr("id");
+		if ($(this).children().attr("id") == "examples-menu"
+			&& $target.prop("tagName") != "LI") {
+			$(".top-menu ul").toggle();
+		}
 	});
 	// Keeping these here because *soooo* much more convenient
-	$("#examples-menu li").click(function() {ex.pasteEx($(this));});
+	$(".top-menu li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
-	// Bring in and take out lessons "pane"
-	$("#lessons-menu").click(function () {
-		// A way to toggle, since I couldn't figure out .toggle
-		// Change it, restore it, and allow the cycle to progress
-		if (count%2 == 0){less.openLess();}
-		else {less.closeLess();}
-		count++
-	});
+	// // Bring in and take out lessons "pane"
+	// $("#lessons-menu").click(function () {
+	// 	// A way to toggle, since I couldn't figure out .toggle
+	// 	// Change it, restore it, and allow the cycle to progress
+	// 	if (count%2 == 0){less.openLess();}
+	// 	else {less.closeLess();}
+	// 	count++
+	// });
 
-	// Show and hide references?
-	$("#reference").click(function () {})
-	// Make it bold when hovered over
-	.hover(function () {//$(this).toggleClass("bold");
-	});
+	// // Show and hide references?
+	// $("#reference").click(function () {})
+	// // Make it bold when hovered over
+	// .hover(function () {//$(this).toggleClass("bold");
+	// });
 });
 
 var ex = {
@@ -114,7 +128,7 @@ var less = {
 
 // Maybe put queue to false
 
-	openLess: function () {
+	openLess: function ($clickedItem, $thisTarget) {
 		/* (None) -> None
 
 		If less.closeLess is done animating, hide the
@@ -124,23 +138,60 @@ var less = {
 		*/
 
 		if (less.canToggle) {
+			console.log("1 in less.canToggle");
 			// Disallow toggling
 			less.canToggle = false;
+			// Get menu item's child (with the id)
+			var $topMenuItem = $($clickedItem.children()[0]);
+			// Get menu item's panel
+			var $itemPane = $topMenuItem.data("pane");
+			// Take the border off of every other item
+			$(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
 
-			// Show that "lessons" is active
-			$("#lessons-menu").css("border", props.activeBorder);
+			// Temporary till dropdown is gone make sure it's not a list item
+			if ($thisTarget.prop("tagName") != "LI") {
+				console.log("2 in prop name LI");
+				// If it has a "pane" data value
+				if ($itemPane) {
+					console.log("3 in $itemPane");
+					// If the pane is off screen
+					if ($itemPane.css("left") != "0px") {
+						console.log("4 in 'left' not 0");
+						// Indicate the item is active
+						$clickedItem.css("border", props.activeBorder);
+						// Put relevant pane on top and slide it left
+						$(".not-sim").not($itemPane).css("z-index","50");
+						$itemPane.css("z-index","100");
+						$itemPane.animate({"left": "0"}, 400, "swing"
+							, function () {
+								// Slide the other panes right
+								$(".not-sim").not($itemPane).css({"left": "100%"});
+							});
+						// Re-allow toggling now
+						less.canToggle = true;
+					}  // end of if $itemPane
 
-			// Hide #examples (if it's open)
-			$("#examples-pane").animate({"right": "100%"}, 400);
-			$("#lessons-pane").animate({"left": "0"}, 400);
-			// Re-allow toggling now
+					// If the pane is on screen
+					else {
+						console.log("4 in else");
+						// Remove indication of active item
+						$clickedItem.css("border", props.inactiveBorder);
+						// Hide the pane
+						$itemPane.animate({"left": "100%"}, 400, "swing");
+						// Re-allow toggling now
+						less.canToggle = true;
+					}
+					console.log("4 out of 'left' not 0");
+				}  // end of if $itemPane
+				console.log("3 out of $itemPane");
+			}  // End of temporary target check
+			console.log("2 out of if prop name LI");
 			less.canToggle = true;
-			// For things that may want to get the simulator back
-			less.isSim = false;
 		}  // end of canToggle
+		console.log("1 out of canToggle");
 	},
 
-	closeLess: function () {
+	closeLess: function ($topMenuItem) {
 		/* (None) -> None
 		
 		If less.openLess() is done animating, undo what
@@ -154,11 +205,13 @@ var less = {
 			// and to prevent #reference from becoming bold
 			// though that doesn't work if it's right at the beginning
 			less.isSim = true;
+			// Get menu item's panel
+			$itemPane = $topMenuItem.data("pane");
 
 			// Slide this element to the right again
-			$("#lessons-pane").animate({"left": "100%"}, 400);
+			$itemPane.animate({"left": "100%"}, 400);
 			// Restore menu item to unselected
-			$("#lessons-menu").css("border", props.inactiveBorder);
+			$topMenuItem.css("border", props.inactiveBorder);
 			// Re-allow toggling now
 			less.canToggle = true;
 

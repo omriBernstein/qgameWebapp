@@ -107,7 +107,7 @@ a:hover {
 	/* For the #pane class position: aboslute to grab onto */
 	position: relative;
 	text-align: left;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	height: 844px;
 }
 
@@ -269,7 +269,7 @@ a:hover {
 	top: 0;
 	padding: 1px 3px;
 	font-size: 12px;
-	z-index: 100;
+	z-index: 25;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
