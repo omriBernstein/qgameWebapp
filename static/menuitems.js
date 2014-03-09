@@ -77,15 +77,6 @@ $(document).ready(function() {
 	$(".examples li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
-	// // Bring in and take out lessons "pane"
-	// $("#lessons-menu").click(function () {
-	// 	// A way to toggle, since I couldn't figure out .toggle
-	// 	// Change it, restore it, and allow the cycle to progress
-	// 	if (count%2 == 0){mItems.togglePane();}
-	// 	else {mItems.closeLess();}
-	// 	count++
-	// });
-
 	// // Show and hide references?
 	// $("#reference").click(function () {})
 	// // Make it bold when hovered over
@@ -110,12 +101,12 @@ var mItems = {
 // Maybe put queue to false
 
 	togglePane: function ($clickedItem, $thisTarget) {
-		/* (None) -> None
+		/* ($, $) -> None
 
-		If mItems.closeLess is done animating, hide the
-		ace editor and resize the visualizer to let
-		the fake ace editor (just looks like it, with
-		possibly a search bar) fill the width of the page.
+		If previous pane toggles are finished, puts a
+		border around $clickedItem, slides the pane
+		associated with $thisTarget into or out of view,
+		moves the other panes off screen if needed.
 		*/
 
 		if (mItems.canToggle) {
@@ -133,6 +124,8 @@ var mItems = {
 			if ($thisTarget.prop("tagName") != "LI") {
 				console.log("  2 in prop name LI");
 				// If it has a "pane" data value
+				// If I combine these two if's, any non-pane
+				// button will get rid of the other panes
 				if ($itemPane) {
 					console.log("    3 in $itemPane");
 					// If the pane is off screen
@@ -158,7 +151,7 @@ var mItems = {
 						// Remove indication of active item
 						$clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
-						$itemPane.animate({"left": "100%"}, mItems.slideTime, "swing");
+						$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
 						// Re-allow toggling now
 						mItems.canToggle = true;
 					}
@@ -174,11 +167,19 @@ var mItems = {
 		console.log("1 out of canToggle");
 	},
 
+	// Whatever pane is on top:
+	// If the top layer is removed
+		// remove all layers
+		// set layers var to 0 (1?)
+	// If a bottom layer is revealed
+		// remove all layers above it
+		// set their layer to null
+	// If a layer is added, give it the next number
+
 	closeLess: function ($topMenuItem) {
 		/* (None) -> None
 		
-		If mItems.togglePane() is done animating, undo what
-		that function did.
+		
 		*/
 
 		// if (mItems.canToggle) {
