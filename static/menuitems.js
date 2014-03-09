@@ -92,6 +92,43 @@ var ex = {
 		it into the editor, and evaluate
 		*/
 
+// !!! take delay off for dropdown !!!
+		var simShowing = true;
+
+		// if any non-sim is showing
+		$(".not-sim").each(function () {
+			if ($(this).css("left") == "0px") {
+				console.log("--------");
+				simShowing = false;
+			}
+		});
+
+		// If
+		if (!simShowing) {
+			// Take away all the other panes
+			$(".not-sim")
+			.animate({"left": "100%"}, less.slideTime, "swing"
+				, function () {
+					setTimeout(function () {
+						// Replace any text with new text, evaluate
+						editor.getSession().setValue($thisElem.text());
+						$("#evaluate").trigger("click");
+						// Remove indication of active item
+						$(".top-menu").css("border", props.inactiveBorder);
+						}, 75);
+				});
+		}
+
+		else {
+			//Otherwise don't wait to do the stuff
+			// Replace any text with new text, evaluate
+			editor.getSession().setValue($thisElem.text());
+			$("#evaluate").trigger("click");
+			// Remove indication of active item
+			$(".top-menu").css("border", props.inactiveBorder);
+		}
+
+		// What I have already working
 		$(".not-sim")
 		.animate({"left": "100%"}, less.slideTime, "swing"
 			, function () {
@@ -172,13 +209,13 @@ var less = {
 
 			// Temporary till dropdown is gone make sure it's not a list item
 			if ($thisTarget.prop("tagName") != "LI") {
-				console.log("2 in prop name LI");
+				console.log("  2 in prop name LI");
 				// If it has a "pane" data value
 				if ($itemPane) {
-					console.log("3 in $itemPane");
+					console.log("    3 in $itemPane");
 					// If the pane is off screen
 					if ($itemPane.css("left") != "0px") {
-						console.log("4 in 'left' not 0");
+						console.log("      4 in 'left' not 0");
 						// Indicate the item is active
 						$clickedItem.css("border", props.activeBorder);
 						// Put relevant pane on top and slide it left
@@ -195,7 +232,7 @@ var less = {
 
 					// If the pane is on screen
 					else {
-						console.log("4 in else");
+						console.log("      4 in else");
 						// Remove indication of active item
 						$clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
@@ -203,14 +240,14 @@ var less = {
 						// Re-allow toggling now
 						less.canToggle = true;
 					}
-					console.log("4 out of 'left' not 0");
+					console.log("      4 out of 'left' not 0");
 				}  // end of if $itemPane
 				// Don't know if I need these else's
 				else {less.canToggle = true;}
-				console.log("3 out of $itemPane");
+				console.log("    3 out of $itemPane");
 			}  // End of temporary target check
 			else {less.canToggle = true;}
-			console.log("2 out of if prop name LI");
+			console.log("  2 out of if prop name LI");
 		}  // end of canToggle
 		console.log("1 out of canToggle");
 	},
