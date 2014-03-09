@@ -104,49 +104,43 @@ var mItems = {
 			// // Take the border off of every other item
 			// $(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
 
-			// Temporary till dropdown is gone make sure it's not a list item
-			if ($thisTarget.prop("tagName") != "LI") {
-				// console.log("  2 in prop name LI");
-				// If it has a "pane" data value
-				// If I combine these two if's, any non-pane
-				// button will get rid of the other panes
-				if ($itemPane) {
-					// console.log("    3 in $itemPane");
-					// If the pane is off screen
-					if ($itemPane.css("left") != "0px") {
-						// console.log("      4 in 'left' not 0");
-						// Indicate the item is active
-						// $clickedItem.css("border", props.activeBorder);
-						// Put relevant pane on top and slide it left
-						$(".not-sim").not($itemPane).css("z-index","50");
-						$itemPane.css("z-index","100");
-						$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
-							, function () {
-								// Slide the other panes right
-								$(".not-sim").not($itemPane).css({"left": "100%"});
-							});
-						// Re-allow toggling now
-						mItems.canToggle = true;
-					}  // end of if $itemPane
-
-					// If the pane is on screen
-					else {
-						// console.log("      4 in else");
-						// Remove indication of active item
-						// $clickedItem.css("border", props.inactiveBorder);
-						// Hide the pane
-						$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
-						// Re-allow toggling now
-						mItems.canToggle = true;
-					}
-					// console.log("      4 out of 'left' not 0");
+			// If it has a "pane" data value
+			// If I combine these two if's, any non-pane
+			// button will get rid of the other panes
+			if ($itemPane) {
+				// console.log("  2 in $itemPane");
+				// If the pane is off screen
+				if ($itemPane.css("left") != "0px") {
+					// console.log("    3 in 'left' not 0");
+					// Indicate the item is active
+					// $clickedItem.css("border", props.activeBorder);
+					// Put relevant pane on top and slide it left
+					$(".not-sim").not($itemPane).css("z-index","50");
+					$itemPane.css("z-index","100");
+					$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
+						, function () {
+							// Slide the other panes right
+							$(".not-sim").not($itemPane).css({"left": "100%"});
+						});
+					// Re-allow toggling now
+					mItems.canToggle = true;
 				}  // end of if $itemPane
-				// Don't know if I need these else's
-				else {mItems.canToggle = true;}
-				// console.log("    3 out of $itemPane");
-			}  // End of temporary target check
+
+				// If the pane is on screen
+				else {
+					// console.log("    3 in else");
+					// Remove indication of active item
+					// $clickedItem.css("border", props.inactiveBorder);
+					// Hide the pane
+					$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
+					// Re-allow toggling now
+					mItems.canToggle = true;
+				}
+				// console.log("    3 out of 'left' not 0");
+			}  // end of if $itemPane
+			// Don't know if I need these else's
 			else {mItems.canToggle = true;}
-			// console.log("  2 out of if prop name LI");
+			// console.log("  2 out of $itemPane");
 		}  // end of canToggle
 		// console.log("1 out of canToggle");
 	},  // End togglePane()
