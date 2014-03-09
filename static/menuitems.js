@@ -128,18 +128,18 @@ var ex = {
 			$(".top-menu").css("border", props.inactiveBorder);
 		}
 
-		// What I have already working
-		$(".not-sim")
-		.animate({"left": "100%"}, less.slideTime, "swing"
-			, function () {
-				setTimeout(function () {
-					// Replace any text with new text, evaluate
-					editor.getSession().setValue($thisElem.text());
-					$("#evaluate").trigger("click");
-					// Remove indication of active item
-					$(".top-menu").css("border", props.inactiveBorder);
-					}, 100);
-			});
+		// // What I have already working
+		// $(".not-sim")
+		// .animate({"left": "100%"}, less.slideTime, "swing"
+		// 	, function () {
+		// 		setTimeout(function () {
+		// 			// Replace any text with new text, evaluate
+		// 			editor.getSession().setValue($thisElem.text());
+		// 			$("#evaluate").trigger("click");
+		// 			// Remove indication of active item
+		// 			$(".top-menu").css("border", props.inactiveBorder);
+		// 			}, 100);
+		// 	});
 
 		// // If the simulator isn't there, get it back
 		// if (!less.isSim) {
