@@ -4,9 +4,9 @@
 * Menu item functionality
 * 
 * TODO:
-* - If we really do completely separate "panes" for
+* - [DONE] If we really do completely separate "panes" for
 * each menu item, make a data value for each thing's
-* "pane" so they can all be called the same way
+* "pane" so they can all be called the same way.
 * 
 * DONE:
 * 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 	// Get rid of border?
 	// Show panes on click
 	$(".top-menu").not($(".menu-items"))
-		.click(function (thisEv) {less.openLess($(this), $(thisEv.target));})
+		.click(function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
 		// Highlight top menu items on hover
 		.hover(function () {
 	// *** This *seems* to be where the weird padding change is coming from *** \\
@@ -72,8 +72,8 @@ $(document).ready(function() {
 	// $("#lessons-menu").click(function () {
 	// 	// A way to toggle, since I couldn't figure out .toggle
 	// 	// Change it, restore it, and allow the cycle to progress
-	// 	if (count%2 == 0){less.openLess();}
-	// 	else {less.closeLess();}
+	// 	if (count%2 == 0){mItems.togglePane();}
+	// 	else {mItems.closeLess();}
 	// 	count++
 	// });
 
@@ -84,94 +84,7 @@ $(document).ready(function() {
 	// });
 });
 
-var ex = {
-	pasteEx: function ($thisElem) {
-		/* ($ collection) -> None
-
-		Copy the text in the $ collection, paste
-		it into the editor, and evaluate
-		*/
-
-// !!! take delay off for dropdown !!!
-		var simShowing = true;
-
-		// if any non-sim is showing
-		$(".not-sim").each(function () {
-			if ($(this).css("left") == "0px") {
-				console.log("--------");
-				simShowing = false;
-			}
-		});
-
-		// If
-		if (!simShowing) {
-			// Take away all the other panes
-			$(".not-sim")
-			.animate({"left": "100%"}, less.slideTime, "swing"
-				, function () {
-					setTimeout(function () {
-						// Replace any text with new text, evaluate
-						editor.getSession().setValue($thisElem.text());
-						$("#evaluate").trigger("click");
-						// Remove indication of active item
-						$(".top-menu").css("border", props.inactiveBorder);
-						}, 75);
-				});
-		}
-
-		else {
-			//Otherwise don't wait to do the stuff
-			// Replace any text with new text, evaluate
-			editor.getSession().setValue($thisElem.text());
-			$("#evaluate").trigger("click");
-			// Remove indication of active item
-			$(".top-menu").css("border", props.inactiveBorder);
-		}
-
-		// // What I have already working
-		// $(".not-sim")
-		// .animate({"left": "100%"}, less.slideTime, "swing"
-		// 	, function () {
-		// 		setTimeout(function () {
-		// 			// Replace any text with new text, evaluate
-		// 			editor.getSession().setValue($thisElem.text());
-		// 			$("#evaluate").trigger("click");
-		// 			// Remove indication of active item
-		// 			$(".top-menu").css("border", props.inactiveBorder);
-		// 			}, 100);
-		// 	});
-
-		// // If the simulator isn't there, get it back
-		// if (!less.isSim) {
-		// 	less.closeLess();
-
-
-
-			// // Reveal the simulator
-			// $(".pane").css({"left": "100%"});
-			// // Wait till animation is over, I think it's
-			// // not pasting text while sim is hidden
-			// setTimeout(function () {
-			// 	// Replace any text with new text, evaluate
-			// 	editor.getSession().setValue($thisElem.text());
-			// 	$("#evaluate").trigger("click");
-			// 	}
-			// 	, less.slideTime + 100
-			// );  // end of setTimeout
-
-
-
-		// }  // end if
-		// // Otherwise do it without delay
-		// else {
-		// 	// Replace any text with new text, evaluate
-		// 	editor.getSession().setValue($thisElem.text());
-		// 	$("#evaluate").trigger("click");
-		// }  // end else
-	}  // End pasteEx()
-};
-
-var less = {
+var mItems = {
 	// Is the simulator showing?
 	isSim: true
 	// Has one toggle animation completed?
@@ -187,19 +100,19 @@ var less = {
 
 // Maybe put queue to false
 
-	openLess: function ($clickedItem, $thisTarget) {
+	togglePane: function ($clickedItem, $thisTarget) {
 		/* (None) -> None
 
-		If less.closeLess is done animating, hide the
+		If mItems.closeLess is done animating, hide the
 		ace editor and resize the visualizer to let
 		the fake ace editor (just looks like it, with
 		possibly a search bar) fill the width of the page.
 		*/
 
-		if (less.canToggle) {
-			console.log("1 in less.canToggle");
+		if (mItems.canToggle) {
+			console.log("1 in mItems.canToggle");
 			// Disallow toggling
-			less.canToggle = false;
+			mItems.canToggle = false;
 			// Get menu item's child (with the id)
 			var $topMenuItem = $($clickedItem.children()[0]);
 			// Get menu item's panel
@@ -221,13 +134,13 @@ var less = {
 						// Put relevant pane on top and slide it left
 						$(".not-sim").not($itemPane).css("z-index","50");
 						$itemPane.css("z-index","100");
-						$itemPane.animate({"left": "0"}, less.slideTime, "swing"
+						$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
 							, function () {
 								// Slide the other panes right
 								$(".not-sim").not($itemPane).css({"left": "100%"});
 							});
 						// Re-allow toggling now
-						less.canToggle = true;
+						mItems.canToggle = true;
 					}  // end of if $itemPane
 
 					// If the pane is on screen
@@ -236,17 +149,17 @@ var less = {
 						// Remove indication of active item
 						$clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
-						$itemPane.animate({"left": "100%"}, less.slideTime, "swing");
+						$itemPane.animate({"left": "100%"}, mItems.slideTime, "swing");
 						// Re-allow toggling now
-						less.canToggle = true;
+						mItems.canToggle = true;
 					}
 					console.log("      4 out of 'left' not 0");
 				}  // end of if $itemPane
 				// Don't know if I need these else's
-				else {less.canToggle = true;}
+				else {mItems.canToggle = true;}
 				console.log("    3 out of $itemPane");
 			}  // End of temporary target check
-			else {less.canToggle = true;}
+			else {mItems.canToggle = true;}
 			console.log("  2 out of if prop name LI");
 		}  // end of canToggle
 		console.log("1 out of canToggle");
@@ -255,28 +168,74 @@ var less = {
 	closeLess: function ($topMenuItem) {
 		/* (None) -> None
 		
-		If less.openLess() is done animating, undo what
+		If mItems.togglePane() is done animating, undo what
 		that function did.
 		*/
 
-		if (less.canToggle) {
-			// Disallow toggling
-			less.canToggle = false;
-			// For things that may want to get the simulator back
-			// and to prevent #reference from becoming bold
-			// though that doesn't work if it's right at the beginning
-			less.isSim = true;
-			// Get menu item's panel
-			$itemPane = $topMenuItem.data("pane");
+		// if (mItems.canToggle) {
+		// 	// Disallow toggling
+		// 	mItems.canToggle = false;
+		// 	// For things that may want to get the simulator back
+		// 	// and to prevent #reference from becoming bold
+		// 	// though that doesn't work if it's right at the beginning
+		// 	mItems.isSim = true;
+		// 	// Get menu item's panel
+		// 	$itemPane = $topMenuItem.data("pane");
 
-			// Slide this element to the right again
-			$itemPane.animate({"left": "100%"}, 400);
-			// Restore menu item to unselected
-			$topMenuItem.css("border", props.inactiveBorder);
-			// Re-allow toggling now
-			less.canToggle = true;
+		// 	// Slide this element to the right again
+		// 	$itemPane.animate({"left": "100%"}, 400);
+		// 	// Restore menu item to unselected
+		// 	$topMenuItem.css("border", props.inactiveBorder);
+		// 	// Re-allow toggling now
+		// 	mItems.canToggle = true;
 
-		}  // end of canToggle
+		// }  // end of canToggle
 	},
 };
 
+var ex = {
+	pasteEx: function ($thisElem) {
+		/* ($ collection) -> None
+
+		Copy the text in the $ collection, paste
+		it into the editor, and evaluate. If needed,
+		reveal the simulator first.
+		*/
+
+		var simShowing = true;
+
+		// if any non-sim is showing
+		$(".not-sim").each(function () {
+			if ($(this).css("left") == "0px") {
+				console.log("--------");
+				simShowing = false;
+			}
+		});
+
+		// If there's a pane covering the sim
+		if (!simShowing) {
+			// Slide away all the panes
+			$(".not-sim")
+			.animate({"left": "100%"}, mItems.slideTime, "swing"
+				, function () {
+					// After that and a 75 ms delay
+					setTimeout(function () {
+						// Replace any text with new text, evaluate
+						editor.getSession().setValue($thisElem.text());
+						$("#evaluate").trigger("click");
+						// Remove indication of active item
+						$(".top-menu").css("border", props.inactiveBorder);
+						}, 75);  // end setTimeout
+			});  // end .animate
+		}  // end if !simShowing
+
+		//Otherwise don't wait to do the stuff
+		else {
+			// Replace any text with new text, evaluate
+			editor.getSession().setValue($thisElem.text());
+			$("#evaluate").trigger("click");
+			// Remove indication of active item
+			$(".top-menu").css("border", props.inactiveBorder);
+		}
+	}  // End pasteEx()
+};
