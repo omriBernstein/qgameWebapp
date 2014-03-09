@@ -36,24 +36,23 @@ $(document).ready(function() {
 	// Get rid of border?
 	// Show panes on click
 	$(".top-menu").not($(".menu-items"))
-		.click(function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
+		.on("click", function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
 		// Highlight top menu items on hover
-		.hover(function () {
+		.on("mouseenter", function () {
 			$(this).find(".menu-items").show();
 			$(this).css("background-color", props.activeNum);
-		}
-		, function () {
+		})
+		.on("mouseleave", function () {
 			$(this).find(".menu-items").hide();
 			$(this).css("background-color", "none");
 		});
 
 	// This will go away
 	// Highlight dropdown menu items on hover
-	$("li").hover(
-		function () {
+	$("body").on("mouseenter", "li", function () {
 			$(this).css({"background-color": props.activeText});
-		}
-		, function () {
+		})
+	.on("mouseleave", "li", function () {
 			$(this).css("background-color", "inherit");
 		}
 	);
@@ -62,16 +61,22 @@ $(document).ready(function() {
 	// Make dropdown appear and disappear on click
 	$(".top-menu").on("click", function(thisEv) {
 		var $target = $(thisEv.target);
-		$(this).children().attr("id");
+		// If it's an "examples-menu"...
 		if ($(this).children().attr("id") == "examples-menu"
+			// ... list item
 			&& $target.prop("tagName") != "LI") {
 			$(".top-menu ul").toggle();
 		}
+		// If "alt" is pressed
+		if ($(this).children().attr("id") == "alt-menu") {
+			// Do the alternate examples stuff
+			ex.exAlt();
+		}
 	});
 	// On-page version (though wouldn't be dropdown)
-	$(".menu-items li").click(function() {ex.pasteEx($(this));});
+	$(".menu-items li").on("click", function() {ex.pasteEx($(this));});
 	// Examples page version
-	$(".examples li").click(function() {ex.pasteEx($(this));});
+	$("body").on("click", ".examples li", function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
 	// // Show and hide references?
@@ -105,7 +110,7 @@ var mItems = {
 		*/
 
 		if (mItems.canToggle) {
-			console.log("1 in mItems.canToggle");
+			// console.log("1 in mItems.canToggle");
 			// Disallow toggling
 			mItems.canToggle = false;
 			// Get menu item's child (with the id)
@@ -117,15 +122,15 @@ var mItems = {
 
 			// Temporary till dropdown is gone make sure it's not a list item
 			if ($thisTarget.prop("tagName") != "LI") {
-				console.log("  2 in prop name LI");
+				// console.log("  2 in prop name LI");
 				// If it has a "pane" data value
 				// If I combine these two if's, any non-pane
 				// button will get rid of the other panes
 				if ($itemPane) {
-					console.log("    3 in $itemPane");
+					// console.log("    3 in $itemPane");
 					// If the pane is off screen
 					if ($itemPane.css("left") != "0px") {
-						console.log("      4 in 'left' not 0");
+						// console.log("      4 in 'left' not 0");
 						// Indicate the item is active
 						$clickedItem.css("border", props.activeBorder);
 						// Put relevant pane on top and slide it left
@@ -142,7 +147,7 @@ var mItems = {
 
 					// If the pane is on screen
 					else {
-						console.log("      4 in else");
+						// console.log("      4 in else");
 						// Remove indication of active item
 						$clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
@@ -150,16 +155,16 @@ var mItems = {
 						// Re-allow toggling now
 						mItems.canToggle = true;
 					}
-					console.log("      4 out of 'left' not 0");
+					// console.log("      4 out of 'left' not 0");
 				}  // end of if $itemPane
 				// Don't know if I need these else's
 				else {mItems.canToggle = true;}
-				console.log("    3 out of $itemPane");
+				// console.log("    3 out of $itemPane");
 			}  // End of temporary target check
 			else {mItems.canToggle = true;}
-			console.log("  2 out of if prop name LI");
+			// console.log("  2 out of if prop name LI");
 		}  // end of canToggle
-		console.log("1 out of canToggle");
+		// console.log("1 out of canToggle");
 	},  // End togglePane()
 
 	// Reveal a lower pane by removing all the panes above it:
@@ -185,7 +190,7 @@ var mItems = {
 		// 	// though that doesn't work if it's right at the beginning
 		// 	mItems.isSim = true;
 		// 	// Get menu item's panel
-		// 	$itemPane = $topMenuItem.data("pane");
+		// 	var $itemPane = $topMenuItem.data("pane");
 
 		// 	// Slide this element to the right again
 		// 	$itemPane.animate({"left": "100%"}, 400);
@@ -200,9 +205,42 @@ var mItems = {
 
 var ex = {
 	exAlt: function () {
+		/* (None) -> None
 
+		A demo of an alternative to the examples pane.
+		Instantiate or remove an examples div on the
+		same page as the simulator
+		*/
+// http://stackoverflow.com/questions/3086068/how-do-i-check-whether-a-jquery-element-is-in-the-dom
 
+		if ( $("#examples-box")[0] ) {
+			$("#examples-box").remove();
+		}
+		else {
+			var $examplesBox = $("<div id='examples-box'>"
+				+ "Some words of explaination about stuff:"
+		    	+ "<br><ul class='examples'>"
+				+ "<li>((u-theta 0.6 0))</li>"
+				+ "<li>((u-theta 0.8 0))</li>"
+				+ "<li>((u-theta 1.6 0))</li>"
+				+ "<li>((u-theta 2.3 0))</li></ul></div>");
 
+			$("#editor").append($examplesBox);
+
+			$("#examples-box").css({position:"absolute"
+				, left:"0", top:"0", "z-index":"250"
+				,"background-color":"white", width: "100%"
+				, height: "100%", "font-size":"17px"
+				, padding:"10px"
+				, "-webkit-box-sizing": "border-box"
+				, "-moz-box-sizing": "border-box"
+				, "box-sizing": "border-box"});
+			$("#examples-box .examples").css({padding:"10px"
+				, margin: "10px 0"});
+			$("#examples-box .examples li").css({
+				margin: "5px", padding: "5px", border: props.activeBorder
+			});
+		}
 	}
 
 	, pasteEx: function ($thisElem) {
@@ -218,7 +256,6 @@ var ex = {
 		// if any non-sim is showing
 		$(".not-sim").each(function () {
 			if ($(this).css("left") == "0px") {
-				console.log("--------");
 				simShowing = false;
 			}
 		});
