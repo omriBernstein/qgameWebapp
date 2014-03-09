@@ -50,22 +50,14 @@ $(document).ready(function() {
 
 	// --- Examples --- \\
 	// Make dropdown appear and disappear on click
-	$(".top-menu").on("click", function(thisEv) {
-		var $target = $(thisEv.target);
-		// If it's an "examples-menu"...
-		if ($(this).children().attr("id") == "examples-menu"
-			// ... list item
-			&& $target.prop("tagName") != "LI") {
-			$(".top-menu ul").toggle();
-		}
+	$(".top-menu").on("click", function (thisEv) {
 		// If "alt" is pressed
 		if ($(this).children().attr("id") == "alt-menu") {
 			// Do the alternate examples stuff
 			ex.exAlt();
 		}
 	});
-	// On-page version (though wouldn't be dropdown)
-	$(".menu-items li").on("click", function() {ex.pasteEx($(this));});
+
 	// Examples page version
 	$("body").on("click", ".examples li", function() {ex.pasteEx($(this));});
 
@@ -108,8 +100,9 @@ var mItems = {
 			var $topMenuItem = $($clickedItem.children()[0]);
 			// Get menu item's panel
 			var $itemPane = $topMenuItem.data("pane");
-			// Take the border off of every other item
-			$(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
+			// Somehow indicate item is inactive
+			// // Take the border off of every other item
+			// $(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
 
 			// Temporary till dropdown is gone make sure it's not a list item
 			if ($thisTarget.prop("tagName") != "LI") {
@@ -123,7 +116,7 @@ var mItems = {
 					if ($itemPane.css("left") != "0px") {
 						// console.log("      4 in 'left' not 0");
 						// Indicate the item is active
-						$clickedItem.css("border", props.activeBorder);
+						// $clickedItem.css("border", props.activeBorder);
 						// Put relevant pane on top and slide it left
 						$(".not-sim").not($itemPane).css("z-index","50");
 						$itemPane.css("z-index","100");
@@ -140,7 +133,7 @@ var mItems = {
 					else {
 						// console.log("      4 in else");
 						// Remove indication of active item
-						$clickedItem.css("border", props.inactiveBorder);
+						// $clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
 						$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
 						// Re-allow toggling now
