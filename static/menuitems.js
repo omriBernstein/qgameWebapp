@@ -62,8 +62,10 @@ $(document).ready(function() {
 			$(".top-menu ul").toggle();
 		}
 	});
-	// Keeping these here because *soooo* much more convenient
-	$(".top-menu li").click(function() {ex.pasteEx($(this));});
+	// On-page version (though wouldn't be dropdown)
+	$(".menu-items li").click(function() {ex.pasteEx($(this));});
+	// Examples page version
+	$(".examples li").click(function() {ex.pasteEx($(this));});
 
 	// --- Lessons --- \\
 	// // Bring in and take out lessons "pane"
@@ -90,26 +92,46 @@ var ex = {
 		it into the editor, and evaluate
 		*/
 
-		// If the simulator isn't there, get it back
-		if (!less.isSim) {
-			less.closeLess();
-			// Wait till animation is over, I think it's
-			// not pasting text while sim is hidden
-			setTimeout(function () {
-				// Replace any text with new text, evaluate
-				editor.getSession().setValue($thisElem.text());
-				$("#evaluate").trigger("click");
-				}
-				, less.slideTime + less.fadeTime + 5 // Need +5?
-			);  // end of setTimeout
-		}  // end if
-		// Otherwise do it without delay
-		else {
-			// Replace any text with new text, evaluate
-			editor.getSession().setValue($thisElem.text());
-			$("#evaluate").trigger("click");
-		}  // end else
-	}
+		$(".not-sim")
+		.animate({"left": "100%"}, less.slideTime, "swing"
+			, function () {
+				setTimeout(function () {
+					// Replace any text with new text, evaluate
+					editor.getSession().setValue($thisElem.text());
+					$("#evaluate").trigger("click");
+					// Remove indication of active item
+					$(".top-menu").css("border", props.inactiveBorder);
+					}, 100);
+			});
+
+		// // If the simulator isn't there, get it back
+		// if (!less.isSim) {
+		// 	less.closeLess();
+
+
+
+			// // Reveal the simulator
+			// $(".pane").css({"left": "100%"});
+			// // Wait till animation is over, I think it's
+			// // not pasting text while sim is hidden
+			// setTimeout(function () {
+			// 	// Replace any text with new text, evaluate
+			// 	editor.getSession().setValue($thisElem.text());
+			// 	$("#evaluate").trigger("click");
+			// 	}
+			// 	, less.slideTime + 100
+			// );  // end of setTimeout
+
+
+
+		// }  // end if
+		// // Otherwise do it without delay
+		// else {
+		// 	// Replace any text with new text, evaluate
+		// 	editor.getSession().setValue($thisElem.text());
+		// 	$("#evaluate").trigger("click");
+		// }  // end else
+	}  // End pasteEx()
 };
 
 var less = {
@@ -162,7 +184,7 @@ var less = {
 						// Put relevant pane on top and slide it left
 						$(".not-sim").not($itemPane).css("z-index","50");
 						$itemPane.css("z-index","100");
-						$itemPane.animate({"left": "0"}, 400, "swing"
+						$itemPane.animate({"left": "0"}, less.slideTime, "swing"
 							, function () {
 								// Slide the other panes right
 								$(".not-sim").not($itemPane).css({"left": "100%"});
@@ -177,16 +199,18 @@ var less = {
 						// Remove indication of active item
 						$clickedItem.css("border", props.inactiveBorder);
 						// Hide the pane
-						$itemPane.animate({"left": "100%"}, 400, "swing");
+						$itemPane.animate({"left": "100%"}, less.slideTime, "swing");
 						// Re-allow toggling now
 						less.canToggle = true;
 					}
 					console.log("4 out of 'left' not 0");
 				}  // end of if $itemPane
+				// Don't know if I need these else's
+				else {less.canToggle = true;}
 				console.log("3 out of $itemPane");
 			}  // End of temporary target check
+			else {less.canToggle = true;}
 			console.log("2 out of if prop name LI");
-			less.canToggle = true;
 		}  // end of canToggle
 		console.log("1 out of canToggle");
 	},

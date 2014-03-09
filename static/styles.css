@@ -107,7 +107,7 @@ a:hover {
 	/* For the #pane class position: aboslute to grab onto */
 	position: relative;
 	text-align: left;
-	/*overflow: hidden;*/
+	overflow: hidden;
 	height: 844px;
 }
 
