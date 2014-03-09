@@ -92,8 +92,3 @@ li:last-of-type {
 	color: black;
 	/*border: 1px solid #dddddd;*/
 }
-
-.temp {
-	display: block;
-	position: relative;
-}

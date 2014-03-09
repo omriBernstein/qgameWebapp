@@ -39,16 +39,13 @@ $(document).ready(function() {
 		.click(function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
 		// Highlight top menu items on hover
 		.hover(function () {
-	// *** This *seems* to be where the weird padding change is coming from *** \\
-				$(this).find(".menu-items").show();  // Here
-				$(this).css("background-color", props.activeNum);
-			}
-			, function () {
-				$(this).find(".menu-items").hide();
-				$(this).css("background-color", "none");
-			}
-		)
-	;
+			$(this).find(".menu-items").show();
+			$(this).css("background-color", props.activeNum);
+		}
+		, function () {
+			$(this).find(".menu-items").hide();
+			$(this).css("background-color", "none");
+		});
 
 	// This will go away
 	// Highlight dropdown menu items on hover
@@ -163,7 +160,7 @@ var mItems = {
 			console.log("  2 out of if prop name LI");
 		}  // end of canToggle
 		console.log("1 out of canToggle");
-	},
+	},  // End togglePane()
 
 	// Reveal a lower pane by removing all the panes above it:
 	// If the top layer is removed
@@ -198,11 +195,17 @@ var mItems = {
 		// 	mItems.canToggle = true;
 
 		// }  // end of canToggle
-	},
-};
+	},  // End closeLess()
+};  // End mItems
 
 var ex = {
-	pasteEx: function ($thisElem) {
+	exAlt: function () {
+
+
+
+	}
+
+	, pasteEx: function ($thisElem) {
 		/* ($ collection) -> None
 
 		Copy the text in the $ collection, paste
