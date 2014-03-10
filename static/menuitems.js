@@ -5,9 +5,9 @@
 * 
 * TODO:
 * - Make clicking on examples pane work properly
-* - Make alt work properly
 * 
 * DONE:
+* - [DONE] Make alt work properly
 * - [DONE] Make a version of examples that's on the same page
 * - [DONE] Take out the dropdown menu
 * - Try adding a top bar above the app
@@ -69,7 +69,7 @@ $(document).ready(function() {
 		// If "alt" is pressed
 		if ($(this).children().attr("id") == "alt-menu") {
 			// Do the alternate examples stuff
-			ex.exAlt();
+			ex.toggleAlt();
 		}
 	});
 
@@ -204,7 +204,7 @@ var mItems = {
 };  // End mItems
 
 var ex = {
-	exAlt: function () {
+	toggleAlt: function () {
 		/* (None) -> None
 
 		A demo of an alternative to the examples pane.
@@ -213,10 +213,13 @@ var ex = {
 		*/
 // http://stackoverflow.com/questions/3086068/how-do-i-check-whether-a-jquery-element-is-in-the-dom
 
+		// If the example box exists, remove it
 		if ( $("#examples-box")[0] ) {
 			$("#examples-box").remove();
 		}
+		// Otherwise, generate the code for it
 		else {
+			// Make the div
 			var $examplesBox = $("<div id='examples-box'>"
 				+ "Some words of explaination about stuff:"
 		    	+ "<br><ul class='examples'>"
@@ -225,8 +228,10 @@ var ex = {
 				+ "<li>((u-theta 1.6 0))</li>"
 				+ "<li>((u-theta 2.3 0))</li></ul></div>");
 
+			// Put it in the DOM
 			$("#editor").append($examplesBox);
 
+			// Give it it's properties
 			$("#examples-box").css({position:"absolute"
 				, left:"0", top:"0", "z-index":"250"
 				,"background-color":"white", width: "100%"
