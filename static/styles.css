@@ -77,6 +77,7 @@ a:hover {
 /*--- HEADER ---*/
 #header {
 	margin-bottom: .5em;
+	cursor: default;
 }
 
 #header div {
@@ -86,7 +87,6 @@ a:hover {
 /*--- Title ---*/
 #banner {
 	width: 48%;
-	cursor: default;
 }
 
 #title {
