@@ -8,9 +8,9 @@
 * 	Ended up not being used right now
 * 
 * TODO:
-* - Make clicking on examples pane work properly
 * 
 * DONE:
+* - [DONE] Make clicking on examples pane work properly
 * - [DONE] Make alt work properly
 * - [DONE] Make a version of examples that's on the same page
 * - [DONE] Take out the dropdown menu
@@ -81,6 +81,7 @@ $(document).ready(function() {
 	// evaluates it's text value
 	$("body").on("click", ".examples li", function() {ex.pasteEx($(this));});
 	// Clicking on #examples-pane li closes alt
+	$("body").on("click", "#examples-pane li", function() {$("#examples-box").remove();});
 
 	// --- Lessons --- \\
 	// // Show and hide references?
