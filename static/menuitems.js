@@ -5,6 +5,7 @@
 * 
 * TODO:
 * - Make clicking on examples pane work properly
+* - Make alt work properly
 * - Make a version of examples that's on the same page
 * - Take out the dropdown menu
 * - Try adding a top bar above the app
