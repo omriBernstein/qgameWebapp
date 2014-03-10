@@ -392,7 +392,7 @@ canvas {
 
 /*--- PANES ---*/
 
-/*--- Other Panes ---*/
+/*--- Non-app Panes ---*/
 .not-sim {
 	position: absolute;
 	overflow-y: scroll;
@@ -404,15 +404,17 @@ canvas {
 	z-index: 100;
 }
 
-/*--- Lesson Pane ---*/
+/*--- Individual Panes ---*/
 #app {
 	left: 0;
 }
 
-#lessons-pane {
-	left: 102%;
+#examples-pane {
+	left: 100%;
+	background-color: lightgreen;
 }
 
-#examples-pane {
-	left: 204%;
+#lessons-pane {
+	left: 200%;
+	background-color: lightblue;
 }

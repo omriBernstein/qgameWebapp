@@ -29,6 +29,19 @@ $(document).ready(function() {
 	// Associate top menu options with panes
 	$("#lessons-menu").data("pane", $("#lessons-pane"));
 	$("#examples-menu").data("pane", $("#examples-pane"));
+	// Associate let values with their panes
+	$(".pane").each(function () {
+		$this = $(this);
+
+		var thisLeft = Math.ceil( ($this.position().left/
+			$this.parent().innerWidth()) * 100 );
+
+		console.log(($this.position().left/
+			$this.parent().innerWidth()) * 100);
+		console.log(thisLeft);
+		$(this).data("left", thisLeft);
+		console.log($(this).data("left"));
+	});
 
 
 	// *** EVENT LISTENERS ***\\
@@ -99,7 +112,7 @@ var mItems = {
 			// Get menu item's child (with the id)
 			var $topMenuItem = $($clickedItem.children()[0]);
 			// Get menu item's panel
-			var $itemPane = $topMenuItem.data("pane");
+			$itemPane = $topMenuItem.data("pane");
 			// Somehow indicate item is inactive
 			// // Take the border off of every other item
 			// $(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
@@ -109,37 +122,113 @@ var mItems = {
 			// button will get rid of the other panes
 			if ($itemPane) {
 				// console.log("  2 in $itemPane");
-				// If the pane is off screen
-				if ($itemPane.css("left") != "0px") {
-					// console.log("    3 in 'left' not 0");
-					// Indicate the item is active
-					// $clickedItem.css("border", props.activeBorder);
-					// Put relevant pane on top and slide it left
-					$(".not-sim").not($itemPane).css("z-index","50");
-					$itemPane.css("z-index","100");
-					$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
-						, function () {
-							// Slide the other panes right
-							$(".not-sim").not($itemPane).css({"left": "100%"});
-						});
-					// Re-allow toggling now
-					mItems.canToggle = true;
-				}  // end of if $itemPane
+// http://stackoverflow.com/questions/5230425/getting-percent-css-position-with-jquery
+// Only for inline styles :P
+// http://stackoverflow.com/questions/47837/getting-the-base-element-from-a-jquery-object
+				
+				// Because of binary math, can't have pretty
+				// spaces between divs and %'s without
+				// being much trickier, they all go back
+				// to 100%
 
-				// If the pane is on screen
-				else {
-					// console.log("    3 in else");
-					// Remove indication of active item
-					// $clickedItem.css("border", props.inactiveBorder);
-					// Hide the pane
-					$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
-					// Re-allow toggling now
-					mItems.canToggle = true;
+				// Left position of this pane
+				var thisLeft = Math.ceil(
+					($itemPane.position().left/
+					$itemPane.parent().outerWidth()) * 100);
+
+				// If the pane indicated is already showing
+				if (thisLeft == 0) {
+					$(".pane").each(function () {
+						$this = $(this);
+						var oldLeft = $this.data("left");
+						// Slide everything to it's original position
+						$this.animate({"left": oldLeft + "%"}, 600, "swing",
+							// Let the buttons be pressed again!
+							function () {mItems.canToggle = true;});
+					});
 				}
+
+				// If the pane isn't visible
+				else {
+					// subract its "left" for every pane
+					$(".pane").each(function () {
+						var $this = $(this);
+						// Current pane's left
+						var currentLeft = Math.ceil(
+							($this.position().left/
+							$this.parent().outerWidth()) * 100);
+
+						var newLeft = currentLeft - thisLeft;
+						// Slide them all to new spots
+						$this.animate({"left": newLeft + "%"}, 600, "swing",
+							// Let the buttons be pressed again!
+							function () {mItems.canToggle = true;});
+					});
+				}
+				// // If the pane is to the left
+				// else if (thisLeft < 0) {
+				// 	// add its "left" to every pane
+				// 	$(".pane").each(function () {
+				// 		var $this = $(this);
+				// 		// Current pane's left
+				// 		var currentLeft = Math.ceil(
+				// 		$this.position().left/
+				// 		$this.parent().innerWidth());
+				// 		console.log("thisLeft: " + thisLeft);
+				// 		console.log("curLeft: " + currentLeft);
+
+				// 		var newLeft = (currentLeft + thisLeft) * 100;
+
+				// 		console.log("newLeft: " + newLeft);
+				// 		// Slide them all to new spots
+				// 		$this.animate({"left": newLeft + "%"}, 600, "swing",
+				// 			function () {
+				// 				// Let the buttons be pressed again!
+				// 				mItems.canToggle = true;
+				// 		});
+				// 	});
+				// }
+
+
+				// if ($itemPane.css("left") != "0px") {
+				// 	// console.log("    3 in 'left' not 0");
+				// 	// Indicate the item is active
+				// 	// $clickedItem.css("border", props.activeBorder);
+				// 	// Put relevant pane on top and slide it left
+				// 	$(".not-sim").not($itemPane).css("z-index","50");
+				// 	$itemPane.css("z-index","100");
+				// 	$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
+				// 		, function () {
+				// 			// Slide the other panes right
+				// 			$(".not-sim").not($itemPane).css({"left": "100%"});
+				// 		});
+				// 	// Re-allow toggling now
+				// 	mItems.canToggle = true;
+				// }  // end of if $itemPane
+
+				// // If the pane is on screen
+				// else {
+				// 	// console.log("    3 in else");
+				// 	// Remove indication of active item
+				// 	// $clickedItem.css("border", props.inactiveBorder);
+				// 	// Hide the pane
+				// 	$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
+				// 	// Re-allow toggling now
+				// 	mItems.canToggle = true;
+				// }
+
+
 				// console.log("    3 out of 'left' not 0");
 			}  // end of if $itemPane
-			// Don't know if I need these else's
+
+			// If it doesn't have a pane
+			// Let the buttons be pressed again!
 			else {mItems.canToggle = true;}
+
+			// // Don't know if I need these else's
+			// else {mItems.canToggle = true;}
+			
+
 			// console.log("  2 out of $itemPane");
 		}  // end of canToggle
 		// console.log("1 out of canToggle");
