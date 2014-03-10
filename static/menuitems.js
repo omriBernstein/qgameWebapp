@@ -112,14 +112,13 @@ var mItems = {
 		*/
 
 		if (mItems.canToggle) {
-			// console.log("1 in mItems.canToggle");
 			// Disallow toggling
 			mItems.canToggle = false;
 			// Get menu item's child (with the id)
 			var $topMenuItem = $($clickedItem.children()[0]);
 			// Get menu item's panel
 			$itemPane = $topMenuItem.data("pane");
-			// Somehow indicate other items are inactive
+			// Somehow indicate other menu items are inactive
 			// ??
 
 			// If it has a "pane" data value
@@ -136,13 +135,14 @@ var mItems = {
 					$itemPane.parent().outerWidth());
 
 				// If the linked pane is already showing
-				if (thisLeft == 0) {
-					// Close all the panes
-					mItems.closePanes();
-				}  // end if left == 0
+				// Close all the panes
+				if (thisLeft == 0) {mItems.closePanes();}
 
 				// If the pane isn't visible
 				else {
+					// Activate menu item
+					// ??
+
 					// subract its "left" for every pane
 					$(".pane").each(function () {
 						var $this = $(this);
@@ -160,14 +160,10 @@ var mItems = {
 					});  // end each
 				}  // end else
 			}  // end if $itemPane
-
 			// If it doesn't have a pane
-			// Let the buttons be pressed again!
-			else {
-				// Close all the panes
-				mItems.closePanes();
-				// mItems.canToggle = true;
-			}
+			// Close all the panes and
+			// let the buttons be pressed again!
+			else {mItems.closePanes();}
 		}  // end of canToggle
 	},  // End togglePanes()
 
@@ -181,12 +177,16 @@ var mItems = {
 		$(".pane").each(function () {
 			var $this = $(this);
 			var oldLeft = $this.data("left");
-			console.log(oldLeft);
 			// Slide everything to it's original position
 			$this.animate({"left": (oldLeft * 100) + "%"}
 				, mItems.slideTime, "swing",
-				// Let the buttons be pressed again!
-				function () {mItems.canToggle = true;});
+				function () {
+					// Deactivate menu items
+					// ??
+
+					// Let the buttons be pressed again!
+					mItems.canToggle = true;
+			});  // end animate
 		});  // end each
 	},  // End closeLess()
 };  // End mItems
