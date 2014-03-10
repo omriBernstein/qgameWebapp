@@ -49,7 +49,7 @@ $(document).ready(function() {
 	// Get rid of border?
 	// Show panes on click
 	$(".top-menu").not($(".menu-items"))
-		.on("click", function (thisEv) {mItems.togglePane($(this), $(thisEv.target));})
+		.on("click", function (thisEv) {mItems.togglePanes($(this), $(thisEv.target));})
 
 	// This will go away
 	// Highlight dropdown menu items on hover
@@ -96,7 +96,7 @@ var mItems = {
 	// // Remember #reference's padding
 	// , refPad: null
 
-	, togglePane: function ($clickedItem, $thisTarget) {
+	, togglePanes: function ($clickedItem, $thisTarget) {
 		/* ($, $) -> None
 
 		If previous pane toggles are finished, puts a
@@ -113,18 +113,11 @@ var mItems = {
 			var $topMenuItem = $($clickedItem.children()[0]);
 			// Get menu item's panel
 			$itemPane = $topMenuItem.data("pane");
-			// Somehow indicate item is inactive
-			// // Take the border off of every other item
-			// $(".top-menu").not($clickedItem).css("border", props.inactiveBorder);
+			// Somehow indicate other items are inactive
+			// ??
 
 			// If it has a "pane" data value
-			// If I combine these two if's, any non-pane
-			// button will get rid of the other panes
 			if ($itemPane) {
-				// console.log("  2 in $itemPane");
-// http://stackoverflow.com/questions/5230425/getting-percent-css-position-with-jquery
-// Only for inline styles :P
-// http://stackoverflow.com/questions/47837/getting-the-base-element-from-a-jquery-object
 				
 				// Because of binary math, can't have pretty
 				// spaces between divs and %'s without
@@ -145,8 +138,8 @@ var mItems = {
 						$this.animate({"left": oldLeft + "%"}, 600, "swing",
 							// Let the buttons be pressed again!
 							function () {mItems.canToggle = true;});
-					});
-				}
+					});  // end each
+				}  // end if left == 0
 
 				// If the pane isn't visible
 				else {
@@ -163,85 +156,15 @@ var mItems = {
 						$this.animate({"left": newLeft + "%"}, 600, "swing",
 							// Let the buttons be pressed again!
 							function () {mItems.canToggle = true;});
-					});
-				}
-				// // If the pane is to the left
-				// else if (thisLeft < 0) {
-				// 	// add its "left" to every pane
-				// 	$(".pane").each(function () {
-				// 		var $this = $(this);
-				// 		// Current pane's left
-				// 		var currentLeft = Math.ceil(
-				// 		$this.position().left/
-				// 		$this.parent().innerWidth());
-				// 		console.log("thisLeft: " + thisLeft);
-				// 		console.log("curLeft: " + currentLeft);
-
-				// 		var newLeft = (currentLeft + thisLeft) * 100;
-
-				// 		console.log("newLeft: " + newLeft);
-				// 		// Slide them all to new spots
-				// 		$this.animate({"left": newLeft + "%"}, 600, "swing",
-				// 			function () {
-				// 				// Let the buttons be pressed again!
-				// 				mItems.canToggle = true;
-				// 		});
-				// 	});
-				// }
-
-
-				// if ($itemPane.css("left") != "0px") {
-				// 	// console.log("    3 in 'left' not 0");
-				// 	// Indicate the item is active
-				// 	// $clickedItem.css("border", props.activeBorder);
-				// 	// Put relevant pane on top and slide it left
-				// 	$(".not-sim").not($itemPane).css("z-index","50");
-				// 	$itemPane.css("z-index","100");
-				// 	$itemPane.animate({"left": "0"}, mItems.slideTime, "swing"
-				// 		, function () {
-				// 			// Slide the other panes right
-				// 			$(".not-sim").not($itemPane).css({"left": "100%"});
-				// 		});
-				// 	// Re-allow toggling now
-				// 	mItems.canToggle = true;
-				// }  // end of if $itemPane
-
-				// // If the pane is on screen
-				// else {
-				// 	// console.log("    3 in else");
-				// 	// Remove indication of active item
-				// 	// $clickedItem.css("border", props.inactiveBorder);
-				// 	// Hide the pane
-				// 	$(".not-sim").animate({"left": "100%"}, mItems.slideTime, "swing");
-				// 	// Re-allow toggling now
-				// 	mItems.canToggle = true;
-				// }
-
-
-				// console.log("    3 out of 'left' not 0");
-			}  // end of if $itemPane
+					});  // end each
+				}  // end else
+			}  // end if $itemPane
 
 			// If it doesn't have a pane
 			// Let the buttons be pressed again!
 			else {mItems.canToggle = true;}
-
-			// // Don't know if I need these else's
-			// else {mItems.canToggle = true;}
-			
-
-			// console.log("  2 out of $itemPane");
 		}  // end of canToggle
-		// console.log("1 out of canToggle");
-	},  // End togglePane()
-
-	// Reveal a lower pane by removing all the panes above it:
-	// If the top layer is removed
-		// remove all layers
-		// set layers var to 0 (1?)
-	// If a bottom layer is requested
-		// remove all layers above it
-		// set their layer to null
-	// If a layer is added, give it the next number
+	},  // End togglePanes()
 
 	closeLess: function ($topMenuItem) {
 		/* (None) -> None
