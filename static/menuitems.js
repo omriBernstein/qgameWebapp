@@ -73,8 +73,10 @@ $(document).ready(function() {
 		}
 	});
 
-	// Examples page version
+	// Any .examples li shows the sim and
+	// evaluates it's text value
 	$("body").on("click", ".examples li", function() {ex.pasteEx($(this));});
+	// Clicking on #examples-pane li closes alt
 
 	// --- Lessons --- \\
 	// // Show and hide references?
@@ -172,34 +174,17 @@ var mItems = {
 		
 		Goes back to #app
 		*/
+
+		// Slide everything to its original pos
 		$(".pane").each(function () {
-						var $this = $(this);
-						var oldLeft = $this.data("left");
-						// Slide everything to it's original position
-						$this.animate({"left": oldLeft + "%"}
-							, mItems.slideTime, "swing",
-							// Let the buttons be pressed again!
-							function () {mItems.canToggle = true;});
-					});  // end each
-
-		// if (mItems.canToggle) {
-		// 	// Disallow toggling
-		// 	mItems.canToggle = false;
-		// 	// For things that may want to get the simulator back
-		// 	// and to prevent #reference from becoming bold
-		// 	// though that doesn't work if it's right at the beginning
-		// 	mItems.isSim = true;
-		// 	// Get menu item's panel
-		// 	var $itemPane = $topMenuItem.data("pane");
-
-		// 	// Slide this element to the right again
-		// 	$itemPane.animate({"left": "100%"}, 400);
-		// 	// Restore menu item to unselected
-		// 	$topMenuItem.css("border", props.inactiveBorder);
-		// 	// Re-allow toggling now
-		// 	mItems.canToggle = true;
-
-		// }  // end of canToggle
+			var $this = $(this);
+			var oldLeft = $this.data("left");
+			// Slide everything to it's original position
+			$this.animate({"left": oldLeft + "%"}
+				, mItems.slideTime, "swing",
+				// Let the buttons be pressed again!
+				function () {mItems.canToggle = true;});
+		});  // end each
 	},  // End closeLess()
 };  // End mItems
 
