@@ -38,15 +38,12 @@ $(document).ready(function() {
 	// Associate let values with their panes
 	$(".pane").each(function () {
 		$this = $(this);
-
-		var thisLeft = Math.ceil( ($this.position().left/
-			$this.parent().innerWidth()) * 100 );
-
-		console.log(($this.position().left/
-			$this.parent().innerWidth()) * 100);
-		console.log(thisLeft);
+		// Get the starting left position in a way
+		// that can be turned into a percent
+		var thisLeft = Math.round($this.position().left/
+			$this.parent().innerWidth());
+		// Set it as a data value
 		$(this).data("left", thisLeft);
-		console.log($(this).data("left"));
 	});
 
 
@@ -134,9 +131,9 @@ var mItems = {
 				// to 100%
 
 				// Left position of this pane
-				var thisLeft = Math.ceil(
-					($itemPane.position().left/
-					$itemPane.parent().outerWidth()) * 100);
+				var thisLeft = Math.round(
+					$itemPane.position().left/
+					$itemPane.parent().outerWidth());
 
 				// If the linked pane is already showing
 				if (thisLeft == 0) {
@@ -150,11 +147,11 @@ var mItems = {
 					$(".pane").each(function () {
 						var $this = $(this);
 						// Current pane's left
-						var currentLeft = Math.ceil(
-							($this.position().left/
-							$this.parent().outerWidth()) * 100);
+						var currentLeft = Math.round(
+							$this.position().left/
+							$this.parent().outerWidth());
 
-						var newLeft = currentLeft - thisLeft;
+						var newLeft = (currentLeft - thisLeft) * 100;
 						// Slide them all to new spots
 						$this.animate({"left": newLeft + "%"}
 							, mItems.slideTime, "swing",
@@ -184,8 +181,9 @@ var mItems = {
 		$(".pane").each(function () {
 			var $this = $(this);
 			var oldLeft = $this.data("left");
+			console.log(oldLeft);
 			// Slide everything to it's original position
-			$this.animate({"left": oldLeft + "%"}
+			$this.animate({"left": (oldLeft * 100) + "%"}
 				, mItems.slideTime, "swing",
 				// Let the buttons be pressed again!
 				function () {mItems.canToggle = true;});
