@@ -131,16 +131,10 @@ var mItems = {
 					($itemPane.position().left/
 					$itemPane.parent().outerWidth()) * 100);
 
-				// If the pane indicated is already showing
+				// If the linked pane is already showing
 				if (thisLeft == 0) {
-					$(".pane").each(function () {
-						$this = $(this);
-						var oldLeft = $this.data("left");
-						// Slide everything to it's original position
-						$this.animate({"left": oldLeft + "%"}, 600, "swing",
-							// Let the buttons be pressed again!
-							function () {mItems.canToggle = true;});
-					});  // end each
+					// Close all the panes
+					mItems.closePanes();
 				}  // end if left == 0
 
 				// If the pane isn't visible
@@ -155,7 +149,8 @@ var mItems = {
 
 						var newLeft = currentLeft - thisLeft;
 						// Slide them all to new spots
-						$this.animate({"left": newLeft + "%"}, 600, "swing",
+						$this.animate({"left": newLeft + "%"}
+							, mItems.slideTime, "swing",
 							// Let the buttons be pressed again!
 							function () {mItems.canToggle = true;});
 					});  // end each
@@ -164,15 +159,28 @@ var mItems = {
 
 			// If it doesn't have a pane
 			// Let the buttons be pressed again!
-			else {mItems.canToggle = true;}
+			else {
+				// Close all the panes
+				mItems.closePanes();
+				// mItems.canToggle = true;
+			}
 		}  // end of canToggle
 	},  // End togglePanes()
 
-	closeLess: function ($topMenuItem) {
+	closePanes: function ($topMenuItem) {
 		/* (None) -> None
 		
-		
+		Goes back to #app
 		*/
+		$(".pane").each(function () {
+						var $this = $(this);
+						var oldLeft = $this.data("left");
+						// Slide everything to it's original position
+						$this.animate({"left": oldLeft + "%"}
+							, mItems.slideTime, "swing",
+							// Let the buttons be pressed again!
+							function () {mItems.canToggle = true;});
+					});  // end each
 
 		// if (mItems.canToggle) {
 		// 	// Disallow toggling
