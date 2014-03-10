@@ -3,6 +3,10 @@
 * Date: 03/07/14
 * Menu item functionality
 * 
+* Sources:
+* 1. http://stackoverflow.com/questions/3086068/how-do-i-check-whether-a-jquery-element-is-in-the-dom
+* 	Ended up not being used right now
+* 
 * TODO:
 * - Make clicking on examples pane work properly
 * 
@@ -196,7 +200,6 @@ var ex = {
 		Instantiate or remove an examples div on the
 		same page as the simulator
 		*/
-// http://stackoverflow.com/questions/3086068/how-do-i-check-whether-a-jquery-element-is-in-the-dom
 
 		// If the example box exists, remove it
 		if ( $("#examples-box")[0] ) {
@@ -236,44 +239,18 @@ var ex = {
 	, pasteEx: function ($thisElem) {
 		/* ($ collection) -> None
 
-		Copy the text in the $ collection, paste
-		it into the editor, and evaluate. If needed,
-		reveal the simulator first.
+		Show sim, copy the text in the $ collection,
+		paste it into the editor, and evaluate.
 		*/
 
-		var simShowing = true;
+		// Make sure sim is showing
+		mItems.closePanes();
 
-		// if any non-sim is showing
-		$(".not-sim").each(function () {
-			if ($(this).css("left") == "0px") {
-				simShowing = false;
-			}
-		});
+		// Replace any text with new text, evaluate
+		editor.getSession().setValue($thisElem.text());
+		$("#evaluate").trigger("click");
+		// Remove indication of active item
+		$(".top-menu").css("border", props.inactiveBorder);
 
-		// If there's a pane covering the sim
-		if (!simShowing) {
-			// Slide away all the panes
-			$(".not-sim")
-			.animate({"left": "100%"}, mItems.slideTime, "swing"
-				, function () {
-					// After that and a 75 ms delay
-					setTimeout(function () {
-						// Replace any text with new text, evaluate
-						editor.getSession().setValue($thisElem.text());
-						$("#evaluate").trigger("click");
-						// Remove indication of active item
-						$(".top-menu").css("border", props.inactiveBorder);
-						}, 75);  // end setTimeout
-			});  // end .animate
-		}  // end if !simShowing
-
-		//Otherwise don't wait to do the stuff
-		else {
-			// Replace any text with new text, evaluate
-			editor.getSession().setValue($thisElem.text());
-			$("#evaluate").trigger("click");
-			// Remove indication of active item
-			$(".top-menu").css("border", props.inactiveBorder);
-		}
 	}  // End pasteEx()
 };
