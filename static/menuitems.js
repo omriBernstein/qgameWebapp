@@ -8,9 +8,10 @@
 * 	Ended up not being used right now
 * 
 * TODO:
-* - Get pane additions to remove alt
 * 
 * DONE:
+* - [DONE] Get alt to remove alt
+* - [DONE] Get pane additions to remove alt
 * - [DONE] Get rid of .not($(".menu-items") (was for dropdowns)
 * - [DONE] Make clicking on examples pane work properly
 * - [DONE] Make alt work properly
@@ -138,8 +139,6 @@ var mItems = {
 					// subract its "left" for every pane
 					$(".pane").each(function () {
 						var $this = $(this);
-console.log("********");
-									console.log($this);
 						// Current pane's left
 						var currentLeft = Math.round(
 							$this.position().left/
