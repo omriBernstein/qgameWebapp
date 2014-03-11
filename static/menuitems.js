@@ -61,8 +61,7 @@ $(document).ready(function() {
 		mItems.togglePanes($(this));
 	})
 
-	// This will go away
-	// Highlight dropdown menu items on hover
+	// Highlight list items on hover
 	$("body").on("mouseenter", "li", function () {
 			$(this).css({"background-color": props.activeText});
 		})
@@ -73,19 +72,11 @@ $(document).ready(function() {
 
 	// --- Examples --- \\
 	// Make alt appear (examples appear over text editor)
-	$(".top-menu").on("click", function (thisEv) {
-		// If "alt" is pressed
-		if ($(this).children().attr("id") == "alt-menu") {
-			// Do the alternate examples stuff
-			ex.toggleAlt();
-		}
-	});
+	$("#alt-menu").on("click", function () {ex.toggleAlt();});
 
 	// Any .examples li shows the sim and
 	// evaluates it's text value
 	$("body").on("click", ".examples li", function() {ex.pasteEx($(this));});
-	// Clicking on #examples-pane li closes alt
-	$("body").on("click", "#examples-pane li", function() {$("#examples-box").remove();});
 
 	// --- Lessons --- \\
 	// // Show and hide references?
@@ -123,6 +114,7 @@ var mItems = {
 			mItems.canToggle = false;
 			// Deactivate all other menu items
 			$(".tm-item").not($clickedItem).removeClass("tm-active");
+			// The toggle in click takes care of the rest
 
 			// Get menu item's panel
 			$itemPane = $clickedItem.data("pane");
@@ -139,7 +131,7 @@ var mItems = {
 					$itemPane.parent().outerWidth());
 
 				// If the linked pane is already showing
-				// Close all the panes, deactivate menu items
+				// Close all the panes
 				if (thisLeft == 0) {mItems.closePanes();}
 
 				// If the pane isn't visible
@@ -156,15 +148,26 @@ var mItems = {
 						// Slide them all to new spots
 						$this.animate({"left": newLeft + "%"}
 							, mItems.slideTime, "swing",
+							function () {
+								// If not alt, remove alt
+								if ($(this).not("#alt-menu")){
+									$("#examples-box").remove();
+								}
 							// Let the buttons be pressed again!
-							function () {mItems.canToggle = true;});
+								mItems.canToggle = true;
+							});
 					});  // end each
 				}  // end else
 			}  // end if $itemPane
-			// If it doesn't have a pane
-			// Close all the panes and
-			// let the buttons be pressed again!
-			else {mItems.closePanes();}
+			// If it doesn't have a pane, close all the panes and
+			else {
+				// If it's not #alt-menu remove alt
+				if ($clickedItem.not("#alt-menu")){
+					$("#examples-box").remove();
+				}
+				// let the buttons be pressed again!
+				mItems.closePanes();
+			}
 		}  // end of canToggle
 	},  // End togglePanes()
 
