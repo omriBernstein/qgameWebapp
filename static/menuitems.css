@@ -33,7 +33,6 @@
 	/* Rules below not implemented in browsers yet '11 */
 	-o-user-select: none;
 	user-select: none;
-	cursor: default;
 }
 
 #menu {
@@ -59,8 +58,18 @@
 }
 
 /* For older browsers */
-#tm-right {
+.tm-right {
 	padding-right: 3px;
+}
+
+.tm-active {
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}
+
+/* Just while there's a dropdown */
+.top-menu>div {
+	background-color: inherit;
 }
 
 li {
@@ -82,7 +91,7 @@ li:last-of-type {
 	margin: 0px;
 	text-align: left;
 	font-size: 14px;
-	z-index: 100;
+	z-index: 200;
 	background: inherit;
 	color: black;
 	/*border: 1px solid #dddddd;*/
