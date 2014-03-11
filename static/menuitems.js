@@ -138,6 +138,8 @@ var mItems = {
 					// subract its "left" for every pane
 					$(".pane").each(function () {
 						var $this = $(this);
+console.log("********");
+									console.log($this);
 						// Current pane's left
 						var currentLeft = Math.round(
 							$this.position().left/
@@ -149,19 +151,21 @@ var mItems = {
 							, mItems.slideTime, "swing",
 							function () {
 								// If not alt, remove alt
-								if ($(this).not("#alt-menu")){
+								// Incase of future (I know, I know)
+								// Think this will work...
+								if ($this.not("#alt-menu")[0]){
 									$("#examples-box").remove();
 								}
 							// Let the buttons be pressed again!
 								mItems.canToggle = true;
-							});
+						});
 					});  // end each
 				}  // end else
 			}  // end if $itemPane
 			// If it doesn't have a pane, close all the panes and
 			else {
 				// If it's not #alt-menu remove alt
-				if ($clickedItem.not("#alt-menu")){
+				if ($clickedItem.not("#alt-menu")[0]){
 					$("#examples-box").remove();
 				}
 				// let the buttons be pressed again!
