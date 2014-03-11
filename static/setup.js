@@ -4,6 +4,9 @@
 * Event listeners and main functions to run simulator
 * Perhaps other "pages" too in future
 * 
+* Sources:
+* 1. http://stackoverflow.com/questions/11978174/read-a-css-property-of-a-not-yet-added-to-the-dom-div
+* 
 * TODO:
 * ---	General		---
 * - Why isn't everything in $(document).ready()?
@@ -38,26 +41,50 @@
 // *** SETUP *** \\
 // --- Visualizer? --- \\
 // - Global vars - \\
+// qromp.js uses these, can't have a namespace atm
 // evaluate must be a DOM object, not a $ collection
 var evaluate = document.getElementById("evaluate"),
-	$qubitsInput = $("#qubitsInput"),
-	$qubitElements = $("#qubitElements"),
+	// $qubitsInput = $("#qubitsInput"),
+	// Only visualizer.js needed this, it can fetch it
+	// $qubitElements = $("#qubitElements"),
 	editor = ace.edit("ace"),
-	qubits = [],
-	defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
-	qubitAttr;
+	qubits = [] // used in qrompsimple.js, I believe
+	//, Moved to visualizer.js enclosure vis
+	// defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}},
+	// qubitAttr;
+	;
+
+// The hard coded colors and other properties used in the doc
+var props = {
+	activeText: null
+	, activeNum: null
+	, activeBorder: null
+	, inactiveBorder: null
+};
 
 $(document).ready(function() {
 	// *** SETUP ***\\
+	// Initialize properties to match current styles
+	// Sources (1)
+	props.activeText = $(".active-row").css("background-color");
+	props.activeNum = $(".active-num").css("background-color");
+	props.activeBorder = $(".active-border").css("border");
+	props.inactiveBorder = $(".inactive-border").css("border");
+
+	// We will temporarily solve necessity for uninstantiated
+	// globas by also putting init in here so they
+	// actually get defined on doc ready
+	evaluate = document.getElementById("evaluate");
+	var $qubitsInput = $("#qubitsInput");
 
 	// --- Visualizer --- \\
-	positionQubits($qubitsInput.val());
+	vis.positionQubits($qubitsInput.val());
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
 
 	// Display the images for the changed number of qubits
 	$qubitsInput.change(function() {
-		positionQubits($qubitsInput.val());
+		vis.positionQubits($qubitsInput.val());
 	});
 });

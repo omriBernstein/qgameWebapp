@@ -1,7 +1,7 @@
 /* styles.css
 * Created by: 
 * Date created: 02/14
-* All doc styles at the moment
+* All doc styles except menus at the moment
 * 
 * Sources:
 * 1. http://stackoverflow.com/questions/15076201/html-css-sticky-footer-growing-content
@@ -19,6 +19,29 @@
 * 
 */
 
+/* To establish some preset parameters */
+/* For our memory and for use in js initialization */
+#styles {
+	display: none;
+}
+
+.active-row {
+	background: #f0f0f0;
+}
+
+.active-num {
+	background: #dcdcdc;
+}
+
+.active-border {
+	border: 1px solid #dddddd;
+}
+
+.inactive-border {
+	border: 1px solid white;
+}
+
+/* Now on to the doc */
 html {
 	padding: 0px;
 	margin: 0px;
@@ -35,6 +58,11 @@ body {
 	max-width: 93em;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+/* Bascially for the menus */
 a {
 	color: black;
 	text-decoration: none;
@@ -42,7 +70,7 @@ a {
 
 a:hover {
 	color: black;
-	border-bottom: 1px solid black;
+	/*border-bottom: 1px solid black;*/
 }
 
 /*--- HEADER ---*/
@@ -73,25 +101,12 @@ a:hover {
 	color: #7e7e7e
 }
 
-/*--- Menu ---*/
-#menuContainer {
-	width: 52%;
-	text-align: right;
-}
-
-#menu {
-	font-size: 1.6em;
-}
-
-#menu>div {
-	text-align: right;
-	padding-left: 2em;
-}
-
 /*--- SIMULATOR ---*/
 #REPL {
 	overflow: hidden;
 	margin-bottom: 1em;
+	/* For ace version to place hidden lessons visual */
+	position: relative;
 }
 
 #REPL>div {
@@ -111,6 +126,15 @@ a:hover {
 	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+#top-ribbon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3000px;
+	height: 16px; /* Must be same as ace */
+	background: #f0f0f0;
+	z-index: -10;
+}
 		/* for knod's editor: */
 		/*#editor {
 			overflow: hidden;
@@ -128,7 +152,16 @@ a:hover {
 			overflow: auto;
 			/* Puts #reference in the right place */
 			/* See #qubitElements notes */
-			position: relative;}
+			position: relative;
+			z-index: 10;
+			/* For ace version */
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 0;
+			width: 100%; /* For when it expands */
+			/*background: lightblue;*/
+		}
 
 		#textInput {
 			position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
@@ -136,6 +169,7 @@ a:hover {
 			/*border-bottom: 1px solid #dddddd;*/
 			overflow: hidden;
 			min-height: 100%;
+			width: 100%;
 		}
 
 		#textInput>div {
@@ -163,14 +197,17 @@ a:hover {
 
 		.num-row {
 			text-align: right;
-			padding: 1px 4px 1px 0;
+			/*padding: 1px 4px 1px 0;*/
+			/* For ace version */
+			background: #dcdcdc;
+			width: 100%;
 		}
 
 		/* .text-row's are textareas */
 		.text-row {
 			outline: none;
 			display: block;
-			padding: 1px 6px;
+			/*padding: 1px 6px;*/
 			width: 100%;
 			font-size: 15px;
 			border: none;
@@ -180,6 +217,20 @@ a:hover {
 			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 			box-sizing: border-box;         /* Opera/IE 8+ */
+			/* For ace version */
+			background: #f0f0f0;
+			color: rgb(0, 0, 0);
+			cursor: text;
+			display: block;
+			font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+			font-size: 12px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			height: 16px;
+			line-height: normal;
+			white-space: nowrap;
+			width: auto;
 		}
 
 /* ace reference: */
@@ -187,7 +238,13 @@ a:hover {
 	position: absolute;
 	right: 0;
 	top: 0;
+	padding: 1px 3px;
+	font-size: 12px;
 	z-index: 100;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	cursor: default;
 }
 
 			/* knod's reference: */
@@ -207,9 +264,17 @@ a:hover {
 	overflow: scroll;
 }
 
+.ace_gutter {
+
+}
+
 .ace_gutter-cell {
 	padding-left: .6em !important;
 	padding-right: .6em !important;
+}
+
+.ace_scroller {
+	/*z-index: -1;*/
 }
 
 /*--- Editor footer ---*/
@@ -236,6 +301,7 @@ right: 0; z-index: 10; border: 0; cursor: pointer;"*/
 	width: 46em;
 	background-color: #F5F1FA;
 	margin-left: 1em;
+	white-space: nowrap;
 }
 
 #visualizer>div {
