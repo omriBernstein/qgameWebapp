@@ -8,10 +8,10 @@
 * 	Ended up not being used right now
 * 
 * TODO:
-* - Get rid of .not($(".menu-items") (was for dropdowns)
 * - Get pane additions to remove alt
 * 
 * DONE:
+* - [DONE] Get rid of .not($(".menu-items") (was for dropdowns)
 * - [DONE] Make clicking on examples pane work properly
 * - [DONE] Make alt work properly
 * - [DONE] Make a version of examples that's on the same page
@@ -51,9 +51,8 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 	// -- All -- \\
-	// Show panes on click
-// !!! fix this that was here for the dropdowns !!!
-	$(".tm-item").not($(".menu-items"))
+	// Show or hide panes on click
+	$(".tm-item")
 	.on("click", function (thisEv) {
 		// Toggle active menu item decoration
 		$(this).toggleClass("tm-active");
