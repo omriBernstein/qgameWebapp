@@ -8,6 +8,8 @@
 * 	Ended up not being used right now
 * 
 * TODO:
+* - Get rid of .not($(".menu-items") (was for dropdowns)
+* - Get pane additions to remove alt
 * 
 * DONE:
 * - [DONE] Make clicking on examples pane work properly
@@ -49,10 +51,15 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 	// -- All -- \\
-	// Get rid of border?
 	// Show panes on click
-	$(".top-menu").not($(".menu-items"))
-		.on("click", function (thisEv) {mItems.togglePanes($(this), $(thisEv.target));})
+// !!! fix this that was here for the dropdowns !!!
+	$(".tm-item").not($(".menu-items"))
+	.on("click", function (thisEv) {
+		// Toggle active menu item decoration
+		$(this).toggleClass("tm-active");
+		// Toggle the appropriate pane
+		mItems.togglePanes($(this));
+	})
 
 	// This will go away
 	// Highlight dropdown menu items on hover
@@ -65,7 +72,7 @@ $(document).ready(function() {
 	);
 
 	// --- Examples --- \\
-	// Make dropdown appear and disappear on click
+	// Make alt appear (examples appear over text editor)
 	$(".top-menu").on("click", function (thisEv) {
 		// If "alt" is pressed
 		if ($(this).children().attr("id") == "alt-menu") {
@@ -102,7 +109,7 @@ var mItems = {
 	// // Remember #reference's padding
 	// , refPad: null
 
-	, togglePanes: function ($clickedItem, $thisTarget) {
+	, togglePanes: function ($clickedItem) {
 		/* ($, $) -> None
 
 		If previous pane toggles are finished, puts a
@@ -114,16 +121,13 @@ var mItems = {
 		if (mItems.canToggle) {
 			// Disallow toggling
 			mItems.canToggle = false;
-			// Get menu item's child (with the id)
-			var $topMenuItem = $($clickedItem.children()[0]);
-			// Get menu item's panel
-			$itemPane = $topMenuItem.data("pane");
-			// Somehow indicate other menu items are inactive
-			// ??
+			// Deactivate all other menu items
+			$(".tm-item").not($clickedItem).removeClass("tm-active");
 
+			// Get menu item's panel
+			$itemPane = $clickedItem.data("pane");
 			// If it has a "pane" data value
-			if ($itemPane) {
-				
+			if ($itemPane) {				
 				// Because of binary math, can't have pretty
 				// spaces between divs and %'s without
 				// being much trickier, they all go back
@@ -135,14 +139,11 @@ var mItems = {
 					$itemPane.parent().outerWidth());
 
 				// If the linked pane is already showing
-				// Close all the panes
+				// Close all the panes, deactivate menu items
 				if (thisLeft == 0) {mItems.closePanes();}
 
 				// If the pane isn't visible
 				else {
-					// Activate menu item
-					// ??
-
 					// subract its "left" for every pane
 					$(".pane").each(function () {
 						var $this = $(this);
@@ -181,9 +182,6 @@ var mItems = {
 			$this.animate({"left": (oldLeft * 100) + "%"}
 				, mItems.slideTime, "swing",
 				function () {
-					// Deactivate menu items
-					// ??
-
 					// Let the buttons be pressed again!
 					mItems.canToggle = true;
 			});  // end animate

@@ -62,6 +62,11 @@
 	padding-right: 3px;
 }
 
+.tm-active {
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}
+
 /* Just while there's a dropdown */
 .top-menu>div {
 	background-color: inherit;
