@@ -16,7 +16,7 @@ DONE:
 <html>
 <head>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
-	<link href="menuitems.css" rel="stylesheet" type="text/css" />
+	<link href="sidebar.css" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
 	<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
@@ -25,92 +25,65 @@ DONE:
 	<script type="text/javascript" src="visualizer.js"></script>
 	<script type="text/javascript" src="menuitems.js"></script>
 <!-- ***** setup.js is at the bottom past </body> ***** -->
-	<title>qromp</title>
-	<!-- knod: I suggest a different title, something more descriptive -->
-	<!-- Quantum computer simulator and reference -->
+	<title>qromp - learnable quantum programming</title>
 </head>
 <body>
-	<div id="header">
-	  	<div id="banner">
-		  	<div id="title"><a>qromp</a></div>
-		  	<div id="tagline">visible quantum computing</div>
-	  	</div><!--
-	--><div id="menuContainer">
-		  	<div id="menu">
-			  	<!-- knod: A home button? -->
-				<!-- <div class="top-menu"><a>simulator</a></div> --><!--
-				--><div class="top-menu">
-					<!-- Kept these inner divs around -->
-					<!-- Otherwise it'll be a pain in the but
-					if we ever want to go back to the way it was -->
-					<div id="help-menu" class="tm-item"><a>help</a></div>
-				</div><!--
-				--><div class="top-menu">
-					<div id="alt-menu" class="tm-item"><a>alt</a></div>
-				</div><!--
-				--><div class="top-menu">
-					<div id="examples-menu" class="tm-item"><a>examples</a></div>
-				</div><!--
-				--><div class="top-menu">
-					<div id="lessons-menu" class="tm-item"><a>lessons</a></div>
-				</div><!--
-				--><div class="top-menu tm-right">
-					<div id="about-menu" class="tm-item"><a>about</a></div>
-				</div>
-		  	</div>
-	  	</div>
-  	</div>
-  	<div id="panes">
-  		<!-- Simulator -->
-	  	<div id="app" class="pane">
-		  	<div id="REPL">
-		  		<div id="visualizer">
-		  			<div id="visualizer-buffer">
-			  			<div id="qubitElements"></div>
-			  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="9" value="1" type="number"></span>
-			  		</div>
+	<div id="app">
+	  	<div id="REPL">
+	  		<div id="visualizer">
+	  			<div id="visualizer-buffer">
+		  			<div id="qubitElements"></div>
+		  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="10" value="1" type="number"></span>
 		  		</div>
-		  	 	<div id="editor">
-			  		<div id="scrollable-area">
-				  		<div id="textInput">
-			  	 			<div id="top-ribbon"></div>
-		  					<div id="num-gutter"></div>
-				  			<div id="row-num-col"><div class="num-row"></div></div>
-				  			<div id="text-areas"><textarea class="text-row"></textarea></div>
-				  	 	</div>
-				  	</div>
-			  		<div id="reference">tbd</div><!--
-			  		--><div id="ace"></div><!--
-			  		--><div id="editor-footer">
-			  			<button id="evaluate">Evaluate</button>
-			  		</div>
-			  	</div>
-			</div>
-			<div id="diagram">
-				<div id="partsBin"></div><!--
-			 --><div id="circuit"></div>
-			</div>
-	    </div>
-	    <!-- Lessons -->
-	    <div id="lessons-pane" class="pane not-sim">Lessons</div>
-	    <!-- Editor -->
-	    <div id="examples-pane" class="pane not-sim">
-	    	Examples
-	    	<br>
-	    	<ul class="examples">
-			 	<li>((u-theta 0.6 0))</li>
-				<li>((u-theta 0.8 0))</li>
-				<li>((u-theta 1.6 0))</li>
-				<li>((u-theta 2.3 0))</li>
-			</ul>
-	    </div>
+	  		</div>
+	  	 	<div id="editor">
+	  	 		<div id="codeArea"></div>
+	  	 		<button id="evaluate">Evaluate</button>
+	  	 	</div>
+		</div>
+		<div id="diagram">
+			<div id="partsBin"></div><!--
+		 --><div id="circuit"></div>
+		</div>
 	</div>
-
-    <!-- Sources (1), need styles in the DOM to access them -->
-    <div id="styles">
-    	<div class="active-border active-row"></div>
-    	<div class="inactive-border active-num"></div>
-    </div>
+	<div id="sidebar">
+		<div id="header">
+			<div id="title">qromp</div>
+			<div id="tagline">learnable quantum programming</div>
+		</div>
+		<div id="guide">
+			<div id="getting-started">
+				<div class="guide-label">getting started</div>
+				<div class="guide-content">
+					Getting started tutorial
+				</div>
+			</div>
+			<div id="examples">
+				<div class="guide-label">examples</div>
+				<div class="guide-content">
+					List of examples
+				</div>
+			</div>
+			<div id="reference">
+				<div class="guide-label">reference</div>
+				<div class="guide-content">
+					Mostly gibberish, demontrating scroll... dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoia
+				</div>
+			</div>
+			<div id="lessons">
+				<div class="guide-label">lessons</div>
+				<div class="guide-content">
+					Lessons menu
+				</div>
+			</div>
+			<div id="about">
+				<div class="guide-label">about</div>
+				<div class="guide-content">
+					qromp was created by Omri, Seth, and Knod
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 	<!-- Everything except setup.js works at the top, not sure

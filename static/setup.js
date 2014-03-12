@@ -5,7 +5,6 @@
 * Perhaps other "pages" too in future
 * 
 * Sources:
-* 1. http://stackoverflow.com/questions/11978174/read-a-css-property-of-a-not-yet-added-to-the-dom-div
 * 
 * TODO:
 * ---	General		---
@@ -54,28 +53,14 @@ var evaluate = document.getElementById("evaluate")
 	// , qubitAttr;
 	;
 
-// The hard coded colors and other properties used in the doc
-var props = {
-	activeText: null
-	, activeNum: null
-	, activeBorder: null
-	, inactiveBorder: null
-};
-
 $(document).ready(function() {
 	// *** SETUP ***\\
-	// Initialize properties to match current styles
-	// Sources (1)
-	props.activeText = $(".active-row").css("background-color");
-	props.activeNum = $(".active-num").css("background-color");
-	props.activeBorder = $(".active-border").css("border");
-	props.inactiveBorder = $(".inactive-border").css("border");
 
 	// We will temporarily solve necessity for uninstantiated
 	// globas by also putting init in here so they
 	// actually get defined on doc ready
 	evaluate = document.getElementById("evaluate");
-	editor = ace.edit("ace");
+	editor = ace.edit("codeArea");
 	qubits = [];
 	var $qubitsInput = $("#qubitsInput");
 
@@ -84,6 +69,16 @@ $(document).ready(function() {
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
+
+	$(".guide-label").click(function() {
+		var $this = $(this),
+			$content = $this.siblings();
+		if (!$this.hasClass("open")){
+			$(".open").removeClass("open").siblings().slideToggle();
+			$this.addClass("open");
+			$content.slideToggle();
+		}
+	});
 
 	// Display the images for the changed number of qubits
 	$qubitsInput.change(function() {

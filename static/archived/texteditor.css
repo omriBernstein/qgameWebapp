@@ -1,0 +1,103 @@
+/*#editor {
+	overflow: hidden;
+	border: 1px solid #dddddd;
+	/* Is box-sizing needed? */
+	/*-webkit-box-sizing: border-box;*/ /* Safari/Chrome, other WebKit */
+	/*-moz-box-sizing: border-box;*/    /* Firefox, other Gecko */
+	/*box-sizing: border-box;*/         /* Opera/IE 8+ */
+/*}*/
+
+			/* knod's reference: */
+			/*#reference {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}*/
+
+#scrollable-area {
+	/* em means on cmd+ eval button still has room, I think */
+	/* Nope, percent worked just as well */
+	height: 43.6em; /* Space left for evaluate at bottom */
+	overflow: auto;
+	/* Puts #reference in the right place */
+	/* See #qubitElements notes */
+	position: relative;
+	z-index: 10;
+	/* For ace version */
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	width: 100%; /* For when it expands */
+	/*background: lightblue;*/
+}
+
+#textInput {
+	position: relative; /* Without this, #num-gutter extends to bottom (why?)*/
+	width: 100%;
+	/*border-bottom: 1px solid #dddddd;*/
+	overflow: hidden;
+	min-height: 100%;
+	width: 100%;
+}
+
+#textInput>div {
+	font-size: 15px;
+}
+
+#num-gutter {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 22px; /*Must be same as #row-num-col*/
+	height: 100%;
+	background: #f0f0f0;
+	z-index: -1; /*Somehow this works even though sibs have no position:absolute*/
+}
+
+#row-num-col {
+	width: 22px; /*Must be same as #num-gutter*/
+	float: left;
+}
+
+#text-areas {
+	overflow: hidden;
+}
+
+.num-row {
+	text-align: right;
+	/*padding: 1px 4px 1px 0;*/
+	/* For ace version */
+	background: #dcdcdc;
+	width: 100%;
+}
+
+/* .text-row's are textareas */
+.text-row {
+	outline: none;
+	display: block;
+	/*padding: 1px 6px;*/
+	width: 100%;
+	font-size: 15px;
+	border: none;
+	resize: none;
+	/* Maybe we should make this for all textareas. Will there be others? */
+	/* Sources (2) */
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	/* For ace version */
+	background: #f0f0f0;
+	color: rgb(0, 0, 0);
+	cursor: text;
+	display: block;
+	font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	height: 16px;
+	line-height: normal;
+	white-space: nowrap;
+	width: auto;
+}
