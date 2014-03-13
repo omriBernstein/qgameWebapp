@@ -4,7 +4,6 @@
 	<link href="styles.css" rel="stylesheet" type="text/css" />
 	<link href="sidebar.css" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
 	<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
 	<script type="text/javascript" src="qromp.js"></script>
@@ -17,9 +16,11 @@
 	  	<div id="REPL">
 	  		<div id="visualizer">
 	  			<div id="visualizer-buffer">
-		  			<div id="qubitElements"></div>
-		  			<span id="numQubits">Number of qubits: <input id="qubits-input" min="1" max="10" value="1" type="number"></span>
+		  			<span id="numQubits">qubits</span>
+		  			<div id="remove-qubit">-</div>
+		  			<div id="add-qubit">+</div>
 		  		</div>
+		  		<div id="qubitElements"></div>
 	  		</div>
 	  	 	<div id="editor">
 	  	 		<div id="codeArea"></div>

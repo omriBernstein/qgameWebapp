@@ -16,11 +16,10 @@
 
 $(document).ready(function() {
 	// *** SETUP ***\\
-	var $qubitsInput = $("#qubits-input"),
-		editor = ace.edit("codeArea");
+	var editor = ace.edit("codeArea");
 
 	// --- Visualizer --- \\
-	vis.positionQubits([]);
+	new Qubit;
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
@@ -33,37 +32,31 @@ $(document).ready(function() {
 		}
 	});
 
-	// On editor or qubits-input change, run qromp with the values of both inputs and a callback to render the results
+	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results
 
-	editor.getSession().on('change', function() {
-	    try {
-	    	evaluate($qubitsInput.val(), editor.getValue(), function(qubitStates) {
-		    	vis.positionQubits(qubitStates);
-		    });
-	    } catch (e) {
-	    	var qubitStates = [],
-	    		numQubits = $qubitsInput.val();
-	    	for (var i = 0; i < numQubits; i++){
-	    		qubitStates[i] = vis.defaultQubit;
-	    	}
-	    	vis.positionQubits(qubitStates);
-	    	//maybe put a little warning icon in the editor
-	    }  
-	});
-
-	$qubitsInput.keyup(function() {
+	function safeEvaluate() {
 		try {
-	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
-		    	vis.positionQubits(a);
+	    	evaluate(qubits.length, editor.getValue(), function(qubitStates) {
+		    	qubits.update(qubitStates);
 		    });
+		    $("#qubitElements").css({"opacity": 1});
 	    } catch (e) {
-	    	var qubitStates = [],
-	    		numQubits = $qubitsInput.val();
-	    	for (var i = 0; i < numQubits; i++){
-	    		qubitStates[i] = vis.defaultQubit;
-	    	}
-	    	vis.positionQubits(qubitStates);
+	    	$("#qubitElements").css({"opacity": .25});
+	    	qubits.reset();
+	    	qubits.render();
 	    	//maybe put a little warning icon in the editor
 	    } 
+	}
+
+	editor.getSession().on('change', safeEvaluate);
+
+	$("#add-qubit").click(function() {
+		new Qubit;
+		safeEvaluate();
+	});
+
+	$("#remove-qubit").click(function() {
+		qubits.pop();
+		safeEvaluate();
 	});
 });
