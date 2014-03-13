@@ -37,11 +37,10 @@ body {
 }
 
 #app {
-	position: relative; 
-	float: right;
-	overflow: hidden;
+	position: relative;
+	float: left;
 	width: 60rem;
-	margin-left: 1rem;
+	margin-right: 1rem;
 	margin-top: 2rem;
 }
 
