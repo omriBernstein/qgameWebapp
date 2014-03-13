@@ -80,15 +80,6 @@ body {
 	padding-right: .6rem !important;
 }
 
-#evaluate {
-	position: absolute;
-	border: 0;
-	cursor: pointer;
-	bottom: 0;
-	right: 0;
-	z-index: 10;
-}
-
 /*--- Visualizer ---*/
 #visualizer {
 	/* positions #qubitElements correctly*/

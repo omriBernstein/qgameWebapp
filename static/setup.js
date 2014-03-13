@@ -2,86 +2,56 @@
 * Created by: 
 * Date:
 * Event listeners and main functions to run simulator
-* Perhaps other "pages" too in future
 * 
 * Sources:
 * 
 * TODO:
-* ---	General		---
-* - Why isn't everything in $(document).ready()?
 * - Add comments on functionality
-* - Evaluate then refocus
-* - Take away error message on empty editor? (not
-* crucial, doesn't stop functionality)
-* - Experiment with moving script calls around till we find
-* the culprit
-* - Retry enclosing the generated code
-* - Everything happens on one page (no need for link to
-* "home page", instead can press 'x' or 'back')
-* 
-* ---	Visualizer	---
-* 
+* - Store last successful editor value
+*   - in qromp, treat blank editor as okay
+*
 * DONE:
 * 
 */
 
-// Elements requested before document ready may not
-// always be found, but I see that you wanted global
-// vars. There's another way to do that, and I'll
-// implement it, but it can be better to keep vars
-// out of global scope for human readability
-
-// Also because var names like "evaluate"
-// could very easily be accidentally overriden.
-// I can do it another way with an initializing
-// function or something if they're not used in
-// other scripts
-
-// *** SETUP *** \\
-// --- Visualizer? --- \\
-// - Global vars - \\
-// qromp.js uses these, can't have a namespace atm
-// evaluate must be a DOM object, not a $ collection
-var evaluate = document.getElementById("evaluate")
-	// , $qubitsInput = $("#qubitsInput")
-	// Only visualizer.js needed this, it can fetch it
-	// , $qubitElements = $("#qubitElements")
-	, editor = null
-	, qubits = null // used in qrompsimple.js, I believe
-	// Moved to visualizer.js enclosure vis
-	// , defaultQubit = {DOWN: {phase: 0, prob: 0}, UP: {phase: 0, prob: 1}}
-	// , qubitAttr;
-	;
-
 $(document).ready(function() {
 	// *** SETUP ***\\
-
-	// We will temporarily solve necessity for uninstantiated
-	// globas by also putting init in here so they
-	// actually get defined on doc ready
-	evaluate = document.getElementById("evaluate");
-	editor = ace.edit("codeArea");
-	qubits = [];
-	var $qubitsInput = $("#qubitsInput");
+	var $qubitsInput = $("#qubits-input"),
+		editor = ace.edit("codeArea");
 
 	// --- Visualizer --- \\
-	vis.positionQubits($qubitsInput.val());
+	vis.positionQubits([]);
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
 
 	$(".guide-label").click(function() {
-		var $this = $(this),
-			$content = $this.siblings();
+		var $this = $(this);
 		if (!$this.hasClass("open")){
 			$(".open").removeClass("open").siblings().slideToggle();
-			$this.addClass("open");
-			$content.slideToggle();
+			$this.addClass("open").siblings().slideToggle();
 		}
 	});
 
-	// Display the images for the changed number of qubits
-	$qubitsInput.change(function() {
-		vis.positionQubits($qubitsInput.val());
+	// On editor or qubits-input change, run qromp with the values of both inputs and a callback to render the results
+
+	editor.getSession().on('change', function() {
+	    try {
+	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
+		    	vis.positionQubits(a);
+		    });
+	    } catch (e) {
+	    	//maybe put a little warning icon in the editor
+	    }  
+	});
+
+	$qubitsInput.keyup(function() {
+		try {
+	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
+		    	vis.positionQubits(a);
+		    });
+	    } catch (e) {
+	    	//maybe put a little warning icon in the editor
+	    } 
 	});
 });

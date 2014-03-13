@@ -1,17 +1,3 @@
-<!-- 
-Created by: 
-Date created: 
-Visual representation of quantum computing functions
-
-Sources:
-1. http://stackoverflow.com/questions/11978174/read-a-css-property-of-a-not-yet-added-to-the-dom-div
-
-TODO:
-Test moving script references to top
-
-DONE:
- -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +7,9 @@ DONE:
 	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
 	<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
-	<script type="text/javascript" src="qrompsimple.js"></script>
+	<script type="text/javascript" src="qromp.js"></script>
 	<script type="text/javascript" src="visualizer.js"></script>
-	<script type="text/javascript" src="menuitems.js"></script>
-<!-- ***** setup.js is at the bottom past </body> ***** -->
+	<script type="text/javascript" src="setup.js"></script>
 	<title>qromp - learnable quantum programming</title>
 </head>
 <body>
@@ -33,17 +18,16 @@ DONE:
 	  		<div id="visualizer">
 	  			<div id="visualizer-buffer">
 		  			<div id="qubitElements"></div>
-		  			<span id="numQubits">Number of qubits: <input id="qubitsInput" min="1" max="10" value="1" type="number"></span>
+		  			<span id="numQubits">Number of qubits: <input id="qubits-input" min="1" max="10" value="1" type="number"></span>
 		  		</div>
 	  		</div>
 	  	 	<div id="editor">
 	  	 		<div id="codeArea"></div>
-	  	 		<button id="evaluate">Evaluate</button>
 	  	 	</div>
 		</div>
 		<div id="diagram">
-			<div id="partsBin"></div><!--
-		 --><div id="circuit"></div>
+			<div id="partsBin"></div>
+			<div id="circuit"></div>
 		</div>
 	</div>
 	<div id="sidebar">
@@ -67,7 +51,7 @@ DONE:
 			<div id="reference">
 				<div class="guide-label">reference</div>
 				<div class="guide-content">
-					Mostly gibberish, demontrating scroll... dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoia
+					Mostly gibberish, demonstrating scroll... dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh daisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoiawhe h saaidjh aslkdhc .ashd fk ashd lahd ;aids fjkah scivuyge hf adsfijhaslkd haldskfh asdiuf kajs hdlkjf ahdlkfh aius dfkjahsd fkjashd lfkashd fiasd fkjasdh flkashd fk jagdlkjah dlkfjha sdlkf adsf aklsdjhf kh dlkajshd f kjha kdsjfh aksdjf liasdfasd kfh ailsd flkjhdvk jhasldiufh kb aisdh kjh vkla ljashd iv ivh ihd iah kjasd lfijhsd lviuah kjdh lka jhdsf lkjahsdfkja hsdlaods faskdhoia
 				</div>
 			</div>
 			<div id="lessons">
@@ -85,10 +69,4 @@ DONE:
 		</div>
 	</div>
 </body>
-
-	<!-- Everything except setup.js works at the top, not sure
-	why qrompsimple.js is calling stuff before document is ready -->
-	<!-- <script type="text/javascript" src="texteditor.js"></script> -->
-	<!-- <script type="text/javascript" src="examples.js"></script> -->
-	<script type="text/javascript" src="setup.js"></script>
 </html>

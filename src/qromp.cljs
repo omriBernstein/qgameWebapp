@@ -3,12 +3,10 @@
                                                       execute-string]]
             [qgame.utils.amplitudes :as amps :refer [probability-of
                                                      get-phase-of]]
-            [cljs.reader :as r]
-            [goog.events :as events])) 
+            [cljs.reader :as r])) 
 
-(defn response []
-  (let [num-qubits (r/read-string js/qubitsInput.value)
-        output (->> (js/editor.getValue)
+(defn evaluate [num-qubits input callback]
+  (let [output (->> input
                     r/read-string
                     (qgame/execute-program {:num-qubits num-qubits})
                     first)
@@ -21,9 +19,6 @@
                           up-state-probs
                           up-phases
                           down-phases)]
-    (->> qubit-states
-         clj->js
-         (set! js/qubits))
-    (js/renderQubits)))
+    (callback (clj->js qubit-states))))
 
-(events/listen js/evaluate (.-CLICK events/EventType) response)
+(aset js/window "evaluate" qromp/evaluate)
