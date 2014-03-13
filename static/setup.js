@@ -37,10 +37,16 @@ $(document).ready(function() {
 
 	editor.getSession().on('change', function() {
 	    try {
-	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
-		    	vis.positionQubits(a);
+	    	evaluate($qubitsInput.val(), editor.getValue(), function(qubitStates) {
+		    	vis.positionQubits(qubitStates);
 		    });
 	    } catch (e) {
+	    	var qubitStates = [],
+	    		numQubits = $qubitsInput.val();
+	    	for (var i = 0; i < numQubits; i++){
+	    		qubitStates[i] = vis.defaultQubit;
+	    	}
+	    	vis.positionQubits(qubitStates);
 	    	//maybe put a little warning icon in the editor
 	    }  
 	});
@@ -51,6 +57,12 @@ $(document).ready(function() {
 		    	vis.positionQubits(a);
 		    });
 	    } catch (e) {
+	    	var qubitStates = [],
+	    		numQubits = $qubitsInput.val();
+	    	for (var i = 0; i < numQubits; i++){
+	    		qubitStates[i] = vis.defaultQubit;
+	    	}
+	    	vis.positionQubits(qubitStates);
 	    	//maybe put a little warning icon in the editor
 	    } 
 	});
