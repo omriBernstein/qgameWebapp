@@ -13,27 +13,46 @@
 
 var qubits = [];
 
-qubits.render = function() {
-	var numQubits = this.length,
-		$visualizer = $("#visualizer"),
-		visHeight = $visualizer.height(),
-		visWidth = $visualizer.width(),
-		angle = 360 / numQubits;
-	if(numQubits > 1){
-		var percentOfVis = 0.8,
-			C = Math.cos(Math.PI / 2 - Math.PI / numQubits),
-			theta = Math.PI / 2 - (Math.PI / 2) / numQubits,
-			sqrt2 = Math.sqrt(2),
-			offsetHeight = visHeight * percentOfVis / ((numQubits % 2 === 0) ? (sqrt2 * C + 2) : (C * (Math.tan(theta) + sqrt2))),
-			offsetWidth = visWidth * percentOfVis / ((numQubits % 2 === 0) ? (sqrt2 * C + 2) : (C * ((1 / Math.cos(theta)) + sqrt2))),
-			offset = offsetWidth < offsetHeight ? offsetWidth : offsetHeight,
-			size = sqrt2 * C * offset;
+qubits.arrange = function(percentMargin, percentSpacing) {
+	var percentMargin = percentMargin || .8,
+		percentSpacing = percentSpacing || .1,
+		n = this.length,
+		limitingDim = Math.min($visualizer.height(), $visualizer.width()),
+		dim = percentMargin * limitingDim;
+	if (n === 1) {
+		var size = dim * (1 - 2 * percentSpacing);
+		this[0].render(size);
+	} else if (n%2 === 0) {
+		var size = 2 * dim / (n * (percentSpacing + 1) + 2),
+			radius = (dim - size) / 2;
+		this.render(size, radius);
 	} else {
-		var offset = 0,
-			size = visHeight / 2;
+		var theta = Math.PI/2 - Math.PI / n,
+			psi = Math.PI/2 - Math.PI/2 / n,
+			phi = Math.PI / n,
+			Ctheta = Math.cos(theta),
+			Cpsi = Math.cos(psi),
+			Sphi = Math.sin(phi),
+			radius = Cpsi / Ctheta * (dim * (percentSpacing + 1) / Sphi - 1),
+			size = radius * Sphi * Ctheta / Cpsi,
+			yOffset = radius + (size - dim) / 2;
+		this.render(size, radius, yOffset);
 	}
-	for (var i = 0; i < numQubits; i++){
-		this[i].render(angle, offset, size, i);
+}
+
+qubits.render = function(size, radius, yOffset) {
+	var radius = radius || 0,
+		numQubits = this.length;
+	if (yOffset) {
+		$("#qubitsElements").css({"margin-top": yOffset / rem + "rem"});
+	}
+	for (var i = 0, angle = 180; i < numQubits; i++, angle += 360 / numQubits){
+		this[i].render(size).css({
+			"-webkit-transform": "translate(-50%, -50%) rotate(" +
+			angle + "deg) translateY(" +
+			radius / rem + "rem) rotate(-" +
+			angle + "deg)"
+		});
 	}
 }
 
@@ -76,19 +95,17 @@ function Qubit(qubitState) {
 		this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'><div class='up-prob'></div><div class='down-prob'></div></div>");
 		$("#qubitElements").append(this.$div);
 		qubits.push(this);
-		qubits.render();
+		qubits.arrange();
 	}
 }
 
-Qubit.prototype.render = function(angle, offset, size, index) {
+Qubit.prototype.render = function(size) {
 	this.$div.css({
-		"width": size + "px",
-		"height": size + "px",
-		"-webkit-transform": "translate(-50%, -50%) rotate(" +
-			(angle * index + 180) + "deg) translateY(" +
-			offset + "px) rotate(-" +
-			(angle * index + 180) + "deg)"
+		"width": (size / rem) + "rem",
+		"height": (size / rem) + "rem",
+		"-webkit-transform": "translate(-50%, -50%)"
 	}).children(".up-prob").css({"height": this.UP.prob * 100 + "%"});
+	return this.$div;
 }
 
 Qubit.prototype.reset = function() {

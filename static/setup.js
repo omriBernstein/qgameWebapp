@@ -16,7 +16,11 @@
 
 $(document).ready(function() {
 	// *** SETUP ***\\
-	var editor = ace.edit("codeArea");
+	var editor = ace.edit("codeArea"),
+		$guideMenu = $("#guide-menu"),
+		$guideItem = $("#guide-item");
+	window.rem = parseInt($("html").css("font-size"));
+	window.$visualizer = $("#visualizer");
 
 	// --- Visualizer --- \\
 	new Qubit;
@@ -24,12 +28,15 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 
-	$(".guide-label").click(function() {
-		var $this = $(this);
-		if (!$this.hasClass("open")){
-			$(".open").removeClass("open").siblings().slideToggle();
-			$this.addClass("open").siblings().slideToggle();
-		}
+	$(".guide-link").click(function() {
+		var $target = $($(this).attr("data-href"));
+		$guideMenu.addClass("hidden");
+		$guideItem.removeClass("hidden");
+	});
+	
+	$("#guide-back").click(function() {
+		$guideMenu.removeClass("hidden");
+		$guideItem.addClass("hidden");
 	});
 
 	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results
@@ -43,7 +50,7 @@ $(document).ready(function() {
 	    } catch (e) {
 	    	$("#qubitElements").css({"opacity": .25});
 	    	qubits.reset();
-	    	qubits.render();
+	    	qubits.arrange();
 	    	//maybe put a little warning icon in the editor
 	    } 
 	}
