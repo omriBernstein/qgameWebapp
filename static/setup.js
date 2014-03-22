@@ -29,14 +29,25 @@ $(document).ready(function() {
 	// *** EVENT LISTENERS ***\\
 
 	$(".guide-link").click(function() {
-		var $target = $($(this).attr("data-href"));
+		var $target = $($(this).data("href"));
 		$guideMenu.addClass("hidden");
 		$guideItem.removeClass("hidden");
+		//load the appropriate content here
 	});
 	
 	$("#guide-back").click(function() {
 		$guideMenu.removeClass("hidden");
 		$guideItem.addClass("hidden");
+	});
+	
+	$("#reference-handle").click(function() {
+		var $this = $(this);
+		if (!$this.hasClass("flip-h")){
+			$this.addClass("flip-h").parent().addClass("open").siblings().addClass("narrow");
+		} else {
+			$this.removeClass("flip-h").parent().removeClass("open").siblings().removeClass("narrow");
+		}
+		setTimeout(function() {editor.resize();}, 400);
 	});
 
 	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<link href="icons/qromp-icons.css" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
@@ -23,20 +24,23 @@
 		</div>
 	</div>
 	<div id="app">
-	  	<div id="REPL">
-	  		<div id="editor">
-	  	 		<div id="reference"></div>
-	  	 		<div id="codeArea"></div>
-	  	 	</div>
-	  		<div id="visualizer">
-	  			<div id="visualizer-buffer">
-		  			<span id="numQubits">qubits</span>
-		  			<div id="remove-qubit">-</div>
-		  			<div id="add-qubit">+</div>
-		  		</div>
-		  		<div id="qubitElements"></div>
+  		<div id="editor">
+  	 		<div id="reference">
+	  	 		<div id="reference-content">
+		  	 		<h3>reference</h3>
+	  	 		</div><!--
+	  	 	 --><div class="button" id="reference-handle"><i class="icon icon-arrow"></i></div>
+  	 		</div><!--
+  	 	 --><div id="codeArea"></div>
+  	 	</div><!-- 		
+	 --><div id="visualizer">
+  			<div id="visualizer-buffer">
+	  			<span id="numQubits">qubits</span>
+	  			<div class="button" id="remove-qubit">-</div>
+	  			<div class="button" id="add-qubit">+</div>
 	  		</div>
-		</div>
+	  		<div id="qubitElements"></div>
+  		</div>
 		<div id="diagram">
 			<div id="partsBin"></div>
 			<div id="circuit"></div>
@@ -45,19 +49,19 @@
 	<div id="guide">
 		<div id="guide-menu">
 			<h1>lessons</h1>
-			<a class="guide-link" data-href="#l-getting-started">getting started</a>
-			<a class="guide-link" data-href="#l-quantum-computers">on quantum computers</a>
-			<a class="guide-link" data-href="#l-qubits">on qubits</a>
-			<a class="guide-link" data-href="#l-quantum-gates">on quantum gates</a>
-			<a class="guide-link" data-href="#l-oracles">on oracles</a>
-			<a class="guide-link" data-href="#l-grovers-algorithm">Grover's algorithm</a>
+			<a class="guide-link button" data-href="#l-getting-started">getting started</a>
+			<a class="guide-link button" data-href="#l-quantum-computers">on quantum computers</a>
+			<a class="guide-link button" data-href="#l-qubits">on qubits</a>
+			<a class="guide-link button" data-href="#l-quantum-gates">on quantum gates</a>
+			<a class="guide-link button" data-href="#l-oracles">on oracles</a>
+			<a class="guide-link button" data-href="#l-grovers-algorithm">Grover's algorithm</a>
 			<h1>examples</h1>
-			<a class="guide-link" data-href="#e-deutsch-jozsa-algorithm">Deutsch-Jozsa algorithm</a>
-			<a class="guide-link" data-href="#e-grovers-algorithm">Grover's algorithm</a>
-			<a class="guide-link" data-href="#e-shors-algorithm">Shor's algorithm</a>
+			<a class="guide-link button" data-href="#e-deutsch-jozsa-algorithm">Deutsch-Jozsa algorithm</a>
+			<a class="guide-link button" data-href="#e-grovers-algorithm">Grover's algorithm</a>
+			<a class="guide-link button" data-href="#e-shors-algorithm">Shor's algorithm</a>
 		</div>
 		<div class="hidden" id="guide-item">
-			<a id="guide-back">&lt; lessons & examples</a>
+			<a class="button" id="guide-back"><i class="icon icon-arrow flip-h"></i> lessons & examples</a>
 			<h2 id="guide-item-title">getting started</h2>
 			<div id="#l-getting-started">
 				Welcome to qromp, a quantum programming environment designed to help you learn all about stuff...

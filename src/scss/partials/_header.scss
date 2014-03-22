@@ -1,0 +1,30 @@
+/*--- Header ---*/
+
+#banner {
+	width: 50%;
+	display: inline-block;
+}
+
+#title {
+	font-size: 3.6rem;
+	line-height: 4.4rem;
+	color: $title;
+}
+
+#tagline {
+	font-size: 1.4rem;
+	margin-left: 1rem;
+	font-weight: 300;
+}
+
+#header-menu {
+	width: 50%;
+	display: inline-block;
+	font-size: 1.6rem;
+	text-align: right;
+	> span {
+		padding-left: 2rem;
+		text-decoration: underline;
+		font-weight: 300;
+	}
+}

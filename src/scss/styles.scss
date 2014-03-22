@@ -1,0 +1,45 @@
+/*--- Browser prefixins ---*/
+
+@mixin transition($arguments...) {
+	-webkit-transition: $arguments;
+	transition: $arguments;
+}
+
+@mixin transform($arguments...) {
+	-webkit-transform: $arguments;
+	-ms-transform: $arguments;
+	transform: $arguments;
+}
+
+@mixin box-sizing($argument) {
+	-webkit-box-sizing: $argument;
+	-moz-box-sizing: $argument;
+	box-sizing: $argument;
+}
+
+/*--- Colors ---*/
+
+$text : #424242;
+
+$header-back : #F5F5F5;
+
+$border-grey : #DDDDDD;
+
+$title : #5B388B;
+
+$light-back : #F3EAFF;
+$medium-back : desaturate(darken($light-back, 6), 64);
+
+$button-text: #FFF;
+$button-back : #9986B3;
+$button-back-hover: #BDA9D8;
+
+
+/*--- Partial stylesheets ---*/
+
+@import "partials/global";
+@import "partials/header";
+@import "partials/guide";
+@import "partials/editor";
+@import "partials/visualizer";
+@import "partials/diagram";

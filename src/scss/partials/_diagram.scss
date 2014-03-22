@@ -1,0 +1,7 @@
+/*--- Diagram ---*/
+
+#diagram {
+	height: 20rem;
+	border: 1px solid $border-grey;
+	@include box-sizing(border-box);
+}
