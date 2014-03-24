@@ -1,18 +1,21 @@
+/*--- Constants ---*/
+
+$reference-width : 14.5rem;
+
 /*--- Editor ---*/
 
 #editor {
 	height: 40rem;
-	width: 28.5rem;
-	display: inline-block;
-	border: 1px solid $border-grey;
+	border: 1px solid $border-gray;
 	margin-bottom: 1rem;
+	position: relative;
 	overflow: hidden;
 	@include box-sizing(border-box);
 }
 
 #reference {
 	display: inline-block;
-	width: 14.5rem;
+	width: $reference-width;
 	height: 100%;
 	margin-left: -13.1rem;
 	vertical-align: top;
@@ -36,12 +39,17 @@
 }
 
 #codeArea { 
-	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 1.4rem;
+	border-right: 1.4rem solid #FFF;
+	@include box-sizing(border-box);
 	height: 100%;
-	width: 26.9rem;
-	@include transition(width .4s ease);
+	width: 100%;
+	@include transition(left .4s ease, border-right-width .4s ease);
 	&.narrow {
-		width: 13.8rem;
+		left: $reference-width;
+		border-right-width: $reference-width;
 	}
 }
 

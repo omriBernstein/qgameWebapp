@@ -2,12 +2,12 @@
 
 #visualizer {
 	position: relative;
-	display: inline-block;
+	float: right;
 	overflow: hidden;
 	width: 40rem;
 	height: 40rem;
 	background-color: $light-back;
-	margin-left: 1rem;
+	margin: 0 0 1rem 1rem;
 }
 
 #visualizer-buffer {

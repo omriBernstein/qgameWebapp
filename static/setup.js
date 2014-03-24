@@ -47,7 +47,8 @@ $(document).ready(function() {
 		} else {
 			$this.removeClass("flip-h").parent().removeClass("open").siblings().removeClass("narrow");
 		}
-		setTimeout(function() {editor.resize();}, 400);
+		var animate = setInterval(function() {editor.resize();}, 20);
+		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
 	});
 
 	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results

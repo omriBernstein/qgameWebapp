@@ -14,7 +14,7 @@
 var qubits = [];
 
 qubits.arrange = function(percentMargin, percentSpacing) {
-	var percentMargin = percentMargin || .8,
+	var percentMargin = percentMargin || .9,
 		percentSpacing = percentSpacing || .1,
 		n = this.length,
 		limitingDim = Math.min($visualizer.height(), $visualizer.width()),
@@ -22,30 +22,17 @@ qubits.arrange = function(percentMargin, percentSpacing) {
 	if (n === 1) {
 		var size = dim * (1 - 2 * percentSpacing);
 		this[0].render(size);
-	} else if (n%2 === 0) {
-		var size = 2 * dim / (n * (percentSpacing + 1) + 2),
+	} else {
+		var size = 225 / Math.pow(n, .6),
 			radius = (dim - size) / 2;
 		this.render(size, radius);
-	} else {
-		var theta = Math.PI/2 - Math.PI / n,
-			psi = Math.PI/2 - Math.PI/2 / n,
-			phi = Math.PI / n,
-			Ctheta = Math.cos(theta),
-			Cpsi = Math.cos(psi),
-			Sphi = Math.sin(phi),
-			radius = Cpsi / Ctheta * (dim * (percentSpacing + 1) / Sphi - 1),
-			size = radius * Sphi * Ctheta / Cpsi,
-			yOffset = radius + (size - dim) / 2;
-		this.render(size, radius, yOffset);
 	}
 }
 
 qubits.render = function(size, radius, yOffset) {
 	var radius = radius || 0,
 		numQubits = this.length;
-	if (yOffset) {
-		$("#qubitsElements").css({"margin-top": yOffset / rem + "rem"});
-	}
+	$("#qubitsElements").css({"margin-top": (yOffset || 0) / rem + "rem"});
 	for (var i = 0, angle = 180; i < numQubits; i++, angle += 360 / numQubits){
 		this[i].render(size).css({
 			"-webkit-transform": "translate(-50%, -50%) rotate(" +
@@ -63,7 +50,7 @@ qubits.update = function(qubitStates) {
 		} else {
 			this[i].UP = qubitStates[i].UP;
 			this[i].DOWN = qubitStates[i].DOWN;
-			this.render();
+			this.arrange();
 		}
 	}
 }
@@ -72,7 +59,7 @@ qubits.pop = function() {
 	if (this.length > 1){
 		this[this.length - 1].$div.remove();
 		Array.prototype.pop.call(this);
-		this.render();
+		this.arrange();
 	}
 }
 
