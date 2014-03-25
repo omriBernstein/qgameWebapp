@@ -53,6 +53,11 @@ $(document).ready(function() {
 		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
 	});
 
+	// Knod's addition, 03/25/14
+	$(".example").on("click", function (evt) {
+		editor.getSession().setValue($(this).text());
+	});
+
 	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results
 
 	function safeEvaluate() {
