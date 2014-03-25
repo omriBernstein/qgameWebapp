@@ -18,7 +18,7 @@ $(document).ready(function() {
 	// *** SETUP ***\\
 	var editor = ace.edit("codeArea"),
 		$guideMenu = $("#guide-menu"),
-		$guideItem = $("#guide-item");
+		$guideDetail = $("#guide-detail");
 	window.rem = parseInt($("html").css("font-size"));
 	window.$visualizer = $("#visualizer");
 
@@ -31,14 +31,15 @@ $(document).ready(function() {
 	$(".guide-link").click(function() {
 		var $this = $(this);
 		$guideMenu.addClass("hidden");
-		$guideItem.removeClass("hidden");
+		$guideDetail.removeClass("hidden");
 		$("#guide-item-title").text($this.text());
-		$($("#" + $this.parent().data("section")).children()[$this.prevAll().length]).addClass("current");
+		$($this.data("target")).addClass("current");
 	});
 	
 	$("#guide-back").click(function() {
 		$guideMenu.removeClass("hidden");
-		$guideItem.addClass("hidden").find(".current").removeClass("current");
+		var $current = $guideDetail.addClass("hidden").children(".current");
+		setTimeout(function() {$current.removeClass("current");}, 450)
 	});
 	
 	$("#reference-handle").click(function() {
