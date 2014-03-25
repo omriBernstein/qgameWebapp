@@ -60,9 +60,7 @@ $(document).ready(function() {
 	    	evaluate(qubits.length, editor.getValue(), function(qubitStates) {
 		    	qubits.update(qubitStates);
 		    });
-		    $("#qubitElements").css({"opacity": 1});
 	    } catch (e) {
-	    	$("#qubitElements").css({"opacity": .5});
 	    	qubits.reset();
 	    	qubits.render();
 	    	//maybe put a little warning icon in the editor

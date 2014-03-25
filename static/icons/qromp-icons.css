@@ -18,3 +18,11 @@
 .icon-arrow:before {
   content: "\f000";
 }
+
+.icon-qubit:before {
+  content: "\f001";
+}
+
+.icon-angle:before {
+  content: "\f002";
+}
