@@ -17,6 +17,13 @@
 	box-sizing: $argument;
 }
 
+@mixin user-select($argument) {
+	-webkit-user-select: $argument;      
+	-moz-user-select: $argument;
+	-ms-user-select: $argument;
+	user-select: $argument;
+}
+
 /*--- Colors ---*/
 
 $text : #424242;

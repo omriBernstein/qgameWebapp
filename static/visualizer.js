@@ -36,11 +36,11 @@ qubits.render = function() {
 		}
 	}
 	$("#qubitElements").css({"margin-top": (yOffset || 0) / rem + "rem"});
-	for (var i = 0, angle = 180; i < n; i++, angle += 360 / n){
+	for (var i = 0, angle = 0; i < n; i++, angle += 360 / n){
 		this[i].render(.8 * size).css({
-			"-webkit-transform": "translate(-50%, -50%) rotate(" +
+			"transform": "translate(-50%, -50%) rotate(" +
 			angle + "deg) translateY(" +
-			radius / rem + "rem)"
+			-radius / rem + "rem)"
 		});
 	}
 }
@@ -81,7 +81,12 @@ function Qubit(qubitState) {
 			this.DOWN = {prob: 0, phase: 0};
 		}
 		this.label = qubits.length;
-		this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'><div class='up-prob'></div><div class='down-prob'></div></div>");
+		// One qubit div
+		this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'>"
+			// The orbiting circle divs
+			+ "<div class='circle up-phase'></div><div class='circle down-phase'></div>"
+			+ "<div class='up-prob'></div><div class='down-prob'></div>"
+			+ "</div>");
 		$("#qubitElements").append(this.$div);
 		qubits.push(this);
 		qubits.render();
@@ -89,12 +94,21 @@ function Qubit(qubitState) {
 }
 
 Qubit.prototype.render = function(size) {
-	this.$div.css({
+	var $thisDiv = this.$div;
+
+	$thisDiv.css({
 		"width": (size / rem) + "rem",
-		"height": (size / rem) + "rem",
-		"-webkit-transform": "translate(-50%, -50%)"
+		"height": (size / rem) + "rem"
 	}).children(".up-prob").css({"height": this.UP.prob * 100 + "%"});
-	return this.$div;
+	$thisDiv.children(".up-phase").css({"transform":
+		"translate(-50%, -50%) rotate(" + this.UP.phase
+		+ "deg) translateY("
+		+ -(size/2 - .1 * size) / rem + "rem)"});
+	$thisDiv.children(".down-phase").css({"transform":
+		"translate(-50%, -50%) rotate(" + this.DOWN.phase
+		+ "deg) translateY("
+		+ -(size/2 - .1 * size) / rem + "rem)"});
+	return $thisDiv;
 }
 
 Qubit.prototype.reset = function() {
