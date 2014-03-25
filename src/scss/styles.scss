@@ -24,6 +24,12 @@
 	user-select: $argument;
 }
 
+@mixin grab {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
+
 /*--- Colors ---*/
 
 $text : #424242;
@@ -32,7 +38,7 @@ $header-back : #F5F5F5;
 
 $border-gray : #DDDDDD;
 
-$title : #5B388B;
+$vivid : #5B388B;
 
 $light-back : #F3EAFF;
 $medium-back : desaturate(darken($light-back, 6), 64);

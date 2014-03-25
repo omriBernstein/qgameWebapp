@@ -84,7 +84,7 @@ function Qubit(qubitState) {
 		// One qubit div
 		this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'>"
 			// The orbiting circle divs
-			+ "<div class='circle up-phase'></div><div class='circle down-phase'></div>"
+			+ "<div class='circle down-phase'></div><div class='circle up-phase'></div>"
 			+ "<div class='up-prob'></div><div class='down-prob'></div>"
 			+ "</div>");
 		$("#qubitElements").append(this.$div);

@@ -20,6 +20,7 @@ $reference-width : 14.5rem;
 	margin-left: -13.1rem;
 	vertical-align: top;
 	@include transition(margin-left .4s ease);
+	@include user-select(none);
 	&.open {
 		margin-left: 0rem;
 	}
@@ -27,6 +28,35 @@ $reference-width : 14.5rem;
 
 #reference-content {
 	display: inline-block;
+	font-size: 1.4rem;
+}
+
+.reference-line {
+	padding: .1rem .4rem;
+	> div {
+		line-height: 1.8rem;
+		display: inline-block;
+		border-radius: .3rem;
+	}
+	&:hover > .reference-button {
+		opacity: 1;
+	}
+}
+
+.reference-button {
+	text-align: center;
+	vertical-align: top;
+	width: 1.8rem;
+	opacity: 0;
+	@include transition(opacity .2s ease);
+}
+
+.reference-item {
+	background-color: $vivid;
+	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	color: #FFF;
+	padding: 0 .2rem;
+	@include grab;
 }
 
 #reference-handle {
@@ -54,6 +84,10 @@ $reference-width : 14.5rem;
 }
 
 /*--- Ace nonsense ---*/
+
+.ace_gutter {
+	@include user-select(none);
+}
 
 .ace_gutter-cell {
 	padding-left: .6rem !important;

@@ -61,7 +61,7 @@ $(document).ready(function() {
 		    });
 		    $("#qubitElements").css({"opacity": 1});
 	    } catch (e) {
-	    	$("#qubitElements").css({"opacity": .25});
+	    	$("#qubitElements").css({"opacity": .5});
 	    	qubits.reset();
 	    	qubits.render();
 	    	//maybe put a little warning icon in the editor
