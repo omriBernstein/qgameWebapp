@@ -10,13 +10,14 @@
 	&.hidden {
 		right: 100%;
 	}
-	> a {
-		display: block;
-		font-size: 1.6rem;
-		line-height: 3rem;
-		padding-left: .7rem;
-		margin-bottom: .3rem;
-	}
+}
+
+.guide-link {
+	display: block;
+	font-size: 1.6rem;
+	line-height: 3rem;
+	padding-left: .7rem;
+	margin-bottom: .3rem;
 }
 
 #guide-item {
@@ -41,4 +42,11 @@
 	display: block;
 	line-height: 2.5rem;
 	padding: 0 .6rem;
+}
+
+#lessons > div {
+	display: none;
+	&.current {
+		display: block;
+	}
 }

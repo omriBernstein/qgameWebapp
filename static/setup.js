@@ -29,15 +29,16 @@ $(document).ready(function() {
 	// *** EVENT LISTENERS ***\\
 
 	$(".guide-link").click(function() {
-		var $target = $($(this).data("href"));
+		var $this = $(this);
 		$guideMenu.addClass("hidden");
 		$guideItem.removeClass("hidden");
-		//load the appropriate content here
+		$("#guide-item-title").text($this.text());
+		$($("#" + $this.parent().data("section")).children()[$this.prevAll().length]).addClass("current");
 	});
 	
 	$("#guide-back").click(function() {
 		$guideMenu.removeClass("hidden");
-		$guideItem.addClass("hidden");
+		$guideItem.addClass("hidden").find(".current").removeClass("current");
 	});
 	
 	$("#reference-handle").click(function() {
