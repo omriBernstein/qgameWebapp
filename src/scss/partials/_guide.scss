@@ -1,0 +1,52 @@
+/*--- Guide ---*/
+
+#guide-menu {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	right: 0%;
+	overflow-y: auto;
+	@include transition(right .4s ease);
+	&.hidden {
+		right: 100%;
+	}
+}
+
+.guide-link {
+	display: block;
+	font-size: 1.6rem;
+	line-height: 3rem;
+	padding-left: .7rem;
+	margin-bottom: .3rem;
+}
+
+#guide-detail {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	@include transition(left .4s ease);
+	&.hidden {
+		left: 100%;
+	}
+	> div {
+		position: absolute;
+		font-size: 1.4rem;
+		margin: 1rem .8rem 0 .8rem;
+		min-height: 53.3rem;
+	}
+}
+
+#guide-back {
+	font-size: 1.5rem;
+	display: block;
+	line-height: 2.5rem;
+	padding: 0 .6rem;
+}
+
+.guide-item {
+	display: none;
+	&.current {
+		display: block;
+	}
+}

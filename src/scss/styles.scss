@@ -1,0 +1,57 @@
+/*--- Browser prefixins ---*/
+
+@mixin transition($arguments...) {
+	-webkit-transition: $arguments;
+	transition: $arguments;
+}
+
+@mixin transform($arguments...) {
+	-webkit-transform: $arguments;
+	-ms-transform: $arguments;
+	transform: $arguments;
+}
+
+@mixin box-sizing($argument) {
+	-webkit-box-sizing: $argument;
+	-moz-box-sizing: $argument;
+	box-sizing: $argument;
+}
+
+@mixin user-select($argument) {
+	-webkit-user-select: $argument;      
+	-moz-user-select: $argument;
+	-ms-user-select: $argument;
+	user-select: $argument;
+}
+
+@mixin grab {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
+
+/*--- Colors ---*/
+
+$text : #424242;
+
+$header-back : #F5F5F5;
+
+$border-gray : #DDDDDD;
+
+$vivid : #5B388B;
+
+$light-back : #F3EAFF;
+$medium-back : desaturate(darken($light-back, 6), 64);
+
+$button-text: #FFF;
+$button-back : #9986B3;
+$button-back-hover: #BDA9D8;
+
+/*--- Partial stylesheets ---*/
+
+@import "partials/global";
+@import "partials/header";
+@import "partials/guide";
+@import "partials/editor";
+@import "partials/visualizer";
+@import "partials/diagram";

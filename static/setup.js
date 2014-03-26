@@ -16,42 +16,71 @@
 
 $(document).ready(function() {
 	// *** SETUP ***\\
-	var $qubitsInput = $("#qubits-input"),
-		editor = ace.edit("codeArea");
+	var editor = ace.edit("codeArea"),
+		$guideMenu = $("#guide-menu"),
+		$guideDetail = $("#guide-detail");
+	window.rem = parseInt($("html").css("font-size"));
+	window.$visualizer = $("#visualizer");
 
 	// --- Visualizer --- \\
-	vis.positionQubits([]);
+	new Qubit;
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\
 
-	$(".guide-label").click(function() {
+	$(".guide-link").click(function() {
 		var $this = $(this);
-		if (!$this.hasClass("open")){
-			$(".open").removeClass("open").siblings().slideToggle();
-			$this.addClass("open").siblings().slideToggle();
+		$guideMenu.addClass("hidden");
+		$guideDetail.removeClass("hidden");
+		$("#guide-item-title").text($this.text());
+		$($this.data("target")).addClass("current");
+	});
+	
+	$("#guide-back").click(function() {
+		$guideMenu.removeClass("hidden");
+		var $current = $guideDetail.addClass("hidden").children(".current");
+		setTimeout(function() {$current.removeClass("current");}, 450)
+	});
+	
+	$("#reference-handle").click(function() {
+		var $this = $(this);
+		if (!$this.hasClass("flip-h")){
+			$this.addClass("flip-h").parent().addClass("open").siblings().addClass("narrow");
+		} else {
+			$this.removeClass("flip-h").parent().removeClass("open").siblings().removeClass("narrow");
 		}
+		var animate = setInterval(function() {editor.resize();}, 20);
+		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
 	});
 
-	// On editor or qubits-input change, run qromp with the values of both inputs and a callback to render the results
-
-	editor.getSession().on('change', function() {
-	    try {
-	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
-		    	vis.positionQubits(a);
-		    });
-	    } catch (e) {
-	    	//maybe put a little warning icon in the editor
-	    }  
+	// Knod's addition, 03/25/14
+	$(".example").on("click", function (evt) {
+		editor.getSession().setValue($(this).text());
 	});
 
-	$qubitsInput.keyup(function() {
+	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results
+
+	function safeEvaluate() {
 		try {
-	    	evaluate($qubitsInput.val(), editor.getValue(), function(a) {
-		    	vis.positionQubits(a);
+	    	evaluate(qubits.length, editor.getValue(), function(qubitStates) {
+		    	qubits.update(qubitStates);
 		    });
 	    } catch (e) {
+	    	qubits.reset();
+	    	qubits.render();
 	    	//maybe put a little warning icon in the editor
 	    } 
+	}
+
+	editor.getSession().on('change', safeEvaluate);
+
+	$("#add-qubit").click(function() {
+		new Qubit;
+		safeEvaluate();
+	});
+
+	$("#remove-qubit").click(function() {
+		qubits.pop();
+		safeEvaluate();
 	});
 });

@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'qrompIcons';
+  src: url('qrompicons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  display: inline-block;
+  font-family: qrompIcons;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+  content: "\f000";
+}
+
+.icon-qubit:before {
+  content: "\f001";
+}
+
+.icon-angle:before {
+  content: "\f002";
+}

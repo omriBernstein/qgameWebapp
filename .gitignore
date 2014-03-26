@@ -10,8 +10,7 @@ pom.xml.asc
 .lein-failures
 .lein-plugins
 .lein-repl-history
-/design/qubits.sketch
-/design/mockup.sketch
+/design
 static/scripts/ace/
 out
 repl

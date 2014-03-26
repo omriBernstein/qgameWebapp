@@ -1,0 +1,104 @@
+/*--- Constants ---*/
+
+$reference-width : 14.5rem;
+
+/*--- Editor ---*/
+
+#editor {
+	height: 40rem;
+	border: 1px solid $border-gray;
+	margin-bottom: 1rem;
+	position: relative;
+	overflow: hidden;
+	@include box-sizing(border-box);
+}
+
+#reference {
+	display: inline-block;
+	width: $reference-width;
+	height: 100%;
+	margin-left: -13.1rem;
+	vertical-align: top;
+	@include transition(margin-left .4s ease);
+	@include user-select(none);
+	&.open {
+		margin-left: 0rem;
+	}
+}
+
+#reference-content {
+	display: inline-block;
+	font-size: 1.3rem;
+}
+
+.reference-line {
+	padding: .1rem .4rem;
+	> div {
+		line-height: 1.8rem;
+		display: inline-block;
+		border-radius: .3rem;
+	}
+	&:hover > .reference-button {
+		opacity: 1;
+	}
+}
+
+.reference-button {
+	text-align: center;
+	vertical-align: top;
+	width: 1.8rem;
+	opacity: 0;
+	@include transition(opacity .2s ease);
+}
+
+.reference-item {
+	background-color: $vivid;
+	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	color: #FFF;
+	padding: 0 .2rem;
+	margin-left: .2rem;
+	@include grab;
+}
+
+#reference-handle {
+	width: 1.4rem;
+	height: 100%;
+	float: right;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 39.8rem;
+}
+
+#codeArea { 
+	position: absolute;
+	top: 0;
+	left: 1.4rem;
+	border-right: 1.4rem solid #FFF;
+	@include box-sizing(border-box);
+	height: 100%;
+	width: 100%;
+	@include transition(left .4s ease, border-right-width .4s ease);
+	&.narrow {
+		left: $reference-width;
+		border-right-width: $reference-width;
+	}
+}
+
+/*--- Ace nonsense ---*/
+
+.ace_gutter {
+	@include user-select(none);
+}
+
+.ace_gutter-cell {
+	padding-left: .6rem !important;
+	padding-right: .6rem !important;
+}
+
+.ace-tm .ace_gutter {
+	background-color: $light-back !important;
+}
+
+.ace-tm .ace_gutter-active-line {
+	background-color: $medium-back !important;
+}
