@@ -15,7 +15,7 @@
 */
 
 $(document).ready(function() {
-	// *** SETUP ***\\
+	// *** VARIABLE DECLARATION ***\\
 	var editor = ace.edit("codeArea"),
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
@@ -63,11 +63,10 @@ $(document).ready(function() {
 	function safeEvaluate() {
 		try {
 	    	evaluate(qubits.length, editor.getValue(), function(qubitStates) {
-		    	qubits.update(qubitStates);
+		    	qubits.updateAll(qubitStates);
 		    });
 	    } catch (e) {
-	    	qubits.reset();
-	    	qubits.render();
+	    	qubits.resetAll();
 	    	//maybe put a little warning icon in the editor
 	    } 
 	}
@@ -75,7 +74,7 @@ $(document).ready(function() {
 	editor.getSession().on('change', safeEvaluate);
 
 	$("#add-qubit").click(function() {
-		new Qubit;
+		if (qubits.length < 10) new Qubit;
 		safeEvaluate();
 	});
 

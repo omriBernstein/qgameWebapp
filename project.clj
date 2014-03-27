@@ -1,4 +1,4 @@
-(defproject qromp "0.4.0"
+(defproject qromp "0.4.1"
   :description ""
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2156"]

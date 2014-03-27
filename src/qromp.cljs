@@ -14,8 +14,8 @@
         up-phases (map #(amps/get-phase-of output % 0) (range num-qubits))
         down-phases (map #(amps/get-phase-of output % 1) (range num-qubits))
         qubit-states (map (fn [up-prob up-phase down-phase]
-                            {:UP {:prob up-prob :phase up-phase}
-                             :DOWN {:prob (- 1 up-prob) :phase down-phase}})
+                            {:up {:prob up-prob :phase up-phase}
+                             :down {:prob (- 1 up-prob) :phase down-phase}})
                           up-state-probs
                           up-phases
                           down-phases)]

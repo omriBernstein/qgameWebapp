@@ -26987,7 +26987,7 @@ var qromp = {evaluate:function(a, b, c) {
   }(b, d, e), cljs.core.range.call(null, a));
   a = cljs.core.map.call(null, function(a, b, c, d) {
     return function(a, b, c) {
-      return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "UP", "UP", 1013906957), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "DOWN", "DOWN", 1016008724), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
+      return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "up", "up", 1013907981), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "down", "down", 1016993812), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
       c], null)], null);
     };
   }(b, d, e, a), d, e, a);
