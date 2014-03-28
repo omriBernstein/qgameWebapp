@@ -1,18 +1,13 @@
 (ns qromp
-  (:require [qgame.interpreter.core :as qgame :refer [execute-program
-                                                      execute-string]]
+  (:require [qgame.simulator.interpreter :as qgame :refer [interpret]]
             [qgame.utils.amplitudes :as amps :refer [probability-of
-                                                     get-phase-of]]
-            [cljs.reader :as r])) 
+                                                     phase-of]])) 
 
 (defn evaluate [num-qubits input callback]
-  (let [output (->> input
-                    r/read-string
-                    (qgame/execute-program {:num-qubits num-qubits})
-                    first)
+  (let [output (-> input qgame/interpret first)
         up-state-probs (map #(amps/probability-of output % 0) (range num-qubits))
-        up-phases (map #(amps/get-phase-of output % 0) (range num-qubits))
-        down-phases (map #(amps/get-phase-of output % 1) (range num-qubits))
+        up-phases (map #(amps/phase-of output % 0) (range num-qubits))
+        down-phases (map #(amps/phase-of output % 1) (range num-qubits))
         qubit-states (map (fn [up-prob up-phase down-phase]
                             {:up {:prob up-prob :phase up-phase}
                              :down {:prob (- 1 up-prob) :phase down-phase}})

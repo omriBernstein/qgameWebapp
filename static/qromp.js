@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function(){
+
 var COMPILED = !0, goog = goog || {};
 goog.global = window;
 goog.DEBUG = !0;
@@ -1734,82 +1735,82 @@ cljs.core._invoke = function() {
     if (a ? a.cljs$core$IFn$_invoke$arity$14 : a) {
       return a.cljs$core$IFn$_invoke$arity$14(a, b, c, d, e, f, g, h, k, s, l, m, p, q);
     }
-    var n;
-    n = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if (!n && (n = cljs.core._invoke._, !n)) {
-      throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
-    }
-    return n.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q);
-  }, q = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n) {
-    if (a ? a.cljs$core$IFn$_invoke$arity$15 : a) {
-      return a.cljs$core$IFn$_invoke$arity$15(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n);
-    }
     var t;
     t = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!t && (t = cljs.core._invoke._, !t)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return t.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n);
-  }, u = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t) {
+    return t.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q);
+  }, q = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t) {
+    if (a ? a.cljs$core$IFn$_invoke$arity$15 : a) {
+      return a.cljs$core$IFn$_invoke$arity$15(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t);
+    }
+    var n;
+    n = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if (!n && (n = cljs.core._invoke._, !n)) {
+      throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
+    }
+    return n.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t);
+  }, u = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n) {
     if (a ? a.cljs$core$IFn$_invoke$arity$16 : a) {
-      return a.cljs$core$IFn$_invoke$arity$16(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t);
+      return a.cljs$core$IFn$_invoke$arity$16(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n);
     }
     var r;
     r = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!r && (r = cljs.core._invoke._, !r)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return r.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t);
-  }, x = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r) {
+    return r.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n);
+  }, x = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r) {
     if (a ? a.cljs$core$IFn$_invoke$arity$17 : a) {
-      return a.cljs$core$IFn$_invoke$arity$17(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r);
+      return a.cljs$core$IFn$_invoke$arity$17(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r);
     }
     var u;
     u = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!u && (u = cljs.core._invoke._, !u)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return u.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r);
-  }, v = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u) {
+    return u.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r);
+  }, v = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u) {
     if (a ? a.cljs$core$IFn$_invoke$arity$18 : a) {
-      return a.cljs$core$IFn$_invoke$arity$18(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u);
+      return a.cljs$core$IFn$_invoke$arity$18(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u);
     }
     var w;
     w = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!w && (w = cljs.core._invoke._, !w)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return w.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u);
-  }, t = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w) {
+    return w.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u);
+  }, t = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w) {
     if (a ? a.cljs$core$IFn$_invoke$arity$19 : a) {
-      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w);
+      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w);
     }
     var v;
     v = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!v && (v = cljs.core._invoke._, !v)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return v.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w);
-  }, w = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v) {
+    return v.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w);
+  }, w = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v) {
     if (a ? a.cljs$core$IFn$_invoke$arity$20 : a) {
-      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v);
+      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v);
     }
     var x;
     x = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!x && (x = cljs.core._invoke._, !x)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return x.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v);
-  }, B = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v, x) {
+    return x.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v);
+  }, B = function(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v, x) {
     if (a ? a.cljs$core$IFn$_invoke$arity$21 : a) {
-      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v, x);
+      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v, x);
     }
     var B;
     B = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!B && (B = cljs.core._invoke._, !B)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return B.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, n, t, r, u, w, v, x);
+    return B.call(null, a, b, c, d, e, f, g, h, k, s, l, m, p, q, t, n, r, u, w, v, x);
   }, a = function(a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U, L, V, Y) {
     switch(arguments.length) {
       case 1:
@@ -3554,16 +3555,16 @@ cljs.core.fn_QMARK_ = function(a) {
 };
 cljs.core.with_meta = function with_meta(b, c) {
   return cljs.core.fn_QMARK_.call(null, b) && !(b ? b.cljs$lang$protocol_mask$partition0$ & 262144 || b.cljs$core$IWithMeta$ || (b.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) ? with_meta.call(null, function() {
-    "undefined" === typeof cljs.core.t5106 && (cljs.core.t5106 = function(b, c, f, g) {
+    "undefined" === typeof cljs.core.t5169 && (cljs.core.t5169 = function(b, c, f, g) {
       this.meta = b;
       this.o = c;
       this.with_meta = f;
-      this.meta5107 = g;
+      this.meta5170 = g;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, cljs.core.t5106.cljs$lang$type = !0, cljs.core.t5106.cljs$lang$ctorStr = "cljs.core/t5106", cljs.core.t5106.cljs$lang$ctorPrWriter = function(b, c, f) {
-      return cljs.core._write.call(null, c, "cljs.core/t5106");
-    }, cljs.core.t5106.prototype.call = function() {
+    }, cljs.core.t5169.cljs$lang$type = !0, cljs.core.t5169.cljs$lang$ctorStr = "cljs.core/t5169", cljs.core.t5169.cljs$lang$ctorPrWriter = function(b, c, f) {
+      return cljs.core._write.call(null, c, "cljs.core/t5169");
+    }, cljs.core.t5169.prototype.call = function() {
       var b = function(b, c) {
         return cljs.core.apply.call(null, b.o, c);
       }, c = function(c, e) {
@@ -3580,9 +3581,9 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t5106.prototype.apply = function(b, c) {
+    }(), cljs.core.t5169.prototype.apply = function(b, c) {
       return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, c)));
-    }, cljs.core.t5106.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
+    }, cljs.core.t5169.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
       var b = function(b) {
         return cljs.core.apply.call(null, self__.o, b);
       }, c = function(c) {
@@ -3597,14 +3598,14 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t5106.prototype.cljs$core$Fn$ = !0, cljs.core.t5106.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-      return this.meta5107;
-    }, cljs.core.t5106.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-      return new cljs.core.t5106(this.meta, this.o, this.with_meta, c);
-    }, cljs.core.__GT_t5106 = function(b, c, f, g) {
-      return new cljs.core.t5106(b, c, f, g);
+    }(), cljs.core.t5169.prototype.cljs$core$Fn$ = !0, cljs.core.t5169.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+      return this.meta5170;
+    }, cljs.core.t5169.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+      return new cljs.core.t5169(this.meta, this.o, this.with_meta, c);
+    }, cljs.core.__GT_t5169 = function(b, c, f, g) {
+      return new cljs.core.t5169(b, c, f, g);
     });
-    return new cljs.core.t5106(c, b, with_meta, null);
+    return new cljs.core.t5169(c, b, with_meta, null);
   }(), c) : null == b ? null : cljs.core._with_meta.call(null, b, c);
 };
 cljs.core.meta = function(a) {
@@ -13909,5886 +13910,45 @@ cljs.core.special_symbol_QMARK_ = function(a) {
   "recur", "recur", -1532142362, null), null, new cljs.core.Symbol(null, ".", ".", -1640531481, null), null, new cljs.core.Symbol(null, "ns", "ns", -1640528002, null), null, new cljs.core.Symbol(null, "do", "do", -1640528316, null), null, new cljs.core.Symbol(null, "fn*", "fn*", -1640430053, null), null, new cljs.core.Symbol(null, "throw", "throw", -1530191713, null), null, new cljs.core.Symbol(null, "letfn*", "letfn*", 1548249632, null), null, new cljs.core.Symbol(null, "js*", "js*", -1640426054, 
   null), null, new cljs.core.Symbol(null, "defrecord*", "defrecord*", 774272013, null), null, new cljs.core.Symbol(null, "let*", "let*", -1637213400, null), null, new cljs.core.Symbol(null, "loop*", "loop*", -1537374273, null), null, new cljs.core.Symbol(null, "try", "try", -1640416396, null), null, new cljs.core.Symbol(null, "if", "if", -1640528170, null), null, new cljs.core.Symbol(null, "def", "def", -1640432194, null), null], null), null), a);
 };
-goog.userAgent = {};
-goog.userAgent.ASSUME_IE = !1;
-goog.userAgent.ASSUME_GECKO = !1;
-goog.userAgent.ASSUME_WEBKIT = !1;
-goog.userAgent.ASSUME_MOBILE_WEBKIT = !1;
-goog.userAgent.ASSUME_OPERA = !1;
-goog.userAgent.ASSUME_ANY_VERSION = !1;
-goog.userAgent.BROWSER_KNOWN_ = goog.userAgent.ASSUME_IE || goog.userAgent.ASSUME_GECKO || goog.userAgent.ASSUME_MOBILE_WEBKIT || goog.userAgent.ASSUME_WEBKIT || goog.userAgent.ASSUME_OPERA;
-goog.userAgent.getUserAgentString = function() {
-  return goog.global.navigator ? goog.global.navigator.userAgent : null;
-};
-goog.userAgent.getNavigator = function() {
-  return goog.global.navigator;
-};
-goog.userAgent.init_ = function() {
-  goog.userAgent.detectedOpera_ = !1;
-  goog.userAgent.detectedIe_ = !1;
-  goog.userAgent.detectedWebkit_ = !1;
-  goog.userAgent.detectedMobile_ = !1;
-  goog.userAgent.detectedGecko_ = !1;
-  var a;
-  if (!goog.userAgent.BROWSER_KNOWN_ && (a = goog.userAgent.getUserAgentString())) {
-    var b = goog.userAgent.getNavigator();
-    goog.userAgent.detectedOpera_ = 0 == a.indexOf("Opera");
-    goog.userAgent.detectedIe_ = !goog.userAgent.detectedOpera_ && -1 != a.indexOf("MSIE");
-    goog.userAgent.detectedWebkit_ = !goog.userAgent.detectedOpera_ && -1 != a.indexOf("WebKit");
-    goog.userAgent.detectedMobile_ = goog.userAgent.detectedWebkit_ && -1 != a.indexOf("Mobile");
-    goog.userAgent.detectedGecko_ = !goog.userAgent.detectedOpera_ && !goog.userAgent.detectedWebkit_ && "Gecko" == b.product;
-  }
-};
-goog.userAgent.BROWSER_KNOWN_ || goog.userAgent.init_();
-goog.userAgent.OPERA = goog.userAgent.BROWSER_KNOWN_ ? goog.userAgent.ASSUME_OPERA : goog.userAgent.detectedOpera_;
-goog.userAgent.IE = goog.userAgent.BROWSER_KNOWN_ ? goog.userAgent.ASSUME_IE : goog.userAgent.detectedIe_;
-goog.userAgent.GECKO = goog.userAgent.BROWSER_KNOWN_ ? goog.userAgent.ASSUME_GECKO : goog.userAgent.detectedGecko_;
-goog.userAgent.WEBKIT = goog.userAgent.BROWSER_KNOWN_ ? goog.userAgent.ASSUME_WEBKIT || goog.userAgent.ASSUME_MOBILE_WEBKIT : goog.userAgent.detectedWebkit_;
-goog.userAgent.MOBILE = goog.userAgent.ASSUME_MOBILE_WEBKIT || goog.userAgent.detectedMobile_;
-goog.userAgent.SAFARI = goog.userAgent.WEBKIT;
-goog.userAgent.determinePlatform_ = function() {
-  var a = goog.userAgent.getNavigator();
-  return a && a.platform || "";
-};
-goog.userAgent.PLATFORM = goog.userAgent.determinePlatform_();
-goog.userAgent.ASSUME_MAC = !1;
-goog.userAgent.ASSUME_WINDOWS = !1;
-goog.userAgent.ASSUME_LINUX = !1;
-goog.userAgent.ASSUME_X11 = !1;
-goog.userAgent.ASSUME_ANDROID = !1;
-goog.userAgent.ASSUME_IPHONE = !1;
-goog.userAgent.ASSUME_IPAD = !1;
-goog.userAgent.PLATFORM_KNOWN_ = goog.userAgent.ASSUME_MAC || goog.userAgent.ASSUME_WINDOWS || goog.userAgent.ASSUME_LINUX || goog.userAgent.ASSUME_X11 || goog.userAgent.ASSUME_ANDROID || goog.userAgent.ASSUME_IPHONE || goog.userAgent.ASSUME_IPAD;
-goog.userAgent.initPlatform_ = function() {
-  goog.userAgent.detectedMac_ = goog.string.contains(goog.userAgent.PLATFORM, "Mac");
-  goog.userAgent.detectedWindows_ = goog.string.contains(goog.userAgent.PLATFORM, "Win");
-  goog.userAgent.detectedLinux_ = goog.string.contains(goog.userAgent.PLATFORM, "Linux");
-  goog.userAgent.detectedX11_ = !!goog.userAgent.getNavigator() && goog.string.contains(goog.userAgent.getNavigator().appVersion || "", "X11");
-  var a = goog.userAgent.getUserAgentString();
-  goog.userAgent.detectedAndroid_ = !!a && 0 <= a.indexOf("Android");
-  goog.userAgent.detectedIPhone_ = !!a && 0 <= a.indexOf("iPhone");
-  goog.userAgent.detectedIPad_ = !!a && 0 <= a.indexOf("iPad");
-};
-goog.userAgent.PLATFORM_KNOWN_ || goog.userAgent.initPlatform_();
-goog.userAgent.MAC = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_MAC : goog.userAgent.detectedMac_;
-goog.userAgent.WINDOWS = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_WINDOWS : goog.userAgent.detectedWindows_;
-goog.userAgent.LINUX = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_LINUX : goog.userAgent.detectedLinux_;
-goog.userAgent.X11 = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_X11 : goog.userAgent.detectedX11_;
-goog.userAgent.ANDROID = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_ANDROID : goog.userAgent.detectedAndroid_;
-goog.userAgent.IPHONE = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_IPHONE : goog.userAgent.detectedIPhone_;
-goog.userAgent.IPAD = goog.userAgent.PLATFORM_KNOWN_ ? goog.userAgent.ASSUME_IPAD : goog.userAgent.detectedIPad_;
-goog.userAgent.determineVersion_ = function() {
-  var a = "", b;
-  goog.userAgent.OPERA && goog.global.opera ? (a = goog.global.opera.version, a = "function" == typeof a ? a() : a) : (goog.userAgent.GECKO ? b = /rv\:([^\);]+)(\)|;)/ : goog.userAgent.IE ? b = /MSIE\s+([^\);]+)(\)|;)/ : goog.userAgent.WEBKIT && (b = /WebKit\/(\S+)/), b && (a = (a = b.exec(goog.userAgent.getUserAgentString())) ? a[1] : ""));
-  return goog.userAgent.IE && (b = goog.userAgent.getDocumentMode_(), b > parseFloat(a)) ? String(b) : a;
-};
-goog.userAgent.getDocumentMode_ = function() {
-  var a = goog.global.document;
-  return a ? a.documentMode : void 0;
-};
-goog.userAgent.VERSION = goog.userAgent.determineVersion_();
-goog.userAgent.compare = function(a, b) {
-  return goog.string.compareVersions(a, b);
-};
-goog.userAgent.isVersionCache_ = {};
-goog.userAgent.isVersion = function(a) {
-  return goog.userAgent.ASSUME_ANY_VERSION || goog.userAgent.isVersionCache_[a] || (goog.userAgent.isVersionCache_[a] = 0 <= goog.string.compareVersions(goog.userAgent.VERSION, a));
-};
-goog.userAgent.isDocumentMode = function(a) {
-  return goog.userAgent.IE && goog.userAgent.DOCUMENT_MODE >= a;
-};
-goog.userAgent.DOCUMENT_MODE = function() {
-  var a = goog.global.document;
-  return a && goog.userAgent.IE ? goog.userAgent.getDocumentMode_() || ("CSS1Compat" == a.compatMode ? parseInt(goog.userAgent.VERSION, 10) : 5) : void 0;
-}();
-goog.events = {};
-goog.events.EventType = {CLICK:"click", DBLCLICK:"dblclick", MOUSEDOWN:"mousedown", MOUSEUP:"mouseup", MOUSEOVER:"mouseover", MOUSEOUT:"mouseout", MOUSEMOVE:"mousemove", SELECTSTART:"selectstart", KEYPRESS:"keypress", KEYDOWN:"keydown", KEYUP:"keyup", BLUR:"blur", FOCUS:"focus", DEACTIVATE:"deactivate", FOCUSIN:goog.userAgent.IE ? "focusin" : "DOMFocusIn", FOCUSOUT:goog.userAgent.IE ? "focusout" : "DOMFocusOut", CHANGE:"change", SELECT:"select", SUBMIT:"submit", INPUT:"input", PROPERTYCHANGE:"propertychange", 
-DRAGSTART:"dragstart", DRAG:"drag", DRAGENTER:"dragenter", DRAGOVER:"dragover", DRAGLEAVE:"dragleave", DROP:"drop", DRAGEND:"dragend", TOUCHSTART:"touchstart", TOUCHMOVE:"touchmove", TOUCHEND:"touchend", TOUCHCANCEL:"touchcancel", BEFOREUNLOAD:"beforeunload", CONTEXTMENU:"contextmenu", ERROR:"error", HELP:"help", LOAD:"load", LOSECAPTURE:"losecapture", READYSTATECHANGE:"readystatechange", RESIZE:"resize", SCROLL:"scroll", UNLOAD:"unload", HASHCHANGE:"hashchange", PAGEHIDE:"pagehide", PAGESHOW:"pageshow", 
-POPSTATE:"popstate", COPY:"copy", PASTE:"paste", CUT:"cut", BEFORECOPY:"beforecopy", BEFORECUT:"beforecut", BEFOREPASTE:"beforepaste", ONLINE:"online", OFFLINE:"offline", MESSAGE:"message", CONNECT:"connect", TRANSITIONEND:goog.userAgent.WEBKIT ? "webkitTransitionEnd" : goog.userAgent.OPERA ? "oTransitionEnd" : "transitionend", MSGESTURECHANGE:"MSGestureChange", MSGESTUREEND:"MSGestureEnd", MSGESTUREHOLD:"MSGestureHold", MSGESTURESTART:"MSGestureStart", MSGESTURETAP:"MSGestureTap", MSGOTPOINTERCAPTURE:"MSGotPointerCapture", 
-MSINERTIASTART:"MSInertiaStart", MSLOSTPOINTERCAPTURE:"MSLostPointerCapture", MSPOINTERCANCEL:"MSPointerCancel", MSPOINTERDOWN:"MSPointerDown", MSPOINTERMOVE:"MSPointerMove", MSPOINTEROVER:"MSPointerOver", MSPOINTEROUT:"MSPointerOut", MSPOINTERUP:"MSPointerUp", TEXTINPUT:"textinput", COMPOSITIONSTART:"compositionstart", COMPOSITIONUPDATE:"compositionupdate", COMPOSITIONEND:"compositionend"};
-goog.disposable = {};
-goog.disposable.IDisposable = function() {
-};
-goog.Disposable = function() {
-  goog.Disposable.MONITORING_MODE != goog.Disposable.MonitoringMode.OFF && (this.creationStack = Error().stack, goog.Disposable.instances_[goog.getUid(this)] = this);
-};
-goog.Disposable.MonitoringMode = {OFF:0, PERMANENT:1, INTERACTIVE:2};
-goog.Disposable.MONITORING_MODE = 0;
-goog.Disposable.instances_ = {};
-goog.Disposable.getUndisposedObjects = function() {
-  var a = [], b;
-  for (b in goog.Disposable.instances_) {
-    goog.Disposable.instances_.hasOwnProperty(b) && a.push(goog.Disposable.instances_[Number(b)]);
-  }
-  return a;
-};
-goog.Disposable.clearUndisposedObjects = function() {
-  goog.Disposable.instances_ = {};
-};
-goog.Disposable.prototype.disposed_ = !1;
-goog.Disposable.prototype.isDisposed = function() {
-  return this.disposed_;
-};
-goog.Disposable.prototype.getDisposed = goog.Disposable.prototype.isDisposed;
-goog.Disposable.prototype.dispose = function() {
-  if (!this.disposed_ && (this.disposed_ = !0, this.disposeInternal(), goog.Disposable.MONITORING_MODE != goog.Disposable.MonitoringMode.OFF)) {
-    var a = goog.getUid(this);
-    if (goog.Disposable.MONITORING_MODE == goog.Disposable.MonitoringMode.PERMANENT && !goog.Disposable.instances_.hasOwnProperty(a)) {
-      throw Error(this + " did not call the goog.Disposable base constructor or was disposed of after a clearUndisposedObjects call");
-    }
-    delete goog.Disposable.instances_[a];
-  }
-};
-goog.Disposable.prototype.registerDisposable = function(a) {
-  this.addOnDisposeCallback(goog.partial(goog.dispose, a));
-};
-goog.Disposable.prototype.addOnDisposeCallback = function(a, b) {
-  this.onDisposeCallbacks_ || (this.onDisposeCallbacks_ = []);
-  this.onDisposeCallbacks_.push(goog.bind(a, b));
-};
-goog.Disposable.prototype.disposeInternal = function() {
-  if (this.onDisposeCallbacks_) {
-    for (;this.onDisposeCallbacks_.length;) {
-      this.onDisposeCallbacks_.shift()();
-    }
-  }
-};
-goog.Disposable.isDisposed = function(a) {
-  return a && "function" == typeof a.isDisposed ? a.isDisposed() : !1;
-};
-goog.dispose = function(a) {
-  a && "function" == typeof a.dispose && a.dispose();
-};
-goog.disposeAll = function(a) {
-  for (var b = 0, c = arguments.length;b < c;++b) {
-    var d = arguments[b];
-    goog.isArrayLike(d) ? goog.disposeAll.apply(null, d) : goog.dispose(d);
-  }
-};
-goog.debug.entryPointRegistry = {};
-goog.debug.EntryPointMonitor = function() {
-};
-goog.debug.entryPointRegistry.refList_ = [];
-goog.debug.entryPointRegistry.monitors_ = [];
-goog.debug.entryPointRegistry.monitorsMayExist_ = !1;
-goog.debug.entryPointRegistry.register = function(a) {
-  goog.debug.entryPointRegistry.refList_[goog.debug.entryPointRegistry.refList_.length] = a;
-  if (goog.debug.entryPointRegistry.monitorsMayExist_) {
-    for (var b = goog.debug.entryPointRegistry.monitors_, c = 0;c < b.length;c++) {
-      a(goog.bind(b[c].wrap, b[c]));
-    }
-  }
-};
-goog.debug.entryPointRegistry.monitorAll = function(a) {
-  goog.debug.entryPointRegistry.monitorsMayExist_ = !0;
-  for (var b = goog.bind(a.wrap, a), c = 0;c < goog.debug.entryPointRegistry.refList_.length;c++) {
-    goog.debug.entryPointRegistry.refList_[c](b);
-  }
-  goog.debug.entryPointRegistry.monitors_.push(a);
-};
-goog.debug.entryPointRegistry.unmonitorAllIfPossible = function(a) {
-  var b = goog.debug.entryPointRegistry.monitors_;
-  goog.asserts.assert(a == b[b.length - 1], "Only the most recent monitor can be unwrapped.");
-  a = goog.bind(a.unwrap, a);
-  for (var c = 0;c < goog.debug.entryPointRegistry.refList_.length;c++) {
-    goog.debug.entryPointRegistry.refList_[c](a);
-  }
-  b.length--;
-};
-goog.debug.errorHandlerWeakDep = {protectEntryPoint:function(a, b) {
-  return a;
-}};
-goog.events.BrowserFeature = {HAS_W3C_BUTTON:!goog.userAgent.IE || goog.userAgent.isDocumentMode(9), HAS_W3C_EVENT_SUPPORT:!goog.userAgent.IE || goog.userAgent.isDocumentMode(9), SET_KEY_CODE_TO_PREVENT_DEFAULT:goog.userAgent.IE && !goog.userAgent.isVersion("9"), HAS_NAVIGATOR_ONLINE_PROPERTY:!goog.userAgent.WEBKIT || goog.userAgent.isVersion("528"), HAS_HTML5_NETWORK_EVENT_SUPPORT:goog.userAgent.GECKO && goog.userAgent.isVersion("1.9b") || goog.userAgent.IE && goog.userAgent.isVersion("8") || goog.userAgent.OPERA && 
-goog.userAgent.isVersion("9.5") || goog.userAgent.WEBKIT && goog.userAgent.isVersion("528"), HTML5_NETWORK_EVENTS_FIRE_ON_BODY:goog.userAgent.GECKO && !goog.userAgent.isVersion("8") || goog.userAgent.IE && !goog.userAgent.isVersion("9"), TOUCH_ENABLED:"ontouchstart" in goog.global || !!(goog.global.document && document.documentElement && "ontouchstart" in document.documentElement) || !(!goog.global.navigator || !goog.global.navigator.msMaxTouchPoints)};
-goog.events.Event = function(a, b) {
-  this.type = a;
-  this.currentTarget = this.target = b;
-};
-goog.events.Event.prototype.disposeInternal = function() {
-};
-goog.events.Event.prototype.dispose = function() {
-};
-goog.events.Event.prototype.propagationStopped_ = !1;
-goog.events.Event.prototype.defaultPrevented = !1;
-goog.events.Event.prototype.returnValue_ = !0;
-goog.events.Event.prototype.stopPropagation = function() {
-  this.propagationStopped_ = !0;
-};
-goog.events.Event.prototype.preventDefault = function() {
-  this.defaultPrevented = !0;
-  this.returnValue_ = !1;
-};
-goog.events.Event.stopPropagation = function(a) {
-  a.stopPropagation();
-};
-goog.events.Event.preventDefault = function(a) {
-  a.preventDefault();
-};
-goog.reflect = {};
-goog.reflect.object = function(a, b) {
-  return b;
-};
-goog.reflect.sinkValue = function(a) {
-  goog.reflect.sinkValue[" "](a);
-  return a;
-};
-goog.reflect.sinkValue[" "] = goog.nullFunction;
-goog.reflect.canAccessProperty = function(a, b) {
-  try {
-    return goog.reflect.sinkValue(a[b]), !0;
-  } catch (c) {
-  }
-  return!1;
-};
-goog.events.BrowserEvent = function(a, b) {
-  a && this.init(a, b);
-};
-goog.inherits(goog.events.BrowserEvent, goog.events.Event);
-goog.events.BrowserEvent.MouseButton = {LEFT:0, MIDDLE:1, RIGHT:2};
-goog.events.BrowserEvent.IEButtonMap = [1, 4, 2];
-goog.events.BrowserEvent.prototype.target = null;
-goog.events.BrowserEvent.prototype.relatedTarget = null;
-goog.events.BrowserEvent.prototype.offsetX = 0;
-goog.events.BrowserEvent.prototype.offsetY = 0;
-goog.events.BrowserEvent.prototype.clientX = 0;
-goog.events.BrowserEvent.prototype.clientY = 0;
-goog.events.BrowserEvent.prototype.screenX = 0;
-goog.events.BrowserEvent.prototype.screenY = 0;
-goog.events.BrowserEvent.prototype.button = 0;
-goog.events.BrowserEvent.prototype.keyCode = 0;
-goog.events.BrowserEvent.prototype.charCode = 0;
-goog.events.BrowserEvent.prototype.ctrlKey = !1;
-goog.events.BrowserEvent.prototype.altKey = !1;
-goog.events.BrowserEvent.prototype.shiftKey = !1;
-goog.events.BrowserEvent.prototype.metaKey = !1;
-goog.events.BrowserEvent.prototype.platformModifierKey = !1;
-goog.events.BrowserEvent.prototype.event_ = null;
-goog.events.BrowserEvent.prototype.init = function(a, b) {
-  var c = this.type = a.type;
-  goog.events.Event.call(this, c);
-  this.target = a.target || a.srcElement;
-  this.currentTarget = b;
-  var d = a.relatedTarget;
-  d ? goog.userAgent.GECKO && (goog.reflect.canAccessProperty(d, "nodeName") || (d = null)) : c == goog.events.EventType.MOUSEOVER ? d = a.fromElement : c == goog.events.EventType.MOUSEOUT && (d = a.toElement);
-  this.relatedTarget = d;
-  this.offsetX = goog.userAgent.WEBKIT || void 0 !== a.offsetX ? a.offsetX : a.layerX;
-  this.offsetY = goog.userAgent.WEBKIT || void 0 !== a.offsetY ? a.offsetY : a.layerY;
-  this.clientX = void 0 !== a.clientX ? a.clientX : a.pageX;
-  this.clientY = void 0 !== a.clientY ? a.clientY : a.pageY;
-  this.screenX = a.screenX || 0;
-  this.screenY = a.screenY || 0;
-  this.button = a.button;
-  this.keyCode = a.keyCode || 0;
-  this.charCode = a.charCode || ("keypress" == c ? a.keyCode : 0);
-  this.ctrlKey = a.ctrlKey;
-  this.altKey = a.altKey;
-  this.shiftKey = a.shiftKey;
-  this.metaKey = a.metaKey;
-  this.platformModifierKey = goog.userAgent.MAC ? a.metaKey : a.ctrlKey;
-  this.state = a.state;
-  this.event_ = a;
-  a.defaultPrevented && this.preventDefault();
-  delete this.propagationStopped_;
-};
-goog.events.BrowserEvent.prototype.isButton = function(a) {
-  return goog.events.BrowserFeature.HAS_W3C_BUTTON ? this.event_.button == a : "click" == this.type ? a == goog.events.BrowserEvent.MouseButton.LEFT : !!(this.event_.button & goog.events.BrowserEvent.IEButtonMap[a]);
-};
-goog.events.BrowserEvent.prototype.isMouseActionButton = function() {
-  return this.isButton(goog.events.BrowserEvent.MouseButton.LEFT) && !(goog.userAgent.WEBKIT && goog.userAgent.MAC && this.ctrlKey);
-};
-goog.events.BrowserEvent.prototype.stopPropagation = function() {
-  goog.events.BrowserEvent.superClass_.stopPropagation.call(this);
-  this.event_.stopPropagation ? this.event_.stopPropagation() : this.event_.cancelBubble = !0;
-};
-goog.events.BrowserEvent.prototype.preventDefault = function() {
-  goog.events.BrowserEvent.superClass_.preventDefault.call(this);
-  var a = this.event_;
-  if (a.preventDefault) {
-    a.preventDefault();
-  } else {
-    if (a.returnValue = !1, goog.events.BrowserFeature.SET_KEY_CODE_TO_PREVENT_DEFAULT) {
-      try {
-        if (a.ctrlKey || 112 <= a.keyCode && 123 >= a.keyCode) {
-          a.keyCode = -1;
-        }
-      } catch (b) {
-      }
-    }
-  }
-};
-goog.events.BrowserEvent.prototype.getBrowserEvent = function() {
-  return this.event_;
-};
-goog.events.BrowserEvent.prototype.disposeInternal = function() {
-};
-goog.events.EventWrapper = function() {
-};
-goog.events.EventWrapper.prototype.listen = function(a, b, c, d, e) {
-};
-goog.events.EventWrapper.prototype.unlisten = function(a, b, c, d, e) {
-};
-goog.events.Listenable = function() {
-};
-goog.events.Listenable.USE_LISTENABLE_INTERFACE = !1;
-goog.events.Listenable.IMPLEMENTED_BY_PROP_ = "__closure_listenable";
-goog.events.Listenable.addImplementation = function(a) {
-  a.prototype[goog.events.Listenable.IMPLEMENTED_BY_PROP_] = !0;
-};
-goog.events.Listenable.isImplementedBy = function(a) {
-  return!(!a || !a[goog.events.Listenable.IMPLEMENTED_BY_PROP_]);
-};
-goog.events.ListenableKey = function() {
-};
-goog.events.ListenableKey.counter_ = 0;
-goog.events.ListenableKey.reserveKey = function() {
-  return++goog.events.ListenableKey.counter_;
-};
-goog.events.Listener = function() {
-  goog.events.Listener.ENABLE_MONITORING && (this.creationStack = Error().stack);
-};
-goog.events.Listener.ENABLE_MONITORING = !1;
-goog.events.Listener.prototype.key = 0;
-goog.events.Listener.prototype.removed = !1;
-goog.events.Listener.prototype.callOnce = !1;
-goog.events.Listener.prototype.init = function(a, b, c, d, e, f) {
-  if (goog.isFunction(a)) {
-    this.isFunctionListener_ = !0;
-  } else {
-    if (a && a.handleEvent && goog.isFunction(a.handleEvent)) {
-      this.isFunctionListener_ = !1;
-    } else {
-      throw Error("Invalid listener argument");
-    }
-  }
-  this.listener = a;
-  this.proxy = b;
-  this.src = c;
-  this.type = d;
-  this.capture = !!e;
-  this.handler = f;
-  this.callOnce = !1;
-  this.key = goog.events.ListenableKey.reserveKey();
-  this.removed = !1;
-};
-goog.events.Listener.prototype.handleEvent = function(a) {
-  return this.isFunctionListener_ ? this.listener.call(this.handler || this.src, a) : this.listener.handleEvent.call(this.listener, a);
-};
-goog.events.listeners_ = {};
-goog.events.listenerTree_ = {};
-goog.events.sources_ = {};
-goog.events.onString_ = "on";
-goog.events.onStringMap_ = {};
-goog.events.keySeparator_ = "_";
-goog.events.listen = function(a, b, c, d, e) {
-  if (goog.isArray(b)) {
-    for (var f = 0;f < b.length;f++) {
-      goog.events.listen(a, b[f], c, d, e);
-    }
-    return null;
-  }
-  a = goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a) ? a.listen(b, goog.events.wrapListener_(c), d, e) : goog.events.listen_(a, b, c, !1, d, e);
-  b = a.key;
-  goog.events.listeners_[b] = a;
-  return b;
-};
-goog.events.listen_ = function(a, b, c, d, e, f) {
-  if (!b) {
-    throw Error("Invalid event type");
-  }
-  e = !!e;
-  var g = goog.events.listenerTree_;
-  b in g || (g[b] = {count_:0, remaining_:0});
-  g = g[b];
-  e in g || (g[e] = {count_:0, remaining_:0}, g.count_++);
-  var g = g[e], h = goog.getUid(a), k;
-  g.remaining_++;
-  if (g[h]) {
-    k = g[h];
-    for (var l = 0;l < k.length;l++) {
-      if (g = k[l], g.listener == c && g.handler == f) {
-        if (g.removed) {
-          break;
-        }
-        d || (k[l].callOnce = !1);
-        return k[l];
-      }
-    }
-  } else {
-    k = g[h] = [], g.count_++;
-  }
-  l = goog.events.getProxy();
-  g = new goog.events.Listener;
-  g.init(c, l, a, b, e, f);
-  g.callOnce = d;
-  l.src = a;
-  l.listener = g;
-  k.push(g);
-  goog.events.sources_[h] || (goog.events.sources_[h] = []);
-  goog.events.sources_[h].push(g);
-  a.addEventListener ? a != goog.global && a.customEvent_ || a.addEventListener(b, l, e) : a.attachEvent(goog.events.getOnString_(b), l);
-  return g;
-};
-goog.events.getProxy = function() {
-  var a = goog.events.handleBrowserEvent_, b = goog.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT ? function(c) {
-    return a.call(b.src, b.listener, c);
-  } : function(c) {
-    c = a.call(b.src, b.listener, c);
-    if (!c) {
-      return c;
-    }
-  };
-  return b;
-};
-goog.events.listenOnce = function(a, b, c, d, e) {
-  if (goog.isArray(b)) {
-    for (var f = 0;f < b.length;f++) {
-      goog.events.listenOnce(a, b[f], c, d, e);
-    }
-    return null;
-  }
-  a = goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a) ? a.listenOnce(b, goog.events.wrapListener_(c), d, e) : goog.events.listen_(a, b, c, !0, d, e);
-  b = a.key;
-  goog.events.listeners_[b] = a;
-  return b;
-};
-goog.events.listenWithWrapper = function(a, b, c, d, e) {
-  b.listen(a, c, d, e);
-};
-goog.events.unlisten = function(a, b, c, d, e) {
-  if (goog.isArray(b)) {
-    for (var f = 0;f < b.length;f++) {
-      goog.events.unlisten(a, b[f], c, d, e);
-    }
-    return null;
-  }
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a)) {
-    return a.unlisten(b, goog.events.wrapListener_(c), d, e);
-  }
-  d = !!d;
-  a = goog.events.getListeners_(a, b, d);
-  if (!a) {
-    return!1;
-  }
-  for (f = 0;f < a.length;f++) {
-    if (a[f].listener == c && a[f].capture == d && a[f].handler == e) {
-      return goog.events.unlistenByKey(a[f].key);
-    }
-  }
-  return!1;
-};
-goog.events.unlistenByKey = function(a) {
-  var b = goog.events.listeners_[a];
-  if (!b || b.removed) {
-    return!1;
-  }
-  var c = b.src;
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(c)) {
-    return c.unlistenByKey(b);
-  }
-  var d = b.type, e = b.proxy, f = b.capture;
-  c.removeEventListener ? c != goog.global && c.customEvent_ || c.removeEventListener(d, e, f) : c.detachEvent && c.detachEvent(goog.events.getOnString_(d), e);
-  c = goog.getUid(c);
-  goog.events.sources_[c] && (e = goog.events.sources_[c], goog.array.remove(e, b), 0 == e.length && delete goog.events.sources_[c]);
-  b.removed = !0;
-  if (b = goog.events.listenerTree_[d][f][c]) {
-    b.needsCleanup_ = !0, goog.events.cleanUp_(d, f, c, b);
-  }
-  delete goog.events.listeners_[a];
-  return!0;
-};
-goog.events.unlistenWithWrapper = function(a, b, c, d, e) {
-  b.unlisten(a, c, d, e);
-};
-goog.events.cleanUp = function(a) {
-  delete goog.events.listeners_[a.key];
-};
-goog.events.cleanUp_ = function(a, b, c, d) {
-  if (!d.locked_ && d.needsCleanup_) {
-    for (var e = 0, f = 0;e < d.length;e++) {
-      d[e].removed ? d[e].proxy.src = null : (e != f && (d[f] = d[e]), f++);
-    }
-    d.length = f;
-    d.needsCleanup_ = !1;
-    0 == f && (delete goog.events.listenerTree_[a][b][c], goog.events.listenerTree_[a][b].count_--, 0 == goog.events.listenerTree_[a][b].count_ && (delete goog.events.listenerTree_[a][b], goog.events.listenerTree_[a].count_--), 0 == goog.events.listenerTree_[a].count_ && delete goog.events.listenerTree_[a]);
-  }
-};
-goog.events.removeAll = function(a, b) {
-  var c = 0, d = null == b;
-  if (null != a) {
-    if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && a && goog.events.Listenable.isImplementedBy(a)) {
-      return a.removeAllListeners(b);
-    }
-    var e = goog.getUid(a);
-    if (goog.events.sources_[e]) {
-      for (var e = goog.events.sources_[e], f = e.length - 1;0 <= f;f--) {
-        var g = e[f];
-        if (d || b == g.type) {
-          goog.events.unlistenByKey(g.key), c++;
-        }
-      }
-    }
-  } else {
-    goog.object.forEach(goog.events.listeners_, function(a, b) {
-      goog.events.unlistenByKey(b);
-      c++;
-    });
-  }
-  return c;
-};
-goog.events.getListeners = function(a, b, c) {
-  return goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a) ? a.getListeners(b, c) : goog.events.getListeners_(a, b, c) || [];
-};
-goog.events.getListeners_ = function(a, b, c) {
-  var d = goog.events.listenerTree_;
-  return b in d && (d = d[b], c in d && (d = d[c], a = goog.getUid(a), d[a])) ? d[a] : null;
-};
-goog.events.getListener = function(a, b, c, d, e) {
-  d = !!d;
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a)) {
-    return a.getListener(b, goog.events.wrapListener_(c), d, e);
-  }
-  if (a = goog.events.getListeners_(a, b, d)) {
-    for (b = 0;b < a.length;b++) {
-      if (!a[b].removed && a[b].listener == c && a[b].capture == d && a[b].handler == e) {
-        return a[b];
-      }
-    }
-  }
-  return null;
-};
-goog.events.hasListener = function(a, b, c) {
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a)) {
-    return a.hasListener(b, c);
-  }
-  a = goog.getUid(a);
-  var d = goog.events.sources_[a];
-  if (d) {
-    var e = goog.isDef(b), f = goog.isDef(c);
-    return e && f ? (d = goog.events.listenerTree_[b], !!d && !!d[c] && a in d[c]) : e || f ? goog.array.some(d, function(a) {
-      return e && a.type == b || f && a.capture == c;
-    }) : !0;
-  }
-  return!1;
-};
-goog.events.expose = function(a) {
-  var b = [], c;
-  for (c in a) {
-    a[c] && a[c].id ? b.push(c + " \x3d " + a[c] + " (" + a[c].id + ")") : b.push(c + " \x3d " + a[c]);
-  }
-  return b.join("\n");
-};
-goog.events.getOnString_ = function(a) {
-  return a in goog.events.onStringMap_ ? goog.events.onStringMap_[a] : goog.events.onStringMap_[a] = goog.events.onString_ + a;
-};
-goog.events.fireListeners = function(a, b, c, d) {
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.isImplementedBy(a)) {
-    return a.fireListeners(b, c, d);
-  }
-  var e = goog.events.listenerTree_;
-  return b in e && (e = e[b], c in e) ? goog.events.fireListeners_(e[c], a, b, c, d) : !0;
-};
-goog.events.fireListeners_ = function(a, b, c, d, e) {
-  var f = 1;
-  b = goog.getUid(b);
-  if (a[b]) {
-    var g = --a.remaining_, h = a[b];
-    h.locked_ ? h.locked_++ : h.locked_ = 1;
-    try {
-      for (var k = h.length, l = 0;l < k;l++) {
-        var m = h[l];
-        m && !m.removed && (f &= !1 !== goog.events.fireListener(m, e));
-      }
-    } finally {
-      a.remaining_ = Math.max(g, a.remaining_), h.locked_--, goog.events.cleanUp_(c, d, b, h);
-    }
-  }
-  return Boolean(f);
-};
-goog.events.fireListener = function(a, b) {
-  a.callOnce && goog.events.unlistenByKey(a.key);
-  return a.handleEvent(b);
-};
-goog.events.getTotalListenerCount = function() {
-  return goog.object.getCount(goog.events.listeners_);
-};
-goog.events.dispatchEvent = function(a, b) {
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE) {
-    return a.dispatchEvent(b);
-  }
-  var c = b.type || b, d = goog.events.listenerTree_;
-  if (!(c in d)) {
-    return!0;
-  }
-  if (goog.isString(b)) {
-    b = new goog.events.Event(b, a);
-  } else {
-    if (b instanceof goog.events.Event) {
-      b.target = b.target || a;
-    } else {
-      var e = b;
-      b = new goog.events.Event(c, a);
-      goog.object.extend(b, e);
-    }
-  }
-  var e = 1, f, d = d[c], c = !0 in d, g;
-  if (c) {
-    f = [];
-    for (g = a;g;g = g.getParentEventTarget()) {
-      f.push(g);
-    }
-    g = d[!0];
-    g.remaining_ = g.count_;
-    for (var h = f.length - 1;!b.propagationStopped_ && 0 <= h && g.remaining_;h--) {
-      b.currentTarget = f[h], e &= goog.events.fireListeners_(g, f[h], b.type, !0, b) && !1 != b.returnValue_;
-    }
-  }
-  if (!1 in d) {
-    if (g = d[!1], g.remaining_ = g.count_, c) {
-      for (h = 0;!b.propagationStopped_ && h < f.length && g.remaining_;h++) {
-        b.currentTarget = f[h], e &= goog.events.fireListeners_(g, f[h], b.type, !1, b) && !1 != b.returnValue_;
-      }
-    } else {
-      for (d = a;!b.propagationStopped_ && d && g.remaining_;d = d.getParentEventTarget()) {
-        b.currentTarget = d, e &= goog.events.fireListeners_(g, d, b.type, !1, b) && !1 != b.returnValue_;
-      }
-    }
-  }
-  return Boolean(e);
-};
-goog.events.protectBrowserEventEntryPoint = function(a) {
-  goog.events.handleBrowserEvent_ = a.protectEntryPoint(goog.events.handleBrowserEvent_);
-};
-goog.events.handleBrowserEvent_ = function(a, b) {
-  if (a.removed) {
-    return!0;
-  }
-  var c = a.type, d = goog.events.listenerTree_;
-  if (!(c in d)) {
-    return!0;
-  }
-  var d = d[c], e, f;
-  if (!goog.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT) {
-    e = b || goog.getObjectByName("window.event");
-    var g = !0 in d, h = !1 in d;
-    if (g) {
-      if (goog.events.isMarkedIeEvent_(e)) {
-        return!0;
-      }
-      goog.events.markIeEvent_(e);
-    }
-    var k = new goog.events.BrowserEvent;
-    k.init(e, this);
-    e = !0;
-    try {
-      if (g) {
-        for (var l = [], m = k.currentTarget;m;m = m.parentNode) {
-          l.push(m);
-        }
-        f = d[!0];
-        f.remaining_ = f.count_;
-        for (var n = l.length - 1;!k.propagationStopped_ && 0 <= n && f.remaining_;n--) {
-          k.currentTarget = l[n], e &= goog.events.fireListeners_(f, l[n], c, !0, k);
-        }
-        if (h) {
-          for (f = d[!1], f.remaining_ = f.count_, n = 0;!k.propagationStopped_ && n < l.length && f.remaining_;n++) {
-            k.currentTarget = l[n], e &= goog.events.fireListeners_(f, l[n], c, !1, k);
-          }
-        }
-      } else {
-        e = goog.events.fireListener(a, k);
-      }
-    } finally {
-      l && (l.length = 0);
-    }
-    return e;
-  }
-  c = new goog.events.BrowserEvent(b, this);
-  return e = goog.events.fireListener(a, c);
-};
-goog.events.markIeEvent_ = function(a) {
-  var b = !1;
-  if (0 == a.keyCode) {
-    try {
-      a.keyCode = -1;
-      return;
-    } catch (c) {
-      b = !0;
-    }
-  }
-  if (b || void 0 == a.returnValue) {
-    a.returnValue = !0;
-  }
-};
-goog.events.isMarkedIeEvent_ = function(a) {
-  return 0 > a.keyCode || void 0 != a.returnValue;
-};
-goog.events.uniqueIdCounter_ = 0;
-goog.events.getUniqueId = function(a) {
-  return a + "_" + goog.events.uniqueIdCounter_++;
-};
-goog.events.LISTENER_WRAPPER_PROP_ = "__closure_events_fn_" + (1E9 * Math.random() >>> 0);
-goog.events.wrapListener_ = function(a) {
-  return goog.isFunction(a) ? a : a[goog.events.LISTENER_WRAPPER_PROP_] || (a[goog.events.LISTENER_WRAPPER_PROP_] = function(b) {
-    return a.handleEvent(b);
-  });
-};
-goog.debug.entryPointRegistry.register(function(a) {
-  goog.events.handleBrowserEvent_ = a(goog.events.handleBrowserEvent_);
-});
-goog.events.EventTarget = function() {
-  goog.Disposable.call(this);
-  goog.events.Listenable.USE_LISTENABLE_INTERFACE && (this.eventTargetListeners_ = {}, this.reallyDisposed_ = !1, this.actualEventTarget_ = this);
-};
-goog.inherits(goog.events.EventTarget, goog.Disposable);
-goog.events.Listenable.USE_LISTENABLE_INTERFACE && goog.events.Listenable.addImplementation(goog.events.EventTarget);
-goog.events.EventTarget.MAX_ANCESTORS_ = 1E3;
-goog.events.EventTarget.prototype.customEvent_ = !0;
-goog.events.EventTarget.prototype.parentEventTarget_ = null;
-goog.events.EventTarget.prototype.getParentEventTarget = function() {
-  return this.parentEventTarget_;
-};
-goog.events.EventTarget.prototype.setParentEventTarget = function(a) {
-  this.parentEventTarget_ = a;
-};
-goog.events.EventTarget.prototype.addEventListener = function(a, b, c, d) {
-  goog.events.listen(this, a, b, c, d);
-};
-goog.events.EventTarget.prototype.removeEventListener = function(a, b, c, d) {
-  goog.events.unlisten(this, a, b, c, d);
-};
-goog.events.EventTarget.prototype.dispatchEvent = function(a) {
-  if (goog.events.Listenable.USE_LISTENABLE_INTERFACE) {
-    if (this.reallyDisposed_) {
-      return!0;
-    }
-    var b, c = this.getParentEventTarget();
-    if (c) {
-      b = [];
-      for (var d = 1;c;c = c.getParentEventTarget()) {
-        b.push(c), goog.asserts.assert(++d < goog.events.EventTarget.MAX_ANCESTORS_, "infinite loop");
-      }
-    }
-    return goog.events.EventTarget.dispatchEventInternal_(this.actualEventTarget_, a, b);
-  }
-  return goog.events.dispatchEvent(this, a);
-};
-goog.events.EventTarget.prototype.disposeInternal = function() {
-  goog.events.EventTarget.superClass_.disposeInternal.call(this);
-  goog.events.Listenable.USE_LISTENABLE_INTERFACE ? (this.removeAllListeners(), this.reallyDisposed_ = !0) : goog.events.removeAll(this);
-  this.parentEventTarget_ = null;
-};
-goog.events.Listenable.USE_LISTENABLE_INTERFACE && (goog.events.EventTarget.prototype.listen = function(a, b, c, d) {
-  return this.listenInternal_(a, b, !1, c, d);
-}, goog.events.EventTarget.prototype.listenOnce = function(a, b, c, d) {
-  return this.listenInternal_(a, b, !0, c, d);
-}, goog.events.EventTarget.prototype.listenInternal_ = function(a, b, c, d, e) {
-  goog.asserts.assert(!this.reallyDisposed_, "Can not listen on disposed object.");
-  var f = this.eventTargetListeners_[a] || (this.eventTargetListeners_[a] = []), g;
-  g = goog.events.EventTarget.findListenerIndex_(f, b, d, e);
-  if (-1 < g) {
-    return g = f[g], c || (g.callOnce = !1), g;
-  }
-  g = new goog.events.Listener;
-  g.init(b, null, this, a, !!d, e);
-  g.callOnce = c;
-  f.push(g);
-  return g;
-}, goog.events.EventTarget.prototype.unlisten = function(a, b, c, d) {
-  if (!(a in this.eventTargetListeners_)) {
-    return!1;
-  }
-  a = this.eventTargetListeners_[a];
-  b = goog.events.EventTarget.findListenerIndex_(a, b, c, d);
-  return-1 < b ? (c = a[b], goog.events.cleanUp(c), c.removed = !0, goog.array.removeAt(a, b)) : !1;
-}, goog.events.EventTarget.prototype.unlistenByKey = function(a) {
-  var b = a.type;
-  if (!(b in this.eventTargetListeners_)) {
-    return!1;
-  }
-  if (b = goog.array.remove(this.eventTargetListeners_[b], a)) {
-    goog.events.cleanUp(a), a.removed = !0;
-  }
-  return b;
-}, goog.events.EventTarget.prototype.removeAllListeners = function(a, b) {
-  var c = 0, d;
-  for (d in this.eventTargetListeners_) {
-    if (!a || d == a) {
-      for (var e = this.eventTargetListeners_[d], f = 0;f < e.length;f++) {
-        ++c, goog.events.cleanUp(e[f]), e[f].removed = !0;
-      }
-      e.length = 0;
-    }
-  }
-  return c;
-}, goog.events.EventTarget.prototype.fireListeners = function(a, b, c) {
-  goog.asserts.assert(!this.reallyDisposed_, "Can not fire listeners after dispose() completed.");
-  if (!(a in this.eventTargetListeners_)) {
-    return!0;
-  }
-  var d = !0;
-  a = goog.array.clone(this.eventTargetListeners_[a]);
-  for (var e = 0;e < a.length;++e) {
-    var f = a[e];
-    f && !f.removed && f.capture == b && (f.callOnce && this.unlistenByKey(f), d = !1 !== f.handleEvent(c) && d);
-  }
-  return d && !1 != c.returnValue_;
-}, goog.events.EventTarget.prototype.getListeners = function(a, b) {
-  var c = this.eventTargetListeners_[a], d = [];
-  if (c) {
-    for (var e = 0;e < c.length;++e) {
-      var f = c[e];
-      f.capture == b && d.push(f);
-    }
-  }
-  return d;
-}, goog.events.EventTarget.prototype.getListener = function(a, b, c, d) {
-  a = this.eventTargetListeners_[a];
-  var e = -1;
-  a && (e = goog.events.EventTarget.findListenerIndex_(a, b, c, d));
-  return-1 < e ? a[e] : null;
-}, goog.events.EventTarget.prototype.hasListener = function(a, b) {
-  var c = goog.isDef(a), d = goog.isDef(b);
-  return goog.object.some(this.eventTargetListeners_, function(e, f) {
-    for (var g = 0;g < e.length;++g) {
-      if (!(c && e[g].type != a || d && e[g].capture != b)) {
-        return!0;
-      }
-    }
-    return!1;
-  });
-}, goog.events.EventTarget.prototype.setTargetForTesting = function(a) {
-  this.actualEventTarget_ = a;
-}, goog.events.EventTarget.dispatchEventInternal_ = function(a, b, c) {
-  var d = b.type || b;
-  if (goog.isString(b)) {
-    b = new goog.events.Event(b, a);
-  } else {
-    if (b instanceof goog.events.Event) {
-      b.target = b.target || a;
-    } else {
-      var e = b;
-      b = new goog.events.Event(d, a);
-      goog.object.extend(b, e);
-    }
-  }
-  var e = !0, f;
-  if (c) {
-    for (var g = c.length - 1;!b.propagationStopped_ && 0 <= g;g--) {
-      f = b.currentTarget = c[g], e = f.fireListeners(d, !0, b) && e;
-    }
-  }
-  b.propagationStopped_ || (f = b.currentTarget = a, e = f.fireListeners(d, !0, b) && e, b.propagationStopped_ || (e = f.fireListeners(d, !1, b) && e));
-  if (c) {
-    for (g = 0;!b.propagationStopped_ && g < c.length;g++) {
-      f = b.currentTarget = c[g], e = f.fireListeners(d, !1, b) && e;
-    }
-  }
-  return e;
-}, goog.events.EventTarget.findListenerIndex_ = function(a, b, c, d) {
-  for (var e = 0;e < a.length;++e) {
-    var f = a[e];
-    if (f.listener == b && f.capture == !!c && f.handler == d) {
-      return e;
-    }
-  }
-  return-1;
-});
-var clojure = {browser:{}};
-clojure.browser.event = {};
-clojure.browser.event.EventType = function() {
-  return{};
-}();
-clojure.browser.event.event_types = function(a) {
-  if (a ? a.clojure$browser$event$EventType$event_types$arity$1 : a) {
-    return a.clojure$browser$event$EventType$event_types$arity$1(a);
-  }
-  var b;
-  b = clojure.browser.event.event_types[goog.typeOf(null == a ? null : a)];
-  if (!b && (b = clojure.browser.event.event_types._, !b)) {
-    throw cljs.core.missing_protocol.call(null, "EventType.event-types", a);
-  }
-  return b.call(null, a);
-};
-Element.prototype.clojure$browser$event$EventType$ = !0;
-Element.prototype.clojure$browser$event$EventType$event_types$arity$1 = function(a) {
-  return cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, function(a) {
-    var c = cljs.core.nth.call(null, a, 0, null);
+var clojure = {walk:{}};
+clojure.walk.walk = function(a, b, c) {
+  return cljs.core.seq_QMARK_.call(null, c) ? b.call(null, cljs.core.doall.call(null, cljs.core.map.call(null, a, c))) : cljs.core.coll_QMARK_.call(null, c) ? b.call(null, cljs.core.into.call(null, cljs.core.empty.call(null, c), cljs.core.map.call(null, a, c))) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? b.call(null, c) : null;
+};
+clojure.walk.postwalk = function postwalk(b, c) {
+  return clojure.walk.walk.call(null, cljs.core.partial.call(null, postwalk, b), b, c);
+};
+clojure.walk.prewalk = function prewalk(b, c) {
+  return clojure.walk.walk.call(null, cljs.core.partial.call(null, prewalk, b), cljs.core.identity, b.call(null, c));
+};
+clojure.walk.keywordize_keys = function(a) {
+  var b = function(a) {
+    var b = cljs.core.nth.call(null, a, 0, null);
     a = cljs.core.nth.call(null, a, 1, null);
-    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, c.toLowerCase()), a], null);
-  }, cljs.core.merge.call(null, cljs.core.js__GT_clj.call(null, goog.events.EventType))));
+    return "string" === typeof b ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, b), a], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, a], null);
+  };
+  return clojure.walk.postwalk.call(null, function(a) {
+    return cljs.core.map_QMARK_.call(null, a) ? cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, b, a)) : a;
+  }, a);
 };
-goog.events.EventTarget.prototype.clojure$browser$event$EventType$ = !0;
-goog.events.EventTarget.prototype.clojure$browser$event$EventType$event_types$arity$1 = function(a) {
-  return cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, function(a) {
-    var c = cljs.core.nth.call(null, a, 0, null);
+clojure.walk.stringify_keys = function(a) {
+  var b = function(a) {
+    var b = cljs.core.nth.call(null, a, 0, null);
     a = cljs.core.nth.call(null, a, 1, null);
-    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, c.toLowerCase()), a], null);
-  }, cljs.core.merge.call(null, cljs.core.js__GT_clj.call(null, goog.events.EventType))));
-};
-clojure.browser.event.listen = function() {
-  var a = null, b = function(b, c, f) {
-    return a.call(null, b, c, f, !1);
-  }, c = function(a, b, c, g) {
-    return goog.events.listen(a, cljs.core.get.call(null, clojure.browser.event.event_types.call(null, a), b, b), c, g);
-  }, a = function(a, e, f, g) {
-    switch(arguments.length) {
-      case 3:
-        return b.call(this, a, e, f);
-      case 4:
-        return c.call(this, a, e, f, g);
-    }
-    throw Error("Invalid arity: " + arguments.length);
+    return b instanceof cljs.core.Keyword ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.name.call(null, b), a], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, a], null);
   };
-  a.cljs$core$IFn$_invoke$arity$3 = b;
-  a.cljs$core$IFn$_invoke$arity$4 = c;
-  return a;
-}();
-clojure.browser.event.listen_once = function() {
-  var a = null, b = function(b, c, f) {
-    return a.call(null, b, c, f, !1);
-  }, c = function(a, b, c, g) {
-    return goog.events.listenOnce(a, cljs.core.get.call(null, clojure.browser.event.event_types.call(null, a), b, b), c, g);
-  }, a = function(a, e, f, g) {
-    switch(arguments.length) {
-      case 3:
-        return b.call(this, a, e, f);
-      case 4:
-        return c.call(this, a, e, f, g);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$3 = b;
-  a.cljs$core$IFn$_invoke$arity$4 = c;
-  return a;
-}();
-clojure.browser.event.unlisten = function() {
-  var a = null, b = function(b, c, f) {
-    return a.call(null, b, c, f, !1);
-  }, c = function(a, b, c, g) {
-    return goog.events.unlisten(a, cljs.core.get.call(null, clojure.browser.event.event_types.call(null, a), b, b), c, g);
-  }, a = function(a, e, f, g) {
-    switch(arguments.length) {
-      case 3:
-        return b.call(this, a, e, f);
-      case 4:
-        return c.call(this, a, e, f, g);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$3 = b;
-  a.cljs$core$IFn$_invoke$arity$4 = c;
-  return a;
-}();
-clojure.browser.event.unlisten_by_key = function(a) {
-  return goog.events.unlistenByKey(a);
-};
-clojure.browser.event.dispatch_event = function(a, b) {
-  return goog.events.dispatchEvent(a, b);
-};
-clojure.browser.event.expose = function(a) {
-  return goog.events.expose(a);
-};
-clojure.browser.event.fire_listeners = function(a, b, c, d) {
-  return null;
-};
-clojure.browser.event.total_listener_count = function() {
-  return goog.events.getTotalListenerCount();
-};
-clojure.browser.event.get_listener = function(a, b, c, d, e) {
-  return null;
-};
-clojure.browser.event.all_listeners = function(a, b, c) {
-  return null;
-};
-clojure.browser.event.unique_event_id = function(a) {
-  return null;
-};
-clojure.browser.event.has_listener = function(a, b, c) {
-  return null;
-};
-clojure.browser.event.remove_all = function(a, b, c) {
-  return null;
-};
-goog.structs = {};
-goog.structs.getCount = function(a) {
-  return "function" == typeof a.getCount ? a.getCount() : goog.isArrayLike(a) || goog.isString(a) ? a.length : goog.object.getCount(a);
-};
-goog.structs.getValues = function(a) {
-  if ("function" == typeof a.getValues) {
-    return a.getValues();
-  }
-  if (goog.isString(a)) {
-    return a.split("");
-  }
-  if (goog.isArrayLike(a)) {
-    for (var b = [], c = a.length, d = 0;d < c;d++) {
-      b.push(a[d]);
-    }
-    return b;
-  }
-  return goog.object.getValues(a);
-};
-goog.structs.getKeys = function(a) {
-  if ("function" == typeof a.getKeys) {
-    return a.getKeys();
-  }
-  if ("function" != typeof a.getValues) {
-    if (goog.isArrayLike(a) || goog.isString(a)) {
-      var b = [];
-      a = a.length;
-      for (var c = 0;c < a;c++) {
-        b.push(c);
-      }
-      return b;
-    }
-    return goog.object.getKeys(a);
-  }
-};
-goog.structs.contains = function(a, b) {
-  return "function" == typeof a.contains ? a.contains(b) : "function" == typeof a.containsValue ? a.containsValue(b) : goog.isArrayLike(a) || goog.isString(a) ? goog.array.contains(a, b) : goog.object.containsValue(a, b);
-};
-goog.structs.isEmpty = function(a) {
-  return "function" == typeof a.isEmpty ? a.isEmpty() : goog.isArrayLike(a) || goog.isString(a) ? goog.array.isEmpty(a) : goog.object.isEmpty(a);
-};
-goog.structs.clear = function(a) {
-  "function" == typeof a.clear ? a.clear() : goog.isArrayLike(a) ? goog.array.clear(a) : goog.object.clear(a);
-};
-goog.structs.forEach = function(a, b, c) {
-  if ("function" == typeof a.forEach) {
-    a.forEach(b, c);
-  } else {
-    if (goog.isArrayLike(a) || goog.isString(a)) {
-      goog.array.forEach(a, b, c);
-    } else {
-      for (var d = goog.structs.getKeys(a), e = goog.structs.getValues(a), f = e.length, g = 0;g < f;g++) {
-        b.call(c, e[g], d && d[g], a);
-      }
-    }
-  }
-};
-goog.structs.filter = function(a, b, c) {
-  if ("function" == typeof a.filter) {
-    return a.filter(b, c);
-  }
-  if (goog.isArrayLike(a) || goog.isString(a)) {
-    return goog.array.filter(a, b, c);
-  }
-  var d, e = goog.structs.getKeys(a), f = goog.structs.getValues(a), g = f.length;
-  if (e) {
-    d = {};
-    for (var h = 0;h < g;h++) {
-      b.call(c, f[h], e[h], a) && (d[e[h]] = f[h]);
-    }
-  } else {
-    for (d = [], h = 0;h < g;h++) {
-      b.call(c, f[h], void 0, a) && d.push(f[h]);
-    }
-  }
-  return d;
-};
-goog.structs.map = function(a, b, c) {
-  if ("function" == typeof a.map) {
-    return a.map(b, c);
-  }
-  if (goog.isArrayLike(a) || goog.isString(a)) {
-    return goog.array.map(a, b, c);
-  }
-  var d, e = goog.structs.getKeys(a), f = goog.structs.getValues(a), g = f.length;
-  if (e) {
-    d = {};
-    for (var h = 0;h < g;h++) {
-      d[e[h]] = b.call(c, f[h], e[h], a);
-    }
-  } else {
-    for (d = [], h = 0;h < g;h++) {
-      d[h] = b.call(c, f[h], void 0, a);
-    }
-  }
-  return d;
-};
-goog.structs.some = function(a, b, c) {
-  if ("function" == typeof a.some) {
-    return a.some(b, c);
-  }
-  if (goog.isArrayLike(a) || goog.isString(a)) {
-    return goog.array.some(a, b, c);
-  }
-  for (var d = goog.structs.getKeys(a), e = goog.structs.getValues(a), f = e.length, g = 0;g < f;g++) {
-    if (b.call(c, e[g], d && d[g], a)) {
-      return!0;
-    }
-  }
-  return!1;
-};
-goog.structs.every = function(a, b, c) {
-  if ("function" == typeof a.every) {
-    return a.every(b, c);
-  }
-  if (goog.isArrayLike(a) || goog.isString(a)) {
-    return goog.array.every(a, b, c);
-  }
-  for (var d = goog.structs.getKeys(a), e = goog.structs.getValues(a), f = e.length, g = 0;g < f;g++) {
-    if (!b.call(c, e[g], d && d[g], a)) {
-      return!1;
-    }
-  }
-  return!0;
-};
-goog.iter = {};
-goog.iter.StopIteration = "StopIteration" in goog.global ? goog.global.StopIteration : Error("StopIteration");
-goog.iter.Iterator = function() {
-};
-goog.iter.Iterator.prototype.next = function() {
-  throw goog.iter.StopIteration;
-};
-goog.iter.Iterator.prototype.__iterator__ = function(a) {
-  return this;
-};
-goog.iter.toIterator = function(a) {
-  if (a instanceof goog.iter.Iterator) {
-    return a;
-  }
-  if ("function" == typeof a.__iterator__) {
-    return a.__iterator__(!1);
-  }
-  if (goog.isArrayLike(a)) {
-    var b = 0, c = new goog.iter.Iterator;
-    c.next = function() {
-      for (;;) {
-        if (b >= a.length) {
-          throw goog.iter.StopIteration;
-        }
-        if (b in a) {
-          return a[b++];
-        }
-        b++;
-      }
-    };
-    return c;
-  }
-  throw Error("Not implemented");
-};
-goog.iter.forEach = function(a, b, c) {
-  if (goog.isArrayLike(a)) {
-    try {
-      goog.array.forEach(a, b, c);
-    } catch (d) {
-      if (d !== goog.iter.StopIteration) {
-        throw d;
-      }
-    }
-  } else {
-    a = goog.iter.toIterator(a);
-    try {
-      for (;;) {
-        b.call(c, a.next(), void 0, a);
-      }
-    } catch (e) {
-      if (e !== goog.iter.StopIteration) {
-        throw e;
-      }
-    }
-  }
-};
-goog.iter.filter = function(a, b, c) {
-  var d = goog.iter.toIterator(a);
-  a = new goog.iter.Iterator;
-  a.next = function() {
-    for (;;) {
-      var a = d.next();
-      if (b.call(c, a, void 0, d)) {
-        return a;
-      }
-    }
-  };
-  return a;
-};
-goog.iter.range = function(a, b, c) {
-  var d = 0, e = a, f = c || 1;
-  1 < arguments.length && (d = a, e = b);
-  if (0 == f) {
-    throw Error("Range step argument must not be zero");
-  }
-  var g = new goog.iter.Iterator;
-  g.next = function() {
-    if (0 < f && d >= e || 0 > f && d <= e) {
-      throw goog.iter.StopIteration;
-    }
-    var a = d;
-    d += f;
-    return a;
-  };
-  return g;
-};
-goog.iter.join = function(a, b) {
-  return goog.iter.toArray(a).join(b);
-};
-goog.iter.map = function(a, b, c) {
-  var d = goog.iter.toIterator(a);
-  a = new goog.iter.Iterator;
-  a.next = function() {
-    for (;;) {
-      var a = d.next();
-      return b.call(c, a, void 0, d);
-    }
-  };
-  return a;
-};
-goog.iter.reduce = function(a, b, c, d) {
-  var e = c;
-  goog.iter.forEach(a, function(a) {
-    e = b.call(d, e, a);
-  });
-  return e;
-};
-goog.iter.some = function(a, b, c) {
-  a = goog.iter.toIterator(a);
-  try {
-    for (;;) {
-      if (b.call(c, a.next(), void 0, a)) {
-        return!0;
-      }
-    }
-  } catch (d) {
-    if (d !== goog.iter.StopIteration) {
-      throw d;
-    }
-  }
-  return!1;
-};
-goog.iter.every = function(a, b, c) {
-  a = goog.iter.toIterator(a);
-  try {
-    for (;;) {
-      if (!b.call(c, a.next(), void 0, a)) {
-        return!1;
-      }
-    }
-  } catch (d) {
-    if (d !== goog.iter.StopIteration) {
-      throw d;
-    }
-  }
-  return!0;
-};
-goog.iter.chain = function(a) {
-  var b = arguments, c = b.length, d = 0, e = new goog.iter.Iterator;
-  e.next = function() {
-    try {
-      if (d >= c) {
-        throw goog.iter.StopIteration;
-      }
-      return goog.iter.toIterator(b[d]).next();
-    } catch (a) {
-      if (a !== goog.iter.StopIteration || d >= c) {
-        throw a;
-      }
-      d++;
-      return this.next();
-    }
-  };
-  return e;
-};
-goog.iter.dropWhile = function(a, b, c) {
-  var d = goog.iter.toIterator(a);
-  a = new goog.iter.Iterator;
-  var e = !0;
-  a.next = function() {
-    for (;;) {
-      var a = d.next();
-      if (!e || !b.call(c, a, void 0, d)) {
-        return e = !1, a;
-      }
-    }
-  };
-  return a;
-};
-goog.iter.takeWhile = function(a, b, c) {
-  var d = goog.iter.toIterator(a);
-  a = new goog.iter.Iterator;
-  var e = !0;
-  a.next = function() {
-    for (;;) {
-      if (e) {
-        var a = d.next();
-        if (b.call(c, a, void 0, d)) {
-          return a;
-        }
-        e = !1;
-      } else {
-        throw goog.iter.StopIteration;
-      }
-    }
-  };
-  return a;
-};
-goog.iter.toArray = function(a) {
-  if (goog.isArrayLike(a)) {
-    return goog.array.toArray(a);
-  }
-  a = goog.iter.toIterator(a);
-  var b = [];
-  goog.iter.forEach(a, function(a) {
-    b.push(a);
-  });
-  return b;
-};
-goog.iter.equals = function(a, b) {
-  a = goog.iter.toIterator(a);
-  b = goog.iter.toIterator(b);
-  var c, d;
-  try {
-    for (;;) {
-      c = d = !1;
-      var e = a.next();
-      c = !0;
-      var f = b.next();
-      d = !0;
-      if (e != f) {
-        break;
-      }
-    }
-  } catch (g) {
-    if (g !== goog.iter.StopIteration) {
-      throw g;
-    }
-    if (c && !d) {
-      return!1;
-    }
-    if (!d) {
-      try {
-        b.next();
-      } catch (h) {
-        if (h !== goog.iter.StopIteration) {
-          throw h;
-        }
-        return!0;
-      }
-    }
-  }
-  return!1;
-};
-goog.iter.nextOrValue = function(a, b) {
-  try {
-    return goog.iter.toIterator(a).next();
-  } catch (c) {
-    if (c != goog.iter.StopIteration) {
-      throw c;
-    }
-    return b;
-  }
-};
-goog.iter.product = function(a) {
-  if (goog.array.some(arguments, function(a) {
-    return!a.length;
-  }) || !arguments.length) {
-    return new goog.iter.Iterator;
-  }
-  var b = new goog.iter.Iterator, c = arguments, d = goog.array.repeat(0, c.length);
-  b.next = function() {
-    if (d) {
-      for (var a = goog.array.map(d, function(a, b) {
-        return c[b][a];
-      }), b = d.length - 1;0 <= b;b--) {
-        goog.asserts.assert(d);
-        if (d[b] < c[b].length - 1) {
-          d[b]++;
-          break;
-        }
-        if (0 == b) {
-          d = null;
-          break;
-        }
-        d[b] = 0;
-      }
-      return a;
-    }
-    throw goog.iter.StopIteration;
-  };
-  return b;
-};
-goog.iter.cycle = function(a) {
-  var b = goog.iter.toIterator(a), c = [], d = 0;
-  a = new goog.iter.Iterator;
-  var e = !1;
-  a.next = function() {
-    var a = null;
-    if (!e) {
-      try {
-        return a = b.next(), c.push(a), a;
-      } catch (g) {
-        if (g != goog.iter.StopIteration || goog.array.isEmpty(c)) {
-          throw g;
-        }
-        e = !0;
-      }
-    }
-    a = c[d];
-    d = (d + 1) % c.length;
-    return a;
-  };
-  return a;
-};
-goog.structs.Map = function(a, b) {
-  this.map_ = {};
-  this.keys_ = [];
-  var c = arguments.length;
-  if (1 < c) {
-    if (c % 2) {
-      throw Error("Uneven number of arguments");
-    }
-    for (var d = 0;d < c;d += 2) {
-      this.set(arguments[d], arguments[d + 1]);
-    }
-  } else {
-    a && this.addAll(a);
-  }
-};
-goog.structs.Map.prototype.count_ = 0;
-goog.structs.Map.prototype.version_ = 0;
-goog.structs.Map.prototype.getCount = function() {
-  return this.count_;
-};
-goog.structs.Map.prototype.getValues = function() {
-  this.cleanupKeysArray_();
-  for (var a = [], b = 0;b < this.keys_.length;b++) {
-    a.push(this.map_[this.keys_[b]]);
-  }
-  return a;
-};
-goog.structs.Map.prototype.getKeys = function() {
-  this.cleanupKeysArray_();
-  return this.keys_.concat();
-};
-goog.structs.Map.prototype.containsKey = function(a) {
-  return goog.structs.Map.hasKey_(this.map_, a);
-};
-goog.structs.Map.prototype.containsValue = function(a) {
-  for (var b = 0;b < this.keys_.length;b++) {
-    var c = this.keys_[b];
-    if (goog.structs.Map.hasKey_(this.map_, c) && this.map_[c] == a) {
-      return!0;
-    }
-  }
-  return!1;
-};
-goog.structs.Map.prototype.equals = function(a, b) {
-  if (this === a) {
-    return!0;
-  }
-  if (this.count_ != a.getCount()) {
-    return!1;
-  }
-  var c = b || goog.structs.Map.defaultEquals;
-  this.cleanupKeysArray_();
-  for (var d, e = 0;d = this.keys_[e];e++) {
-    if (!c(this.get(d), a.get(d))) {
-      return!1;
-    }
-  }
-  return!0;
-};
-goog.structs.Map.defaultEquals = function(a, b) {
-  return a === b;
-};
-goog.structs.Map.prototype.isEmpty = function() {
-  return 0 == this.count_;
-};
-goog.structs.Map.prototype.clear = function() {
-  this.map_ = {};
-  this.version_ = this.count_ = this.keys_.length = 0;
-};
-goog.structs.Map.prototype.remove = function(a) {
-  return goog.structs.Map.hasKey_(this.map_, a) ? (delete this.map_[a], this.count_--, this.version_++, this.keys_.length > 2 * this.count_ && this.cleanupKeysArray_(), !0) : !1;
-};
-goog.structs.Map.prototype.cleanupKeysArray_ = function() {
-  if (this.count_ != this.keys_.length) {
-    for (var a = 0, b = 0;a < this.keys_.length;) {
-      var c = this.keys_[a];
-      goog.structs.Map.hasKey_(this.map_, c) && (this.keys_[b++] = c);
-      a++;
-    }
-    this.keys_.length = b;
-  }
-  if (this.count_ != this.keys_.length) {
-    for (var d = {}, b = a = 0;a < this.keys_.length;) {
-      c = this.keys_[a], goog.structs.Map.hasKey_(d, c) || (this.keys_[b++] = c, d[c] = 1), a++;
-    }
-    this.keys_.length = b;
-  }
-};
-goog.structs.Map.prototype.get = function(a, b) {
-  return goog.structs.Map.hasKey_(this.map_, a) ? this.map_[a] : b;
-};
-goog.structs.Map.prototype.set = function(a, b) {
-  goog.structs.Map.hasKey_(this.map_, a) || (this.count_++, this.keys_.push(a), this.version_++);
-  this.map_[a] = b;
-};
-goog.structs.Map.prototype.addAll = function(a) {
-  var b;
-  a instanceof goog.structs.Map ? (b = a.getKeys(), a = a.getValues()) : (b = goog.object.getKeys(a), a = goog.object.getValues(a));
-  for (var c = 0;c < b.length;c++) {
-    this.set(b[c], a[c]);
-  }
-};
-goog.structs.Map.prototype.clone = function() {
-  return new goog.structs.Map(this);
-};
-goog.structs.Map.prototype.transpose = function() {
-  for (var a = new goog.structs.Map, b = 0;b < this.keys_.length;b++) {
-    var c = this.keys_[b];
-    a.set(this.map_[c], c);
-  }
-  return a;
-};
-goog.structs.Map.prototype.toObject = function() {
-  this.cleanupKeysArray_();
-  for (var a = {}, b = 0;b < this.keys_.length;b++) {
-    var c = this.keys_[b];
-    a[c] = this.map_[c];
-  }
-  return a;
-};
-goog.structs.Map.prototype.getKeyIterator = function() {
-  return this.__iterator__(!0);
-};
-goog.structs.Map.prototype.getValueIterator = function() {
-  return this.__iterator__(!1);
-};
-goog.structs.Map.prototype.__iterator__ = function(a) {
-  this.cleanupKeysArray_();
-  var b = 0, c = this.keys_, d = this.map_, e = this.version_, f = this, g = new goog.iter.Iterator;
-  g.next = function() {
-    for (;;) {
-      if (e != f.version_) {
-        throw Error("The map has changed since the iterator was created");
-      }
-      if (b >= c.length) {
-        throw goog.iter.StopIteration;
-      }
-      var g = c[b++];
-      return a ? g : d[g];
-    }
-  };
-  return g;
-};
-goog.structs.Map.hasKey_ = function(a, b) {
-  return Object.prototype.hasOwnProperty.call(a, b);
-};
-goog.uri = {};
-goog.uri.utils = {};
-goog.uri.utils.CharCode_ = {AMPERSAND:38, EQUAL:61, HASH:35, QUESTION:63};
-goog.uri.utils.buildFromEncodedParts = function(a, b, c, d, e, f, g) {
-  var h = "";
-  a && (h += a + ":");
-  c && (h += "//", b && (h += b + "@"), h += c, d && (h += ":" + d));
-  e && (h += e);
-  f && (h += "?" + f);
-  g && (h += "#" + g);
-  return h;
-};
-goog.uri.utils.splitRe_ = RegExp("^(?:([^:/?#.]+):)?(?://(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?\x3d[/#?]|$))?([^?#]+)?(?:\\?([^#]*))?(?:#(.*))?$");
-goog.uri.utils.ComponentIndex = {SCHEME:1, USER_INFO:2, DOMAIN:3, PORT:4, PATH:5, QUERY_DATA:6, FRAGMENT:7};
-goog.uri.utils.split = function(a) {
-  return a.match(goog.uri.utils.splitRe_);
-};
-goog.uri.utils.decodeIfPossible_ = function(a) {
-  return a && decodeURIComponent(a);
-};
-goog.uri.utils.getComponentByIndex_ = function(a, b) {
-  return goog.uri.utils.split(b)[a] || null;
-};
-goog.uri.utils.getScheme = function(a) {
-  return goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.SCHEME, a);
-};
-goog.uri.utils.getEffectiveScheme = function(a) {
-  a = goog.uri.utils.getScheme(a);
-  !a && self.location && (a = self.location.protocol, a = a.substr(0, a.length - 1));
-  return a ? a.toLowerCase() : "";
-};
-goog.uri.utils.getUserInfoEncoded = function(a) {
-  return goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.USER_INFO, a);
-};
-goog.uri.utils.getUserInfo = function(a) {
-  return goog.uri.utils.decodeIfPossible_(goog.uri.utils.getUserInfoEncoded(a));
-};
-goog.uri.utils.getDomainEncoded = function(a) {
-  return goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.DOMAIN, a);
-};
-goog.uri.utils.getDomain = function(a) {
-  return goog.uri.utils.decodeIfPossible_(goog.uri.utils.getDomainEncoded(a));
-};
-goog.uri.utils.getPort = function(a) {
-  return Number(goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.PORT, a)) || null;
-};
-goog.uri.utils.getPathEncoded = function(a) {
-  return goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.PATH, a);
-};
-goog.uri.utils.getPath = function(a) {
-  return goog.uri.utils.decodeIfPossible_(goog.uri.utils.getPathEncoded(a));
-};
-goog.uri.utils.getQueryData = function(a) {
-  return goog.uri.utils.getComponentByIndex_(goog.uri.utils.ComponentIndex.QUERY_DATA, a);
-};
-goog.uri.utils.getFragmentEncoded = function(a) {
-  var b = a.indexOf("#");
-  return 0 > b ? null : a.substr(b + 1);
-};
-goog.uri.utils.setFragmentEncoded = function(a, b) {
-  return goog.uri.utils.removeFragment(a) + (b ? "#" + b : "");
-};
-goog.uri.utils.getFragment = function(a) {
-  return goog.uri.utils.decodeIfPossible_(goog.uri.utils.getFragmentEncoded(a));
-};
-goog.uri.utils.getHost = function(a) {
-  a = goog.uri.utils.split(a);
-  return goog.uri.utils.buildFromEncodedParts(a[goog.uri.utils.ComponentIndex.SCHEME], a[goog.uri.utils.ComponentIndex.USER_INFO], a[goog.uri.utils.ComponentIndex.DOMAIN], a[goog.uri.utils.ComponentIndex.PORT]);
-};
-goog.uri.utils.getPathAndAfter = function(a) {
-  a = goog.uri.utils.split(a);
-  return goog.uri.utils.buildFromEncodedParts(null, null, null, null, a[goog.uri.utils.ComponentIndex.PATH], a[goog.uri.utils.ComponentIndex.QUERY_DATA], a[goog.uri.utils.ComponentIndex.FRAGMENT]);
-};
-goog.uri.utils.removeFragment = function(a) {
-  var b = a.indexOf("#");
-  return 0 > b ? a : a.substr(0, b);
-};
-goog.uri.utils.haveSameDomain = function(a, b) {
-  var c = goog.uri.utils.split(a), d = goog.uri.utils.split(b);
-  return c[goog.uri.utils.ComponentIndex.DOMAIN] == d[goog.uri.utils.ComponentIndex.DOMAIN] && c[goog.uri.utils.ComponentIndex.SCHEME] == d[goog.uri.utils.ComponentIndex.SCHEME] && c[goog.uri.utils.ComponentIndex.PORT] == d[goog.uri.utils.ComponentIndex.PORT];
-};
-goog.uri.utils.assertNoFragmentsOrQueries_ = function(a) {
-  if (goog.DEBUG && (0 <= a.indexOf("#") || 0 <= a.indexOf("?"))) {
-    throw Error("goog.uri.utils: Fragment or query identifiers are not supported: [" + a + "]");
-  }
-};
-goog.uri.utils.appendQueryData_ = function(a) {
-  if (a[1]) {
-    var b = a[0], c = b.indexOf("#");
-    0 <= c && (a.push(b.substr(c)), a[0] = b = b.substr(0, c));
-    c = b.indexOf("?");
-    0 > c ? a[1] = "?" : c == b.length - 1 && (a[1] = void 0);
-  }
-  return a.join("");
-};
-goog.uri.utils.appendKeyValuePairs_ = function(a, b, c) {
-  if (goog.isArray(b)) {
-    goog.asserts.assertArray(b);
-    for (var d = 0;d < b.length;d++) {
-      goog.uri.utils.appendKeyValuePairs_(a, String(b[d]), c);
-    }
-  } else {
-    null != b && c.push("\x26", a, "" === b ? "" : "\x3d", goog.string.urlEncode(b));
-  }
-};
-goog.uri.utils.buildQueryDataBuffer_ = function(a, b, c) {
-  goog.asserts.assert(0 == Math.max(b.length - (c || 0), 0) % 2, "goog.uri.utils: Key/value lists must be even in length.");
-  for (c = c || 0;c < b.length;c += 2) {
-    goog.uri.utils.appendKeyValuePairs_(b[c], b[c + 1], a);
-  }
-  return a;
-};
-goog.uri.utils.buildQueryData = function(a, b) {
-  var c = goog.uri.utils.buildQueryDataBuffer_([], a, b);
-  c[0] = "";
-  return c.join("");
-};
-goog.uri.utils.buildQueryDataBufferFromMap_ = function(a, b) {
-  for (var c in b) {
-    goog.uri.utils.appendKeyValuePairs_(c, b[c], a);
-  }
-  return a;
-};
-goog.uri.utils.buildQueryDataFromMap = function(a) {
-  a = goog.uri.utils.buildQueryDataBufferFromMap_([], a);
-  a[0] = "";
-  return a.join("");
-};
-goog.uri.utils.appendParams = function(a, b) {
-  return goog.uri.utils.appendQueryData_(2 == arguments.length ? goog.uri.utils.buildQueryDataBuffer_([a], arguments[1], 0) : goog.uri.utils.buildQueryDataBuffer_([a], arguments, 1));
-};
-goog.uri.utils.appendParamsFromMap = function(a, b) {
-  return goog.uri.utils.appendQueryData_(goog.uri.utils.buildQueryDataBufferFromMap_([a], b));
-};
-goog.uri.utils.appendParam = function(a, b, c) {
-  return goog.uri.utils.appendQueryData_([a, "\x26", b, "\x3d", goog.string.urlEncode(c)]);
-};
-goog.uri.utils.findParam_ = function(a, b, c, d) {
-  for (var e = c.length;0 <= (b = a.indexOf(c, b)) && b < d;) {
-    var f = a.charCodeAt(b - 1);
-    if (f == goog.uri.utils.CharCode_.AMPERSAND || f == goog.uri.utils.CharCode_.QUESTION) {
-      if (f = a.charCodeAt(b + e), !f || f == goog.uri.utils.CharCode_.EQUAL || f == goog.uri.utils.CharCode_.AMPERSAND || f == goog.uri.utils.CharCode_.HASH) {
-        return b;
-      }
-    }
-    b += e + 1;
-  }
-  return-1;
-};
-goog.uri.utils.hashOrEndRe_ = /#|$/;
-goog.uri.utils.hasParam = function(a, b) {
-  return 0 <= goog.uri.utils.findParam_(a, 0, b, a.search(goog.uri.utils.hashOrEndRe_));
-};
-goog.uri.utils.getParamValue = function(a, b) {
-  var c = a.search(goog.uri.utils.hashOrEndRe_), d = goog.uri.utils.findParam_(a, 0, b, c);
-  if (0 > d) {
-    return null;
-  }
-  var e = a.indexOf("\x26", d);
-  if (0 > e || e > c) {
-    e = c;
-  }
-  d += b.length + 1;
-  return goog.string.urlDecode(a.substr(d, e - d));
-};
-goog.uri.utils.getParamValues = function(a, b) {
-  for (var c = a.search(goog.uri.utils.hashOrEndRe_), d = 0, e, f = [];0 <= (e = goog.uri.utils.findParam_(a, d, b, c));) {
-    d = a.indexOf("\x26", e);
-    if (0 > d || d > c) {
-      d = c;
-    }
-    e += b.length + 1;
-    f.push(goog.string.urlDecode(a.substr(e, d - e)));
-  }
-  return f;
-};
-goog.uri.utils.trailingQueryPunctuationRe_ = /[?&]($|#)/;
-goog.uri.utils.removeParam = function(a, b) {
-  for (var c = a.search(goog.uri.utils.hashOrEndRe_), d = 0, e, f = [];0 <= (e = goog.uri.utils.findParam_(a, d, b, c));) {
-    f.push(a.substring(d, e)), d = Math.min(a.indexOf("\x26", e) + 1 || c, c);
-  }
-  f.push(a.substr(d));
-  return f.join("").replace(goog.uri.utils.trailingQueryPunctuationRe_, "$1");
-};
-goog.uri.utils.setParam = function(a, b, c) {
-  return goog.uri.utils.appendParam(goog.uri.utils.removeParam(a, b), b, c);
-};
-goog.uri.utils.appendPath = function(a, b) {
-  goog.uri.utils.assertNoFragmentsOrQueries_(a);
-  goog.string.endsWith(a, "/") && (a = a.substr(0, a.length - 1));
-  goog.string.startsWith(b, "/") && (b = b.substr(1));
-  return goog.string.buildString(a, "/", b);
-};
-goog.uri.utils.StandardQueryParam = {RANDOM:"zx"};
-goog.uri.utils.makeUnique = function(a) {
-  return goog.uri.utils.setParam(a, goog.uri.utils.StandardQueryParam.RANDOM, goog.string.getRandomString());
-};
-goog.Uri = function(a, b) {
-  var c;
-  a instanceof goog.Uri ? (this.ignoreCase_ = goog.isDef(b) ? b : a.getIgnoreCase(), this.setScheme(a.getScheme()), this.setUserInfo(a.getUserInfo()), this.setDomain(a.getDomain()), this.setPort(a.getPort()), this.setPath(a.getPath()), this.setQueryData(a.getQueryData().clone()), this.setFragment(a.getFragment())) : a && (c = goog.uri.utils.split(String(a))) ? (this.ignoreCase_ = !!b, this.setScheme(c[goog.uri.utils.ComponentIndex.SCHEME] || "", !0), this.setUserInfo(c[goog.uri.utils.ComponentIndex.USER_INFO] || 
-  "", !0), this.setDomain(c[goog.uri.utils.ComponentIndex.DOMAIN] || "", !0), this.setPort(c[goog.uri.utils.ComponentIndex.PORT]), this.setPath(c[goog.uri.utils.ComponentIndex.PATH] || "", !0), this.setQueryData(c[goog.uri.utils.ComponentIndex.QUERY_DATA] || "", !0), this.setFragment(c[goog.uri.utils.ComponentIndex.FRAGMENT] || "", !0)) : (this.ignoreCase_ = !!b, this.queryData_ = new goog.Uri.QueryData(null, null, this.ignoreCase_));
-};
-goog.Uri.preserveParameterTypesCompatibilityFlag = !1;
-goog.Uri.RANDOM_PARAM = goog.uri.utils.StandardQueryParam.RANDOM;
-goog.Uri.prototype.scheme_ = "";
-goog.Uri.prototype.userInfo_ = "";
-goog.Uri.prototype.domain_ = "";
-goog.Uri.prototype.port_ = null;
-goog.Uri.prototype.path_ = "";
-goog.Uri.prototype.fragment_ = "";
-goog.Uri.prototype.isReadOnly_ = !1;
-goog.Uri.prototype.ignoreCase_ = !1;
-goog.Uri.prototype.toString = function() {
-  var a = [], b = this.getScheme();
-  b && a.push(goog.Uri.encodeSpecialChars_(b, goog.Uri.reDisallowedInSchemeOrUserInfo_), ":");
-  if (b = this.getDomain()) {
-    a.push("//");
-    var c = this.getUserInfo();
-    c && a.push(goog.Uri.encodeSpecialChars_(c, goog.Uri.reDisallowedInSchemeOrUserInfo_), "@");
-    a.push(goog.string.urlEncode(b));
-    b = this.getPort();
-    null != b && a.push(":", String(b));
-  }
-  if (b = this.getPath()) {
-    this.hasDomain() && "/" != b.charAt(0) && a.push("/"), a.push(goog.Uri.encodeSpecialChars_(b, "/" == b.charAt(0) ? goog.Uri.reDisallowedInAbsolutePath_ : goog.Uri.reDisallowedInRelativePath_));
-  }
-  (b = this.getEncodedQuery()) && a.push("?", b);
-  (b = this.getFragment()) && a.push("#", goog.Uri.encodeSpecialChars_(b, goog.Uri.reDisallowedInFragment_));
-  return a.join("");
-};
-goog.Uri.prototype.resolve = function(a) {
-  var b = this.clone(), c = a.hasScheme();
-  c ? b.setScheme(a.getScheme()) : c = a.hasUserInfo();
-  c ? b.setUserInfo(a.getUserInfo()) : c = a.hasDomain();
-  c ? b.setDomain(a.getDomain()) : c = a.hasPort();
-  var d = a.getPath();
-  if (c) {
-    b.setPort(a.getPort());
-  } else {
-    if (c = a.hasPath()) {
-      if ("/" != d.charAt(0)) {
-        if (this.hasDomain() && !this.hasPath()) {
-          d = "/" + d;
-        } else {
-          var e = b.getPath().lastIndexOf("/");
-          -1 != e && (d = b.getPath().substr(0, e + 1) + d);
-        }
-      }
-      d = goog.Uri.removeDotSegments(d);
-    }
-  }
-  c ? b.setPath(d) : c = a.hasQuery();
-  c ? b.setQueryData(a.getDecodedQuery()) : c = a.hasFragment();
-  c && b.setFragment(a.getFragment());
-  return b;
-};
-goog.Uri.prototype.clone = function() {
-  return new goog.Uri(this);
-};
-goog.Uri.prototype.getScheme = function() {
-  return this.scheme_;
-};
-goog.Uri.prototype.setScheme = function(a, b) {
-  this.enforceReadOnly();
-  if (this.scheme_ = b ? goog.Uri.decodeOrEmpty_(a) : a) {
-    this.scheme_ = this.scheme_.replace(/:$/, "");
-  }
-  return this;
-};
-goog.Uri.prototype.hasScheme = function() {
-  return!!this.scheme_;
-};
-goog.Uri.prototype.getUserInfo = function() {
-  return this.userInfo_;
-};
-goog.Uri.prototype.setUserInfo = function(a, b) {
-  this.enforceReadOnly();
-  this.userInfo_ = b ? goog.Uri.decodeOrEmpty_(a) : a;
-  return this;
-};
-goog.Uri.prototype.hasUserInfo = function() {
-  return!!this.userInfo_;
-};
-goog.Uri.prototype.getDomain = function() {
-  return this.domain_;
-};
-goog.Uri.prototype.setDomain = function(a, b) {
-  this.enforceReadOnly();
-  this.domain_ = b ? goog.Uri.decodeOrEmpty_(a) : a;
-  return this;
-};
-goog.Uri.prototype.hasDomain = function() {
-  return!!this.domain_;
-};
-goog.Uri.prototype.getPort = function() {
-  return this.port_;
-};
-goog.Uri.prototype.setPort = function(a) {
-  this.enforceReadOnly();
-  if (a) {
-    a = Number(a);
-    if (isNaN(a) || 0 > a) {
-      throw Error("Bad port number " + a);
-    }
-    this.port_ = a;
-  } else {
-    this.port_ = null;
-  }
-  return this;
-};
-goog.Uri.prototype.hasPort = function() {
-  return null != this.port_;
-};
-goog.Uri.prototype.getPath = function() {
-  return this.path_;
-};
-goog.Uri.prototype.setPath = function(a, b) {
-  this.enforceReadOnly();
-  this.path_ = b ? goog.Uri.decodeOrEmpty_(a) : a;
-  return this;
-};
-goog.Uri.prototype.hasPath = function() {
-  return!!this.path_;
-};
-goog.Uri.prototype.hasQuery = function() {
-  return "" !== this.queryData_.toString();
-};
-goog.Uri.prototype.setQueryData = function(a, b) {
-  this.enforceReadOnly();
-  a instanceof goog.Uri.QueryData ? (this.queryData_ = a, this.queryData_.setIgnoreCase(this.ignoreCase_)) : (b || (a = goog.Uri.encodeSpecialChars_(a, goog.Uri.reDisallowedInQuery_)), this.queryData_ = new goog.Uri.QueryData(a, null, this.ignoreCase_));
-  return this;
-};
-goog.Uri.prototype.setQuery = function(a, b) {
-  return this.setQueryData(a, b);
-};
-goog.Uri.prototype.getEncodedQuery = function() {
-  return this.queryData_.toString();
-};
-goog.Uri.prototype.getDecodedQuery = function() {
-  return this.queryData_.toDecodedString();
-};
-goog.Uri.prototype.getQueryData = function() {
-  return this.queryData_;
-};
-goog.Uri.prototype.getQuery = function() {
-  return this.getEncodedQuery();
-};
-goog.Uri.prototype.setParameterValue = function(a, b) {
-  this.enforceReadOnly();
-  this.queryData_.set(a, b);
-  return this;
-};
-goog.Uri.prototype.setParameterValues = function(a, b) {
-  this.enforceReadOnly();
-  goog.isArray(b) || (b = [String(b)]);
-  this.queryData_.setValues(a, b);
-  return this;
-};
-goog.Uri.prototype.getParameterValues = function(a) {
-  return this.queryData_.getValues(a);
-};
-goog.Uri.prototype.getParameterValue = function(a) {
-  return this.queryData_.get(a);
-};
-goog.Uri.prototype.getFragment = function() {
-  return this.fragment_;
-};
-goog.Uri.prototype.setFragment = function(a, b) {
-  this.enforceReadOnly();
-  this.fragment_ = b ? goog.Uri.decodeOrEmpty_(a) : a;
-  return this;
-};
-goog.Uri.prototype.hasFragment = function() {
-  return!!this.fragment_;
-};
-goog.Uri.prototype.hasSameDomainAs = function(a) {
-  return(!this.hasDomain() && !a.hasDomain() || this.getDomain() == a.getDomain()) && (!this.hasPort() && !a.hasPort() || this.getPort() == a.getPort());
-};
-goog.Uri.prototype.makeUnique = function() {
-  this.enforceReadOnly();
-  this.setParameterValue(goog.Uri.RANDOM_PARAM, goog.string.getRandomString());
-  return this;
-};
-goog.Uri.prototype.removeParameter = function(a) {
-  this.enforceReadOnly();
-  this.queryData_.remove(a);
-  return this;
-};
-goog.Uri.prototype.setReadOnly = function(a) {
-  this.isReadOnly_ = a;
-  return this;
-};
-goog.Uri.prototype.isReadOnly = function() {
-  return this.isReadOnly_;
-};
-goog.Uri.prototype.enforceReadOnly = function() {
-  if (this.isReadOnly_) {
-    throw Error("Tried to modify a read-only Uri");
-  }
-};
-goog.Uri.prototype.setIgnoreCase = function(a) {
-  this.ignoreCase_ = a;
-  this.queryData_ && this.queryData_.setIgnoreCase(a);
-  return this;
-};
-goog.Uri.prototype.getIgnoreCase = function() {
-  return this.ignoreCase_;
-};
-goog.Uri.parse = function(a, b) {
-  return a instanceof goog.Uri ? a.clone() : new goog.Uri(a, b);
-};
-goog.Uri.create = function(a, b, c, d, e, f, g, h) {
-  h = new goog.Uri(null, h);
-  a && h.setScheme(a);
-  b && h.setUserInfo(b);
-  c && h.setDomain(c);
-  d && h.setPort(d);
-  e && h.setPath(e);
-  f && h.setQueryData(f);
-  g && h.setFragment(g);
-  return h;
-};
-goog.Uri.resolve = function(a, b) {
-  a instanceof goog.Uri || (a = goog.Uri.parse(a));
-  b instanceof goog.Uri || (b = goog.Uri.parse(b));
-  return a.resolve(b);
-};
-goog.Uri.removeDotSegments = function(a) {
-  if (".." == a || "." == a) {
-    return "";
-  }
-  if (goog.string.contains(a, "./") || goog.string.contains(a, "/.")) {
-    var b = goog.string.startsWith(a, "/");
-    a = a.split("/");
-    for (var c = [], d = 0;d < a.length;) {
-      var e = a[d++];
-      "." == e ? b && d == a.length && c.push("") : ".." == e ? ((1 < c.length || 1 == c.length && "" != c[0]) && c.pop(), b && d == a.length && c.push("")) : (c.push(e), b = !0);
-    }
-    return c.join("/");
-  }
-  return a;
-};
-goog.Uri.decodeOrEmpty_ = function(a) {
-  return a ? decodeURIComponent(a) : "";
-};
-goog.Uri.encodeSpecialChars_ = function(a, b) {
-  return goog.isString(a) ? encodeURI(a).replace(b, goog.Uri.encodeChar_) : null;
-};
-goog.Uri.encodeChar_ = function(a) {
-  a = a.charCodeAt(0);
-  return "%" + (a >> 4 & 15).toString(16) + (a & 15).toString(16);
-};
-goog.Uri.reDisallowedInSchemeOrUserInfo_ = /[#\/\?@]/g;
-goog.Uri.reDisallowedInRelativePath_ = /[\#\?:]/g;
-goog.Uri.reDisallowedInAbsolutePath_ = /[\#\?]/g;
-goog.Uri.reDisallowedInQuery_ = /[\#\?@]/g;
-goog.Uri.reDisallowedInFragment_ = /#/g;
-goog.Uri.haveSameDomain = function(a, b) {
-  var c = goog.uri.utils.split(a), d = goog.uri.utils.split(b);
-  return c[goog.uri.utils.ComponentIndex.DOMAIN] == d[goog.uri.utils.ComponentIndex.DOMAIN] && c[goog.uri.utils.ComponentIndex.PORT] == d[goog.uri.utils.ComponentIndex.PORT];
-};
-goog.Uri.QueryData = function(a, b, c) {
-  this.encodedQuery_ = a || null;
-  this.ignoreCase_ = !!c;
-};
-goog.Uri.QueryData.prototype.ensureKeyMapInitialized_ = function() {
-  if (!this.keyMap_ && (this.keyMap_ = new goog.structs.Map, this.count_ = 0, this.encodedQuery_)) {
-    for (var a = this.encodedQuery_.split("\x26"), b = 0;b < a.length;b++) {
-      var c = a[b].indexOf("\x3d"), d = null, e = null;
-      0 <= c ? (d = a[b].substring(0, c), e = a[b].substring(c + 1)) : d = a[b];
-      d = goog.string.urlDecode(d);
-      d = this.getKeyName_(d);
-      this.add(d, e ? goog.string.urlDecode(e) : "");
-    }
-  }
-};
-goog.Uri.QueryData.createFromMap = function(a, b, c) {
-  b = goog.structs.getKeys(a);
-  if ("undefined" == typeof b) {
-    throw Error("Keys are undefined");
-  }
-  c = new goog.Uri.QueryData(null, null, c);
-  a = goog.structs.getValues(a);
-  for (var d = 0;d < b.length;d++) {
-    var e = b[d], f = a[d];
-    goog.isArray(f) ? c.setValues(e, f) : c.add(e, f);
-  }
-  return c;
-};
-goog.Uri.QueryData.createFromKeysValues = function(a, b, c, d) {
-  if (a.length != b.length) {
-    throw Error("Mismatched lengths for keys/values");
-  }
-  c = new goog.Uri.QueryData(null, null, d);
-  for (d = 0;d < a.length;d++) {
-    c.add(a[d], b[d]);
-  }
-  return c;
-};
-goog.Uri.QueryData.prototype.keyMap_ = null;
-goog.Uri.QueryData.prototype.count_ = null;
-goog.Uri.QueryData.prototype.getCount = function() {
-  this.ensureKeyMapInitialized_();
-  return this.count_;
-};
-goog.Uri.QueryData.prototype.add = function(a, b) {
-  this.ensureKeyMapInitialized_();
-  this.invalidateCache_();
-  a = this.getKeyName_(a);
-  var c = this.keyMap_.get(a);
-  c || this.keyMap_.set(a, c = []);
-  c.push(b);
-  this.count_++;
-  return this;
-};
-goog.Uri.QueryData.prototype.remove = function(a) {
-  this.ensureKeyMapInitialized_();
-  a = this.getKeyName_(a);
-  return this.keyMap_.containsKey(a) ? (this.invalidateCache_(), this.count_ -= this.keyMap_.get(a).length, this.keyMap_.remove(a)) : !1;
-};
-goog.Uri.QueryData.prototype.clear = function() {
-  this.invalidateCache_();
-  this.keyMap_ = null;
-  this.count_ = 0;
-};
-goog.Uri.QueryData.prototype.isEmpty = function() {
-  this.ensureKeyMapInitialized_();
-  return 0 == this.count_;
-};
-goog.Uri.QueryData.prototype.containsKey = function(a) {
-  this.ensureKeyMapInitialized_();
-  a = this.getKeyName_(a);
-  return this.keyMap_.containsKey(a);
-};
-goog.Uri.QueryData.prototype.containsValue = function(a) {
-  var b = this.getValues();
-  return goog.array.contains(b, a);
-};
-goog.Uri.QueryData.prototype.getKeys = function() {
-  this.ensureKeyMapInitialized_();
-  for (var a = this.keyMap_.getValues(), b = this.keyMap_.getKeys(), c = [], d = 0;d < b.length;d++) {
-    for (var e = a[d], f = 0;f < e.length;f++) {
-      c.push(b[d]);
-    }
-  }
-  return c;
-};
-goog.Uri.QueryData.prototype.getValues = function(a) {
-  this.ensureKeyMapInitialized_();
-  var b = [];
-  if (a) {
-    this.containsKey(a) && (b = goog.array.concat(b, this.keyMap_.get(this.getKeyName_(a))));
-  } else {
-    a = this.keyMap_.getValues();
-    for (var c = 0;c < a.length;c++) {
-      b = goog.array.concat(b, a[c]);
-    }
-  }
-  return b;
-};
-goog.Uri.QueryData.prototype.set = function(a, b) {
-  this.ensureKeyMapInitialized_();
-  this.invalidateCache_();
-  a = this.getKeyName_(a);
-  this.containsKey(a) && (this.count_ -= this.keyMap_.get(a).length);
-  this.keyMap_.set(a, [b]);
-  this.count_++;
-  return this;
-};
-goog.Uri.QueryData.prototype.get = function(a, b) {
-  var c = a ? this.getValues(a) : [];
-  return goog.Uri.preserveParameterTypesCompatibilityFlag ? 0 < c.length ? c[0] : b : 0 < c.length ? String(c[0]) : b;
-};
-goog.Uri.QueryData.prototype.setValues = function(a, b) {
-  this.remove(a);
-  0 < b.length && (this.invalidateCache_(), this.keyMap_.set(this.getKeyName_(a), goog.array.clone(b)), this.count_ += b.length);
-};
-goog.Uri.QueryData.prototype.toString = function() {
-  if (this.encodedQuery_) {
-    return this.encodedQuery_;
-  }
-  if (!this.keyMap_) {
-    return "";
-  }
-  for (var a = [], b = this.keyMap_.getKeys(), c = 0;c < b.length;c++) {
-    for (var d = b[c], e = goog.string.urlEncode(d), d = this.getValues(d), f = 0;f < d.length;f++) {
-      var g = e;
-      "" !== d[f] && (g += "\x3d" + goog.string.urlEncode(d[f]));
-      a.push(g);
-    }
-  }
-  return this.encodedQuery_ = a.join("\x26");
-};
-goog.Uri.QueryData.prototype.toDecodedString = function() {
-  return goog.Uri.decodeOrEmpty_(this.toString());
-};
-goog.Uri.QueryData.prototype.invalidateCache_ = function() {
-  this.encodedQuery_ = null;
-};
-goog.Uri.QueryData.prototype.filterKeys = function(a) {
-  this.ensureKeyMapInitialized_();
-  goog.structs.forEach(this.keyMap_, function(b, c, d) {
-    goog.array.contains(a, c) || this.remove(c);
-  }, this);
-  return this;
-};
-goog.Uri.QueryData.prototype.clone = function() {
-  var a = new goog.Uri.QueryData;
-  a.encodedQuery_ = this.encodedQuery_;
-  this.keyMap_ && (a.keyMap_ = this.keyMap_.clone(), a.count_ = this.count_);
-  return a;
-};
-goog.Uri.QueryData.prototype.getKeyName_ = function(a) {
-  a = String(a);
-  this.ignoreCase_ && (a = a.toLowerCase());
-  return a;
-};
-goog.Uri.QueryData.prototype.setIgnoreCase = function(a) {
-  a && !this.ignoreCase_ && (this.ensureKeyMapInitialized_(), this.invalidateCache_(), goog.structs.forEach(this.keyMap_, function(a, c) {
-    var d = c.toLowerCase();
-    c != d && (this.remove(c), this.setValues(d, a));
-  }, this));
-  this.ignoreCase_ = a;
-};
-goog.Uri.QueryData.prototype.extend = function(a) {
-  for (var b = 0;b < arguments.length;b++) {
-    goog.structs.forEach(arguments[b], function(a, b) {
-      this.add(b, a);
-    }, this);
-  }
-};
-/*
- Portions of this code are from MochiKit, received by
- The Closure Authors under the MIT license. All other code is Copyright
- 2005-2009 The Closure Authors. All Rights Reserved.
-*/
-goog.async = {};
-goog.async.Deferred = function(a, b) {
-  this.sequence_ = [];
-  this.onCancelFunction_ = a;
-  this.defaultScope_ = b || null;
-};
-goog.async.Deferred.prototype.fired_ = !1;
-goog.async.Deferred.prototype.hadError_ = !1;
-goog.async.Deferred.prototype.blocked_ = !1;
-goog.async.Deferred.prototype.blocking_ = !1;
-goog.async.Deferred.prototype.silentlyCancelled_ = !1;
-goog.async.Deferred.prototype.branches_ = 0;
-goog.async.Deferred.prototype.cancel = function(a) {
-  if (this.hasFired()) {
-    this.result_ instanceof goog.async.Deferred && this.result_.cancel();
-  } else {
-    if (this.parent_) {
-      var b = this.parent_;
-      delete this.parent_;
-      a ? b.cancel(a) : b.branchCancel_();
-    }
-    this.onCancelFunction_ ? this.onCancelFunction_.call(this.defaultScope_, this) : this.silentlyCancelled_ = !0;
-    this.hasFired() || this.errback(new goog.async.Deferred.CancelledError(this));
-  }
-};
-goog.async.Deferred.prototype.branchCancel_ = function() {
-  this.branches_--;
-  0 >= this.branches_ && this.cancel();
-};
-goog.async.Deferred.prototype.continue_ = function(a, b) {
-  this.blocked_ = !1;
-  this.updateResult_(a, b);
-};
-goog.async.Deferred.prototype.updateResult_ = function(a, b) {
-  this.fired_ = !0;
-  this.result_ = b;
-  this.hadError_ = !a;
-  this.fire_();
-};
-goog.async.Deferred.prototype.check_ = function() {
-  if (this.hasFired()) {
-    if (!this.silentlyCancelled_) {
-      throw new goog.async.Deferred.AlreadyCalledError(this);
-    }
-    this.silentlyCancelled_ = !1;
-  }
-};
-goog.async.Deferred.prototype.callback = function(a) {
-  this.check_();
-  this.assertNotDeferred_(a);
-  this.updateResult_(!0, a);
-};
-goog.async.Deferred.prototype.errback = function(a) {
-  this.check_();
-  this.assertNotDeferred_(a);
-  this.updateResult_(!1, a);
-};
-goog.async.Deferred.prototype.assertNotDeferred_ = function(a) {
-  goog.asserts.assert(!(a instanceof goog.async.Deferred), "An execution sequence may not be initiated with a blocking Deferred.");
-};
-goog.async.Deferred.prototype.addCallback = function(a, b) {
-  return this.addCallbacks(a, null, b);
-};
-goog.async.Deferred.prototype.addErrback = function(a, b) {
-  return this.addCallbacks(null, a, b);
-};
-goog.async.Deferred.prototype.addBoth = function(a, b) {
-  return this.addCallbacks(a, a, b);
-};
-goog.async.Deferred.prototype.addCallbacks = function(a, b, c) {
-  goog.asserts.assert(!this.blocking_, "Blocking Deferreds can not be re-used");
-  this.sequence_.push([a, b, c]);
-  this.hasFired() && this.fire_();
-  return this;
-};
-goog.async.Deferred.prototype.chainDeferred = function(a) {
-  this.addCallbacks(a.callback, a.errback, a);
-  return this;
-};
-goog.async.Deferred.prototype.awaitDeferred = function(a) {
-  return this.addCallback(goog.bind(a.branch, a));
-};
-goog.async.Deferred.prototype.branch = function(a) {
-  var b = new goog.async.Deferred;
-  this.chainDeferred(b);
-  a && (b.parent_ = this, this.branches_++);
-  return b;
-};
-goog.async.Deferred.prototype.hasFired = function() {
-  return this.fired_;
-};
-goog.async.Deferred.prototype.isError = function(a) {
-  return a instanceof Error;
-};
-goog.async.Deferred.prototype.hasErrback_ = function() {
-  return goog.array.some(this.sequence_, function(a) {
-    return goog.isFunction(a[1]);
-  });
-};
-goog.async.Deferred.prototype.fire_ = function() {
-  this.unhandledExceptionTimeoutId_ && this.hasFired() && this.hasErrback_() && (goog.global.clearTimeout(this.unhandledExceptionTimeoutId_), delete this.unhandledExceptionTimeoutId_);
-  this.parent_ && (this.parent_.branches_--, delete this.parent_);
-  for (var a = this.result_, b = !1, c = !1;this.sequence_.length && !this.blocked_;) {
-    var d = this.sequence_.shift(), e = d[0], f = d[1], d = d[2];
-    if (e = this.hadError_ ? f : e) {
-      try {
-        var g = e.call(d || this.defaultScope_, a);
-        goog.isDef(g) && (this.hadError_ = this.hadError_ && (g == a || this.isError(g)), this.result_ = a = g);
-        a instanceof goog.async.Deferred && (this.blocked_ = c = !0);
-      } catch (h) {
-        a = h, this.hadError_ = !0, this.hasErrback_() || (b = !0);
-      }
-    }
-  }
-  this.result_ = a;
-  c && (a.addCallbacks(goog.bind(this.continue_, this, !0), goog.bind(this.continue_, this, !1)), a.blocking_ = !0);
-  b && (this.unhandledExceptionTimeoutId_ = goog.global.setTimeout(function() {
-    throw a;
-  }, 0));
-};
-goog.async.Deferred.succeed = function(a) {
-  var b = new goog.async.Deferred;
-  b.callback(a);
-  return b;
-};
-goog.async.Deferred.fail = function(a) {
-  var b = new goog.async.Deferred;
-  b.errback(a);
-  return b;
-};
-goog.async.Deferred.cancelled = function() {
-  var a = new goog.async.Deferred;
-  a.cancel();
-  return a;
-};
-goog.async.Deferred.when = function(a, b, c) {
-  return a instanceof goog.async.Deferred ? a.branch(!0).addCallback(b, c) : goog.async.Deferred.succeed(a).addCallback(b, c);
-};
-goog.async.Deferred.AlreadyCalledError = function(a) {
-  goog.debug.Error.call(this);
-  this.deferred = a;
-};
-goog.inherits(goog.async.Deferred.AlreadyCalledError, goog.debug.Error);
-goog.async.Deferred.AlreadyCalledError.prototype.message = "Deferred has already fired";
-goog.async.Deferred.AlreadyCalledError.prototype.name = "AlreadyCalledError";
-goog.async.Deferred.CancelledError = function(a) {
-  goog.debug.Error.call(this);
-  this.deferred = a;
-};
-goog.inherits(goog.async.Deferred.CancelledError, goog.debug.Error);
-goog.async.Deferred.CancelledError.prototype.message = "Deferred was cancelled";
-goog.async.Deferred.CancelledError.prototype.name = "CancelledError";
-goog.Timer = function(a, b) {
-  goog.events.EventTarget.call(this);
-  this.interval_ = a || 1;
-  this.timerObject_ = b || goog.Timer.defaultTimerObject;
-  this.boundTick_ = goog.bind(this.tick_, this);
-  this.last_ = goog.now();
-};
-goog.inherits(goog.Timer, goog.events.EventTarget);
-goog.Timer.MAX_TIMEOUT_ = 2147483647;
-goog.Timer.prototype.enabled = !1;
-goog.Timer.defaultTimerObject = goog.global;
-goog.Timer.intervalScale = 0.8;
-goog.Timer.prototype.timer_ = null;
-goog.Timer.prototype.getInterval = function() {
-  return this.interval_;
-};
-goog.Timer.prototype.setInterval = function(a) {
-  this.interval_ = a;
-  this.timer_ && this.enabled ? (this.stop(), this.start()) : this.timer_ && this.stop();
-};
-goog.Timer.prototype.tick_ = function() {
-  if (this.enabled) {
-    var a = goog.now() - this.last_;
-    0 < a && a < this.interval_ * goog.Timer.intervalScale ? this.timer_ = this.timerObject_.setTimeout(this.boundTick_, this.interval_ - a) : (this.dispatchTick(), this.enabled && (this.timer_ = this.timerObject_.setTimeout(this.boundTick_, this.interval_), this.last_ = goog.now()));
-  }
-};
-goog.Timer.prototype.dispatchTick = function() {
-  this.dispatchEvent(goog.Timer.TICK);
-};
-goog.Timer.prototype.start = function() {
-  this.enabled = !0;
-  this.timer_ || (this.timer_ = this.timerObject_.setTimeout(this.boundTick_, this.interval_), this.last_ = goog.now());
-};
-goog.Timer.prototype.stop = function() {
-  this.enabled = !1;
-  this.timer_ && (this.timerObject_.clearTimeout(this.timer_), this.timer_ = null);
-};
-goog.Timer.prototype.disposeInternal = function() {
-  goog.Timer.superClass_.disposeInternal.call(this);
-  this.stop();
-  delete this.timerObject_;
-};
-goog.Timer.TICK = "tick";
-goog.Timer.callOnce = function(a, b, c) {
-  if (goog.isFunction(a)) {
-    c && (a = goog.bind(a, c));
-  } else {
-    if (a && "function" == typeof a.handleEvent) {
-      a = goog.bind(a.handleEvent, a);
-    } else {
-      throw Error("Invalid listener argument");
-    }
-  }
-  return b > goog.Timer.MAX_TIMEOUT_ ? -1 : goog.Timer.defaultTimerObject.setTimeout(a, b || 0);
-};
-goog.Timer.clear = function(a) {
-  goog.Timer.defaultTimerObject.clearTimeout(a);
-};
-goog.async.Delay = function(a, b, c) {
-  goog.Disposable.call(this);
-  this.listener_ = a;
-  this.interval_ = b || 0;
-  this.handler_ = c;
-  this.callback_ = goog.bind(this.doAction_, this);
-};
-goog.inherits(goog.async.Delay, goog.Disposable);
-goog.Delay = goog.async.Delay;
-goog.async.Delay.prototype.id_ = 0;
-goog.async.Delay.prototype.disposeInternal = function() {
-  goog.async.Delay.superClass_.disposeInternal.call(this);
-  this.stop();
-  delete this.listener_;
-  delete this.handler_;
-};
-goog.async.Delay.prototype.start = function(a) {
-  this.stop();
-  this.id_ = goog.Timer.callOnce(this.callback_, goog.isDef(a) ? a : this.interval_);
-};
-goog.async.Delay.prototype.stop = function() {
-  this.isActive() && goog.Timer.clear(this.id_);
-  this.id_ = 0;
-};
-goog.async.Delay.prototype.fire = function() {
-  this.stop();
-  this.doAction_();
-};
-goog.async.Delay.prototype.fireIfActive = function() {
-  this.isActive() && this.fire();
-};
-goog.async.Delay.prototype.isActive = function() {
-  return 0 != this.id_;
-};
-goog.async.Delay.prototype.doAction_ = function() {
-  this.id_ = 0;
-  this.listener_ && this.listener_.call(this.handler_);
-};
-goog.dom = {};
-goog.dom.BrowserFeature = {CAN_ADD_NAME_OR_TYPE_ATTRIBUTES:!goog.userAgent.IE || goog.userAgent.isDocumentMode(9), CAN_USE_CHILDREN_ATTRIBUTE:!goog.userAgent.GECKO && !goog.userAgent.IE || goog.userAgent.IE && goog.userAgent.isDocumentMode(9) || goog.userAgent.GECKO && goog.userAgent.isVersion("1.9.1"), CAN_USE_INNER_TEXT:goog.userAgent.IE && !goog.userAgent.isVersion("9"), CAN_USE_PARENT_ELEMENT_PROPERTY:goog.userAgent.IE || goog.userAgent.OPERA || goog.userAgent.WEBKIT, INNER_HTML_NEEDS_SCOPED_ELEMENT:goog.userAgent.IE};
-goog.dom.TagName = {A:"A", ABBR:"ABBR", ACRONYM:"ACRONYM", ADDRESS:"ADDRESS", APPLET:"APPLET", AREA:"AREA", ARTICLE:"ARTICLE", ASIDE:"ASIDE", AUDIO:"AUDIO", B:"B", BASE:"BASE", BASEFONT:"BASEFONT", BDI:"BDI", BDO:"BDO", BIG:"BIG", BLOCKQUOTE:"BLOCKQUOTE", BODY:"BODY", BR:"BR", BUTTON:"BUTTON", CANVAS:"CANVAS", CAPTION:"CAPTION", CENTER:"CENTER", CITE:"CITE", CODE:"CODE", COL:"COL", COLGROUP:"COLGROUP", COMMAND:"COMMAND", DATA:"DATA", DATALIST:"DATALIST", DD:"DD", DEL:"DEL", DETAILS:"DETAILS", DFN:"DFN", 
-DIALOG:"DIALOG", DIR:"DIR", DIV:"DIV", DL:"DL", DT:"DT", EM:"EM", EMBED:"EMBED", FIELDSET:"FIELDSET", FIGCAPTION:"FIGCAPTION", FIGURE:"FIGURE", FONT:"FONT", FOOTER:"FOOTER", FORM:"FORM", FRAME:"FRAME", FRAMESET:"FRAMESET", H1:"H1", H2:"H2", H3:"H3", H4:"H4", H5:"H5", H6:"H6", HEAD:"HEAD", HEADER:"HEADER", HGROUP:"HGROUP", HR:"HR", HTML:"HTML", I:"I", IFRAME:"IFRAME", IMG:"IMG", INPUT:"INPUT", INS:"INS", ISINDEX:"ISINDEX", KBD:"KBD", KEYGEN:"KEYGEN", LABEL:"LABEL", LEGEND:"LEGEND", LI:"LI", LINK:"LINK", 
-MAP:"MAP", MARK:"MARK", MATH:"MATH", MENU:"MENU", META:"META", METER:"METER", NAV:"NAV", NOFRAMES:"NOFRAMES", NOSCRIPT:"NOSCRIPT", OBJECT:"OBJECT", OL:"OL", OPTGROUP:"OPTGROUP", OPTION:"OPTION", OUTPUT:"OUTPUT", P:"P", PARAM:"PARAM", PRE:"PRE", PROGRESS:"PROGRESS", Q:"Q", RP:"RP", RT:"RT", RUBY:"RUBY", S:"S", SAMP:"SAMP", SCRIPT:"SCRIPT", SECTION:"SECTION", SELECT:"SELECT", SMALL:"SMALL", SOURCE:"SOURCE", SPAN:"SPAN", STRIKE:"STRIKE", STRONG:"STRONG", STYLE:"STYLE", SUB:"SUB", SUMMARY:"SUMMARY", 
-SUP:"SUP", SVG:"SVG", TABLE:"TABLE", TBODY:"TBODY", TD:"TD", TEXTAREA:"TEXTAREA", TFOOT:"TFOOT", TH:"TH", THEAD:"THEAD", TIME:"TIME", TITLE:"TITLE", TR:"TR", TRACK:"TRACK", TT:"TT", U:"U", UL:"UL", VAR:"VAR", VIDEO:"VIDEO", WBR:"WBR"};
-goog.dom.classes = {};
-goog.dom.classes.set = function(a, b) {
-  a.className = b;
-};
-goog.dom.classes.get = function(a) {
-  a = a.className;
-  return goog.isString(a) && a.match(/\S+/g) || [];
-};
-goog.dom.classes.add = function(a, b) {
-  var c = goog.dom.classes.get(a), d = goog.array.slice(arguments, 1), e = c.length + d.length;
-  goog.dom.classes.add_(c, d);
-  goog.dom.classes.set(a, c.join(" "));
-  return c.length == e;
-};
-goog.dom.classes.remove = function(a, b) {
-  var c = goog.dom.classes.get(a), d = goog.array.slice(arguments, 1), e = goog.dom.classes.getDifference_(c, d);
-  goog.dom.classes.set(a, e.join(" "));
-  return e.length == c.length - d.length;
-};
-goog.dom.classes.add_ = function(a, b) {
-  for (var c = 0;c < b.length;c++) {
-    goog.array.contains(a, b[c]) || a.push(b[c]);
-  }
-};
-goog.dom.classes.getDifference_ = function(a, b) {
-  return goog.array.filter(a, function(a) {
-    return!goog.array.contains(b, a);
-  });
-};
-goog.dom.classes.swap = function(a, b, c) {
-  for (var d = goog.dom.classes.get(a), e = !1, f = 0;f < d.length;f++) {
-    d[f] == b && (goog.array.splice(d, f--, 1), e = !0);
-  }
-  e && (d.push(c), goog.dom.classes.set(a, d.join(" ")));
-  return e;
-};
-goog.dom.classes.addRemove = function(a, b, c) {
-  var d = goog.dom.classes.get(a);
-  goog.isString(b) ? goog.array.remove(d, b) : goog.isArray(b) && (d = goog.dom.classes.getDifference_(d, b));
-  goog.isString(c) && !goog.array.contains(d, c) ? d.push(c) : goog.isArray(c) && goog.dom.classes.add_(d, c);
-  goog.dom.classes.set(a, d.join(" "));
-};
-goog.dom.classes.has = function(a, b) {
-  return goog.array.contains(goog.dom.classes.get(a), b);
-};
-goog.dom.classes.enable = function(a, b, c) {
-  c ? goog.dom.classes.add(a, b) : goog.dom.classes.remove(a, b);
-};
-goog.dom.classes.toggle = function(a, b) {
-  var c = !goog.dom.classes.has(a, b);
-  goog.dom.classes.enable(a, b, c);
-  return c;
-};
-goog.math = {};
-goog.math.randomInt = function(a) {
-  return Math.floor(Math.random() * a);
-};
-goog.math.uniformRandom = function(a, b) {
-  return a + Math.random() * (b - a);
-};
-goog.math.clamp = function(a, b, c) {
-  return Math.min(Math.max(a, b), c);
-};
-goog.math.modulo = function(a, b) {
-  var c = a % b;
-  return 0 > c * b ? c + b : c;
-};
-goog.math.lerp = function(a, b, c) {
-  return a + c * (b - a);
-};
-goog.math.nearlyEquals = function(a, b, c) {
-  return Math.abs(a - b) <= (c || 1E-6);
-};
-goog.math.standardAngle = function(a) {
-  return goog.math.modulo(a, 360);
-};
-goog.math.toRadians = function(a) {
-  return a * Math.PI / 180;
-};
-goog.math.toDegrees = function(a) {
-  return 180 * a / Math.PI;
-};
-goog.math.angleDx = function(a, b) {
-  return b * Math.cos(goog.math.toRadians(a));
-};
-goog.math.angleDy = function(a, b) {
-  return b * Math.sin(goog.math.toRadians(a));
-};
-goog.math.angle = function(a, b, c, d) {
-  return goog.math.standardAngle(goog.math.toDegrees(Math.atan2(d - b, c - a)));
-};
-goog.math.angleDifference = function(a, b) {
-  var c = goog.math.standardAngle(b) - goog.math.standardAngle(a);
-  180 < c ? c -= 360 : -180 >= c && (c = 360 + c);
-  return c;
-};
-goog.math.sign = function(a) {
-  return 0 == a ? 0 : 0 > a ? -1 : 1;
-};
-goog.math.longestCommonSubsequence = function(a, b, c, d) {
-  c = c || function(a, b) {
-    return a == b;
-  };
-  d = d || function(b, c) {
-    return a[b];
-  };
-  for (var e = a.length, f = b.length, g = [], h = 0;h < e + 1;h++) {
-    g[h] = [], g[h][0] = 0;
-  }
-  for (var k = 0;k < f + 1;k++) {
-    g[0][k] = 0;
-  }
-  for (h = 1;h <= e;h++) {
-    for (k = 1;k <= e;k++) {
-      c(a[h - 1], b[k - 1]) ? g[h][k] = g[h - 1][k - 1] + 1 : g[h][k] = Math.max(g[h - 1][k], g[h][k - 1]);
-    }
-  }
-  for (var l = [], h = e, k = f;0 < h && 0 < k;) {
-    c(a[h - 1], b[k - 1]) ? (l.unshift(d(h - 1, k - 1)), h--, k--) : g[h - 1][k] > g[h][k - 1] ? h-- : k--;
-  }
-  return l;
-};
-goog.math.sum = function(a) {
-  return goog.array.reduce(arguments, function(a, c) {
-    return a + c;
-  }, 0);
-};
-goog.math.average = function(a) {
-  return goog.math.sum.apply(null, arguments) / arguments.length;
-};
-goog.math.standardDeviation = function(a) {
-  var b = arguments.length;
-  if (2 > b) {
-    return 0;
-  }
-  var c = goog.math.average.apply(null, arguments), b = goog.math.sum.apply(null, goog.array.map(arguments, function(a) {
-    return Math.pow(a - c, 2);
-  })) / (b - 1);
-  return Math.sqrt(b);
-};
-goog.math.isInt = function(a) {
-  return isFinite(a) && 0 == a % 1;
-};
-goog.math.isFiniteNumber = function(a) {
-  return isFinite(a) && !isNaN(a);
-};
-goog.math.safeFloor = function(a, b) {
-  goog.asserts.assert(!goog.isDef(b) || 0 < b);
-  return Math.floor(a + (b || 2E-15));
-};
-goog.math.safeCeil = function(a, b) {
-  goog.asserts.assert(!goog.isDef(b) || 0 < b);
-  return Math.ceil(a - (b || 2E-15));
-};
-goog.math.Coordinate = function(a, b) {
-  this.x = goog.isDef(a) ? a : 0;
-  this.y = goog.isDef(b) ? b : 0;
-};
-goog.math.Coordinate.prototype.clone = function() {
-  return new goog.math.Coordinate(this.x, this.y);
-};
-goog.DEBUG && (goog.math.Coordinate.prototype.toString = function() {
-  return "(" + this.x + ", " + this.y + ")";
-});
-goog.math.Coordinate.equals = function(a, b) {
-  return a == b ? !0 : a && b ? a.x == b.x && a.y == b.y : !1;
-};
-goog.math.Coordinate.distance = function(a, b) {
-  var c = a.x - b.x, d = a.y - b.y;
-  return Math.sqrt(c * c + d * d);
-};
-goog.math.Coordinate.magnitude = function(a) {
-  return Math.sqrt(a.x * a.x + a.y * a.y);
-};
-goog.math.Coordinate.azimuth = function(a) {
-  return goog.math.angle(0, 0, a.x, a.y);
-};
-goog.math.Coordinate.squaredDistance = function(a, b) {
-  var c = a.x - b.x, d = a.y - b.y;
-  return c * c + d * d;
-};
-goog.math.Coordinate.difference = function(a, b) {
-  return new goog.math.Coordinate(a.x - b.x, a.y - b.y);
-};
-goog.math.Coordinate.sum = function(a, b) {
-  return new goog.math.Coordinate(a.x + b.x, a.y + b.y);
-};
-goog.math.Coordinate.prototype.ceil = function() {
-  this.x = Math.ceil(this.x);
-  this.y = Math.ceil(this.y);
-  return this;
-};
-goog.math.Coordinate.prototype.floor = function() {
-  this.x = Math.floor(this.x);
-  this.y = Math.floor(this.y);
-  return this;
-};
-goog.math.Coordinate.prototype.round = function() {
-  this.x = Math.round(this.x);
-  this.y = Math.round(this.y);
-  return this;
-};
-goog.math.Coordinate.prototype.translate = function(a, b) {
-  a instanceof goog.math.Coordinate ? (this.x += a.x, this.y += a.y) : (this.x += a, goog.isNumber(b) && (this.y += b));
-  return this;
-};
-goog.math.Coordinate.prototype.scale = function(a, b) {
-  var c = goog.isNumber(b) ? b : a;
-  this.x *= a;
-  this.y *= c;
-  return this;
-};
-goog.math.Size = function(a, b) {
-  this.width = a;
-  this.height = b;
-};
-goog.math.Size.equals = function(a, b) {
-  return a == b ? !0 : a && b ? a.width == b.width && a.height == b.height : !1;
-};
-goog.math.Size.prototype.clone = function() {
-  return new goog.math.Size(this.width, this.height);
-};
-goog.DEBUG && (goog.math.Size.prototype.toString = function() {
-  return "(" + this.width + " x " + this.height + ")";
-});
-goog.math.Size.prototype.getLongest = function() {
-  return Math.max(this.width, this.height);
-};
-goog.math.Size.prototype.getShortest = function() {
-  return Math.min(this.width, this.height);
-};
-goog.math.Size.prototype.area = function() {
-  return this.width * this.height;
-};
-goog.math.Size.prototype.perimeter = function() {
-  return 2 * (this.width + this.height);
-};
-goog.math.Size.prototype.aspectRatio = function() {
-  return this.width / this.height;
-};
-goog.math.Size.prototype.isEmpty = function() {
-  return!this.area();
-};
-goog.math.Size.prototype.ceil = function() {
-  this.width = Math.ceil(this.width);
-  this.height = Math.ceil(this.height);
-  return this;
-};
-goog.math.Size.prototype.fitsInside = function(a) {
-  return this.width <= a.width && this.height <= a.height;
-};
-goog.math.Size.prototype.floor = function() {
-  this.width = Math.floor(this.width);
-  this.height = Math.floor(this.height);
-  return this;
-};
-goog.math.Size.prototype.round = function() {
-  this.width = Math.round(this.width);
-  this.height = Math.round(this.height);
-  return this;
-};
-goog.math.Size.prototype.scale = function(a, b) {
-  var c = goog.isNumber(b) ? b : a;
-  this.width *= a;
-  this.height *= c;
-  return this;
-};
-goog.math.Size.prototype.scaleToFit = function(a) {
-  a = this.aspectRatio() > a.aspectRatio() ? a.width / this.width : a.height / this.height;
-  return this.scale(a);
-};
-goog.dom.ASSUME_QUIRKS_MODE = !1;
-goog.dom.ASSUME_STANDARDS_MODE = !1;
-goog.dom.COMPAT_MODE_KNOWN_ = goog.dom.ASSUME_QUIRKS_MODE || goog.dom.ASSUME_STANDARDS_MODE;
-goog.dom.NodeType = {ELEMENT:1, ATTRIBUTE:2, TEXT:3, CDATA_SECTION:4, ENTITY_REFERENCE:5, ENTITY:6, PROCESSING_INSTRUCTION:7, COMMENT:8, DOCUMENT:9, DOCUMENT_TYPE:10, DOCUMENT_FRAGMENT:11, NOTATION:12};
-goog.dom.getDomHelper = function(a) {
-  return a ? new goog.dom.DomHelper(goog.dom.getOwnerDocument(a)) : goog.dom.defaultDomHelper_ || (goog.dom.defaultDomHelper_ = new goog.dom.DomHelper);
-};
-goog.dom.getDocument = function() {
-  return document;
-};
-goog.dom.getElement = function(a) {
-  return goog.isString(a) ? document.getElementById(a) : a;
-};
-goog.dom.$ = goog.dom.getElement;
-goog.dom.getElementsByTagNameAndClass = function(a, b, c) {
-  return goog.dom.getElementsByTagNameAndClass_(document, a, b, c);
-};
-goog.dom.getElementsByClass = function(a, b) {
-  var c = b || document;
-  return goog.dom.canUseQuerySelector_(c) ? c.querySelectorAll("." + a) : c.getElementsByClassName ? c.getElementsByClassName(a) : goog.dom.getElementsByTagNameAndClass_(document, "*", a, b);
-};
-goog.dom.getElementByClass = function(a, b) {
-  var c = b || document, d = null;
-  return(d = goog.dom.canUseQuerySelector_(c) ? c.querySelector("." + a) : goog.dom.getElementsByClass(a, b)[0]) || null;
-};
-goog.dom.canUseQuerySelector_ = function(a) {
-  return!(!a.querySelectorAll || !a.querySelector);
-};
-goog.dom.getElementsByTagNameAndClass_ = function(a, b, c, d) {
-  a = d || a;
-  b = b && "*" != b ? b.toUpperCase() : "";
-  if (goog.dom.canUseQuerySelector_(a) && (b || c)) {
-    return a.querySelectorAll(b + (c ? "." + c : ""));
-  }
-  if (c && a.getElementsByClassName) {
-    a = a.getElementsByClassName(c);
-    if (b) {
-      d = {};
-      for (var e = 0, f = 0, g;g = a[f];f++) {
-        b == g.nodeName && (d[e++] = g);
-      }
-      d.length = e;
-      return d;
-    }
-    return a;
-  }
-  a = a.getElementsByTagName(b || "*");
-  if (c) {
-    d = {};
-    for (f = e = 0;g = a[f];f++) {
-      b = g.className, "function" == typeof b.split && goog.array.contains(b.split(/\s+/), c) && (d[e++] = g);
-    }
-    d.length = e;
-    return d;
-  }
-  return a;
-};
-goog.dom.$$ = goog.dom.getElementsByTagNameAndClass;
-goog.dom.setProperties = function(a, b) {
-  goog.object.forEach(b, function(b, d) {
-    "style" == d ? a.style.cssText = b : "class" == d ? a.className = b : "for" == d ? a.htmlFor = b : d in goog.dom.DIRECT_ATTRIBUTE_MAP_ ? a.setAttribute(goog.dom.DIRECT_ATTRIBUTE_MAP_[d], b) : goog.string.startsWith(d, "aria-") || goog.string.startsWith(d, "data-") ? a.setAttribute(d, b) : a[d] = b;
-  });
-};
-goog.dom.DIRECT_ATTRIBUTE_MAP_ = {cellpadding:"cellPadding", cellspacing:"cellSpacing", colspan:"colSpan", frameborder:"frameBorder", height:"height", maxlength:"maxLength", role:"role", rowspan:"rowSpan", type:"type", usemap:"useMap", valign:"vAlign", width:"width"};
-goog.dom.getViewportSize = function(a) {
-  return goog.dom.getViewportSize_(a || window);
-};
-goog.dom.getViewportSize_ = function(a) {
-  a = a.document;
-  a = goog.dom.isCss1CompatMode_(a) ? a.documentElement : a.body;
-  return new goog.math.Size(a.clientWidth, a.clientHeight);
-};
-goog.dom.getDocumentHeight = function() {
-  return goog.dom.getDocumentHeight_(window);
-};
-goog.dom.getDocumentHeight_ = function(a) {
-  var b = a.document, c = 0;
-  if (b) {
-    a = goog.dom.getViewportSize_(a).height;
-    var c = b.body, d = b.documentElement;
-    if (goog.dom.isCss1CompatMode_(b) && d.scrollHeight) {
-      c = d.scrollHeight != a ? d.scrollHeight : d.offsetHeight;
-    } else {
-      var b = d.scrollHeight, e = d.offsetHeight;
-      d.clientHeight != e && (b = c.scrollHeight, e = c.offsetHeight);
-      c = b > a ? b > e ? b : e : b < e ? b : e;
-    }
-  }
-  return c;
-};
-goog.dom.getPageScroll = function(a) {
-  return goog.dom.getDomHelper((a || goog.global || window).document).getDocumentScroll();
-};
-goog.dom.getDocumentScroll = function() {
-  return goog.dom.getDocumentScroll_(document);
-};
-goog.dom.getDocumentScroll_ = function(a) {
-  var b = goog.dom.getDocumentScrollElement_(a);
-  a = goog.dom.getWindow_(a);
-  return new goog.math.Coordinate(a.pageXOffset || b.scrollLeft, a.pageYOffset || b.scrollTop);
-};
-goog.dom.getDocumentScrollElement = function() {
-  return goog.dom.getDocumentScrollElement_(document);
-};
-goog.dom.getDocumentScrollElement_ = function(a) {
-  return!goog.userAgent.WEBKIT && goog.dom.isCss1CompatMode_(a) ? a.documentElement : a.body;
-};
-goog.dom.getWindow = function(a) {
-  return a ? goog.dom.getWindow_(a) : window;
-};
-goog.dom.getWindow_ = function(a) {
-  return a.parentWindow || a.defaultView;
-};
-goog.dom.createDom = function(a, b, c) {
-  return goog.dom.createDom_(document, arguments);
-};
-goog.dom.createDom_ = function(a, b) {
-  var c = b[0], d = b[1];
-  if (!goog.dom.BrowserFeature.CAN_ADD_NAME_OR_TYPE_ATTRIBUTES && d && (d.name || d.type)) {
-    c = ["\x3c", c];
-    d.name && c.push(' name\x3d"', goog.string.htmlEscape(d.name), '"');
-    if (d.type) {
-      c.push(' type\x3d"', goog.string.htmlEscape(d.type), '"');
-      var e = {};
-      goog.object.extend(e, d);
-      delete e.type;
-      d = e;
-    }
-    c.push("\x3e");
-    c = c.join("");
-  }
-  c = a.createElement(c);
-  d && (goog.isString(d) ? c.className = d : goog.isArray(d) ? goog.dom.classes.add.apply(null, [c].concat(d)) : goog.dom.setProperties(c, d));
-  2 < b.length && goog.dom.append_(a, c, b, 2);
-  return c;
-};
-goog.dom.append_ = function(a, b, c, d) {
-  function e(c) {
-    c && b.appendChild(goog.isString(c) ? a.createTextNode(c) : c);
-  }
-  for (;d < c.length;d++) {
-    var f = c[d];
-    goog.isArrayLike(f) && !goog.dom.isNodeLike(f) ? goog.array.forEach(goog.dom.isNodeList(f) ? goog.array.toArray(f) : f, e) : e(f);
-  }
-};
-goog.dom.$dom = goog.dom.createDom;
-goog.dom.createElement = function(a) {
-  return document.createElement(a);
-};
-goog.dom.createTextNode = function(a) {
-  return document.createTextNode(String(a));
-};
-goog.dom.createTable = function(a, b, c) {
-  return goog.dom.createTable_(document, a, b, !!c);
-};
-goog.dom.createTable_ = function(a, b, c, d) {
-  for (var e = ["\x3ctr\x3e"], f = 0;f < c;f++) {
-    e.push(d ? "\x3ctd\x3e\x26nbsp;\x3c/td\x3e" : "\x3ctd\x3e\x3c/td\x3e");
-  }
-  e.push("\x3c/tr\x3e");
-  e = e.join("");
-  c = ["\x3ctable\x3e"];
-  for (f = 0;f < b;f++) {
-    c.push(e);
-  }
-  c.push("\x3c/table\x3e");
-  a = a.createElement(goog.dom.TagName.DIV);
-  a.innerHTML = c.join("");
-  return a.removeChild(a.firstChild);
-};
-goog.dom.htmlToDocumentFragment = function(a) {
-  return goog.dom.htmlToDocumentFragment_(document, a);
-};
-goog.dom.htmlToDocumentFragment_ = function(a, b) {
-  var c = a.createElement("div");
-  goog.dom.BrowserFeature.INNER_HTML_NEEDS_SCOPED_ELEMENT ? (c.innerHTML = "\x3cbr\x3e" + b, c.removeChild(c.firstChild)) : c.innerHTML = b;
-  if (1 == c.childNodes.length) {
-    return c.removeChild(c.firstChild);
-  }
-  for (var d = a.createDocumentFragment();c.firstChild;) {
-    d.appendChild(c.firstChild);
-  }
-  return d;
-};
-goog.dom.getCompatMode = function() {
-  return goog.dom.isCss1CompatMode() ? "CSS1Compat" : "BackCompat";
-};
-goog.dom.isCss1CompatMode = function() {
-  return goog.dom.isCss1CompatMode_(document);
-};
-goog.dom.isCss1CompatMode_ = function(a) {
-  return goog.dom.COMPAT_MODE_KNOWN_ ? goog.dom.ASSUME_STANDARDS_MODE : "CSS1Compat" == a.compatMode;
-};
-goog.dom.canHaveChildren = function(a) {
-  if (a.nodeType != goog.dom.NodeType.ELEMENT) {
-    return!1;
-  }
-  switch(a.tagName) {
-    case goog.dom.TagName.APPLET:
-    ;
-    case goog.dom.TagName.AREA:
-    ;
-    case goog.dom.TagName.BASE:
-    ;
-    case goog.dom.TagName.BR:
-    ;
-    case goog.dom.TagName.COL:
-    ;
-    case goog.dom.TagName.COMMAND:
-    ;
-    case goog.dom.TagName.EMBED:
-    ;
-    case goog.dom.TagName.FRAME:
-    ;
-    case goog.dom.TagName.HR:
-    ;
-    case goog.dom.TagName.IMG:
-    ;
-    case goog.dom.TagName.INPUT:
-    ;
-    case goog.dom.TagName.IFRAME:
-    ;
-    case goog.dom.TagName.ISINDEX:
-    ;
-    case goog.dom.TagName.KEYGEN:
-    ;
-    case goog.dom.TagName.LINK:
-    ;
-    case goog.dom.TagName.NOFRAMES:
-    ;
-    case goog.dom.TagName.NOSCRIPT:
-    ;
-    case goog.dom.TagName.META:
-    ;
-    case goog.dom.TagName.OBJECT:
-    ;
-    case goog.dom.TagName.PARAM:
-    ;
-    case goog.dom.TagName.SCRIPT:
-    ;
-    case goog.dom.TagName.SOURCE:
-    ;
-    case goog.dom.TagName.STYLE:
-    ;
-    case goog.dom.TagName.TRACK:
-    ;
-    case goog.dom.TagName.WBR:
-      return!1;
-  }
-  return!0;
-};
-goog.dom.appendChild = function(a, b) {
-  a.appendChild(b);
-};
-goog.dom.append = function(a, b) {
-  goog.dom.append_(goog.dom.getOwnerDocument(a), a, arguments, 1);
-};
-goog.dom.removeChildren = function(a) {
-  for (var b;b = a.firstChild;) {
-    a.removeChild(b);
-  }
-};
-goog.dom.insertSiblingBefore = function(a, b) {
-  b.parentNode && b.parentNode.insertBefore(a, b);
-};
-goog.dom.insertSiblingAfter = function(a, b) {
-  b.parentNode && b.parentNode.insertBefore(a, b.nextSibling);
-};
-goog.dom.insertChildAt = function(a, b, c) {
-  a.insertBefore(b, a.childNodes[c] || null);
-};
-goog.dom.removeNode = function(a) {
-  return a && a.parentNode ? a.parentNode.removeChild(a) : null;
-};
-goog.dom.replaceNode = function(a, b) {
-  var c = b.parentNode;
-  c && c.replaceChild(a, b);
-};
-goog.dom.flattenElement = function(a) {
-  var b, c = a.parentNode;
-  if (c && c.nodeType != goog.dom.NodeType.DOCUMENT_FRAGMENT) {
-    if (a.removeNode) {
-      return a.removeNode(!1);
-    }
-    for (;b = a.firstChild;) {
-      c.insertBefore(b, a);
-    }
-    return goog.dom.removeNode(a);
-  }
-};
-goog.dom.getChildren = function(a) {
-  return goog.dom.BrowserFeature.CAN_USE_CHILDREN_ATTRIBUTE && void 0 != a.children ? a.children : goog.array.filter(a.childNodes, function(a) {
-    return a.nodeType == goog.dom.NodeType.ELEMENT;
-  });
-};
-goog.dom.getFirstElementChild = function(a) {
-  return void 0 != a.firstElementChild ? a.firstElementChild : goog.dom.getNextElementNode_(a.firstChild, !0);
-};
-goog.dom.getLastElementChild = function(a) {
-  return void 0 != a.lastElementChild ? a.lastElementChild : goog.dom.getNextElementNode_(a.lastChild, !1);
-};
-goog.dom.getNextElementSibling = function(a) {
-  return void 0 != a.nextElementSibling ? a.nextElementSibling : goog.dom.getNextElementNode_(a.nextSibling, !0);
-};
-goog.dom.getPreviousElementSibling = function(a) {
-  return void 0 != a.previousElementSibling ? a.previousElementSibling : goog.dom.getNextElementNode_(a.previousSibling, !1);
-};
-goog.dom.getNextElementNode_ = function(a, b) {
-  for (;a && a.nodeType != goog.dom.NodeType.ELEMENT;) {
-    a = b ? a.nextSibling : a.previousSibling;
-  }
-  return a;
-};
-goog.dom.getNextNode = function(a) {
-  if (!a) {
-    return null;
-  }
-  if (a.firstChild) {
-    return a.firstChild;
-  }
-  for (;a && !a.nextSibling;) {
-    a = a.parentNode;
-  }
-  return a ? a.nextSibling : null;
-};
-goog.dom.getPreviousNode = function(a) {
-  if (!a) {
-    return null;
-  }
-  if (!a.previousSibling) {
-    return a.parentNode;
-  }
-  for (a = a.previousSibling;a && a.lastChild;) {
-    a = a.lastChild;
-  }
-  return a;
-};
-goog.dom.isNodeLike = function(a) {
-  return goog.isObject(a) && 0 < a.nodeType;
-};
-goog.dom.isElement = function(a) {
-  return goog.isObject(a) && a.nodeType == goog.dom.NodeType.ELEMENT;
-};
-goog.dom.isWindow = function(a) {
-  return goog.isObject(a) && a.window == a;
-};
-goog.dom.getParentElement = function(a) {
-  if (goog.dom.BrowserFeature.CAN_USE_PARENT_ELEMENT_PROPERTY) {
-    return a.parentElement;
-  }
-  a = a.parentNode;
-  return goog.dom.isElement(a) ? a : null;
-};
-goog.dom.contains = function(a, b) {
-  if (a.contains && b.nodeType == goog.dom.NodeType.ELEMENT) {
-    return a == b || a.contains(b);
-  }
-  if ("undefined" != typeof a.compareDocumentPosition) {
-    return a == b || Boolean(a.compareDocumentPosition(b) & 16);
-  }
-  for (;b && a != b;) {
-    b = b.parentNode;
-  }
-  return b == a;
-};
-goog.dom.compareNodeOrder = function(a, b) {
-  if (a == b) {
-    return 0;
-  }
-  if (a.compareDocumentPosition) {
-    return a.compareDocumentPosition(b) & 2 ? 1 : -1;
-  }
-  if (goog.userAgent.IE && !goog.userAgent.isDocumentMode(9)) {
-    if (a.nodeType == goog.dom.NodeType.DOCUMENT) {
-      return-1;
-    }
-    if (b.nodeType == goog.dom.NodeType.DOCUMENT) {
-      return 1;
-    }
-  }
-  if ("sourceIndex" in a || a.parentNode && "sourceIndex" in a.parentNode) {
-    var c = a.nodeType == goog.dom.NodeType.ELEMENT, d = b.nodeType == goog.dom.NodeType.ELEMENT;
-    if (c && d) {
-      return a.sourceIndex - b.sourceIndex;
-    }
-    var e = a.parentNode, f = b.parentNode;
-    return e == f ? goog.dom.compareSiblingOrder_(a, b) : !c && goog.dom.contains(e, b) ? -1 * goog.dom.compareParentsDescendantNodeIe_(a, b) : !d && goog.dom.contains(f, a) ? goog.dom.compareParentsDescendantNodeIe_(b, a) : (c ? a.sourceIndex : e.sourceIndex) - (d ? b.sourceIndex : f.sourceIndex);
-  }
-  d = goog.dom.getOwnerDocument(a);
-  c = d.createRange();
-  c.selectNode(a);
-  c.collapse(!0);
-  d = d.createRange();
-  d.selectNode(b);
-  d.collapse(!0);
-  return c.compareBoundaryPoints(goog.global.Range.START_TO_END, d);
-};
-goog.dom.compareParentsDescendantNodeIe_ = function(a, b) {
-  var c = a.parentNode;
-  if (c == b) {
-    return-1;
-  }
-  for (var d = b;d.parentNode != c;) {
-    d = d.parentNode;
-  }
-  return goog.dom.compareSiblingOrder_(d, a);
-};
-goog.dom.compareSiblingOrder_ = function(a, b) {
-  for (var c = b;c = c.previousSibling;) {
-    if (c == a) {
-      return-1;
-    }
-  }
-  return 1;
-};
-goog.dom.findCommonAncestor = function(a) {
-  var b, c = arguments.length;
-  if (!c) {
-    return null;
-  }
-  if (1 == c) {
-    return arguments[0];
-  }
-  var d = [], e = Infinity;
-  for (b = 0;b < c;b++) {
-    for (var f = [], g = arguments[b];g;) {
-      f.unshift(g), g = g.parentNode;
-    }
-    d.push(f);
-    e = Math.min(e, f.length);
-  }
-  f = null;
-  for (b = 0;b < e;b++) {
-    for (var g = d[0][b], h = 1;h < c;h++) {
-      if (g != d[h][b]) {
-        return f;
-      }
-    }
-    f = g;
-  }
-  return f;
-};
-goog.dom.getOwnerDocument = function(a) {
-  return a.nodeType == goog.dom.NodeType.DOCUMENT ? a : a.ownerDocument || a.document;
-};
-goog.dom.getFrameContentDocument = function(a) {
-  return a.contentDocument || a.contentWindow.document;
-};
-goog.dom.getFrameContentWindow = function(a) {
-  return a.contentWindow || goog.dom.getWindow_(goog.dom.getFrameContentDocument(a));
-};
-goog.dom.setTextContent = function(a, b) {
-  if ("textContent" in a) {
-    a.textContent = b;
-  } else {
-    if (a.firstChild && a.firstChild.nodeType == goog.dom.NodeType.TEXT) {
-      for (;a.lastChild != a.firstChild;) {
-        a.removeChild(a.lastChild);
-      }
-      a.firstChild.data = b;
-    } else {
-      goog.dom.removeChildren(a);
-      var c = goog.dom.getOwnerDocument(a);
-      a.appendChild(c.createTextNode(String(b)));
-    }
-  }
-};
-goog.dom.getOuterHtml = function(a) {
-  if ("outerHTML" in a) {
-    return a.outerHTML;
-  }
-  var b = goog.dom.getOwnerDocument(a).createElement("div");
-  b.appendChild(a.cloneNode(!0));
-  return b.innerHTML;
-};
-goog.dom.findNode = function(a, b) {
-  var c = [];
-  return goog.dom.findNodes_(a, b, c, !0) ? c[0] : void 0;
-};
-goog.dom.findNodes = function(a, b) {
-  var c = [];
-  goog.dom.findNodes_(a, b, c, !1);
-  return c;
-};
-goog.dom.findNodes_ = function(a, b, c, d) {
-  if (null != a) {
-    for (a = a.firstChild;a;) {
-      if (b(a) && (c.push(a), d) || goog.dom.findNodes_(a, b, c, d)) {
-        return!0;
-      }
-      a = a.nextSibling;
-    }
-  }
-  return!1;
-};
-goog.dom.TAGS_TO_IGNORE_ = {SCRIPT:1, STYLE:1, HEAD:1, IFRAME:1, OBJECT:1};
-goog.dom.PREDEFINED_TAG_VALUES_ = {IMG:" ", BR:"\n"};
-goog.dom.isFocusableTabIndex = function(a) {
-  var b = a.getAttributeNode("tabindex");
-  return b && b.specified ? (a = a.tabIndex, goog.isNumber(a) && 0 <= a && 32768 > a) : !1;
-};
-goog.dom.setFocusableTabIndex = function(a, b) {
-  b ? a.tabIndex = 0 : (a.tabIndex = -1, a.removeAttribute("tabIndex"));
-};
-goog.dom.getTextContent = function(a) {
-  if (goog.dom.BrowserFeature.CAN_USE_INNER_TEXT && "innerText" in a) {
-    a = goog.string.canonicalizeNewlines(a.innerText);
-  } else {
-    var b = [];
-    goog.dom.getTextContent_(a, b, !0);
-    a = b.join("");
-  }
-  a = a.replace(/ \xAD /g, " ").replace(/\xAD/g, "");
-  a = a.replace(/\u200B/g, "");
-  goog.dom.BrowserFeature.CAN_USE_INNER_TEXT || (a = a.replace(/ +/g, " "));
-  " " != a && (a = a.replace(/^\s*/, ""));
-  return a;
-};
-goog.dom.getRawTextContent = function(a) {
-  var b = [];
-  goog.dom.getTextContent_(a, b, !1);
-  return b.join("");
-};
-goog.dom.getTextContent_ = function(a, b, c) {
-  if (!(a.nodeName in goog.dom.TAGS_TO_IGNORE_)) {
-    if (a.nodeType == goog.dom.NodeType.TEXT) {
-      c ? b.push(String(a.nodeValue).replace(/(\r\n|\r|\n)/g, "")) : b.push(a.nodeValue);
-    } else {
-      if (a.nodeName in goog.dom.PREDEFINED_TAG_VALUES_) {
-        b.push(goog.dom.PREDEFINED_TAG_VALUES_[a.nodeName]);
-      } else {
-        for (a = a.firstChild;a;) {
-          goog.dom.getTextContent_(a, b, c), a = a.nextSibling;
-        }
-      }
-    }
-  }
-};
-goog.dom.getNodeTextLength = function(a) {
-  return goog.dom.getTextContent(a).length;
-};
-goog.dom.getNodeTextOffset = function(a, b) {
-  for (var c = b || goog.dom.getOwnerDocument(a).body, d = [];a && a != c;) {
-    for (var e = a;e = e.previousSibling;) {
-      d.unshift(goog.dom.getTextContent(e));
-    }
-    a = a.parentNode;
-  }
-  return goog.string.trimLeft(d.join("")).replace(/ +/g, " ").length;
-};
-goog.dom.getNodeAtOffset = function(a, b, c) {
-  a = [a];
-  for (var d = 0, e = null;0 < a.length && d < b;) {
-    if (e = a.pop(), !(e.nodeName in goog.dom.TAGS_TO_IGNORE_)) {
-      if (e.nodeType == goog.dom.NodeType.TEXT) {
-        var f = e.nodeValue.replace(/(\r\n|\r|\n)/g, "").replace(/ +/g, " "), d = d + f.length
-      } else {
-        if (e.nodeName in goog.dom.PREDEFINED_TAG_VALUES_) {
-          d += goog.dom.PREDEFINED_TAG_VALUES_[e.nodeName].length;
-        } else {
-          for (f = e.childNodes.length - 1;0 <= f;f--) {
-            a.push(e.childNodes[f]);
-          }
-        }
-      }
-    }
-  }
-  goog.isObject(c) && (c.remainder = e ? e.nodeValue.length + b - d - 1 : 0, c.node = e);
-  return e;
-};
-goog.dom.isNodeList = function(a) {
-  if (a && "number" == typeof a.length) {
-    if (goog.isObject(a)) {
-      return "function" == typeof a.item || "string" == typeof a.item;
-    }
-    if (goog.isFunction(a)) {
-      return "function" == typeof a.item;
-    }
-  }
-  return!1;
-};
-goog.dom.getAncestorByTagNameAndClass = function(a, b, c) {
-  if (!b && !c) {
-    return null;
-  }
-  var d = b ? b.toUpperCase() : null;
-  return goog.dom.getAncestor(a, function(a) {
-    return(!d || a.nodeName == d) && (!c || goog.dom.classes.has(a, c));
-  }, !0);
-};
-goog.dom.getAncestorByClass = function(a, b) {
-  return goog.dom.getAncestorByTagNameAndClass(a, null, b);
-};
-goog.dom.getAncestor = function(a, b, c, d) {
-  c || (a = a.parentNode);
-  c = null == d;
-  for (var e = 0;a && (c || e <= d);) {
-    if (b(a)) {
-      return a;
-    }
-    a = a.parentNode;
-    e++;
-  }
-  return null;
-};
-goog.dom.getActiveElement = function(a) {
-  try {
-    return a && a.activeElement;
-  } catch (b) {
-  }
-  return null;
-};
-goog.dom.DomHelper = function(a) {
-  this.document_ = a || goog.global.document || document;
-};
-goog.dom.DomHelper.prototype.getDomHelper = goog.dom.getDomHelper;
-goog.dom.DomHelper.prototype.setDocument = function(a) {
-  this.document_ = a;
-};
-goog.dom.DomHelper.prototype.getDocument = function() {
-  return this.document_;
-};
-goog.dom.DomHelper.prototype.getElement = function(a) {
-  return goog.isString(a) ? this.document_.getElementById(a) : a;
-};
-goog.dom.DomHelper.prototype.$ = goog.dom.DomHelper.prototype.getElement;
-goog.dom.DomHelper.prototype.getElementsByTagNameAndClass = function(a, b, c) {
-  return goog.dom.getElementsByTagNameAndClass_(this.document_, a, b, c);
-};
-goog.dom.DomHelper.prototype.getElementsByClass = function(a, b) {
-  return goog.dom.getElementsByClass(a, b || this.document_);
-};
-goog.dom.DomHelper.prototype.getElementByClass = function(a, b) {
-  return goog.dom.getElementByClass(a, b || this.document_);
-};
-goog.dom.DomHelper.prototype.$$ = goog.dom.DomHelper.prototype.getElementsByTagNameAndClass;
-goog.dom.DomHelper.prototype.setProperties = goog.dom.setProperties;
-goog.dom.DomHelper.prototype.getViewportSize = function(a) {
-  return goog.dom.getViewportSize(a || this.getWindow());
-};
-goog.dom.DomHelper.prototype.getDocumentHeight = function() {
-  return goog.dom.getDocumentHeight_(this.getWindow());
-};
-goog.dom.DomHelper.prototype.createDom = function(a, b, c) {
-  return goog.dom.createDom_(this.document_, arguments);
-};
-goog.dom.DomHelper.prototype.$dom = goog.dom.DomHelper.prototype.createDom;
-goog.dom.DomHelper.prototype.createElement = function(a) {
-  return this.document_.createElement(a);
-};
-goog.dom.DomHelper.prototype.createTextNode = function(a) {
-  return this.document_.createTextNode(String(a));
-};
-goog.dom.DomHelper.prototype.createTable = function(a, b, c) {
-  return goog.dom.createTable_(this.document_, a, b, !!c);
-};
-goog.dom.DomHelper.prototype.htmlToDocumentFragment = function(a) {
-  return goog.dom.htmlToDocumentFragment_(this.document_, a);
-};
-goog.dom.DomHelper.prototype.getCompatMode = function() {
-  return this.isCss1CompatMode() ? "CSS1Compat" : "BackCompat";
-};
-goog.dom.DomHelper.prototype.isCss1CompatMode = function() {
-  return goog.dom.isCss1CompatMode_(this.document_);
-};
-goog.dom.DomHelper.prototype.getWindow = function() {
-  return goog.dom.getWindow_(this.document_);
-};
-goog.dom.DomHelper.prototype.getDocumentScrollElement = function() {
-  return goog.dom.getDocumentScrollElement_(this.document_);
-};
-goog.dom.DomHelper.prototype.getDocumentScroll = function() {
-  return goog.dom.getDocumentScroll_(this.document_);
-};
-goog.dom.DomHelper.prototype.getActiveElement = function(a) {
-  return goog.dom.getActiveElement(a || this.document_);
-};
-goog.dom.DomHelper.prototype.appendChild = goog.dom.appendChild;
-goog.dom.DomHelper.prototype.append = goog.dom.append;
-goog.dom.DomHelper.prototype.canHaveChildren = goog.dom.canHaveChildren;
-goog.dom.DomHelper.prototype.removeChildren = goog.dom.removeChildren;
-goog.dom.DomHelper.prototype.insertSiblingBefore = goog.dom.insertSiblingBefore;
-goog.dom.DomHelper.prototype.insertSiblingAfter = goog.dom.insertSiblingAfter;
-goog.dom.DomHelper.prototype.insertChildAt = goog.dom.insertChildAt;
-goog.dom.DomHelper.prototype.removeNode = goog.dom.removeNode;
-goog.dom.DomHelper.prototype.replaceNode = goog.dom.replaceNode;
-goog.dom.DomHelper.prototype.flattenElement = goog.dom.flattenElement;
-goog.dom.DomHelper.prototype.getChildren = goog.dom.getChildren;
-goog.dom.DomHelper.prototype.getFirstElementChild = goog.dom.getFirstElementChild;
-goog.dom.DomHelper.prototype.getLastElementChild = goog.dom.getLastElementChild;
-goog.dom.DomHelper.prototype.getNextElementSibling = goog.dom.getNextElementSibling;
-goog.dom.DomHelper.prototype.getPreviousElementSibling = goog.dom.getPreviousElementSibling;
-goog.dom.DomHelper.prototype.getNextNode = goog.dom.getNextNode;
-goog.dom.DomHelper.prototype.getPreviousNode = goog.dom.getPreviousNode;
-goog.dom.DomHelper.prototype.isNodeLike = goog.dom.isNodeLike;
-goog.dom.DomHelper.prototype.isElement = goog.dom.isElement;
-goog.dom.DomHelper.prototype.isWindow = goog.dom.isWindow;
-goog.dom.DomHelper.prototype.getParentElement = goog.dom.getParentElement;
-goog.dom.DomHelper.prototype.contains = goog.dom.contains;
-goog.dom.DomHelper.prototype.compareNodeOrder = goog.dom.compareNodeOrder;
-goog.dom.DomHelper.prototype.findCommonAncestor = goog.dom.findCommonAncestor;
-goog.dom.DomHelper.prototype.getOwnerDocument = goog.dom.getOwnerDocument;
-goog.dom.DomHelper.prototype.getFrameContentDocument = goog.dom.getFrameContentDocument;
-goog.dom.DomHelper.prototype.getFrameContentWindow = goog.dom.getFrameContentWindow;
-goog.dom.DomHelper.prototype.setTextContent = goog.dom.setTextContent;
-goog.dom.DomHelper.prototype.getOuterHtml = goog.dom.getOuterHtml;
-goog.dom.DomHelper.prototype.findNode = goog.dom.findNode;
-goog.dom.DomHelper.prototype.findNodes = goog.dom.findNodes;
-goog.dom.DomHelper.prototype.isFocusableTabIndex = goog.dom.isFocusableTabIndex;
-goog.dom.DomHelper.prototype.setFocusableTabIndex = goog.dom.setFocusableTabIndex;
-goog.dom.DomHelper.prototype.getTextContent = goog.dom.getTextContent;
-goog.dom.DomHelper.prototype.getNodeTextLength = goog.dom.getNodeTextLength;
-goog.dom.DomHelper.prototype.getNodeTextOffset = goog.dom.getNodeTextOffset;
-goog.dom.DomHelper.prototype.getNodeAtOffset = goog.dom.getNodeAtOffset;
-goog.dom.DomHelper.prototype.isNodeList = goog.dom.isNodeList;
-goog.dom.DomHelper.prototype.getAncestorByTagNameAndClass = goog.dom.getAncestorByTagNameAndClass;
-goog.dom.DomHelper.prototype.getAncestorByClass = goog.dom.getAncestorByClass;
-goog.dom.DomHelper.prototype.getAncestor = goog.dom.getAncestor;
-goog.events.EventHandler = function(a) {
-  goog.Disposable.call(this);
-  this.handler_ = a;
-  this.keys_ = [];
-};
-goog.inherits(goog.events.EventHandler, goog.Disposable);
-goog.events.EventHandler.typeArray_ = [];
-goog.events.EventHandler.prototype.listen = function(a, b, c, d, e) {
-  goog.isArray(b) || (goog.events.EventHandler.typeArray_[0] = b, b = goog.events.EventHandler.typeArray_);
-  for (var f = 0;f < b.length;f++) {
-    var g = goog.events.listen(a, b[f], c || this, d || !1, e || this.handler_ || this);
-    this.keys_.push(g);
-  }
-  return this;
-};
-goog.events.EventHandler.prototype.listenOnce = function(a, b, c, d, e) {
-  if (goog.isArray(b)) {
-    for (var f = 0;f < b.length;f++) {
-      this.listenOnce(a, b[f], c, d, e);
-    }
-  } else {
-    a = goog.events.listenOnce(a, b, c || this, d, e || this.handler_ || this), this.keys_.push(a);
-  }
-  return this;
-};
-goog.events.EventHandler.prototype.listenWithWrapper = function(a, b, c, d, e) {
-  b.listen(a, c, d, e || this.handler_ || this, this);
-  return this;
-};
-goog.events.EventHandler.prototype.getListenerCount = function() {
-  return this.keys_.length;
-};
-goog.events.EventHandler.prototype.unlisten = function(a, b, c, d, e) {
-  if (goog.isArray(b)) {
-    for (var f = 0;f < b.length;f++) {
-      this.unlisten(a, b[f], c, d, e);
-    }
-  } else {
-    if (a = goog.events.getListener(a, b, c || this, d, e || this.handler_ || this)) {
-      a = a.key, goog.events.unlistenByKey(a), goog.array.remove(this.keys_, a);
-    }
-  }
-  return this;
-};
-goog.events.EventHandler.prototype.unlistenWithWrapper = function(a, b, c, d, e) {
-  b.unlisten(a, c, d, e || this.handler_ || this, this);
-  return this;
-};
-goog.events.EventHandler.prototype.removeAll = function() {
-  goog.array.forEach(this.keys_, goog.events.unlistenByKey);
-  this.keys_.length = 0;
-};
-goog.events.EventHandler.prototype.disposeInternal = function() {
-  goog.events.EventHandler.superClass_.disposeInternal.call(this);
-  this.removeAll();
-};
-goog.events.EventHandler.prototype.handleEvent = function(a) {
-  throw Error("EventHandler.handleEvent not implemented");
-};
-goog.json = {};
-goog.json.isValid_ = function(a) {
-  return/^\s*$/.test(a) ? !1 : /^[\],:{}\s\u2028\u2029]*$/.test(a.replace(/\\["\\\/bfnrtu]/g, "@").replace(/"[^"\\\n\r\u2028\u2029\x00-\x08\x0a-\x1f]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, "]").replace(/(?:^|:|,)(?:[\s\u2028\u2029]*\[)+/g, ""));
-};
-goog.json.parse = function(a) {
-  a = String(a);
-  if (goog.json.isValid_(a)) {
-    try {
-      return eval("(" + a + ")");
-    } catch (b) {
-    }
-  }
-  throw Error("Invalid JSON string: " + a);
-};
-goog.json.unsafeParse = function(a) {
-  return eval("(" + a + ")");
-};
-goog.json.serialize = function(a, b) {
-  return(new goog.json.Serializer(b)).serialize(a);
-};
-goog.json.Serializer = function(a) {
-  this.replacer_ = a;
-};
-goog.json.Serializer.prototype.serialize = function(a) {
-  var b = [];
-  this.serialize_(a, b);
-  return b.join("");
-};
-goog.json.Serializer.prototype.serialize_ = function(a, b) {
-  switch(typeof a) {
-    case "string":
-      this.serializeString_(a, b);
-      break;
-    case "number":
-      this.serializeNumber_(a, b);
-      break;
-    case "boolean":
-      b.push(a);
-      break;
-    case "undefined":
-      b.push("null");
-      break;
-    case "object":
-      if (null == a) {
-        b.push("null");
-        break;
-      }
-      if (goog.isArray(a)) {
-        this.serializeArray(a, b);
-        break;
-      }
-      this.serializeObject_(a, b);
-      break;
-    case "function":
-      break;
-    default:
-      throw Error("Unknown type: " + typeof a);;
-  }
-};
-goog.json.Serializer.charToJsonCharCache_ = {'"':'\\"', "\\":"\\\\", "/":"\\/", "\b":"\\b", "\f":"\\f", "\n":"\\n", "\r":"\\r", "\t":"\\t", "\x0B":"\\u000b"};
-goog.json.Serializer.charsToReplace_ = /\uffff/.test("\uffff") ? /[\\\"\x00-\x1f\x7f-\uffff]/g : /[\\\"\x00-\x1f\x7f-\xff]/g;
-goog.json.Serializer.prototype.serializeString_ = function(a, b) {
-  b.push('"', a.replace(goog.json.Serializer.charsToReplace_, function(a) {
-    if (a in goog.json.Serializer.charToJsonCharCache_) {
-      return goog.json.Serializer.charToJsonCharCache_[a];
-    }
-    var b = a.charCodeAt(0), e = "\\u";
-    16 > b ? e += "000" : 256 > b ? e += "00" : 4096 > b && (e += "0");
-    return goog.json.Serializer.charToJsonCharCache_[a] = e + b.toString(16);
-  }), '"');
-};
-goog.json.Serializer.prototype.serializeNumber_ = function(a, b) {
-  b.push(isFinite(a) && !isNaN(a) ? a : "null");
-};
-goog.json.Serializer.prototype.serializeArray = function(a, b) {
-  var c = a.length;
-  b.push("[");
-  for (var d = "", e = 0;e < c;e++) {
-    b.push(d), d = a[e], this.serialize_(this.replacer_ ? this.replacer_.call(a, String(e), d) : d, b), d = ",";
-  }
-  b.push("]");
-};
-goog.json.Serializer.prototype.serializeObject_ = function(a, b) {
-  b.push("{");
-  var c = "", d;
-  for (d in a) {
-    if (Object.prototype.hasOwnProperty.call(a, d)) {
-      var e = a[d];
-      "function" != typeof e && (b.push(c), this.serializeString_(d, b), b.push(":"), this.serialize_(this.replacer_ ? this.replacer_.call(a, d, e) : e, b), c = ",");
-    }
-  }
-  b.push("}");
-};
-goog.structs.Collection = function() {
-};
-goog.structs.Set = function(a) {
-  this.map_ = new goog.structs.Map;
-  a && this.addAll(a);
-};
-goog.structs.Set.getKey_ = function(a) {
-  var b = typeof a;
-  return "object" == b && a || "function" == b ? "o" + goog.getUid(a) : b.substr(0, 1) + a;
-};
-goog.structs.Set.prototype.getCount = function() {
-  return this.map_.getCount();
-};
-goog.structs.Set.prototype.add = function(a) {
-  this.map_.set(goog.structs.Set.getKey_(a), a);
-};
-goog.structs.Set.prototype.addAll = function(a) {
-  a = goog.structs.getValues(a);
-  for (var b = a.length, c = 0;c < b;c++) {
-    this.add(a[c]);
-  }
-};
-goog.structs.Set.prototype.removeAll = function(a) {
-  a = goog.structs.getValues(a);
-  for (var b = a.length, c = 0;c < b;c++) {
-    this.remove(a[c]);
-  }
-};
-goog.structs.Set.prototype.remove = function(a) {
-  return this.map_.remove(goog.structs.Set.getKey_(a));
-};
-goog.structs.Set.prototype.clear = function() {
-  this.map_.clear();
-};
-goog.structs.Set.prototype.isEmpty = function() {
-  return this.map_.isEmpty();
-};
-goog.structs.Set.prototype.contains = function(a) {
-  return this.map_.containsKey(goog.structs.Set.getKey_(a));
-};
-goog.structs.Set.prototype.containsAll = function(a) {
-  return goog.structs.every(a, this.contains, this);
-};
-goog.structs.Set.prototype.intersection = function(a) {
-  var b = new goog.structs.Set;
-  a = goog.structs.getValues(a);
-  for (var c = 0;c < a.length;c++) {
-    var d = a[c];
-    this.contains(d) && b.add(d);
-  }
-  return b;
-};
-goog.structs.Set.prototype.difference = function(a) {
-  var b = this.clone();
-  b.removeAll(a);
-  return b;
-};
-goog.structs.Set.prototype.getValues = function() {
-  return this.map_.getValues();
-};
-goog.structs.Set.prototype.clone = function() {
-  return new goog.structs.Set(this);
-};
-goog.structs.Set.prototype.equals = function(a) {
-  return this.getCount() == goog.structs.getCount(a) && this.isSubsetOf(a);
-};
-goog.structs.Set.prototype.isSubsetOf = function(a) {
-  var b = goog.structs.getCount(a);
-  if (this.getCount() > b) {
-    return!1;
-  }
-  !(a instanceof goog.structs.Set) && 5 < b && (a = new goog.structs.Set(a));
-  return goog.structs.every(this, function(b) {
-    return goog.structs.contains(a, b);
-  });
-};
-goog.structs.Set.prototype.__iterator__ = function(a) {
-  return this.map_.__iterator__(!1);
-};
-goog.debug.catchErrors = function(a, b, c) {
-  c = c || goog.global;
-  var d = c.onerror, e = !!b;
-  goog.userAgent.WEBKIT && !goog.userAgent.isVersion("535.3") && (e = !e);
-  c.onerror = function(b, c, h) {
-    d && d(b, c, h);
-    a({message:b, fileName:c, line:h});
-    return e;
-  };
-};
-goog.debug.expose = function(a, b) {
-  if ("undefined" == typeof a) {
-    return "undefined";
-  }
-  if (null == a) {
-    return "NULL";
-  }
-  var c = [], d;
-  for (d in a) {
-    if (b || !goog.isFunction(a[d])) {
-      var e = d + " \x3d ";
-      try {
-        e += a[d];
-      } catch (f) {
-        e += "*** " + f + " ***";
-      }
-      c.push(e);
-    }
-  }
-  return c.join("\n");
-};
-goog.debug.deepExpose = function(a, b) {
-  var c = new goog.structs.Set, d = [], e = function(a, g) {
-    var h = g + "  ";
-    try {
-      if (goog.isDef(a)) {
-        if (goog.isNull(a)) {
-          d.push("NULL");
-        } else {
-          if (goog.isString(a)) {
-            d.push('"' + a.replace(/\n/g, "\n" + g) + '"');
-          } else {
-            if (goog.isFunction(a)) {
-              d.push(String(a).replace(/\n/g, "\n" + g));
-            } else {
-              if (goog.isObject(a)) {
-                if (c.contains(a)) {
-                  d.push("*** reference loop detected ***");
-                } else {
-                  c.add(a);
-                  d.push("{");
-                  for (var k in a) {
-                    if (b || !goog.isFunction(a[k])) {
-                      d.push("\n"), d.push(h), d.push(k + " \x3d "), e(a[k], h);
-                    }
-                  }
-                  d.push("\n" + g + "}");
-                }
-              } else {
-                d.push(a);
-              }
-            }
-          }
-        }
-      } else {
-        d.push("undefined");
-      }
-    } catch (l) {
-      d.push("*** " + l + " ***");
-    }
-  };
-  e(a, "");
-  return d.join("");
-};
-goog.debug.exposeArray = function(a) {
-  for (var b = [], c = 0;c < a.length;c++) {
-    goog.isArray(a[c]) ? b.push(goog.debug.exposeArray(a[c])) : b.push(a[c]);
-  }
-  return "[ " + b.join(", ") + " ]";
-};
-goog.debug.exposeException = function(a, b) {
-  try {
-    var c = goog.debug.normalizeErrorObject(a);
-    return "Message: " + goog.string.htmlEscape(c.message) + '\nUrl: \x3ca href\x3d"view-source:' + c.fileName + '" target\x3d"_new"\x3e' + c.fileName + "\x3c/a\x3e\nLine: " + c.lineNumber + "\n\nBrowser stack:\n" + goog.string.htmlEscape(c.stack + "-\x3e ") + "[end]\n\nJS stack traversal:\n" + goog.string.htmlEscape(goog.debug.getStacktrace(b) + "-\x3e ");
-  } catch (d) {
-    return "Exception trying to expose exception! You win, we lose. " + d;
-  }
-};
-goog.debug.normalizeErrorObject = function(a) {
-  var b = goog.getObjectByName("window.location.href");
-  if (goog.isString(a)) {
-    return{message:a, name:"Unknown error", lineNumber:"Not available", fileName:b, stack:"Not available"};
-  }
-  var c, d, e = !1;
-  try {
-    c = a.lineNumber || a.line || "Not available";
-  } catch (f) {
-    c = "Not available", e = !0;
-  }
-  try {
-    d = a.fileName || a.filename || a.sourceURL || goog.global.$googDebugFname || b;
-  } catch (g) {
-    d = "Not available", e = !0;
-  }
-  return!e && a.lineNumber && a.fileName && a.stack ? a : {message:a.message, name:a.name, lineNumber:c, fileName:d, stack:a.stack || "Not available"};
-};
-goog.debug.enhanceError = function(a, b) {
-  var c = "string" == typeof a ? Error(a) : a;
-  c.stack || (c.stack = goog.debug.getStacktrace(arguments.callee.caller));
-  if (b) {
-    for (var d = 0;c["message" + d];) {
-      ++d;
-    }
-    c["message" + d] = String(b);
-  }
-  return c;
-};
-goog.debug.getStacktraceSimple = function(a) {
-  for (var b = [], c = arguments.callee.caller, d = 0;c && (!a || d < a);) {
-    b.push(goog.debug.getFunctionName(c));
-    b.push("()\n");
-    try {
-      c = c.caller;
-    } catch (e) {
-      b.push("[exception trying to get caller]\n");
-      break;
-    }
-    d++;
-    if (d >= goog.debug.MAX_STACK_DEPTH) {
-      b.push("[...long stack...]");
-      break;
-    }
-  }
-  a && d >= a ? b.push("[...reached max depth limit...]") : b.push("[end]");
-  return b.join("");
-};
-goog.debug.MAX_STACK_DEPTH = 50;
-goog.debug.getStacktrace = function(a) {
-  return goog.debug.getStacktraceHelper_(a || arguments.callee.caller, []);
-};
-goog.debug.getStacktraceHelper_ = function(a, b) {
-  var c = [];
-  if (goog.array.contains(b, a)) {
-    c.push("[...circular reference...]");
-  } else {
-    if (a && b.length < goog.debug.MAX_STACK_DEPTH) {
-      c.push(goog.debug.getFunctionName(a) + "(");
-      for (var d = a.arguments, e = 0;e < d.length;e++) {
-        0 < e && c.push(", ");
-        var f;
-        f = d[e];
-        switch(typeof f) {
-          case "object":
-            f = f ? "object" : "null";
-            break;
-          case "string":
-            break;
-          case "number":
-            f = String(f);
-            break;
-          case "boolean":
-            f = f ? "true" : "false";
-            break;
-          case "function":
-            f = (f = goog.debug.getFunctionName(f)) ? f : "[fn]";
-            break;
-          default:
-            f = typeof f;
-        }
-        40 < f.length && (f = f.substr(0, 40) + "...");
-        c.push(f);
-      }
-      b.push(a);
-      c.push(")\n");
-      try {
-        c.push(goog.debug.getStacktraceHelper_(a.caller, b));
-      } catch (g) {
-        c.push("[exception trying to get caller]\n");
-      }
-    } else {
-      a ? c.push("[...long stack...]") : c.push("[end]");
-    }
-  }
-  return c.join("");
-};
-goog.debug.setFunctionResolver = function(a) {
-  goog.debug.fnNameResolver_ = a;
-};
-goog.debug.getFunctionName = function(a) {
-  if (goog.debug.fnNameCache_[a]) {
-    return goog.debug.fnNameCache_[a];
-  }
-  if (goog.debug.fnNameResolver_) {
-    var b = goog.debug.fnNameResolver_(a);
-    if (b) {
-      return goog.debug.fnNameCache_[a] = b;
-    }
-  }
-  a = String(a);
-  goog.debug.fnNameCache_[a] || (b = /function ([^\(]+)/.exec(a), goog.debug.fnNameCache_[a] = b ? b[1] : "[Anonymous]");
-  return goog.debug.fnNameCache_[a];
-};
-goog.debug.makeWhitespaceVisible = function(a) {
-  return a.replace(/ /g, "[_]").replace(/\f/g, "[f]").replace(/\n/g, "[n]\n").replace(/\r/g, "[r]").replace(/\t/g, "[t]");
-};
-goog.debug.fnNameCache_ = {};
-goog.debug.LogRecord = function(a, b, c, d, e) {
-  this.reset(a, b, c, d, e);
-};
-goog.debug.LogRecord.prototype.sequenceNumber_ = 0;
-goog.debug.LogRecord.prototype.exception_ = null;
-goog.debug.LogRecord.prototype.exceptionText_ = null;
-goog.debug.LogRecord.ENABLE_SEQUENCE_NUMBERS = !0;
-goog.debug.LogRecord.nextSequenceNumber_ = 0;
-goog.debug.LogRecord.prototype.reset = function(a, b, c, d, e) {
-  goog.debug.LogRecord.ENABLE_SEQUENCE_NUMBERS && (this.sequenceNumber_ = "number" == typeof e ? e : goog.debug.LogRecord.nextSequenceNumber_++);
-  this.time_ = d || goog.now();
-  this.level_ = a;
-  this.msg_ = b;
-  this.loggerName_ = c;
-  delete this.exception_;
-  delete this.exceptionText_;
-};
-goog.debug.LogRecord.prototype.getLoggerName = function() {
-  return this.loggerName_;
-};
-goog.debug.LogRecord.prototype.getException = function() {
-  return this.exception_;
-};
-goog.debug.LogRecord.prototype.setException = function(a) {
-  this.exception_ = a;
-};
-goog.debug.LogRecord.prototype.getExceptionText = function() {
-  return this.exceptionText_;
-};
-goog.debug.LogRecord.prototype.setExceptionText = function(a) {
-  this.exceptionText_ = a;
-};
-goog.debug.LogRecord.prototype.setLoggerName = function(a) {
-  this.loggerName_ = a;
-};
-goog.debug.LogRecord.prototype.getLevel = function() {
-  return this.level_;
-};
-goog.debug.LogRecord.prototype.setLevel = function(a) {
-  this.level_ = a;
-};
-goog.debug.LogRecord.prototype.getMessage = function() {
-  return this.msg_;
-};
-goog.debug.LogRecord.prototype.setMessage = function(a) {
-  this.msg_ = a;
-};
-goog.debug.LogRecord.prototype.getMillis = function() {
-  return this.time_;
-};
-goog.debug.LogRecord.prototype.setMillis = function(a) {
-  this.time_ = a;
-};
-goog.debug.LogRecord.prototype.getSequenceNumber = function() {
-  return this.sequenceNumber_;
-};
-goog.debug.LogBuffer = function() {
-  goog.asserts.assert(goog.debug.LogBuffer.isBufferingEnabled(), "Cannot use goog.debug.LogBuffer without defining goog.debug.LogBuffer.CAPACITY.");
-  this.clear();
-};
-goog.debug.LogBuffer.getInstance = function() {
-  goog.debug.LogBuffer.instance_ || (goog.debug.LogBuffer.instance_ = new goog.debug.LogBuffer);
-  return goog.debug.LogBuffer.instance_;
-};
-goog.debug.LogBuffer.CAPACITY = 0;
-goog.debug.LogBuffer.prototype.addRecord = function(a, b, c) {
-  var d = (this.curIndex_ + 1) % goog.debug.LogBuffer.CAPACITY;
-  this.curIndex_ = d;
-  if (this.isFull_) {
-    return d = this.buffer_[d], d.reset(a, b, c), d;
-  }
-  this.isFull_ = d == goog.debug.LogBuffer.CAPACITY - 1;
-  return this.buffer_[d] = new goog.debug.LogRecord(a, b, c);
-};
-goog.debug.LogBuffer.isBufferingEnabled = function() {
-  return 0 < goog.debug.LogBuffer.CAPACITY;
-};
-goog.debug.LogBuffer.prototype.clear = function() {
-  this.buffer_ = Array(goog.debug.LogBuffer.CAPACITY);
-  this.curIndex_ = -1;
-  this.isFull_ = !1;
-};
-goog.debug.LogBuffer.prototype.forEachRecord = function(a) {
-  var b = this.buffer_;
-  if (b[0]) {
-    var c = this.curIndex_, d = this.isFull_ ? c : -1;
-    do {
-      d = (d + 1) % goog.debug.LogBuffer.CAPACITY, a(b[d]);
-    } while (d != c);
-  }
-};
-goog.debug.Logger = function(a) {
-  this.name_ = a;
-};
-goog.debug.Logger.prototype.parent_ = null;
-goog.debug.Logger.prototype.level_ = null;
-goog.debug.Logger.prototype.children_ = null;
-goog.debug.Logger.prototype.handlers_ = null;
-goog.debug.Logger.ENABLE_HIERARCHY = !0;
-goog.debug.Logger.ENABLE_HIERARCHY || (goog.debug.Logger.rootHandlers_ = []);
-goog.debug.Logger.Level = function(a, b) {
-  this.name = a;
-  this.value = b;
-};
-goog.debug.Logger.Level.prototype.toString = function() {
-  return this.name;
-};
-goog.debug.Logger.Level.OFF = new goog.debug.Logger.Level("OFF", Infinity);
-goog.debug.Logger.Level.SHOUT = new goog.debug.Logger.Level("SHOUT", 1200);
-goog.debug.Logger.Level.SEVERE = new goog.debug.Logger.Level("SEVERE", 1E3);
-goog.debug.Logger.Level.WARNING = new goog.debug.Logger.Level("WARNING", 900);
-goog.debug.Logger.Level.INFO = new goog.debug.Logger.Level("INFO", 800);
-goog.debug.Logger.Level.CONFIG = new goog.debug.Logger.Level("CONFIG", 700);
-goog.debug.Logger.Level.FINE = new goog.debug.Logger.Level("FINE", 500);
-goog.debug.Logger.Level.FINER = new goog.debug.Logger.Level("FINER", 400);
-goog.debug.Logger.Level.FINEST = new goog.debug.Logger.Level("FINEST", 300);
-goog.debug.Logger.Level.ALL = new goog.debug.Logger.Level("ALL", 0);
-goog.debug.Logger.Level.PREDEFINED_LEVELS = [goog.debug.Logger.Level.OFF, goog.debug.Logger.Level.SHOUT, goog.debug.Logger.Level.SEVERE, goog.debug.Logger.Level.WARNING, goog.debug.Logger.Level.INFO, goog.debug.Logger.Level.CONFIG, goog.debug.Logger.Level.FINE, goog.debug.Logger.Level.FINER, goog.debug.Logger.Level.FINEST, goog.debug.Logger.Level.ALL];
-goog.debug.Logger.Level.predefinedLevelsCache_ = null;
-goog.debug.Logger.Level.createPredefinedLevelsCache_ = function() {
-  goog.debug.Logger.Level.predefinedLevelsCache_ = {};
-  for (var a = 0, b;b = goog.debug.Logger.Level.PREDEFINED_LEVELS[a];a++) {
-    goog.debug.Logger.Level.predefinedLevelsCache_[b.value] = b, goog.debug.Logger.Level.predefinedLevelsCache_[b.name] = b;
-  }
-};
-goog.debug.Logger.Level.getPredefinedLevel = function(a) {
-  goog.debug.Logger.Level.predefinedLevelsCache_ || goog.debug.Logger.Level.createPredefinedLevelsCache_();
-  return goog.debug.Logger.Level.predefinedLevelsCache_[a] || null;
-};
-goog.debug.Logger.Level.getPredefinedLevelByValue = function(a) {
-  goog.debug.Logger.Level.predefinedLevelsCache_ || goog.debug.Logger.Level.createPredefinedLevelsCache_();
-  if (a in goog.debug.Logger.Level.predefinedLevelsCache_) {
-    return goog.debug.Logger.Level.predefinedLevelsCache_[a];
-  }
-  for (var b = 0;b < goog.debug.Logger.Level.PREDEFINED_LEVELS.length;++b) {
-    var c = goog.debug.Logger.Level.PREDEFINED_LEVELS[b];
-    if (c.value <= a) {
-      return c;
-    }
-  }
-  return null;
-};
-goog.debug.Logger.getLogger = function(a) {
-  return goog.debug.LogManager.getLogger(a);
-};
-goog.debug.Logger.logToProfilers = function(a) {
-  goog.global.console && (goog.global.console.timeStamp ? goog.global.console.timeStamp(a) : goog.global.console.markTimeline && goog.global.console.markTimeline(a));
-  goog.global.msWriteProfilerMark && goog.global.msWriteProfilerMark(a);
-};
-goog.debug.Logger.prototype.getName = function() {
-  return this.name_;
-};
-goog.debug.Logger.prototype.addHandler = function(a) {
-  goog.debug.Logger.ENABLE_HIERARCHY ? (this.handlers_ || (this.handlers_ = []), this.handlers_.push(a)) : (goog.asserts.assert(!this.name_, "Cannot call addHandler on a non-root logger when goog.debug.Logger.ENABLE_HIERARCHY is false."), goog.debug.Logger.rootHandlers_.push(a));
-};
-goog.debug.Logger.prototype.removeHandler = function(a) {
-  var b = goog.debug.Logger.ENABLE_HIERARCHY ? this.handlers_ : goog.debug.Logger.rootHandlers_;
-  return!!b && goog.array.remove(b, a);
-};
-goog.debug.Logger.prototype.getParent = function() {
-  return this.parent_;
-};
-goog.debug.Logger.prototype.getChildren = function() {
-  this.children_ || (this.children_ = {});
-  return this.children_;
-};
-goog.debug.Logger.prototype.setLevel = function(a) {
-  goog.debug.Logger.ENABLE_HIERARCHY ? this.level_ = a : (goog.asserts.assert(!this.name_, "Cannot call setLevel() on a non-root logger when goog.debug.Logger.ENABLE_HIERARCHY is false."), goog.debug.Logger.rootLevel_ = a);
-};
-goog.debug.Logger.prototype.getLevel = function() {
-  return this.level_;
-};
-goog.debug.Logger.prototype.getEffectiveLevel = function() {
-  if (!goog.debug.Logger.ENABLE_HIERARCHY) {
-    return goog.debug.Logger.rootLevel_;
-  }
-  if (this.level_) {
-    return this.level_;
-  }
-  if (this.parent_) {
-    return this.parent_.getEffectiveLevel();
-  }
-  goog.asserts.fail("Root logger has no level set.");
-  return null;
-};
-goog.debug.Logger.prototype.isLoggable = function(a) {
-  return a.value >= this.getEffectiveLevel().value;
-};
-goog.debug.Logger.prototype.log = function(a, b, c) {
-  this.isLoggable(a) && this.doLogRecord_(this.getLogRecord(a, b, c));
-};
-goog.debug.Logger.prototype.getLogRecord = function(a, b, c) {
-  var d = goog.debug.LogBuffer.isBufferingEnabled() ? goog.debug.LogBuffer.getInstance().addRecord(a, b, this.name_) : new goog.debug.LogRecord(a, String(b), this.name_);
-  c && (d.setException(c), d.setExceptionText(goog.debug.exposeException(c, arguments.callee.caller)));
-  return d;
-};
-goog.debug.Logger.prototype.shout = function(a, b) {
-  this.log(goog.debug.Logger.Level.SHOUT, a, b);
-};
-goog.debug.Logger.prototype.severe = function(a, b) {
-  this.log(goog.debug.Logger.Level.SEVERE, a, b);
-};
-goog.debug.Logger.prototype.warning = function(a, b) {
-  this.log(goog.debug.Logger.Level.WARNING, a, b);
-};
-goog.debug.Logger.prototype.info = function(a, b) {
-  this.log(goog.debug.Logger.Level.INFO, a, b);
-};
-goog.debug.Logger.prototype.config = function(a, b) {
-  this.log(goog.debug.Logger.Level.CONFIG, a, b);
-};
-goog.debug.Logger.prototype.fine = function(a, b) {
-  this.log(goog.debug.Logger.Level.FINE, a, b);
-};
-goog.debug.Logger.prototype.finer = function(a, b) {
-  this.log(goog.debug.Logger.Level.FINER, a, b);
-};
-goog.debug.Logger.prototype.finest = function(a, b) {
-  this.log(goog.debug.Logger.Level.FINEST, a, b);
-};
-goog.debug.Logger.prototype.logRecord = function(a) {
-  this.isLoggable(a.getLevel()) && this.doLogRecord_(a);
-};
-goog.debug.Logger.prototype.doLogRecord_ = function(a) {
-  goog.debug.Logger.logToProfilers("log:" + a.getMessage());
-  if (goog.debug.Logger.ENABLE_HIERARCHY) {
-    for (var b = this;b;) {
-      b.callPublish_(a), b = b.getParent();
-    }
-  } else {
-    for (var b = 0, c;c = goog.debug.Logger.rootHandlers_[b++];) {
-      c(a);
-    }
-  }
-};
-goog.debug.Logger.prototype.callPublish_ = function(a) {
-  if (this.handlers_) {
-    for (var b = 0, c;c = this.handlers_[b];b++) {
-      c(a);
-    }
-  }
-};
-goog.debug.Logger.prototype.setParent_ = function(a) {
-  this.parent_ = a;
-};
-goog.debug.Logger.prototype.addChild_ = function(a, b) {
-  this.getChildren()[a] = b;
-};
-goog.debug.LogManager = {};
-goog.debug.LogManager.loggers_ = {};
-goog.debug.LogManager.rootLogger_ = null;
-goog.debug.LogManager.initialize = function() {
-  goog.debug.LogManager.rootLogger_ || (goog.debug.LogManager.rootLogger_ = new goog.debug.Logger(""), goog.debug.LogManager.loggers_[""] = goog.debug.LogManager.rootLogger_, goog.debug.LogManager.rootLogger_.setLevel(goog.debug.Logger.Level.CONFIG));
-};
-goog.debug.LogManager.getLoggers = function() {
-  return goog.debug.LogManager.loggers_;
-};
-goog.debug.LogManager.getRoot = function() {
-  goog.debug.LogManager.initialize();
-  return goog.debug.LogManager.rootLogger_;
-};
-goog.debug.LogManager.getLogger = function(a) {
-  goog.debug.LogManager.initialize();
-  return goog.debug.LogManager.loggers_[a] || goog.debug.LogManager.createLogger_(a);
-};
-goog.debug.LogManager.createFunctionForCatchErrors = function(a) {
-  return function(b) {
-    (a || goog.debug.LogManager.getRoot()).severe("Error: " + b.message + " (" + b.fileName + " @ Line: " + b.line + ")");
-  };
-};
-goog.debug.LogManager.createLogger_ = function(a) {
-  var b = new goog.debug.Logger(a);
-  if (goog.debug.Logger.ENABLE_HIERARCHY) {
-    var c = a.lastIndexOf("."), d = a.substr(0, c), c = a.substr(c + 1), d = goog.debug.LogManager.getLogger(d);
-    d.addChild_(c, b);
-    b.setParent_(d);
-  }
-  return goog.debug.LogManager.loggers_[a] = b;
-};
-goog.messaging = {};
-goog.messaging.MessageChannel = function() {
-};
-goog.messaging.MessageChannel.prototype.connect = function(a) {
-};
-goog.messaging.MessageChannel.prototype.isConnected = function() {
-};
-goog.messaging.MessageChannel.prototype.registerService = function(a, b, c) {
-};
-goog.messaging.MessageChannel.prototype.registerDefaultService = function(a) {
-};
-goog.messaging.MessageChannel.prototype.send = function(a, b) {
-};
-goog.messaging.AbstractChannel = function() {
-  goog.Disposable.call(this);
-  this.services_ = {};
-};
-goog.inherits(goog.messaging.AbstractChannel, goog.Disposable);
-goog.messaging.AbstractChannel.prototype.logger = goog.debug.Logger.getLogger("goog.messaging.AbstractChannel");
-goog.messaging.AbstractChannel.prototype.connect = function(a) {
-  a && a();
-};
-goog.messaging.AbstractChannel.prototype.isConnected = function() {
-  return!0;
-};
-goog.messaging.AbstractChannel.prototype.registerService = function(a, b, c) {
-  this.services_[a] = {callback:b, objectPayload:!!c};
-};
-goog.messaging.AbstractChannel.prototype.registerDefaultService = function(a) {
-  this.defaultService_ = a;
-};
-goog.messaging.AbstractChannel.prototype.deliver = function(a, b) {
-  var c = this.getService(a, b);
-  if (c) {
-    var d = this.decodePayload(a, b, c.objectPayload);
-    goog.isDefAndNotNull(d) && c.callback(d);
-  }
-};
-goog.messaging.AbstractChannel.prototype.getService = function(a, b) {
-  var c = this.services_[a];
-  if (c) {
-    return c;
-  }
-  if (this.defaultService_) {
-    var c = goog.partial(this.defaultService_, a), d = goog.isObject(b);
-    return{callback:c, objectPayload:d};
-  }
-  this.logger.warning('Unknown service name "' + a + '"');
-  return null;
-};
-goog.messaging.AbstractChannel.prototype.decodePayload = function(a, b, c) {
-  if (c && goog.isString(b)) {
-    try {
-      return goog.json.parse(b);
-    } catch (d) {
-      return this.logger.warning("Expected JSON payload for " + a + ', was "' + b + '"'), null;
-    }
-  } else {
-    if (!c && !goog.isString(b)) {
-      return goog.json.serialize(b);
-    }
-  }
-  return b;
-};
-goog.messaging.AbstractChannel.prototype.disposeInternal = function() {
-  goog.messaging.AbstractChannel.superClass_.disposeInternal.call(this);
-  delete this.logger;
-  delete this.services_;
-  delete this.defaultService_;
-};
-goog.net = {};
-goog.net.xpc = {};
-goog.net.xpc.TransportTypes = {NATIVE_MESSAGING:1, FRAME_ELEMENT_METHOD:2, IFRAME_RELAY:3, IFRAME_POLLING:4, FLASH:5, NIX:6};
-goog.net.xpc.TransportNames = {1:"NativeMessagingTransport", 2:"FrameElementMethodTransport", 3:"IframeRelayTransport", 4:"IframePollingTransport", 5:"FlashTransport", 6:"NixTransport"};
-goog.net.xpc.CfgFields = {CHANNEL_NAME:"cn", AUTH_TOKEN:"at", REMOTE_AUTH_TOKEN:"rat", PEER_URI:"pu", IFRAME_ID:"ifrid", TRANSPORT:"tp", LOCAL_RELAY_URI:"lru", PEER_RELAY_URI:"pru", LOCAL_POLL_URI:"lpu", PEER_POLL_URI:"ppu", PEER_HOSTNAME:"ph", ONE_SIDED_HANDSHAKE:"osh", ROLE:"role", NATIVE_TRANSPORT_PROTOCOL_VERSION:"nativeProtocolVersion"};
-goog.net.xpc.UriCfgFields = [goog.net.xpc.CfgFields.PEER_URI, goog.net.xpc.CfgFields.LOCAL_RELAY_URI, goog.net.xpc.CfgFields.PEER_RELAY_URI, goog.net.xpc.CfgFields.LOCAL_POLL_URI, goog.net.xpc.CfgFields.PEER_POLL_URI];
-goog.net.xpc.ChannelStates = {NOT_CONNECTED:1, CONNECTED:2, CLOSED:3};
-goog.net.xpc.TRANSPORT_SERVICE_ = "tp";
-goog.net.xpc.SETUP = "SETUP";
-goog.net.xpc.SETUP_NTPV2 = "SETUP_NTPV2";
-goog.net.xpc.SETUP_ACK_ = "SETUP_ACK";
-goog.net.xpc.SETUP_ACK_NTPV2 = "SETUP_ACK_NTPV2";
-goog.net.xpc.channels = {};
-goog.net.xpc.getRandomString = function(a, b) {
-  for (var c = b || goog.net.xpc.randomStringCharacters_, d = c.length, e = "";0 < a--;) {
-    e += c.charAt(Math.floor(Math.random() * d));
-  }
-  return e;
-};
-goog.net.xpc.randomStringCharacters_ = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-goog.net.xpc.logger = goog.debug.Logger.getLogger("goog.net.xpc");
-goog.net.xpc.CrossPageChannelRole = {OUTER:0, INNER:1};
-goog.net.xpc.Transport = function(a) {
-  goog.Disposable.call(this);
-  this.domHelper_ = a || goog.dom.getDomHelper();
-};
-goog.inherits(goog.net.xpc.Transport, goog.Disposable);
-goog.net.xpc.Transport.prototype.transportType = 0;
-goog.net.xpc.Transport.prototype.getType = function() {
-  return this.transportType;
-};
-goog.net.xpc.Transport.prototype.getWindow = function() {
-  return this.domHelper_.getWindow();
-};
-goog.net.xpc.Transport.prototype.getName = function() {
-  return goog.net.xpc.TransportNames[this.transportType] || "";
-};
-goog.net.xpc.FrameElementMethodTransport = function(a, b) {
-  goog.net.xpc.Transport.call(this, b);
-  this.channel_ = a;
-  this.queue_ = [];
-  this.deliverQueuedCb_ = goog.bind(this.deliverQueued_, this);
-};
-goog.inherits(goog.net.xpc.FrameElementMethodTransport, goog.net.xpc.Transport);
-goog.net.xpc.FrameElementMethodTransport.prototype.transportType = goog.net.xpc.TransportTypes.FRAME_ELEMENT_METHOD;
-goog.net.xpc.FrameElementMethodTransport.prototype.recursive_ = !1;
-goog.net.xpc.FrameElementMethodTransport.prototype.timer_ = 0;
-goog.net.xpc.FrameElementMethodTransport.outgoing_ = null;
-goog.net.xpc.FrameElementMethodTransport.prototype.connect = function() {
-  this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.OUTER ? (this.iframeElm_ = this.channel_.getIframeElement(), this.iframeElm_.XPC_toOuter = goog.bind(this.incoming_, this)) : this.attemptSetup_();
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.attemptSetup_ = function() {
-  var a = !0;
-  try {
-    this.iframeElm_ || (this.iframeElm_ = this.getWindow().frameElement), this.iframeElm_ && this.iframeElm_.XPC_toOuter && (this.outgoing_ = this.iframeElm_.XPC_toOuter, this.iframeElm_.XPC_toOuter.XPC_toInner = goog.bind(this.incoming_, this), a = !1, this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP_ACK_), this.channel_.notifyConnected());
-  } catch (b) {
-    goog.net.xpc.logger.severe("exception caught while attempting setup: " + b);
-  }
-  a && (this.attemptSetupCb_ || (this.attemptSetupCb_ = goog.bind(this.attemptSetup_, this)), this.getWindow().setTimeout(this.attemptSetupCb_, 100));
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.transportServiceHandler = function(a) {
-  if (this.channel_.getRole() != goog.net.xpc.CrossPageChannelRole.OUTER || this.channel_.isConnected() || a != goog.net.xpc.SETUP_ACK_) {
-    throw Error("Got unexpected transport message.");
-  }
-  this.outgoing_ = this.iframeElm_.XPC_toOuter.XPC_toInner;
-  this.channel_.notifyConnected();
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.incoming_ = function(a, b) {
-  this.recursive_ || 0 != this.queue_.length ? (this.queue_.push({serviceName:a, payload:b}), 1 == this.queue_.length && (this.timer_ = this.getWindow().setTimeout(this.deliverQueuedCb_, 1))) : this.channel_.xpcDeliver(a, b);
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.deliverQueued_ = function() {
-  for (;this.queue_.length;) {
-    var a = this.queue_.shift();
-    this.channel_.xpcDeliver(a.serviceName, a.payload);
-  }
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.send = function(a, b) {
-  this.recursive_ = !0;
-  this.outgoing_(a, b);
-  this.recursive_ = !1;
-};
-goog.net.xpc.FrameElementMethodTransport.prototype.disposeInternal = function() {
-  goog.net.xpc.FrameElementMethodTransport.superClass_.disposeInternal.call(this);
-  this.iframeElm_ = this.outgoing_ = null;
-};
-goog.net.xpc.IframePollingTransport = function(a, b) {
-  goog.net.xpc.Transport.call(this, b);
-  this.channel_ = a;
-  this.sendUri_ = this.channel_.getConfig()[goog.net.xpc.CfgFields.PEER_POLL_URI];
-  this.rcvUri_ = this.channel_.getConfig()[goog.net.xpc.CfgFields.LOCAL_POLL_URI];
-  this.sendQueue_ = [];
-};
-goog.inherits(goog.net.xpc.IframePollingTransport, goog.net.xpc.Transport);
-goog.net.xpc.IframePollingTransport.prototype.pollsBeforeReconnect_ = 5;
-goog.net.xpc.IframePollingTransport.prototype.transportType = goog.net.xpc.TransportTypes.IFRAME_POLLING;
-goog.net.xpc.IframePollingTransport.prototype.sequence_ = 0;
-goog.net.xpc.IframePollingTransport.prototype.waitForAck_ = !1;
-goog.net.xpc.IframePollingTransport.prototype.initialized_ = !1;
-goog.net.xpc.IframePollingTransport.prototype.reconnectFrame_ = null;
-goog.net.xpc.IframePollingTransport.IFRAME_PREFIX = "googlexpc";
-goog.net.xpc.IframePollingTransport.prototype.getMsgFrameName_ = function() {
-  return goog.net.xpc.IframePollingTransport.IFRAME_PREFIX + "_" + this.channel_.name + "_msg";
-};
-goog.net.xpc.IframePollingTransport.prototype.getAckFrameName_ = function() {
-  return goog.net.xpc.IframePollingTransport.IFRAME_PREFIX + "_" + this.channel_.name + "_ack";
-};
-goog.net.xpc.IframePollingTransport.prototype.isChannelAvailable = function() {
-  return!this.isDisposed() && this.channel_.isPeerAvailable();
-};
-goog.net.xpc.IframePollingTransport.prototype.getPeerFrames_ = function() {
-  try {
-    if (this.isChannelAvailable()) {
-      return this.channel_.getPeerWindowObject().frames || {};
-    }
-  } catch (a) {
-    goog.net.xpc.logger.fine("error retrieving peer frames");
-  }
-  return{};
-};
-goog.net.xpc.IframePollingTransport.prototype.getPeerFrame_ = function(a) {
-  return this.getPeerFrames_()[a];
-};
-goog.net.xpc.IframePollingTransport.prototype.connect = function() {
-  this.isChannelAvailable() && (goog.net.xpc.logger.fine("transport connect called"), this.initialized_ || (goog.net.xpc.logger.fine("initializing..."), this.constructSenderFrames_(), this.initialized_ = !0), this.checkForeignFramesReady_());
-};
-goog.net.xpc.IframePollingTransport.prototype.constructSenderFrames_ = function() {
-  var a = this.getMsgFrameName_();
-  this.msgIframeElm_ = this.constructSenderFrame_(a);
-  this.msgWinObj_ = this.getWindow().frames[a];
-  a = this.getAckFrameName_();
-  this.ackIframeElm_ = this.constructSenderFrame_(a);
-  this.ackWinObj_ = this.getWindow().frames[a];
-};
-goog.net.xpc.IframePollingTransport.prototype.constructSenderFrame_ = function(a) {
-  goog.net.xpc.logger.finest("constructing sender frame: " + a);
-  var b = goog.dom.createElement("iframe"), c = b.style;
-  c.position = "absolute";
-  c.top = "-10px";
-  c.left = "10px";
-  c.width = "1px";
-  c.height = "1px";
-  b.id = b.name = a;
-  b.src = this.sendUri_ + "#INITIAL";
-  this.getWindow().document.body.appendChild(b);
-  return b;
-};
-goog.net.xpc.IframePollingTransport.prototype.maybeInnerPeerReconnect_ = function() {
-  this.reconnectFrame_ || 0 < this.pollsBeforeReconnect_-- || (goog.net.xpc.logger.finest("Inner peer reconnect triggered."), this.channel_.name = goog.net.xpc.getRandomString(10), goog.net.xpc.logger.finest("switching channels: " + this.channel_.name), this.deconstructSenderFrames_(), this.initialized_ = !1, this.reconnectFrame_ = this.constructSenderFrame_(goog.net.xpc.IframePollingTransport.IFRAME_PREFIX + "_reconnect_" + this.channel_.name));
-};
-goog.net.xpc.IframePollingTransport.prototype.outerPeerReconnect_ = function() {
-  goog.net.xpc.logger.finest("outerPeerReconnect called");
-  for (var a = this.getPeerFrames_(), b = a.length, c = 0;c < b;c++) {
-    var d;
-    try {
-      a[c] && a[c].name && (d = a[c].name);
-    } catch (e) {
-    }
-    if (d) {
-      var f = d.split("_");
-      if (3 == f.length && f[0] == goog.net.xpc.IframePollingTransport.IFRAME_PREFIX && "reconnect" == f[1]) {
-        this.channel_.name = f[2];
-        this.deconstructSenderFrames_();
-        this.initialized_ = !1;
-        break;
-      }
-    }
-  }
-};
-goog.net.xpc.IframePollingTransport.prototype.deconstructSenderFrames_ = function() {
-  goog.net.xpc.logger.finest("deconstructSenderFrames called");
-  this.msgIframeElm_ && (this.msgIframeElm_.parentNode.removeChild(this.msgIframeElm_), this.msgWinObj_ = this.msgIframeElm_ = null);
-  this.ackIframeElm_ && (this.ackIframeElm_.parentNode.removeChild(this.ackIframeElm_), this.ackWinObj_ = this.ackIframeElm_ = null);
-};
-goog.net.xpc.IframePollingTransport.prototype.checkForeignFramesReady_ = function() {
-  this.isRcvFrameReady_(this.getMsgFrameName_()) && this.isRcvFrameReady_(this.getAckFrameName_()) ? (goog.net.xpc.logger.fine("foreign frames present"), this.msgReceiver_ = new goog.net.xpc.IframePollingTransport.Receiver(this, this.getPeerFrame_(this.getMsgFrameName_()), goog.bind(this.processIncomingMsg, this)), this.ackReceiver_ = new goog.net.xpc.IframePollingTransport.Receiver(this, this.getPeerFrame_(this.getAckFrameName_()), goog.bind(this.processIncomingAck, this)), this.checkLocalFramesPresent_()) : 
-  (goog.net.xpc.logger.finest("foreign frames not (yet) present"), this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.INNER ? this.maybeInnerPeerReconnect_() : this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.OUTER && this.outerPeerReconnect_(), this.getWindow().setTimeout(goog.bind(this.connect, this), 100));
-};
-goog.net.xpc.IframePollingTransport.prototype.isRcvFrameReady_ = function(a) {
-  goog.net.xpc.logger.finest("checking for receive frame: " + a);
-  try {
-    var b = this.getPeerFrame_(a);
-    if (!b || 0 != b.location.href.indexOf(this.rcvUri_)) {
-      return!1;
-    }
-  } catch (c) {
-    return!1;
-  }
-  return!0;
-};
-goog.net.xpc.IframePollingTransport.prototype.checkLocalFramesPresent_ = function() {
-  var a = this.getPeerFrames_();
-  a[this.getAckFrameName_()] && a[this.getMsgFrameName_()] ? (this.msgSender_ = new goog.net.xpc.IframePollingTransport.Sender(this.sendUri_, this.msgWinObj_), this.ackSender_ = new goog.net.xpc.IframePollingTransport.Sender(this.sendUri_, this.ackWinObj_), goog.net.xpc.logger.fine("local frames ready"), this.getWindow().setTimeout(goog.bind(function() {
-    this.msgSender_.send(goog.net.xpc.SETUP);
-    this.waitForAck_ = this.sentConnectionSetup_ = !0;
-    goog.net.xpc.logger.fine("SETUP sent");
-  }, this), 100)) : (this.checkLocalFramesPresentCb_ || (this.checkLocalFramesPresentCb_ = goog.bind(this.checkLocalFramesPresent_, this)), this.getWindow().setTimeout(this.checkLocalFramesPresentCb_, 100), goog.net.xpc.logger.fine("local frames not (yet) present"));
-};
-goog.net.xpc.IframePollingTransport.prototype.checkIfConnected_ = function() {
-  if (this.sentConnectionSetupAck_ && this.rcvdConnectionSetupAck_) {
-    if (this.channel_.notifyConnected(), this.deliveryQueue_) {
-      goog.net.xpc.logger.fine("delivering queued messages (" + this.deliveryQueue_.length + ")");
-      for (var a = 0, b;a < this.deliveryQueue_.length;a++) {
-        b = this.deliveryQueue_[a], this.channel_.xpcDeliver(b.service, b.payload);
-      }
-      delete this.deliveryQueue_;
-    }
-  } else {
-    goog.net.xpc.logger.finest("checking if connected: ack sent:" + this.sentConnectionSetupAck_ + ", ack rcvd: " + this.rcvdConnectionSetupAck_);
-  }
-};
-goog.net.xpc.IframePollingTransport.prototype.processIncomingMsg = function(a) {
-  goog.net.xpc.logger.finest("msg received: " + a);
-  if (a == goog.net.xpc.SETUP) {
-    this.ackSender_ && (this.ackSender_.send(goog.net.xpc.SETUP_ACK_), goog.net.xpc.logger.finest("SETUP_ACK sent"), this.sentConnectionSetupAck_ = !0, this.checkIfConnected_());
-  } else {
-    if (this.channel_.isConnected() || this.sentConnectionSetupAck_) {
-      var b = a.indexOf("|"), c = a.substring(0, b);
-      a = a.substring(b + 1);
-      b = c.indexOf(",");
-      if (-1 == b) {
-        var d;
-        this.ackSender_.send("ACK:" + c);
-        this.deliverPayload_(a);
-      } else {
-        d = c.substring(0, b), this.ackSender_.send("ACK:" + d), c = c.substring(b + 1).split("/"), b = parseInt(c[0], 10), c = parseInt(c[1], 10), 1 == b && (this.parts_ = []), this.parts_.push(a), b == c && (this.deliverPayload_(this.parts_.join("")), delete this.parts_);
-      }
-    } else {
-      goog.net.xpc.logger.warning("received msg, but channel is not connected");
-    }
-  }
-};
-goog.net.xpc.IframePollingTransport.prototype.processIncomingAck = function(a) {
-  goog.net.xpc.logger.finest("ack received: " + a);
-  a == goog.net.xpc.SETUP_ACK_ ? (this.waitForAck_ = !1, this.rcvdConnectionSetupAck_ = !0, this.checkIfConnected_()) : this.channel_.isConnected() ? this.waitForAck_ ? parseInt(a.split(":")[1], 10) == this.sequence_ ? (this.waitForAck_ = !1, this.sendNextFrame_()) : goog.net.xpc.logger.warning("got ack with wrong sequence") : goog.net.xpc.logger.warning("got unexpected ack") : goog.net.xpc.logger.warning("received ack, but channel not connected");
-};
-goog.net.xpc.IframePollingTransport.prototype.sendNextFrame_ = function() {
-  if (!this.waitForAck_ && this.sendQueue_.length) {
-    var a = this.sendQueue_.shift();
-    ++this.sequence_;
-    this.msgSender_.send(this.sequence_ + a);
-    goog.net.xpc.logger.finest("msg sent: " + this.sequence_ + a);
-    this.waitForAck_ = !0;
-  }
-};
-goog.net.xpc.IframePollingTransport.prototype.deliverPayload_ = function(a) {
-  var b = a.indexOf(":"), c = a.substr(0, b);
-  a = a.substring(b + 1);
-  this.channel_.isConnected() ? this.channel_.xpcDeliver(c, a) : ((this.deliveryQueue_ || (this.deliveryQueue_ = [])).push({service:c, payload:a}), goog.net.xpc.logger.finest("queued delivery"));
-};
-goog.net.xpc.IframePollingTransport.prototype.MAX_FRAME_LENGTH_ = 3800;
-goog.net.xpc.IframePollingTransport.prototype.send = function(a, b) {
-  var c = a + ":" + b;
-  if (!goog.userAgent.IE || b.length <= this.MAX_FRAME_LENGTH_) {
-    this.sendQueue_.push("|" + c);
-  } else {
-    for (var d = b.length, e = Math.ceil(d / this.MAX_FRAME_LENGTH_), f = 0, g = 1;f < d;) {
-      this.sendQueue_.push("," + g + "/" + e + "|" + c.substr(f, this.MAX_FRAME_LENGTH_)), g++, f += this.MAX_FRAME_LENGTH_;
-    }
-  }
-  this.sendNextFrame_();
-};
-goog.net.xpc.IframePollingTransport.prototype.disposeInternal = function() {
-  goog.net.xpc.IframePollingTransport.superClass_.disposeInternal.call(this);
-  var a = goog.net.xpc.IframePollingTransport.receivers_;
-  goog.array.remove(a, this.msgReceiver_);
-  goog.array.remove(a, this.ackReceiver_);
-  this.msgReceiver_ = this.ackReceiver_ = null;
-  goog.dom.removeNode(this.msgIframeElm_);
-  goog.dom.removeNode(this.ackIframeElm_);
-  this.msgWinObj_ = this.ackWinObj_ = this.msgIframeElm_ = this.ackIframeElm_ = null;
-};
-goog.net.xpc.IframePollingTransport.receivers_ = [];
-goog.net.xpc.IframePollingTransport.TIME_POLL_SHORT_ = 10;
-goog.net.xpc.IframePollingTransport.TIME_POLL_LONG_ = 100;
-goog.net.xpc.IframePollingTransport.TIME_SHORT_POLL_AFTER_ACTIVITY_ = 1E3;
-goog.net.xpc.IframePollingTransport.receive_ = function() {
-  var a = goog.net.xpc.IframePollingTransport.receivers_, b, c = !1;
-  try {
-    for (var d = 0;b = a[d];d++) {
-      c = c || b.receive();
-    }
-  } catch (e) {
-    if (goog.net.xpc.logger.info("receive_() failed: " + e), b.transport_.channel_.notifyTransportError(), !a.length) {
-      return;
-    }
-  }
-  a = goog.now();
-  c && (goog.net.xpc.IframePollingTransport.lastActivity_ = a);
-  goog.net.xpc.IframePollingTransport.rcvTimer_ = window.setTimeout(goog.net.xpc.IframePollingTransport.receiveCb_, a - goog.net.xpc.IframePollingTransport.lastActivity_ < goog.net.xpc.IframePollingTransport.TIME_SHORT_POLL_AFTER_ACTIVITY_ ? goog.net.xpc.IframePollingTransport.TIME_POLL_SHORT_ : goog.net.xpc.IframePollingTransport.TIME_POLL_LONG_);
-};
-goog.net.xpc.IframePollingTransport.receiveCb_ = goog.bind(goog.net.xpc.IframePollingTransport.receive_, goog.net.xpc.IframePollingTransport);
-goog.net.xpc.IframePollingTransport.startRcvTimer_ = function() {
-  goog.net.xpc.logger.fine("starting receive-timer");
-  goog.net.xpc.IframePollingTransport.lastActivity_ = goog.now();
-  goog.net.xpc.IframePollingTransport.rcvTimer_ && window.clearTimeout(goog.net.xpc.IframePollingTransport.rcvTimer_);
-  goog.net.xpc.IframePollingTransport.rcvTimer_ = window.setTimeout(goog.net.xpc.IframePollingTransport.receiveCb_, goog.net.xpc.IframePollingTransport.TIME_POLL_SHORT_);
-};
-goog.net.xpc.IframePollingTransport.Sender = function(a, b) {
-  this.sendUri_ = a;
-  this.sendFrame_ = b;
-  this.cycle_ = 0;
-};
-goog.net.xpc.IframePollingTransport.Sender.prototype.send = function(a) {
-  this.cycle_ = ++this.cycle_ % 2;
-  a = this.sendUri_ + "#" + this.cycle_ + encodeURIComponent(a);
-  try {
-    goog.userAgent.WEBKIT ? this.sendFrame_.location.href = a : this.sendFrame_.location.replace(a);
-  } catch (b) {
-    goog.net.xpc.logger.severe("sending failed", b);
-  }
-  goog.net.xpc.IframePollingTransport.startRcvTimer_();
-};
-goog.net.xpc.IframePollingTransport.Receiver = function(a, b, c) {
-  this.transport_ = a;
-  this.rcvFrame_ = b;
-  this.cb_ = c;
-  this.currentLoc_ = this.rcvFrame_.location.href.split("#")[0] + "#INITIAL";
-  goog.net.xpc.IframePollingTransport.receivers_.push(this);
-  goog.net.xpc.IframePollingTransport.startRcvTimer_();
-};
-goog.net.xpc.IframePollingTransport.Receiver.prototype.receive = function() {
-  var a = this.rcvFrame_.location.href;
-  if (a != this.currentLoc_) {
-    this.currentLoc_ = a;
-    if (a = a.split("#")[1]) {
-      a = a.substr(1), this.cb_(decodeURIComponent(a));
-    }
-    return!0;
-  }
-  return!1;
-};
-goog.net.xpc.IframeRelayTransport = function(a, b) {
-  goog.net.xpc.Transport.call(this, b);
-  this.channel_ = a;
-  this.peerRelayUri_ = this.channel_.getConfig()[goog.net.xpc.CfgFields.PEER_RELAY_URI];
-  this.peerIframeId_ = this.channel_.getConfig()[goog.net.xpc.CfgFields.IFRAME_ID];
-  goog.userAgent.WEBKIT && goog.net.xpc.IframeRelayTransport.startCleanupTimer_();
-};
-goog.inherits(goog.net.xpc.IframeRelayTransport, goog.net.xpc.Transport);
-goog.userAgent.WEBKIT && (goog.net.xpc.IframeRelayTransport.iframeRefs_ = [], goog.net.xpc.IframeRelayTransport.CLEANUP_INTERVAL_ = 1E3, goog.net.xpc.IframeRelayTransport.IFRAME_MAX_AGE_ = 3E3, goog.net.xpc.IframeRelayTransport.cleanupTimer_ = 0, goog.net.xpc.IframeRelayTransport.startCleanupTimer_ = function() {
-  goog.net.xpc.IframeRelayTransport.cleanupTimer_ || (goog.net.xpc.IframeRelayTransport.cleanupTimer_ = window.setTimeout(function() {
-    goog.net.xpc.IframeRelayTransport.cleanup_();
-  }, goog.net.xpc.IframeRelayTransport.CLEANUP_INTERVAL_));
-}, goog.net.xpc.IframeRelayTransport.cleanup_ = function(a) {
-  var b = goog.now();
-  for (a = a || goog.net.xpc.IframeRelayTransport.IFRAME_MAX_AGE_;goog.net.xpc.IframeRelayTransport.iframeRefs_.length && b - goog.net.xpc.IframeRelayTransport.iframeRefs_[0].timestamp >= a;) {
-    var c = goog.net.xpc.IframeRelayTransport.iframeRefs_.shift().iframeElement;
-    goog.dom.removeNode(c);
-    goog.net.xpc.logger.finest("iframe removed");
-  }
-  goog.net.xpc.IframeRelayTransport.cleanupTimer_ = window.setTimeout(goog.net.xpc.IframeRelayTransport.cleanupCb_, goog.net.xpc.IframeRelayTransport.CLEANUP_INTERVAL_);
-}, goog.net.xpc.IframeRelayTransport.cleanupCb_ = function() {
-  goog.net.xpc.IframeRelayTransport.cleanup_();
-});
-goog.net.xpc.IframeRelayTransport.IE_PAYLOAD_MAX_SIZE_ = 1800;
-goog.net.xpc.IframeRelayTransport.fragmentMap_ = {};
-goog.net.xpc.IframeRelayTransport.prototype.transportType = goog.net.xpc.TransportTypes.IFRAME_RELAY;
-goog.net.xpc.IframeRelayTransport.prototype.connect = function() {
-  this.getWindow().xpcRelay || (this.getWindow().xpcRelay = goog.net.xpc.IframeRelayTransport.receiveMessage_);
-  this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP);
-};
-goog.net.xpc.IframeRelayTransport.receiveMessage_ = function(a, b) {
-  var c = b.indexOf(":"), d = b.substr(0, c), e = b.substr(c + 1);
-  if (goog.userAgent.IE && -1 != (c = d.indexOf("|"))) {
-    var f = d.substr(0, c), d = d.substr(c + 1), c = d.indexOf("+"), g = d.substr(0, c), c = parseInt(d.substr(c + 1), 10), h = goog.net.xpc.IframeRelayTransport.fragmentMap_[g];
-    h || (h = goog.net.xpc.IframeRelayTransport.fragmentMap_[g] = {fragments:[], received:0, expected:0});
-    goog.string.contains(d, "++") && (h.expected = c + 1);
-    h.fragments[c] = e;
-    h.received++;
-    if (h.received != h.expected) {
-      return;
-    }
-    e = h.fragments.join("");
-    delete goog.net.xpc.IframeRelayTransport.fragmentMap_[g];
-  } else {
-    var f = d
-  }
-  goog.net.xpc.channels[a].xpcDeliver(f, decodeURIComponent(e));
-};
-goog.net.xpc.IframeRelayTransport.prototype.transportServiceHandler = function(a) {
-  a == goog.net.xpc.SETUP ? (this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP_ACK_), this.channel_.notifyConnected()) : a == goog.net.xpc.SETUP_ACK_ && this.channel_.notifyConnected();
-};
-goog.net.xpc.IframeRelayTransport.prototype.send = function(a, b) {
-  var c = encodeURIComponent(b), d = c.length, e = goog.net.xpc.IframeRelayTransport.IE_PAYLOAD_MAX_SIZE_;
-  if (goog.userAgent.IE && d > e) {
-    for (var f = goog.string.getRandomString(), g = 0, h = 0;g < d;h++) {
-      var k = c.substr(g, e), g = g + e;
-      this.send_(a, k, f + (g >= d ? "++" : "+") + h);
-    }
-  } else {
-    this.send_(a, c);
-  }
-};
-goog.net.xpc.IframeRelayTransport.prototype.send_ = function(a, b, c) {
-  if (goog.userAgent.IE) {
-    var d = this.getWindow().document.createElement("div");
-    d.innerHTML = '\x3ciframe onload\x3d"this.xpcOnload()"\x3e\x3c/iframe\x3e';
-    d = d.childNodes[0];
-    d.xpcOnload = goog.net.xpc.IframeRelayTransport.iframeLoadHandler_;
-  } else {
-    d = this.getWindow().document.createElement("iframe"), goog.userAgent.WEBKIT ? goog.net.xpc.IframeRelayTransport.iframeRefs_.push({timestamp:goog.now(), iframeElement:d}) : goog.events.listen(d, "load", goog.net.xpc.IframeRelayTransport.iframeLoadHandler_);
-  }
-  var e = d.style;
-  e.visibility = "hidden";
-  e.width = d.style.height = "0px";
-  e.position = "absolute";
-  e = this.peerRelayUri_;
-  e += "#" + this.channel_.name;
-  this.peerIframeId_ && (e += "," + this.peerIframeId_);
-  e += "|" + a;
-  c && (e += "|" + c);
-  e += ":" + b;
-  d.src = e;
-  this.getWindow().document.body.appendChild(d);
-  goog.net.xpc.logger.finest("msg sent: " + e);
-};
-goog.net.xpc.IframeRelayTransport.iframeLoadHandler_ = function() {
-  goog.net.xpc.logger.finest("iframe-load");
-  goog.dom.removeNode(this);
-  this.xpcOnload = null;
-};
-goog.net.xpc.IframeRelayTransport.prototype.disposeInternal = function() {
-  goog.net.xpc.IframeRelayTransport.superClass_.disposeInternal.call(this);
-  goog.userAgent.WEBKIT && goog.net.xpc.IframeRelayTransport.cleanup_(0);
-};
-goog.net.xpc.NativeMessagingTransport = function(a, b, c, d, e) {
-  goog.net.xpc.Transport.call(this, c);
-  this.channel_ = a;
-  this.protocolVersion_ = e || 2;
-  goog.asserts.assert(1 <= this.protocolVersion_);
-  goog.asserts.assert(2 >= this.protocolVersion_);
-  this.peerHostname_ = b || "*";
-  this.eventHandler_ = new goog.events.EventHandler(this);
-  this.maybeAttemptToConnectTimer_ = new goog.Timer(100, this.getWindow());
-  this.oneSidedHandshake_ = !!d;
-  this.setupAckReceived_ = new goog.async.Deferred;
-  this.setupAckSent_ = new goog.async.Deferred;
-  this.connected_ = new goog.async.Deferred;
-  this.endpointId_ = goog.net.xpc.getRandomString(10);
-  this.peerEndpointId_ = null;
-  this.oneSidedHandshake_ ? this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.INNER ? this.connected_.awaitDeferred(this.setupAckReceived_) : this.connected_.awaitDeferred(this.setupAckSent_) : (this.connected_.awaitDeferred(this.setupAckReceived_), 2 == this.protocolVersion_ && this.connected_.awaitDeferred(this.setupAckSent_));
-  this.connected_.addCallback(this.notifyConnected_, this);
-  this.connected_.callback(!0);
-  this.eventHandler_.listen(this.maybeAttemptToConnectTimer_, goog.Timer.TICK, this.maybeAttemptToConnect_);
-  goog.net.xpc.logger.info("NativeMessagingTransport created.  protocolVersion\x3d" + this.protocolVersion_ + ", oneSidedHandshake\x3d" + this.oneSidedHandshake_ + ", role\x3d" + this.channel_.getRole());
-};
-goog.inherits(goog.net.xpc.NativeMessagingTransport, goog.net.xpc.Transport);
-goog.net.xpc.NativeMessagingTransport.CONNECTION_DELAY_MS_ = 200;
-goog.net.xpc.NativeMessagingTransport.prototype.peerProtocolVersion_ = null;
-goog.net.xpc.NativeMessagingTransport.prototype.initialized_ = !1;
-goog.net.xpc.NativeMessagingTransport.prototype.transportType = goog.net.xpc.TransportTypes.NATIVE_MESSAGING;
-goog.net.xpc.NativeMessagingTransport.MESSAGE_DELIMITER_ = ",";
-goog.net.xpc.NativeMessagingTransport.activeCount_ = {};
-goog.net.xpc.NativeMessagingTransport.sendTimerId_ = 0;
-goog.net.xpc.NativeMessagingTransport.prototype.couldPeerVersionBe_ = function(a) {
-  return null == this.peerProtocolVersion_ || this.peerProtocolVersion_ == a;
-};
-goog.net.xpc.NativeMessagingTransport.initialize_ = function(a) {
-  var b = goog.getUid(a), c = goog.net.xpc.NativeMessagingTransport.activeCount_[b];
-  goog.isNumber(c) || (c = 0);
-  0 == c && goog.events.listen(a.postMessage ? a : a.document, "message", goog.net.xpc.NativeMessagingTransport.messageReceived_, !1, goog.net.xpc.NativeMessagingTransport);
-  goog.net.xpc.NativeMessagingTransport.activeCount_[b] = c + 1;
-};
-goog.net.xpc.NativeMessagingTransport.messageReceived_ = function(a) {
-  var b = a.getBrowserEvent().data;
-  if (!goog.isString(b)) {
-    return!1;
-  }
-  var c = b.indexOf("|"), d = b.indexOf(":");
-  if (-1 == c || -1 == d) {
-    return!1;
-  }
-  var e = b.substring(0, c), c = b.substring(c + 1, d), b = b.substring(d + 1);
-  goog.net.xpc.logger.fine("messageReceived: channel\x3d" + e + ", service\x3d" + c + ", payload\x3d" + b);
-  if (d = goog.net.xpc.channels[e]) {
-    return d.xpcDeliver(c, b, a.getBrowserEvent().origin), !0;
-  }
-  a = goog.net.xpc.NativeMessagingTransport.parseTransportPayload_(b)[0];
-  for (var f in goog.net.xpc.channels) {
-    if (d = goog.net.xpc.channels[f], d.getRole() == goog.net.xpc.CrossPageChannelRole.INNER && !d.isConnected() && c == goog.net.xpc.TRANSPORT_SERVICE_ && (a == goog.net.xpc.SETUP || a == goog.net.xpc.SETUP_NTPV2)) {
-      return goog.net.xpc.logger.fine("changing channel name to " + e), d.name = e, delete goog.net.xpc.channels[f], goog.net.xpc.channels[e] = d, d.xpcDeliver(c, b), !0;
-    }
-  }
-  goog.net.xpc.logger.info('channel name mismatch; message ignored"');
-  return!1;
-};
-goog.net.xpc.NativeMessagingTransport.prototype.transportServiceHandler = function(a) {
-  var b = goog.net.xpc.NativeMessagingTransport.parseTransportPayload_(a);
-  a = b[1];
-  switch(b[0]) {
-    case goog.net.xpc.SETUP_ACK_:
-      this.setPeerProtocolVersion_(1);
-      this.setupAckReceived_.hasFired() || this.setupAckReceived_.callback(!0);
-      break;
-    case goog.net.xpc.SETUP_ACK_NTPV2:
-      2 == this.protocolVersion_ && (this.setPeerProtocolVersion_(2), this.setupAckReceived_.hasFired() || this.setupAckReceived_.callback(!0));
-      break;
-    case goog.net.xpc.SETUP:
-      this.setPeerProtocolVersion_(1);
-      this.sendSetupAckMessage_(1);
-      break;
-    case goog.net.xpc.SETUP_NTPV2:
-      2 == this.protocolVersion_ && (b = this.peerProtocolVersion_, this.setPeerProtocolVersion_(2), this.sendSetupAckMessage_(2), 1 != b && null == this.peerEndpointId_ || this.peerEndpointId_ == a || (goog.net.xpc.logger.info("Sending SETUP and changing peer ID to: " + a), this.sendSetupMessage_()), this.peerEndpointId_ = a);
-  }
-};
-goog.net.xpc.NativeMessagingTransport.prototype.sendSetupMessage_ = function() {
-  goog.asserts.assert(!(1 == this.protocolVersion_ && 2 == this.peerProtocolVersion_));
-  if (2 == this.protocolVersion_ && this.couldPeerVersionBe_(2)) {
-    var a = goog.net.xpc.SETUP_NTPV2, a = a + goog.net.xpc.NativeMessagingTransport.MESSAGE_DELIMITER_, a = a + this.endpointId_;
-    this.send(goog.net.xpc.TRANSPORT_SERVICE_, a);
-  }
-  this.couldPeerVersionBe_(1) && this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP);
-};
-goog.net.xpc.NativeMessagingTransport.prototype.sendSetupAckMessage_ = function(a) {
-  goog.asserts.assert(1 != this.protocolVersion_ || 2 != a, "Shouldn't try to send a v2 setup ack in v1 mode.");
-  if (2 == this.protocolVersion_ && this.couldPeerVersionBe_(2) && 2 == a) {
-    this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP_ACK_NTPV2);
-  } else {
-    if (this.couldPeerVersionBe_(1) && 1 == a) {
-      this.send(goog.net.xpc.TRANSPORT_SERVICE_, goog.net.xpc.SETUP_ACK_);
-    } else {
-      return;
-    }
-  }
-  this.setupAckSent_.hasFired() || this.setupAckSent_.callback(!0);
-};
-goog.net.xpc.NativeMessagingTransport.prototype.setPeerProtocolVersion_ = function(a) {
-  a > this.peerProtocolVersion_ && (this.peerProtocolVersion_ = a);
-  1 == this.peerProtocolVersion_ && (this.setupAckSent_.hasFired() || this.oneSidedHandshake_ || this.setupAckSent_.callback(!0), this.peerEndpointId_ = null);
-};
-goog.net.xpc.NativeMessagingTransport.prototype.connect = function() {
-  goog.net.xpc.NativeMessagingTransport.initialize_(this.getWindow());
-  this.initialized_ = !0;
-  this.maybeAttemptToConnect_();
-};
-goog.net.xpc.NativeMessagingTransport.prototype.maybeAttemptToConnect_ = function() {
-  var a = this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.OUTER;
-  this.oneSidedHandshake_ && a || this.channel_.isConnected() || this.isDisposed() ? this.maybeAttemptToConnectTimer_.stop() : (this.maybeAttemptToConnectTimer_.start(), this.sendSetupMessage_());
-};
-goog.net.xpc.NativeMessagingTransport.prototype.send = function(a, b) {
-  var c = this.channel_.getPeerWindowObject();
-  c ? (this.send = function(a, b) {
-    var f = this, g = this.channel_.name;
-    this.sendTimerId_ = goog.Timer.callOnce(function() {
-      f.sendTimerId_ = 0;
-      try {
-        var h = c.postMessage ? c : c.document;
-        h.postMessage ? (h.postMessage(g + "|" + a + ":" + b, f.peerHostname_), goog.net.xpc.logger.fine("send(): service\x3d" + a + " payload\x3d" + b + " to hostname\x3d" + f.peerHostname_)) : goog.net.xpc.logger.warning("Peer window had no postMessage function.");
-      } catch (k) {
-        goog.net.xpc.logger.warning("Error performing postMessage, ignoring.", k);
-      }
-    }, 0);
-  }, this.send(a, b)) : goog.net.xpc.logger.fine("send(): window not ready");
-};
-goog.net.xpc.NativeMessagingTransport.prototype.notifyConnected_ = function() {
-  this.channel_.notifyConnected(1 == this.protocolVersion_ || 1 == this.peerProtocolVersion_ ? goog.net.xpc.NativeMessagingTransport.CONNECTION_DELAY_MS_ : void 0);
-};
-goog.net.xpc.NativeMessagingTransport.prototype.disposeInternal = function() {
-  if (this.initialized_) {
-    var a = this.getWindow(), b = goog.getUid(a), c = goog.net.xpc.NativeMessagingTransport.activeCount_[b];
-    goog.net.xpc.NativeMessagingTransport.activeCount_[b] = c - 1;
-    1 == c && goog.events.unlisten(a.postMessage ? a : a.document, "message", goog.net.xpc.NativeMessagingTransport.messageReceived_, !1, goog.net.xpc.NativeMessagingTransport);
-  }
-  this.sendTimerId_ && (goog.Timer.clear(this.sendTimerId_), this.sendTimerId_ = 0);
-  goog.dispose(this.eventHandler_);
-  delete this.eventHandler_;
-  goog.dispose(this.maybeAttemptToConnectTimer_);
-  delete this.maybeAttemptToConnectTimer_;
-  this.setupAckReceived_.cancel();
-  delete this.setupAckReceived_;
-  this.setupAckSent_.cancel();
-  delete this.setupAckSent_;
-  this.connected_.cancel();
-  delete this.connected_;
-  delete this.send;
-  goog.net.xpc.NativeMessagingTransport.superClass_.disposeInternal.call(this);
-};
-goog.net.xpc.NativeMessagingTransport.parseTransportPayload_ = function(a) {
-  a = a.split(goog.net.xpc.NativeMessagingTransport.MESSAGE_DELIMITER_);
-  a[1] = a[1] || null;
-  return a;
-};
-goog.net.xpc.NixTransport = function(a, b) {
-  goog.net.xpc.Transport.call(this, b);
-  this.channel_ = a;
-  this.authToken_ = a[goog.net.xpc.CfgFields.AUTH_TOKEN] || "";
-  this.remoteAuthToken_ = a[goog.net.xpc.CfgFields.REMOTE_AUTH_TOKEN] || "";
-  goog.net.xpc.NixTransport.conductGlobalSetup_(this.getWindow());
-  this[goog.net.xpc.NixTransport.NIX_HANDLE_MESSAGE] = this.handleMessage_;
-  this[goog.net.xpc.NixTransport.NIX_CREATE_CHANNEL] = this.createChannel_;
-};
-goog.inherits(goog.net.xpc.NixTransport, goog.net.xpc.Transport);
-goog.net.xpc.NixTransport.NIX_WRAPPER = "GCXPC____NIXVBS_wrapper";
-goog.net.xpc.NixTransport.NIX_GET_WRAPPER = "GCXPC____NIXVBS_get_wrapper";
-goog.net.xpc.NixTransport.NIX_HANDLE_MESSAGE = "GCXPC____NIXJS_handle_message";
-goog.net.xpc.NixTransport.NIX_CREATE_CHANNEL = "GCXPC____NIXJS_create_channel";
-goog.net.xpc.NixTransport.NIX_ID_FIELD = "GCXPC____NIXVBS_container";
-goog.net.xpc.NixTransport.isNixSupported = function() {
-  var a = !1;
-  try {
-    var b = window.opener;
-    window.opener = {};
-    a = goog.reflect.canAccessProperty(window, "opener");
-    window.opener = b;
-  } catch (c) {
-  }
-  return a;
-};
-goog.net.xpc.NixTransport.conductGlobalSetup_ = function(a) {
-  if (!a.nix_setup_complete) {
-    var b = "Class " + goog.net.xpc.NixTransport.NIX_WRAPPER + "\n Private m_Transport\nPrivate m_Auth\nPublic Sub SetTransport(transport)\nIf isEmpty(m_Transport) Then\nSet m_Transport \x3d transport\nEnd If\nEnd Sub\nPublic Sub SetAuth(auth)\nIf isEmpty(m_Auth) Then\nm_Auth \x3d auth\nEnd If\nEnd Sub\nPublic Function GetAuthToken()\n GetAuthToken \x3d m_Auth\nEnd Function\nPublic Sub SendMessage(service, payload)\n Call m_Transport." + goog.net.xpc.NixTransport.NIX_HANDLE_MESSAGE + "(service, payload)\nEnd Sub\nPublic Sub CreateChannel(channel)\n Call m_Transport." + 
-    goog.net.xpc.NixTransport.NIX_CREATE_CHANNEL + "(channel)\nEnd Sub\nPublic Sub " + goog.net.xpc.NixTransport.NIX_ID_FIELD + "()\n End Sub\nEnd Class\n Function " + goog.net.xpc.NixTransport.NIX_GET_WRAPPER + "(transport, auth)\nDim wrap\nSet wrap \x3d New " + goog.net.xpc.NixTransport.NIX_WRAPPER + "\nwrap.SetTransport transport\nwrap.SetAuth auth\nSet " + goog.net.xpc.NixTransport.NIX_GET_WRAPPER + " \x3d wrap\nEnd Function";
-    try {
-      a.execScript(b, "vbscript"), a.nix_setup_complete = !0;
-    } catch (c) {
-      goog.net.xpc.logger.severe("exception caught while attempting global setup: " + c);
-    }
-  }
-};
-goog.net.xpc.NixTransport.prototype.transportType = goog.net.xpc.TransportTypes.NIX;
-goog.net.xpc.NixTransport.prototype.localSetupCompleted_ = !1;
-goog.net.xpc.NixTransport.prototype.nixChannel_ = null;
-goog.net.xpc.NixTransport.prototype.connect = function() {
-  this.channel_.getRole() == goog.net.xpc.CrossPageChannelRole.OUTER ? this.attemptOuterSetup_() : this.attemptInnerSetup_();
-};
-goog.net.xpc.NixTransport.prototype.attemptOuterSetup_ = function() {
-  if (!this.localSetupCompleted_) {
-    var a = this.channel_.getIframeElement();
-    try {
-      var b = this.getWindow()[goog.net.xpc.NixTransport.NIX_GET_WRAPPER];
-      a.contentWindow.opener = b(this, this.authToken_);
-      this.localSetupCompleted_ = !0;
-    } catch (c) {
-      goog.net.xpc.logger.severe("exception caught while attempting setup: " + c);
-    }
-    this.localSetupCompleted_ || this.getWindow().setTimeout(goog.bind(this.attemptOuterSetup_, this), 100);
-  }
-};
-goog.net.xpc.NixTransport.prototype.attemptInnerSetup_ = function() {
-  if (!this.localSetupCompleted_) {
-    try {
-      var a = this.getWindow().opener;
-      if (a && goog.net.xpc.NixTransport.NIX_ID_FIELD in a) {
-        this.nixChannel_ = a;
-        if (this.nixChannel_.GetAuthToken() != this.remoteAuthToken_) {
-          goog.net.xpc.logger.severe("Invalid auth token from other party");
-          return;
-        }
-        var b = this.getWindow()[goog.net.xpc.NixTransport.NIX_GET_WRAPPER];
-        this.nixChannel_.CreateChannel(b(this, this.authToken_));
-        this.localSetupCompleted_ = !0;
-        this.channel_.notifyConnected();
-      }
-    } catch (c) {
-      goog.net.xpc.logger.severe("exception caught while attempting setup: " + c);
-      return;
-    }
-    this.localSetupCompleted_ || this.getWindow().setTimeout(goog.bind(this.attemptInnerSetup_, this), 100);
-  }
-};
-goog.net.xpc.NixTransport.prototype.createChannel_ = function(a) {
-  "unknown" == typeof a && goog.net.xpc.NixTransport.NIX_ID_FIELD in a || goog.net.xpc.logger.severe("Invalid NIX channel given to createChannel_");
-  this.nixChannel_ = a;
-  this.nixChannel_.GetAuthToken() != this.remoteAuthToken_ ? goog.net.xpc.logger.severe("Invalid auth token from other party") : this.channel_.notifyConnected();
-};
-goog.net.xpc.NixTransport.prototype.handleMessage_ = function(a, b) {
-  this.getWindow().setTimeout(goog.bind(function() {
-    this.channel_.xpcDeliver(a, b);
-  }, this), 1);
-};
-goog.net.xpc.NixTransport.prototype.send = function(a, b) {
-  "unknown" !== typeof this.nixChannel_ && goog.net.xpc.logger.severe("NIX channel not connected");
-  this.nixChannel_.SendMessage(a, b);
-};
-goog.net.xpc.NixTransport.prototype.disposeInternal = function() {
-  goog.net.xpc.NixTransport.superClass_.disposeInternal.call(this);
-  this.nixChannel_ = null;
-};
-goog.net.xpc.CrossPageChannel = function(a, b) {
-  goog.messaging.AbstractChannel.call(this);
-  for (var c = 0, d;d = goog.net.xpc.UriCfgFields[c];c++) {
-    if (d in a && !/^https?:\/\//.test(a[d])) {
-      throw Error("URI " + a[d] + " is invalid for field " + d);
-    }
-  }
-  this.cfg_ = a;
-  this.name = this.cfg_[goog.net.xpc.CfgFields.CHANNEL_NAME] || goog.net.xpc.getRandomString(10);
-  this.domHelper_ = b || goog.dom.getDomHelper();
-  this.deferredDeliveries_ = [];
-  this.peerLoadHandler_ = new goog.events.EventHandler(this);
-  a[goog.net.xpc.CfgFields.LOCAL_POLL_URI] = a[goog.net.xpc.CfgFields.LOCAL_POLL_URI] || goog.uri.utils.getHost(this.domHelper_.getWindow().location.href) + "/robots.txt";
-  a[goog.net.xpc.CfgFields.PEER_POLL_URI] = a[goog.net.xpc.CfgFields.PEER_POLL_URI] || goog.uri.utils.getHost(a[goog.net.xpc.CfgFields.PEER_URI] || "") + "/robots.txt";
-  goog.net.xpc.channels[this.name] = this;
-  goog.events.listen(window, "unload", goog.net.xpc.CrossPageChannel.disposeAll_);
-  goog.net.xpc.logger.info("CrossPageChannel created: " + this.name);
-};
-goog.inherits(goog.net.xpc.CrossPageChannel, goog.messaging.AbstractChannel);
-goog.net.xpc.CrossPageChannel.TRANSPORT_SERVICE_ESCAPE_RE_ = RegExp("^%*" + goog.net.xpc.TRANSPORT_SERVICE_ + "$");
-goog.net.xpc.CrossPageChannel.TRANSPORT_SERVICE_UNESCAPE_RE_ = RegExp("^%+" + goog.net.xpc.TRANSPORT_SERVICE_ + "$");
-goog.net.xpc.CrossPageChannel.prototype.connectionDelay_ = null;
-goog.net.xpc.CrossPageChannel.prototype.peerWindowDeferred_ = null;
-goog.net.xpc.CrossPageChannel.prototype.transport_ = null;
-goog.net.xpc.CrossPageChannel.prototype.state_ = goog.net.xpc.ChannelStates.NOT_CONNECTED;
-goog.net.xpc.CrossPageChannel.prototype.isConnected = function() {
-  return this.state_ == goog.net.xpc.ChannelStates.CONNECTED;
-};
-goog.net.xpc.CrossPageChannel.prototype.peerWindowObject_ = null;
-goog.net.xpc.CrossPageChannel.prototype.iframeElement_ = null;
-goog.net.xpc.CrossPageChannel.prototype.getConfig = function() {
-  return this.cfg_;
-};
-goog.net.xpc.CrossPageChannel.prototype.getIframeElement = function() {
-  return this.iframeElement_;
-};
-goog.net.xpc.CrossPageChannel.prototype.setPeerWindowObject = function(a) {
-  this.peerWindowObject_ = a;
-};
-goog.net.xpc.CrossPageChannel.prototype.getPeerWindowObject = function() {
-  return this.peerWindowObject_;
-};
-goog.net.xpc.CrossPageChannel.prototype.isPeerAvailable = function() {
-  try {
-    return!!this.peerWindowObject_ && !Boolean(this.peerWindowObject_.closed);
-  } catch (a) {
-    return!1;
-  }
-};
-goog.net.xpc.CrossPageChannel.prototype.determineTransportType_ = function() {
-  return goog.isFunction(document.postMessage) || goog.isFunction(window.postMessage) || goog.userAgent.IE && window.postMessage ? goog.net.xpc.TransportTypes.NATIVE_MESSAGING : goog.userAgent.GECKO ? goog.net.xpc.TransportTypes.FRAME_ELEMENT_METHOD : goog.userAgent.IE && this.cfg_[goog.net.xpc.CfgFields.PEER_RELAY_URI] ? goog.net.xpc.TransportTypes.IFRAME_RELAY : goog.userAgent.IE && goog.net.xpc.NixTransport.isNixSupported() ? goog.net.xpc.TransportTypes.NIX : goog.net.xpc.TransportTypes.IFRAME_POLLING;
-};
-goog.net.xpc.CrossPageChannel.prototype.createTransport_ = function() {
-  if (!this.transport_) {
-    this.cfg_[goog.net.xpc.CfgFields.TRANSPORT] || (this.cfg_[goog.net.xpc.CfgFields.TRANSPORT] = this.determineTransportType_());
-    switch(this.cfg_[goog.net.xpc.CfgFields.TRANSPORT]) {
-      case goog.net.xpc.TransportTypes.NATIVE_MESSAGING:
-        this.transport_ = new goog.net.xpc.NativeMessagingTransport(this, this.cfg_[goog.net.xpc.CfgFields.PEER_HOSTNAME], this.domHelper_, !!this.cfg_[goog.net.xpc.CfgFields.ONE_SIDED_HANDSHAKE], this.cfg_[goog.net.xpc.CfgFields.NATIVE_TRANSPORT_PROTOCOL_VERSION] || 2);
-        break;
-      case goog.net.xpc.TransportTypes.NIX:
-        this.transport_ = new goog.net.xpc.NixTransport(this, this.domHelper_);
-        break;
-      case goog.net.xpc.TransportTypes.FRAME_ELEMENT_METHOD:
-        this.transport_ = new goog.net.xpc.FrameElementMethodTransport(this, this.domHelper_);
-        break;
-      case goog.net.xpc.TransportTypes.IFRAME_RELAY:
-        this.transport_ = new goog.net.xpc.IframeRelayTransport(this, this.domHelper_);
-        break;
-      case goog.net.xpc.TransportTypes.IFRAME_POLLING:
-        this.transport_ = new goog.net.xpc.IframePollingTransport(this, this.domHelper_);
-    }
-    if (this.transport_) {
-      goog.net.xpc.logger.info("Transport created: " + this.transport_.getName());
-    } else {
-      throw Error("CrossPageChannel: No suitable transport found!");
-    }
-  }
-};
-goog.net.xpc.CrossPageChannel.prototype.getTransportType = function() {
-  return this.transport_.getType();
-};
-goog.net.xpc.CrossPageChannel.prototype.getTransportName = function() {
-  return this.transport_.getName();
-};
-goog.net.xpc.CrossPageChannel.prototype.getPeerConfiguration = function() {
-  var a = {};
-  a[goog.net.xpc.CfgFields.CHANNEL_NAME] = this.name;
-  a[goog.net.xpc.CfgFields.TRANSPORT] = this.cfg_[goog.net.xpc.CfgFields.TRANSPORT];
-  a[goog.net.xpc.CfgFields.ONE_SIDED_HANDSHAKE] = this.cfg_[goog.net.xpc.CfgFields.ONE_SIDED_HANDSHAKE];
-  this.cfg_[goog.net.xpc.CfgFields.LOCAL_RELAY_URI] && (a[goog.net.xpc.CfgFields.PEER_RELAY_URI] = this.cfg_[goog.net.xpc.CfgFields.LOCAL_RELAY_URI]);
-  this.cfg_[goog.net.xpc.CfgFields.LOCAL_POLL_URI] && (a[goog.net.xpc.CfgFields.PEER_POLL_URI] = this.cfg_[goog.net.xpc.CfgFields.LOCAL_POLL_URI]);
-  this.cfg_[goog.net.xpc.CfgFields.PEER_POLL_URI] && (a[goog.net.xpc.CfgFields.LOCAL_POLL_URI] = this.cfg_[goog.net.xpc.CfgFields.PEER_POLL_URI]);
-  var b = this.cfg_[goog.net.xpc.CfgFields.ROLE];
-  b && (a[goog.net.xpc.CfgFields.ROLE] = b == goog.net.xpc.CrossPageChannelRole.INNER ? goog.net.xpc.CrossPageChannelRole.OUTER : goog.net.xpc.CrossPageChannelRole.INNER);
-  return a;
-};
-goog.net.xpc.CrossPageChannel.prototype.createPeerIframe = function(a, b, c) {
-  goog.net.xpc.logger.info("createPeerIframe()");
-  var d = this.cfg_[goog.net.xpc.CfgFields.IFRAME_ID];
-  d || (d = this.cfg_[goog.net.xpc.CfgFields.IFRAME_ID] = "xpcpeer" + goog.net.xpc.getRandomString(4));
-  var e = goog.dom.getDomHelper(a).createElement("IFRAME");
-  e.id = e.name = d;
-  b ? b(e) : e.style.width = e.style.height = "100%";
-  this.cleanUpIncompleteConnection_();
-  this.peerWindowDeferred_ = new goog.async.Deferred(void 0, this);
-  var f = this.getPeerUri(c);
-  this.peerLoadHandler_.listenOnce(e, "load", this.peerWindowDeferred_.callback, !1, this.peerWindowDeferred_);
-  goog.userAgent.GECKO || goog.userAgent.WEBKIT ? window.setTimeout(goog.bind(function() {
-    a.appendChild(e);
-    e.src = f.toString();
-    goog.net.xpc.logger.info("peer iframe created (" + d + ")");
-  }, this), 1) : (e.src = f.toString(), a.appendChild(e), goog.net.xpc.logger.info("peer iframe created (" + d + ")"));
-  return e;
-};
-goog.net.xpc.CrossPageChannel.prototype.cleanUpIncompleteConnection_ = function() {
-  this.peerWindowDeferred_ && (this.peerWindowDeferred_.cancel(), this.peerWindowDeferred_ = null);
-  this.deferredDeliveries_.length = 0;
-  this.peerLoadHandler_.removeAll();
-};
-goog.net.xpc.CrossPageChannel.prototype.getPeerUri = function(a) {
-  var b = this.cfg_[goog.net.xpc.CfgFields.PEER_URI];
-  goog.isString(b) && (b = this.cfg_[goog.net.xpc.CfgFields.PEER_URI] = new goog.Uri(b));
-  !1 !== a && b.setParameterValue("xpc", goog.json.serialize(this.getPeerConfiguration()));
-  return b;
-};
-goog.net.xpc.CrossPageChannel.prototype.connect = function(a) {
-  this.connectCb_ = a || goog.nullFunction;
-  this.peerWindowDeferred_ ? this.peerWindowDeferred_.addCallback(this.continueConnection_) : this.continueConnection_();
-};
-goog.net.xpc.CrossPageChannel.prototype.continueConnection_ = function() {
-  goog.net.xpc.logger.info("continueConnection_()");
-  this.peerWindowDeferred_ = null;
-  this.cfg_[goog.net.xpc.CfgFields.IFRAME_ID] && (this.iframeElement_ = this.domHelper_.getElement(this.cfg_[goog.net.xpc.CfgFields.IFRAME_ID]));
-  if (this.iframeElement_) {
-    var a = this.iframeElement_.contentWindow;
-    a || (a = window.frames[this.cfg_[goog.net.xpc.CfgFields.IFRAME_ID]]);
-    this.setPeerWindowObject(a);
-  }
-  if (!this.peerWindowObject_) {
-    if (window == window.top) {
-      throw Error("CrossPageChannel: Can't connect, peer window-object not set.");
-    }
-    this.setPeerWindowObject(window.parent);
-  }
-  this.createTransport_();
-  for (this.transport_.connect();0 < this.deferredDeliveries_.length;) {
-    this.deferredDeliveries_.shift()();
-  }
-};
-goog.net.xpc.CrossPageChannel.prototype.close = function() {
-  this.cleanUpIncompleteConnection_();
-  this.state_ = goog.net.xpc.ChannelStates.CLOSED;
-  goog.dispose(this.transport_);
-  this.connectCb_ = this.transport_ = null;
-  goog.dispose(this.connectionDelay_);
-  this.connectionDelay_ = null;
-  goog.net.xpc.logger.info('Channel "' + this.name + '" closed');
-};
-goog.net.xpc.CrossPageChannel.prototype.notifyConnected = function(a) {
-  this.isConnected() || this.connectionDelay_ && this.connectionDelay_.isActive() || (this.state_ = goog.net.xpc.ChannelStates.CONNECTED, goog.net.xpc.logger.info('Channel "' + this.name + '" connected'), goog.dispose(this.connectionDelay_), a ? (this.connectionDelay_ = new goog.async.Delay(this.connectCb_, a), this.connectionDelay_.start()) : (this.connectionDelay_ = null, this.connectCb_()));
-};
-goog.net.xpc.CrossPageChannel.prototype.notifyConnected_ = goog.net.xpc.CrossPageChannel.prototype.notifyConnected;
-goog.net.xpc.CrossPageChannel.prototype.notifyTransportError = function() {
-  goog.net.xpc.logger.info("Transport Error");
-  this.close();
-};
-goog.net.xpc.CrossPageChannel.prototype.send = function(a, b) {
-  this.isConnected() ? this.isPeerAvailable() ? (goog.isObject(b) && (b = goog.json.serialize(b)), this.transport_.send(this.escapeServiceName_(a), b)) : (goog.net.xpc.logger.severe("Peer has disappeared."), this.close()) : goog.net.xpc.logger.severe("Can't send. Channel not connected.");
-};
-goog.net.xpc.CrossPageChannel.prototype.xpcDeliver = function(a, b, c) {
-  this.peerWindowDeferred_ ? this.deferredDeliveries_.push(goog.bind(this.xpcDeliver, this, a, b, c)) : this.isMessageOriginAcceptable_(c) ? this.isDisposed() ? goog.net.xpc.logger.warning("CrossPageChannel::xpcDeliver(): Disposed.") : a && a != goog.net.xpc.TRANSPORT_SERVICE_ ? this.isConnected() ? this.deliver(this.unescapeServiceName_(a), b) : goog.net.xpc.logger.info("CrossPageChannel::xpcDeliver(): Not connected.") : this.transport_.transportServiceHandler(b) : goog.net.xpc.logger.warning('Message received from unapproved origin "' + 
-  c + '" - rejected.');
-};
-goog.net.xpc.CrossPageChannel.prototype.escapeServiceName_ = function(a) {
-  goog.net.xpc.CrossPageChannel.TRANSPORT_SERVICE_ESCAPE_RE_.test(a) && (a = "%" + a);
-  return a.replace(/[%:|]/g, encodeURIComponent);
-};
-goog.net.xpc.CrossPageChannel.prototype.unescapeServiceName_ = function(a) {
-  a = a.replace(/%[0-9a-f]{2}/gi, decodeURIComponent);
-  return goog.net.xpc.CrossPageChannel.TRANSPORT_SERVICE_UNESCAPE_RE_.test(a) ? a.substring(1) : a;
-};
-goog.net.xpc.CrossPageChannel.prototype.getRole = function() {
-  var a = this.cfg_[goog.net.xpc.CfgFields.ROLE];
-  return a ? a : window.parent == this.peerWindowObject_ ? goog.net.xpc.CrossPageChannelRole.INNER : goog.net.xpc.CrossPageChannelRole.OUTER;
-};
-goog.net.xpc.CrossPageChannel.prototype.isMessageOriginAcceptable_ = function(a) {
-  var b = this.cfg_[goog.net.xpc.CfgFields.PEER_HOSTNAME];
-  return goog.string.isEmptySafe(a) || goog.string.isEmptySafe(b) || a == this.cfg_[goog.net.xpc.CfgFields.PEER_HOSTNAME];
-};
-goog.net.xpc.CrossPageChannel.prototype.disposeInternal = function() {
-  this.close();
-  this.iframeElement_ = this.peerWindowObject_ = null;
-  delete goog.net.xpc.channels[this.name];
-  goog.dispose(this.peerLoadHandler_);
-  delete this.peerLoadHandler_;
-  goog.net.xpc.CrossPageChannel.superClass_.disposeInternal.call(this);
-};
-goog.net.xpc.CrossPageChannel.disposeAll_ = function() {
-  for (var a in goog.net.xpc.channels) {
-    goog.dispose(goog.net.xpc.channels[a]);
-  }
-};
-goog.net.EventType = {COMPLETE:"complete", SUCCESS:"success", ERROR:"error", ABORT:"abort", READY:"ready", READY_STATE_CHANGE:"readystatechange", TIMEOUT:"timeout", INCREMENTAL_DATA:"incrementaldata", PROGRESS:"progress"};
-goog.net.ErrorCode = {NO_ERROR:0, ACCESS_DENIED:1, FILE_NOT_FOUND:2, FF_SILENT_ERROR:3, CUSTOM_ERROR:4, EXCEPTION:5, HTTP_ERROR:6, ABORT:7, TIMEOUT:8, OFFLINE:9};
-goog.net.ErrorCode.getDebugMessage = function(a) {
-  switch(a) {
-    case goog.net.ErrorCode.NO_ERROR:
-      return "No Error";
-    case goog.net.ErrorCode.ACCESS_DENIED:
-      return "Access denied to content document";
-    case goog.net.ErrorCode.FILE_NOT_FOUND:
-      return "File not found";
-    case goog.net.ErrorCode.FF_SILENT_ERROR:
-      return "Firefox silently errored";
-    case goog.net.ErrorCode.CUSTOM_ERROR:
-      return "Application custom error";
-    case goog.net.ErrorCode.EXCEPTION:
-      return "An exception occurred";
-    case goog.net.ErrorCode.HTTP_ERROR:
-      return "Http response at 400 or 500 level";
-    case goog.net.ErrorCode.ABORT:
-      return "Request was aborted";
-    case goog.net.ErrorCode.TIMEOUT:
-      return "Request timed out";
-    case goog.net.ErrorCode.OFFLINE:
-      return "The resource is not available offline";
-    default:
-      return "Unrecognized error code";
-  }
-};
-goog.net.HttpStatus = {CONTINUE:100, SWITCHING_PROTOCOLS:101, OK:200, CREATED:201, ACCEPTED:202, NON_AUTHORITATIVE_INFORMATION:203, NO_CONTENT:204, RESET_CONTENT:205, PARTIAL_CONTENT:206, MULTIPLE_CHOICES:300, MOVED_PERMANENTLY:301, FOUND:302, SEE_OTHER:303, NOT_MODIFIED:304, USE_PROXY:305, TEMPORARY_REDIRECT:307, BAD_REQUEST:400, UNAUTHORIZED:401, PAYMENT_REQUIRED:402, FORBIDDEN:403, NOT_FOUND:404, METHOD_NOT_ALLOWED:405, NOT_ACCEPTABLE:406, PROXY_AUTHENTICATION_REQUIRED:407, REQUEST_TIMEOUT:408, 
-CONFLICT:409, GONE:410, LENGTH_REQUIRED:411, PRECONDITION_FAILED:412, REQUEST_ENTITY_TOO_LARGE:413, REQUEST_URI_TOO_LONG:414, UNSUPPORTED_MEDIA_TYPE:415, REQUEST_RANGE_NOT_SATISFIABLE:416, EXPECTATION_FAILED:417, INTERNAL_SERVER_ERROR:500, NOT_IMPLEMENTED:501, BAD_GATEWAY:502, SERVICE_UNAVAILABLE:503, GATEWAY_TIMEOUT:504, HTTP_VERSION_NOT_SUPPORTED:505, QUIRK_IE_NO_CONTENT:1223};
-goog.net.HttpStatus.isSuccess = function(a) {
-  switch(a) {
-    case goog.net.HttpStatus.OK:
-    ;
-    case goog.net.HttpStatus.CREATED:
-    ;
-    case goog.net.HttpStatus.ACCEPTED:
-    ;
-    case goog.net.HttpStatus.NO_CONTENT:
-    ;
-    case goog.net.HttpStatus.PARTIAL_CONTENT:
-    ;
-    case goog.net.HttpStatus.NOT_MODIFIED:
-    ;
-    case goog.net.HttpStatus.QUIRK_IE_NO_CONTENT:
-      return!0;
-    default:
-      return!1;
-  }
-};
-goog.net.XmlHttpFactory = function() {
-};
-goog.net.XmlHttpFactory.prototype.cachedOptions_ = null;
-goog.net.XmlHttpFactory.prototype.getOptions = function() {
-  return this.cachedOptions_ || (this.cachedOptions_ = this.internalGetOptions());
-};
-goog.net.WrapperXmlHttpFactory = function(a, b) {
-  goog.net.XmlHttpFactory.call(this);
-  this.xhrFactory_ = a;
-  this.optionsFactory_ = b;
-};
-goog.inherits(goog.net.WrapperXmlHttpFactory, goog.net.XmlHttpFactory);
-goog.net.WrapperXmlHttpFactory.prototype.createInstance = function() {
-  return this.xhrFactory_();
-};
-goog.net.WrapperXmlHttpFactory.prototype.getOptions = function() {
-  return this.optionsFactory_();
-};
-goog.net.XmlHttp = function() {
-  return goog.net.XmlHttp.factory_.createInstance();
-};
-goog.net.XmlHttp.ASSUME_NATIVE_XHR = !1;
-goog.net.XmlHttp.getOptions = function() {
-  return goog.net.XmlHttp.factory_.getOptions();
-};
-goog.net.XmlHttp.OptionType = {USE_NULL_FUNCTION:0, LOCAL_REQUEST_ERROR:1};
-goog.net.XmlHttp.ReadyState = {UNINITIALIZED:0, LOADING:1, LOADED:2, INTERACTIVE:3, COMPLETE:4};
-goog.net.XmlHttp.setFactory = function(a, b) {
-  goog.net.XmlHttp.setGlobalFactory(new goog.net.WrapperXmlHttpFactory(a, b));
-};
-goog.net.XmlHttp.setGlobalFactory = function(a) {
-  goog.net.XmlHttp.factory_ = a;
-};
-goog.net.DefaultXmlHttpFactory = function() {
-  goog.net.XmlHttpFactory.call(this);
-};
-goog.inherits(goog.net.DefaultXmlHttpFactory, goog.net.XmlHttpFactory);
-goog.net.DefaultXmlHttpFactory.prototype.createInstance = function() {
-  var a = this.getProgId_();
-  return a ? new ActiveXObject(a) : new XMLHttpRequest;
-};
-goog.net.DefaultXmlHttpFactory.prototype.internalGetOptions = function() {
-  var a = {};
-  this.getProgId_() && (a[goog.net.XmlHttp.OptionType.USE_NULL_FUNCTION] = !0, a[goog.net.XmlHttp.OptionType.LOCAL_REQUEST_ERROR] = !0);
-  return a;
-};
-goog.net.DefaultXmlHttpFactory.prototype.getProgId_ = function() {
-  if (goog.net.XmlHttp.ASSUME_NATIVE_XHR) {
-    return "";
-  }
-  if (!this.ieProgId_ && "undefined" == typeof XMLHttpRequest && "undefined" != typeof ActiveXObject) {
-    for (var a = ["MSXML2.XMLHTTP.6.0", "MSXML2.XMLHTTP.3.0", "MSXML2.XMLHTTP", "Microsoft.XMLHTTP"], b = 0;b < a.length;b++) {
-      var c = a[b];
-      try {
-        return new ActiveXObject(c), this.ieProgId_ = c;
-      } catch (d) {
-      }
-    }
-    throw Error("Could not create ActiveXObject. ActiveX might be disabled, or MSXML might not be installed");
-  }
-  return this.ieProgId_;
-};
-goog.net.XmlHttp.setGlobalFactory(new goog.net.DefaultXmlHttpFactory);
-goog.net.XhrIo = function(a) {
-  goog.events.EventTarget.call(this);
-  this.headers = new goog.structs.Map;
-  this.xmlHttpFactory_ = a || null;
-};
-goog.inherits(goog.net.XhrIo, goog.events.EventTarget);
-goog.net.XhrIo.ResponseType = {DEFAULT:"", TEXT:"text", DOCUMENT:"document", BLOB:"blob", ARRAY_BUFFER:"arraybuffer"};
-goog.net.XhrIo.prototype.logger_ = goog.debug.Logger.getLogger("goog.net.XhrIo");
-goog.net.XhrIo.CONTENT_TYPE_HEADER = "Content-Type";
-goog.net.XhrIo.HTTP_SCHEME_PATTERN = /^https?$/i;
-goog.net.XhrIo.FORM_CONTENT_TYPE = "application/x-www-form-urlencoded;charset\x3dutf-8";
-goog.net.XhrIo.sendInstances_ = [];
-goog.net.XhrIo.send = function(a, b, c, d, e, f, g) {
-  var h = new goog.net.XhrIo;
-  goog.net.XhrIo.sendInstances_.push(h);
-  b && goog.events.listen(h, goog.net.EventType.COMPLETE, b);
-  goog.events.listen(h, goog.net.EventType.READY, goog.partial(goog.net.XhrIo.cleanupSend_, h));
-  f && h.setTimeoutInterval(f);
-  g && h.setWithCredentials(g);
-  h.send(a, c, d, e);
-};
-goog.net.XhrIo.cleanup = function() {
-  for (var a = goog.net.XhrIo.sendInstances_;a.length;) {
-    a.pop().dispose();
-  }
-};
-goog.net.XhrIo.protectEntryPoints = function(a) {
-  goog.net.XhrIo.prototype.onReadyStateChangeEntryPoint_ = a.protectEntryPoint(goog.net.XhrIo.prototype.onReadyStateChangeEntryPoint_);
-};
-goog.net.XhrIo.cleanupSend_ = function(a) {
-  a.dispose();
-  goog.array.remove(goog.net.XhrIo.sendInstances_, a);
-};
-goog.net.XhrIo.prototype.active_ = !1;
-goog.net.XhrIo.prototype.xhr_ = null;
-goog.net.XhrIo.prototype.xhrOptions_ = null;
-goog.net.XhrIo.prototype.lastUri_ = "";
-goog.net.XhrIo.prototype.lastMethod_ = "";
-goog.net.XhrIo.prototype.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
-goog.net.XhrIo.prototype.lastError_ = "";
-goog.net.XhrIo.prototype.errorDispatched_ = !1;
-goog.net.XhrIo.prototype.inSend_ = !1;
-goog.net.XhrIo.prototype.inOpen_ = !1;
-goog.net.XhrIo.prototype.inAbort_ = !1;
-goog.net.XhrIo.prototype.timeoutInterval_ = 0;
-goog.net.XhrIo.prototype.timeoutId_ = null;
-goog.net.XhrIo.prototype.responseType_ = goog.net.XhrIo.ResponseType.DEFAULT;
-goog.net.XhrIo.prototype.withCredentials_ = !1;
-goog.net.XhrIo.prototype.getTimeoutInterval = function() {
-  return this.timeoutInterval_;
-};
-goog.net.XhrIo.prototype.setTimeoutInterval = function(a) {
-  this.timeoutInterval_ = Math.max(0, a);
-};
-goog.net.XhrIo.prototype.setResponseType = function(a) {
-  this.responseType_ = a;
-};
-goog.net.XhrIo.prototype.getResponseType = function() {
-  return this.responseType_;
-};
-goog.net.XhrIo.prototype.setWithCredentials = function(a) {
-  this.withCredentials_ = a;
-};
-goog.net.XhrIo.prototype.getWithCredentials = function() {
-  return this.withCredentials_;
-};
-goog.net.XhrIo.prototype.send = function(a, b, c, d) {
-  if (this.xhr_) {
-    throw Error("[goog.net.XhrIo] Object is active with another request\x3d" + this.lastUri_ + "; newUri\x3d" + a);
-  }
-  b = b ? b.toUpperCase() : "GET";
-  this.lastUri_ = a;
-  this.lastError_ = "";
-  this.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
-  this.lastMethod_ = b;
-  this.errorDispatched_ = !1;
-  this.active_ = !0;
-  this.xhr_ = this.createXhr();
-  this.xhrOptions_ = this.xmlHttpFactory_ ? this.xmlHttpFactory_.getOptions() : goog.net.XmlHttp.getOptions();
-  this.xhr_.onreadystatechange = goog.bind(this.onReadyStateChange_, this);
-  try {
-    this.logger_.fine(this.formatMsg_("Opening Xhr")), this.inOpen_ = !0, this.xhr_.open(b, a, !0), this.inOpen_ = !1;
-  } catch (e) {
-    this.logger_.fine(this.formatMsg_("Error opening Xhr: " + e.message));
-    this.error_(goog.net.ErrorCode.EXCEPTION, e);
-    return;
-  }
-  a = c || "";
-  var f = this.headers.clone();
-  d && goog.structs.forEach(d, function(a, b) {
-    f.set(b, a);
-  });
-  d = goog.global.FormData && a instanceof goog.global.FormData;
-  "POST" != b || f.containsKey(goog.net.XhrIo.CONTENT_TYPE_HEADER) || d || f.set(goog.net.XhrIo.CONTENT_TYPE_HEADER, goog.net.XhrIo.FORM_CONTENT_TYPE);
-  goog.structs.forEach(f, function(a, b) {
-    this.xhr_.setRequestHeader(b, a);
-  }, this);
-  this.responseType_ && (this.xhr_.responseType = this.responseType_);
-  goog.object.containsKey(this.xhr_, "withCredentials") && (this.xhr_.withCredentials = this.withCredentials_);
-  try {
-    this.timeoutId_ && (goog.Timer.defaultTimerObject.clearTimeout(this.timeoutId_), this.timeoutId_ = null), 0 < this.timeoutInterval_ && (this.logger_.fine(this.formatMsg_("Will abort after " + this.timeoutInterval_ + "ms if incomplete")), this.timeoutId_ = goog.Timer.defaultTimerObject.setTimeout(goog.bind(this.timeout_, this), this.timeoutInterval_)), this.logger_.fine(this.formatMsg_("Sending request")), this.inSend_ = !0, this.xhr_.send(a), this.inSend_ = !1;
-  } catch (g) {
-    this.logger_.fine(this.formatMsg_("Send error: " + g.message)), this.error_(goog.net.ErrorCode.EXCEPTION, g);
-  }
-};
-goog.net.XhrIo.prototype.createXhr = function() {
-  return this.xmlHttpFactory_ ? this.xmlHttpFactory_.createInstance() : goog.net.XmlHttp();
-};
-goog.net.XhrIo.prototype.timeout_ = function() {
-  "undefined" != typeof goog && this.xhr_ && (this.lastError_ = "Timed out after " + this.timeoutInterval_ + "ms, aborting", this.lastErrorCode_ = goog.net.ErrorCode.TIMEOUT, this.logger_.fine(this.formatMsg_(this.lastError_)), this.dispatchEvent(goog.net.EventType.TIMEOUT), this.abort(goog.net.ErrorCode.TIMEOUT));
-};
-goog.net.XhrIo.prototype.error_ = function(a, b) {
-  this.active_ = !1;
-  this.xhr_ && (this.inAbort_ = !0, this.xhr_.abort(), this.inAbort_ = !1);
-  this.lastError_ = b;
-  this.lastErrorCode_ = a;
-  this.dispatchErrors_();
-  this.cleanUpXhr_();
-};
-goog.net.XhrIo.prototype.dispatchErrors_ = function() {
-  this.errorDispatched_ || (this.errorDispatched_ = !0, this.dispatchEvent(goog.net.EventType.COMPLETE), this.dispatchEvent(goog.net.EventType.ERROR));
-};
-goog.net.XhrIo.prototype.abort = function(a) {
-  this.xhr_ && this.active_ && (this.logger_.fine(this.formatMsg_("Aborting")), this.active_ = !1, this.inAbort_ = !0, this.xhr_.abort(), this.inAbort_ = !1, this.lastErrorCode_ = a || goog.net.ErrorCode.ABORT, this.dispatchEvent(goog.net.EventType.COMPLETE), this.dispatchEvent(goog.net.EventType.ABORT), this.cleanUpXhr_());
-};
-goog.net.XhrIo.prototype.disposeInternal = function() {
-  this.xhr_ && (this.active_ && (this.active_ = !1, this.inAbort_ = !0, this.xhr_.abort(), this.inAbort_ = !1), this.cleanUpXhr_(!0));
-  goog.net.XhrIo.superClass_.disposeInternal.call(this);
-};
-goog.net.XhrIo.prototype.onReadyStateChange_ = function() {
-  if (this.inOpen_ || this.inSend_ || this.inAbort_) {
-    this.onReadyStateChangeHelper_();
-  } else {
-    this.onReadyStateChangeEntryPoint_();
-  }
-};
-goog.net.XhrIo.prototype.onReadyStateChangeEntryPoint_ = function() {
-  this.onReadyStateChangeHelper_();
-};
-goog.net.XhrIo.prototype.onReadyStateChangeHelper_ = function() {
-  if (this.active_ && "undefined" != typeof goog) {
-    if (this.xhrOptions_[goog.net.XmlHttp.OptionType.LOCAL_REQUEST_ERROR] && this.getReadyState() == goog.net.XmlHttp.ReadyState.COMPLETE && 2 == this.getStatus()) {
-      this.logger_.fine(this.formatMsg_("Local request error detected and ignored"));
-    } else {
-      if (this.inSend_ && this.getReadyState() == goog.net.XmlHttp.ReadyState.COMPLETE) {
-        goog.Timer.defaultTimerObject.setTimeout(goog.bind(this.onReadyStateChange_, this), 0);
-      } else {
-        if (this.dispatchEvent(goog.net.EventType.READY_STATE_CHANGE), this.isComplete()) {
-          this.logger_.fine(this.formatMsg_("Request complete"));
-          this.active_ = !1;
-          try {
-            this.isSuccess() ? (this.dispatchEvent(goog.net.EventType.COMPLETE), this.dispatchEvent(goog.net.EventType.SUCCESS)) : (this.lastErrorCode_ = goog.net.ErrorCode.HTTP_ERROR, this.lastError_ = this.getStatusText() + " [" + this.getStatus() + "]", this.dispatchErrors_());
-          } finally {
-            this.cleanUpXhr_();
-          }
-        }
-      }
-    }
-  }
-};
-goog.net.XhrIo.prototype.cleanUpXhr_ = function(a) {
-  if (this.xhr_) {
-    var b = this.xhr_, c = this.xhrOptions_[goog.net.XmlHttp.OptionType.USE_NULL_FUNCTION] ? goog.nullFunction : null;
-    this.xhrOptions_ = this.xhr_ = null;
-    this.timeoutId_ && (goog.Timer.defaultTimerObject.clearTimeout(this.timeoutId_), this.timeoutId_ = null);
-    a || this.dispatchEvent(goog.net.EventType.READY);
-    try {
-      b.onreadystatechange = c;
-    } catch (d) {
-      this.logger_.severe("Problem encountered resetting onreadystatechange: " + d.message);
-    }
-  }
-};
-goog.net.XhrIo.prototype.isActive = function() {
-  return!!this.xhr_;
-};
-goog.net.XhrIo.prototype.isComplete = function() {
-  return this.getReadyState() == goog.net.XmlHttp.ReadyState.COMPLETE;
-};
-goog.net.XhrIo.prototype.isSuccess = function() {
-  var a = this.getStatus();
-  return goog.net.HttpStatus.isSuccess(a) || 0 === a && !this.isLastUriEffectiveSchemeHttp_();
-};
-goog.net.XhrIo.prototype.isLastUriEffectiveSchemeHttp_ = function() {
-  var a = goog.uri.utils.getEffectiveScheme(String(this.lastUri_));
-  return goog.net.XhrIo.HTTP_SCHEME_PATTERN.test(a);
-};
-goog.net.XhrIo.prototype.getReadyState = function() {
-  return this.xhr_ ? this.xhr_.readyState : goog.net.XmlHttp.ReadyState.UNINITIALIZED;
-};
-goog.net.XhrIo.prototype.getStatus = function() {
-  try {
-    return this.getReadyState() > goog.net.XmlHttp.ReadyState.LOADED ? this.xhr_.status : -1;
-  } catch (a) {
-    return this.logger_.warning("Can not get status: " + a.message), -1;
-  }
-};
-goog.net.XhrIo.prototype.getStatusText = function() {
-  try {
-    return this.getReadyState() > goog.net.XmlHttp.ReadyState.LOADED ? this.xhr_.statusText : "";
-  } catch (a) {
-    return this.logger_.fine("Can not get status: " + a.message), "";
-  }
-};
-goog.net.XhrIo.prototype.getLastUri = function() {
-  return String(this.lastUri_);
-};
-goog.net.XhrIo.prototype.getResponseText = function() {
-  try {
-    return this.xhr_ ? this.xhr_.responseText : "";
-  } catch (a) {
-    return this.logger_.fine("Can not get responseText: " + a.message), "";
-  }
-};
-goog.net.XhrIo.prototype.getResponseBody = function() {
-  try {
-    if (this.xhr_ && "responseBody" in this.xhr_) {
-      return this.xhr_.responseBody;
-    }
-  } catch (a) {
-    this.logger_.fine("Can not get responseBody: " + a.message);
-  }
-  return null;
-};
-goog.net.XhrIo.prototype.getResponseXml = function() {
-  try {
-    return this.xhr_ ? this.xhr_.responseXML : null;
-  } catch (a) {
-    return this.logger_.fine("Can not get responseXML: " + a.message), null;
-  }
-};
-goog.net.XhrIo.prototype.getResponseJson = function(a) {
-  if (this.xhr_) {
-    var b = this.xhr_.responseText;
-    a && 0 == b.indexOf(a) && (b = b.substring(a.length));
-    return goog.json.parse(b);
-  }
-};
-goog.net.XhrIo.prototype.getResponse = function() {
-  try {
-    if (!this.xhr_) {
-      return null;
-    }
-    if ("response" in this.xhr_) {
-      return this.xhr_.response;
-    }
-    switch(this.responseType_) {
-      case goog.net.XhrIo.ResponseType.DEFAULT:
-      ;
-      case goog.net.XhrIo.ResponseType.TEXT:
-        return this.xhr_.responseText;
-      case goog.net.XhrIo.ResponseType.ARRAY_BUFFER:
-        if ("mozResponseArrayBuffer" in this.xhr_) {
-          return this.xhr_.mozResponseArrayBuffer;
-        }
-      ;
-    }
-    this.logger_.severe("Response type " + this.responseType_ + " is not supported on this browser");
-    return null;
-  } catch (a) {
-    return this.logger_.fine("Can not get response: " + a.message), null;
-  }
-};
-goog.net.XhrIo.prototype.getResponseHeader = function(a) {
-  return this.xhr_ && this.isComplete() ? this.xhr_.getResponseHeader(a) : void 0;
-};
-goog.net.XhrIo.prototype.getAllResponseHeaders = function() {
-  return this.xhr_ && this.isComplete() ? this.xhr_.getAllResponseHeaders() : "";
-};
-goog.net.XhrIo.prototype.getLastErrorCode = function() {
-  return this.lastErrorCode_;
-};
-goog.net.XhrIo.prototype.getLastError = function() {
-  return goog.isString(this.lastError_) ? this.lastError_ : String(this.lastError_);
-};
-goog.net.XhrIo.prototype.formatMsg_ = function(a) {
-  return a + " [" + this.lastMethod_ + " " + this.lastUri_ + " " + this.getStatus() + "]";
-};
-goog.debug.entryPointRegistry.register(function(a) {
-  goog.net.XhrIo.prototype.onReadyStateChangeEntryPoint_ = a(goog.net.XhrIo.prototype.onReadyStateChangeEntryPoint_);
-});
-clojure.browser.net = {};
-clojure.browser.net._STAR_timeout_STAR_ = 1E4;
-clojure.browser.net.event_types = cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null);
-  a = cljs.core.nth.call(null, a, 1, null);
-  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, b.toLowerCase()), a], null);
-}, cljs.core.merge.call(null, cljs.core.js__GT_clj.call(null, goog.net.EventType))));
-clojure.browser.net.IConnection = function() {
-  return{};
-}();
-clojure.browser.net.connect = function() {
-  var a = null, b = function(a) {
-    if (a ? a.clojure$browser$net$IConnection$connect$arity$1 : a) {
-      return a.clojure$browser$net$IConnection$connect$arity$1(a);
-    }
-    var b;
-    b = clojure.browser.net.connect[goog.typeOf(null == a ? null : a)];
-    if (!b && (b = clojure.browser.net.connect._, !b)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.connect", a);
-    }
-    return b.call(null, a);
-  }, c = function(a, b) {
-    if (a ? a.clojure$browser$net$IConnection$connect$arity$2 : a) {
-      return a.clojure$browser$net$IConnection$connect$arity$2(a, b);
-    }
-    var c;
-    c = clojure.browser.net.connect[goog.typeOf(null == a ? null : a)];
-    if (!c && (c = clojure.browser.net.connect._, !c)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.connect", a);
-    }
-    return c.call(null, a, b);
-  }, d = function(a, b, c) {
-    if (a ? a.clojure$browser$net$IConnection$connect$arity$3 : a) {
-      return a.clojure$browser$net$IConnection$connect$arity$3(a, b, c);
-    }
-    var d;
-    d = clojure.browser.net.connect[goog.typeOf(null == a ? null : a)];
-    if (!d && (d = clojure.browser.net.connect._, !d)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.connect", a);
-    }
-    return d.call(null, a, b, c);
-  }, e = function(a, b, c, d) {
-    if (a ? a.clojure$browser$net$IConnection$connect$arity$4 : a) {
-      return a.clojure$browser$net$IConnection$connect$arity$4(a, b, c, d);
-    }
-    var e;
-    e = clojure.browser.net.connect[goog.typeOf(null == a ? null : a)];
-    if (!e && (e = clojure.browser.net.connect._, !e)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.connect", a);
-    }
-    return e.call(null, a, b, c, d);
-  }, a = function(a, g, h, k) {
-    switch(arguments.length) {
-      case 1:
-        return b.call(this, a);
-      case 2:
-        return c.call(this, a, g);
-      case 3:
-        return d.call(this, a, g, h);
-      case 4:
-        return e.call(this, a, g, h, k);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$1 = b;
-  a.cljs$core$IFn$_invoke$arity$2 = c;
-  a.cljs$core$IFn$_invoke$arity$3 = d;
-  a.cljs$core$IFn$_invoke$arity$4 = e;
-  return a;
-}();
-clojure.browser.net.transmit = function() {
-  var a = null, b = function(a, b) {
-    if (a ? a.clojure$browser$net$IConnection$transmit$arity$2 : a) {
-      return a.clojure$browser$net$IConnection$transmit$arity$2(a, b);
-    }
-    var c;
-    c = clojure.browser.net.transmit[goog.typeOf(null == a ? null : a)];
-    if (!c && (c = clojure.browser.net.transmit._, !c)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.transmit", a);
-    }
-    return c.call(null, a, b);
-  }, c = function(a, b, c) {
-    if (a ? a.clojure$browser$net$IConnection$transmit$arity$3 : a) {
-      return a.clojure$browser$net$IConnection$transmit$arity$3(a, b, c);
-    }
-    var d;
-    d = clojure.browser.net.transmit[goog.typeOf(null == a ? null : a)];
-    if (!d && (d = clojure.browser.net.transmit._, !d)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.transmit", a);
-    }
-    return d.call(null, a, b, c);
-  }, d = function(a, b, c, d) {
-    if (a ? a.clojure$browser$net$IConnection$transmit$arity$4 : a) {
-      return a.clojure$browser$net$IConnection$transmit$arity$4(a, b, c, d);
-    }
-    var e;
-    e = clojure.browser.net.transmit[goog.typeOf(null == a ? null : a)];
-    if (!e && (e = clojure.browser.net.transmit._, !e)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.transmit", a);
-    }
-    return e.call(null, a, b, c, d);
-  }, e = function(a, b, c, d, e) {
-    if (a ? a.clojure$browser$net$IConnection$transmit$arity$5 : a) {
-      return a.clojure$browser$net$IConnection$transmit$arity$5(a, b, c, d, e);
-    }
-    var f;
-    f = clojure.browser.net.transmit[goog.typeOf(null == a ? null : a)];
-    if (!f && (f = clojure.browser.net.transmit._, !f)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.transmit", a);
-    }
-    return f.call(null, a, b, c, d, e);
-  }, f = function(a, b, c, d, e, f) {
-    if (a ? a.clojure$browser$net$IConnection$transmit$arity$6 : a) {
-      return a.clojure$browser$net$IConnection$transmit$arity$6(a, b, c, d, e, f);
-    }
-    var r;
-    r = clojure.browser.net.transmit[goog.typeOf(null == a ? null : a)];
-    if (!r && (r = clojure.browser.net.transmit._, !r)) {
-      throw cljs.core.missing_protocol.call(null, "IConnection.transmit", a);
-    }
-    return r.call(null, a, b, c, d, e, f);
-  }, a = function(a, h, k, l, m, n) {
-    switch(arguments.length) {
-      case 2:
-        return b.call(this, a, h);
-      case 3:
-        return c.call(this, a, h, k);
-      case 4:
-        return d.call(this, a, h, k, l);
-      case 5:
-        return e.call(this, a, h, k, l, m);
-      case 6:
-        return f.call(this, a, h, k, l, m, n);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$2 = b;
-  a.cljs$core$IFn$_invoke$arity$3 = c;
-  a.cljs$core$IFn$_invoke$arity$4 = d;
-  a.cljs$core$IFn$_invoke$arity$5 = e;
-  a.cljs$core$IFn$_invoke$arity$6 = f;
-  return a;
-}();
-clojure.browser.net.close = function(a) {
-  if (a ? a.clojure$browser$net$IConnection$close$arity$1 : a) {
-    return a.clojure$browser$net$IConnection$close$arity$1(a);
-  }
-  var b;
-  b = clojure.browser.net.close[goog.typeOf(null == a ? null : a)];
-  if (!b && (b = clojure.browser.net.close._, !b)) {
-    throw cljs.core.missing_protocol.call(null, "IConnection.close", a);
-  }
-  return b.call(null, a);
-};
-goog.net.XhrIo.prototype.clojure$browser$event$EventType$ = !0;
-goog.net.XhrIo.prototype.clojure$browser$event$EventType$event_types$arity$1 = function(a) {
-  return cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, function(a) {
-    var c = cljs.core.nth.call(null, a, 0, null);
-    a = cljs.core.nth.call(null, a, 1, null);
-    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, c.toLowerCase()), a], null);
-  }, cljs.core.merge.call(null, cljs.core.js__GT_clj.call(null, goog.net.EventType))));
-};
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$ = !0;
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$transmit$arity$2 = function(a, b) {
-  return clojure.browser.net.transmit.call(null, this, b, "GET", null, null, clojure.browser.net._STAR_timeout_STAR_);
-};
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$transmit$arity$3 = function(a, b, c) {
-  return clojure.browser.net.transmit.call(null, this, b, c, null, null, clojure.browser.net._STAR_timeout_STAR_);
-};
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$transmit$arity$4 = function(a, b, c, d) {
-  return clojure.browser.net.transmit.call(null, this, b, c, d, null, clojure.browser.net._STAR_timeout_STAR_);
-};
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$transmit$arity$5 = function(a, b, c, d, e) {
-  return clojure.browser.net.transmit.call(null, this, b, c, d, e, clojure.browser.net._STAR_timeout_STAR_);
-};
-goog.net.XhrIo.prototype.clojure$browser$net$IConnection$transmit$arity$6 = function(a, b, c, d, e, f) {
-  this.setTimeoutInterval(f);
-  return this.send(b, c, d, e);
-};
-clojure.browser.net.xpc_config_fields = cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null);
-  a = cljs.core.nth.call(null, a, 1, null);
-  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, b.toLowerCase()), a], null);
-}, cljs.core.js__GT_clj.call(null, goog.net.xpc.CfgFields)));
-clojure.browser.net.xhr_connection = function() {
-  return new goog.net.XhrIo;
-};
-clojure.browser.net.ICrossPageChannel = function() {
-  return{};
-}();
-clojure.browser.net.register_service = function() {
-  var a = null, b = function(a, b, c) {
-    if (a ? a.clojure$browser$net$ICrossPageChannel$register_service$arity$3 : a) {
-      return a.clojure$browser$net$ICrossPageChannel$register_service$arity$3(a, b, c);
-    }
-    var g;
-    g = clojure.browser.net.register_service[goog.typeOf(null == a ? null : a)];
-    if (!g && (g = clojure.browser.net.register_service._, !g)) {
-      throw cljs.core.missing_protocol.call(null, "ICrossPageChannel.register-service", a);
-    }
-    return g.call(null, a, b, c);
-  }, c = function(a, b, c, g) {
-    if (a ? a.clojure$browser$net$ICrossPageChannel$register_service$arity$4 : a) {
-      return a.clojure$browser$net$ICrossPageChannel$register_service$arity$4(a, b, c, g);
-    }
-    var h;
-    h = clojure.browser.net.register_service[goog.typeOf(null == a ? null : a)];
-    if (!h && (h = clojure.browser.net.register_service._, !h)) {
-      throw cljs.core.missing_protocol.call(null, "ICrossPageChannel.register-service", a);
-    }
-    return h.call(null, a, b, c, g);
-  }, a = function(a, e, f, g) {
-    switch(arguments.length) {
-      case 3:
-        return b.call(this, a, e, f);
-      case 4:
-        return c.call(this, a, e, f, g);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$3 = b;
-  a.cljs$core$IFn$_invoke$arity$4 = c;
-  return a;
-}();
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$ = !0;
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$connect$arity$1 = function(a) {
-  return clojure.browser.net.connect.call(null, this, null);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$connect$arity$2 = function(a, b) {
-  return this.connect(b);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$connect$arity$3 = function(a, b, c) {
-  return clojure.browser.net.connect.call(null, this, b, c, document.body);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$connect$arity$4 = function(a, b, c, d) {
-  this.createPeerIframe(d, c);
-  return this.connect(b);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$transmit$arity$3 = function(a, b, c) {
-  return this.send(cljs.core.name.call(null, b), c);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$IConnection$close$arity$1 = function(a) {
-  return this.close(cljs.core.List.EMPTY);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$ICrossPageChannel$ = !0;
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$ICrossPageChannel$register_service$arity$3 = function(a, b, c) {
-  return clojure.browser.net.register_service.call(null, this, b, c, !1);
-};
-goog.net.xpc.CrossPageChannel.prototype.clojure$browser$net$ICrossPageChannel$register_service$arity$4 = function(a, b, c, d) {
-  return this.registerService(cljs.core.name.call(null, b), c, d);
-};
-clojure.browser.net.xpc_connection = function() {
-  var a = null, b = function() {
-    var a = (new goog.Uri(window.location.href)).getParameterValue("xpc");
-    return cljs.core.truth_(a) ? new goog.net.xpc.CrossPageChannel(goog.json.parse(a)) : null;
-  }, c = function(a) {
-    return new goog.net.xpc.CrossPageChannel(cljs.core.reduce.call(null, function(a, b) {
-      var c = cljs.core.nth.call(null, b, 0, null), d = cljs.core.nth.call(null, b, 1, null), c = cljs.core.get.call(null, clojure.browser.net.xpc_config_fields, c);
-      cljs.core.truth_(c) && (a[c] = d);
-      return a;
-    }, {}, a));
-  }, a = function(a) {
-    switch(arguments.length) {
-      case 0:
-        return b.call(this);
-      case 1:
-        return c.call(this, a);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$0 = b;
-  a.cljs$core$IFn$_invoke$arity$1 = c;
-  return a;
-}();
-clojure.browser.repl = {};
-clojure.browser.repl.xpc_connection = cljs.core.atom.call(null, null);
-clojure.browser.repl.repl_print = function(a) {
-  var b = cljs.core.deref.call(null, clojure.browser.repl.xpc_connection);
-  return cljs.core.truth_(b) ? clojure.browser.net.transmit.call(null, b, new cljs.core.Keyword(null, "print", "print", 1120839199), cljs.core.pr_str.call(null, a)) : null;
-};
-clojure.browser.repl.evaluate_javascript = function(a, b) {
-  var c = function() {
-    try {
-      return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "status", "status", 4416389988), new cljs.core.Keyword(null, "success", "success", 3441701749), new cljs.core.Keyword(null, "value", "value", 1125876963), "" + cljs.core.str(eval(b))], null);
-    } catch (a) {
-      if (a instanceof Error) {
-        return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "status", "status", 4416389988), new cljs.core.Keyword(null, "exception", "exception", 2495529921), new cljs.core.Keyword(null, "value", "value", 1125876963), cljs.core.pr_str.call(null, a), new cljs.core.Keyword(null, "stacktrace", "stacktrace", 3069736751), cljs.core.truth_(a.hasOwnProperty("stack")) ? a.stack : "No stacktrace available."], null);
-      }
-      if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
-        throw a;
-      }
-      return null;
-    }
-  }();
-  return cljs.core.pr_str.call(null, c);
-};
-clojure.browser.repl.send_result = function(a, b, c) {
-  return clojure.browser.net.transmit.call(null, a, b, "POST", c, null, 0);
-};
-clojure.browser.repl.send_print = function() {
-  var a = null, b = function(b, c) {
-    return a.call(null, b, c, 0);
-  }, c = function(b, c, f) {
-    var g = clojure.browser.net.xhr_connection.call(null);
-    clojure.browser.event.listen.call(null, g, new cljs.core.Keyword(null, "error", "error", 1110689146), function(g) {
-      return 10 > f ? a.call(null, b, c, f + 1) : console.log([cljs.core.str("Could not send "), cljs.core.str(c), cljs.core.str(" after "), cljs.core.str(f), cljs.core.str(" attempts.")].join(""));
-    });
-    return clojure.browser.net.transmit.call(null, g, b, "POST", c, null, 0);
-  }, a = function(a, e, f) {
-    switch(arguments.length) {
-      case 2:
-        return b.call(this, a, e);
-      case 3:
-        return c.call(this, a, e, f);
-    }
-    throw Error("Invalid arity: " + arguments.length);
-  };
-  a.cljs$core$IFn$_invoke$arity$2 = b;
-  a.cljs$core$IFn$_invoke$arity$3 = c;
-  return a;
-}();
-clojure.browser.repl.order = cljs.core.atom.call(null, 0);
-clojure.browser.repl.wrap_message = function(a, b) {
-  return cljs.core.pr_str.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "type", "type", 1017479852), a, new cljs.core.Keyword(null, "content", "content", 1965434859), b, new cljs.core.Keyword(null, "order", "order", 1119910592), cljs.core.swap_BANG_.call(null, clojure.browser.repl.order, cljs.core.inc)], null));
-};
-clojure.browser.repl.start_evaluator = function(a) {
-  var b = clojure.browser.net.xpc_connection.call(null);
-  if (cljs.core.truth_(b)) {
-    var c = clojure.browser.net.xhr_connection.call(null);
-    clojure.browser.event.listen.call(null, c, new cljs.core.Keyword(null, "success", "success", 3441701749), function(a) {
-      return clojure.browser.net.transmit.call(null, b, new cljs.core.Keyword(null, "evaluate-javascript", "evaluate-javascript", 2953437843), a.currentTarget.getResponseText(cljs.core.List.EMPTY));
-    });
-    clojure.browser.net.register_service.call(null, b, new cljs.core.Keyword(null, "send-result", "send-result", 3729280372), function(b) {
-      return clojure.browser.repl.send_result.call(null, c, a, clojure.browser.repl.wrap_message.call(null, new cljs.core.Keyword(null, "result", "result", 4374444943), b));
-    });
-    clojure.browser.net.register_service.call(null, b, new cljs.core.Keyword(null, "print", "print", 1120839199), function(b) {
-      return clojure.browser.repl.send_print.call(null, a, clojure.browser.repl.wrap_message.call(null, new cljs.core.Keyword(null, "print", "print", 1120839199), b));
-    });
-    clojure.browser.net.connect.call(null, b, cljs.core.constantly.call(null, null));
-    return setTimeout(function() {
-      return clojure.browser.repl.send_result.call(null, c, a, clojure.browser.repl.wrap_message.call(null, new cljs.core.Keyword(null, "ready", "ready", 1122290965), "ready"));
-    }, 50);
-  }
-  return alert("No 'xpc' param provided to child iframe.");
-};
-clojure.browser.repl.connect = function(a) {
-  var b = clojure.browser.net.xpc_connection.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "peer_uri", "peer_uri", 1083496577), a], null));
-  cljs.core.swap_BANG_.call(null, clojure.browser.repl.xpc_connection, cljs.core.constantly.call(null, b));
-  clojure.browser.net.register_service.call(null, b, new cljs.core.Keyword(null, "evaluate-javascript", "evaluate-javascript", 2953437843), function(a) {
-    return clojure.browser.net.transmit.call(null, b, new cljs.core.Keyword(null, "send-result", "send-result", 3729280372), clojure.browser.repl.evaluate_javascript.call(null, b, a));
-  });
-  return clojure.browser.net.connect.call(null, b, cljs.core.constantly.call(null, null), function(a) {
-    return a.style.display = "none";
-  });
-};
-var repl_connect = {};
-clojure.browser.repl.connect.call(null, "http://localhost:9000/repl");
-var qgame = {utils:{}};
-qgame.utils.general = {};
-qgame.utils.general.update_sub = function(a, b, c) {
-  return cljs.core.reduce_kv.call(null, cljs.core.assoc, a, cljs.core.zipmap.call(null, c, b.call(null, cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core.get, a), c))));
-};
-qgame.utils.general.itermap = function itermap(b, c, d) {
-  var e = cljs.core.seq.call(null, d);
-  return e ? itermap.call(null, b, cljs.core.concat.call(null, c, cljs.core.map.call(null, function(c) {
-    return b.call(null, c, cljs.core.first.call(null, e));
-  }, c)), cljs.core.rest.call(null, e)) : c;
-};
-qgame.utils.general.bit_size = function(a) {
-  for (var b = 1;;) {
-    if (a <= 1 << b) {
-      return b;
-    }
-    b += 1;
-  }
+  return clojure.walk.postwalk.call(null, function(a) {
+    return cljs.core.map_QMARK_.call(null, a) ? cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, b, a)) : a;
+  }, a);
+};
+clojure.walk.prewalk_replace = function(a, b) {
+  return clojure.walk.prewalk.call(null, function(b) {
+    return cljs.core.contains_QMARK_.call(null, a, b) ? a.call(null, b) : b;
+  }, b);
+};
+clojure.walk.postwalk_replace = function(a, b) {
+  return clojure.walk.postwalk.call(null, function(b) {
+    return cljs.core.contains_QMARK_.call(null, a, b) ? a.call(null, b) : b;
+  }, b);
 };
 /*
 
@@ -20040,10 +14200,10 @@ var math = {js:{}};
         return e(), c = m(), new U(d, c);
       }
       if (d instanceof R) {
-        var f = !0;
+        var g = !0;
         if (b = [], d.object instanceof Q ? (a = d.object.name, d.params.forEach(function(a, c) {
-          a instanceof Q ? b[c] = a.name : f = !1;
-        })) : f = !1, f) {
+          a instanceof Q ? b[c] = a.name : g = !1;
+        })) : g = !1, g) {
           return e(), c = m(), new M(a, b, c);
         }
       }
@@ -20102,13 +14262,13 @@ var math = {js:{}};
     if ("-" == y) {
       c = (a = y, e(), b = [x()], new N(a, "unary", b));
     } else {
-      var d, f, g;
+      var d, g, f;
       a = [v()];
       for (b = [];"^" == y || ".^" == y;) {
         b.push(y), e(), a.push(v());
       }
       for (d = a.pop();a.length;) {
-        f = a.pop(), c = b.pop(), g = "^" == c ? "pow" : "epow", d = [f, d], d = new N(c, g, d);
+        g = a.pop(), c = b.pop(), f = "^" == c ? "pow" : "epow", d = [g, d], d = new N(c, f, d);
       }
       c = d;
     }
@@ -21096,17 +15256,16 @@ var math = {js:{}};
     return b;
   };
   c = {NONE:{"":{name:"", value:1, scientific:!0}}, SHORT:{"":{name:"", value:1, scientific:!0}, da:{name:"da", value:10, scientific:!1}, h:{name:"h", value:100, scientific:!1}, k:{name:"k", value:1E3, scientific:!0}, M:{name:"M", value:1E6, scientific:!0}, G:{name:"G", value:1E9, scientific:!0}, T:{name:"T", value:1E12, scientific:!0}, P:{name:"P", value:1E15, scientific:!0}, E:{name:"E", value:1E18, scientific:!0}, Z:{name:"Z", value:1E21, scientific:!0}, Y:{name:"Y", value:1E24, scientific:!0}, 
-  d:{name:"d", value:0.1, scientific:!1}, c:{name:"c", value:0.01, scientific:!1}, m:{name:"m", value:0.0010, scientific:!0}, u:{name:"u", value:1E-6, scientific:!0}, n:{name:"n", value:1E-9, scientific:!0}, p:{name:"p", value:1E-12, scientific:!0}, f:{name:"f", value:1E-15, scientific:!0}, a:{name:"a", value:1E-18, scientific:!0}, z:{name:"z", value:1E-21, scientific:!0}, y:{name:"y", value:1E-24, scientific:!0}}, LONG:{"":{name:"", value:1, scientific:!0}, deca:{name:"deca", value:10, scientific:!1}, 
+  d:{name:"d", value:0.1, scientific:!1}, c:{name:"c", value:0.01, scientific:!1}, m:{name:"m", value:0.001, scientific:!0}, u:{name:"u", value:1E-6, scientific:!0}, n:{name:"n", value:1E-9, scientific:!0}, p:{name:"p", value:1E-12, scientific:!0}, f:{name:"f", value:1E-15, scientific:!0}, a:{name:"a", value:1E-18, scientific:!0}, z:{name:"z", value:1E-21, scientific:!0}, y:{name:"y", value:1E-24, scientific:!0}}, LONG:{"":{name:"", value:1, scientific:!0}, deca:{name:"deca", value:10, scientific:!1}, 
   hecto:{name:"hecto", value:100, scientific:!1}, kilo:{name:"kilo", value:1E3, scientific:!0}, mega:{name:"mega", value:1E6, scientific:!0}, giga:{name:"giga", value:1E9, scientific:!0}, tera:{name:"tera", value:1E12, scientific:!0}, peta:{name:"peta", value:1E15, scientific:!0}, exa:{name:"exa", value:1E18, scientific:!0}, zetta:{name:"zetta", value:1E21, scientific:!0}, yotta:{name:"yotta", value:1E24, scientific:!0}, deci:{name:"deci", value:0.1, scientific:!1}, centi:{name:"centi", value:0.01, 
-  scientific:!1}, milli:{name:"milli", value:0.0010, scientific:!0}, micro:{name:"micro", value:1E-6, scientific:!0}, nano:{name:"nano", value:1E-9, scientific:!0}, pico:{name:"pico", value:1E-12, scientific:!0}, femto:{name:"femto", value:1E-15, scientific:!0}, atto:{name:"atto", value:1E-18, scientific:!0}, zepto:{name:"zepto", value:1E-21, scientific:!0}, yocto:{name:"yocto", value:1E-24, scientific:!0}}, SQUARED:{"":{name:"", value:1, scientific:!0}, da:{name:"da", value:100, scientific:!1}, 
-  h:{name:"h", value:1E4, scientific:!1}, k:{name:"k", value:1E6, scientific:!0}, M:{name:"M", value:1E12, scientific:!0}, G:{name:"G", value:1E18, scientific:!0}, T:{name:"T", value:1E24, scientific:!0}, P:{name:"P", value:1E30, scientific:!0}, E:{name:"E", value:1E36, scientific:!0}, Z:{name:"Z", value:1E42, scientific:!0}, Y:{name:"Y", value:1E48, scientific:!0}, d:{name:"d", value:0.01, scientific:!1}, c:{name:"c", value:1E-4, scientific:!1}, m:{name:"m", value:1E-6, scientific:!0}, u:{name:"u", 
-  value:1E-12, scientific:!0}, n:{name:"n", value:1E-18, scientific:!0}, p:{name:"p", value:1E-24, scientific:!0}, f:{name:"f", value:1E-30, scientific:!0}, a:{name:"a", value:1E-36, scientific:!0}, z:{name:"z", value:1E-42, scientific:!0}, y:{name:"y", value:1E-42, scientific:!0}}, CUBIC:{"":{name:"", value:1, scientific:!0}, da:{name:"da", value:1E3, scientific:!1}, h:{name:"h", value:1E6, scientific:!1}, k:{name:"k", value:1E9, scientific:!0}, M:{name:"M", value:1E18, scientific:!0}, G:{name:"G", 
-  value:1E27, scientific:!0}, T:{name:"T", value:1E36, scientific:!0}, P:{name:"P", value:1E45, scientific:!0}, E:{name:"E", value:1E54, scientific:!0}, Z:{name:"Z", value:1E63, scientific:!0}, Y:{name:"Y", value:1E72, scientific:!0}, d:{name:"d", value:0.0010, scientific:!1}, c:{name:"c", value:1E-6, scientific:!1}, m:{name:"m", value:1E-9, scientific:!0}, u:{name:"u", value:1E-18, scientific:!0}, n:{name:"n", value:1E-27, scientific:!0}, p:{name:"p", value:1E-36, scientific:!0}, f:{name:"f", value:1E-45, 
-  scientific:!0}, a:{name:"a", value:1E-54, scientific:!0}, z:{name:"z", value:1E-63, scientific:!0}, y:{name:"y", value:1E-72, scientific:!0}}, BINARY_SHORT:{"":{name:"", value:1, scientific:!0}, k:{name:"k", value:1024, scientific:!0}, M:{name:"M", value:Math.pow(1024, 2), scientific:!0}, G:{name:"G", value:Math.pow(1024, 3), scientific:!0}, T:{name:"T", value:Math.pow(1024, 4), scientific:!0}, P:{name:"P", value:Math.pow(1024, 5), scientific:!0}, E:{name:"E", value:Math.pow(1024, 6), scientific:!0}, 
-  Z:{name:"Z", value:Math.pow(1024, 7), scientific:!0}, Y:{name:"Y", value:Math.pow(1024, 8), scientific:!0}, Ki:{name:"Ki", value:1024, scientific:!0}, Mi:{name:"Mi", value:Math.pow(1024, 2), scientific:!0}, Gi:{name:"Gi", value:Math.pow(1024, 3), scientific:!0}, Ti:{name:"Ti", value:Math.pow(1024, 4), scientific:!0}, Pi:{name:"Pi", value:Math.pow(1024, 5), scientific:!0}, Ei:{name:"Ei", value:Math.pow(1024, 6), scientific:!0}, Zi:{name:"Zi", value:Math.pow(1024, 7), scientific:!0}, Yi:{name:"Yi", 
-  value:Math.pow(1024, 8), scientific:!0}}, BINARY_LONG:{"":{name:"", value:1, scientific:!0}, kilo:{name:"kilo", value:1024, scientific:!0}, mega:{name:"mega", value:Math.pow(1024, 2), scientific:!0}, giga:{name:"giga", value:Math.pow(1024, 3), scientific:!0}, tera:{name:"tera", value:Math.pow(1024, 4), scientific:!0}, peta:{name:"peta", value:Math.pow(1024, 5), scientific:!0}, exa:{name:"exa", value:Math.pow(1024, 6), scientific:!0}, zetta:{name:"zetta", value:Math.pow(1024, 7), scientific:!0}, 
-  yotta:{name:"yotta", value:Math.pow(1024, 8), scientific:!0}, kibi:{name:"kibi", value:1024, scientific:!0}, mebi:{name:"mebi", value:Math.pow(1024, 2), scientific:!0}, gibi:{name:"gibi", value:Math.pow(1024, 3), scientific:!0}, tebi:{name:"tebi", value:Math.pow(1024, 4), scientific:!0}, pebi:{name:"pebi", value:Math.pow(1024, 5), scientific:!0}, exi:{name:"exi", value:Math.pow(1024, 6), scientific:!0}, zebi:{name:"zebi", value:Math.pow(1024, 7), scientific:!0}, yobi:{name:"yobi", value:Math.pow(1024, 
-  8), scientific:!0}}};
+  scientific:!1}, milli:{name:"milli", value:0.001, scientific:!0}, micro:{name:"micro", value:1E-6, scientific:!0}, nano:{name:"nano", value:1E-9, scientific:!0}, pico:{name:"pico", value:1E-12, scientific:!0}, femto:{name:"femto", value:1E-15, scientific:!0}, atto:{name:"atto", value:1E-18, scientific:!0}, zepto:{name:"zepto", value:1E-21, scientific:!0}, yocto:{name:"yocto", value:1E-24, scientific:!0}}, SQUARED:{"":{name:"", value:1, scientific:!0}, da:{name:"da", value:100, scientific:!1}, h:{name:"h", 
+  value:1E4, scientific:!1}, k:{name:"k", value:1E6, scientific:!0}, M:{name:"M", value:1E12, scientific:!0}, G:{name:"G", value:1E18, scientific:!0}, T:{name:"T", value:1E24, scientific:!0}, P:{name:"P", value:1E30, scientific:!0}, E:{name:"E", value:1E36, scientific:!0}, Z:{name:"Z", value:1E42, scientific:!0}, Y:{name:"Y", value:1E48, scientific:!0}, d:{name:"d", value:0.01, scientific:!1}, c:{name:"c", value:1E-4, scientific:!1}, m:{name:"m", value:1E-6, scientific:!0}, u:{name:"u", value:1E-12, 
+  scientific:!0}, n:{name:"n", value:1E-18, scientific:!0}, p:{name:"p", value:1E-24, scientific:!0}, f:{name:"f", value:1E-30, scientific:!0}, a:{name:"a", value:1E-36, scientific:!0}, z:{name:"z", value:1E-42, scientific:!0}, y:{name:"y", value:1E-42, scientific:!0}}, CUBIC:{"":{name:"", value:1, scientific:!0}, da:{name:"da", value:1E3, scientific:!1}, h:{name:"h", value:1E6, scientific:!1}, k:{name:"k", value:1E9, scientific:!0}, M:{name:"M", value:1E18, scientific:!0}, G:{name:"G", value:1E27, 
+  scientific:!0}, T:{name:"T", value:1E36, scientific:!0}, P:{name:"P", value:1E45, scientific:!0}, E:{name:"E", value:1E54, scientific:!0}, Z:{name:"Z", value:1E63, scientific:!0}, Y:{name:"Y", value:1E72, scientific:!0}, d:{name:"d", value:0.001, scientific:!1}, c:{name:"c", value:1E-6, scientific:!1}, m:{name:"m", value:1E-9, scientific:!0}, u:{name:"u", value:1E-18, scientific:!0}, n:{name:"n", value:1E-27, scientific:!0}, p:{name:"p", value:1E-36, scientific:!0}, f:{name:"f", value:1E-45, scientific:!0}, 
+  a:{name:"a", value:1E-54, scientific:!0}, z:{name:"z", value:1E-63, scientific:!0}, y:{name:"y", value:1E-72, scientific:!0}}, BINARY_SHORT:{"":{name:"", value:1, scientific:!0}, k:{name:"k", value:1024, scientific:!0}, M:{name:"M", value:Math.pow(1024, 2), scientific:!0}, G:{name:"G", value:Math.pow(1024, 3), scientific:!0}, T:{name:"T", value:Math.pow(1024, 4), scientific:!0}, P:{name:"P", value:Math.pow(1024, 5), scientific:!0}, E:{name:"E", value:Math.pow(1024, 6), scientific:!0}, Z:{name:"Z", 
+  value:Math.pow(1024, 7), scientific:!0}, Y:{name:"Y", value:Math.pow(1024, 8), scientific:!0}, Ki:{name:"Ki", value:1024, scientific:!0}, Mi:{name:"Mi", value:Math.pow(1024, 2), scientific:!0}, Gi:{name:"Gi", value:Math.pow(1024, 3), scientific:!0}, Ti:{name:"Ti", value:Math.pow(1024, 4), scientific:!0}, Pi:{name:"Pi", value:Math.pow(1024, 5), scientific:!0}, Ei:{name:"Ei", value:Math.pow(1024, 6), scientific:!0}, Zi:{name:"Zi", value:Math.pow(1024, 7), scientific:!0}, Yi:{name:"Yi", value:Math.pow(1024, 
+  8), scientific:!0}}, BINARY_LONG:{"":{name:"", value:1, scientific:!0}, kilo:{name:"kilo", value:1024, scientific:!0}, mega:{name:"mega", value:Math.pow(1024, 2), scientific:!0}, giga:{name:"giga", value:Math.pow(1024, 3), scientific:!0}, tera:{name:"tera", value:Math.pow(1024, 4), scientific:!0}, peta:{name:"peta", value:Math.pow(1024, 5), scientific:!0}, exa:{name:"exa", value:Math.pow(1024, 6), scientific:!0}, zetta:{name:"zetta", value:Math.pow(1024, 7), scientific:!0}, yotta:{name:"yotta", 
+  value:Math.pow(1024, 8), scientific:!0}, kibi:{name:"kibi", value:1024, scientific:!0}, mebi:{name:"mebi", value:Math.pow(1024, 2), scientific:!0}, gibi:{name:"gibi", value:Math.pow(1024, 3), scientific:!0}, tebi:{name:"tebi", value:Math.pow(1024, 4), scientific:!0}, pebi:{name:"pebi", value:Math.pow(1024, 5), scientific:!0}, exi:{name:"exi", value:Math.pow(1024, 6), scientific:!0}, zebi:{name:"zebi", value:Math.pow(1024, 7), scientific:!0}, yobi:{name:"yobi", value:Math.pow(1024, 8), scientific:!0}}};
   var v = {name:"", value:1, scientific:!0}, t = {NONE:{}, LENGTH:{}, MASS:{}, TIME:{}, CURRENT:{}, TEMPERATURE:{}, LUMINOUS_INTENSITY:{}, AMOUNT_OF_SUBSTANCE:{}, FORCE:{}, SURFACE:{}, VOLUME:{}, ANGLE:{}, BIT:{}};
   BASE_UNIT_NONE = {};
   UNIT_NONE = {name:"", base:BASE_UNIT_NONE, value:1, offset:0};
@@ -21114,11 +15273,11 @@ var math = {js:{}};
   value:5.02921, offset:0}, chain:{name:"chain", base:t.LENGTH, prefixes:c.NONE, value:20.1168, offset:0}, angstrom:{name:"angstrom", base:t.LENGTH, prefixes:c.NONE, value:1E-10, offset:0}, m:{name:"m", base:t.LENGTH, prefixes:c.SHORT, value:1, offset:0}, "in":{name:"in", base:t.LENGTH, prefixes:c.NONE, value:0.0254, offset:0}, ft:{name:"ft", base:t.LENGTH, prefixes:c.NONE, value:0.3048, offset:0}, yd:{name:"yd", base:t.LENGTH, prefixes:c.NONE, value:0.9144, offset:0}, mi:{name:"mi", base:t.LENGTH, 
   prefixes:c.NONE, value:1609.344, offset:0}, li:{name:"li", base:t.LENGTH, prefixes:c.NONE, value:0.201168, offset:0}, rd:{name:"rd", base:t.LENGTH, prefixes:c.NONE, value:5.02921, offset:0}, ch:{name:"ch", base:t.LENGTH, prefixes:c.NONE, value:20.1168, offset:0}, mil:{name:"mil", base:t.LENGTH, prefixes:c.NONE, value:2.54E-5, offset:0}, m2:{name:"m2", base:t.SURFACE, prefixes:c.SQUARED, value:1, offset:0}, sqin:{name:"sqin", base:t.SURFACE, prefixes:c.NONE, value:6.4516E-4, offset:0}, sqft:{name:"sqft", 
   base:t.SURFACE, prefixes:c.NONE, value:0.09290304, offset:0}, sqyd:{name:"sqyd", base:t.SURFACE, prefixes:c.NONE, value:0.83612736, offset:0}, sqmi:{name:"sqmi", base:t.SURFACE, prefixes:c.NONE, value:2589988.110336, offset:0}, sqrd:{name:"sqrd", base:t.SURFACE, prefixes:c.NONE, value:25.29295, offset:0}, sqch:{name:"sqch", base:t.SURFACE, prefixes:c.NONE, value:404.6873, offset:0}, sqmil:{name:"sqmil", base:t.SURFACE, prefixes:c.NONE, value:6.4516E-10, offset:0}, m3:{name:"m3", base:t.VOLUME, 
-  prefixes:c.CUBIC, value:1, offset:0}, L:{name:"L", base:t.VOLUME, prefixes:c.SHORT, value:0.0010, offset:0}, l:{name:"l", base:t.VOLUME, prefixes:c.SHORT, value:0.0010, offset:0}, litre:{name:"litre", base:t.VOLUME, prefixes:c.LONG, value:0.0010, offset:0}, cuin:{name:"cuin", base:t.VOLUME, prefixes:c.NONE, value:1.6387064E-5, offset:0}, cuft:{name:"cuft", base:t.VOLUME, prefixes:c.NONE, value:0.028316846592, offset:0}, cuyd:{name:"cuyd", base:t.VOLUME, prefixes:c.NONE, value:0.764554857984, offset:0}, 
+  prefixes:c.CUBIC, value:1, offset:0}, L:{name:"L", base:t.VOLUME, prefixes:c.SHORT, value:0.001, offset:0}, l:{name:"l", base:t.VOLUME, prefixes:c.SHORT, value:0.001, offset:0}, litre:{name:"litre", base:t.VOLUME, prefixes:c.LONG, value:0.001, offset:0}, cuin:{name:"cuin", base:t.VOLUME, prefixes:c.NONE, value:1.6387064E-5, offset:0}, cuft:{name:"cuft", base:t.VOLUME, prefixes:c.NONE, value:0.028316846592, offset:0}, cuyd:{name:"cuyd", base:t.VOLUME, prefixes:c.NONE, value:0.764554857984, offset:0}, 
   teaspoon:{name:"teaspoon", base:t.VOLUME, prefixes:c.NONE, value:5E-6, offset:0}, tablespoon:{name:"tablespoon", base:t.VOLUME, prefixes:c.NONE, value:1.5E-5, offset:0}, minim:{name:"minim", base:t.VOLUME, prefixes:c.NONE, value:6.161152E-8, offset:0}, fluiddram:{name:"fluiddram", base:t.VOLUME, prefixes:c.NONE, value:3.6966911E-6, offset:0}, fluidounce:{name:"fluidounce", base:t.VOLUME, prefixes:c.NONE, value:2.957353E-5, offset:0}, gill:{name:"gill", base:t.VOLUME, prefixes:c.NONE, value:1.182941E-4, 
   offset:0}, cc:{name:"cc", base:t.VOLUME, prefixes:c.NONE, value:1E-6, offset:0}, cup:{name:"cup", base:t.VOLUME, prefixes:c.NONE, value:2.365882E-4, offset:0}, pint:{name:"pint", base:t.VOLUME, prefixes:c.NONE, value:4.731765E-4, offset:0}, quart:{name:"quart", base:t.VOLUME, prefixes:c.NONE, value:9.463529E-4, offset:0}, gallon:{name:"gallon", base:t.VOLUME, prefixes:c.NONE, value:0.003785412, offset:0}, beerbarrel:{name:"beerbarrel", base:t.VOLUME, prefixes:c.NONE, value:0.1173478, offset:0}, 
   oilbarrel:{name:"oilbarrel", base:t.VOLUME, prefixes:c.NONE, value:0.1589873, offset:0}, hogshead:{name:"hogshead", base:t.VOLUME, prefixes:c.NONE, value:0.238481, offset:0}, fldr:{name:"fldr", base:t.VOLUME, prefixes:c.NONE, value:3.6966911E-6, offset:0}, floz:{name:"floz", base:t.VOLUME, prefixes:c.NONE, value:2.957353E-5, offset:0}, gi:{name:"gi", base:t.VOLUME, prefixes:c.NONE, value:1.182941E-4, offset:0}, cp:{name:"cp", base:t.VOLUME, prefixes:c.NONE, value:2.365882E-4, offset:0}, pt:{name:"pt", 
-  base:t.VOLUME, prefixes:c.NONE, value:4.731765E-4, offset:0}, qt:{name:"qt", base:t.VOLUME, prefixes:c.NONE, value:9.463529E-4, offset:0}, gal:{name:"gal", base:t.VOLUME, prefixes:c.NONE, value:0.003785412, offset:0}, bbl:{name:"bbl", base:t.VOLUME, prefixes:c.NONE, value:0.1173478, offset:0}, obl:{name:"obl", base:t.VOLUME, prefixes:c.NONE, value:0.1589873, offset:0}, g:{name:"g", base:t.MASS, prefixes:c.SHORT, value:0.0010, offset:0}, gram:{name:"gram", base:t.MASS, prefixes:c.LONG, value:0.0010, 
+  base:t.VOLUME, prefixes:c.NONE, value:4.731765E-4, offset:0}, qt:{name:"qt", base:t.VOLUME, prefixes:c.NONE, value:9.463529E-4, offset:0}, gal:{name:"gal", base:t.VOLUME, prefixes:c.NONE, value:0.003785412, offset:0}, bbl:{name:"bbl", base:t.VOLUME, prefixes:c.NONE, value:0.1173478, offset:0}, obl:{name:"obl", base:t.VOLUME, prefixes:c.NONE, value:0.1589873, offset:0}, g:{name:"g", base:t.MASS, prefixes:c.SHORT, value:0.001, offset:0}, gram:{name:"gram", base:t.MASS, prefixes:c.LONG, value:0.001, 
   offset:0}, ton:{name:"ton", base:t.MASS, prefixes:c.SHORT, value:907.18474, offset:0}, tonne:{name:"tonne", base:t.MASS, prefixes:c.SHORT, value:1E3, offset:0}, grain:{name:"grain", base:t.MASS, prefixes:c.NONE, value:6.479891E-5, offset:0}, dram:{name:"dram", base:t.MASS, prefixes:c.NONE, value:0.0017718451953125, offset:0}, ounce:{name:"ounce", base:t.MASS, prefixes:c.NONE, value:0.028349523125, offset:0}, poundmass:{name:"poundmass", base:t.MASS, prefixes:c.NONE, value:0.45359237, offset:0}, 
   hundredweight:{name:"hundredweight", base:t.MASS, prefixes:c.NONE, value:45.359237, offset:0}, stick:{name:"stick", base:t.MASS, prefixes:c.NONE, value:0.115, offset:0}, gr:{name:"gr", base:t.MASS, prefixes:c.NONE, value:6.479891E-5, offset:0}, dr:{name:"dr", base:t.MASS, prefixes:c.NONE, value:0.0017718451953125, offset:0}, oz:{name:"oz", base:t.MASS, prefixes:c.NONE, value:0.028349523125, offset:0}, lbm:{name:"lbm", base:t.MASS, prefixes:c.NONE, value:0.45359237, offset:0}, cwt:{name:"cwt", base:t.MASS, 
   prefixes:c.NONE, value:45.359237, offset:0}, s:{name:"s", base:t.TIME, prefixes:c.SHORT, value:1, offset:0}, min:{name:"min", base:t.TIME, prefixes:c.NONE, value:60, offset:0}, h:{name:"h", base:t.TIME, prefixes:c.NONE, value:3600, offset:0}, second:{name:"second", base:t.TIME, prefixes:c.LONG, value:1, offset:0}, sec:{name:"sec", base:t.TIME, prefixes:c.LONG, value:1, offset:0}, minute:{name:"minute", base:t.TIME, prefixes:c.NONE, value:60, offset:0}, hour:{name:"hour", base:t.TIME, prefixes:c.NONE, 
@@ -25509,7 +19668,7 @@ var math = {js:{}};
       case "exponential":
         return b.toExponential(a, k);
       case "auto":
-        var l = 0.0010, m = 1E5;
+        var l = 0.001, m = 1E5;
         if (c && c.exponential) {
           void 0 !== c.exponential.lower && (l = c.exponential.lower), void 0 !== c.exponential.upper && (m = c.exponential.upper);
         } else {
@@ -25660,46 +19819,7 @@ var math = {js:{}};
     return a instanceof Boolean || "boolean" == typeof a;
   };
 }]);
-clojure.walk = {};
-clojure.walk.walk = function(a, b, c) {
-  return cljs.core.seq_QMARK_.call(null, c) ? b.call(null, cljs.core.doall.call(null, cljs.core.map.call(null, a, c))) : cljs.core.coll_QMARK_.call(null, c) ? b.call(null, cljs.core.into.call(null, cljs.core.empty.call(null, c), cljs.core.map.call(null, a, c))) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? b.call(null, c) : null;
-};
-clojure.walk.postwalk = function postwalk(b, c) {
-  return clojure.walk.walk.call(null, cljs.core.partial.call(null, postwalk, b), b, c);
-};
-clojure.walk.prewalk = function prewalk(b, c) {
-  return clojure.walk.walk.call(null, cljs.core.partial.call(null, prewalk, b), cljs.core.identity, b.call(null, c));
-};
-clojure.walk.keywordize_keys = function(a) {
-  var b = function(a) {
-    var b = cljs.core.nth.call(null, a, 0, null);
-    a = cljs.core.nth.call(null, a, 1, null);
-    return "string" === typeof b ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, b), a], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, a], null);
-  };
-  return clojure.walk.postwalk.call(null, function(a) {
-    return cljs.core.map_QMARK_.call(null, a) ? cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, b, a)) : a;
-  }, a);
-};
-clojure.walk.stringify_keys = function(a) {
-  var b = function(a) {
-    var b = cljs.core.nth.call(null, a, 0, null);
-    a = cljs.core.nth.call(null, a, 1, null);
-    return b instanceof cljs.core.Keyword ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.name.call(null, b), a], null) : new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, a], null);
-  };
-  return clojure.walk.postwalk.call(null, function(a) {
-    return cljs.core.map_QMARK_.call(null, a) ? cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, cljs.core.map.call(null, b, a)) : a;
-  }, a);
-};
-clojure.walk.prewalk_replace = function(a, b) {
-  return clojure.walk.prewalk.call(null, function(b) {
-    return cljs.core.contains_QMARK_.call(null, a, b) ? a.call(null, b) : b;
-  }, b);
-};
-clojure.walk.postwalk_replace = function(a, b) {
-  return clojure.walk.postwalk.call(null, function(b) {
-    return cljs.core.contains_QMARK_.call(null, a, b) ? a.call(null, b) : b;
-  }, b);
-};
+var qgame = {utils:{}};
 qgame.utils.math = {};
 qgame.utils.math.math = mathjs();
 qgame.utils.math.to_matrix = function(a) {
@@ -25714,18 +19834,40 @@ qgame.utils.math.to_vec = function(a) {
 qgame.utils.math.nested_to_vec = function(a) {
   return clojure.walk.prewalk.call(null, qgame.utils.math.to_vec, a);
 };
+qgame.utils.math.matrix_safe = function() {
+  var a = null, b = function(a, b) {
+    return qgame.utils.math.nested_to_vec.call(null, a.call(null, qgame.utils.math.nested_to_matrix.call(null, b)));
+  }, c = function(a, b, c) {
+    b = qgame.utils.math.nested_to_matrix.call(null, b);
+    c = qgame.utils.math.nested_to_matrix.call(null, c);
+    return qgame.utils.math.nested_to_vec.call(null, a.call(null, b, c));
+  }, a = function(a, e, f) {
+    switch(arguments.length) {
+      case 2:
+        return b.call(this, a, e);
+      case 3:
+        return c.call(this, a, e, f);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$2 = b;
+  a.cljs$core$IFn$_invoke$arity$3 = c;
+  return a;
+}();
 qgame.utils.math.pi = qgame.utils.math.math.pi;
 qgame.utils.math.sqrt2 = qgame.utils.math.math.SQRT2;
 qgame.utils.math.sqrt1_2 = qgame.utils.math.math.SQRT1_2;
 qgame.utils.math.i = qgame.utils.math.math.i;
 qgame.utils.math.abs = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.abs(qgame.utils.math.nested_to_matrix.call(null, a)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.abs, a);
 };
 qgame.utils.math.round = function() {
   var a = null, b = function(b) {
     return a.call(null, b, 0);
   }, c = function(a, b) {
-    return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.round.call(null, qgame.utils.math.nested_to_matrix.call(null, a), b));
+    return qgame.utils.math.matrix_safe.call(null, function(a) {
+      return qgame.utils.math.math.round.call(null, a, b);
+    }, a);
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -25743,7 +19885,7 @@ qgame.utils.math.add = function() {
   var a = null, b = function(b) {
     return a.call(null, b, 0);
   }, c = function(a, b) {
-    return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.add(qgame.utils.math.nested_to_matrix.call(null, a), qgame.utils.math.nested_to_matrix.call(null, b)));
+    return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.add, a, b);
   }, d = function() {
     var b = function(b, c, d) {
       return cljs.core.reduce.call(null, a, a.call(null, b, c), d);
@@ -25784,7 +19926,7 @@ qgame.utils.math.subtract = function() {
   var a = null, b = function(b) {
     return a.call(null, 0, b);
   }, c = function(a, b) {
-    return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.subtract(qgame.utils.math.nested_to_matrix.call(null, a), qgame.utils.math.nested_to_matrix.call(null, b)));
+    return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.subtract, a, b);
   }, d = function() {
     var b = function(b, c, d) {
       return cljs.core.reduce.call(null, a, a.call(null, b, c), d);
@@ -25822,28 +19964,31 @@ qgame.utils.math.subtract = function() {
   return a;
 }();
 qgame.utils.math.multiply = function(a, b) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.multiply(qgame.utils.math.nested_to_matrix.call(null, a), qgame.utils.math.nested_to_matrix.call(null, b)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.multiply, a, b);
 };
 qgame.utils.math.divide = function(a, b) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.divide(qgame.utils.math.nested_to_matrix.call(null, a), qgame.utils.math.nested_to_matrix.call(null, b)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.divide, a, b);
 };
 qgame.utils.math.sqrt = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.sqrt(qgame.utils.math.nested_to_matrix.call(null, a)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.sqrt, a);
 };
 qgame.utils.math.cos = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.cos(qgame.utils.math.nested_to_matrix.call(null, a)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.cos, a);
 };
 qgame.utils.math.sin = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.sin(qgame.utils.math.nested_to_matrix.call(null, a)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.sin, a);
 };
 qgame.utils.math.exp_xi = function(a) {
-  return qgame.utils.math.math.exp(new qgame.utils.math.math.complex(0, a));
+  return qgame.utils.math.math.exp.call(null, new qgame.utils.math.math.complex(0, a));
 };
 qgame.utils.math.radians_to_degrees = function(a) {
   return qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, a, qgame.utils.math.math.tau), 360);
 };
-qgame.utils.math.phase = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.radians_to_degrees.call(null, qgame.utils.math.math.arg(qgame.utils.math.nested_to_matrix.call(null, a))));
+qgame.utils.math.to_phase = function(a) {
+  return qgame.utils.math.matrix_safe.call(null, cljs.core.comp.call(null, qgame.utils.math.radians_to_degrees, qgame.utils.math.math.arg), a);
+};
+qgame.utils.math.det = function(a) {
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.det, a);
 };
 qgame.utils.math.rand_2D_complex = function() {
   var a = null, b = function(b, c, f) {
@@ -25874,7 +20019,7 @@ qgame.utils.math.rand_2D_complex = function() {
 }();
 qgame.utils.math.mat_EQ__QMARK_ = function() {
   var a = null, b = function(a, b) {
-    return cljs.core.truth_(cljs.core.some.call(null, cljs.core.false_QMARK_, qgame.utils.math.math.equal(a.size(), b.size()))) ? !1 : cljs.core.every_QMARK_.call(null, cljs.core.true_QMARK_, cljs.core.flatten.call(null, qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.equal(a, b))));
+    return cljs.core.truth_(cljs.core.some.call(null, cljs.core.false_QMARK_, qgame.utils.math.math.equal.call(null, a.size(), b.size()))) ? !1 : cljs.core.every_QMARK_.call(null, cljs.core.true_QMARK_, cljs.core.flatten.call(null, qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.equal.call(null, a, b))));
   }, c = function() {
     var b = function(b, c, d) {
       return(b = a.call(null, b, c)) ? cljs.core.apply.call(null, a, c, d) : b;
@@ -25915,712 +20060,208 @@ qgame.utils.math.square_QMARK_ = function(a) {
   return cljs.core._EQ_.call(null, a, b);
 };
 qgame.utils.math.complex_conjugate = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.conj(qgame.utils.math.nested_to_matrix.call(null, a)));
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.conj, a);
 };
 qgame.utils.math.conjugate_transpose = function(a) {
-  return qgame.utils.math.nested_to_vec.call(null, qgame.utils.math.math.transpose(qgame.utils.math.nested_to_matrix.call(null, qgame.utils.math.complex_conjugate.call(null, a))));
+  return qgame.utils.math.complex_conjugate.call(null, qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.transpose, a));
 };
 qgame.utils.math.unitary_QMARK_ = function(a) {
   a = qgame.utils.math.nested_to_matrix.call(null, a);
-  var b = a.size(), c = cljs.core.nth.call(null, b, 0, null), b = cljs.core.nth.call(null, b, 1, null), c = qgame.utils.math.math.eye(c, b), b = qgame.utils.math.conjugate_transpose.call(null, a);
+  var b = a.size(), c = cljs.core.nth.call(null, b, 0, null), b = cljs.core.nth.call(null, b, 1, null), c = qgame.utils.math.math.eye.call(null, c, b), b = qgame.utils.math.conjugate_transpose.call(null, a);
   return qgame.utils.math.mat_EQ__QMARK_.call(null, c, qgame.utils.math.nested_to_matrix.call(null, qgame.utils.math.round.call(null, qgame.utils.math.multiply.call(null, a, b), 5)), qgame.utils.math.nested_to_matrix.call(null, qgame.utils.math.round.call(null, qgame.utils.math.multiply.call(null, b, a), 5)));
 };
 qgame.utils.math.to_string = function(a) {
   return a.toString();
 };
 qgame.utils.math.eval_math_string = function(a) {
-  return qgame.utils.math.round.call(null, qgame.utils.math.math.eval(a), 5);
-};
-cljs.reader = {};
-cljs.reader.PushbackReader = function() {
-  return{};
-}();
-cljs.reader.read_char = function(a) {
-  if (a ? a.cljs$reader$PushbackReader$read_char$arity$1 : a) {
-    return a.cljs$reader$PushbackReader$read_char$arity$1(a);
-  }
-  var b;
-  b = cljs.reader.read_char[goog.typeOf(null == a ? null : a)];
-  if (!b && (b = cljs.reader.read_char._, !b)) {
-    throw cljs.core.missing_protocol.call(null, "PushbackReader.read-char", a);
-  }
-  return b.call(null, a);
-};
-cljs.reader.unread = function(a, b) {
-  if (a ? a.cljs$reader$PushbackReader$unread$arity$2 : a) {
-    return a.cljs$reader$PushbackReader$unread$arity$2(a, b);
-  }
-  var c;
-  c = cljs.reader.unread[goog.typeOf(null == a ? null : a)];
-  if (!c && (c = cljs.reader.unread._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "PushbackReader.unread", a);
-  }
-  return c.call(null, a, b);
-};
-cljs.reader.StringPushbackReader = function(a, b, c) {
-  this.s = a;
-  this.buffer = b;
-  this.idx = c;
-};
-cljs.reader.StringPushbackReader.cljs$lang$type = !0;
-cljs.reader.StringPushbackReader.cljs$lang$ctorStr = "cljs.reader/StringPushbackReader";
-cljs.reader.StringPushbackReader.cljs$lang$ctorPrWriter = function(a, b, c) {
-  return cljs.core._write.call(null, b, "cljs.reader/StringPushbackReader");
-};
-cljs.reader.StringPushbackReader.prototype.cljs$reader$PushbackReader$ = !0;
-cljs.reader.StringPushbackReader.prototype.cljs$reader$PushbackReader$read_char$arity$1 = function(a) {
-  return 0 === this.buffer.length ? (this.idx += 1, this.s[this.idx]) : this.buffer.pop();
-};
-cljs.reader.StringPushbackReader.prototype.cljs$reader$PushbackReader$unread$arity$2 = function(a, b) {
-  return this.buffer.push(b);
-};
-cljs.reader.__GT_StringPushbackReader = function(a, b, c) {
-  return new cljs.reader.StringPushbackReader(a, b, c);
-};
-cljs.reader.push_back_reader = function(a) {
-  return new cljs.reader.StringPushbackReader(a, [], -1);
-};
-cljs.reader.whitespace_QMARK_ = function(a) {
-  var b = goog.string.isBreakingWhitespace(a);
-  return cljs.core.truth_(b) ? b : "," === a;
-};
-cljs.reader.numeric_QMARK_ = function(a) {
-  return goog.string.isNumeric(a);
-};
-cljs.reader.comment_prefix_QMARK_ = function(a) {
-  return ";" === a;
-};
-cljs.reader.number_literal_QMARK_ = function(a, b) {
-  return cljs.reader.numeric_QMARK_.call(null, b) || ("+" === b || "-" === b) && cljs.reader.numeric_QMARK_.call(null, function() {
-    var b = cljs.reader.read_char.call(null, a);
-    cljs.reader.unread.call(null, a, b);
-    return b;
-  }());
-};
-cljs.reader.reader_error = function() {
-  var a = function(a, b) {
-    throw Error(cljs.core.apply.call(null, cljs.core.str, b));
-  }, b = function(b, d) {
-    var e = null;
-    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
-    return a.call(this, b, e);
-  };
-  b.cljs$lang$maxFixedArity = 1;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, b);
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b;
-}();
-cljs.reader.macro_terminating_QMARK_ = function(a) {
-  var b = "#" !== a;
-  return b && (b = "'" !== a) ? (b = ":" !== a) ? cljs.reader.macros.call(null, a) : b : b;
-};
-cljs.reader.read_token = function(a, b) {
-  for (var c = new goog.string.StringBuffer(b), d = cljs.reader.read_char.call(null, a);;) {
-    if (null == d || cljs.reader.whitespace_QMARK_.call(null, d) || cljs.reader.macro_terminating_QMARK_.call(null, d)) {
-      return cljs.reader.unread.call(null, a, d), c.toString();
-    }
-    c.append(d);
-    d = cljs.reader.read_char.call(null, a);
-  }
-};
-cljs.reader.skip_line = function(a, b) {
-  for (;;) {
-    var c = cljs.reader.read_char.call(null, a);
-    if ("\n" === c || "\r" === c || null == c) {
-      return a;
-    }
-  }
-};
-cljs.reader.int_pattern = cljs.core.re_pattern.call(null, "([-+]?)(?:(0)|([1-9][0-9]*)|0[xX]([0-9A-Fa-f]+)|0([0-7]+)|([1-9][0-9]?)[rR]([0-9A-Za-z]+)|0[0-9]+)(N)?");
-cljs.reader.ratio_pattern = cljs.core.re_pattern.call(null, "([-+]?[0-9]+)/([0-9]+)");
-cljs.reader.float_pattern = cljs.core.re_pattern.call(null, "([-+]?[0-9]+(\\.[0-9]*)?([eE][-+]?[0-9]+)?)(M)?");
-cljs.reader.symbol_pattern = cljs.core.re_pattern.call(null, "[:]?([^0-9/].*/)?([^0-9/][^/]*)");
-cljs.reader.re_find_STAR_ = function(a, b) {
-  var c = a.exec(b);
-  return null == c ? null : 1 === c.length ? c[0] : c;
-};
-cljs.reader.match_int = function(a) {
-  var b = cljs.reader.re_find_STAR_.call(null, cljs.reader.int_pattern, a);
-  a = b[2];
-  if (null == a || 1 > a.length) {
-    a = "-" === b[1] ? -1 : 1;
-    var c = cljs.core.truth_(b[3]) ? [b[3], 10] : cljs.core.truth_(b[4]) ? [b[4], 16] : cljs.core.truth_(b[5]) ? [b[5], 8] : cljs.core.truth_(b[7]) ? [b[7], parseInt(b[7])] : new cljs.core.Keyword(null, "default", "default", 2558708147) ? [null, null] : null, b = c[0], c = c[1];
-    return null == b ? null : a * parseInt(b, c);
-  }
-  return 0;
-};
-cljs.reader.match_ratio = function(a) {
-  a = cljs.reader.re_find_STAR_.call(null, cljs.reader.ratio_pattern, a);
-  var b = a[2];
-  return parseInt(a[1]) / parseInt(b);
-};
-cljs.reader.match_float = function(a) {
-  return parseFloat(a);
-};
-cljs.reader.re_matches_STAR_ = function(a, b) {
-  var c = a.exec(b);
-  return null != c && c[0] === b ? 1 === c.length ? c[0] : c : null;
-};
-cljs.reader.match_number = function(a) {
-  return cljs.core.truth_(cljs.reader.re_matches_STAR_.call(null, cljs.reader.int_pattern, a)) ? cljs.reader.match_int.call(null, a) : cljs.core.truth_(cljs.reader.re_matches_STAR_.call(null, cljs.reader.ratio_pattern, a)) ? cljs.reader.match_ratio.call(null, a) : cljs.core.truth_(cljs.reader.re_matches_STAR_.call(null, cljs.reader.float_pattern, a)) ? cljs.reader.match_float.call(null, a) : null;
-};
-cljs.reader.escape_char_map = function(a) {
-  if ("t" === a) {
-    return "\t";
-  }
-  if ("r" === a) {
-    return "\r";
-  }
-  if ("n" === a) {
-    return "\n";
-  }
-  if ("\\" === a) {
-    return "\\";
-  }
-  if ('"' === a) {
-    return'"';
-  }
-  if ("b" === a) {
-    return "\b";
-  }
-  if ("f" === a) {
-    return "\f";
-  }
-  new cljs.core.Keyword(null, "else", "else", 1017020587);
-  return null;
-};
-cljs.reader.read_2_chars = function(a) {
-  return(new goog.string.StringBuffer(cljs.reader.read_char.call(null, a), cljs.reader.read_char.call(null, a))).toString();
-};
-cljs.reader.read_4_chars = function(a) {
-  return(new goog.string.StringBuffer(cljs.reader.read_char.call(null, a), cljs.reader.read_char.call(null, a), cljs.reader.read_char.call(null, a), cljs.reader.read_char.call(null, a))).toString();
-};
-cljs.reader.unicode_2_pattern = cljs.core.re_pattern.call(null, "[0-9A-Fa-f]{2}");
-cljs.reader.unicode_4_pattern = cljs.core.re_pattern.call(null, "[0-9A-Fa-f]{4}");
-cljs.reader.validate_unicode_escape = function(a, b, c, d) {
-  return cljs.core.truth_(cljs.core.re_matches.call(null, a, d)) ? d : cljs.reader.reader_error.call(null, b, "Unexpected unicode escape \\", c, d);
-};
-cljs.reader.make_unicode_char = function(a) {
-  a = parseInt(a, 16);
-  return String.fromCharCode(a);
-};
-cljs.reader.escape_char = function(a, b) {
-  var c = cljs.reader.read_char.call(null, b), d = cljs.reader.escape_char_map.call(null, c);
-  return cljs.core.truth_(d) ? d : "x" === c ? cljs.reader.make_unicode_char.call(null, cljs.reader.validate_unicode_escape.call(null, cljs.reader.unicode_2_pattern, b, c, cljs.reader.read_2_chars.call(null, b))) : "u" === c ? cljs.reader.make_unicode_char.call(null, cljs.reader.validate_unicode_escape.call(null, cljs.reader.unicode_4_pattern, b, c, cljs.reader.read_4_chars.call(null, b))) : cljs.reader.numeric_QMARK_.call(null, c) ? String.fromCharCode(c) : new cljs.core.Keyword(null, "else", "else", 
-  1017020587) ? cljs.reader.reader_error.call(null, b, "Unexpected unicode escape \\", c) : null;
-};
-cljs.reader.read_past = function(a, b) {
-  for (var c = cljs.reader.read_char.call(null, b);;) {
-    if (cljs.core.truth_(a.call(null, c))) {
-      c = cljs.reader.read_char.call(null, b);
-    } else {
-      return c;
-    }
-  }
-};
-cljs.reader.read_delimited_list = function(a, b, c) {
-  for (var d = cljs.core.transient$.call(null, cljs.core.PersistentVector.EMPTY);;) {
-    var e = cljs.reader.read_past.call(null, cljs.reader.whitespace_QMARK_, b);
-    cljs.core.truth_(e) || cljs.reader.reader_error.call(null, b, "EOF while reading");
-    if (a === e) {
-      return cljs.core.persistent_BANG_.call(null, d);
-    }
-    var f = cljs.reader.macros.call(null, e);
-    cljs.core.truth_(f) ? e = f.call(null, b, e) : (cljs.reader.unread.call(null, b, e), e = cljs.reader.read.call(null, b, !0, null, c));
-    d = e === b ? d : cljs.core.conj_BANG_.call(null, d, e);
-  }
-};
-cljs.reader.not_implemented = function(a, b) {
-  return cljs.reader.reader_error.call(null, a, "Reader for ", b, " not implemented yet");
-};
-cljs.reader.read_dispatch = function(a, b) {
-  var c = cljs.reader.read_char.call(null, a), d = cljs.reader.dispatch_macros.call(null, c);
-  if (cljs.core.truth_(d)) {
-    return d.call(null, a, b);
-  }
-  d = cljs.reader.maybe_read_tagged_type.call(null, a, c);
-  return cljs.core.truth_(d) ? d : cljs.reader.reader_error.call(null, a, "No dispatch macro for ", c);
-};
-cljs.reader.read_unmatched_delimiter = function(a, b) {
-  return cljs.reader.reader_error.call(null, a, "Unmached delimiter ", b);
-};
-cljs.reader.read_list = function(a, b) {
-  return cljs.core.apply.call(null, cljs.core.list, cljs.reader.read_delimited_list.call(null, ")", a, !0));
-};
-cljs.reader.read_comment = cljs.reader.skip_line;
-cljs.reader.read_vector = function(a, b) {
-  return cljs.reader.read_delimited_list.call(null, "]", a, !0);
-};
-cljs.reader.read_map = function(a, b) {
-  var c = cljs.reader.read_delimited_list.call(null, "}", a, !0);
-  cljs.core.odd_QMARK_.call(null, cljs.core.count.call(null, c)) && cljs.reader.reader_error.call(null, a, "Map literal must contain an even number of forms");
-  return cljs.core.apply.call(null, cljs.core.hash_map, c);
-};
-cljs.reader.read_number = function(a, b) {
-  for (var c = new goog.string.StringBuffer(b), d = cljs.reader.read_char.call(null, a);;) {
-    if (cljs.core.truth_(function() {
-      var a = null == d;
-      return a ? a : (a = cljs.reader.whitespace_QMARK_.call(null, d)) ? a : cljs.reader.macros.call(null, d);
-    }())) {
-      cljs.reader.unread.call(null, a, d);
-      var e = c.toString(), c = cljs.reader.match_number.call(null, e);
-      return cljs.core.truth_(c) ? c : cljs.reader.reader_error.call(null, a, "Invalid number format [", e, "]");
-    }
-    c.append(d);
-    d = e = cljs.reader.read_char.call(null, a);
-  }
-};
-cljs.reader.read_string_STAR_ = function(a, b) {
-  for (var c = new goog.string.StringBuffer, d = cljs.reader.read_char.call(null, a);;) {
-    if (null == d) {
-      return cljs.reader.reader_error.call(null, a, "EOF while reading");
-    }
-    if ("\\" === d) {
-      c.append(cljs.reader.escape_char.call(null, c, a)), d = cljs.reader.read_char.call(null, a);
-    } else {
-      if ('"' === d) {
-        return c.toString();
-      }
-      if (new cljs.core.Keyword(null, "default", "default", 2558708147)) {
-        c.append(d), d = cljs.reader.read_char.call(null, a);
-      } else {
-        return null;
-      }
-    }
-  }
-};
-cljs.reader.special_symbols = function(a, b) {
-  return "nil" === a ? null : "true" === a ? !0 : "false" === a ? !1 : new cljs.core.Keyword(null, "else", "else", 1017020587) ? b : null;
-};
-cljs.reader.read_symbol = function(a, b) {
-  var c = cljs.reader.read_token.call(null, a, b);
-  return cljs.core.truth_(goog.string.contains(c, "/")) ? cljs.core.symbol.call(null, cljs.core.subs.call(null, c, 0, c.indexOf("/")), cljs.core.subs.call(null, c, c.indexOf("/") + 1, c.length)) : cljs.reader.special_symbols.call(null, c, cljs.core.symbol.call(null, c));
-};
-cljs.reader.read_keyword = function(a, b) {
-  var c = cljs.reader.read_token.call(null, a, cljs.reader.read_char.call(null, a)), d = cljs.reader.re_matches_STAR_.call(null, cljs.reader.symbol_pattern, c), c = d[0], e = d[1], d = d[2];
-  return void 0 !== e && ":/" === e.substring(e.length - 2, e.length) || ":" === d[d.length - 1] || -1 !== c.indexOf("::", 1) ? cljs.reader.reader_error.call(null, a, "Invalid token: ", c) : null != e && 0 < e.length ? cljs.core.keyword.call(null, e.substring(0, e.indexOf("/")), d) : cljs.core.keyword.call(null, c);
-};
-cljs.reader.desugar_meta = function(a) {
-  return a instanceof cljs.core.Symbol ? new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "tag", "tag", 1014018828), a], null) : "string" === typeof a ? new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "tag", "tag", 1014018828), a], null) : a instanceof cljs.core.Keyword ? new cljs.core.PersistentArrayMap.fromArray([a, !0], !0, !1) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? a : null;
-};
-cljs.reader.wrapping_reader = function(a) {
-  return function(b, c) {
-    return cljs.core._conj.call(null, cljs.core._conj.call(null, cljs.core.List.EMPTY, cljs.reader.read.call(null, b, !0, null, !0)), a);
-  };
-};
-cljs.reader.throwing_reader = function(a) {
-  return function(b, c) {
-    return cljs.reader.reader_error.call(null, b, a);
-  };
-};
-cljs.reader.read_meta = function(a, b) {
-  var c = cljs.reader.desugar_meta.call(null, cljs.reader.read.call(null, a, !0, null, !0));
-  cljs.core.map_QMARK_.call(null, c) || cljs.reader.reader_error.call(null, a, "Metadata must be Symbol,Keyword,String or Map");
-  var d = cljs.reader.read.call(null, a, !0, null, !0);
-  return(d ? d.cljs$lang$protocol_mask$partition0$ & 262144 || d.cljs$core$IWithMeta$ || (d.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, d)) : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, d)) ? cljs.core.with_meta.call(null, d, cljs.core.merge.call(null, cljs.core.meta.call(null, d), c)) : cljs.reader.reader_error.call(null, a, "Metadata can only be applied to IWithMetas");
-};
-cljs.reader.read_set = function(a, b) {
-  return cljs.core.set.call(null, cljs.reader.read_delimited_list.call(null, "}", a, !0));
-};
-cljs.reader.read_regex = function(a, b) {
-  return cljs.core.re_pattern.call(null, cljs.reader.read_string_STAR_.call(null, a, b));
-};
-cljs.reader.read_discard = function(a, b) {
-  cljs.reader.read.call(null, a, !0, null, !0);
-  return a;
-};
-cljs.reader.macros = function(a) {
-  if ('"' === a) {
-    return cljs.reader.read_string_STAR_;
-  }
-  if (":" === a) {
-    return cljs.reader.read_keyword;
-  }
-  if (";" === a) {
-    return cljs.reader.read_comment;
-  }
-  if ("'" === a) {
-    return cljs.reader.wrapping_reader.call(null, new cljs.core.Symbol(null, "quote", "quote", -1532577739, null));
-  }
-  if ("@" === a) {
-    return cljs.reader.wrapping_reader.call(null, new cljs.core.Symbol(null, "deref", "deref", -1545057749, null));
-  }
-  if ("^" === a) {
-    return cljs.reader.read_meta;
-  }
-  if ("`" === a || "~" === a) {
-    return cljs.reader.not_implemented;
-  }
-  if ("(" === a) {
-    return cljs.reader.read_list;
-  }
-  if (")" === a) {
-    return cljs.reader.read_unmatched_delimiter;
-  }
-  if ("[" === a) {
-    return cljs.reader.read_vector;
-  }
-  if ("]" === a) {
-    return cljs.reader.read_unmatched_delimiter;
-  }
-  if ("{" === a) {
-    return cljs.reader.read_map;
-  }
-  if ("}" === a) {
-    return cljs.reader.read_unmatched_delimiter;
-  }
-  if ("\\" === a) {
-    return cljs.reader.read_char;
-  }
-  if ("#" === a) {
-    return cljs.reader.read_dispatch;
-  }
-  new cljs.core.Keyword(null, "else", "else", 1017020587);
-  return null;
-};
-cljs.reader.dispatch_macros = function(a) {
-  if ("{" === a) {
-    return cljs.reader.read_set;
-  }
-  if ("\x3c" === a) {
-    return cljs.reader.throwing_reader.call(null, "Unreadable form");
-  }
-  if ('"' === a) {
-    return cljs.reader.read_regex;
-  }
-  if ("!" === a) {
-    return cljs.reader.read_comment;
-  }
-  if ("_" === a) {
-    return cljs.reader.read_discard;
-  }
-  new cljs.core.Keyword(null, "else", "else", 1017020587);
-  return null;
-};
-cljs.reader.read = function(a, b, c, d) {
-  for (;;) {
-    d = cljs.reader.read_char.call(null, a);
-    if (null == d) {
-      return cljs.core.truth_(b) ? cljs.reader.reader_error.call(null, a, "EOF while reading") : c;
-    }
-    if (!cljs.reader.whitespace_QMARK_.call(null, d)) {
-      if (cljs.reader.comment_prefix_QMARK_.call(null, d)) {
-        a = cljs.reader.read_comment.call(null, a, d);
-      } else {
-        if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
-          var e = cljs.reader.macros.call(null, d);
-          d = cljs.core.truth_(e) ? e.call(null, a, d) : cljs.reader.number_literal_QMARK_.call(null, a, d) ? cljs.reader.read_number.call(null, a, d) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? cljs.reader.read_symbol.call(null, a, d) : null;
-          if (d !== a) {
-            return d;
-          }
-        } else {
-          return null;
-        }
-      }
-    }
-  }
-};
-cljs.reader.read_string = function(a) {
-  a = cljs.reader.push_back_reader.call(null, a);
-  return cljs.reader.read.call(null, a, !0, null, !1);
-};
-cljs.reader.zero_fill_right_and_truncate = function(a, b) {
-  if (cljs.core._EQ_.call(null, b, cljs.core.count.call(null, a))) {
-    return a;
-  }
-  if (b < cljs.core.count.call(null, a)) {
-    return cljs.core.subs.call(null, a, 0, b);
-  }
-  if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
-    for (var c = new goog.string.StringBuffer(a);;) {
-      if (c.getLength() < b) {
-        c = c.append("0");
-      } else {
-        return c.toString();
-      }
-    }
-  } else {
-    return null;
-  }
-};
-cljs.reader.divisible_QMARK_ = function(a, b) {
-  return 0 === cljs.core.mod.call(null, a, b);
-};
-cljs.reader.indivisible_QMARK_ = function(a, b) {
-  return!cljs.reader.divisible_QMARK_.call(null, a, b);
-};
-cljs.reader.leap_year_QMARK_ = function(a) {
-  return cljs.reader.divisible_QMARK_.call(null, a, 4) && (cljs.reader.indivisible_QMARK_.call(null, a, 100) || cljs.reader.divisible_QMARK_.call(null, a, 400));
-};
-cljs.reader.days_in_month = function() {
-  var a = new cljs.core.PersistentVector(null, 13, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], null), b = new cljs.core.PersistentVector(null, 13, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], null);
-  return function(c, d) {
-    return cljs.core.get.call(null, cljs.core.truth_(d) ? b : a, c);
-  };
-}();
-cljs.reader.timestamp_regex = /(\d\d\d\d)(?:-(\d\d)(?:-(\d\d)(?:[T](\d\d)(?::(\d\d)(?::(\d\d)(?:[.](\d+))?)?)?)?)?)?(?:[Z]|([-+])(\d\d):(\d\d))?/;
-cljs.reader.parse_int = function(a) {
-  a = parseInt(a);
-  return cljs.core.not.call(null, isNaN(a)) ? a : null;
-};
-cljs.reader.check = function(a, b, c, d) {
-  a <= b && b <= c || cljs.reader.reader_error.call(null, null, [cljs.core.str(d), cljs.core.str(" Failed:  "), cljs.core.str(a), cljs.core.str("\x3c\x3d"), cljs.core.str(b), cljs.core.str("\x3c\x3d"), cljs.core.str(c)].join(""));
-  return b;
-};
-cljs.reader.parse_and_validate_timestamp = function(a) {
-  var b = cljs.core.re_matches.call(null, cljs.reader.timestamp_regex, a);
-  cljs.core.nth.call(null, b, 0, null);
-  var c = cljs.core.nth.call(null, b, 1, null), d = cljs.core.nth.call(null, b, 2, null), e = cljs.core.nth.call(null, b, 3, null), f = cljs.core.nth.call(null, b, 4, null), g = cljs.core.nth.call(null, b, 5, null), h = cljs.core.nth.call(null, b, 6, null), k = cljs.core.nth.call(null, b, 7, null), l = cljs.core.nth.call(null, b, 8, null), m = cljs.core.nth.call(null, b, 9, null), n = cljs.core.nth.call(null, b, 10, null);
-  if (cljs.core.not.call(null, b)) {
-    return cljs.reader.reader_error.call(null, null, [cljs.core.str("Unrecognized date/time syntax: "), cljs.core.str(a)].join(""));
-  }
-  a = cljs.reader.parse_int.call(null, c);
-  var b = function() {
-    var a = cljs.reader.parse_int.call(null, d);
-    return cljs.core.truth_(a) ? a : 1;
-  }(), c = function() {
-    var a = cljs.reader.parse_int.call(null, e);
-    return cljs.core.truth_(a) ? a : 1;
-  }(), r = function() {
-    var a = cljs.reader.parse_int.call(null, f);
-    return cljs.core.truth_(a) ? a : 0;
-  }(), p = function() {
-    var a = cljs.reader.parse_int.call(null, g);
-    return cljs.core.truth_(a) ? a : 0;
-  }(), s = function() {
-    var a = cljs.reader.parse_int.call(null, h);
-    return cljs.core.truth_(a) ? a : 0;
-  }(), q = function() {
-    var a = cljs.reader.parse_int.call(null, cljs.reader.zero_fill_right_and_truncate.call(null, k, 3));
-    return cljs.core.truth_(a) ? a : 0;
-  }(), l = cljs.core._EQ_.call(null, l, "-") ? -1 : 1, u = function() {
-    var a = cljs.reader.parse_int.call(null, m);
-    return cljs.core.truth_(a) ? a : 0;
-  }(), x = function() {
-    var a = cljs.reader.parse_int.call(null, n);
-    return cljs.core.truth_(a) ? a : 0;
-  }(), l = l * (60 * u + x);
-  return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [a, cljs.reader.check.call(null, 1, b, 12, "timestamp month field must be in range 1..12"), cljs.reader.check.call(null, 1, c, cljs.reader.days_in_month.call(null, b, cljs.reader.leap_year_QMARK_.call(null, a)), "timestamp day field must be in range 1..last day in month"), cljs.reader.check.call(null, 0, r, 23, "timestamp hour field must be in range 0..23"), cljs.reader.check.call(null, 0, p, 59, "timestamp minute field must be in range 0..59"), 
-  cljs.reader.check.call(null, 0, s, cljs.core._EQ_.call(null, p, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), cljs.reader.check.call(null, 0, q, 999, "timestamp millisecond field must be in range 0..999"), l], null);
-};
-cljs.reader.parse_timestamp = function(a) {
-  var b = cljs.reader.parse_and_validate_timestamp.call(null, a);
-  if (cljs.core.truth_(b)) {
-    a = cljs.core.nth.call(null, b, 0, null);
-    var c = cljs.core.nth.call(null, b, 1, null), d = cljs.core.nth.call(null, b, 2, null), e = cljs.core.nth.call(null, b, 3, null), f = cljs.core.nth.call(null, b, 4, null), g = cljs.core.nth.call(null, b, 5, null), h = cljs.core.nth.call(null, b, 6, null), b = cljs.core.nth.call(null, b, 7, null);
-    return new Date(Date.UTC(a, c - 1, d, e, f, g, h) - 6E4 * b);
-  }
-  return cljs.reader.reader_error.call(null, null, [cljs.core.str("Unrecognized date/time syntax: "), cljs.core.str(a)].join(""));
-};
-cljs.reader.read_date = function(a) {
-  return "string" === typeof a ? cljs.reader.parse_timestamp.call(null, a) : cljs.reader.reader_error.call(null, null, "Instance literal expects a string for its timestamp.");
-};
-cljs.reader.read_queue = function(a) {
-  return cljs.core.vector_QMARK_.call(null, a) ? cljs.core.into.call(null, cljs.core.PersistentQueue.EMPTY, a) : cljs.reader.reader_error.call(null, null, "Queue literal expects a vector for its elements.");
-};
-cljs.reader.read_js = function(a) {
-  if (cljs.core.vector_QMARK_.call(null, a)) {
-    var b = [];
-    a = cljs.core.seq.call(null, a);
-    for (var c = null, d = 0, e = 0;;) {
-      if (e < d) {
-        var f = cljs.core._nth.call(null, c, e);
-        b.push(f);
-        e += 1;
-      } else {
-        if (a = cljs.core.seq.call(null, a)) {
-          c = a, cljs.core.chunked_seq_QMARK_.call(null, c) ? (a = cljs.core.chunk_first.call(null, c), e = cljs.core.chunk_rest.call(null, c), c = a, d = cljs.core.count.call(null, a), a = e) : (a = cljs.core.first.call(null, c), b.push(a), a = cljs.core.next.call(null, c), c = null, d = 0), e = 0;
-        } else {
-          break;
-        }
-      }
-    }
-    return b;
-  }
-  if (cljs.core.map_QMARK_.call(null, a)) {
-    b = {};
-    a = cljs.core.seq.call(null, a);
-    c = null;
-    for (e = d = 0;;) {
-      if (e < d) {
-        var g = cljs.core._nth.call(null, c, e), f = cljs.core.nth.call(null, g, 0, null), g = cljs.core.nth.call(null, g, 1, null);
-        b[cljs.core.name.call(null, f)] = g;
-        e += 1;
-      } else {
-        if (a = cljs.core.seq.call(null, a)) {
-          cljs.core.chunked_seq_QMARK_.call(null, a) ? (d = cljs.core.chunk_first.call(null, a), a = cljs.core.chunk_rest.call(null, a), c = d, d = cljs.core.count.call(null, d)) : (d = cljs.core.first.call(null, a), c = cljs.core.nth.call(null, d, 0, null), d = cljs.core.nth.call(null, d, 1, null), b[cljs.core.name.call(null, c)] = d, a = cljs.core.next.call(null, a), c = null, d = 0), e = 0;
-        } else {
-          break;
-        }
-      }
-    }
-    return b;
-  }
-  return new cljs.core.Keyword(null, "else", "else", 1017020587) ? cljs.reader.reader_error.call(null, null, [cljs.core.str("JS literal expects a vector or map containing "), cljs.core.str("only string or unqualified keyword keys")].join("")) : null;
-};
-cljs.reader.read_uuid = function(a) {
-  return "string" === typeof a ? new cljs.core.UUID(a) : cljs.reader.reader_error.call(null, null, "UUID literal expects a string as its representation.");
-};
-cljs.reader._STAR_tag_table_STAR_ = cljs.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 4, ["inst", cljs.reader.read_date, "uuid", cljs.reader.read_uuid, "queue", cljs.reader.read_queue, "js", cljs.reader.read_js], null));
-cljs.reader._STAR_default_data_reader_fn_STAR_ = cljs.core.atom.call(null, null);
-cljs.reader.maybe_read_tagged_type = function(a, b) {
-  var c = cljs.reader.read_symbol.call(null, a, b), d = cljs.core.get.call(null, cljs.core.deref.call(null, cljs.reader._STAR_tag_table_STAR_), "" + cljs.core.str(c)), e = cljs.core.deref.call(null, cljs.reader._STAR_default_data_reader_fn_STAR_);
-  return cljs.core.truth_(d) ? d.call(null, cljs.reader.read.call(null, a, !0, null, !1)) : cljs.core.truth_(e) ? e.call(null, c, cljs.reader.read.call(null, a, !0, null, !1)) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? cljs.reader.reader_error.call(null, a, "Could not find tag parser for ", "" + cljs.core.str(c), " in ", cljs.core.pr_str.call(null, cljs.core.keys.call(null, cljs.core.deref.call(null, cljs.reader._STAR_tag_table_STAR_)))) : null;
-};
-cljs.reader.register_tag_parser_BANG_ = function(a, b) {
-  var c = "" + cljs.core.str(a), d = cljs.core.get.call(null, cljs.core.deref.call(null, cljs.reader._STAR_tag_table_STAR_), c);
-  cljs.core.swap_BANG_.call(null, cljs.reader._STAR_tag_table_STAR_, cljs.core.assoc, c, b);
-  return d;
-};
-cljs.reader.deregister_tag_parser_BANG_ = function(a) {
-  a = "" + cljs.core.str(a);
-  var b = cljs.core.get.call(null, cljs.core.deref.call(null, cljs.reader._STAR_tag_table_STAR_), a);
-  cljs.core.swap_BANG_.call(null, cljs.reader._STAR_tag_table_STAR_, cljs.core.dissoc, a);
-  return b;
-};
-cljs.reader.register_default_tag_parser_BANG_ = function(a) {
-  var b = cljs.core.deref.call(null, cljs.reader._STAR_default_data_reader_fn_STAR_);
-  cljs.core.swap_BANG_.call(null, cljs.reader._STAR_default_data_reader_fn_STAR_, function(b) {
-    return a;
-  });
-  return b;
-};
-cljs.reader.deregister_default_tag_parser_BANG_ = function() {
-  var a = cljs.core.deref.call(null, cljs.reader._STAR_default_data_reader_fn_STAR_);
-  cljs.core.swap_BANG_.call(null, cljs.reader._STAR_default_data_reader_fn_STAR_, function(a) {
-    return null;
-  });
-  return a;
-};
-qgame.interpreter = {};
-qgame.interpreter.warning = {};
-qgame.interpreter.warning.warnings = cljs.core.atom.call(null, cljs.core.PersistentVector.EMPTY);
-cljs.core.add_watch.call(null, qgame.interpreter.warning.warnings, new cljs.core.Keyword(null, "alert", "alert", 1106803918), function(a, b, c, d) {
-  a = cljs.core.subvec.call(null, d, cljs.core.count.call(null, c));
-  return cljs.core.map.call(null, alert, a);
-});
-qgame.interpreter.warning.problem_to_message = function() {
-  var a = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY), b = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY), c = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY), d = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY), e = cljs.core.get.call(null, cljs.core.PersistentArrayMap.EMPTY, new cljs.core.Keyword(null, "hierarchy", "hierarchy", 3129050535), cljs.core.get_global_hierarchy.call(null));
-  return new cljs.core.MultiFn("problem-to-message", function() {
-    var a = function(a, b) {
-      1 < arguments.length && cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0);
-      return a;
-    };
-    a.cljs$lang$maxFixedArity = 1;
-    a.cljs$lang$applyTo = function(a) {
-      var b = cljs.core.first(a);
-      cljs.core.rest(a);
+  return qgame.utils.math.round.call(null, qgame.utils.math.math.eval.call(null, a), 9);
+};
+qgame.utils.general = {};
+qgame.utils.general.update_sub = function(a, b, c) {
+  return cljs.core.reduce_kv.call(null, cljs.core.assoc, a, cljs.core.zipmap.call(null, c, b.call(null, cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core.get, a), c))));
+};
+qgame.utils.general.itermap = function itermap(b, c, d) {
+  var e = cljs.core.seq.call(null, d);
+  return e ? itermap.call(null, b, cljs.core.concat.call(null, c, cljs.core.map.call(null, function(c) {
+    return b.call(null, c, cljs.core.first.call(null, e));
+  }, c)), cljs.core.rest.call(null, e)) : c;
+};
+qgame.utils.general.bit_size = function(a) {
+  for (var b = 1;;) {
+    if (a <= 1 << b) {
       return b;
-    };
-    a.cljs$core$IFn$_invoke$arity$variadic = function(a, b) {
-      return a;
-    };
-    return a;
-  }(), new cljs.core.Keyword(null, "default", "default", 2558708147), e, a, b, c, d);
-}();
-cljs.core._add_method.call(null, qgame.interpreter.warning.problem_to_message, new cljs.core.Keyword(null, "extra-end", "extra-end", 759430416), function(a) {
-  return "Extra '(end)' encountered";
-});
-cljs.core._add_method.call(null, qgame.interpreter.warning.problem_to_message, new cljs.core.Keyword(null, "lingering-status", "lingering-status", 1716493074), function(a, b) {
-  return cljs.core._EQ_.call(null, "else_clause", b) ? "Some '(measure)' missing an '(end)'" : cljs.core._EQ_.call(null, "then_clause", b) ? "Some '(measure)' missing two '(end)'s" : new cljs.core.Keyword(null, "else", "else", 1017020587) ? [cljs.core.str("Lingering status: "), cljs.core.str(b)].join("") : null;
-});
-qgame.interpreter.warning.warn_BANG_ = function() {
-  var a = function(a, b, e) {
-    a = [cljs.core.str("Warning while "), cljs.core.str(cljs.core.name.call(null, a)), cljs.core.str(": "), cljs.core.str(cljs.core.apply.call(null, qgame.interpreter.warning.problem_to_message, b, e))].join("");
-    return cljs.core.swap_BANG_.call(null, qgame.interpreter.warning.warnings, cljs.core.conj, a);
-  }, b = function(b, d, e) {
-    var f = null;
-    2 < arguments.length && (f = cljs.core.array_seq(Array.prototype.slice.call(arguments, 2), 0));
-    return a.call(this, b, d, f);
+    }
+    b += 1;
+  }
+};
+qgame.utils.general.anywhere_QMARK_ = function anywhere_QMARK_(b, c) {
+  var d = b.call(null, c);
+  return cljs.core.truth_(d) ? d : (d = cljs.core.coll_QMARK_.call(null, c)) ? cljs.core.some.call(null, cljs.core.partial.call(null, anywhere_QMARK_, b), c) : d;
+};
+qgame.utils.general.regex_join = function() {
+  var a = function(a) {
+    return cljs.core.re_pattern.call(null, cljs.core.apply.call(null, cljs.core.str, cljs.core.map.call(null, function(a) {
+      var b = a.source;
+      return cljs.core.truth_(b) ? b : a;
+    }, a)));
+  }, b = function(b) {
+    var d = null;
+    0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+    return a.call(this, d);
   };
-  b.cljs$lang$maxFixedArity = 2;
+  b.cljs$lang$maxFixedArity = 0;
   b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var e = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, e, b);
+    b = cljs.core.seq(b);
+    return a(b);
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }();
-qgame.interpreter.parser = {};
-qgame.interpreter.parser.parse_instruction = function(a, b) {
-  var c = cljs.core.nth.call(null, a, 0, null), d = cljs.core.nth.call(null, b, 0, null);
-  if (cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "end", "end", -1640430956, null), c)) {
-    if (cljs.core._EQ_.call(null, "else_clause", d)) {
-      return cljs.core.list(new cljs.core.Symbol(null, "end", "end", -1640430956, null));
-    }
-    if (cljs.core._EQ_.call(null, "then_clause", d)) {
-      return cljs.core.list(new cljs.core.Symbol(null, "else", "else", -1637415182, null));
-    }
-    if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
-      throw Error([cljs.core.str("No matching clause: "), cljs.core.str(d)].join(""));
-    }
-    return null;
-  }
-  return a;
+qgame.utils.general.errant_QMARK_ = function(a) {
+  return qgame.utils.general.anywhere_QMARK_.call(null, cljs.core.every_pred.call(null, cljs.core.map_QMARK_, new cljs.core.Keyword(null, "error", "error", 1110689146)), a);
 };
-qgame.interpreter.parser.revise_on_end = function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nthnext.call(null, a, 1);
-  if (cljs.core.empty_QMARK_.call(null, a)) {
-    return qgame.interpreter.warning.warn_BANG_.call(null, new cljs.core.Keyword(null, "parsing", "parsing", 4515908130), new cljs.core.Keyword(null, "extra-end", "extra-end", 759430416)), a;
+clojure.string = {};
+clojure.string.seq_reverse = function(a) {
+  return cljs.core.reduce.call(null, cljs.core.conj, cljs.core.List.EMPTY, a);
+};
+clojure.string.reverse = function(a) {
+  return a.split("").reverse().join("");
+};
+clojure.string.replace = function(a, b, c) {
+  if ("string" === typeof b) {
+    return a.replace(RegExp(goog.string.regExpEscape(b), "g"), c);
   }
-  if (cljs.core._EQ_.call(null, "else_clause", b)) {
-    return c;
-  }
-  if (cljs.core._EQ_.call(null, "then_clause", b)) {
-    return cljs.core.cons.call(null, "else_clause", c);
+  if (cljs.core.truth_(b.hasOwnProperty("source"))) {
+    return a.replace(RegExp(b.source, "g"), c);
   }
   if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
-    throw Error([cljs.core.str("No matching clause: "), cljs.core.str(b)].join(""));
+    throw[cljs.core.str("Invalid match arg: "), cljs.core.str(b)].join("");
   }
   return null;
 };
-qgame.interpreter.parser.revise = function(a, b) {
-  var c = cljs.core.nth.call(null, b, 0, null);
-  return cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "end", "end", -1640430956, null), c) ? qgame.interpreter.parser.revise_on_end.call(null, a) : cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "else", "else", -1637415182, null), c) ? cljs.core.cons.call(null, "else_clause", cljs.core.rest.call(null, a)) : cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "measure", "measure", -702210281, null), c) ? cljs.core.cons.call(null, "then_clause", a) : new cljs.core.Keyword(null, "else", 
-  "else", 1017020587) ? a : null;
+clojure.string.replace_first = function(a, b, c) {
+  return a.replace(b, c);
 };
-qgame.interpreter.parser.parse_program = function(a) {
-  var b = cljs.core.List.EMPTY, c = cljs.core.PersistentVector.EMPTY;
-  cljs.core.nth.call(null, a, 0, null);
-  cljs.core.nthnext.call(null, a, 1);
-  for (var d = a;;) {
-    a = b;
-    var b = c, e = cljs.core.nth.call(null, d, 0, null), c = cljs.core.nthnext.call(null, d, 1);
-    if (cljs.core.empty_QMARK_.call(null, d)) {
-      a = cljs.core.seq.call(null, a);
-      c = null;
-      for (e = d = 0;;) {
-        if (e < d) {
-          var f = cljs.core._nth.call(null, c, e);
-          qgame.interpreter.warning.warn_BANG_.call(null, new cljs.core.Keyword(null, "parsing", "parsing", 4515908130), new cljs.core.Keyword(null, "lingering-status", "lingering-status", 1716493074), f);
-          e += 1;
-        } else {
-          if (a = cljs.core.seq.call(null, a)) {
-            c = a, cljs.core.chunked_seq_QMARK_.call(null, c) ? (a = cljs.core.chunk_first.call(null, c), e = cljs.core.chunk_rest.call(null, c), c = a, d = cljs.core.count.call(null, a), a = e) : (a = cljs.core.first.call(null, c), qgame.interpreter.warning.warn_BANG_.call(null, new cljs.core.Keyword(null, "parsing", "parsing", 4515908130), new cljs.core.Keyword(null, "lingering-status", "lingering-status", 1716493074), a), a = cljs.core.next.call(null, c), c = null, d = 0), e = 0;
-          } else {
-            break;
-          }
-        }
-      }
-      return cljs.core.seq.call(null, b);
+clojure.string.join = function() {
+  var a = null, b = function(a) {
+    return cljs.core.apply.call(null, cljs.core.str, a);
+  }, c = function(a, b) {
+    return cljs.core.apply.call(null, cljs.core.str, cljs.core.interpose.call(null, a, b));
+  }, a = function(a, e) {
+    switch(arguments.length) {
+      case 1:
+        return b.call(this, a);
+      case 2:
+        return c.call(this, a, e);
     }
-    d = qgame.interpreter.parser.revise.call(null, a, e);
-    a = cljs.core.conj.call(null, b, qgame.interpreter.parser.parse_instruction.call(null, e, a));
-    e = c;
-    b = d;
-    c = a;
-    d = e;
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$1 = b;
+  a.cljs$core$IFn$_invoke$arity$2 = c;
+  return a;
+}();
+clojure.string.upper_case = function(a) {
+  return a.toUpperCase();
+};
+clojure.string.lower_case = function(a) {
+  return a.toLowerCase();
+};
+clojure.string.capitalize = function(a) {
+  return 2 > cljs.core.count.call(null, a) ? clojure.string.upper_case.call(null, a) : [cljs.core.str(clojure.string.upper_case.call(null, cljs.core.subs.call(null, a, 0, 1))), cljs.core.str(clojure.string.lower_case.call(null, cljs.core.subs.call(null, a, 1)))].join("");
+};
+clojure.string.pop_last_while_empty = function(a) {
+  for (;;) {
+    if (cljs.core._EQ_.call(null, "", cljs.core.peek.call(null, a))) {
+      a = cljs.core.pop.call(null, a);
+    } else {
+      return a;
+    }
   }
 };
-qgame.interpreter.parser.parse_string = function(a) {
-  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), 2], null), qgame.interpreter.parser.parse_program.call(null, cljs.reader.read_string.call(null, a))], null);
+clojure.string.discard_trailing_if_needed = function(a, b) {
+  return cljs.core._EQ_.call(null, 0, a) ? clojure.string.pop_last_while_empty.call(null, b) : b;
+};
+clojure.string.split_with_empty_regex = function(a, b) {
+  if (0 >= b || b >= 2 + cljs.core.count.call(null, a)) {
+    return cljs.core.conj.call(null, cljs.core.vec.call(null, cljs.core.cons.call(null, "", cljs.core.map.call(null, cljs.core.str, cljs.core.seq.call(null, a)))), "");
+  }
+  var c = cljs.core._EQ_;
+  if (cljs.core.truth_(c.call(null, 1, b))) {
+    return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [a], null);
+  }
+  if (cljs.core.truth_(c.call(null, 2, b))) {
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["", a], null);
+  }
+  c = b - 2;
+  return cljs.core.conj.call(null, cljs.core.vec.call(null, cljs.core.cons.call(null, "", cljs.core.subvec.call(null, cljs.core.vec.call(null, cljs.core.map.call(null, cljs.core.str, cljs.core.seq.call(null, a))), 0, c))), cljs.core.subs.call(null, a, c));
+};
+clojure.string.split = function() {
+  var a = null, b = function(b, c) {
+    return a.call(null, b, c, 0);
+  }, c = function(a, b, c) {
+    return clojure.string.discard_trailing_if_needed.call(null, c, cljs.core._EQ_.call(null, "" + cljs.core.str(b), "/(?:)/") ? clojure.string.split_with_empty_regex.call(null, a, c) : 1 > c ? cljs.core.vec.call(null, ("" + cljs.core.str(a)).split(b)) : function() {
+      for (var g = a, h = c, k = cljs.core.PersistentVector.EMPTY;;) {
+        if (cljs.core._EQ_.call(null, h, 1)) {
+          return cljs.core.conj.call(null, k, g);
+        }
+        var l = cljs.core.re_find.call(null, b, g);
+        if (cljs.core.truth_(l)) {
+          var m = l, l = g.indexOf(m), m = g.substring(l + cljs.core.count.call(null, m)), h = h - 1, k = cljs.core.conj.call(null, k, g.substring(0, l)), g = m
+        } else {
+          return cljs.core.conj.call(null, k, g);
+        }
+      }
+    }());
+  }, a = function(a, e, f) {
+    switch(arguments.length) {
+      case 2:
+        return b.call(this, a, e);
+      case 3:
+        return c.call(this, a, e, f);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$2 = b;
+  a.cljs$core$IFn$_invoke$arity$3 = c;
+  return a;
+}();
+clojure.string.split_lines = function(a) {
+  return clojure.string.split.call(null, a, /\n|\r\n/);
+};
+clojure.string.trim = function(a) {
+  return goog.string.trim(a);
+};
+clojure.string.triml = function(a) {
+  return goog.string.trimLeft(a);
+};
+clojure.string.trimr = function(a) {
+  return goog.string.trimRight(a);
+};
+clojure.string.trim_newline = function(a) {
+  for (var b = a.length;;) {
+    if (0 === b) {
+      return "";
+    }
+    var c = cljs.core.get.call(null, a, b - 1);
+    if (cljs.core._EQ_.call(null, c, "\n") || cljs.core._EQ_.call(null, c, "\r")) {
+      b -= 1;
+    } else {
+      return a.substring(0, b);
+    }
+  }
+};
+clojure.string.blank_QMARK_ = function(a) {
+  return goog.string.isEmptySafe(a);
+};
+clojure.string.escape = function(a, b) {
+  for (var c = new goog.string.StringBuffer, d = a.length, e = 0;;) {
+    if (cljs.core._EQ_.call(null, d, e)) {
+      return c.toString();
+    }
+    var f = a.charAt(e), g = cljs.core.get.call(null, b, f);
+    cljs.core.truth_(g) ? c.append("" + cljs.core.str(g)) : c.append(f);
+    e += 1;
+  }
 };
 qgame.utils.amplitudes = {};
 qgame.utils.amplitudes.get_num_qubits = function(a) {
@@ -26630,8 +20271,11 @@ qgame.utils.amplitudes.amplitude_to_probability = function(a) {
   a = qgame.utils.math.abs.call(null, a);
   return qgame.utils.math.multiply.call(null, a, a);
 };
+qgame.utils.amplitudes.amplitudes_to_probability = function(a) {
+  return cljs.core.reduce.call(null, cljs.core._PLUS_, cljs.core.map.call(null, qgame.utils.amplitudes.amplitude_to_probability, a));
+};
 qgame.utils.amplitudes.qubits_to_amplitude_indices = function(a, b) {
-  var c = cljs.core.remove.call(null, cljs.core.set.call(null, a), cljs.core.range.call(null, b));
+  var c = cljs.core.remove.call(null, cljs.core.reduce.call(null, cljs.core.conj, cljs.core.PersistentHashSet.EMPTY, a), cljs.core.range.call(null, b));
   return function e(b) {
     return new cljs.core.LazySeq(null, function() {
       for (;;) {
@@ -26671,21 +20315,96 @@ qgame.utils.amplitudes.probability_of = function(a, b, c) {
   a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714));
   b = qgame.utils.amplitudes.qubit_state_amplitudes.call(null, a, b, c);
-  b = cljs.core.map.call(null, qgame.utils.amplitudes.amplitude_to_probability, b);
-  return cljs.core.reduce.call(null, cljs.core._PLUS_, b);
+  return qgame.utils.amplitudes.amplitudes_to_probability.call(null, b);
 };
-qgame.utils.amplitudes.get_phase_of = function(a, b, c) {
+qgame.utils.amplitudes.phase_of = function(a, b, c) {
   a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714));
   b = qgame.utils.amplitudes.qubit_state_amplitudes.call(null, a, b, c);
   b = cljs.core.reduce.call(null, qgame.utils.math.add, b);
-  return qgame.utils.math.phase.call(null, b);
+  return qgame.utils.math.to_phase.call(null, b);
 };
-qgame.interpreter.qgates = {};
-qgame.interpreter.qgates.apply_operator = function(a, b, c) {
-  return cljs.core.reduce.call(null, b, a, qgame.utils.amplitudes.qubits_to_amplitude_indices.call(null, c, qgame.utils.amplitudes.get_num_qubits.call(null, a)));
+qgame.utils.amplitudes.substate_amplitudes = function(a, b) {
+  var c = cljs.core.keys.call(null, b), d = cljs.core.remove.call(null, cljs.core.set.call(null, c), cljs.core.range.call(null, qgame.utils.amplitudes.get_num_qubits.call(null, a))), c = cljs.core.keep.call(null, function(a, b) {
+    return function(a) {
+      var b = cljs.core.nth.call(null, a, 0, null);
+      return 0 === cljs.core.nth.call(null, a, 1, null) ? null : b;
+    };
+  }(c, d), b), c = cljs.core.reduce.call(null, cljs.core.bit_flip, 0, c), d = qgame.utils.general.itermap.call(null, cljs.core.bit_flip, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [c], null), d);
+  return cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core.get, a), d);
 };
-qgame.interpreter.qgates.to_operator = function(a) {
+qgame.utils.amplitudes.inner_amplitudes = function(a, b) {
+  var c = cljs.core.zipmap.call(null, b, cljs.core.repeat.call(null, 0)), d = cljs.core.zipmap.call(null, b, cljs.core.repeat.call(null, 1)), c = qgame.utils.general.itermap.call(null, cljs.core.conj, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [c], null), d);
+  return cljs.core.mapv.call(null, cljs.core.partial.call(null, qgame.utils.amplitudes.substate_amplitudes, a), c);
+};
+qgame.utils.amplitudes.self_conj_outer_prod = function(a) {
+  a = cljs.core.mapv.call(null, cljs.core.vector, a);
+  var b = qgame.utils.math.conjugate_transpose.call(null, a);
+  return qgame.utils.math.multiply.call(null, a, b);
+};
+qgame.utils.amplitudes.density_matrix = function(a, b) {
+  var c = qgame.utils.amplitudes.inner_amplitudes.call(null, a, b), c = cljs.core.mapv.call(null, qgame.utils.amplitudes.amplitudes_to_probability, c);
+  return qgame.utils.amplitudes.self_conj_outer_prod.call(null, c);
+};
+qgame.utils.amplitudes.tangle_of = function(a, b, c) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714));
+  c = qgame.utils.amplitudes.density_matrix.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null));
+  b = cljs.core.mapv.call(null, function(a) {
+    return function(a) {
+      return cljs.core.subvec.call(null, a, 0, 2);
+    };
+  }(c), cljs.core.subvec.call(null, c, 0, 2));
+  c = cljs.core.mapv.call(null, function(a, b) {
+    return function(a) {
+      return cljs.core.subvec.call(null, a, 2);
+    };
+  }(c, b), cljs.core.subvec.call(null, c, 2));
+  b = qgame.utils.math.add.call(null, b, c);
+  return 4 * qgame.utils.math.det.call(null, b);
+};
+qgame.simulator = {};
+qgame.simulator.flow = {};
+qgame.simulator.flow.force_to = function(a, b, c) {
+  a = cljs.core.assoc_in.call(null, cljs.core.update_in.call(null, a, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "measurement-history", "measurement-history", 2775390965)], null), cljs.core.conj, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "prior-probability", "prior-probability", 
+  4421087524)], null), qgame.utils.amplitudes.probability_of.call(null, a, b, c));
+  b = qgame.utils.amplitudes.qubits_to_amplitude_indices.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [b], null), qgame.utils.amplitudes.get_num_qubits.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(a)));
+  b = cljs.core.map.call(null, function(a, b, f) {
+    return function(a) {
+      return cljs.core.nth.call(null, a, 1 - c);
+    };
+  }(0, a, b), b);
+  return 0 < (new cljs.core.Keyword(null, "prior-probability", "prior-probability", 4421087524)).cljs$core$IFn$_invoke$arity$1(a) ? cljs.core.update_in.call(null, a, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)], null), qgame.utils.general.update_sub, cljs.core.constantly.call(null, cljs.core.repeat.call(null, 0)), b) : null;
+};
+qgame.simulator.flow.force_and_split = function(a, b) {
+  var c = cljs.core.nth.call(null, a, 0, null), d = cljs.core.nthnext.call(null, a, 1), e = cljs.core.keep.call(null, function(a) {
+    return qgame.simulator.flow.force_to.call(null, a, b, 1);
+  }, c), c = cljs.core.keep.call(null, function(a) {
+    return function(a) {
+      return qgame.simulator.flow.force_to.call(null, a, b, 0);
+    };
+  }(e), c);
+  return cljs.core.into.call(null, d, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.not_empty.call(null, e), cljs.core.not_empty.call(null, c)], null));
+};
+qgame.simulator.flow.swap_first_two = function(a) {
+  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null);
+  a = cljs.core.nthnext.call(null, a, 2);
+  return cljs.core.into.call(null, a, cljs.core.take_while.call(null, cljs.core.identity, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null)));
+};
+qgame.simulator.flow.concat_first_two = function(a) {
+  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null);
+  a = cljs.core.nthnext.call(null, a, 2);
+  return cljs.core.cons.call(null, cljs.core.into.call(null, c, b), a);
+};
+qgame.simulator.flow.measure = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "FlowControl", "FlowControl", 825984929), new cljs.core.Keyword(null, "name", "name", 1017277949), "measure"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.flow.force_and_split, new cljs.core.Keyword(null, 
+"num-qubits", "num-qubits", 1175408835), 1], null);
+qgame.simulator.flow.else$ = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "FlowControl", "FlowControl", 825984929), new cljs.core.Keyword(null, "name", "name", 1017277949), "else"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.flow.swap_first_two], null);
+qgame.simulator.flow.end = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "FlowControl", "FlowControl", 825984929), new cljs.core.Keyword(null, "name", "name", 1017277949), "end"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.flow.concat_first_two], null);
+qgame.simulator.qgates = {};
+qgame.simulator.qgates.apply_operator = function(a, b, c) {
+  return cljs.core.reduce.call(null, b, a, qgame.utils.amplitudes.qubits_to_amplitude_indices.call(null, cljs.core.reverse.call(null, c), qgame.utils.amplitudes.get_num_qubits.call(null, a)));
+};
+qgame.simulator.qgates.to_operator = function(a) {
   if (!qgame.utils.math.square_QMARK_.call(null, a)) {
     throw Error([cljs.core.str("Assert failed: "), cljs.core.str(cljs.core.pr_str.call(null, cljs.core.list(new cljs.core.Symbol("m", "square?", "m/square?", 689332155, null), new cljs.core.Symbol(null, "matrix", "matrix", 1573196154, null))))].join(""));
   }
@@ -26696,16 +20415,16 @@ qgame.interpreter.qgates.to_operator = function(a) {
     return qgame.utils.general.update_sub.call(null, b, cljs.core.partial.call(null, qgame.utils.math.multiply, a), c);
   };
 };
-qgame.interpreter.qgates.binary_gate_matrix = function(a) {
+qgame.simulator.qgates.binary_gate_matrix = function(a) {
   var b = 2 * cljs.core.count.call(null, a);
   return cljs.core.vec.call(null, cljs.core.map_indexed.call(null, function(a, d) {
     return cljs.core.assoc.call(null, cljs.core.vec.call(null, cljs.core.repeat.call(null, b, 0)), (cljs.core.even_QMARK_.call(null, a) ? cljs.core._PLUS_ : cljs.core._).call(null, a, d), 1);
   }, cljs.core.interleave.call(null, a, a)));
 };
-qgame.interpreter.qgates.anonymous_qgate = function(a) {
+qgame.simulator.qgates.anonymous_qgate = function(a) {
   return function() {
     var b = function(b, c) {
-      return qgame.interpreter.qgates.apply_operator.call(null, b, qgame.interpreter.qgates.to_operator.call(null, a), c);
+      return qgame.simulator.qgates.apply_operator.call(null, b, qgame.simulator.qgates.to_operator.call(null, a), c);
     }, c = function(a, c) {
       var f = null;
       1 < arguments.length && (f = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26721,9 +20440,30 @@ qgame.interpreter.qgates.anonymous_qgate = function(a) {
     return c;
   }();
 };
-qgame.interpreter.qgates.qnot = function() {
+qgame.simulator.qgates.to_oracle = function() {
+  var a = function(a) {
+    return new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Oracle", "Oracle", 3383876880), new cljs.core.Keyword(null, "name", "name", 1017277949), "oracle"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.qgates.anonymous_qgate.call(null, qgame.simulator.qgates.binary_gate_matrix.call(null, 
+    a)), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, a)) + 1, new cljs.core.Keyword(null, "tt-right-column", "tt-right-column", 1264893382), a], null);
+  }, b = function(b) {
+    var d = null;
+    0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+    return a.call(this, d);
+  };
+  b.cljs$lang$maxFixedArity = 0;
+  b.cljs$lang$applyTo = function(b) {
+    b = cljs.core.seq(b);
+    return a(b);
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b;
+}();
+qgame.simulator.qgates.with_oracle = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "ParseTime", "ParseTime", 1184785266), new cljs.core.Keyword(null, "name", "name", 1017277949), "with_oracle"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.qgates.to_oracle], null);
+var dummy_matrix__4816__auto___6034 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null), num_qubits__4817__auto___6035 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6034));
+qgame.simulator.qgates.qnot = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null)), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6035, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null)), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26737,11 +20477,17 @@ qgame.interpreter.qgates.qnot = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}();
-qgame.interpreter.qgates.cnot = function() {
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "qnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6035], 
+null);
+var dummy_matrix__4816__auto___6040 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 1, 0], null)], null), num_qubits__4817__auto___6041 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6040));
+qgame.simulator.qgates.cnot = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 0, 1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), 
-    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null)], null)), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6041, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), 
+    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null)], null)), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26755,11 +20501,16 @@ qgame.interpreter.qgates.cnot = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}();
-qgame.interpreter.qgates.srn = function() {
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "cnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6041], 
+null);
+var dummy_matrix__4816__auto___6046 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt2, 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null)), num_qubits__4817__auto___6047 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, 
+dummy_matrix__4816__auto___6046));
+qgame.simulator.qgates.srn = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "divide", "m/divide", 1322979808, null), new cljs.core.Symbol("m", "sqrt2", "m/sqrt2", -1530839989, null), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 
+5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], 
-    null))), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6047, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt2, 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null))), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26773,10 +20524,14 @@ qgame.interpreter.qgates.srn = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}();
-qgame.interpreter.qgates.nand = function() {
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "srn", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6047], 
+null);
+var dummy_matrix__4816__auto___6052 = qgame.simulator.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null)), num_qubits__4817__auto___6053 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6052));
+qgame.simulator.qgates.nand = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol(null, "binary-gate-matrix", "binary-gate-matrix", 1177512176, null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, qgame.interpreter.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null))), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6053, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.simulator.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null))), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26790,11 +20545,17 @@ qgame.interpreter.qgates.nand = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}();
-qgame.interpreter.qgates.hadamard = function() {
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "nand", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6053], 
+null);
+var dummy_matrix__4816__auto___6058 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], null)), num_qubits__4817__auto___6059 = qgame.utils.general.bit_size.call(null, 
+cljs.core.count.call(null, dummy_matrix__4816__auto___6058));
+qgame.simulator.qgates.hadamard = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "divide", "m/divide", 1322979808, null), cljs.core.list(new cljs.core.Symbol("m", "sqrt", "m/sqrt", -1636986279, null), 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 
+2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], 
-    null))), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6059, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], 
+    null))), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26808,78 +20569,19 @@ qgame.interpreter.qgates.hadamard = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}();
-qgame.interpreter.qgates.u_theta = function() {
-  var a = function(a, b, e) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.cos.call(null, b), qgame.utils.math.sin.call(null, b)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.subtract.call(null, qgame.utils.math.sin.call(null, 
-    b)), qgame.utils.math.cos.call(null, b)], null)], null)), e);
-  }, b = function(b, d, e) {
-    var f = null;
-    2 < arguments.length && (f = cljs.core.array_seq(Array.prototype.slice.call(arguments, 2), 0));
-    return a.call(this, b, d, f);
-  };
-  b.cljs$lang$maxFixedArity = 2;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var e = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, e, b);
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b;
-}();
-qgame.interpreter.qgates.cphase = function() {
-  var a = function(a, b, e) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), 
-    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, qgame.utils.math.exp_xi.call(null, b)], null)], null)), e);
-  }, b = function(b, d, e) {
-    var f = null;
-    2 < arguments.length && (f = cljs.core.array_seq(Array.prototype.slice.call(arguments, 2), 0));
-    return a.call(this, b, d, f);
-  };
-  b.cljs$lang$maxFixedArity = 2;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var e = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, e, b);
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b;
-}();
-qgame.interpreter.qgates.u2 = function() {
-  var a = function(a, b, e, f, g, h) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, e), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), qgame.utils.math.subtract.call(null, f), 
-    g))), qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, qgame.utils.math.subtract.call(null, e)), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), f, g)))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, e), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, b, qgame.utils.math.subtract.call(null, 
-    f), g))), qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, e), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, b, f, g)))], null)], null)), h);
-  }, b = function(b, d, e, f, g, h) {
-    var k = null;
-    5 < arguments.length && (k = cljs.core.array_seq(Array.prototype.slice.call(arguments, 5), 0));
-    return a.call(this, b, d, e, f, g, k);
-  };
-  b.cljs$lang$maxFixedArity = 5;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var e = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var f = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var g = cljs.core.first(b);
-    b = cljs.core.next(b);
-    var h = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, e, f, g, h, b);
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b;
-}();
-qgame.interpreter.qgates.swap = function() {
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "hadamard", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6059], 
+null);
+var dummy_matrix__4816__auto___6065 = function() {
+  var a = cljs.core.repeat.call(null, 1), a = cljs.core.nth.call(null, a, 0, null);
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.cos.call(null, a), qgame.utils.math.sin.call(null, a)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.subtract.call(null, qgame.utils.math.sin.call(null, a)), qgame.utils.math.cos.call(null, a)], null)], null);
+}(), num_qubits__4817__auto___6066 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6065));
+qgame.simulator.qgates.utheta = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "sin", 
+"m/sin", -1640410751, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), cljs.core.list(new cljs.core.Symbol("m", "sin", "m/sin", -1640410751, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, 
+"theta", "theta", -1530204073, null))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    return qgame.interpreter.qgates.apply_operator.call(null, a, qgame.interpreter.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), 
-    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null)], null)), b);
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6066, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.cos.call(null, e), qgame.utils.math.sin.call(null, e)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.subtract.call(null, qgame.utils.math.sin.call(null, 
+    e)), qgame.utils.math.cos.call(null, e)], null)], null)), f);
   }, b = function(b, d) {
     var e = null;
     1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
@@ -26893,96 +20595,516 @@ qgame.interpreter.qgates.swap = function() {
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "utheta", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 
+1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6066], null);
+var dummy_matrix__4816__auto___6072 = function() {
+  var a = cljs.core.repeat.call(null, 1), a = cljs.core.nth.call(null, a, 0, null);
+  return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, qgame.utils.math.exp_xi.call(null, 
+  a)], null)], null);
+}(), num_qubits__4817__auto___6073 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6072));
+qgame.simulator.qgates.cphase = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
+  var a = function(a, b) {
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6073, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), 
+    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, qgame.utils.math.exp_xi.call(null, e)], null)], null)), f);
+  }, b = function(b, d) {
+    var e = null;
+    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e);
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b);
+    b = cljs.core.rest(b);
+    return a(d, b);
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b;
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "cphase", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 
+1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6073], null);
+var dummy_matrix__4816__auto___6079 = function() {
+  var a = cljs.core.repeat.call(null, 1), b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null), d = cljs.core.nth.call(null, a, 2, null), a = cljs.core.nth.call(null, a, 3, null);
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, c), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), qgame.utils.math.subtract.call(null, d), a))), qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, qgame.utils.math.subtract.call(null, 
+  c)), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), d, a)))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, c), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, b, qgame.utils.math.subtract.call(null, d), a))), qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, c), qgame.utils.math.exp_xi.call(null, 
+  qgame.utils.math.add.call(null, b, d, a)))], null)], null);
+}(), num_qubits__4817__auto___6080 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6079));
+qgame.simulator.qgates.u2 = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", 
+"theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null)), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null)), new cljs.core.Symbol(null, 
+"alpha", "alpha", -1547621609, null)))), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "sin", "m/sin", -1640410751, null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, 
+null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null)), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null))))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", 
+"sin", "m/sin", -1640410751, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null)), new cljs.core.Symbol(null, "alpha", 
+"alpha", -1547621609, null)))), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null), new cljs.core.Symbol(null, 
+"psi", "psi", -1640420225, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null))))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
+  var a = function(a, b) {
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6080, b), f = cljs.core.nth.call(null, e, 0, null), g = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, g, 0, null), h = cljs.core.nth.call(null, g, 1, null), k = cljs.core.nth.call(null, g, 2, null), g = cljs.core.nth.call(null, g, 3, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, e), qgame.utils.math.subtract.call(null, k), g))), 
+    qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, qgame.utils.math.subtract.call(null, h)), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, e), k, g)))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, e, qgame.utils.math.subtract.call(null, 
+    k), g))), qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, e, k, g)))], null)], null)), f);
+  }, b = function(b, d) {
+    var e = null;
+    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e);
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b);
+    b = cljs.core.rest(b);
+    return a(d, b);
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b;
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "phi", "phi", -1640420566, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 
+2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "u2", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6080], null);
+var dummy_matrix__4816__auto___6085 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 0, 1], null)], null), num_qubits__4817__auto___6086 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4816__auto___6085));
+qgame.simulator.qgates.swap = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
+  var a = function(a, b) {
+    var e = cljs.core.split_at.call(null, num_qubits__4817__auto___6086, b), f = cljs.core.nth.call(null, e, 0, null);
+    cljs.core.nth.call(null, e, 1, null);
+    return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), 
+    new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null)], null)), f);
+  }, b = function(b, d) {
+    var e = null;
+    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e);
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b);
+    b = cljs.core.rest(b);
+    return a(d, b);
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b;
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "swap", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4817__auto___6086], 
+null);
+qgame.simulator.shared = {};
+qgame.simulator.shared.stage = cljs.core.atom.call(null, "Interpretation");
+qgame.simulator.shared.current_qgame_fn = cljs.core.atom.call(null, null);
+qgame.simulator.shared.canonical_functions = cljs.core.atom.call(null, cljs.core.PersistentHashMap.fromArrays("qnot nand utheta srn cnot swap with_oracle cphase else end hadamard u2 measure oracle".split(" "), [qgame.simulator.qgates.qnot, qgame.simulator.qgates.nand, qgame.simulator.qgates.utheta, qgame.simulator.qgates.srn, qgame.simulator.qgates.cnot, qgame.simulator.qgates.swap, qgame.simulator.qgates.with_oracle, qgame.simulator.qgates.cphase, qgame.simulator.flow.else$, qgame.simulator.flow.end, 
+qgame.simulator.qgates.hadamard, qgame.simulator.qgates.u2, qgame.simulator.flow.measure, null]));
+qgame.simulator.shared.on_error = cljs.core.atom.call(null, null);
+qgame.simulator.parser = {};
+qgame.simulator.parser.qubit_letter_to_index = function(a) {
+  return "ABCDEFGHIJKLMNOPQRST".indexOf(a);
+};
+qgame.simulator.parser.match_only = function(a, b) {
+  return cljs.core.re_find.call(null, qgame.utils.general.regex_join.call(null, "^", a, "$"), b);
+};
+qgame.simulator.parser.word_pattern = /\b[a-zA-Z_]\w*\b/;
+qgame.simulator.parser.math_string_pattern = /(?:\w*[\-.+*\/^()]\w*)+/;
+qgame.simulator.parser.parse_forget_rule = function(a, b) {
+  var c = cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Rule", "Rule", 1016462990), new cljs.core.Keyword(null, "forget", "forget", 4040086879), !0, new cljs.core.Keyword(null, "name-target", "name-target", 4218974853), b), d = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.word_pattern, b);
+  if (cljs.core.truth_(d)) {
+    return c;
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Target is not a word", c);
+};
+qgame.simulator.parser.parse_name_rule = function(a, b, c) {
+  var d = cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Rule", "Rule", 1016462990), new cljs.core.Keyword(null, "replace-name", "replace-name", 1428647286), b, new cljs.core.Keyword(null, "target", "target", 4427965699), c), e = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.word_pattern, b);
+  if (cljs.core.truth_(e)) {
+    return d;
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Name is not a word", d);
+};
+qgame.simulator.parser.parse_bite = function(a) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "text", "text", 1017460895)), c = function(a) {
+    return cljs.core._EQ_.call(null, cljs.core.count.call(null, a), 1);
+  }.call(null, clojure.string.split.call(null, b, /:/, 2)) ? null : clojure.string.split.call(null, b, /:/, 2);
+  return cljs.core.truth_(c) ? (b = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), cljs.core._EQ_.call(null, b, "forget") ? qgame.simulator.parser.parse_forget_rule.call(null, a, c) : qgame.simulator.parser.parse_name_rule.call(null, a, b, c)) : cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Token", "Token", 1094892875));
+};
+qgame.simulator.parser.replace_word = function(a, b, c) {
+  b = qgame.utils.general.regex_join.call(null, "\\b", b, "\\b");
+  return clojure.string.replace.call(null, a, b, c);
+};
+qgame.simulator.parser.replace_named = function(a, b) {
+  return cljs.core.reduce_kv.call(null, qgame.simulator.parser.replace_word, b, a);
+};
+qgame.simulator.parser.safe_eval_math = function(a) {
+  try {
+    return qgame.utils.math.eval_math_string.call(null, a);
+  } catch (b) {
+    return null;
+  }
+};
+qgame.simulator.parser.replace_math = function(a) {
+  return clojure.string.replace.call(null, a, qgame.simulator.parser.math_string_pattern, qgame.simulator.parser.safe_eval_math);
+};
+qgame.simulator.parser.apply_rules = function(a, b) {
+  var c = qgame.simulator.parser.replace_named.call(null, a, b), d = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.math_string_pattern, c);
+  return cljs.core.truth_(d) ? qgame.simulator.parser.safe_eval_math.call(null, c) : c;
+};
+qgame.simulator.parser.parser_execute_token = function(a, b) {
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a, function() {
+    var c = qgame.simulator.parser.apply_rules.call(null, a, (new cljs.core.Keyword(null, "text", "text", 1017460895)).cljs$core$IFn$_invoke$arity$1(b));
+    if (cljs.core.truth_(c)) {
+      return cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956), c);
+    }
+    cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+    return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Math evaluation error", b);
+  }()], null);
+};
+qgame.simulator.parser.parser_execute_rule = function(a, b) {
+  if (cljs.core.truth_((new cljs.core.Keyword(null, "forget", "forget", 4040086879)).cljs$core$IFn$_invoke$arity$1(b))) {
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.dissoc.call(null, a, (new cljs.core.Keyword(null, "name-target", "name-target", 4218974853)).cljs$core$IFn$_invoke$arity$1(b)), b], null);
+  }
+  var c = qgame.simulator.parser.apply_rules.call(null, a, (new cljs.core.Keyword(null, "target", "target", 4427965699)).cljs$core$IFn$_invoke$arity$1(b));
+  if (cljs.core.truth_(c)) {
+    var c = cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "target", "target", 4427965699), c), d = cljs.core.juxt.call(null, new cljs.core.Keyword(null, "replace-name", "replace-name", 1428647286), new cljs.core.Keyword(null, "target", "target", 4427965699)).call(null, c);
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.conj.call(null, a, d), c], null);
+  }
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a, function() {
+    cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+    return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Math evaluation on name target error", b);
+  }()], null);
+};
+qgame.simulator.parser.execute_parser_rules = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "new-bites", "new-bites", 3608376192)), c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "name-map", "name-map", 2853325452)), e = qgame.simulator.parser.parse_bite.call(null, b), e = cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "Token", "Token", 1094892875), (new cljs.core.Keyword(null, "type", "type", 1017479852)).cljs$core$IFn$_invoke$arity$1(e)) ? 
+  qgame.simulator.parser.parser_execute_token.call(null, c, e) : qgame.simulator.parser.parser_execute_rule.call(null, c, e), c = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null);
+  return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name-map", "name-map", 2853325452), c, new cljs.core.Keyword(null, "new-bites", "new-bites", 3608376192), cljs.core.conj.call(null, d, e)], null);
+};
+qgame.simulator.parser.qubit_pattern = /\b(?:[A-T]|1?[0-9])\b/;
+qgame.simulator.parser.parse_qubit = function(a) {
+  var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, c = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)), d = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.qubit_pattern, c);
+  if (cljs.core.truth_(d)) {
+    return c = cljs.core.truth_(isNaN(parseInt(c))) ? qgame.simulator.parser.qubit_letter_to_index.call(null, d) : parseInt(c), cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Qubit", "Qubit", 1092292539), new cljs.core.Keyword(null, "value", "value", 1125876963), c);
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Qubit parse failure", b);
+};
+qgame.simulator.parser.param_pattern = /\b\d+\.?\d*\b/;
+qgame.simulator.parser.parse_param = function(a) {
+  var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, c = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)), c = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.param_pattern, c);
+  if (cljs.core.truth_(c)) {
+    return cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Param", "Param", 1090788319), new cljs.core.Keyword(null, "value", "value", 1125876963), parseFloat(c));
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Param parse failure", b);
+};
+qgame.simulator.parser.bit_pattern = /\b[01]\b/;
+qgame.simulator.parser.parse_bit = function(a) {
+  var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, c = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)), c = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.bit_pattern, c);
+  if (cljs.core.truth_(c)) {
+    return cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Bit", "Bit", 1013971039), new cljs.core.Keyword(null, "value", "value", 1125876963), cljs.core.get.call(null, new cljs.core.PersistentArrayMap(null, 2, ["0", 0, "1", 1], null), c));
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Bit parse failure", b);
+};
+qgame.simulator.parser.taste = function(a, b) {
+  var c = function(a) {
+    return cljs.core.not_EQ_.call(null, new cljs.core.Keyword(null, "Token", "Token", 1094892875), (new cljs.core.Keyword(null, "type", "type", 1017479852)).cljs$core$IFn$_invoke$arity$1(a));
+  }.call(null, b) ? null : b;
+  if (cljs.core.truth_(c)) {
+    return a.call(null, c);
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Unrecognized argument", b);
+};
+qgame.simulator.parser.swallow = function() {
+  var a = null, b = function(a, b) {
+    var c = cljs.core.reduce.call(null, function(b, c) {
+      var e = cljs.core.truth_((new cljs.core.Keyword(null, "error", "error", 1110689146)).cljs$core$IFn$_invoke$arity$1(qgame.simulator.parser.taste.call(null, a, c))) ? null : qgame.simulator.parser.taste.call(null, a, c);
+      return cljs.core.truth_(e) ? cljs.core.conj.call(null, b, e) : cljs.core.reduced.call(null, b);
+    }, cljs.core.PersistentVector.EMPTY, b);
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, cljs.core.drop.call(null, cljs.core.count.call(null, c), b)], null);
+  }, c = function(a, b, c) {
+    return 0 === a ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.List.EMPTY, c], null) : a <= cljs.core.count.call(null, c) ? (c = cljs.core.split_at.call(null, a, c), a = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.map.call(null, cljs.core.partial.call(null, qgame.simulator.parser.taste, b), a), c], null)) : null;
+  }, a = function(a, e, f) {
+    switch(arguments.length) {
+      case 2:
+        return b.call(this, a, e);
+      case 3:
+        return c.call(this, a, e, f);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$2 = b;
+  a.cljs$core$IFn$_invoke$arity$3 = c;
+  return a;
 }();
-qgame.interpreter.core = {};
-qgame.interpreter.core.allowed_qgates = cljs.core.atom.call(null, cljs.core.PersistentHashMap.fromArrays([new cljs.core.Symbol(null, "hadamard", "hadamard", -1927498571, null), new cljs.core.Symbol(null, "nand", "nand", -1637157790, null), new cljs.core.Symbol(null, "qnot", "qnot", -1637055877, null), new cljs.core.Symbol(null, "u-theta", "u-theta", 516823295, null), new cljs.core.Symbol(null, "u2", "u2", -1640527850, null), new cljs.core.Symbol(null, "cnot", "cnot", -1637472951, null), new cljs.core.Symbol(null, 
-"swap", "swap", -1636988084, null), new cljs.core.Symbol(null, "cphase", "cphase", 1300383921, null), new cljs.core.Symbol(null, "srn", "srn", -1640417368, null)], [qgame.interpreter.qgates.hadamard, qgame.interpreter.qgates.nand, qgame.interpreter.qgates.qnot, qgame.interpreter.qgates.u_theta, qgame.interpreter.qgates.u2, qgame.interpreter.qgates.cnot, qgame.interpreter.qgates.swap, qgame.interpreter.qgates.cphase, qgame.interpreter.qgates.srn]));
-qgame.interpreter.core.new_quantum_system = function(a) {
+qgame.simulator.parser.package_parse_time = function(a, b) {
+  if (cljs.core._EQ_.call(null, cljs.core.get_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.Keyword(null, "name", "name", 1017277949)], null)), "with_oracle")) {
+    var c = qgame.simulator.parser.swallow.call(null, qgame.simulator.parser.parse_bit, b), d = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), d = cljs.core.apply.call(null, (new cljs.core.Keyword(null, "caller", "caller", 3941096189)).cljs$core$IFn$_invoke$arity$1(a), cljs.core.map.call(null, new cljs.core.Keyword(null, "value", "value", 1125876963), d));
+    cljs.core.swap_BANG_.call(null, qgame.simulator.shared.canonical_functions, cljs.core.assoc, "oracle", d);
+    return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null, c], null);
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Uncrecognized parse time function", a);
+};
+qgame.simulator.parser.package_expression = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "param-names", "param-names", 740923770)), e = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835));
+  if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ParseTime", "ParseTime", 1184785266), cljs.core.get_in.call(null, c, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.Keyword(null, "type", "type", 1017479852)], null)))) {
+    return qgame.simulator.parser.package_parse_time.call(null, c, b);
+  }
+  var f = qgame.simulator.parser.swallow.call(null, e, qgame.simulator.parser.parse_qubit, b);
+  if (cljs.core.truth_(f)) {
+    e = cljs.core.nth.call(null, f, 0, null);
+    f = cljs.core.nth.call(null, f, 1, null);
+    f = qgame.simulator.parser.swallow.call(null, cljs.core.count.call(null, d), qgame.simulator.parser.parse_param, f);
+    if (cljs.core.truth_(f)) {
+      return d = cljs.core.nth.call(null, f, 0, null), f = cljs.core.nth.call(null, f, 1, null), c = cljs.core.assoc.call(null, c, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Expression", "Expression", 1211916842), new cljs.core.Keyword(null, "qubits", "qubits", 4360074396), e, new cljs.core.Keyword(null, "params", "params", 4313443576), d), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, f], null);
+    }
+    cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+    return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Too few parameters", cljs.core.assoc.call(null, c, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Expression", "Expression", 1211916842), new cljs.core.Keyword(null, "swallowed", "swallowed", 3934694966), b));
+  }
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Too few parameters", cljs.core.assoc.call(null, c, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Expression", "Expression", 1211916842), new cljs.core.Keyword(null, "swallowed", "swallowed", 3934694966), b));
+};
+qgame.simulator.parser.parse_expressions = function() {
+  var a = null, b = function(b) {
+    return a.call(null, cljs.core.PersistentVector.EMPTY, b);
+  }, c = function(a, b) {
+    for (;;) {
+      var c = b, g = cljs.core.nth.call(null, c, 0, null), h = cljs.core.nthnext.call(null, c, 1);
+      if (cljs.core.empty_QMARK_.call(null, c)) {
+        return a;
+      }
+      var k = function() {
+        var c = function(a, b) {
+          return function(a) {
+            return cljs.core.not_EQ_.call(null, new cljs.core.Keyword(null, "Token", "Token", 1094892875), (new cljs.core.Keyword(null, "type", "type", 1017479852)).cljs$core$IFn$_invoke$arity$1(a));
+          };
+        }(a, b).call(null, g) ? null : g;
+        if (cljs.core.truth_(c)) {
+          var f = cljs.core.get.call(null, cljs.core.deref.call(null, qgame.simulator.shared.canonical_functions), (new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)).cljs$core$IFn$_invoke$arity$1(c));
+          if (cljs.core.truth_(f)) {
+            var f = cljs.core.merge.call(null, c, f), k = qgame.simulator.parser.package_expression.call(null, f, h), f = cljs.core.nth.call(null, k, 0, null), k = cljs.core.nth.call(null, k, 1, null);
+            return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.conj.call(null, a, f), k], null);
+          }
+          return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.conj.call(null, a, function() {
+            cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+            return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Lonely", c);
+          }()), h], null);
+        }
+        return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a, h], null);
+      }(), c = cljs.core.nth.call(null, k, 0, null), k = cljs.core.nth.call(null, k, 1, null);
+      a = c;
+      b = k;
+    }
+  }, a = function(a, e) {
+    switch(arguments.length) {
+      case 1:
+        return b.call(this, a);
+      case 2:
+        return c.call(this, a, e);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$1 = b;
+  a.cljs$core$IFn$_invoke$arity$2 = c;
+  return a;
+}();
+qgame.simulator.parser.wrap_up = function(a) {
+  return cljs.core.remove.call(null, qgame.utils.general.errant_QMARK_, a);
+};
+qgame.simulator.parser.parse = function(a) {
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.stage, "Parsing");
+  return qgame.simulator.parser.wrap_up.call(null, qgame.simulator.parser.parse_expressions.call(null, (new cljs.core.Keyword(null, "new-bites", "new-bites", 3608376192)).cljs$core$IFn$_invoke$arity$1(cljs.core.reduce.call(null, qgame.simulator.parser.execute_parser_rules, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name-map", "name-map", 2853325452), cljs.core.PersistentArrayMap.EMPTY, new cljs.core.Keyword(null, "new-bites", "new-bites", 3608376192), cljs.core.PersistentVector.EMPTY], 
+  null), a))));
+};
+qgame.simulator.reader = {};
+qgame.simulator.reader.split_into_lines = function(a) {
+  return cljs.core.keep_indexed.call(null, function(a, c) {
+    return cljs.core.truth_(clojure.string.blank_QMARK_.call(null, c)) ? null : new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "line-number", "line-number", 4279856820), a, new cljs.core.Keyword(null, "line", "line", 1017226086), c], null);
+  }, clojure.string.split_lines.call(null, a));
+};
+qgame.simulator.reader.comment_pattern = /\#.*/;
+qgame.simulator.reader.whitespace_equivalent_pattern = /[^\-\w\.\:\+\*\\/\^\(\)]+/;
+qgame.simulator.reader.ignore_pattern = qgame.utils.general.regex_join.call(null, "(?:", qgame.simulator.reader.comment_pattern, "|", qgame.simulator.reader.whitespace_equivalent_pattern, ")");
+qgame.simulator.reader.chew = function() {
+  var a = null, b = function(b) {
+    return a.call(null, b, cljs.core.PersistentVector.EMPTY);
+  }, c = function(a, b) {
+    for (var c = clojure.string.replace_first.call(null, a, qgame.utils.general.regex_join.call(null, "^", qgame.simulator.reader.whitespace_equivalent_pattern), ""), g = b;;) {
+      if (cljs.core.truth_(clojure.string.blank_QMARK_.call(null, c))) {
+        return g;
+      }
+      var h = cljs.core.count.call(null, a) - cljs.core.count.call(null, c), k = clojure.string.split.call(null, c, qgame.simulator.reader.ignore_pattern, 2), c = cljs.core.nth.call(null, k, 0, null), k = cljs.core.nth.call(null, k, 1, null), h = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "text", "text", 1017460895), c, new cljs.core.Keyword(null, "character-position", "character-position", 2475872959), h], null), c = "" + cljs.core.str(k), g = cljs.core.conj.call(null, 
+      g, h);
+    }
+  }, a = function(a, e) {
+    switch(arguments.length) {
+      case 1:
+        return b.call(this, a);
+      case 2:
+        return c.call(this, a, e);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$1 = b;
+  a.cljs$core$IFn$_invoke$arity$2 = c;
+  return a;
+}();
+qgame.simulator.reader.split_into_bites = function(a) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "line-number", "line-number", 4279856820));
+  a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "line", "line", 1017226086));
+  a = qgame.simulator.reader.chew.call(null, a);
+  return cljs.core.map.call(null, function(a) {
+    return cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "line-number", "line-number", 4279856820), b);
+  }, a);
+};
+qgame.simulator.reader.read = function(a) {
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.stage, "Reading");
+  return cljs.core.mapcat.call(null, qgame.simulator.reader.split_into_bites, qgame.simulator.reader.split_into_lines.call(null, a));
+};
+qgame.simulator.compiler = {};
+qgame.simulator.compiler.revise_on_end = function(a) {
+  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nthnext.call(null, a, 1);
+  if (cljs.core.empty_QMARK_.call(null, a)) {
+    return cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name), qgame.simulator.error.log_and_return_warning_BANG_.call(null, "Extra end", a);
+  }
+  if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "else-clause", "else-clause", 2613165045), b)) {
+    return c;
+  }
+  if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "then-clause", "then-clause", 4549702289), b)) {
+    return cljs.core.cons.call(null, new cljs.core.Keyword(null, "else-clause", "else-clause", 2613165045), c);
+  }
+  if (new cljs.core.Keyword(null, "else", "else", 1017020587)) {
+    throw Error([cljs.core.str("No matching clause: "), cljs.core.str(b)].join(""));
+  }
+  return null;
+};
+qgame.simulator.compiler.revise = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516)), c = cljs.core.seq_QMARK_.call(null, c) ? cljs.core.apply.call(null, cljs.core.hash_map, c) : c, c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "name", "name", 1017277949));
+  return cljs.core._EQ_.call(null, "end", c) ? qgame.simulator.compiler.revise_on_end.call(null, a) : cljs.core._EQ_.call(null, "else", c) ? cljs.core.cons.call(null, new cljs.core.Keyword(null, "else-clause", "else-clause", 2613165045), cljs.core.rest.call(null, a)) : cljs.core._EQ_.call(null, "measure", c) ? cljs.core.cons.call(null, new cljs.core.Keyword(null, "then-clause", "then-clause", 4549702289), a) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? a : null;
+};
+qgame.simulator.compiler.curry_caller = function(a) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "caller", "caller", 3941096189)), c = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "params", "params", 4313443576)), d = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "qubits", "qubits", 4360074396)), c = function(a) {
+    return function(c) {
+      return cljs.core.apply.call(null, b, c, a);
+    };
+  }(cljs.core.concat.call(null, cljs.core.map.call(null, new cljs.core.Keyword(null, "value", "value", 1125876963), d), cljs.core.map.call(null, new cljs.core.Keyword(null, "value", "value", 1125876963), c)));
+  return cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "curried", "curried", 2140847816), c);
+};
+qgame.simulator.compiler.compile_expression = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516)), d = cljs.core.seq_QMARK_.call(null, d) ? cljs.core.apply.call(null, cljs.core.hash_map, d) : d, d = cljs.core.get.call(null, d, new cljs.core.Keyword(null, "name", "name", 1017277949)), e = cljs.core.nth.call(null, b, 0, null);
+  return qgame.simulator.compiler.curry_caller.call(null, cljs.core.assoc.call(null, cljs.core._EQ_.call(null, "end", d) && cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "then-clause", "then-clause", 4549702289), e) ? cljs.core.merge.call(null, c, cljs.core.deref.call(null, qgame.simulator.shared.canonical_functions).call(null, "else")) : c, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Instruction", "Instruction", 2983299040)));
+};
+qgame.simulator.compiler.wrap_up = function(a, b, c) {
+  for (var d = cljs.core.seq.call(null, a), e = null, f = 0, g = 0;;) {
+    if (g < f) {
+      var h = cljs.core._nth.call(null, e, g);
+      cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
+      qgame.simulator.error.log_and_return_warning_BANG_.call(null, "Lingering status", h);
+      g += 1;
+    } else {
+      if (d = cljs.core.seq.call(null, d)) {
+        e = d, cljs.core.chunked_seq_QMARK_.call(null, e) ? (d = cljs.core.chunk_first.call(null, e), g = cljs.core.chunk_rest.call(null, e), e = d, f = cljs.core.count.call(null, d), d = g) : (d = cljs.core.first.call(null, e), cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name), qgame.simulator.error.log_and_return_warning_BANG_.call(null, "Lingering status", d), d = cljs.core.next.call(null, e), e = null, f = 0), g = 0;
+      } else {
+        break;
+      }
+    }
+  }
+  return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "ExecutionSpecs", "ExecutionSpecs", 2825253746), new cljs.core.Keyword(null, "program", "program", 704516598), b, new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), c], null);
+};
+qgame.simulator.compiler.compile = function(a) {
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.stage, "Compilation");
+  var b = cljs.core.List.EMPTY, c = cljs.core.PersistentVector.EMPTY;
+  cljs.core.nth.call(null, a, 0, null);
+  cljs.core.nthnext.call(null, a, 1);
+  for (var d = 0;;) {
+    var e = a, f = cljs.core.nth.call(null, e, 0, null);
+    a = cljs.core.nthnext.call(null, e, 1);
+    if (cljs.core.empty_QMARK_.call(null, e)) {
+      return qgame.simulator.compiler.wrap_up.call(null, b, c, d);
+    }
+    e = qgame.simulator.compiler.revise.call(null, b, f);
+    d = cljs.core.apply.call(null, cljs.core.max, d, cljs.core.map.call(null, cljs.core.comp.call(null, cljs.core.inc, new cljs.core.Keyword(null, "value", "value", 1125876963)), (new cljs.core.Keyword(null, "qubits", "qubits", 4360074396)).cljs$core$IFn$_invoke$arity$1(f)));
+    c = cljs.core.conj.call(null, c, qgame.simulator.compiler.compile_expression.call(null, f, b));
+    b = e;
+  }
+};
+qgame.simulator.executor = {};
+qgame.simulator.executor.new_quantum_system = function(a) {
   a = 1 << a;
   return new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714), cljs.core.into.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [1], null), cljs.core.repeat.call(null, a - 1, 0)), new cljs.core.Keyword(null, "prior-probability", "prior-probability", 4421087524), 1, new cljs.core.Keyword(null, "oracle-count", "oracle-count", 3403530098), 0, new cljs.core.Keyword(null, "measurement-history", "measurement-history", 
   2775390965), cljs.core.List.EMPTY], null);
 };
-qgame.interpreter.core.force_to = function(a, b, c) {
-  a = cljs.core.assoc_in.call(null, cljs.core.update_in.call(null, a, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "measurement-history", "measurement-history", 2775390965)], null), cljs.core.conj, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null)), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "prior-probability", "prior-probability", 
-  4421087524)], null), qgame.utils.amplitudes.probability_of.call(null, a, b, c));
-  b = qgame.utils.amplitudes.qubits_to_amplitude_indices.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [b], null), qgame.utils.amplitudes.get_num_qubits.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(a)));
-  b = cljs.core.map.call(null, function(a, b, f) {
-    return function(a) {
-      return cljs.core.nth.call(null, a, 1 - c);
-    };
-  }(0, a, b), b);
-  return 0 < (new cljs.core.Keyword(null, "prior-probability", "prior-probability", 4421087524)).cljs$core$IFn$_invoke$arity$1(a) ? cljs.core.update_in.call(null, a, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)], null), qgame.utils.general.update_sub, cljs.core.constantly.call(null, cljs.core.repeat.call(null, 0)), b) : null;
-};
-qgame.interpreter.core.measure = function(a, b) {
-  var c = cljs.core.nth.call(null, a, 0, null), d = cljs.core.nthnext.call(null, a, 1), e = cljs.core.keep.call(null, function(a) {
-    return qgame.interpreter.core.force_to.call(null, a, b, 1);
-  }, c), c = cljs.core.keep.call(null, function(a) {
-    return function(a) {
-      return qgame.interpreter.core.force_to.call(null, a, b, 0);
-    };
-  }(e), c);
-  return cljs.core.into.call(null, d, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.not_empty.call(null, e), cljs.core.not_empty.call(null, c)], null));
-};
-qgame.interpreter.core.swap_first_two = function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null);
-  a = cljs.core.nthnext.call(null, a, 2);
-  return cljs.core.into.call(null, a, cljs.core.take_while.call(null, cljs.core.identity, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null)));
-};
-qgame.interpreter.core.concat_first_two = function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null);
-  a = cljs.core.nthnext.call(null, a, 2);
-  return cljs.core.cons.call(null, cljs.core.into.call(null, c, b), a);
-};
-qgame.interpreter.core.to_qsys_updater = function(a, b) {
-  return function(c) {
-    return cljs.core.update_in.call(null, c, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)], null), function(c) {
-      return cljs.core.apply.call(null, a, c, b);
-    });
+qgame.simulator.executor.to_qsys_updater = function(a) {
+  return function(b) {
+    return cljs.core.update_in.call(null, b, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)], null), a);
   };
 };
-qgame.interpreter.core.on_head_branch = function(a, b) {
+qgame.simulator.executor.on_head_branch = function(a, b) {
   var c = cljs.core.nth.call(null, b, 0, null), d = cljs.core.nthnext.call(null, b, 1);
   return cljs.core.cons.call(null, cljs.core.map.call(null, a, c), d);
 };
-qgame.interpreter.core.execute_oracle_qgate = function(a, b, c) {
-  b = cljs.core.comp.call(null, qgame.interpreter.core.to_qsys_updater.call(null, b, c), function(a) {
+qgame.simulator.executor.execute_qgate = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "curried", "curried", 2140847816));
+  return qgame.simulator.executor.on_head_branch.call(null, qgame.simulator.executor.to_qsys_updater.call(null, c), a);
+};
+qgame.simulator.executor.execute_oracle = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "curried", "curried", 2140847816)), c = cljs.core.comp.call(null, qgame.simulator.executor.to_qsys_updater.call(null, c), function(a) {
     return cljs.core.update_in.call(null, a, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "oracle-count", "oracle-count", 3403530098)], null), cljs.core.inc);
   });
-  return qgame.interpreter.core.on_head_branch.call(null, b, a);
+  return qgame.simulator.executor.on_head_branch.call(null, c, a);
 };
-qgame.interpreter.core.execute_qgate = function(a, b, c) {
-  return qgame.interpreter.core.on_head_branch.call(null, qgame.interpreter.core.to_qsys_updater.call(null, b, c), a);
+qgame.simulator.executor.execute_flow_control = function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b;
+  return cljs.core.get.call(null, c, new cljs.core.Keyword(null, "curried", "curried", 2140847816)).call(null, a);
 };
-qgame.interpreter.core.execute_instruction = function(a, b, c, d) {
-  var e = cljs.core.nth.call(null, d, 0, null), f = cljs.core.nthnext.call(null, d, 1);
-  cljs.core.truth_(a) && a.call(null, c, d);
-  return cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "oracle", "oracle", 1645573943, null), e) ? qgame.interpreter.core.execute_oracle_qgate.call(null, c, b, f) : cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "end", "end", -1640430956, null), e) ? qgame.interpreter.core.concat_first_two.call(null, c) : cljs.core._EQ_.call(null, new cljs.core.Symbol(null, "else", "else", -1637415182, null), e) ? qgame.interpreter.core.swap_first_two.call(null, c) : cljs.core._EQ_.call(null, new cljs.core.Symbol(null, 
-  "measure", "measure", -702210281, null), e) ? cljs.core.apply.call(null, qgame.interpreter.core.measure, c, f) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? qgame.interpreter.core.execute_qgate.call(null, c, cljs.core.get.call(null, cljs.core.deref.call(null, qgame.interpreter.core.allowed_qgates), e), f) : null;
+qgame.simulator.executor.execute_instruction = function(a, b, c) {
+  var d = cljs.core.seq_QMARK_.call(null, c) ? cljs.core.apply.call(null, cljs.core.hash_map, c) : c, e = cljs.core.get.call(null, d, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516)), e = cljs.core.seq_QMARK_.call(null, e) ? cljs.core.apply.call(null, cljs.core.hash_map, e) : e;
+  cljs.core.get.call(null, e, new cljs.core.Keyword(null, "name", "name", 1017277949));
+  e = cljs.core.get.call(null, e, new cljs.core.Keyword(null, "type", "type", 1017479852));
+  cljs.core.truth_(a) && a.call(null, b, d);
+  return cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "FlowControl", "FlowControl", 825984929), e) ? qgame.simulator.executor.execute_flow_control.call(null, b, d) : cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "Oracle", "Oracle", 3383876880), e) ? qgame.simulator.executor.execute_oracle.call(null, b, d) : cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "QGate", "QGate", 1090921518), e) ? qgame.simulator.executor.execute_qgate.call(null, b, d) : new cljs.core.Keyword(null, 
+  "else", "else", 1017020587) ? (cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name), qgame.simulator.error.log_and_return_error_BANG_.call(null, "Unrecognized function type", d), b) : null;
 };
-qgame.interpreter.core.execute_program = function(a, b) {
-  var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "oracle", "oracle", 4300009712)), e = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "renderer", "renderer", 519058485)), c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835));
-  cljs.core.reset_BANG_.call(null, qgame.interpreter.warning.warnings, cljs.core.PersistentVector.EMPTY);
-  var c = qgame.interpreter.core.new_quantum_system.call(null, c), f = qgame.interpreter.parser.parse_program.call(null, b), d = qgame.interpreter.qgates.anonymous_qgate.call(null, qgame.interpreter.qgates.binary_gate_matrix.call(null, null == d ? new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [0], null) : d)), e = cljs.core.reduce.call(null, cljs.core.partial.call(null, qgame.interpreter.core.execute_instruction, e, d), cljs.core._conj.call(null, cljs.core.List.EMPTY, 
-  cljs.core._conj.call(null, cljs.core.List.EMPTY, c)), f);
-  return cljs.core.apply.call(null, cljs.core.concat, e);
+qgame.simulator.executor.execute = function(a) {
+  var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  a = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "renderer", "renderer", 519058485));
+  var c = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835)), b = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "program", "program", 704516598));
+  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.stage, "Execution");
+  c = qgame.simulator.executor.new_quantum_system.call(null, c);
+  a = cljs.core.reduce.call(null, cljs.core.partial.call(null, qgame.simulator.executor.execute_instruction, a), cljs.core._conj.call(null, cljs.core.List.EMPTY, cljs.core._conj.call(null, cljs.core.List.EMPTY, c)), b);
+  return cljs.core.apply.call(null, cljs.core.concat, a);
 };
-qgame.interpreter.core.execute_string = function(a) {
-  return cljs.core.apply.call(null, qgame.interpreter.core.execute_program, qgame.interpreter.parser.parse_string.call(null, a));
-};
+qgame.simulator.interpreter = {};
+qgame.simulator.interpreter.interpret = function() {
+  var a = null, b = function(a) {
+    a = qgame.simulator.compiler.compile.call(null, qgame.simulator.parser.parse.call(null, qgame.simulator.reader.read.call(null, a)));
+    return qgame.simulator.executor.execute.call(null, a);
+  }, c = function(a, b) {
+    var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, g = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "on-err", "on-err", 4294768617)), h = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "in-exec", "in-exec", 2906402731)), c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109));
+    cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_error, g);
+    g = qgame.simulator.compiler.compile.call(null, qgame.simulator.parser.parse.call(null, qgame.simulator.reader.read.call(null, b)));
+    cljs.core.truth_(c) && c.call(null, g);
+    return qgame.simulator.executor.execute.call(null, cljs.core.assoc.call(null, g, new cljs.core.Keyword(null, "renderer", "renderer", 519058485), h));
+  }, a = function(a, e) {
+    switch(arguments.length) {
+      case 1:
+        return b.call(this, a);
+      case 2:
+        return c.call(this, a, e);
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$core$IFn$_invoke$arity$1 = b;
+  a.cljs$core$IFn$_invoke$arity$2 = c;
+  return a;
+}();
 var qromp = {evaluate:function(a, b, c) {
-  b = cljs.core.first.call(null, qgame.interpreter.core.execute_program.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), a], null), cljs.reader.read_string.call(null, b)));
+  b = cljs.core.first.call(null, qgame.simulator.interpreter.interpret.call(null, b));
   var d = cljs.core.map.call(null, function(a) {
     return function(b) {
       return qgame.utils.amplitudes.probability_of.call(null, a, b, 0);
     };
   }(b), cljs.core.range.call(null, a)), e = cljs.core.map.call(null, function(a, b) {
     return function(b) {
-      return qgame.utils.amplitudes.get_phase_of.call(null, a, b, 0);
+      return qgame.utils.amplitudes.phase_of.call(null, a, b, 0);
     };
   }(b, d), cljs.core.range.call(null, a));
   a = cljs.core.map.call(null, function(a, b, c) {
     return function(b) {
-      return qgame.utils.amplitudes.get_phase_of.call(null, a, b, 1);
+      return qgame.utils.amplitudes.phase_of.call(null, a, b, 1);
     };
   }(b, d, e), cljs.core.range.call(null, a));
   a = cljs.core.map.call(null, function(a, b, c, d) {
@@ -26994,4 +21116,5 @@ var qromp = {evaluate:function(a, b, c) {
   return c.call(null, cljs.core.clj__GT_js.call(null, a));
 }};
 window.evaluate = qromp.evaluate;
+
 });
