@@ -8,7 +8,15 @@
 @mixin transform($arguments...) {
 	-webkit-transform: $arguments;
 	-ms-transform: $arguments;
+	-moz-transform: $arguments;
 	transform: $arguments;
+}
+
+@mixin transform-origin($arguments...) {
+	-webkit-transform-origin: $arguments;
+	-ms-transform-origin: $arguments;
+	-moz-transform-origin: $arguments;
+	transform-origin: $arguments;
 }
 
 @mixin box-sizing($argument) {
@@ -34,7 +42,8 @@
 
 $text : #424242;
 
-$header-back : #F5F5F5;
+$header-border : #C4B7E0;
+$tagline : #7957A8;
 
 $border-gray : #DDDDDD;
 
@@ -42,6 +51,9 @@ $vivid : #5B388B;
 
 $light-back : #F3EAFF;
 $medium-back : desaturate(darken($light-back, 6), 64);
+
+$qubit-back : #E5D7F1;
+$qubit-down : #A468BB;
 
 $button-text: #FFF;
 $button-back : #9986B3;

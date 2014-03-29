@@ -71,7 +71,8 @@ qubits.arrange = function(callback) {
 			"height": (size / rem) + "rem",
 			"transform": "translate(-50%, -50%) rotate(" +
 			angle + "deg) translateY(" +
-			-radius / rem + "rem)"
+			-radius / rem + "rem) rotate(" +
+			-angle + "deg)"
 		});
 	}
 	if (callback && typeof callback === "function") callback();
@@ -82,9 +83,8 @@ function SubState(type, values, parent) {
 	this.type = type;
 	this.parent = parent;
 	this.phase = values.phase;
-	this.$phase = $("<div class='circle " + type + "-phase'></div>");
 	this.prob = values.prob;
-	this.$prob = $("<div class='" + type + "-prob'></div>");
+	this.$subDiv = $("<div class='sub-div " + type + "'></div>");
 }
 
 SubState.prototype.set = function(prob, phase) {
@@ -95,34 +95,38 @@ SubState.prototype.set = function(prob, phase) {
 }
 
 SubState.prototype.setProb = function(prob, stop) {
-	// try to constrain prob to allowed range (0-1), throw warning if constrained
+	// constrain prob to allowed range (0-1), throw warning if constrained
 	this.prob = (prob > 1) ? 1 : (prob < 0) ? 0 : prob;
-	if (this.prob !== prob) if (console) console.warn("Tried to set qubit[" + this.parent.label + "]." + this.type + ".prob to " + prob + ", which is outside the allowed range (0 - 1). It has been set to " + this.prob);
-
-	this.$prob.css({"height": this.prob * 100 + "%"});
-	//make sure the two probabilities add up to one, use "stop" to prevent infinite loop
-	if(!stop) this.parent[(this.type === "up") ? "down" : "up"].setProb(1 - this.prob, true);
+	if (this.prob !== prob && console) console.warn("Tried to set qubit[" + this.parent.label + "]." + this.type + ".prob to " + prob + ", which is outside the allowed range (0 - 1). It has been set to " + this.prob);
+	// change $probRing div if down prob
+	if (this.type === "down") {
+			var size = this.prob * 100,
+				other = "up";
+			this.parent.$probRing.css({"height": size + "%", "width": size + "%"});
+	}
+	// make sure the two probabilities add up to one, use "stop" to prevent infinite loop
+	if (!stop) this.parent[other || "down"].setProb(1 - this.prob, true);
 }
 
 SubState.prototype.setPhase = function(phase) {
 	this.phase = (phase + 180) % 360 -180;
 	var diameter = this.parent.$div.width();
-	this.$phase.css({
-		"transform": "translate(-50%, -50%) rotate("
-			+ this.phase + "deg) translateY("
-			+ -(diameter / 2 - .1 * diameter) / rem + "rem)"
+	this.$subDiv.css({
+		"transform": "translate(-50%, -100%) rotate(" + this.phase + "deg)"
 	});
 }
 
 function Qubit(qubitState) {
 	this.label = qubits.length;
-	// set default values create all of the empty divs for a qubit as jQuery objects
+	// set default values and create all of the empty divs for a qubit as jQuery objects
 	// -- this will give us easy access to change them directly at any time
 	this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'></div>"),
+	this.$probRing = $("<div class='prob-ring'></div>")
 	this.up = new SubState("up", qubitState ? qubitState.up : {prob: 1, phase: 0}, this);
 	this.down = new SubState("down", qubitState ? qubitState.down : {prob: 0, phase: 0}, this);
-	// append all of the up and down divs onto $div and then all that onto 'qubitElements'
-	$("#qubitElements").append(this.$div.append(this.down.$phase, this.up.$phase, this.up.$prob, this.down.$prob));
+	// stick the down $subDiv into the $probRing div, then that and the up $subDiv into $div, and finally all into "qubitElements"
+	// -- this order is required for proper layering and clipping
+	$("#qubitElements").append(this.$div.append(this.up.$subDiv, this.$probRing.append(this.down.$subDiv)));
 	// add this to the array of qubits
 	qubits.push(this);
 }
@@ -152,16 +156,12 @@ Qubit.prototype.setWithObject = function(qubitState, parent) {
 
 // renders all properties of the qubit
 Qubit.prototype.render = function( ) {
-	this.up.$phase.css({
-		"transform": "translate(-50%, -50%) rotate("
-			+ this.up.phase + "deg) translateY("
-			+ -(qubits.size / 2 - .1 * qubits.size) / rem + "rem)"
+	this.up.$subDiv.css({
+		"transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg)"
 	});
-	this.up.$prob.css({"height": this.up.prob * 100 + "%"});
-	this.down.$phase.css({
-		"transform": "translate(-50%, -50%) rotate("
-			+ this.down.phase + "deg) translateY("
-			+ -(qubits.size / 2 - .1 * qubits.size) / rem + "rem)"
+	this.down.$subDiv.css({
+		"transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
 	});
-	this.down.$prob.css({"height": this.down.prob * 100 + "%"});
+	var size = this.down.prob * 100;
+	this.$probRing.css({"height": size + "%", "width": size + "%"});
 }
