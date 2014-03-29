@@ -42,39 +42,37 @@
 
 .qubit {
 	position: absolute;
-	overflow: hidden;
-	border-radius: 10%;
+	border-radius: 50%;
 	left: 50%;
 	top: 50%;
+	border: .2rem solid #CCC;
 }
 
-.circle {
+.prob-ring {
+	position: absolute;
+	overflow: hidden;
+	border-radius: 50%;
+	border: .2rem solid #CCC;
+	top: 50%;
+	left: 50%;
+	background-color: $light-back;
+	@include transform(translate(-50%, -50%));
+}
+
+.sub-div {
+	width: .5rem;
+	height: 50%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-    width: 20%;
-    height: 20%;
-    border: .1rem solid rgb(125, 125, 125);
-    border-radius: 50%;
-	@include box-sizing(border-box);
-
+	@include transform-origin(bottom center);
 }
 
-.up-phase {
-    background-color: #FFF;
-}
-
-.down-phase {
-	background-color: #000;
-}
-
-.up-prob {
-	width: 100%;
+.up {
 	background-color: #FFF;
+	border: .1rem solid #CCC;
 }
 
-.down-prob {
-	height: 100%;
-	width: 100%;
+.down {
 	background-color: #000;
 }

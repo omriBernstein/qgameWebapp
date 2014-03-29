@@ -8,7 +8,15 @@
 @mixin transform($arguments...) {
 	-webkit-transform: $arguments;
 	-ms-transform: $arguments;
+	-moz-transform: $arguments;
 	transform: $arguments;
+}
+
+@mixin transform-origin($arguments...) {
+	-webkit-transform-origin: $arguments;
+	-ms-transform-origin: $arguments;
+	-moz-transform-origin: $arguments;
+	transform-origin: $arguments;
 }
 
 @mixin box-sizing($argument) {
