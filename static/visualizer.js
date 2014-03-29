@@ -120,8 +120,8 @@ function Qubit(qubitState) {
 	this.label = qubits.length;
 	// set default values and create all of the empty divs for a qubit as jQuery objects
 	// -- this will give us easy access to change them directly at any time
-	this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'></div>"),
-	this.$probRing = $("<div class='prob-ring'></div>")
+	this.$div = $("<div id='qubit-"+ this.label +"' class='qubit color'></div>"),
+	this.$probRing = $("<div class='prob-ring color'></div>")
 	this.up = new SubState("up", qubitState ? qubitState.up : {prob: 1, phase: 0}, this);
 	this.down = new SubState("down", qubitState ? qubitState.down : {prob: 0, phase: 0}, this);
 	// stick the down $subDiv into the $probRing div, then that and the up $subDiv into $div, and finally all into "qubitElements"

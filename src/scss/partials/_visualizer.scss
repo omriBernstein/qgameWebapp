@@ -40,27 +40,29 @@
 	position: relative;
 }
 
+.color {
+	background-color: $button-back;
+}
+
 .qubit {
 	position: absolute;
 	border-radius: 50%;
 	left: 50%;
 	top: 50%;
-	border: .2rem solid #CCC;
+	border: .2rem solid $vivid;
 }
 
 .prob-ring {
 	position: absolute;
-	overflow: hidden;
 	border-radius: 50%;
-	border: .2rem solid #CCC;
+	border: .2rem solid $vivid;
 	top: 50%;
 	left: 50%;
-	background-color: $light-back;
 	@include transform(translate(-50%, -50%));
 }
 
 .sub-div {
-	width: .5rem;
+	width: .4rem;
 	height: 50%;
 	position: absolute;
 	top: 50%;
@@ -70,7 +72,6 @@
 
 .up {
 	background-color: #FFF;
-	border: .1rem solid #CCC;
 }
 
 .down {
