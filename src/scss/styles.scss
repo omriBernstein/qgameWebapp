@@ -42,7 +42,8 @@
 
 $text : #424242;
 
-$header-back : #F5F5F5;
+$header-border : #C4B7E0;
+$tagline : #7957A8;
 
 $border-gray : #DDDDDD;
 
@@ -51,7 +52,7 @@ $vivid : #5B388B;
 $light-back : #F3EAFF;
 $medium-back : desaturate(darken($light-back, 6), 64);
 
-$qubit-back : #F3E1F7;
+$qubit-back : #E5D7F1;
 $qubit-down : #A468BB;
 
 $button-text: #FFF;
