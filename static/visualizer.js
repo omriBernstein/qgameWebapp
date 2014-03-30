@@ -29,7 +29,8 @@ qubits.updateAll = function(qubitStates) {
 		if (!this[i]) {
 			new Qubit(qubitStates[i]);
 		} else {
-			this[i].setWithObject(qubitStates[i]);
+			this[i].up.set(qubitStates[i].up.prob, qubitStates[i].up.phase, true);
+			this[i].down.set(qubitStates[i].down.prob, qubitStates[i].down.phase);
 		}
 	}
 }
@@ -87,26 +88,30 @@ function SubState(type, values, parent) {
 	this.$subDiv = $("<div class='sub-div " + type + "'></div>");
 }
 
-SubState.prototype.set = function(prob, phase) {
-	this.setProb(prob);
+SubState.prototype.set = function(prob, phase, skipRender) {
 	if (phase !== undefined) {
-		this.setPhase(phase);
+		this.setProb(prob, true);
+		this.setPhase(phase, skipRender);
+	} else {
+		this.setProb(prob, skipRender);
 	}
 }
 
-SubState.prototype.setProb = function(prob) {
+SubState.prototype.setProb = function(prob, skipRender) {
 	// constrain prob to allowed range (0-1), throw warning if constrained
 	this.prob = (prob > 1) ? 1 : (prob < 0) ? 0 : prob;
 	if (this.prob !== prob && console) console.warn("Tried to set qubit[" + this.parent.label + "]." + this.type + ".prob to " + prob + ", which is outside the allowed range (0 - 1). It has been set to " + this.prob);
 	// make sure the two probabilities add up to one
 	this.parent[this.type === "up" ? "down" : "up"].prob = 1 - this.prob;
 	// render qubit
-	this.parent.render();
+	if (!skipRender) this.parent.render();
 }
 
-SubState.prototype.setPhase = function(phase) {
+SubState.prototype.setPhase = function(phase, skipRender) {
+	// shift the phase into allowed range (-180 - 180)
 	this.phase = (phase + 180) % 360 -180;
-	this.parent.render();
+	// render qubit
+	if (!skipRender) this.parent.render();
 }
 
 function Qubit(qubitState) {
@@ -132,24 +137,10 @@ Qubit.prototype.reset = function() {
 	this.render();
 }
 
-// use this to set values specified with an object of form {up: {prob: val, phase: val}, down: {prob: val, phase: val}}
-Qubit.prototype.setWithObject = function(qubitState, parent) {
-	var self = this[parent] || this;
-	for (var key in qubitState) {
-		if (self[key] !== undefined) {
-			if (typeof qubitState[key]  === "object") {
-				this.setWithObject(qubitState[key], key);
-			} else {
-				self["set" + key.charAt(0).toUpperCase() + key.slice(1)](qubitState[key]);
-			}
-		}
-	}
-}
-
 // renders all properties of the qubit
 Qubit.prototype.render = function() {
-	var height = this.$div.height() / 2,
-		ringSize = this.down.prob * 100;
+	console.log(arguments.callee.caller);
+	var ringSize = this.down.prob * 100;
 	this.up.$subDiv.css({"height": "calc(" + this.up.prob * 50 + "% + .2rem)", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(calc(" + -this.down.prob / this.up.prob * 100 + "% + .2rem))"});
 	this.down.$subDiv.css({
 		"height": this.down.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
