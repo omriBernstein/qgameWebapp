@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 	function safeEvaluate() {
 		try {
-	    	evaluate(qubits.length, editor.getValue(), function(qubitStates) {
+	    	evaluate(editor.getValue(), function(qubitStates) {
 		    	qubits.updateAll(qubitStates);
 		    });
 	    } catch (e) {

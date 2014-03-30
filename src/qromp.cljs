@@ -1,10 +1,12 @@
 (ns qromp
   (:require [qgame.simulator.interpreter :as qgame :refer [interpret]]
             [qgame.utils.amplitudes :as amps :refer [probability-of
-                                                     phase-of]])) 
+                                                     phase-of]]
+            [qgame.utils.general :as g :refer [bit-size]])) 
 
-(defn evaluate [num-qubits input callback]
+(defn evaluate [input callback]
   (let [output (-> input qgame/interpret first)
+        num-qubits (-> output :amplitudes count g/bit-size)
         up-state-probs (map #(amps/probability-of output % 0) (range num-qubits))
         up-phases (map #(amps/phase-of output % 0) (range num-qubits))
         down-phases (map #(amps/phase-of output % 1) (range num-qubits))

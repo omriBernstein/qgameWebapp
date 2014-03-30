@@ -1,5 +1,7 @@
+$(document).ready(function(){
+
 var COMPILED = !0, goog = goog || {};
-goog.global = this;
+goog.global = window;
 goog.DEBUG = !0;
 goog.LOCALE = "en";
 goog.TRUSTED_SITE = !0;
@@ -27128,28 +27130,27 @@ qgame.simulator.interpreter.interpret = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-var qromp = {evaluate:function(a, b, c) {
-  b = cljs.core.first.call(null, qgame.simulator.interpreter.interpret.call(null, b));
-  var d = cljs.core.map.call(null, function(a) {
+var qromp = {evaluate:function(a, b) {
+  var c = cljs.core.first.call(null, qgame.simulator.interpreter.interpret.call(null, a)), d = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(c))), e = cljs.core.map.call(null, function(a, b) {
     return function(b) {
       return qgame.utils.amplitudes.probability_of.call(null, a, b, 0);
     };
-  }(b), cljs.core.range.call(null, a)), e = cljs.core.map.call(null, function(a, b) {
+  }(c, d), cljs.core.range.call(null, d)), f = cljs.core.map.call(null, function(a, b, c) {
     return function(b) {
       return qgame.utils.amplitudes.phase_of.call(null, a, b, 0);
     };
-  }(b, d), cljs.core.range.call(null, a));
-  a = cljs.core.map.call(null, function(a, b, c) {
+  }(c, d, e), cljs.core.range.call(null, d)), g = cljs.core.map.call(null, function(a, b, c, d) {
     return function(b) {
       return qgame.utils.amplitudes.phase_of.call(null, a, b, 1);
     };
-  }(b, d, e), cljs.core.range.call(null, a));
-  a = cljs.core.map.call(null, function(a, b, c, d) {
+  }(c, d, e, f), cljs.core.range.call(null, d)), c = cljs.core.map.call(null, function(a, b, c, d, e) {
     return function(a, b, c) {
       return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "up", "up", 1013907981), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "down", "down", 1016993812), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
       c], null)], null);
     };
-  }(b, d, e, a), d, e, a);
-  return c.call(null, cljs.core.clj__GT_js.call(null, a));
+  }(c, d, e, f, g), e, f, g);
+  return b.call(null, cljs.core.clj__GT_js.call(null, c));
 }};
 window.evaluate = qromp.evaluate;
+
+});
