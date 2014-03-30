@@ -150,9 +150,9 @@ Qubit.prototype.setWithObject = function(qubitState, parent) {
 Qubit.prototype.render = function() {
 	var height = this.$div.height() / 2,
 		ringSize = this.down.prob * 100;
-	this.up.$subDiv.css({"height": ((this.up.prob * height + 2) / rem) + "rem", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(" + ((-this.down.prob * height + 1) / rem) + "rem)"});
+	this.up.$subDiv.css({"height": "calc(" + this.up.prob * 50 + "% + .2rem)", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(calc(" + -this.down.prob / this.up.prob * 100 + "% + .2rem))"});
 	this.down.$subDiv.css({
-		"height": (this.down.prob * height / rem) + "rem", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
+		"height": this.down.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
 	});
 	this.$probRing.css({"height": ringSize + "%", "width": ringSize + "%"});
 }
