@@ -52,15 +52,17 @@
 .prob-ring {
 	position: absolute;
 	border-radius: 50%;
-	border: .3rem solid $qubit-down;
+	border: .2rem solid #FFF;
 	top: 50%;
 	left: 50%;
 	background-color: $qubit-back;
 	@include transform(translate(-50%, -50%));
+	@include box-sizing(border-box);
+	-webkit-box-shadow: inset $qubit-down 0 0 0 .2rem;
 }
 
 .sub-div {
-	width: .4rem;
+	width: .5rem;
 	height: 50%;
 	position: absolute;
 	top: 50%;
@@ -70,8 +72,12 @@
 
 .up {
 	background-color: #FFF;
+	border: 1px solid $text;
+	border-radius: 2px 2px 0 0;
 }
 
 .down {
 	background-color: $qubit-down;
+	border: 1px solid $text;
+	border-radius: 0 0 2px 2px;
 }
