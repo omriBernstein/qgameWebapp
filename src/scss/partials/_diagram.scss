@@ -3,5 +3,6 @@
 #diagram {
 	height: 20rem;
 	border: 1px solid $border-gray;
+	background-color: #FFF;
 	@include box-sizing(border-box);
 }

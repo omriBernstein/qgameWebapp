@@ -94,39 +94,31 @@ SubState.prototype.set = function(prob, phase) {
 	}
 }
 
-SubState.prototype.setProb = function(prob, stop) {
+SubState.prototype.setProb = function(prob) {
 	// constrain prob to allowed range (0-1), throw warning if constrained
 	this.prob = (prob > 1) ? 1 : (prob < 0) ? 0 : prob;
 	if (this.prob !== prob && console) console.warn("Tried to set qubit[" + this.parent.label + "]." + this.type + ".prob to " + prob + ", which is outside the allowed range (0 - 1). It has been set to " + this.prob);
-	// change $probRing div if down prob
-	if (this.type === "down") {
-			var size = this.prob * 100,
-				other = "up";
-			this.parent.$probRing.css({"height": size + "%", "width": size + "%"});
-	}
-	// make sure the two probabilities add up to one, use "stop" to prevent infinite loop
-	if (!stop) this.parent[other || "down"].setProb(1 - this.prob, true);
+	// make sure the two probabilities add up to one
+	this.parent[this.type === "up" ? "down" : "up"].prob = 1 - this.prob;
+	// render qubit
+	this.parent.render();
 }
 
 SubState.prototype.setPhase = function(phase) {
 	this.phase = (phase + 180) % 360 -180;
-	var diameter = this.parent.$div.width();
-	this.$subDiv.css({
-		"transform": "translate(-50%, -100%) rotate(" + this.phase + "deg)"
-	});
+	this.parent.render();
 }
 
 function Qubit(qubitState) {
 	this.label = qubits.length;
 	// set default values and create all of the empty divs for a qubit as jQuery objects
 	// -- this will give us easy access to change them directly at any time
-	this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'></div>"),
-	this.$probRing = $("<div class='prob-ring'></div>")
+	this.$div = $("<div id='qubit-"+ this.label +"' class='qubit'></div>");
+	this.$probRing = $("<div class='prob-ring'></div>");
 	this.up = new SubState("up", qubitState ? qubitState.up : {prob: 1, phase: 0}, this);
 	this.down = new SubState("down", qubitState ? qubitState.down : {prob: 0, phase: 0}, this);
-	// stick the down $subDiv into the $probRing div, then that and the up $subDiv into $div, and finally all into "qubitElements"
-	// -- this order is required for proper layering and clipping
-	$("#qubitElements").append(this.$div.append(this.up.$subDiv, this.$probRing.append(this.down.$subDiv)));
+	// stick the up and down $subDivs and $probRing into $div, and $div into "qubitElements"
+	$("#qubitElements").append(this.$div.append(this.$probRing, this.up.$subDiv, this.down.$subDiv));
 	// add this to the array of qubits
 	qubits.push(this);
 }
@@ -155,13 +147,12 @@ Qubit.prototype.setWithObject = function(qubitState, parent) {
 }
 
 // renders all properties of the qubit
-Qubit.prototype.render = function( ) {
-	this.up.$subDiv.css({
-		"transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg)"
-	});
+Qubit.prototype.render = function() {
+	var height = this.$div.height() / 2,
+		ringSize = this.down.prob * 100;
+	this.up.$subDiv.css({"height": ((this.up.prob * height + 2) / rem) + "rem", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(" + ((-this.down.prob * height + 1) / rem) + "rem)"});
 	this.down.$subDiv.css({
-		"transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
+		"height": (this.down.prob * height / rem) + "rem", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
 	});
-	var size = this.down.prob * 100;
-	this.$probRing.css({"height": size + "%", "width": size + "%"});
+	this.$probRing.css({"height": ringSize + "%", "width": ringSize + "%"});
 }

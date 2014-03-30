@@ -17,6 +17,7 @@ $reference-width : 14.5rem;
 	display: inline-block;
 	width: $reference-width;
 	height: 100%;
+	background-color: #FFF;
 	margin-left: -13.1rem;
 	vertical-align: top;
 	@include transition(margin-left .4s ease);
