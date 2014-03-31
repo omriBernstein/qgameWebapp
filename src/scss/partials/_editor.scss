@@ -1,43 +1,50 @@
 /*--- Constants ---*/
 
+$reference-offset : .6rem;
 $reference-width : 14.5rem;
+$reference-handle : 1.4rem;
 
 /*--- Editor ---*/
 
 #editor {
+	display: inline-block;
 	height: 40rem;
+	width: calc(100% - 41rem);
 	border: 1px solid $border-gray;
+	background-color: #FFF;
 	margin-bottom: 1rem;
 	position: relative;
-	overflow: hidden;
 	@include box-sizing(border-box);
 }
 
 #reference {
-	display: inline-block;
-	width: $reference-width;
+	position: absolute;
+	width: #{$reference-handle};
 	height: 100%;
-	background-color: #FFF;
-	margin-left: -13.1rem;
+	overflow: hidden;
+	left: 0;
 	vertical-align: top;
-	@include transition(margin-left .4s ease);
+	@include transition(width .4s ease, left .4s ease);
 	@include user-select(none);
 	&.open {
-		margin-left: 0rem;
+		width: #{$reference-width + $reference-offset};
+		left: -$reference-offset;
 	}
 }
 
 #reference-content {
-	display: inline-block;
-	font-size: 1.3rem;
+	width: #{$reference-width + $reference-offset - $reference-handle};
+	font-size: 1.2rem;
+	& > h3 {
+		padding-left: 1.4rem;
+	}
 }
 
 .reference-line {
-	padding: .1rem .4rem;
+	padding: 0 .4rem .2rem 0;
 	> div {
 		line-height: 1.8rem;
 		display: inline-block;
-		border-radius: .3rem;
 	}
 	&:hover > .reference-button {
 		opacity: 1;
@@ -58,13 +65,16 @@ $reference-width : 14.5rem;
 	color: #FFF;
 	padding: 0 .2rem;
 	margin-left: .2rem;
-	@include grab;
+	border-radius: .3rem;
+	@include grabbable;
 }
 
 #reference-handle {
-	width: 1.4rem;
+	position: absolute;
+	width: $reference-handle;
 	height: 100%;
-	float: right;
+	top: 0;
+	right: 0;
 	text-align: center;
 	font-size: 2rem;
 	line-height: 39.8rem;
@@ -73,15 +83,13 @@ $reference-width : 14.5rem;
 #codeArea { 
 	position: absolute;
 	top: 0;
-	left: 1.4rem;
-	border-right: 1.4rem solid #FFF;
-	@include box-sizing(border-box);
+	left: $reference-handle;
 	height: 100%;
-	width: 100%;
-	@include transition(left .4s ease, border-right-width .4s ease);
+	width: calc(100% - #{$reference-handle});
+	@include transition(left .4s ease, width .4s ease);
 	&.narrow {
 		left: $reference-width;
-		border-right-width: $reference-width;
+		width: calc(100% - #{$reference-width});
 	}
 }
 

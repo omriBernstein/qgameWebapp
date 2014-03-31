@@ -32,7 +32,7 @@
 	user-select: $argument;
 }
 
-@mixin grab {
+@mixin grabbable {
 	cursor: move;
 	cursor: -webkit-grab;
 	cursor: -moz-grab;

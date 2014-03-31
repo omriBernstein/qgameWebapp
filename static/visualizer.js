@@ -139,9 +139,8 @@ Qubit.prototype.reset = function() {
 
 // renders all properties of the qubit
 Qubit.prototype.render = function() {
-	console.log(arguments.callee.caller);
 	var ringSize = this.down.prob * 100;
-	this.up.$subDiv.css({"height": "calc(" + this.up.prob * 50 + "% + .2rem)", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(calc(" + -this.down.prob / this.up.prob * 100 + "% + .2rem))"});
+	this.up.$subDiv.css({"height": "calc(" + this.up.prob * 50 + "% + .2rem)", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(calc(" + -this.down.prob / this.up.prob * 100 + "% + .3rem))"});
 	this.down.$subDiv.css({
 		"height": this.down.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
 	});
