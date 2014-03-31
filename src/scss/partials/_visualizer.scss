@@ -9,7 +9,6 @@
 	background-color: #FFF;
 	margin: 0 0 1rem 1rem;
 	border: 1px solid $border-gray;
-	@include user-select(none);
 	@include box-sizing(border-box);
 }
 

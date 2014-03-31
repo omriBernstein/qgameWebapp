@@ -53,6 +53,23 @@ $(document).ready(function() {
 		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
 	});
 
+	$(".reference-item").mousedown(function(){
+		var $this = $(this),
+			$document = $(document),
+			offset = $this.offset(),
+			diffX = event.pageX - offset.left,
+			diffY = event.pageY - offset.top,
+			$dragged = $this.clone().attr("id", "dragged").css({"top": event.pageY - diffY, "left": event.pageX - diffX}).appendTo("#scroller").mouseup(function(){
+				// when released
+				$document.off("mousemove.track");
+				$dragged.remove();
+			});
+			// while dragging
+			$document.on("mousemove.track", function(){
+				$dragged.css({"top": event.pageY - diffY, "left": event.pageX - diffX});
+			})
+	});
+
 	// Knod's addition, 03/25/14
 	$(".example").on("click", function (evt) {
 		editor.getSession().setValue($(this).text());

@@ -10,6 +10,8 @@ body {
 	padding: 0;
 	margin: 0;
 	background-color: $body;
+	@include user-select(none);
+	cursor: default;
 }
 
 main {
@@ -62,6 +64,13 @@ li:hover {
 
 .flip-h {
 	@include transform(scale(-1, 1));
+}
+
+#dragged {
+	opacity: .5;
+	position: fixed;
+	z-index: 50;
+	@include grabbing;
 }
 
 /*--- Top level divs ---*/

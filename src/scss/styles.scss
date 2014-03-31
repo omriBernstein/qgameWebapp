@@ -38,6 +38,12 @@
 	cursor: -moz-grab;
 }
 
+@mixin grabbing {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+}
+
 /*--- Colors ---*/
 
 $body : #FBF9FF;

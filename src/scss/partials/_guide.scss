@@ -46,6 +46,8 @@
 
 .guide-item {
 	display: none;
+	cursor: auto;
+	@include user-select(text);
 	&.current {
 		display: block;
 	}
