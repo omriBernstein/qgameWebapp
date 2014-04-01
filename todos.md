@@ -1,0 +1,11 @@
+Minor things
+-Ace scroll bar (destroy it)
+-Margin on bottom
+-No vertical scrolling without window resizing, even if a horizontal scrollbar shows up
+-Load, save, and about
+-Non-gray highlight color for current editor line
+-Qubits plus/minus in top left (or maybe top right)
+-Gray out plus or minus if not allowed to decrease or increase, respectively
+-Minus and plus signs are not vertically aligned with each other
+-New minimum width so that editor isn't so cramped
+-Reference should slide not get covered up (well, maybe not)
