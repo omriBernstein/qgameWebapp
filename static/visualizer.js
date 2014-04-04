@@ -64,7 +64,7 @@ qubits.arrange = function(callback) {
 			var yOffset = (radius + size * (1 / 2 - 1 / (2 * Math.sin(theta / 2)) - Math.cos(theta / 2))) / 2;
 		}
 	}
-	this.size = size *= .8;
+	size *= .8;
 	$("#qubitElements").css({"margin-top": (yOffset || 0) / rem + "rem"});
 	for (var i = 0, angle = 0; i < n; i++, angle += 360 / n){
 		this[i].$div.css({
@@ -140,7 +140,7 @@ Qubit.prototype.reset = function() {
 // renders all properties of the qubit
 Qubit.prototype.render = function() {
 	var ringSize = this.down.prob * 100;
-	this.up.$subDiv.css({"height": this.up.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(calc(" + -this.down.prob / this.up.prob * 100 + "% + .1rem))"});
+	this.up.$subDiv.css({"height": this.up.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.up.phase + "deg) translateY(" + -this.down.prob / this.up.prob * 100 + "%)"});
 	this.down.$subDiv.css({
 		"height": this.down.prob * 50 + "%", "transform": "translate(-50%, -100%) rotate(" + this.down.phase + "deg)"
 	});
