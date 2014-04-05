@@ -5,35 +5,49 @@
 * Uses d3 to visualize qubits.
 */
 
-var qubitStates =  [{up: {prob: .5, phase: 0}, down: {prob: .5, phase: 0}}],
+var defaultQubit =  [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
 	qubits = d3.select("#qubitSVG")
 		.attr("width", "100%")
-		.attr("height", "100%"),
-	size = 100;
+		.attr("height", "100%");
 
 function updateQubits(qubitStates) {
-	var qubit = qubits.selectAll("g")
-			.data(qubitStates),
+	var radius = 100;
 
-		// Add qubits if necessary
-		newQubit = qubit.enter().append("g")
-			.data(qubitStates);
+	// --- QUBITS --- //
+	var qubit = qubits.selectAll("g").data(qubitStates);
+	
+	// Add qubits if necessary
+	qubit.enter().append("g")
+		// Add qubit-back circle, which will never change after instantiation
+		.append("circle")
+			.attr("class", "qubit-back")
+			.attr("r", radius);
 
-	// Add background circle
-	newQubit.append("circle")
-		.attr("class", "qubit-back")
-		.attr("r", size);
+	// Remove qubits if necessary
+	qubit.exit().remove();
+	
 
-	// Add inner circle
-	newQubit.append("circle")
-		.datum(function(d, i) {return qubitStates[i].down.prob})
-		.attr("class", "qubit")
-		.attr("r", function(d) {return d * size})
+	// --- PROB-RINGS --- //
+	var probRing = qubit.selectAll(".prob-ring").data(function(d) { return [d.up.prob, d.down.prob] });
 
-	// Add down element
-	newQubit.append("rect")
-		.attr("class", "qubit")
-		.attr("r", size);
+	// Add prob-rings if necessary
+	probRing.enter().append("circle");
+	
+	// Update prob-ring size
+	probRing
+		.attr("class", function(d, i) { return "prob-ring " + (i === 0 ? "up" : "down"); })
+		.attr("r", function(d, i) { return (i === 0) ? (1 - d) * radius + 2 : d * radius });
+
+
+	// --- SUBSTATES --- //
+	var subState = qubit.selectAll(".sub-div").data(function(d) { return [d.up, d.down] });
+
+	// Add substate rects if necessary
+	subState.enter().append("rect");
+	
+	// Update substate attributes	
+	subState
+		.attr("class", function(d, i) { return "sub-div " + (i === 0 ? "up" : "down"); });
 }
 
 

@@ -22,11 +22,13 @@ $(document).ready(function() {
 	window.rem = parseInt($("html").css("font-size"));
 	window.$visualizer = $("#visualizer");
 
-	// --- Ace settings --- \\
+	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
+	updateQubits(defaultQubit);
 
 	// *** EVENT LISTENERS ***\\
 
+	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);
 		$guideMenu.addClass("hidden");
@@ -35,12 +37,14 @@ $(document).ready(function() {
 		$($this.data("target")).addClass("current");
 	});
 	
+	// --- Close guide content --- \\
 	$("#guide-back").click(function() {
 		$guideMenu.removeClass("hidden");
 		var $current = $guideDetail.addClass("hidden").children(".current");
 		setTimeout(function() {$current.removeClass("current");}, 450)
 	});
 	
+	// --- Toggle visibility of reference drawer --- \\
 	$("#reference-handle").click(function() {
 		var $this = $(this);
 		if (!$this.hasClass("flip-h")){
@@ -52,6 +56,7 @@ $(document).ready(function() {
 		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
 	});
 
+	// --- Handle dragging of reference item --- \\
 	$(".reference-item").mousedown(function(){
 		var $this = $(this),
 			$document = $(document),
@@ -69,33 +74,33 @@ $(document).ready(function() {
 			})
 	});
 
-	// Knod's addition, 03/25/14
+	// --- Set editor to example text --- \\
 	$(".example").on("click", function (evt) {
 		editor.getSession().setValue($(this).text());
 	});
 
-	// On editor change or on adding/removing qubits, run qromp with the values of both inputs and a callback to render the results
+	// --- Add empty qubit to visualizer --- \\
+	$("#add-qubit").click(function() {
+
+	});
+
+	// --- Remove an empty qubit from visualizer --- \\
+	$("#remove-qubit").click(function() {
+
+	});
+
+	// --- Evaluate the editor contents on change --- \\
+	editor.getSession().on('change', safeEvaluate);
+
+	// *** FUNCTIONS ***\\
 
 	function safeEvaluate() {
 		try {
 	    	evaluate(editor.getValue(), function(qubitStates) {
-		    	qubits.updateAll(qubitStates);
+		    	updateQubits(qubitStates);
 		    });
 	    } catch (e) {
-	    	qubits.resetAll();
 	    	//maybe put a little warning icon in the editor
 	    } 
 	}
-
-	editor.getSession().on('change', safeEvaluate);
-
-	$("#add-qubit").click(function() {
-		if (qubits.length < 10) new Qubit;
-		safeEvaluate();
-	});
-
-	$("#remove-qubit").click(function() {
-		qubits.pop();
-		safeEvaluate();
-	});
 });
