@@ -41,12 +41,8 @@
 }
 
 .qubit {
-	position: absolute;
-	border-radius: 50%;
-	left: 50%;
-	top: 50%;
-	background-color: $qubit-back;
-	border: .1rem solid $medium-border;
+	fill: $qubit-back;
+	stroke: $medium-border;
 }
 
 .prob-ring {

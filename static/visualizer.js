@@ -6,16 +6,19 @@
 */
 
 var qubitStates = [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
-	qubits = d3.select("#qubitSVG");
+	qubits = d3.select("#qubitSVG"),
+	size = 100;
 
 function updateQubits(qubitStates) {
 	var qubit = qubits.selectAll("g")
-		.data(qubitStates);
+			.data(qubitStates),
+		newQubit = qubit.enter().append("g");
 
-	qubit.enter().append("g")
-		.append("circle");
+	newQubit.append("circle")
+		.attr("class", "qubit")
+		.attr("width", size)
+		.attr("height", size);
 }
-
 
 
 /*
