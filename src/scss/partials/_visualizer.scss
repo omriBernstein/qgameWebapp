@@ -35,14 +35,10 @@
 	font-size: 1.2rem;
 }
 
-#qubitSVG {
-	width: 100%;
-	height: 100%;
-}
-
-.qubit {
+.qubit-back {
 	fill: $qubit-back;
 	stroke: $medium-border;
+	stroke-width: 1;
 }
 
 .prob-ring {

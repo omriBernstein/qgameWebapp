@@ -5,19 +5,35 @@
 * Uses d3 to visualize qubits.
 */
 
-var qubitStates = [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
-	qubits = d3.select("#qubitSVG"),
+var qubitStates =  [{up: {prob: .5, phase: 0}, down: {prob: .5, phase: 0}}],
+	qubits = d3.select("#qubitSVG")
+		.attr("width", "100%")
+		.attr("height", "100%"),
 	size = 100;
 
 function updateQubits(qubitStates) {
 	var qubit = qubits.selectAll("g")
 			.data(qubitStates),
-		newQubit = qubit.enter().append("g");
 
+		// Add qubits if necessary
+		newQubit = qubit.enter().append("g")
+			.data(qubitStates);
+
+	// Add background circle
 	newQubit.append("circle")
+		.attr("class", "qubit-back")
+		.attr("r", size);
+
+	// Add inner circle
+	newQubit.append("circle")
+		.datum(function(d, i) {return qubitStates[i].down.prob})
 		.attr("class", "qubit")
-		.attr("width", size)
-		.attr("height", size);
+		.attr("r", function(d) {return d * size})
+
+	// Add down element
+	newQubit.append("rect")
+		.attr("class", "qubit")
+		.attr("r", size);
 }
 
 
