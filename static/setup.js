@@ -22,8 +22,7 @@ $(document).ready(function() {
 	window.rem = parseInt($("html").css("font-size"));
 	window.$visualizer = $("#visualizer");
 
-	// --- Visualizer --- \\
-	new Qubit;
+	// --- Ace settings --- \\
 	editor.getSession().setUseWrapMode(true);
 
 	// *** EVENT LISTENERS ***\\

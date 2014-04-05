@@ -1,15 +1,24 @@
-/* visualizer.js
+/* 
+* visualizer.js
 * Created by: sethtoles
 * Date created: 3/11/14
-* to render visual representation of qubits.
-* 
-* TODO:
-*	Possibly put qubits[] and related methods in a closure 
-*
-* DONE:
-* 
+* Uses d3 to visualize qubits.
 */
 
+var qubitStates = [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
+	qubits = d3.select("#qubitSVG");
+
+function updateQubits(qubitStates) {
+	var qubit = qubits.selectAll("g")
+		.data(qubitStates);
+
+	qubit.enter().append("g")
+		.append("circle");
+}
+
+
+
+/*
 var qubits = [];
 
 qubits.push = function(qubit) {
@@ -146,3 +155,4 @@ Qubit.prototype.render = function() {
 	});
 	this.$probRing.css({"height": ringSize + "%", "width": ringSize + "%"});
 }
+*/
