@@ -13,8 +13,8 @@ var defaultQubit =  [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
 function updateQubits(qubitStates) {
 		// General settings
 	var margin = .9,
-		qubitScale = .9,
-		animTime = 1000,
+		qubitScale = .75,
+		animTime = 800,
 		// Environment info
 		numQubits = qubitStates.length,
 		svgWidth = parseInt(qubits.style("width")),
@@ -24,8 +24,7 @@ function updateQubits(qubitStates) {
 		// Qubit properties
 		qubitRadius = qubitScale * dim / 2,
 		arrangeRadius = 0,
-		yOffset = 0,
-		rotateDeg = 360 / numQubits;
+		yOffset = 0;
 
 	if (numQubits > 1) {
 		var theta = 2 * Math.PI / numQubits,
@@ -41,12 +40,13 @@ function updateQubits(qubitStates) {
 		}
 	}
 
-
-	function qubitTransform(index, c, r, t, s) {
-		var center = c || "translate(" + (svgWidth / 2) + ", " + ((svgHeight / 2) + yOffset / 2) + ")",
-			rotate = r || "rotate(" + (rotateDeg * index) + ")",
-			translate = t || "translate(0, -" + arrangeRadius + ")"
-			straighten = s || "rotate(-" + (rotateDeg * index) + ")";
+	function positionQubit(index, remove) {
+		var realNumQubits = (remove) ? index + 1 : numQubits,
+			rotateDeg = 360 / realNumQubits,
+			center = "translate(" + (svgWidth / 2) + ", " + ((svgHeight / 2) + yOffset / 2) + ")",
+			rotate = "rotate(" + (rotateDeg * index) + ")",
+			translate = "translate(0, -" + arrangeRadius + ")"
+			straighten = "rotate(-" + (rotateDeg * index) + ")";
 
 		return center + rotate + translate + straighten;
 	}
@@ -57,32 +57,25 @@ function updateQubits(qubitStates) {
 	// Add qubits if necessary
 	qubit.enter().append("g")
 		.attr("class", "qubit")
-		.attr("transform", function(d, i) { return qubitTransform(i, false, "", "", "") });
-
-	// Remove qubits if necessary
-	qubit.exit().transition()
-		.duration(animTime)
-		.attr("transform", "scale(0)")
-		.remove();
+		.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"})
+	  .append("circle")
+		.attr("class", "qubit-back");
 
 	// Update qubit arrangement
 	qubit.transition()
 		.duration(animTime)
-		.attr("transform", function(d, i) { return qubitTransform(i) });	
-	
-
-	// --- QUBIT BACK --- //
-	var qubitBack = qubit.selectAll(".qubit-back").data([qubitRadius]);
-
-	// Add qubit-back if necessary
-	qubitBack.enter().append("circle")
-		.attr("class", "qubit-back")
-		.attr("r", qubitRadius);
+		.attr("transform", function(d, i) { return positionQubit(i) + "scale(1)" });
 
 	// Update qubit-back
-	qubitBack.transition()
+	qubit.select(".qubit-back").transition()
 		.duration(animTime)
 		.attr("r", qubitRadius);
+	
+	// Remove qubits if necessary
+	qubit.exit().transition()
+		.duration(animTime / 2)
+		.attr("transform", function(d, i) { return positionQubit(i, true) + "scale(0)" })
+		.remove();
 
 
 	// --- SUBSTATES --- //
