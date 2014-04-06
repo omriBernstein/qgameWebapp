@@ -7,7 +7,7 @@
 
 function QubitObject(containerID) {
 	var userNum = 0,
-		currNum = 0,
+		numQubits = 0,
 		computedStates = [],
 		defaultQubit = {up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}},
 		container = d3.select("#"+ containerID),
@@ -16,15 +16,15 @@ function QubitObject(containerID) {
 		animTime = 800;
 	
 	this.inc = function() {
-		if (currNum < 10) {
-			userNum = ++currNum;
+		if (numQubits < 10) {
+			userNum = ++numQubits;
 			this.update();
 		}
 	}
 
 	this.dec = function() {
-		if (currNum > 0 && currNum > computedStates.length) {
-			userNum = --currNum;
+		if (numQubits > 0 && numQubits > computedStates.length) {
+			userNum = --numQubits;
 			this.update();
 		}
 	}
@@ -32,20 +32,18 @@ function QubitObject(containerID) {
 	this.update = function(newStates) {
 		if (newStates) {
 			computedStates = newStates;
-			if (computedStates.length <= userNum) currNum = userNum;
+			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
 		}
-		var i = computedStates.length;
-		for (var fullStates = computedStates.slice(0); i < currNum; i++) {
+		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
 			fullStates.push(defaultQubit);
 		}
-		currNum = i;
+		numQubits = i;
 		render(fullStates);
 	}
 
 	function render(qubitStates) {
 			// Environment info
-		var numQubits = qubitStates.length,
-			containerWidth = parseInt(container.style("width")),
+		var containerWidth = parseInt(container.style("width")),
 			containerHeight = parseInt(container.style("height")),
 			containerMin = Math.min(containerWidth, containerHeight),
 			dim = margin * containerMin,
