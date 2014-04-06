@@ -16,26 +16,29 @@ function QubitObject() {
 		animTime = 800;
 	
 	this.inc = function() {
-		if (userNum < 10) {
-			userNum++;
+		if (currNum < 10) {
+			userNum = ++currNum;
 			this.update();
 		}
 	}
 
 	this.dec = function() {
-		if (userNum > 0) {
-			userNum--;
+		if (currNum > 0 && currNum > computedStates.length) {
+			userNum = --currNum;
 			this.update();
 		}
 	}
 
 	this.update = function(newStates) {
-		if (newStates) computedStates = newStates;
+		if (newStates) {
+			computedStates = newStates;
+			if (computedStates.length <= userNum) currNum = userNum;
+		}
 		var i = computedStates.length;
-		for (var fullStates = computedStates.slice(0); i < userNum; i++) {
+		for (var fullStates = computedStates.slice(0); i < currNum; i++) {
 			fullStates.push(defaultQubit);
 		}
-		userNum = i;
+		currNum = i;
 		render(fullStates);
 	}
 
