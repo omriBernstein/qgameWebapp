@@ -18,13 +18,14 @@ $(document).ready(function() {
 	// *** VARIABLE DECLARATION ***\\
 	var editor = ace.edit("codeArea"),
 		$guideMenu = $("#guide-menu"),
-		$guideDetail = $("#guide-detail");
+		$guideDetail = $("#guide-detail"),
+		qubits = new QubitObject;
 	window.rem = parseInt($("html").css("font-size"));
 	window.$visualizer = $("#visualizer");
 
 	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
-	updateQubits(defaultQubit);
+	qubits.inc();
 
 	// *** EVENT LISTENERS ***\\
 
@@ -81,12 +82,12 @@ $(document).ready(function() {
 
 	// --- Add empty qubit to visualizer --- \\
 	$("#add-qubit").click(function() {
-
+		qubits.inc();
 	});
 
 	// --- Remove an empty qubit from visualizer --- \\
 	$("#remove-qubit").click(function() {
-
+		qubits.dec();
 	});
 
 	// --- Evaluate the editor contents on change --- \\
@@ -97,7 +98,7 @@ $(document).ready(function() {
 	function safeEvaluate() {
 		try {
 	    	evaluate(editor.getValue(), function(qubitStates) {
-		    	updateQubits(qubitStates);
+		    	qubits.update(qubitStates);
 		    });
 	    } catch (e) {
 	    	//maybe put a little warning icon in the editor
