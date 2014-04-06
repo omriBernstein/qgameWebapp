@@ -1,13 +1,19 @@
 (ns qromp
   (:require [qgame.simulator.interpreter :as qgame :refer [interpret]]
             [qgame.utils.amplitudes :as amps :refer [probability-of
-                                                     phase-of]]
-            [qgame.utils.general :as g :refer [bit-size]])) 
+                                                     phase-of
+                                                     tangle-of]]
+            [qgame.utils.general :as g :refer [bit-size]]
+            [qgame.utils.math :as m :refer [round]])) 
 
 (defn evaluate [input callback]
-  (let [output (-> input qgame/interpret first)
+  (let [on-err (fn [_] nil)
+        with-err (partial qgame/interpret {:on-err on-err :on-warn on-err})
+        output (-> input with-err first)
         num-qubits (-> output :amplitudes count g/bit-size)
-        up-state-probs (map #(amps/probability-of output % 0) (range num-qubits))
+        up-state-probs (map (comp #(m/round % 4)
+                                  #(amps/probability-of output % 0))
+                            (range num-qubits))
         up-phases (map #(amps/phase-of output % 0) (range num-qubits))
         down-phases (map #(amps/phase-of output % 1) (range num-qubits))
         qubit-states (map (fn [up-prob up-phase down-phase]

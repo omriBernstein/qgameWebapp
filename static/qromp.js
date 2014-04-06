@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
 var COMPILED = !0, goog = goog || {};
 goog.global = window;
@@ -1811,50 +1811,50 @@ cljs.core._invoke = function() {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
     return B.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v, x);
-  }, a = function(a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U, L, V, Y) {
+  }, a = function(a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V, Y) {
     switch(arguments.length) {
       case 1:
         return b.call(this, a);
       case 2:
-        return c.call(this, a, I);
+        return c.call(this, a, E);
       case 3:
-        return d.call(this, a, I, z);
+        return d.call(this, a, E, z);
       case 4:
-        return e.call(this, a, I, z, C);
+        return e.call(this, a, E, z, C);
       case 5:
-        return f.call(this, a, I, z, C, H);
+        return f.call(this, a, E, z, C, I);
       case 6:
-        return g.call(this, a, I, z, C, H, K);
+        return g.call(this, a, E, z, C, I, K);
       case 7:
-        return h.call(this, a, I, z, C, H, K, F);
+        return h.call(this, a, E, z, C, I, K, G);
       case 8:
-        return k.call(this, a, I, z, C, H, K, F, G);
+        return k.call(this, a, E, z, C, I, K, G, H);
       case 9:
-        return l.call(this, a, I, z, C, H, K, F, G, E);
+        return l.call(this, a, E, z, C, I, K, G, H, F);
       case 10:
-        return m.call(this, a, I, z, C, H, K, F, G, E, J);
+        return m.call(this, a, E, z, C, I, K, G, H, F, J);
       case 11:
-        return n.call(this, a, I, z, C, H, K, F, G, E, J, M);
+        return n.call(this, a, E, z, C, I, K, G, H, F, J, M);
       case 12:
-        return r.call(this, a, I, z, C, H, K, F, G, E, J, M, O);
+        return r.call(this, a, E, z, C, I, K, G, H, F, J, M, O);
       case 13:
-        return p.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N);
+        return p.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N);
       case 14:
-        return s.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R);
+        return s.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R);
       case 15:
-        return q.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S);
+        return q.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S);
       case 16:
-        return u.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q);
+        return u.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q);
       case 17:
-        return x.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T);
+        return x.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T);
       case 18:
-        return v.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U);
+        return v.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U);
       case 19:
-        return t.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U, L);
+        return t.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L);
       case 20:
-        return w.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U, L, V);
+        return w.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V);
       case 21:
-        return B.call(this, a, I, z, C, H, K, F, G, E, J, M, O, N, R, S, Q, T, U, L, V, Y);
+        return B.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V, Y);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -3555,16 +3555,16 @@ cljs.core.fn_QMARK_ = function(a) {
 };
 cljs.core.with_meta = function with_meta(b, c) {
   return cljs.core.fn_QMARK_.call(null, b) && !(b ? b.cljs$lang$protocol_mask$partition0$ & 262144 || b.cljs$core$IWithMeta$ || (b.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) ? with_meta.call(null, function() {
-    "undefined" === typeof cljs.core.t5236 && (cljs.core.t5236 = function(b, c, f, g) {
+    "undefined" === typeof cljs.core.t5258 && (cljs.core.t5258 = function(b, c, f, g) {
       this.meta = b;
       this.o = c;
       this.with_meta = f;
-      this.meta5237 = g;
+      this.meta5259 = g;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, cljs.core.t5236.cljs$lang$type = !0, cljs.core.t5236.cljs$lang$ctorStr = "cljs.core/t5236", cljs.core.t5236.cljs$lang$ctorPrWriter = function(b, c, f) {
-      return cljs.core._write.call(null, c, "cljs.core/t5236");
-    }, cljs.core.t5236.prototype.call = function() {
+    }, cljs.core.t5258.cljs$lang$type = !0, cljs.core.t5258.cljs$lang$ctorStr = "cljs.core/t5258", cljs.core.t5258.cljs$lang$ctorPrWriter = function(b, c, f) {
+      return cljs.core._write.call(null, c, "cljs.core/t5258");
+    }, cljs.core.t5258.prototype.call = function() {
       var b = function(b, c) {
         return cljs.core.apply.call(null, b.o, c);
       }, c = function(c, e) {
@@ -3581,9 +3581,9 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t5236.prototype.apply = function(b, c) {
+    }(), cljs.core.t5258.prototype.apply = function(b, c) {
       return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, c)));
-    }, cljs.core.t5236.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
+    }, cljs.core.t5258.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
       var b = function(b) {
         return cljs.core.apply.call(null, self__.o, b);
       }, c = function(c) {
@@ -3598,14 +3598,14 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t5236.prototype.cljs$core$Fn$ = !0, cljs.core.t5236.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-      return this.meta5237;
-    }, cljs.core.t5236.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-      return new cljs.core.t5236(this.meta, this.o, this.with_meta, c);
-    }, cljs.core.__GT_t5236 = function(b, c, f, g) {
-      return new cljs.core.t5236(b, c, f, g);
+    }(), cljs.core.t5258.prototype.cljs$core$Fn$ = !0, cljs.core.t5258.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+      return this.meta5259;
+    }, cljs.core.t5258.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+      return new cljs.core.t5258(this.meta, this.o, this.with_meta, c);
+    }, cljs.core.__GT_t5258 = function(b, c, f, g) {
+      return new cljs.core.t5258(b, c, f, g);
     });
-    return new cljs.core.t5236(c, b, with_meta, null);
+    return new cljs.core.t5258(c, b, with_meta, null);
   }(), c) : null == b ? null : cljs.core._with_meta.call(null, b, c);
 };
 cljs.core.meta = function(a) {
@@ -19817,7 +19817,212 @@ qgame.utils.general.regex_join = function() {
 qgame.utils.general.errant_QMARK_ = function(a) {
   return qgame.utils.general.anywhere_QMARK_.call(null, cljs.core.every_pred.call(null, cljs.core.map_QMARK_, new cljs.core.Keyword(null, "error", "error", 1110689146)), a);
 };
-clojure.walk = {};
+var arndt = {js:{}};
+function eigenvalues4(a) {
+  return solve4(charpoly4(a));
+}
+function solve4(a) {
+  var b, c;
+  c = [0, 0];
+  var d = [0, 0], e = [], f = 0;
+  Math.pow(a[0][0] * a[0][0] + a[0][1] * a[0][1], 0.125);
+  var g = !1, h = Array(5);
+  for (b = 0;4 >= b;b++) {
+    h[b] = [a[b][0], a[b][1]], 0 != h[b][1] && (g = !0);
+  }
+  for (;0 == h[0][0] && 0 == h[0][1];) {
+    hkpd(h, c, d), e[f++] = [0, 0];
+  }
+  for (b = 0;5E3 > b && 4 > f;b++) {
+    c[0] = Math.random() * Math.random() * Math.random(), c[0] = 50 * c[0] * c[0] * (b % 50 + 10), 0.5 < Math.random() && (c[0] = -c[0]), c[1] = 0, 1 == b % 3 && (c[1] = Math.random() * Math.random() * Math.random(), c[1] = 20 * c[1] * c[1] * (b % 50 + 10), 0.5 < Math.random() && (c[1] = -c[1])), ntol = b * b * b * 1E-18, newtonk(h, c) && (hkpd(h, c, d), e[f++] = [c[0], c[1]], 0.001 < Math.abs(c[1]) && !g && (c[1] = -c[1], hk(h, c, d), 1E-15 > d[0] * d[0] + d[1] * d[1] && (hkpd(h, c, d), e[f++] = 
+    [c[0], c[1]]))), 2 == f && (f = h[2][1] * h[2][1] + h[2][0] * h[2][0], a = (h[1][0] * h[2][0] + h[1][1] * h[2][1]) / f, h[1][1] = (h[1][1] * h[2][0] - h[1][0] * h[2][1]) / f, h[1][0] = a, a = (h[0][0] * h[2][0] + h[0][1] * h[2][1]) / f, h[0][1] = (h[0][1] * h[2][0] - h[0][0] * h[2][1]) / f, h[0][0] = a, f = ksubtr(kmult(h[1], h[1]), kmult([4, 0], h[0])), f = [Math.sqrt(Math.sqrt(f[0] * f[0] + f[1] * f[1]) + f[0]) / Math.sqrt(2), Math.sqrt(Math.sqrt(f[0] * f[0] + f[1] * f[1]) - f[0]) * sign(f[1]) / 
+    Math.sqrt(2)], e[2] = ksubtr(f, h[1]), f[0] = -f[0], f[1] = -f[1], e[3] = ksubtr(f, h[1]), e[2][0] /= 2, e[2][1] /= 2, e[3][0] /= 2, e[3][1] /= 2, f = 4);
+  }
+  for (b = 0;b < f;b++) {
+    for (c = 0;1 > c;c++) {
+      1E-14 > Math.abs(e[b][c]) && (e[b][c] = 0);
+    }
+  }
+  return e;
+}
+function hk(a, b, c) {
+  var d, e;
+  c[0] = a[4][0];
+  c[1] = a[4][1];
+  for (d = 3;0 <= d;d--) {
+    e = c[0] * b[1] + c[1] * b[0] + a[d][1], c[0] = c[0] * b[0] - c[1] * b[1] + a[d][0], c[1] = e;
+  }
+}
+function hkpd(a, b, c) {
+  var d, e, f = [[0, 0], [0, 0], [0, 0], [0, 0]];
+  c[0] = a[4][0];
+  c[1] = a[4][1];
+  if (1E-15 > b[0] * b[0] + b[1] * b[1]) {
+    for (d = 0;4 > d;d++) {
+      a[d][0] = a[d + 1][0], a[d][1] = a[d + 1][1];
+    }
+    a[4][0] = a[4][1] = 0;
+  } else {
+    for (d = 3;0 <= d;d--) {
+      e = (f[d][1] = c[0] * b[1] + c[1] * b[0]) + a[d][1], c[0] = (f[d][0] = c[0] * b[0] - c[1] * b[1]) + a[d][0], c[1] = e;
+    }
+    for (d = 0;4 > d;d++) {
+      a[d][0] = f[d][0], a[d][1] = f[d][1];
+    }
+    a[4][0] = a[4][1] = 0;
+    1E-15 < c[0] * c[0] + c[1] * c[1] && alert("Error: |y|\x3d" + Math.sqrt(c[0] * c[0] + c[1] * c[1]) + "!\x3d0");
+  }
+}
+function hkd(a, b, c) {
+  var d;
+  c[0] = 4 * a[4][0];
+  c[1] = 4 * a[4][1];
+  for (d = 3;0 < d;d--) {
+    im = c[0] * b[1] + c[1] * b[0] + d * a[d][1], c[0] = c[0] * b[0] - c[1] * b[1] + d * a[d][0], c[1] = im;
+  }
+}
+function hkdd(a, b, c) {
+  var d, e = [0, 0, 2, 6];
+  c[0] = 12 * a[4][0];
+  c[1] = 4 * a[4][1];
+  for (d = 3;1 < d;d--) {
+    im = c[0] * b[1] + c[1] * b[0] + e[d] * a[d][1], c[0] = c[0] * b[0] - c[1] * b[1] + e[d] * a[d][0], c[1] = im;
+  }
+}
+function hkddd(a, b, c) {
+  c[0] = 24 * a[4][0] * b[0] - 6 * a[3][0];
+  c[1] = 24 * a[4][1] * b[1] - 6 * a[3][1];
+}
+function newtonk(a, b) {
+  var c, d, e = [0, 0], f = [0, 0], g, h = 1E10, k, l = [b[0], b[1]];
+  for (c = 0;40 > c;c++) {
+    hk(a, b, e);
+    hkd(a, b, f);
+    g = e[0] * e[0] + e[1] * e[1];
+    k = f[0] * f[0] + f[1] * f[1];
+    if (0 == k) {
+      return!1;
+    }
+    d = b[0] - (e[0] * f[0] + e[1] * f[1]) / k;
+    b[1] -= (e[1] * f[0] - e[0] * f[1]) / k;
+    b[0] = d;
+    if (h < g) {
+      b[0] = l[0];
+      b[1] = l[1];
+      g = h;
+      break;
+    }
+    if (1E-20 > Math.abs(b[0] - l[0]) && 1E-20 > Math.abs(b[1] - l[1])) {
+      break;
+    }
+    h = g;
+    l[0] = b[0];
+    l[1] = b[1];
+  }
+  Math.abs(b[1]) < ntol && (b[1] = 0);
+  1E-8 > k && (newtonek(a, b), newtonwk(a, b));
+  return 1E-15 > g;
+}
+var ntol = 1E-14;
+function newtonek(a, b) {
+  var c, d, e = [0, 0], f = [0, 0], g;
+  d = 1E10;
+  var h, k = [b[0], b[1]], l = [k[0], k[1]];
+  for (c = 0;40 > c;c++) {
+    hkd(a, k, e, !1);
+    hkdd(a, k, f);
+    g = e[0] * e[0] + e[1] * e[1];
+    h = f[0] * f[0] + f[1] * f[1];
+    if (0 == h || d < g) {
+      break;
+    }
+    d = k[0] - (e[0] * f[0] + e[1] * f[1]) / h;
+    k[1] -= (e[1] * f[0] - e[0] * f[1]) / h;
+    k[0] = d;
+    if (1E-20 > Math.abs(k[0] - l[0]) && 1E-20 > Math.abs(k[1] - l[1])) {
+      break;
+    }
+    d = g;
+    l[0] = k[0];
+    l[1] = k[1];
+  }
+  1E-14 > Math.abs(k[1]) && (k[1] = 0);
+  hk(a, k, e);
+  return 1E-15 > e[0] * e[0] + e[1] * e[1] ? (b[0] = k[0], b[1] = k[1], !0) : !1;
+}
+function newtonwk(a, b) {
+  var c, d, e = [0, 0], f = [0, 0], g;
+  d = 1E10;
+  var h, k = [b[0], b[1]], l = [k[0], k[1]];
+  for (c = 0;40 > c;c++) {
+    hkdd(a, k, e, !1);
+    hkddd(a, k, f);
+    g = e[0] * e[0] + e[1] * e[1];
+    h = f[0] * f[0] + f[1] * f[1];
+    if (0 == h || d < g) {
+      break;
+    }
+    d = k[0] - (e[0] * f[0] + e[1] * f[1]) / h;
+    k[1] -= (e[1] * f[0] - e[0] * f[1]) / h;
+    k[0] = d;
+    if (1E-20 > Math.abs(k[0] - l[0]) && 1E-20 > Math.abs(k[1] - l[1])) {
+      break;
+    }
+    d = g;
+    l[0] = k[0];
+    l[1] = k[1];
+  }
+  1E-14 > Math.abs(k[1]) && (k[1] = 0);
+  hk(a, k, e);
+  return 1E-15 > e[0] * e[0] + e[1] * e[1] ? (b[0] = k[0], b[1] = k[1], !0) : !1;
+}
+function sign(a) {
+  return 0 > a ? -1 : 1;
+}
+function kadd(a, b) {
+  return[a[0] + b[0], a[1] + b[1]];
+}
+function ksubtr(a, b) {
+  return[a[0] - b[0], a[1] - b[1]];
+}
+function kmult(a, b) {
+  return[a[0] * b[0] - a[1] * b[1], a[0] * b[1] + a[1] * b[0]];
+}
+function charpoly4(a) {
+  return fadlev(a);
+}
+function fadlev(a) {
+  var b, c, d, e, f = [], g = a.length, h = Array(g + 1), k = [0, 0];
+  h[g] = [1, 0];
+  for (d = 0;6 > d;d++) {
+    for (f[d] = Array(g), b = 0;b < g;b++) {
+      for (f[d][b] = Array(g), c = 0;c < g;c++) {
+        f[d][b][c] = [0, 0];
+      }
+    }
+  }
+  for (e = 1;e <= g + 1;e++) {
+    for (b = 0;b < g;b++) {
+      for (c = 0;c < g;c++) {
+        for (f[e][b][c][0] = b == c ? h[g - e + 1][0] : 0, f[e][b][c][1] = b == c ? h[g - e + 1][1] : 0, d = 0;d < g;d++) {
+          f[e][b][c] = kadd(f[e][b][c], kmult(a[b][d], f[e - 1][d][c]));
+        }
+      }
+    }
+    k[0] = k[1] = 0;
+    if (e == g + 1) {
+      break;
+    }
+    for (b = 0;b < g;b++) {
+      for (d = 0;d < g;d++) {
+        k = kadd(k, kmult(a[b][d], f[e][d][b]));
+      }
+    }
+    h[g - e] = [-k[0] / e, -k[1] / e];
+  }
+  return h;
+}
+;clojure.walk = {};
 clojure.walk.walk = function(a, b, c) {
   return cljs.core.seq_QMARK_.call(null, c) ? b.call(null, cljs.core.doall.call(null, cljs.core.map.call(null, a, c))) : cljs.core.coll_QMARK_.call(null, c) ? b.call(null, cljs.core.into.call(null, cljs.core.empty.call(null, c), cljs.core.map.call(null, a, c))) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? b.call(null, c) : null;
 };
@@ -20080,7 +20285,7 @@ var math = {js:{}};
     } else {
       var c;
       for ("\n" != y && ";" != y && "" != y && (a = l());"\n" == y || ";" == y;) {
-        b || (b = new E, a && (c = ";" != y, b.add(a, c))), e(), "\n" != y && ";" != y && "" != y && (a = l(), c = ";" != y, b.add(a, c));
+        b || (b = new F, a && (c = ";" != y, b.add(a, c))), e(), "\n" != y && ";" != y && "" != y && (a = l(), c = ";" != y, b.add(a, c));
       }
       b = b ? b : (a || (a = l()), a);
     }
@@ -20095,13 +20300,13 @@ var math = {js:{}};
       throw Error('Deprecated keyword "function". Functions can now be assigned without it, like "f(x) \x3d x^2".');
     }
     a = m();
-    return new G("ans", a);
+    return new H("ans", a);
   }
   function m() {
     var a, b, c, d = n();
     if ("\x3d" == y) {
       if (d instanceof Q) {
-        return a = d.name, e(), c = m(), new G(a, c);
+        return a = d.name, e(), c = m(), new H(a, c);
       }
       if (d instanceof O) {
         return e(), c = m(), new U(d, c);
@@ -20226,7 +20431,7 @@ var math = {js:{}};
                     throw Error(B("Number of columns must match (" + c[a].length + " !\x3d " + g + ")"));
                   }
                 }
-                b = new F(c);
+                b = new G(c);
               } else {
                 if ("]" != y) {
                   throw A("End of matrix ] expected");
@@ -20235,7 +20440,7 @@ var math = {js:{}};
                 b = c;
               }
             } else {
-              e(), b = new F([]);
+              e(), b = new G([]);
             }
             c = t(b);
           } else {
@@ -20286,7 +20491,7 @@ var math = {js:{}};
     for (var a = [m()], b = 1;"," == y;) {
       e(), f(), a[b] = m(), b++, f();
     }
-    return new F(a);
+    return new G(a);
   }
   function B(a) {
     var b = W - y.length + 1;
@@ -20296,16 +20501,16 @@ var math = {js:{}};
     return new SyntaxError(B(a));
   }
   b = c(117);
-  var I = (b.number.toNumber, b.string.isString), z = Array.isArray, C = b.types.type, H = (c(7), c(10)), K = (c(11), c(13)), F = c(104), G = c(105), E = c(106), J = c(107), M = c(109), O = c(108), N = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
+  var E = (b.number.toNumber, b.string.isString), z = Array.isArray, C = b.types.type, I = (c(7), c(10)), K = (c(11), c(13)), G = c(104), H = c(105), F = c(106), J = c(107), M = c(109), O = c(108), N = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
   "\x3d\x3d":!0, "!\x3d":!0, "\x3c":!0, "\x3e":!0, "\x3c\x3d":!0, "\x3e\x3d":!0}, Y = {mod:!0, to:!0, "in":!0}, Z = {}, X = "", W = 0, D = "", y = "", P = L.NULL;
   a.exports = function(a, b) {
     if (1 != arguments.length && 2 != arguments.length) {
       throw new SyntaxError("Wrong number of arguments: 1 or 2 expected");
     }
-    if (Z = "object" === C(b) ? b : {}, I(a)) {
+    if (Z = "object" === C(b) ? b : {}, E(a)) {
       return X = a || "", k();
     }
-    if (z(a) || a instanceof H) {
+    if (z(a) || a instanceof I) {
       return K.deepMap(a, function(a) {
         return X = a || "", k();
       });
@@ -21196,9 +21401,9 @@ var math = {js:{}};
   oilbarrels:"oilbarrel", hogsheads:"hogshead", grams:"gram", tons:"ton", tonnes:"tonne", grains:"grain", drams:"dram", ounces:"ounce", poundmasses:"poundmass", hundredweights:"hundredweight", sticks:"stick", seconds:"second", minutes:"minute", hours:"hour", days:"day", radians:"rad", degrees:"deg", gradients:"grad", cycles:"cycle", amperes:"ampere", moles:"mole"}, A;
   for (A in B) {
     if (B.hasOwnProperty(A)) {
-      var I = Object.create(w[B[A]]);
-      I.name = A;
-      w[A] = I;
+      var E = Object.create(w[B[A]]);
+      E.name = A;
+      w[A] = E;
     }
   }
   w.lt = w.l;
@@ -22088,8 +22293,8 @@ var math = {js:{}};
               }
               var l = c, z = f, C = null;
               if (l.length) {
-                for (var H = C = 0, K = l.length;K > H;H++) {
-                  C = a.add(C, a.multiply(l[H], z[H]));
+                for (var I = C = 0, K = l.length;K > I;I++) {
+                  C = a.add(C, a.multiply(l[I], z[I]));
                 }
               }
               return C;
@@ -22098,11 +22303,11 @@ var math = {js:{}};
               if (l[0] != z[0]) {
                 throw new RangeError("Dimensions mismatch in multiplication. Length of A must match rows of B (A is " + l[0] + ", B is " + z[0] + "x" + z[1] + ", " + l[0] + " !\x3d " + z[0] + ")");
               }
-              for (var l = c, z = f, C = [], H = z.length, K = z[0].length, F = 0;K > F;F++) {
-                for (var G = null, E = 0;H > E;E++) {
-                  var J = a.multiply(l[E], z[E][F]), G = 0 === E ? J : a.add(G, J)
+              for (var l = c, z = f, C = [], I = z.length, K = z[0].length, G = 0;K > G;G++) {
+                for (var H = null, F = 0;I > F;F++) {
+                  var J = a.multiply(l[F], z[F][G]), H = 0 === F ? J : a.add(H, J)
                 }
-                C[F] = G;
+                C[G] = H;
               }
               return C;
             }
@@ -22116,14 +22321,14 @@ var math = {js:{}};
               l = c;
               z = f;
               C = [];
-              H = l.length;
+              I = l.length;
               K = l[0].length;
-              for (F = 0;H > F;F++) {
-                G = null;
-                for (E = 0;K > E;E++) {
-                  J = a.multiply(l[F][E], z[E]), G = 0 === E ? J : a.add(G, J);
+              for (G = 0;I > G;G++) {
+                H = null;
+                for (F = 0;K > F;F++) {
+                  J = a.multiply(l[G][F], z[F]), H = 0 === F ? J : a.add(H, J);
                 }
-                C[F] = G;
+                C[G] = H;
               }
               return C;
             }
@@ -22134,15 +22339,15 @@ var math = {js:{}};
               l = c;
               z = f;
               C = [];
-              H = l.length;
+              I = l.length;
               K = z[0].length;
-              F = l[0].length;
-              for (G = 0;H > G;G++) {
-                for (C[G] = [], E = 0;K > E;E++) {
-                  for (var J = null, M = 0;F > M;M++) {
-                    var O = a.multiply(l[G][M], z[M][E]), J = null === J ? O : a.add(J, O)
+              G = l[0].length;
+              for (H = 0;I > H;H++) {
+                for (C[H] = [], F = 0;K > F;F++) {
+                  for (var J = null, M = 0;G > M;M++) {
+                    var O = a.multiply(l[H][M], z[M][F]), J = null === J ? O : a.add(J, O)
                   }
-                  C[G][E] = J;
+                  C[H][F] = J;
                 }
               }
               return C;
@@ -25078,14 +25283,14 @@ var math = {js:{}};
         }
         a += "";
       }
-      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && I.test(a)) {
+      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && E.test(a)) {
         this.s = "-" == a.charAt(0) ? (a = a.slice(1), -1) : 1;
       } else {
         if (10 == b) {
           return n(a, p, s);
         }
-        if (a = z.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = I.test(a)) : (k = "[" + B.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
-        1, b), a = "NaN")) : l = I.test(a), !l) {
+        if (a = z.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = E.test(a)) : (k = "[" + B.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
+        1, b), a = "NaN")) : l = E.test(a), !l) {
           return this.c = this.e = null, "Infinity" != a && ("NaN" != a && g(m, 3), this.s = null), void(A = 0);
         }
       }
@@ -25217,7 +25422,7 @@ var math = {js:{}};
     }
     var r, p = 20, s = 4, q = -7, u = 21, x = -1E9, v = 1E9, t = !0, w = parseInt;
     e = f.prototype;
-    var B = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, I = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, z = String.prototype.trim || function() {
+    var B = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, E = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, z = String.prototype.trim || function() {
       return this.replace(/^\s+|\s+$/g, "");
     }, C = f(1);
     f.ROUND_UP = 0;
@@ -25875,6 +26080,9 @@ qgame.utils.math.multiply = function(a, b) {
 qgame.utils.math.divide = function(a, b) {
   return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.divide, a, b);
 };
+qgame.utils.math.pow = function(a, b) {
+  return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.pow, a, b);
+};
 qgame.utils.math.sqrt = function(a) {
   return qgame.utils.math.matrix_safe.call(null, qgame.utils.math.math.sqrt, a);
 };
@@ -25982,6 +26190,39 @@ qgame.utils.math.to_string = function(a) {
 qgame.utils.math.eval_math_string = function(a) {
   return qgame.utils.math.round.call(null, qgame.utils.math.math.eval.call(null, a), 9);
 };
+qgame.utils.math.complex_QMARK_ = function(a) {
+  return cljs.core._EQ_.call(null, "complex", qgame.utils.math.math.typeof(a));
+};
+qgame.utils.math.coll__GT_bruenner_matrix = function(a) {
+  return clojure.walk.postwalk.call(null, function(a) {
+    return cljs.core.sequential_QMARK_.call(null, a) ? cljs.core.to_array.call(null, a) : "number" === typeof a ? [a, 0] : qgame.utils.math.complex_QMARK_.call(null, a) ? [a.re, a.im] : null;
+  }, a);
+};
+qgame.utils.math.bruenner_matrix__GT_coll = function(a) {
+  return clojure.walk.prewalk.call(null, function(a) {
+    if (a instanceof Array) {
+      a = cljs.core.vec.call(null, a);
+      var c = cljs.core.nth.call(null, a, 0, null), d = cljs.core.nth.call(null, a, 1, null);
+      return "number" === typeof c && "number" === typeof d ? new qgame.utils.math.math.complex(c, d) : a;
+    }
+    return a;
+  }, a);
+};
+qgame.utils.math.eigenvalues = function(a) {
+  if (!cljs.core._EQ_.call(null, 4, cljs.core.count.call(null, a))) {
+    throw Error([cljs.core.str("Assert failed: "), cljs.core.str(cljs.core.pr_str.call(null, cljs.core.list(new cljs.core.Symbol(null, "\x3d", "\x3d", -1640531466, null), 4, cljs.core.list(new cljs.core.Symbol(null, "count", "count", -1545680184, null), new cljs.core.Symbol(null, "coll", "coll", -1637472091, null)))))].join(""));
+  }
+  if (!cljs.core.every_QMARK_.call(null, cljs.core.partial.call(null, cljs.core._EQ_, 4), cljs.core.map.call(null, cljs.core.count, a))) {
+    throw Error([cljs.core.str("Assert failed: "), cljs.core.str(cljs.core.pr_str.call(null, cljs.core.list(new cljs.core.Symbol(null, "every?", "every?", 1363110461, null), cljs.core.list(new cljs.core.Symbol(null, "partial", "partial", 1861501754, null), new cljs.core.Symbol(null, "\x3d", "\x3d", -1640531466, null), 4), cljs.core.list(new cljs.core.Symbol(null, "map", "map", -1640423659, null), new cljs.core.Symbol(null, "count", "count", -1545680184, null), new cljs.core.Symbol(null, "coll", "coll", 
+    -1637472091, null)))))].join(""));
+  }
+  if (!cljs.core.every_QMARK_.call(null, cljs.core.some_fn.call(null, cljs.core.number_QMARK_, qgame.utils.math.complex_QMARK_), cljs.core.flatten.call(null, a))) {
+    throw Error([cljs.core.str("Assert failed: "), cljs.core.str(cljs.core.pr_str.call(null, cljs.core.list(new cljs.core.Symbol(null, "every?", "every?", 1363110461, null), cljs.core.list(new cljs.core.Symbol(null, "some-fn", "some-fn", 624731642, null), new cljs.core.Symbol(null, "number?", "number?", 653920207, null), new cljs.core.Symbol(null, "complex?", "complex?", 2054990664, null)), cljs.core.list(new cljs.core.Symbol(null, "flatten", "flatten", 1875631037, null), new cljs.core.Symbol(null, 
+    "coll", "coll", -1637472091, null)))))].join(""));
+  }
+  a = qgame.utils.math.coll__GT_bruenner_matrix.call(null, a);
+  return qgame.utils.math.bruenner_matrix__GT_coll.call(null, eigenvalues4(a));
+};
 qgame.utils.amplitudes = {};
 qgame.utils.amplitudes.get_num_qubits = function(a) {
   return qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, a));
@@ -26043,111 +26284,176 @@ qgame.utils.amplitudes.phase_of = function(a, b, c) {
   b = cljs.core.reduce.call(null, qgame.utils.math.add, b);
   return qgame.utils.math.to_phase.call(null, b);
 };
-qgame.utils.amplitudes.substate_amplitudes = function(a, b) {
-  var c = cljs.core.keys.call(null, b), d = cljs.core.remove.call(null, cljs.core.set.call(null, c), cljs.core.range.call(null, qgame.utils.amplitudes.get_num_qubits.call(null, a))), c = cljs.core.keep.call(null, function(a, b) {
-    return function(a) {
-      var b = cljs.core.nth.call(null, a, 0, null);
-      return 0 === cljs.core.nth.call(null, a, 1, null) ? null : b;
-    };
-  }(c, d), b), c = cljs.core.reduce.call(null, cljs.core.bit_flip, 0, c), d = qgame.utils.general.itermap.call(null, cljs.core.bit_flip, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [c], null), d);
-  return cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core.get, a), d);
+qgame.utils.amplitudes.substate_to_index = function(a) {
+  return cljs.core.reduce_kv.call(null, function(a, c, d) {
+    return 0 === d ? a : a ^ 1 << c;
+  }, 0, a);
 };
-qgame.utils.amplitudes.inner_amplitudes = function(a, b) {
-  var c = cljs.core.zipmap.call(null, b, cljs.core.repeat.call(null, 0)), d = cljs.core.zipmap.call(null, b, cljs.core.repeat.call(null, 1)), c = qgame.utils.general.itermap.call(null, cljs.core.conj, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [c], null), d);
-  return cljs.core.mapv.call(null, cljs.core.partial.call(null, qgame.utils.amplitudes.substate_amplitudes, a), c);
+qgame.utils.amplitudes.combine = function(a, b, c) {
+  b = qgame.utils.amplitudes.substate_to_index.call(null, b);
+  c = qgame.utils.amplitudes.substate_to_index.call(null, c);
+  b = cljs.core.get.call(null, a, b);
+  a = qgame.utils.math.complex_conjugate.call(null, cljs.core.get.call(null, a, c));
+  return qgame.utils.math.multiply.call(null, b, a);
 };
-qgame.utils.amplitudes.self_conj_outer_prod = function(a) {
-  a = cljs.core.mapv.call(null, cljs.core.vector, a);
-  var b = qgame.utils.math.conjugate_transpose.call(null, a);
-  return qgame.utils.math.multiply.call(null, a, b);
+qgame.utils.amplitudes.all_combinations = function(a) {
+  var b = cljs.core.zipmap.call(null, a, cljs.core.repeat.call(null, 0));
+  a = cljs.core.zipmap.call(null, a, cljs.core.repeat.call(null, 1));
+  return qgame.utils.general.itermap.call(null, cljs.core.conj, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [b], null), a);
 };
-qgame.utils.amplitudes.mangled_mean_step = function(a, b) {
-  var c = qgame.utils.amplitudes.amplitudes_to_probability.call(null, b);
-  return cljs.core.mapv.call(null, function(a, b) {
-    return a * Math.pow(b, c * -(Math.log(2) / Math.log(c / 2)));
-  }, a, b);
-};
-qgame.utils.amplitudes.get_pairs = function(a) {
-  return function c(a) {
-    return new cljs.core.LazySeq(null, function() {
-      for (var e = a;;) {
-        var f = cljs.core.seq.call(null, e);
-        if (f) {
-          var g = f, h = cljs.core.first.call(null, g), k = cljs.core.nth.call(null, h, 0, null), l = cljs.core.nthnext.call(null, h, 1), f = function(a, c, d, e, f, g) {
-            return function x(h) {
-              return new cljs.core.LazySeq(null, function(a, c, d, e, f, g) {
-                return function() {
-                  for (;;) {
-                    var a = cljs.core.seq.call(null, h);
-                    if (a) {
-                      if (cljs.core.chunked_seq_QMARK_.call(null, a)) {
-                        var c = cljs.core.chunk_first.call(null, a), e = cljs.core.count.call(null, c), f = cljs.core.chunk_buffer.call(null, e);
-                        a: {
-                          for (var g = 0;;) {
-                            if (g < e) {
-                              var k = cljs.core._nth.call(null, c, g);
-                              cljs.core.chunk_append.call(null, f, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [d, k], null));
-                              g += 1;
-                            } else {
-                              c = !0;
-                              break a;
-                            }
-                          }
-                          c = void 0;
-                        }
-                        return c ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), x.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), null);
-                      }
-                      f = cljs.core.first.call(null, a);
-                      return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [d, f], null), x.call(null, cljs.core.rest.call(null, a)));
-                    }
-                    return null;
+qgame.utils.amplitudes.reduced_entry = function(a, b, c, d) {
+  var e = function() {
+    return function g(d) {
+      return new cljs.core.LazySeq(null, function() {
+        for (;;) {
+          var e = cljs.core.seq.call(null, d);
+          if (e) {
+            if (cljs.core.chunked_seq_QMARK_.call(null, e)) {
+              var l = cljs.core.chunk_first.call(null, e), m = cljs.core.count.call(null, l), n = cljs.core.chunk_buffer.call(null, m);
+              a: {
+                for (var r = 0;;) {
+                  if (r < m) {
+                    var p = cljs.core._nth.call(null, l, r);
+                    cljs.core.chunk_append.call(null, n, qgame.utils.amplitudes.combine.call(null, a, cljs.core.merge.call(null, b, p), cljs.core.merge.call(null, c, p)));
+                    r += 1;
+                  } else {
+                    l = !0;
+                    break a;
                   }
-                };
-              }(a, c, d, e, f, g), null, null);
-            };
-          }(e, h, k, l, g, f);
-          if (l = cljs.core.seq.call(null, f.call(null, l))) {
-            return cljs.core.concat.call(null, l, c.call(null, cljs.core.rest.call(null, e)));
+                }
+                l = void 0;
+              }
+              return l ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), g.call(null, cljs.core.chunk_rest.call(null, e))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), null);
+            }
+            n = cljs.core.first.call(null, e);
+            return cljs.core.cons.call(null, qgame.utils.amplitudes.combine.call(null, a, cljs.core.merge.call(null, b, n), cljs.core.merge.call(null, c, n)), g.call(null, cljs.core.rest.call(null, e)));
           }
-          e = cljs.core.rest.call(null, e);
-        } else {
           return null;
         }
-      }
-    }, null, null);
-  }.call(null, cljs.core.take.call(null, cljs.core.count.call(null, a), cljs.core.iterate.call(null, cljs.core.rest, a)));
-};
-qgame.utils.amplitudes.to_letter = function(a) {
-  return cljs.core.nth.call(null, "ABCDEFGHIJKLMNOPQRST", a);
+      }, null, null);
+    }.call(null, qgame.utils.amplitudes.all_combinations.call(null, d));
+  }();
+  return cljs.core.reduce.call(null, qgame.utils.math.add, e);
 };
 qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
-  var c = qgame.utils.amplitudes.inner_amplitudes.call(null, a, b), d = cljs.core.apply.call(null, cljs.core.mapv, cljs.core.vector, c), c = cljs.core.reduce.call(null, qgame.utils.amplitudes.mangled_mean_step, cljs.core.repeat.call(null, cljs.core.count.call(null, c), 1), d);
-  return qgame.utils.amplitudes.self_conj_outer_prod.call(null, c);
+  var c = qgame.utils.amplitudes.all_combinations.call(null, b), d = cljs.core.remove.call(null, cljs.core.set.call(null, b), cljs.core.range.call(null, qgame.utils.amplitudes.get_num_qubits.call(null, a)));
+  return function f(b) {
+    return new cljs.core.LazySeq(null, function() {
+      for (;;) {
+        var h = cljs.core.seq.call(null, b);
+        if (h) {
+          var k = h;
+          if (cljs.core.chunked_seq_QMARK_.call(null, k)) {
+            var l = cljs.core.chunk_first.call(null, k), m = cljs.core.count.call(null, l), n = cljs.core.chunk_buffer.call(null, m);
+            return function() {
+              for (var b = 0;;) {
+                if (b < m) {
+                  var f = cljs.core._nth.call(null, l, b);
+                  cljs.core.chunk_append.call(null, n, function() {
+                    return function(b, c, f, g, h, k, l) {
+                      return function E(m) {
+                        return new cljs.core.LazySeq(null, function(b, c, f, g, h, k, l) {
+                          return function() {
+                            for (;;) {
+                              var b = cljs.core.seq.call(null, m);
+                              if (b) {
+                                if (cljs.core.chunked_seq_QMARK_.call(null, b)) {
+                                  var f = cljs.core.chunk_first.call(null, b), g = cljs.core.count.call(null, f), h = cljs.core.chunk_buffer.call(null, g);
+                                  a: {
+                                    for (var k = 0;;) {
+                                      if (k < g) {
+                                        var l = cljs.core._nth.call(null, f, k);
+                                        cljs.core.chunk_append.call(null, h, qgame.utils.amplitudes.reduced_entry.call(null, a, c, l, d));
+                                        k += 1;
+                                      } else {
+                                        f = !0;
+                                        break a;
+                                      }
+                                    }
+                                    f = void 0;
+                                  }
+                                  return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), E.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null);
+                                }
+                                h = cljs.core.first.call(null, b);
+                                return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, c, h, d), E.call(null, cljs.core.rest.call(null, b)));
+                              }
+                              return null;
+                            }
+                          };
+                        }(b, c, f, g, h, k, l), null, null);
+                      };
+                    }(b, f, l, m, n, k, h).call(null, c);
+                  }());
+                  b += 1;
+                } else {
+                  return!0;
+                }
+              }
+            }() ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), f.call(null, cljs.core.chunk_rest.call(null, k))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, n), null);
+          }
+          var r = cljs.core.first.call(null, k);
+          return cljs.core.cons.call(null, function() {
+            return function(b, c, f) {
+              return function x(g) {
+                return new cljs.core.LazySeq(null, function(b, c, f) {
+                  return function() {
+                    for (;;) {
+                      var c = cljs.core.seq.call(null, g);
+                      if (c) {
+                        if (cljs.core.chunked_seq_QMARK_.call(null, c)) {
+                          var f = cljs.core.chunk_first.call(null, c), h = cljs.core.count.call(null, f), k = cljs.core.chunk_buffer.call(null, h);
+                          a: {
+                            for (var l = 0;;) {
+                              if (l < h) {
+                                var m = cljs.core._nth.call(null, f, l);
+                                cljs.core.chunk_append.call(null, k, qgame.utils.amplitudes.reduced_entry.call(null, a, b, m, d));
+                                l += 1;
+                              } else {
+                                f = !0;
+                                break a;
+                              }
+                            }
+                            f = void 0;
+                          }
+                          return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), x.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), null);
+                        }
+                        k = cljs.core.first.call(null, c);
+                        return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, b, k, d), x.call(null, cljs.core.rest.call(null, c)));
+                      }
+                      return null;
+                    }
+                  };
+                }(b, c, f), null, null);
+              };
+            }(r, k, h).call(null, c);
+          }(), f.call(null, cljs.core.rest.call(null, k)));
+        }
+        return null;
+      }
+    }, null, null);
+  }.call(null, c);
+};
+qgame.utils.amplitudes.spin_flip = function(a) {
+  var b = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, -1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [-1, 0, 0, 0], null)], 
+  null);
+  a = qgame.utils.math.conjugate_transpose.call(null, a);
+  return qgame.utils.math.multiply.call(null, qgame.utils.math.multiply.call(null, b, a), b);
 };
 qgame.utils.amplitudes.tangle_of = function(a, b, c) {
   a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714));
-  var d = qgame.utils.amplitudes.reduced_density_matrix.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null));
-  a = cljs.core.nth.call(null, d, 0, null);
-  b = cljs.core.nth.call(null, a, 0, null);
-  cljs.core.nth.call(null, a, 1, null);
-  c = cljs.core.nth.call(null, a, 2, null);
-  cljs.core.nth.call(null, a, 3, null);
-  var e = cljs.core.nth.call(null, d, 1, null);
-  cljs.core.nth.call(null, e, 0, null);
-  a = cljs.core.nth.call(null, e, 1, null);
-  cljs.core.nth.call(null, e, 2, null);
-  var e = cljs.core.nth.call(null, e, 3, null), f = cljs.core.nth.call(null, d, 2, null), g = cljs.core.nth.call(null, f, 0, null);
-  cljs.core.nth.call(null, f, 1, null);
-  var h = cljs.core.nth.call(null, f, 2, null);
-  cljs.core.nth.call(null, f, 3, null);
-  f = cljs.core.nth.call(null, d, 3, null);
-  cljs.core.nth.call(null, f, 0, null);
-  d = cljs.core.nth.call(null, f, 1, null);
-  cljs.core.nth.call(null, f, 2, null);
-  f = cljs.core.nth.call(null, f, 3, null);
-  b = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b + a, c + e], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [g + d, h + f], null)], null);
-  return 4 * qgame.utils.math.det.call(null, b);
+  b = qgame.utils.amplitudes.reduced_density_matrix.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, c], null));
+  c = qgame.utils.amplitudes.spin_flip.call(null, b);
+  a = qgame.utils.math.multiply.call(null, b, c);
+  var d = qgame.utils.math.eigenvalues.call(null, a);
+  b = cljs.core.sort.call(null, function(a, b, c, d) {
+    return function(a, b) {
+      return a.re > b.re;
+    };
+  }(b, c, a, d), qgame.utils.math.sqrt.call(null, d));
+  b = cljs.core.reduce.call(null, qgame.utils.math.subtract, b);
+  b = qgame.utils.math.pow.call(null, 0 < b ? b : 0, 2);
+  return qgame.utils.math.abs.call(null, qgame.utils.math.round.call(null, b, 8));
 };
 qgame.simulator = {};
 qgame.simulator.flow = {};
@@ -26387,10 +26693,10 @@ qgame.simulator.qgates.to_oracle = function() {
   return b;
 }();
 qgame.simulator.qgates.with_oracle = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "ParseTime", "ParseTime", 1184785266), new cljs.core.Keyword(null, "name", "name", 1017277949), "with_oracle"], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), qgame.simulator.qgates.to_oracle], null);
-var dummy_matrix__4843__auto___6101 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null), num_qubits__4844__auto___6102 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6101));
+var dummy_matrix__4862__auto___6154 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null), num_qubits__4863__auto___6155 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6154));
 qgame.simulator.qgates.qnot = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6102, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6155, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0], null)], null)), f);
   }, b = function(b, d) {
@@ -26406,14 +26712,14 @@ qgame.simulator.qgates.qnot = new cljs.core.PersistentArrayMap(null, 5, [new clj
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "qnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6102], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "qnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6155], 
 null);
-var dummy_matrix__4843__auto___6107 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[0, 0, 1, 0], null)], null), num_qubits__4844__auto___6108 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6107));
+var dummy_matrix__4862__auto___6160 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 1, 0], null)], null), num_qubits__4863__auto___6161 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6160));
 qgame.simulator.qgates.cnot = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
 [0, 0, 0, 1], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6108, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6161, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null), 
     new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null)], null)), f);
@@ -26430,14 +26736,14 @@ qgame.simulator.qgates.cnot = new cljs.core.PersistentArrayMap(null, 5, [new clj
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "cnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6108], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "cnot", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6161], 
 null);
-var dummy_matrix__4843__auto___6113 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt2, 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null)), num_qubits__4844__auto___6114 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, 
-dummy_matrix__4843__auto___6113));
+var dummy_matrix__4862__auto___6166 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt2, 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null)), num_qubits__4863__auto___6167 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, 
+dummy_matrix__4862__auto___6166));
 qgame.simulator.qgates.srn = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "divide", "m/divide", 1322979808, null), new cljs.core.Symbol("m", "sqrt2", "m/sqrt2", -1530839989, null), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 
 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6114, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6167, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt2, 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null)], null))), f);
   }, b = function(b, d) {
@@ -26453,12 +26759,12 @@ qgame.simulator.qgates.srn = new cljs.core.PersistentArrayMap(null, 5, [new cljs
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "srn", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6114], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "srn", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6167], 
 null);
-var dummy_matrix__4843__auto___6119 = qgame.simulator.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null)), num_qubits__4844__auto___6120 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6119));
+var dummy_matrix__4862__auto___6172 = qgame.simulator.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null)), num_qubits__4863__auto___6173 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6172));
 qgame.simulator.qgates.nand = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol(null, "binary-gate-matrix", "binary-gate-matrix", 1177512176, null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6120, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6173, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.simulator.qgates.binary_gate_matrix.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1, 1, 0], null))), f);
   }, b = function(b, d) {
@@ -26474,14 +26780,14 @@ qgame.simulator.qgates.nand = new cljs.core.PersistentArrayMap(null, 5, [new clj
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "nand", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6120], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "nand", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6173], 
 null);
-var dummy_matrix__4843__auto___6125 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], null)), num_qubits__4844__auto___6126 = qgame.utils.general.bit_size.call(null, 
-cljs.core.count.call(null, dummy_matrix__4843__auto___6125));
+var dummy_matrix__4862__auto___6178 = qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], null)), num_qubits__4863__auto___6179 = qgame.utils.general.bit_size.call(null, 
+cljs.core.count.call(null, dummy_matrix__4862__auto___6178));
 qgame.simulator.qgates.hadamard = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "divide", "m/divide", 1322979808, null), cljs.core.list(new cljs.core.Symbol("m", "sqrt", "m/sqrt", -1636986279, null), 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 
 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], null)), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6126, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6179, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, qgame.utils.math.multiply.call(null, qgame.utils.math.divide.call(null, qgame.utils.math.sqrt.call(null, 2), 2), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 1], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, -1], null)], 
     null))), f);
@@ -26498,17 +26804,17 @@ qgame.simulator.qgates.hadamard = new cljs.core.PersistentArrayMap(null, 5, [new
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "hadamard", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6126], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "hadamard", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6179], 
 null);
-var dummy_matrix__4843__auto___6132 = function() {
+var dummy_matrix__4862__auto___6185 = function() {
   var a = cljs.core.repeat.call(null, 1), a = cljs.core.nth.call(null, a, 0, null);
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.cos.call(null, a), qgame.utils.math.sin.call(null, a)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.subtract.call(null, qgame.utils.math.sin.call(null, a)), qgame.utils.math.cos.call(null, a)], null)], null);
-}(), num_qubits__4844__auto___6133 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6132));
+}(), num_qubits__4863__auto___6186 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6185));
 qgame.simulator.qgates.utheta = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "sin", 
 "m/sin", -1640410751, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), cljs.core.list(new cljs.core.Symbol("m", "sin", "m/sin", -1640410751, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, 
 "theta", "theta", -1530204073, null))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6133, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6186, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.cos.call(null, e), qgame.utils.math.sin.call(null, e)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.subtract.call(null, qgame.utils.math.sin.call(null, 
     e)), qgame.utils.math.cos.call(null, e)], null)], null)), f);
   }, b = function(b, d) {
@@ -26525,16 +26831,16 @@ qgame.simulator.qgates.utheta = new cljs.core.PersistentArrayMap(null, 5, [new c
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "utheta", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 
-1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6133], null);
-var dummy_matrix__4843__auto___6139 = function() {
+1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6186], null);
+var dummy_matrix__4862__auto___6192 = function() {
   var a = cljs.core.repeat.call(null, 1), a = cljs.core.nth.call(null, a, 0, null);
   return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, qgame.utils.math.exp_xi.call(null, 
   a)], null)], null);
-}(), num_qubits__4844__auto___6140 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6139));
+}(), num_qubits__4863__auto___6193 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6192));
 qgame.simulator.qgates.cphase = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
 [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6140, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6193, b), f = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, e, 0, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), 
     new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, qgame.utils.math.exp_xi.call(null, e)], null)], null)), f);
   }, b = function(b, d) {
@@ -26551,13 +26857,13 @@ qgame.simulator.qgates.cphase = new cljs.core.PersistentArrayMap(null, 5, [new c
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "cphase", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 
-1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6140], null);
-var dummy_matrix__4843__auto___6146 = function() {
+1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6193], null);
+var dummy_matrix__4862__auto___6199 = function() {
   var a = cljs.core.repeat.call(null, 1), b = cljs.core.nth.call(null, a, 0, null), c = cljs.core.nth.call(null, a, 1, null), d = cljs.core.nth.call(null, a, 2, null), a = cljs.core.nth.call(null, a, 3, null);
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, c), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), qgame.utils.math.subtract.call(null, d), a))), qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, qgame.utils.math.subtract.call(null, 
   c)), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, b), d, a)))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, c), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, b, qgame.utils.math.subtract.call(null, d), a))), qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, c), qgame.utils.math.exp_xi.call(null, 
   qgame.utils.math.add.call(null, b, d, a)))], null)], null);
-}(), num_qubits__4844__auto___6147 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6146));
+}(), num_qubits__4863__auto___6200 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6199));
 qgame.simulator.qgates.u2 = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", 
 "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null)), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null)), new cljs.core.Symbol(null, 
 "alpha", "alpha", -1547621609, null)))), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "sin", "m/sin", -1640410751, null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194501, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null))), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, 
@@ -26566,7 +26872,7 @@ null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194
 "alpha", -1547621609, null)))), cljs.core.list(new cljs.core.Symbol("m", "multiply", "m/multiply", -986694827, null), cljs.core.list(new cljs.core.Symbol("m", "cos", "m/cos", -1640425738, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null)), cljs.core.list(new cljs.core.Symbol("m", "exp-xi", "m/exp-xi", 1365225944, null), cljs.core.list(new cljs.core.Symbol("m", "add", "m/add", -1640428072, null), new cljs.core.Symbol(null, "phi", "phi", -1640420566, null), new cljs.core.Symbol(null, 
 "psi", "psi", -1640420225, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null))))], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6147, b), f = cljs.core.nth.call(null, e, 0, null), g = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, g, 0, null), h = cljs.core.nth.call(null, g, 1, null), k = cljs.core.nth.call(null, g, 2, null), g = cljs.core.nth.call(null, g, 3, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6200, b), f = cljs.core.nth.call(null, e, 0, null), g = cljs.core.nth.call(null, e, 1, null), e = cljs.core.nth.call(null, g, 0, null), h = cljs.core.nth.call(null, g, 1, null), k = cljs.core.nth.call(null, g, 2, null), g = cljs.core.nth.call(null, g, 3, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, e), qgame.utils.math.subtract.call(null, k), g))), 
     qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, qgame.utils.math.subtract.call(null, h)), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, qgame.utils.math.subtract.call(null, e), k, g)))], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [qgame.utils.math.multiply.call(null, qgame.utils.math.sin.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, e, qgame.utils.math.subtract.call(null, 
     k), g))), qgame.utils.math.multiply.call(null, qgame.utils.math.cos.call(null, h), qgame.utils.math.exp_xi.call(null, qgame.utils.math.add.call(null, e, k, g)))], null)], null)), f);
@@ -26584,13 +26890,13 @@ null), cljs.core.list(new cljs.core.Symbol("m", "subtract", "m/subtract", 594194
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null, "phi", "phi", -1640420566, null), new cljs.core.Symbol(null, "theta", "theta", -1530204073, null), new cljs.core.Symbol(null, "psi", "psi", -1640420225, null), new cljs.core.Symbol(null, "alpha", "alpha", -1547621609, null)], null), new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 
-2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "u2", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6147], null);
-var dummy_matrix__4843__auto___6152 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
-[0, 0, 0, 1], null)], null), num_qubits__4844__auto___6153 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4843__auto___6152));
+2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "u2", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6200], null);
+var dummy_matrix__4862__auto___6205 = new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+[0, 0, 0, 1], null)], null), num_qubits__4863__auto___6206 = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, dummy_matrix__4862__auto___6205));
 qgame.simulator.qgates.swap = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null, "matrix-body", "matrix-body", 617047968), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, 
 [0, 1, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null)], null), new cljs.core.Keyword(null, "caller", "caller", 3941096189), function() {
   var a = function(a, b) {
-    var e = cljs.core.split_at.call(null, num_qubits__4844__auto___6153, b), f = cljs.core.nth.call(null, e, 0, null);
+    var e = cljs.core.split_at.call(null, num_qubits__4863__auto___6206, b), f = cljs.core.nth.call(null, e, 0, null);
     cljs.core.nth.call(null, e, 1, null);
     return qgame.simulator.qgates.apply_operator.call(null, a, qgame.simulator.qgates.to_operator.call(null, new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, 0, 0, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 1, 0], null), new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 1, 0, 0], null), 
     new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, 0, 0, 1], null)], null)), f);
@@ -26607,7 +26913,7 @@ qgame.simulator.qgates.swap = new cljs.core.PersistentArrayMap(null, 5, [new clj
   };
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
-}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "swap", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4844__auto___6153], 
+}(), new cljs.core.Keyword(null, "param-names", "param-names", 740923770), cljs.core.PersistentVector.EMPTY, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "name", "name", 1017277949), "swap", new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "QGate", "QGate", 1090921518)], null), new cljs.core.Keyword(null, "num-qubits", "num-qubits", 1175408835), num_qubits__4863__auto___6206], 
 null);
 qgame.simulator.shared = {};
 qgame.simulator.shared.stage = cljs.core.atom.call(null, "Interpretation");
@@ -26615,6 +26921,7 @@ qgame.simulator.shared.current_qgame_fn = cljs.core.atom.call(null, null);
 qgame.simulator.shared.canonical_functions = cljs.core.atom.call(null, cljs.core.PersistentHashMap.fromArrays("qnot nand utheta srn cnot swap with_oracle cphase else end hadamard u2 measure oracle".split(" "), [qgame.simulator.qgates.qnot, qgame.simulator.qgates.nand, qgame.simulator.qgates.utheta, qgame.simulator.qgates.srn, qgame.simulator.qgates.cnot, qgame.simulator.qgates.swap, qgame.simulator.qgates.with_oracle, qgame.simulator.qgates.cphase, qgame.simulator.flow.else$, qgame.simulator.flow.end, 
 qgame.simulator.qgates.hadamard, qgame.simulator.qgates.u2, qgame.simulator.flow.measure, null]));
 qgame.simulator.shared.on_error = cljs.core.atom.call(null, null);
+qgame.simulator.shared.on_warning = cljs.core.atom.call(null, null);
 qgame.simulator.parser = {};
 qgame.simulator.parser.qubit_letter_to_index = function(a) {
   return "ABCDEFGHIJKLMNOPQRST".indexOf(a);
@@ -26717,12 +27024,9 @@ qgame.simulator.parser.parse_param = function(a) {
 };
 qgame.simulator.parser.bit_pattern = /\b[01]\b/;
 qgame.simulator.parser.parse_bit = function(a) {
-  var b = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, c = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)), c = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.bit_pattern, c);
-  if (cljs.core.truth_(c)) {
-    return cljs.core.assoc.call(null, b, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Bit", "Bit", 1013971039), new cljs.core.Keyword(null, "value", "value", 1125876963), cljs.core.get.call(null, new cljs.core.PersistentArrayMap(null, 2, ["0", 0, "1", 1], null), c));
-  }
-  cljs.core.reset_BANG_.call(null, qgame.simulator.shared.current_qgame_fn, arguments.callee.name);
-  return qgame.simulator.error.log_and_return_error_BANG_.call(null, "Bit parse failure", b);
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "post-rules", "post-rules", 1543368956)), b = qgame.simulator.parser.match_only.call(null, qgame.simulator.parser.bit_pattern, b);
+  return cljs.core.truth_(b) ? cljs.core.assoc.call(null, a, new cljs.core.Keyword(null, "type", "type", 1017479852), new cljs.core.Keyword(null, "Bit", "Bit", 1013971039), new cljs.core.Keyword(null, "value", "value", 1125876963), cljs.core.get.call(null, new cljs.core.PersistentArrayMap(null, 2, ["0", 0, "1", 1], null), b)) : null;
 };
 qgame.simulator.parser.taste = function(a, b) {
   var c = function(a) {
@@ -26737,7 +27041,7 @@ qgame.simulator.parser.taste = function(a, b) {
 qgame.simulator.parser.swallow = function() {
   var a = null, b = function(a, b) {
     var c = cljs.core.reduce.call(null, function(b, c) {
-      var e = cljs.core.truth_((new cljs.core.Keyword(null, "error", "error", 1110689146)).cljs$core$IFn$_invoke$arity$1(qgame.simulator.parser.taste.call(null, a, c))) ? null : qgame.simulator.parser.taste.call(null, a, c);
+      var e = qgame.simulator.parser.taste.call(null, a, c);
       return cljs.core.truth_(e) ? cljs.core.conj.call(null, b, e) : cljs.core.reduced.call(null, b);
     }, cljs.core.PersistentVector.EMPTY, b);
     return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, cljs.core.drop.call(null, cljs.core.count.call(null, c), b)], null);
@@ -26829,7 +27133,7 @@ qgame.simulator.parser.parse_expressions = function() {
   return a;
 }();
 qgame.simulator.parser.wrap_up = function(a) {
-  return cljs.core.remove.call(null, qgame.utils.general.errant_QMARK_, a);
+  return cljs.core.remove.call(null, cljs.core.some_fn.call(null, qgame.utils.general.errant_QMARK_, cljs.core.nil_QMARK_), a);
 };
 qgame.simulator.parser.parse = function(a) {
   cljs.core.reset_BANG_.call(null, qgame.simulator.shared.stage, "Parsing");
@@ -26842,7 +27146,7 @@ qgame.simulator.reader.split_into_lines = function(a) {
     return cljs.core.truth_(clojure.string.blank_QMARK_.call(null, c)) ? null : new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "line-number", "line-number", 4279856820), a, new cljs.core.Keyword(null, "line", "line", 1017226086), c], null);
   }, clojure.string.split_lines.call(null, a));
 };
-qgame.simulator.reader.comment_pattern = /\#.*/;
+qgame.simulator.reader.comment_pattern = /\s*\#.*/;
 qgame.simulator.reader.whitespace_equivalent_pattern = /[^\-\w\.\:\+\*\\/\^\(\)]+/;
 qgame.simulator.reader.ignore_pattern = qgame.utils.general.regex_join.call(null, "(?:", qgame.simulator.reader.comment_pattern, "|", qgame.simulator.reader.whitespace_equivalent_pattern, ")");
 qgame.simulator.reader.chew = function() {
@@ -26897,11 +27201,7 @@ qgame.simulator.error.log_and_return_error_BANG_ = function() {
   var a = null, b = function(b) {
     return a.call(null, b, cljs.core.PersistentArrayMap.EMPTY);
   }, c = function(a, b) {
-    var c = qgame.simulator.error.to_error.call(null, a, b), c = cljs.core.seq_QMARK_.call(null, c) ? cljs.core.apply.call(null, cljs.core.hash_map, c) : c, g = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "error", "error", 1110689146)), h = cljs.core.seq_QMARK_.call(null, g) ? cljs.core.apply.call(null, cljs.core.hash_map, g) : g, g = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "message", "message", 1968829305)), k = cljs.core.get.call(null, h, new cljs.core.Keyword(null, 
-    "title", "title", 1124275658)), l = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "current-qgame-fn", "current-qgame-fn", 3886099512)), h = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "stage", "stage", 1123661424)), g = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "message", "message", 1968829305), [cljs.core.str("qgame error during "), cljs.core.str(h), cljs.core.str(", in qgame function "), cljs.core.str(l), cljs.core.str(": "), cljs.core.str(k), 
-    cljs.core.str("\n"), cljs.core.str(g)].join(""), new cljs.core.Keyword(null, "more", "more", 1017261767), cljs.core.clj__GT_js.call(null, c)], null);
-    console.log((new cljs.core.Keyword(null, "message", "message", 1968829305)).cljs$core$IFn$_invoke$arity$1(g), "\n", (new cljs.core.Keyword(null, "more", "more", 1017261767)).cljs$core$IFn$_invoke$arity$1(g));
-    g = cljs.core.deref.call(null, qgame.simulator.shared.on_error);
+    var c = qgame.simulator.error.to_error.call(null, a, b), g = cljs.core.deref.call(null, qgame.simulator.shared.on_error);
     cljs.core.truth_(g) && g.call(null, c);
     return c;
   }, a = function(a, e) {
@@ -26925,11 +27225,7 @@ qgame.simulator.error.log_and_return_warning_BANG_ = function() {
   var a = null, b = function(b) {
     return a.call(null, b, cljs.core.PersistentArrayMap.EMPTY);
   }, c = function(a, b) {
-    var c = qgame.simulator.error.to_warning.call(null, a, b), c = cljs.core.seq_QMARK_.call(null, c) ? cljs.core.apply.call(null, cljs.core.hash_map, c) : c, g = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "warning", "warning", 2138350350)), h = cljs.core.seq_QMARK_.call(null, g) ? cljs.core.apply.call(null, cljs.core.hash_map, g) : g, g = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "message", "message", 1968829305)), k = cljs.core.get.call(null, h, new cljs.core.Keyword(null, 
-    "title", "title", 1124275658)), l = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "current-qgame-fn", "current-qgame-fn", 3886099512)), h = cljs.core.get.call(null, h, new cljs.core.Keyword(null, "stage", "stage", 1123661424)), g = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "message", "message", 1968829305), [cljs.core.str("qgame warning during "), cljs.core.str(h), cljs.core.str(", in qgame function "), cljs.core.str(l), cljs.core.str(": "), cljs.core.str(k), 
-    cljs.core.str("\n"), cljs.core.str(g)].join(""), new cljs.core.Keyword(null, "more", "more", 1017261767), cljs.core.clj__GT_js.call(null, c)], null);
-    console.log(g.call(null, new cljs.core.Keyword(null, "message", "message", 1968829305)), "\n", g.call(null, new cljs.core.Keyword(null, "more", "more", 1017261767)));
-    g = cljs.core.deref.call(null, qgame.simulator.shared.on_error);
+    var c = qgame.simulator.error.to_warning.call(null, a, b), g = cljs.core.deref.call(null, qgame.simulator.shared.on_warning);
     cljs.core.truth_(g) && g.call(null, c);
     return c;
   }, a = function(a, e) {
@@ -27107,16 +27403,28 @@ qgame.simulator.executor.execute = function(a) {
   return cljs.core.apply.call(null, cljs.core.concat, a);
 };
 qgame.simulator.interpreter = {};
+qgame.simulator.interpreter.default_error = function(a) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "error", "error", 1110689146)), c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, b = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "message", "message", 1968829305)), d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "title", "title", 1124275658)), e = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "current-qgame-fn", "current-qgame-fn", 3886099512)), c = cljs.core.get.call(null, 
+  c, new cljs.core.Keyword(null, "stage", "stage", 1123661424));
+  return console.log([cljs.core.str("qgame error during "), cljs.core.str(c), cljs.core.str(", in qgame function "), cljs.core.str(e), cljs.core.str(": "), cljs.core.str(d), cljs.core.str("\n"), cljs.core.str(b)].join(""), "\n", cljs.core.clj__GT_js.call(null, a));
+};
+qgame.simulator.interpreter.default_warning = function(a) {
+  a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+  var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "error", "error", 1110689146)), c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, b = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "message", "message", 1968829305)), d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "title", "title", 1124275658)), e = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "current-qgame-fn", "current-qgame-fn", 3886099512)), c = cljs.core.get.call(null, 
+  c, new cljs.core.Keyword(null, "stage", "stage", 1123661424));
+  return console.log([cljs.core.str("qgame warning during "), cljs.core.str(c), cljs.core.str(", in qgame function "), cljs.core.str(e), cljs.core.str(": "), cljs.core.str(d), cljs.core.str("\n"), cljs.core.str(b)].join(""), "\n", cljs.core.clj__GT_js.call(null, a));
+};
 qgame.simulator.interpreter.interpret = function() {
-  var a = null, b = function(a) {
-    a = qgame.simulator.compiler.compile.call(null, qgame.simulator.parser.parse.call(null, qgame.simulator.reader.read.call(null, a)));
-    return qgame.simulator.executor.execute.call(null, a);
+  var a = null, b = function(b) {
+    return a.call(null, cljs.core.PersistentArrayMap.EMPTY, b);
   }, c = function(a, b) {
-    var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, g = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "on-err", "on-err", 4294768617)), h = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "in-exec", "in-exec", 2906402731)), c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109));
-    cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_error, g);
+    var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, g = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070)), h = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "on-err", "on-err", 4294768617)), k = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "in-exec", "in-exec", 2906402731)), c = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109));
+    cljs.core.truth_(h) ? cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_error, h) : cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_error, qgame.simulator.interpreter.default_error);
+    cljs.core.truth_(g) ? cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_warning, g) : cljs.core.reset_BANG_.call(null, qgame.simulator.shared.on_warning, qgame.simulator.interpreter.default_warning);
     g = qgame.simulator.compiler.compile.call(null, qgame.simulator.parser.parse.call(null, qgame.simulator.reader.read.call(null, b)));
     cljs.core.truth_(c) && c.call(null, g);
-    return qgame.simulator.executor.execute.call(null, cljs.core.assoc.call(null, g, new cljs.core.Keyword(null, "renderer", "renderer", 519058485), h));
+    return qgame.simulator.executor.execute.call(null, cljs.core.assoc.call(null, g, new cljs.core.Keyword(null, "renderer", "renderer", 519058485), k));
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -27131,24 +27439,31 @@ qgame.simulator.interpreter.interpret = function() {
   return a;
 }();
 var qromp = {evaluate:function(a, b) {
-  var c = cljs.core.first.call(null, qgame.simulator.interpreter.interpret.call(null, a)), d = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(c))), e = cljs.core.map.call(null, function(a, b) {
-    return function(b) {
-      return qgame.utils.amplitudes.probability_of.call(null, a, b, 0);
+  var c = function(a) {
+    return null;
+  }, d = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c], null)), e = cljs.core.first.call(null, d.call(null, a)), f = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(e))), g = cljs.core.map.call(null, 
+  cljs.core.comp.call(null, function(a, b, c, d) {
+    return function(a) {
+      return qgame.utils.math.round.call(null, a, 4);
     };
-  }(c, d), cljs.core.range.call(null, d)), f = cljs.core.map.call(null, function(a, b, c) {
-    return function(b) {
-      return qgame.utils.amplitudes.phase_of.call(null, a, b, 0);
+  }(c, d, e, f), function(a, b, c, d) {
+    return function(a) {
+      return qgame.utils.amplitudes.probability_of.call(null, c, a, 0);
     };
-  }(c, d, e), cljs.core.range.call(null, d)), g = cljs.core.map.call(null, function(a, b, c, d) {
-    return function(b) {
-      return qgame.utils.amplitudes.phase_of.call(null, a, b, 1);
+  }(c, d, e, f)), cljs.core.range.call(null, f)), h = cljs.core.map.call(null, function(a, b, c, d, e) {
+    return function(a) {
+      return qgame.utils.amplitudes.phase_of.call(null, c, a, 0);
     };
-  }(c, d, e, f), cljs.core.range.call(null, d)), c = cljs.core.map.call(null, function(a, b, c, d, e) {
+  }(c, d, e, f, g), cljs.core.range.call(null, f)), k = cljs.core.map.call(null, function(a, b, c, d, e, f) {
+    return function(a) {
+      return qgame.utils.amplitudes.phase_of.call(null, c, a, 1);
+    };
+  }(c, d, e, f, g, h), cljs.core.range.call(null, f)), c = cljs.core.map.call(null, function(a, b, c, d, e, f, g) {
     return function(a, b, c) {
       return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "up", "up", 1013907981), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "down", "down", 1016993812), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
       c], null)], null);
     };
-  }(c, d, e, f, g), e, f, g);
+  }(c, d, e, f, g, h, k), g, h, k);
   return b.call(null, cljs.core.clj__GT_js.call(null, c));
 }};
 window.evaluate = qromp.evaluate;
