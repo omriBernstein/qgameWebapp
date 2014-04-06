@@ -17,11 +17,9 @@
 $(document).ready(function() {
 	// *** VARIABLE DECLARATION ***\\
 	var editor = ace.edit("codeArea"),
+		qubits = new QubitObject("qubitSVG"),
 		$guideMenu = $("#guide-menu"),
-		$guideDetail = $("#guide-detail"),
-		qubits = new QubitObject;
-	window.rem = parseInt($("html").css("font-size"));
-	window.$visualizer = $("#visualizer");
+		$guideDetail = $("#guide-detail");
 
 	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
