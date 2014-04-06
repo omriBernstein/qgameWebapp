@@ -11,43 +11,124 @@ var defaultQubit =  [{up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}}],
 		.attr("height", "100%");
 
 function updateQubits(qubitStates) {
-	var radius = 100;
+	var numQubits = qubitStates.length,
+		containerSize = Math.min(parseInt(qubits.style("width")), parseInt(qubits.style("height"))),
+		margin = .9,
+		qubitScale = .9,
+		maxRadius = svgWidth / 2,
+		arrangeRadius = 0,
+		yOffset = 0,
+		rotateDeg = 360 / numQubits,
+		animTime = 1000;
+
+	var dim = margin * containerSize,
+		qubitRadius = qubitScale * dim / 2;
+	if (numQubits > 1) {
+		var theta = 2 * Math.PI / numQubits,
+			p = qubitScale * Math.sin(theta / 2);
+		if (numQubits % 2 === 0) {
+			arrangeRadius = dim / (2 * (p + 1));
+			qubitRadius = dim / 2 - arrangeRadius;
+		} else {
+			var phi = theta * (numQubits - 1) / 2;
+			arrangeRadius = dim / (2 * p + Math.sqrt(2 * (1 - Math.cos(phi))));
+			qubitRadius = arrangeRadius * p;
+			yOffset = arrangeRadius * (1 - Math.cos(theta / 2));
+		}
+	}
+
+	var globalScale = qubitRadius / maxRadius;
+
+
+
+	function qubitTransform(d, i) {
+		var center = "translate(" + maxRadius + ", " + maxRadius + ")",
+			rotate = "rotate(" + (rotateDeg * i) + ")",
+	}
 
 	// --- QUBITS --- //
-	var qubit = qubits.selectAll("g").data(qubitStates);
+	var qubit = qubits.selectAll(".qubit").data(qubitStates);
 	
 	// Add qubits if necessary
 	qubit.enter().append("g")
+		.attr("transform", "translate(200, 200)")
+		.attr("class", "qubit")
 		// Add qubit-back circle, which will never change after instantiation
 		.append("circle")
 			.attr("class", "qubit-back")
-			.attr("r", radius);
+			.attr("r", maxRadius);
 
 	// Remove qubits if necessary
-	qubit.exit().remove();
+	qubit.exit().transition()
+		.duration(animTime)
+		.attr("transform", "scale(0)")
+		.remove();
 	
-
-	// --- PROB-RINGS --- //
-	var probRing = qubit.selectAll(".prob-ring").data(function(d) { return [d.up.prob, d.down.prob] });
-
-	// Add prob-rings if necessary
-	probRing.enter().append("circle");
-	
-	// Update prob-ring size
-	probRing
-		.attr("class", function(d, i) { return "prob-ring " + (i === 0 ? "up" : "down"); })
-		.attr("r", function(d, i) { return (i === 0) ? (1 - d) * radius + 2 : d * radius });
-
 
 	// --- SUBSTATES --- //
-	var subState = qubit.selectAll(".sub-div").data(function(d) { return [d.up, d.down] });
-
-	// Add substate rects if necessary
-	subState.enter().append("rect");
+	var substate = qubit.selectAll(".substate").data(function(d) { return [d.up, d.down] });
 	
-	// Update substate attributes	
-	subState
-		.attr("class", function(d, i) { return "sub-div " + (i === 0 ? "up" : "down"); });
+	// Add substates if necessary	
+	substate.enter().append("g")
+		.attr("class", "substate")
+		.attr("transform", "rotate(180)");
+
+	// Update substates
+	substate.transition()
+		.duration(animTime)
+		.attr("transform", function(d) { return "rotate(" + (180 + d.phase) + ")" });
+
+	// --- PROB-RINGS --- //
+	var probRing = substate.selectAll(".prob-ring").data(function(d, i) {
+		return [{
+			substate: (i % 2 === 0) ? "up" : "down",
+			value: d.prob
+		}]; 
+	});
+
+	// Add prob-rings if necessary
+	probRing.enter().append("circle")
+		.attr("class", function(d) { return "prob-ring " + d.substate; })
+		.attr("r", function(d) {
+			var radius = (d.substate === "up") ? (1 - d.value) * maxRadius + 1 : d.value * maxRadius - 1;
+			return (radius < 0) ? 0 : radius;
+		});
+
+	// Update prob-ring size
+	probRing.transition()
+	  	.duration(animTime)
+		.attr("r", function(d) {
+			var radius = (d.substate === "up") ? (1 - d.value) * maxRadius + 1 : d.value * maxRadius - 1;
+			return (radius < 0) ? 0 : radius;
+		});
+
+	// --- BARS --- //
+	var bar = substate.selectAll(".bar").data(function(d, i) {
+		return [{
+			substate: (i % 2 === 0) ? "up" : "down",
+			prob: d.prob,
+			phase: d.phase
+		}];
+	});
+
+	// Add bars if necessary
+	bar.enter().append("rect")
+		.attr("class", function(d) { return "bar " + d.substate; })
+		.attr("width", maxRadius / 20)
+		.attr("height", function(d) { return d.prob * maxRadius })
+		.attr("x", - maxRadius / 40)
+		.attr("y", - 1)
+		.attr("transform", function(d) {
+			return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * maxRadius) + ")" : "";
+		});;
+	
+	// Update bar attributes	
+	bar.transition()
+	  	.duration(animTime)
+		.attr("height", function(d) { return d.prob * maxRadius })
+		.attr("transform", function(d) {
+			return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * maxRadius) + ")" : "";
+		});
 }
 
 

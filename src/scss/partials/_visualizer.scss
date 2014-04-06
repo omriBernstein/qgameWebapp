@@ -52,13 +52,13 @@
 	}
 }
 
-.sub-div {
+.bar {
 	stroke: $text;
-	stroke-weight: 1;
+	stroke-width: 1;
 	&.up {
 		fill: #FFF;	
 	}
 	&.down {
-		background-color: $qubit-down;
+		fill: $qubit-down;
 	}
 }
