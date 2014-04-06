@@ -12,13 +12,6 @@
 	transform: $arguments;
 }
 
-@mixin transform-origin($arguments...) {
-	-webkit-transform-origin: $arguments;
-	-ms-transform-origin: $arguments;
-	-moz-transform-origin: $arguments;
-	transform-origin: $arguments;
-}
-
 @mixin box-sizing($argument) {
 	-webkit-box-sizing: $argument;
 	-moz-box-sizing: $argument;
