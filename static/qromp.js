@@ -1,7 +1,6 @@
-$(document).ready(function() {
-
+(function(){
 var COMPILED = !0, goog = goog || {};
-goog.global = window;
+goog.global = this;
 goog.DEBUG = !0;
 goog.LOCALE = "en";
 goog.TRUSTED_SITE = !0;
@@ -27468,4 +27467,4 @@ var qromp = {evaluate:function(a, b) {
 }};
 window.evaluate = qromp.evaluate;
 
-});
+})();

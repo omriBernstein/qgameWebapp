@@ -24,4 +24,40 @@
                           down-phases)]
     (callback (clj->js qubit-states))))
 
+(defn into-group
+  [pred group x]
+  (when (pred group x)
+    (conj group x)))
+
+(defn split-step
+  [pred all x]
+  (let [group (peek all)]
+    (if-let [group+ (into-group pred group x)]
+      (conj (pop all) group+)
+      (conj all (conj (empty group) x)))))
+
+(defn split-reduce
+  [pred to-group]
+  (reduce (partial split-step pred)
+          [[]]
+          to-group))
+
+(defn get-qubit-vals
+  [expression]
+  (map :value (:qubits expression)))
+
+(defn block-member?
+  [block expression]
+  (if-let [qubits (get-qubit-vals expression)]
+    (some (set qubits)
+          (mapcat get-qubit-vals block))
+    true))
+
+(defn split-blocks
+  [program]
+  (split-reduce block-member?
+                program))
+
+(defn assign-columns)
+
 (aset js/window "evaluate" qromp/evaluate)

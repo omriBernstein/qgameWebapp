@@ -8,6 +8,7 @@
                         :compiler {:output-to "static/qromp.js"
                                    :optimizations :simple
                                    :pretty-print true
+                                   :output-wrapper true
                                    :foreign-libs [{:file "http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"
                                                    :provides ["math.js"]}
                                                   {:file "./libs/arndt.js"
