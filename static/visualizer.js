@@ -5,26 +5,26 @@
 * Uses d3 to visualize qubits.
 */
 
-function QubitObject() {
+function QubitObject(containerID) {
 	var userNum = 0,
-		currNum = 0,
+		numQubits = 0,
 		computedStates = [],
 		defaultQubit = {up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}},
-		qubitSVG = d3.select("#qubitSVG"),
+		container = d3.select("#"+ containerID),
 		margin = .9,
 		qubitScale = .75,
 		animTime = 800;
 	
 	this.inc = function() {
-		if (currNum < 10) {
-			userNum = ++currNum;
+		if (numQubits < 10) {
+			userNum = ++numQubits;
 			this.update();
 		}
 	}
 
 	this.dec = function() {
-		if (currNum > 0 && currNum > computedStates.length) {
-			userNum = --currNum;
+		if (numQubits > 0 && numQubits > computedStates.length) {
+			userNum = --numQubits;
 			this.update();
 		}
 	}
@@ -32,22 +32,20 @@ function QubitObject() {
 	this.update = function(newStates) {
 		if (newStates) {
 			computedStates = newStates;
-			if (computedStates.length <= userNum) currNum = userNum;
+			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
 		}
-		var i = computedStates.length;
-		for (var fullStates = computedStates.slice(0); i < currNum; i++) {
+		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
 			fullStates.push(defaultQubit);
 		}
-		currNum = i;
+		numQubits = i;
 		render(fullStates);
 	}
 
 	function render(qubitStates) {
 			// Environment info
-		var numQubits = qubitStates.length,
-			svgWidth = parseInt(qubitSVG.style("width")),
-			svgHeight = parseInt(qubitSVG.style("height")),
-			containerMin = Math.min(svgWidth, svgHeight),
+		var containerWidth = parseInt(container.style("width")),
+			containerHeight = parseInt(container.style("height")),
+			containerMin = Math.min(containerWidth, containerHeight),
 			dim = margin * containerMin,
 			// Qubit properties
 			qubitRadius = qubitScale * dim / 2,
@@ -71,7 +69,7 @@ function QubitObject() {
 		function positionQubit(index, remove) {
 			var realNumQubits = (remove) ? index + 1 : numQubits,
 				rotateDeg = 360 / realNumQubits,
-				center = "translate(" + (svgWidth / 2) + ", " + ((svgHeight / 2) + yOffset / 2) + ")",
+				center = "translate(" + (containerWidth / 2) + ", " + ((containerHeight / 2) + yOffset / 2) + ")",
 				rotate = "rotate(" + (rotateDeg * index) + ")",
 				translate = "translate(0, -" + arrangeRadius + ")"
 				straighten = "rotate(-" + (rotateDeg * index) + ")";
@@ -80,7 +78,7 @@ function QubitObject() {
 		}
 
 		// --- QUBITS --- //
-		var qubit = qubitSVG.selectAll(".qubit").data(qubitStates);
+		var qubit = container.selectAll(".qubit").data(qubitStates);
 		
 		// Add qubits if necessary
 		qubit.enter().append("g")
@@ -171,4 +169,6 @@ function QubitObject() {
 				return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * qubitRadius) + ")" : "";
 			});
 	}
+
+	return this;
 }
