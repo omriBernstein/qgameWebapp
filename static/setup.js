@@ -27,6 +27,35 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 
+	function readSingleFile(evt) {
+		if (window.File && window.FileReader && window.FileList) {
+			var file = evt.target.files[0];
+			if (file) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var contents = e.target.result;
+					editor.getSession().setValue(contents);
+					$("#hiddenFileInput").off('change.file').val("");
+					$("#hiddenFileInput").on('change.file',readSingleFile);
+				}
+				reader.readAsText(file);
+			}
+		} else {
+			alert('The File APIs are not fully supported in this browser.');
+		}
+	};
+
+	$("#hiddenFileInput").on('change.file',readSingleFile);
+
+	$("#import").click(function(){
+		$("#hiddenFileInput").click();
+	});
+
+	function exportProgram() {
+		//do something here?
+	};
+	$("#export").on('click', exportProgram);
+
 	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);

@@ -13,7 +13,7 @@ function QubitObject(containerID) {
 		container = d3.select("#"+ containerID),
 		margin = .9,
 		qubitScale = .75,
-		animTime = 800;
+		animTime = 500;
 	
 	this.inc = function() {
 		if (numQubits < 10) {
