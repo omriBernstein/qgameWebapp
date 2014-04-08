@@ -5,7 +5,7 @@
 * Uses d3 to visualize qubits.
 */
 
-function QubitObject(containerID) {
+function QubitsObject(containerID) {
 	var userNum = 0,
 		numQubits = 0,
 		computedStates = [],
@@ -66,6 +66,34 @@ function QubitObject(containerID) {
 			}
 		}
 
+	// --- QUBITS --- //
+		var qubits = container.selectAll(".qubit").data(qubitStates);
+		
+		// Add qubits if necessary
+		qubits.enter().append("g")
+			.attr("class", "qubit")
+			.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"})
+		  .append("circle")
+			.attr("class", "qubit-back");
+
+		// Update qubit arrangement
+		qubits.transition()
+			.duration(animTime)
+			.attr("transform", function(d, i) { return positionQubit(i) + "scale(1)" });
+
+		// Update each qubit-back
+		qubits.select(".qubit-back").transition()
+			.duration(animTime)
+			.attr("r", qubitRadius);
+		
+		// Remove qubits if necessary
+		qubits.exit().transition()
+			.duration(animTime)
+			.attr("transform", function(d, i) { return positionQubit(i, true) + "scale(0)" })
+			.remove();
+
+		// Return a string with all of the appropriate transformations
+			// "remove" is a boolean used to indicate whether the transformed qubit is being removed
 		function positionQubit(index, remove) {
 			var realNumQubits = (remove) ? index + 1 : numQubits,
 				rotateDeg = 360 / realNumQubits,
@@ -77,96 +105,74 @@ function QubitObject(containerID) {
 			return center + rotate + translate + straighten;
 		}
 
-		// --- QUBITS --- //
-		var qubit = container.selectAll(".qubit").data(qubitStates);
+
+	// --- SUBSTATE GROUPS --- //
+		var substates = qubits.selectAll(".substate").data(function(d) { return [d.up, d.down] });
 		
-		// Add qubits if necessary
-		qubit.enter().append("g")
-			.attr("class", "qubit")
-			.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"})
-		  .append("circle")
-			.attr("class", "qubit-back");
-
-		// Update qubit arrangement
-		qubit.transition()
-			.duration(animTime)
-			.attr("transform", function(d, i) { return positionQubit(i) + "scale(1)" });
-
-		// Update qubit-back
-		qubit.select(".qubit-back").transition()
-			.duration(animTime)
-			.attr("r", qubitRadius);
-		
-		// Remove qubits if necessary
-		qubit.exit().transition()
-			.duration(animTime)
-			.attr("transform", function(d, i) { return positionQubit(i, true) + "scale(0)" })
-			.remove();
-
-
-		// --- SUBSTATES --- //
-		var substate = qubit.selectAll(".substate").data(function(d) { return [d.up, d.down] });
-		
-		// Add substates if necessary	
-		substate.enter().append("g")
+		// Add substate groups if necessary	
+		substates.enter().append("g")
 			.attr("class", "substate")
 			.attr("transform", "rotate(180)");
 
-		// Update substates
-		substate.transition()
+		// Update substate groups
+		substates.transition()
 			.duration(animTime)
 			.attr("transform", function(d) { return "rotate(" + (180 + d.phase) + ")" });
 
-		// --- PROB-RINGS --- //
-		var probRing = substate.selectAll(".prob-ring").data(function(d, i) {
+		// Used to set the data for prob-rings and bars
+		function substateData(d, i) {
 			return [{
 				substate: (i % 2 === 0) ? "up" : "down",
 				value: d.prob
 			}]; 
-		});
+		}
+
+	// --- PROB-RINGS --- //
+		var probRing = substates.selectAll(".prob-ring").data(substateData);
 
 		// Add prob-rings if necessary
 		probRing.enter().append("circle")
 			.attr("class", function(d) { return "prob-ring " + d.substate; })
-			.attr("r", function(d) {
-				var radius = (d.substate === "up") ? (1 - d.value) * qubitRadius + 1 : d.value * qubitRadius - 1;
-				return (radius < 0) ? 0 : radius;
-			});
+			.call(setRingRadius);
 
 		// Update prob-ring size
 		probRing.transition()
 		  	.duration(animTime)
-			.attr("r", function(d) {
-				var radius = (d.substate === "up") ? (1 - d.value) * qubitRadius + 1 : d.value * qubitRadius - 1;
-				return (radius < 0) ? 0 : radius;
-			});
+			.call(setRingRadius);
 
-		// --- BARS --- //
-		var bar = substate.selectAll(".bar").data(function(d, i) {
-			return [{
-				substate: (i % 2 === 0) ? "up" : "down",
-				prob: d.prob,
-				phase: d.phase
-			}];
-		});
+		// Sets the radius of each prob-ring, called on creation and update
+		function setRingRadius(selection) {
+			selection
+				.attr("r", function(d) {
+					var radius = (d.substate === "up") ? (1 - d.value) * qubitRadius + 1 : d.value * qubitRadius - 1;
+					return (radius < 0) ? 0 : radius;
+				});
+		}
+
+
+	// --- BARS --- //
+		var bar = substates.selectAll(".bar").data(substateData);
 
 		// Add bars if necessary
 		bar.enter().append("rect")
 			.attr("class", function(d) { return "bar " + d.substate; })
 			.attr("width", 5)
-			.attr("height", function(d) { return ((d.prob < 0) ? 0 : d.prob) * qubitRadius })
 			.attr("x", - 2.5)
 			.attr("y", - .5)
-			.attr("transform", function(d) {
-				return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * qubitRadius) + ")" : "";
-			});
+			.call(setBars);
 		
 		// Update bar attributes	
 		bar.transition()
 		  	.duration(animTime)
-			.attr("height", function(d) { return ((d.prob < 0) ? 0 : d.prob) * qubitRadius })
-			.attr("transform", function(d) {
-				return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * qubitRadius) + ")" : "";
-			});
+			.call(setBars);
+
+		// Sets the length and offset of each bar, called on creation and update
+		function setBars(selection) {
+			selection
+				.attr("height", function(d) { return ((d.value < 0) ? 0 : d.value) * qubitRadius })
+				.attr("transform", function(d) {
+					return (d.substate === "up") ? "translate(0, " + ((1 - d.value) * qubitRadius) + ")" : "";
+				});
+		}
 	}
 }

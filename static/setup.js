@@ -17,7 +17,7 @@
 $(document).ready(function() {
 	// *** VARIABLE DECLARATION ***\\
 	var editor = ace.edit("codeArea"),
-		qubits = new QubitObject("qubitSVG"),
+		qubits = new QubitsObject("qubitSVG"),
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
 
@@ -27,54 +27,11 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 
-	function readSingleFile(evt) {
-		if (window.File && window.FileReader && window.FileList) {
-			var file = evt.target.files[0];
-			if (file) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					var contents = e.target.result;
-					editor.getSession().setValue(contents);
-					$("#hiddenFileInput").off('change.file').val("");
-					$("#hiddenFileInput").on('change.file',readSingleFile);
-				}
-				reader.readAsText(file);
-			}
-		} else {
-			alert('The File APIs are not fully supported in this browser.');
-		}
-	};
-
 	$("#hiddenFileInput").on('change.file',readSingleFile);
 
 	$("#import").click(function(){
 		$("#hiddenFileInput").click();
 	});
-
-	function exportProgram() {
-		var textToWrite = editor.getValue();
-		var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-		var fileNameToSaveAs = "qromp_program";
-
-		var downloadLink = document.createElement("a");
-		downloadLink.download = fileNameToSaveAs;
-		downloadLink.innerHTML = "Download File";
-		if (window.webkitURL != null) {
-			// Chrome allows the link to be clicked
-			// without actually adding it to the DOM.
-			downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-		} else {
-			// Firefox requires the link to be added to the DOM
-			// before it can be clicked.
-			downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-			downloadLink.onclick = function(event) {
-				document.body.removeChild(event.target);
-			};
-			downloadLink.style.display = "none";
-			document.body.appendChild(downloadLink);
-		}
-		downloadLink.click();
-	}
 
 	$("#export").on('click', exportProgram);
 
@@ -152,5 +109,48 @@ $(document).ready(function() {
 	    } catch (e) {
 	    	//maybe put a little warning icon in the editor
 	    } 
+	}
+
+	function readSingleFile(evt) {
+		if (window.File && window.FileReader && window.FileList) {
+			var file = evt.target.files[0];
+			if (file) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var contents = e.target.result;
+					editor.getSession().setValue(contents);
+					$("#hiddenFileInput").off('change.file').val("");
+					$("#hiddenFileInput").on('change.file',readSingleFile);
+				}
+				reader.readAsText(file);
+			}
+		} else {
+			alert('The File APIs are not fully supported in this browser.');
+		}
+	}
+
+	function exportProgram() {
+		var textToWrite = editor.getValue();
+		var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+		var fileNameToSaveAs = "qromp_program";
+
+		var downloadLink = document.createElement("a");
+		downloadLink.download = fileNameToSaveAs;
+		downloadLink.innerHTML = "Download File";
+		if (window.webkitURL != null) {
+			// Chrome allows the link to be clicked
+			// without actually adding it to the DOM.
+			downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		} else {
+			// Firefox requires the link to be added to the DOM
+			// before it can be clicked.
+			downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+			downloadLink.onclick = function(event) {
+				document.body.removeChild(event.target);
+			};
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+		}
+		downloadLink.click();
 	}
 });
