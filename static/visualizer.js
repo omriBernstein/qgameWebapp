@@ -159,7 +159,7 @@ function QubitObject(containerID) {
 			.attr("y", - .5)
 			.attr("transform", function(d) {
 				return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * qubitRadius) + ")" : "";
-			});;
+			});
 		
 		// Update bar attributes	
 		bar.transition()
@@ -169,6 +169,4 @@ function QubitObject(containerID) {
 				return (d.substate === "up") ? "translate(0, " + ((1 - d.prob) * qubitRadius) + ")" : "";
 			});
 	}
-
-	return this;
 }
