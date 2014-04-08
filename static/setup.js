@@ -16,14 +16,21 @@
 
 $(document).ready(function() {
 	// *** VARIABLE DECLARATION ***\\
-	var editor = ace.edit("codeArea"),
-		qubits = new QubitsObject("qubitSVG"),
+	var // Keep track of qubit states and count
+		userNum = 1,
+		numQubits = 1,
+		computedStates = [],
+		defaultQubit = {up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}},
+		// Instantiate editor and visualizer
+		editor = ace.edit("codeArea"),
+		visualizer = new VisualizerObject("qubitSVG"),
+		// Store often-used elements
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
 
 	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
-	qubits.inc();
+	buildQubitArray();
 
 	// *** EVENT LISTENERS ***\\
 
@@ -70,11 +77,15 @@ $(document).ready(function() {
 			offset = $this.offset(),
 			diffX = event.pageX - offset.left,
 			diffY = event.pageY - offset.top,
-			$dragged = $this.clone().attr("id", "dragged").css({"top": event.pageY - diffY, "left": event.pageX - diffX}).appendTo("#scroller").mouseup(function(){
+			$dragged = $this.clone()
+				.attr("id", "dragged")
+				.css({"top": event.pageY - diffY, "left": event.pageX - diffX})
+				.appendTo("#scroller")
 				// when released
-				$document.off("mousemove.track");
-				$dragged.remove();
-			});
+				.mouseup(function(){
+					$document.off("mousemove.track");
+					$dragged.remove();
+				});
 			// while dragging
 			$document.on("mousemove.track", function(){
 				$dragged.css({"top": event.pageY - diffY, "left": event.pageX - diffX});
@@ -88,12 +99,18 @@ $(document).ready(function() {
 
 	// --- Add empty qubit to visualizer --- \\
 	$("#add-qubit").click(function() {
-		qubits.inc();
+		if (numQubits < 10) {
+			userNum = ++numQubits;
+			buildQubitArray();
+		}
 	});
 
 	// --- Remove an empty qubit from visualizer --- \\
 	$("#remove-qubit").click(function() {
-		qubits.dec();
+		if (numQubits > 0 && numQubits > computedStates.length) {
+			userNum = --numQubits;
+			buildQubitArray();
+		}
 	});
 
 	// --- Evaluate the editor contents on change --- \\
@@ -104,11 +121,23 @@ $(document).ready(function() {
 	function safeEvaluate() {
 		try {
 	    	evaluate(editor.getValue(), function(qubitStates) {
-		    	qubits.update(qubitStates);
+		    	buildQubitArray(qubitStates);
 		    });
 	    } catch (e) {
 	    	//maybe put a little warning icon in the editor
 	    } 
+	}
+
+	function buildQubitArray(newStates) {
+		if (newStates) {
+			computedStates = newStates;
+			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
+		}
+		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
+			fullStates.push(defaultQubit);
+		}
+		numQubits = i;
+		visualizer.render(fullStates);
 	}
 
 	function readSingleFile(evt) {
@@ -130,11 +159,11 @@ $(document).ready(function() {
 	}
 
 	function exportProgram() {
-		var textToWrite = editor.getValue();
-		var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-		var fileNameToSaveAs = "qromp_program";
+		var textToWrite = editor.getValue(),
+			textFileAsBlob = new Blob([textToWrite], {type:'text/plain'}),
+			fileNameToSaveAs = "qromp_program",
+			downloadLink = document.createElement("a");
 
-		var downloadLink = document.createElement("a");
 		downloadLink.download = fileNameToSaveAs;
 		downloadLink.innerHTML = "Download File";
 		if (window.webkitURL != null) {

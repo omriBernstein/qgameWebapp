@@ -5,49 +5,20 @@
 * Uses d3 to visualize qubits.
 */
 
-function QubitsObject(containerID) {
-	var userNum = 0,
-		numQubits = 0,
-		computedStates = [],
-		defaultQubit = {up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}},
-		container = d3.select("#"+ containerID),
+function VisualizerObject(containerID) {
+	var container = d3.select("#" + containerID),
 		margin = .9,
 		qubitScale = .75,
 		animTime = 500;
-	
-	this.inc = function() {
-		if (numQubits < 10) {
-			userNum = ++numQubits;
-			this.update();
-		}
-	}
 
-	this.dec = function() {
-		if (numQubits > 0 && numQubits > computedStates.length) {
-			userNum = --numQubits;
-			this.update();
-		}
-	}
-
-	this.update = function(newStates) {
-		if (newStates) {
-			computedStates = newStates;
-			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
-		}
-		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
-			fullStates.push(defaultQubit);
-		}
-		numQubits = i;
-		render(fullStates);
-	}
-
-	function render(qubitStates) {
+	this.render = function(qubitStates) {
 			// Environment info
 		var containerWidth = parseInt(container.style("width")),
 			containerHeight = parseInt(container.style("height")),
 			containerMin = Math.min(containerWidth, containerHeight),
 			dim = margin * containerMin,
 			// Qubit properties
+			numQubits = qubitStates.length,
 			qubitRadius = qubitScale * dim / 2,
 			arrangeRadius = 0,
 			yOffset = 0;
