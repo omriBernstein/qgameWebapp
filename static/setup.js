@@ -52,8 +52,30 @@ $(document).ready(function() {
 	});
 
 	function exportProgram() {
-		//do something here?
-	};
+		var textToWrite = editor.getValue();
+		var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+		var fileNameToSaveAs = "qromp_program";
+
+		var downloadLink = document.createElement("a");
+		downloadLink.download = fileNameToSaveAs;
+		downloadLink.innerHTML = "Download File";
+		if (window.webkitURL != null) {
+			// Chrome allows the link to be clicked
+			// without actually adding it to the DOM.
+			downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		} else {
+			// Firefox requires the link to be added to the DOM
+			// before it can be clicked.
+			downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+			downloadLink.onclick = function(event) {
+				document.body.removeChild(event.target);
+			};
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+		}
+		downloadLink.click();
+	}
+
 	$("#export").on('click', exportProgram);
 
 	// --- Open guide content --- \\

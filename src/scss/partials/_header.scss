@@ -19,13 +19,15 @@
 }
 
 #header-menu {
+	margin-bottom: .4rem;
 	width: 50%;
 	display: inline-block;
 	font-size: 1.6rem;
 	text-align: right;
-	> span {
-		padding-left: 2rem;
-		text-decoration: underline;
-		font-weight: 300;
-	}
+}
+
+#header-menu .button {
+	text-align: center;
+	font-weight: 300;
+	padding: .3rem 1rem;
 }

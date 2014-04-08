@@ -99,7 +99,7 @@ function QubitObject(containerID) {
 		
 		// Remove qubits if necessary
 		qubit.exit().transition()
-			.duration(animTime / 2)
+			.duration(animTime)
 			.attr("transform", function(d, i) { return positionQubit(i, true) + "scale(0)" })
 			.remove();
 
