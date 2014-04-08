@@ -81,16 +81,16 @@ $(document).ready(function() {
 	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);
-		$guideMenu.addClass("hidden");
-		$guideDetail.removeClass("hidden");
+		$guideMenu.addClass("covered");
+		$guideDetail.removeClass("covered");
 		$("#guide-item-title").text($this.text());
 		$($this.data("target")).addClass("current");
 	});
 	
 	// --- Close guide content --- \\
 	$("#guide-back").click(function() {
-		$guideMenu.removeClass("hidden");
-		var $current = $guideDetail.addClass("hidden").children(".current");
+		$guideMenu.removeClass("covered");
+		var $current = $guideDetail.addClass("covered").children(".current");
 		setTimeout(function() {$current.removeClass("current");}, 450)
 	});
 	
