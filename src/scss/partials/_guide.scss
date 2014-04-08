@@ -7,7 +7,7 @@
 	right: 0%;
 	overflow-y: auto;
 	@include transition(right .4s ease);
-	&.hidden {
+	&.covered {
 		right: 100%;
 	}
 }
@@ -26,7 +26,7 @@
 	height: 100%;
 	left: 0%;
 	@include transition(left .4s ease);
-	&.hidden {
+	&.covered {
 		left: 100%;
 	}
 	> div {
