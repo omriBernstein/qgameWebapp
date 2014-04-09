@@ -34,10 +34,10 @@ $(document).ready(function() {
 
 	// *** EVENT LISTENERS ***\\
 
-	$("#hiddenFileInput").on('change.file',readSingleFile);
+	$("#hidden-file-input").on('change.file',readSingleFile);
 
 	$("#import").click(function(){
-		$("#hiddenFileInput").click();
+		$("#hidden-file-input").click();
 	});
 
 	$("#export").on('click', exportProgram);
@@ -148,8 +148,8 @@ $(document).ready(function() {
 				reader.onload = function(e) {
 					var contents = e.target.result;
 					editor.getSession().setValue(contents);
-					$("#hiddenFileInput").off('change.file').val("");
-					$("#hiddenFileInput").on('change.file',readSingleFile);
+					$("#hidden-file-input").off('change.file').val("");
+					$("#hidden-file-input").on('change.file',readSingleFile);
 				}
 				reader.readAsText(file);
 			}
