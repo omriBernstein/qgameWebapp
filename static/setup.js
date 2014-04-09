@@ -22,8 +22,8 @@ $(document).ready(function() {
 		computedStates = [],
 		defaultQubit = {up: {prob: 1, phase: 0}, down: {prob: 0, phase: 0}},
 		// Instantiate editor and visualizer
-		editor = ace.edit("codeArea"),
-		visualizer = new VisualizerObject("qubitSVG"),
+		editor = ace.edit("code-area"),
+		visualizer = new VisualizerObject("qubit-svg"),
 		// Store often-used elements
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
@@ -45,16 +45,16 @@ $(document).ready(function() {
 	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);
-		$guideMenu.addClass("covered");
-		$guideDetail.removeClass("covered");
+		$guideMenu.addClass("hidden");
+		$guideDetail.removeClass("hidden");
 		$("#guide-item-title").text($this.text());
 		$($this.data("target")).addClass("current");
 	});
 	
 	// --- Close guide content --- \\
 	$("#guide-back").click(function() {
-		$guideMenu.removeClass("covered");
-		var $current = $guideDetail.addClass("covered").children(".current");
+		$guideMenu.removeClass("hidden");
+		var $current = $guideDetail.addClass("hidden").children(".current");
 		setTimeout(function() {$current.removeClass("current");}, 450)
 	});
 	

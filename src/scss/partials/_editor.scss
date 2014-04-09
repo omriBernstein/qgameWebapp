@@ -101,7 +101,7 @@ $reference-handle : 1.4rem;
 	line-height: 39.8rem;
 }
 
-#codeArea { 
+#code-area { 
 	position: absolute;
 	top: 0;
 	left: $reference-handle;
@@ -112,6 +112,16 @@ $reference-handle : 1.4rem;
 		left: $reference-width;
 		width: calc(100% - #{$reference-width});
 	}
+}
+
+.insert-before:before, .insert-after:after {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	content: "";
+	background-color: $button-back;
+	box-shadow: 0 0 3px $vivid;
 }
 
 /*--- Ace nonsense ---*/
