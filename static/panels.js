@@ -14,53 +14,22 @@
 
 $(document).ready(function() {
 	// --- SETUP --- \\
-	var slideTime = 600, simShowing = true, canToggle = true;
-	// $(".panel-about").toggle('slide', {direction: 'right'}, 0);
+	var slideTime = 600, simShowing = true;
 
 	// --- FUNCTIONS --- \\
 	var togglePanes = function () {
 		/* (None) -> (None)
 
-		Runs a slide animation to toggle which .panel is visible.
-		Hides .panel-about when it's not visible.
+		Runs a slide animation to toggle which .panel displays.
 		*/
 
-		// Sources (1)
-		// if($(".panel-app").is(':visible')){
-			$(".panel-app").toggle('slide', {direction: 'left'}, slideTime);
-		// }
-
-		// if($(".panel-about").is(':visible')){
-			$(".panel-about").toggle('slide', {direction: 'right'}, slideTime);
-		// }
-
-		// if (canToggle) {
-		// 	// Don't allow more panel toggling till this one is done
-		// 	canToggle = false;
-
-		// 	if (simShowing) {
-		// 		$(".panel-app").css({"left": "calc(-100% - 2em)", width: "0"});
-		// 		$(".panel-about").css({"left": "0", width: "100%"});
-		// 		simShowing = false;
-		// 	}
-
-		// 	else {
-		// 		$(".panel-app").css({"left": "0", width: "100%"});
-		// 		$(".panel-about").css({"left": "calc(100% + 2em)", width: "0"});
-		// 		simShowing = true;
-		// 	}
-
-		// 	// $(".panel-app").toggleClass("panel-left");
-		// 	// $(".panel-about").toggleClass("panel-center")
-
-		// 	// // Toggle simShowing (for showSim to an unneeded animation)
-		// 	// if ($(".panel-app").hasClass("panel-left")) {
-		// 	// 	simShowing = false;
-		// 	// }
-		// 	// else {simShowing = true;}
-
-		// 	canToggle = true;
-		// }
+		// Sources (1) Uses jQuery UI to do a slide animation for both
+		$(".panel-app").toggle('slide', {direction: 'left'}, slideTime);
+		$(".panel-about").toggle('slide', {direction: 'right'}, slideTime, function () {
+			// If the simulator is visible, don't allow showSim() functions to run
+			if($(".panel-app").is(':visible')){simShowing = true;}
+			else {simShowing = false;}
+		});
 	};
 
 	var showSim = function () {
@@ -71,8 +40,8 @@ $(document).ready(function() {
 
 		// Only do an animation if the sim is hidden
 		if (!simShowing) {
-			$(".panel-app").removeClass("panel-left");
-			$(".panel-about").removeClass("panel-center");
+			$(".panel-app").toggle('slide', {direction: 'left'}, slideTime);
+			$(".panel-about").toggle('slide', {direction: 'right'}, slideTime);
 		}
 
 	};
