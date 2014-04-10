@@ -2,13 +2,6 @@ html{font-size:10px}body{font-family:'Helvetica', sans-serif;color:#424242;paddi
 
 /* Something is seriously wrong in this site. */
 
-main {
-	position: relative;
-	/*height: 100%;*/ /* Means everything would have to be height 100%*/
-	/*overflow-x: hidden;*/
-	/*overflow-y: visible;*/
-}
-
 .main-container {
 	position: relative;
 	width: 100%;
@@ -17,7 +10,8 @@ main {
 
 .panel {
 	position: absolute;
-	/*width: 100%;*/
+	left: 0;
+	width: 100%;
 	height: 100%;
 	margin-bottom: 1rem;
 	-webkit-box-sizing:border-box;
@@ -26,29 +20,9 @@ main {
 }
 
 .panel-app {
-	width: 100%;
-	left: 0;
-	transition: left .5s linear;
-	transition: width .5s linear;
 }
-
-/*.panel-left {
-	left: calc(-100% - 2em);
-}*/
 
 .panel-about {
-	display: inline;
-	width: 0;
-	left: calc(100% + 2em);
+	display: none;
 	background-color: lightblue;
-	transition: left .5s linear;
 }
-
-/*.panel-right {
-	left: calc(100% + 2em);
-}*/
-
-/*.panel-center {
-	left: 0;
-}*/
-

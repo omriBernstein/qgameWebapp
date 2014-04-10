@@ -4,6 +4,7 @@
 * Getting between the "about" section and the simulator section
 * 
 * Sources:
+* 1. http://jsfiddle.net/QDUQk/1/
 * 
 * TODO:
 *
@@ -14,6 +15,7 @@
 $(document).ready(function() {
 	// --- SETUP --- \\
 	var slideTime = 600, simShowing = true, canToggle = true;
+	// $(".panel-about").toggle('slide', {direction: 'right'}, 0);
 
 	// --- FUNCTIONS --- \\
 	var togglePanes = function () {
@@ -23,33 +25,42 @@ $(document).ready(function() {
 		Hides .panel-about when it's not visible.
 		*/
 
-		if (canToggle) {
-			// Don't allow more panel toggling till this one is done
-			canToggle = false;
+		// Sources (1)
+		// if($(".panel-app").is(':visible')){
+			$(".panel-app").toggle('slide', {direction: 'left'}, slideTime);
+		// }
 
-			if (simShowing) {
-				$(".panel-app").css({"left": "calc(-100% - 2em)", width: "0"});
-				$(".panel-about").css({"left": "0", width: "100%"});
-				simShowing = false;
-			}
+		// if($(".panel-about").is(':visible')){
+			$(".panel-about").toggle('slide', {direction: 'right'}, slideTime);
+		// }
 
-			else {
-				$(".panel-app").css({"left": "0", width: "100%"});
-				$(".panel-about").css({"left": "calc(100% + 2em)", width: "0"});
-				simShowing = true;
-			}
+		// if (canToggle) {
+		// 	// Don't allow more panel toggling till this one is done
+		// 	canToggle = false;
 
-			// $(".panel-app").toggleClass("panel-left");
-			// $(".panel-about").toggleClass("panel-center")
+		// 	if (simShowing) {
+		// 		$(".panel-app").css({"left": "calc(-100% - 2em)", width: "0"});
+		// 		$(".panel-about").css({"left": "0", width: "100%"});
+		// 		simShowing = false;
+		// 	}
 
-			// // Toggle simShowing (for showSim to an unneeded animation)
-			// if ($(".panel-app").hasClass("panel-left")) {
-			// 	simShowing = false;
-			// }
-			// else {simShowing = true;}
+		// 	else {
+		// 		$(".panel-app").css({"left": "0", width: "100%"});
+		// 		$(".panel-about").css({"left": "calc(100% + 2em)", width: "0"});
+		// 		simShowing = true;
+		// 	}
 
-			canToggle = true;
-		}
+		// 	// $(".panel-app").toggleClass("panel-left");
+		// 	// $(".panel-about").toggleClass("panel-center")
+
+		// 	// // Toggle simShowing (for showSim to an unneeded animation)
+		// 	// if ($(".panel-app").hasClass("panel-left")) {
+		// 	// 	simShowing = false;
+		// 	// }
+		// 	// else {simShowing = true;}
+
+		// 	canToggle = true;
+		// }
 	};
 
 	var showSim = function () {
