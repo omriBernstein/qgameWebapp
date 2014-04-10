@@ -3,6 +3,7 @@
 * Created by: sethtoles
 * Date created: 3/11/14
 * Uses d3 to visualize qubits.
+* REQUIRES: D3 - d3js.org
 */
 
 function VisualizerObject(containerID) {

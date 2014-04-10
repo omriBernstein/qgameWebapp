@@ -4,7 +4,8 @@
                                                      phase-of
                                                      tangle-of]]
             [qgame.utils.general :as g :refer [bit-size]]
-            [qgame.utils.math :as m :refer [round]])) 
+            [qgame.utils.math :as m :refer [round]]
+            [qgame.simulator.shared :as shared :refer [canonical-functions]])) 
 
 (defn evaluate [input callback]
   (let [on-err (fn [_] nil)
@@ -61,3 +62,4 @@
 ;(defn assign-columns)
 
 (aset js/window "evaluate" qromp/evaluate)
+(aset js/window "qgameFns" (clj->js @shared/canonical-functions))
