@@ -1,13 +1,12 @@
 function CircuitObject(containerID) {
-	var container = d3.select("#" + containerID),
-		margin = .9,
-		componentScale = .95,
-		interwireScale = .1,
-		textScale = .8
-		animTime = 500;
+	var container = d3.select("#" + containerID);
+
+	var componentSymbols = {
+		"hadamard": "H"
+	};
 
 	function Component(name, rows, columnNum) {
-		this.name = name;
+		this.sym = componentSymbols[name];
 		this.rows = rows;
 		this.columnNum = columnNum;
 		return this;
@@ -25,25 +24,45 @@ function CircuitObject(containerID) {
 
 	this.render = function(numQubits, expressions){
 		var containerHeight = parseInt(container.style("height")),
-			dim = margin * containerHeight,
-			rowHeight = dim / numQubits,
-			componentWidth = componentScale * rowHeight,
-			columnWidth = componentWidth * (1 + interwireScale);
-			textDim = componentWidth * textScale;
+			rowHeight = containerHeight / numQubits,
+			columnWidth = rowHeight;
 
-		var components = [];
+		var componentData = [];
 		for(i=0;i<expressions.length;i++) {
-			components[i] = expressionToComponent(expressions[i]);
+			componentData[i] = expressionToComponent(expressions[i]);
 		};
 
-		var wire = container.selectAll(".wire");
+		var wireData = [];
+		for(i=0;i<numQubits;i++) {
+			wireData[i].name = "ABCDEFGHIJ"[i];
+		};
 
-		wire.enter()
-			.
+		var wire = container.selectAll(".wire").data(wireData);
 
-		wire.transition()
-			.duration(animTime)
-			.attr("height", function() {return rowHeight;});
+		wire.enter().append("line")
+			.attr("class", "wire");
 
-		var column = container.selectAll(".column").data(components);
+		wire.attr("height", rowHeight)
+			.attr("width", columnWidth * componentData.length);
+
+		wire.exit()
+			.remove();
+
+		var component = conatiner.selectAll(".component").data(componentData);
+
+		function positionComponent(cmpnt) {
+			return "translate("
+				cmpnt.columnNum * columnWidth + ","
+				Math.min(cmpnt.rows) * rowHeight + 
+			")"
+		}
+
+		component.enter().append("")
+			.attr("width", columnWidth)
+			.attr("height", rowHeight)
+			.attr("transform", positionComponent)
+			.attr("contents", function(d) {return d.sym});
+
+		component.exit()
+			.remove();
 }
