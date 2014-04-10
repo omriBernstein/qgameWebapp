@@ -6,6 +6,7 @@ main {
 	position: relative;
 	/*height: 100%;*/ /* Means everything would have to be height 100%*/
 	/*overflow-x: hidden;*/
+	/*overflow-y: visible;*/
 }
 
 .main-container {
@@ -16,7 +17,7 @@ main {
 
 .panel {
 	position: absolute;
-	width: 100%;
+	/*width: 100%;*/
 	height: 100%;
 	margin-bottom: 1rem;
 	-webkit-box-sizing:border-box;
@@ -25,23 +26,29 @@ main {
 }
 
 .panel-app {
-
+	width: 100%;
+	left: 0;
+	transition: left .5s linear;
+	transition: width .5s linear;
 }
 
-.panel-left {
-	left: -110%;
-}
+/*.panel-left {
+	left: calc(-100% - 2em);
+}*/
 
 .panel-about {
-	display: hidden;
+	display: inline;
+	width: 0;
+	left: calc(100% + 2em);
 	background-color: lightblue;
+	transition: left .5s linear;
 }
 
-.panel-right {
-	left: 110%;
-}
+/*.panel-right {
+	left: calc(100% + 2em);
+}*/
 
-.panel-center {
+/*.panel-center {
 	left: 0;
-}
+}*/
 
