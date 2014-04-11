@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="header-back"></div>
-	<main><div class='main-container'>
+	<div id='scroller'><main><div class='main-container'>
 		<div id="header">
 			<div id="banner">
 				<span id="title">qromp</span>
@@ -151,9 +151,34 @@ utheta 2 1.570796</li>
 			</div>
 		</div>
 		<div class='panel panel-about panel-right'>
-			(About)
+			<div class='arrow'>
+				<div class='arrow-left'></div><div class='arrow-text'>Back</div>
+			</div>
+			<p>This quantum computer simulator and visualizer is an ongoing project, which began as my Hampshire College Division III project. The website can as both an IDE and learning environment for quantum programming. The primary goal, realized or not, is to bring quantum computer programming to a wider audience, and in a more digestible, immersive, and learnable way. Quantum computer programming is challenging, and its explanations are often riddled with general abstractions about parallel universes or such. That's all well and good, but hopefully this website can be a tool for learning about it "hands on". Inspiration and ideas are taken heavily from Bret Victor's fantastic article: <a href="http://worrydream.com/LearnableProgramming/">Learnable Programming</a>. To contact me with feedback or hatemail (or both), feel free to email ob08@hapmshire.edu.</p>
+
+			<p>The project is supported by a number of wonderful people, institutions, and code libraries:</p>
+
+			<p>People...
+			<a href="http://www.sethtoles.com/">Seth Toles</a>
+			<a href="https://github.com/knod">"Knod"</a>
+			<a href="http://faculty.hampshire.edu/lspector/">Lee Spector</a>
+			<a href="https://www.hampshire.edu/faculty/hbernstein.htm">Herb Bernstein</a>
+			<a href="http://bork.hampshire.edu/josiah/">Josiah Erikson</a>
+			<a href="http://www.arndt-bruenner.de/">Arndt Brünner</a></p>
+
+			<p>Institutions...
+			<a href="http://www.hampshire.edu/cs/">Hampshire College School of Cognitive Science</a>
+			<a href="http://sites.hampshire.edu/ci-lab/">Computational Intelligence Laboratory</a></p>
+
+			<p>Code libraries...
+			<a href="http://d3js.org/">d3</a>
+			<a href="https://github.com/clojure/clojurescript">ClojureScript</a> (try it out <a href="http://clojurescript.net/">here</a>)
+			<a href="http://mathjs.org/">math.js</a>
+			<a href="https://raw.githubusercontent.com/omriBernstein/qromp/master/libs/arndt.js">arndt.js</a> (eigenvalue calculator, repurposed from <a href="http://www.arndt-bruenner.de/mathe/scripts/engl_eigenwert2.htm">this website</a>)</p>
+
+			<p>The live developing project can be found <a href="https://github.com/omriBernstein/qgame">here</a> for the backend quantum computer simulator, and <a href="https://github.com/omriBernstein/qromp">here</a> for the frontend visualizer and website.</p>
 		</div>
-	</div></main>
+	</div></main></div>
 	<script src="visualizer.js"></script>
 	<script src="qromp.js"></script>
 	<script src="setup.js"></script>
