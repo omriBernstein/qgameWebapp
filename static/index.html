@@ -12,130 +12,134 @@
 	<title>qromp - learnable quantum programming</title>
 </head>
 <body>
-	<div id="header-back"></div>
-	<div id='scroller'><main><div class='main-container'>
-		<div id="header">
-			<div id="banner">
-				<span id="title">qromp</span>
-				<span id="tagline">learnable quantum programming</span>
-			</div><!--		
-	 --><div id="header-menu">
-				<input type="file" id="hidden-file-input"/>
-				<span class="button" id="export">export</span>
-				<span class="button" id="import">import</span>
-				<span class="button" id="about">about</span>
+	<!-- <div id="header-back"></div> -->
+	<!-- <div id='scroller'> -->
+		<header>
+			<div id="header-container">
+				<div id="banner">
+					<span id="title">qromp</span>
+					<span id="tagline">learnable quantum programming</span>
+				</div><!--		
+				--><div id="header-menu">
+					<input type="file" id="hidden-file-input"/>
+					<span class="button" id="export">export</span>
+					<span class="button" id="import">import</span>
+					<span class="button" id="about">about</span>
+				</div>
 			</div>
-		</div>
-		<div class='panel panel-app'>
-			<div id="app">
-		  		<div id="editor">
-		  	 		<div id="reference">
-			  	 		<div id="reference-content">
-				  	 		<h3>reference</h3>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				qnot <i class="icon icon-qubit"></i>
-				  	 			</div>
+		</header>
+
+		<main>
+			<div class='panel panel-app'>
+				<div id="app">
+			  		<div id="editor">
+			  	 		<div id="reference">
+				  	 		<div id="reference-content">
+					  	 		<h3>reference</h3>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				qnot <i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				cnot <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				srn <i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				nand <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				hadamard <i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				utheta <i class="icon icon-qubit"></i><i class="icon icon-angle"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				cphase <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i><i class="icon icon-angle"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				u2 <i class="icon icon-qubit"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				swap <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				measure <i class="icon icon-qubit"></i>
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				end
+					  	 			</div>
+					  	 		</div>
+					  	 		<div class="reference-line">
+					  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
+					  	 				oracle <i class="icon icon-qubit"></i>...
+					  	 			</div>
+					  	 		</div>
 				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				cnot <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				srn <i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				nand <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				hadamard <i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				utheta <i class="icon icon-qubit"></i><i class="icon icon-angle"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				cphase <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i><i class="icon icon-angle"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				u2 <i class="icon icon-qubit"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i><i class="icon icon-angle"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				swap <i class="icon icon-qubit"></i><i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				measure <i class="icon icon-qubit"></i>
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				end
-				  	 			</div>
-				  	 		</div>
-				  	 		<div class="reference-line">
-				  	 			<div class="button reference-button">&nbsp;?</div><div class="reference-item">
-				  	 				oracle <i class="icon icon-qubit"></i>...
-				  	 			</div>
-				  	 		</div>
+				  	 	 	<div class="button" id="reference-handle"><i class="icon icon-arrow"></i></div>
 			  	 		</div>
-			  	 	 	<div class="button" id="reference-handle"><i class="icon icon-arrow"></i></div>
-		  	 		</div>
-		  	 	 	<div id="code-area"></div>
-		  	 	</div><!-- 
-		  	 --><div id="visualizer">
-		  			<div id="visualizer-buffer">
-			  			<span id="num-qubits">qubits</span>
-			  			<div class="button" id="remove-qubit">-</div>
-			  			<div class="button" id="add-qubit">+</div>
+			  	 	 	<div id="code-area"></div>
+			  	 	</div><!-- 
+			  	 --><div id="visualizer">
+			  			<div id="visualizer-buffer">
+				  			<span id="num-qubits">qubits</span>
+				  			<div class="button" id="remove-qubit">-</div>
+				  			<div class="button" id="add-qubit">+</div>
+				  		</div>
+				  		<svg id="qubit-svg" width="100%" height="100%"></svg>
 			  		</div>
-			  		<svg id="qubit-svg" width="100%" height="100%"></svg>
-		  		</div>
-				<div id="diagram">
-					<div id="parts-bin"></div>
-					<div id="circuit"></div>
+					<div id="diagram">
+						<div id="parts-bin"></div>
+						<div id="circuit"></div>
+					</div>
 				</div>
-			</div>
-			<div id="guide">
-				<div id="guide-menu">
-					<h1>lessons</h1>
-					<a class="guide-link button" data-target="#l-start">getting started</a>
-					<a class="guide-link button" data-target="#l-quantum-computers">on quantum computers</a>
-					<a class="guide-link button" data-target="#l-qubits">on qubits</a>
-					<a class="guide-link button" data-target="#l-gates">on quantum gates</a>
-					<a class="guide-link button" data-target="#l-oracles">on oracles</a>
-					<a class="guide-link button" data-target="#l-grovers">Grover's algorithm</a>
-					<h1>examples</h1>
-					<a class="guide-link button" data-target="#e-deutsch-jozsa">Deutsch-Jozsa algorithm</a>
-					<a class="guide-link button" data-target="#e-grovers">Grover's algorithm</a>
-					<a class="guide-link button" data-target="#e-shors">Shor's algorithm</a>
-				</div>
-				<div class="hidden" id="guide-detail">
-					<a class="button" id="guide-back"><i class="icon icon-arrow flip-h"></i> lessons & examples</a>
-					<h2 id="guide-item-title">getting started</h2>
-					<div class="guide-item" id="l-start">
-						Welcome to qromp, a quantum programming environment designed to help you learn all about stuff...
-						<div class='example-list'>
-						Click on an example (feature incomplete):
-							<ul>
-								<li class='example'>u2 0 1 0.3 1.6 1</li>
-								<li class='example'>hadamard 0</li>
-								<li class='example'>utheta 0 0.6</li>
-								<li class='example'>hadamard 2<br>
+				<div id="guide">
+					<div id="guide-menu">
+						<h1>lessons</h1>
+						<a class="guide-link button" data-target="#l-start">getting started</a>
+						<a class="guide-link button" data-target="#l-quantum-computers">on quantum computers</a>
+						<a class="guide-link button" data-target="#l-qubits">on qubits</a>
+						<a class="guide-link button" data-target="#l-gates">on quantum gates</a>
+						<a class="guide-link button" data-target="#l-oracles">on oracles</a>
+						<a class="guide-link button" data-target="#l-grovers">Grover's algorithm</a>
+						<h1>examples</h1>
+						<a class="guide-link button" data-target="#e-deutsch-jozsa">Deutsch-Jozsa algorithm</a>
+						<a class="guide-link button" data-target="#e-grovers">Grover's algorithm</a>
+						<a class="guide-link button" data-target="#e-shors">Shor's algorithm</a>
+					</div>
+					<div class="hidden" id="guide-detail">
+						<a class="button" id="guide-back"><i class="icon icon-arrow flip-h"></i> lessons & examples</a>
+						<h2 id="guide-item-title">getting started</h2>
+						<div class="guide-item" id="l-start">
+							Welcome to qromp, a quantum programming environment designed to help you learn all about stuff...
+							<div class='example-list'>
+							Click on an example (feature incomplete):
+								<ul>
+									<li class='example'>u2 0 1 0.3 1.6 1</li>
+									<li class='example'>hadamard 0</li>
+									<li class='example'>utheta 0 0.6</li>
+									<li class='example'>hadamard 2<br>
 hadamard 1<br>
 utheta 0 0.785398<br>
 nand 0 2 1<br>
@@ -144,41 +148,44 @@ cnot 2 1<br>
 hadamard 2<br>
 utheta 1 1.570796<br>
 utheta 2 1.570796</li>
-							</ul>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class='panel panel-about panel-right'>
-			<div class='arrow'>
-				<div class='arrow-left'></div><div class='arrow-text'>Back</div>
+			<div class='panel panel-about'>
+				<div class='about'>
+					<div class='arrow'>
+						<div class='arrow-left'></div><div class='arrow-text'>Back</div>
+					</div>
+					<p>This quantum computer simulator and visualizer is an ongoing project, which began as my Hampshire College Division III project. The website can as both an IDE and learning environment for quantum programming. The primary goal, realized or not, is to bring quantum computer programming to a wider audience, and in a more digestible, immersive, and learnable way. Quantum computer programming is challenging, and its explanations are often riddled with general abstractions about parallel universes or such. That's all well and good, but hopefully this website can be a tool for learning about it "hands on". Inspiration and ideas are taken heavily from Bret Victor's fantastic article: <a href="http://worrydream.com/LearnableProgramming/">Learnable Programming</a>. To contact me with feedback or hatemail (or both), feel free to email ob08@hapmshire.edu.</p>
+
+					<p>The project is supported by a number of wonderful people, institutions, and code libraries:</p>
+
+					<p>People...
+					<a href="http://www.sethtoles.com/">Seth Toles</a>
+					<a href="https://github.com/knod">"Knod"</a>
+					<a href="http://faculty.hampshire.edu/lspector/">Lee Spector</a>
+					<a href="https://www.hampshire.edu/faculty/hbernstein.htm">Herb Bernstein</a>
+					<a href="http://bork.hampshire.edu/josiah/">Josiah Erikson</a>
+					<a href="http://www.arndt-bruenner.de/">Arndt Brünner</a></p>
+
+					<p>Institutions...
+					<a href="http://www.hampshire.edu/cs/">Hampshire College School of Cognitive Science</a>
+					<a href="http://sites.hampshire.edu/ci-lab/">Computational Intelligence Laboratory</a></p>
+
+					<p>Code libraries...
+					<a href="http://d3js.org/">d3</a>
+					<a href="https://github.com/clojure/clojurescript">ClojureScript</a> (try it out <a href="http://clojurescript.net/">here</a>)
+					<a href="http://mathjs.org/">math.js</a>
+					<a href="https://raw.githubusercontent.com/omriBernstein/qromp/master/libs/arndt.js">arndt.js</a> (eigenvalue calculator, repurposed from <a href="http://www.arndt-bruenner.de/mathe/scripts/engl_eigenwert2.htm">this website</a>)</p>
+
+					<p>The live developing project can be found <a href="https://github.com/omriBernstein/qgame">here</a> for the backend quantum computer simulator, and <a href="https://github.com/omriBernstein/qromp">here</a> for the frontend visualizer and website.</p>
+				</div> <!-- end class='about' -->
 			</div>
-			<p>This quantum computer simulator and visualizer is an ongoing project, which began as my Hampshire College Division III project. The website can as both an IDE and learning environment for quantum programming. The primary goal, realized or not, is to bring quantum computer programming to a wider audience, and in a more digestible, immersive, and learnable way. Quantum computer programming is challenging, and its explanations are often riddled with general abstractions about parallel universes or such. That's all well and good, but hopefully this website can be a tool for learning about it "hands on". Inspiration and ideas are taken heavily from Bret Victor's fantastic article: <a href="http://worrydream.com/LearnableProgramming/">Learnable Programming</a>. To contact me with feedback or hatemail (or both), feel free to email ob08@hapmshire.edu.</p>
-
-			<p>The project is supported by a number of wonderful people, institutions, and code libraries:</p>
-
-			<p>People...
-			<a href="http://www.sethtoles.com/">Seth Toles</a>
-			<a href="https://github.com/knod">"Knod"</a>
-			<a href="http://faculty.hampshire.edu/lspector/">Lee Spector</a>
-			<a href="https://www.hampshire.edu/faculty/hbernstein.htm">Herb Bernstein</a>
-			<a href="http://bork.hampshire.edu/josiah/">Josiah Erikson</a>
-			<a href="http://www.arndt-bruenner.de/">Arndt Brünner</a></p>
-
-			<p>Institutions...
-			<a href="http://www.hampshire.edu/cs/">Hampshire College School of Cognitive Science</a>
-			<a href="http://sites.hampshire.edu/ci-lab/">Computational Intelligence Laboratory</a></p>
-
-			<p>Code libraries...
-			<a href="http://d3js.org/">d3</a>
-			<a href="https://github.com/clojure/clojurescript">ClojureScript</a> (try it out <a href="http://clojurescript.net/">here</a>)
-			<a href="http://mathjs.org/">math.js</a>
-			<a href="https://raw.githubusercontent.com/omriBernstein/qromp/master/libs/arndt.js">arndt.js</a> (eigenvalue calculator, repurposed from <a href="http://www.arndt-bruenner.de/mathe/scripts/engl_eigenwert2.htm">this website</a>)</p>
-
-			<p>The live developing project can be found <a href="https://github.com/omriBernstein/qgame">here</a> for the backend quantum computer simulator, and <a href="https://github.com/omriBernstein/qromp">here</a> for the frontend visualizer and website.</p>
-		</div>
-	</div></main></div>
+		</main>
+	<!-- </div> -->
 	<script src="visualizer.js"></script>
 	<script src="qromp.js"></script>
 	<script src="setup.js"></script>

@@ -1,0 +1,104 @@
+
+/*--- ALL ---*/
+html {
+	/*font-size: 10px;*/
+}
+
+body, div, h1, h2, h3, h4, h5, header, main, ul {
+	margin: 0 auto;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid gray;
+}
+
+ul {}
+
+.button {
+	margin: .1rem;
+	padding: .2rem;
+	background-color: purple;
+	color: white;
+}
+
+.slider {
+	display: inline-block;
+	width: 100%;
+}
+
+
+/*--- HEADER ---*/
+header {
+	width: 100%;
+	height: 3rem;
+	border-bottom: blue;
+	background-color: lightblue;
+	padding: 0 5rem;
+	border-bottom: 10px solid purple;
+}
+
+/*There must be something that allows you to say "every element in this tag"*/
+.header-item {display: inline;}
+
+/*.title {float: left;}*/
+/*.tagline {float: left;}*/
+.header-menu {list-style-type: none;}
+
+
+/*--- MAIN ---*/
+main {
+	padding: .2rem 5rem;
+	max-width: 100rem;
+	min-width: 50rem;
+}
+
+/*-- Guide --*/
+.guide {
+	/*display: inline-block;*/
+	float: left;
+	width: 20%;
+	margin: 0;
+}
+
+
+/*-- App --*/
+.app {
+	/*display: inline-block;*/
+	float:left;
+	width: 80%;
+	margin: 0;
+}
+
+/*- Editor -*/
+.editor {
+	width: calc(100% - 40.2rem);
+}
+
+
+/*- Visualizer -*/
+.visualizer {
+	float: right;
+	width: 40rem;
+	height: 40rem;
+	margin-bottom: .2rem;
+	margin-left: .2rem;
+}
+
+
+/*- Diagram -*/
+.diagram {
+	clear: both;
+}
+
+
+/*--- ABOUT ---*/
+.slider-about {
+
+}
+
+
+
+.hidden {
+	display: none;
+}

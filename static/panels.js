@@ -15,6 +15,8 @@
 $(document).ready(function() {
 	// --- SETUP --- \\
 	var slideTime = 600, simShowing = true;
+	// $(".panel-about").hide();
+
 
 	// --- FUNCTIONS --- \\
 	var togglePanes = function () {
