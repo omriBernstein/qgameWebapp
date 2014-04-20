@@ -53,5 +53,6 @@ $(document).ready(function() {
 
 	$("#about").on("click", togglePanes);
 	$("#title").on("click", showSim);
+	$(".about .arrow").on("click", showSim);
 
 });
