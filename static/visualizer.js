@@ -8,7 +8,7 @@
 function VisualizerObject(containerID) {
 	var container = d3.select("#" + containerID),
 		margin = .9,
-		qubitScale = .75,
+		qubitScale = .4,
 		animTime = 500;
 
 	this.render = function(qubitStates) {
@@ -35,6 +35,23 @@ function VisualizerObject(containerID) {
 				qubitRadius = arrangeRadius * p;
 				yOffset = arrangeRadius * (1 - Math.cos(theta / 2));
 			}
+			createEntang();
+		}
+
+		else {$(".entang").remove();}
+
+	// --- ENTANGLEMENT --- //
+	// Need to wait till here so have correct qubitRadius
+	// For some reason odd amounts of qubits put the whole thing off center
+
+		function createEntang () {
+		// Need to wait till the qubits are done animating, animTime. How?
+			// Ideally, if the diagram already exists, just transition it...
+			// but for now, destroy the old one and make a new one
+			$(".entang").remove();
+			setTimeout(function () {
+			entang.createChord(0, arrangeRadius-qubitRadius, containerWidth, containerHeight);},
+			animTime);
 		}
 
 	// --- QUBITS --- //

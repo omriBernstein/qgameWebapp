@@ -6,7 +6,8 @@
 * 
 * Currently just creates a chord diagram with arbitrary
 * values with one alteration - the chords that go back
-* to the parent are hidden (opacity 0)
+* to the parent are hidden (opacity 0). It doesn't even
+* show up yet.
 */
 
 var entang = {
@@ -19,7 +20,7 @@ var entang = {
 	chords provided in matrix. Chords that refer to their own
 	section are given an opacity of 0.
 	*/
-	createChord: function (matrix) {
+	createChord: function (matrix, outerRadius, width, height) {
 		// From http://bl.ocks.org/mbostock/4062006
 		// From http://mkweb.bcgsc.ca/circos/guide/tables/
 		var matrix = [
@@ -34,20 +35,21 @@ var entang = {
 		    .sortSubgroups(d3.descending)
 		    .matrix(matrix);
 
-		var width = 960,
-		    height = 500,
-		    innerRadius = Math.min(width, height) * .41,
-		    outerRadius = innerRadius * 1.1;
+		// var width = 960,
+		//     height = 500,
+		//     innerRadius = Math.min(width, height) * .41,
+		//     outerRadius = innerRadius * 1.1;
+
+		var innerRadius = outerRadius/1.1;
 
 		var fill = d3.scale.ordinal()
 		    .domain(d3.range(4))
 		    // .range(["#000000", "#FFDD89", "#957244", "#F26223"]);
 		    .range(["#9986b3"]);
 
-		svg = d3.select("body").append("svg")
-		    .attr("width", width)
-		    .attr("height", height)
+		svg = d3.select("#qubit-svg")
 		  .append("g")
+		  	.attr("class", "entang")
 		    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 		svg.append("g").selectAll("path")
@@ -134,6 +136,6 @@ var entang = {
 	*/
 	transChord: function () {
 
-	};
+	},
 
 }
