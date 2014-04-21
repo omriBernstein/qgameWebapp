@@ -111,7 +111,9 @@ var entang = {
 		function fade(opacity) {
 		  return function(g, i) {
 		    svg.selectAll(".chord path")
-		        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+		        .filter(function(d) { return d.source.index != i && d.target.index != i
+		        	// Added by knod to keep own chords hidden (for qromp)
+		        	&& d.target.index != d.target.subindex; })
 		      .transition()
 		        .style("opacity", opacity);
 		  };
@@ -119,14 +121,18 @@ var entang = {
 
 		/* Custom code for qromp */
 		// When everything else is done
-		// Unless the path crosses to somewhere, it's opacity will be 0
-		svg.selectAll(".chord path")
-			// Get the paths whose index and subindex match
-			// (the path is refering to its own section)
-			.filter(function(dsomething) {
-				return dsomething.target.index==dsomething.target.subindex;
-			})
-			.style("opacity", 0);
+		hideOwn();
+
+		function hideOwn() {
+			// Unless the path crosses to somewhere, it's opacity will be 0
+			svg.selectAll(".chord path")
+				// Get the paths whose index and subindex match
+				// (the path is refering to its own section)
+				.filter(function(dsomething) {
+					return dsomething.target.index == dsomething.target.subindex;
+				})
+				.style("opacity", 0);
+		}
 	},
 
 	/* (?) -> None

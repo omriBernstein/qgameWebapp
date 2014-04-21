@@ -150,8 +150,16 @@ function VisualizerObject(containerID) {
 	// Need to wait till here so have correct values
 	// For some reason odd amounts of qubits put the whole thing off center
 
-		console.log(qubits);
-		// for each (qubit in qubits) {console.log(qubit);}
+		// console.log(qubits);
+		// console.log(qubits.selectAll(".qubit").indexOf());
+		// var stupidArray = qubits.selectAll(".qubit");
+		// stupidArray.forEach(function (qubit) {console.log(this);});
+		$(".qubit").each(function () {
+			$this = $(this);
+			// $this.data("entang", []);
+			console.log($this.index());
+		});
+		// for each (var qubit in qubits) {console.log("D");}
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime. How?
@@ -164,12 +172,12 @@ function VisualizerObject(containerID) {
 			for(var indx = 0; indx < numQubits - 1; indx++ ) {
 				entangMatrix.push([]);
 			}
-			console.log(entangMatrix);
+			// console.log(entangMatrix);
 
 			setTimeout(function () {
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.createChord(0, arrangeRadius-qubitRadius, center);},
-			animTime);
+				entang.createChord(0, arrangeRadius-qubitRadius, center);}
+				, animTime);
 		}
 
 		if (numQubits > 1) {
