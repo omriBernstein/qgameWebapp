@@ -35,23 +35,6 @@ function VisualizerObject(containerID) {
 				qubitRadius = arrangeRadius * p;
 				yOffset = arrangeRadius * (1 - Math.cos(theta / 2));
 			}
-			createEntang();
-		}
-
-		else {$(".entang").remove();}
-
-	// --- ENTANGLEMENT --- //
-	// Need to wait till here so have correct qubitRadius
-	// For some reason odd amounts of qubits put the whole thing off center
-
-		function createEntang () {
-		// Need to wait till the qubits are done animating, animTime. How?
-			// Ideally, if the diagram already exists, just transition it...
-			// but for now, destroy the old one and make a new one
-			$(".entang").remove();
-			setTimeout(function () {
-			entang.createChord(0, arrangeRadius-qubitRadius, containerWidth, containerHeight);},
-			animTime);
 		}
 
 	// --- QUBITS --- //
@@ -162,5 +145,37 @@ function VisualizerObject(containerID) {
 					return (d.substate === "up") ? "translate(0, " + ((1 - d.value) * qubitRadius) + ")" : "";
 				});
 		}
-	}
+
+	// --- ENTANGLEMENT --- //
+	// Need to wait till here so have correct values
+	// For some reason odd amounts of qubits put the whole thing off center
+
+		console.log(qubits);
+		// for each (qubit in qubits) {console.log(qubit);}
+
+		function createEntang () {
+		// Need to wait till the qubits are done animating, animTime. How?
+			// Ideally, if the diagram already exists, just transition it...
+			// but for now, destroy the old one and make a new one
+			$(".entang").remove();
+
+			var entangMatrix = [];
+
+			for(var indx = 0; indx < numQubits - 1; indx++ ) {
+				entangMatrix.push([]);
+			}
+			console.log(entangMatrix);
+
+			setTimeout(function () {
+				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
+				entang.createChord(0, arrangeRadius-qubitRadius, center);},
+			animTime);
+		}
+
+		if (numQubits > 1) {
+			createEntang();
+		}
+		else {$(".entang").remove();}
+
+	}  // end this.render()
 }

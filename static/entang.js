@@ -12,7 +12,7 @@
 
 var entang = {
 
-	/* (Array of arrays of ints) -> None
+	/* (Array of arrays of ints, num, str) -> None
 
 	In future matrix should be passed in.
 
@@ -20,7 +20,7 @@ var entang = {
 	chords provided in matrix. Chords that refer to their own
 	section are given an opacity of 0.
 	*/
-	createChord: function (matrix, outerRadius, width, height) {
+	createChord: function (matrix, outerRadius, center) {
 		// From http://bl.ocks.org/mbostock/4062006
 		// From http://mkweb.bcgsc.ca/circos/guide/tables/
 		var matrix = [
@@ -50,7 +50,7 @@ var entang = {
 		svg = d3.select("#qubit-svg")
 		  .append("g")
 		  	.attr("class", "entang")
-		    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+		    .attr("transform", "translate(" + center + ")");
 
 		svg.append("g").selectAll("path")
 		    .data(chord.groups)
