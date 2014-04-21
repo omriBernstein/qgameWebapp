@@ -169,6 +169,7 @@ function VisualizerObject(containerID) {
 			$(".entang").remove();
 
 			setTimeout(function () {
+				$(".entang").remove();
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
 				entang.createChord(entangMatrix, arrangeRadius-qubitRadius, center);}
 				, animTime);
