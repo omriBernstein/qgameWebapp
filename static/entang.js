@@ -23,7 +23,7 @@ var entang = {
 	createChord: function (matrix, outerRadius, center) {
 		// From http://bl.ocks.org/mbostock/4062006
 		// From http://mkweb.bcgsc.ca/circos/guide/tables/
-		var matrix = [
+		var matrix = matrix || [
 		  [100, 20, 0, 0],
 		  [0, 100, 0, 0],
 		  [0, 0, 100, 0],
@@ -45,7 +45,7 @@ var entang = {
 		var fill = d3.scale.ordinal()
 		    .domain(d3.range(4))
 		    // .range(["#000000", "#FFDD89", "#957244", "#F26223"]);
-		    .range(["#9986b3"]);
+		    .range(["#9986b3", "red", "green", "blue"]);
 
 		svg = d3.select("#qubit-svg")
 		  .append("g")

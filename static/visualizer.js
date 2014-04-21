@@ -150,16 +150,45 @@ function VisualizerObject(containerID) {
 	// Need to wait till here so have correct values
 	// For some reason odd amounts of qubits put the whole thing off center
 
-		// console.log(qubits);
-		// console.log(qubits.selectAll(".qubit").indexOf());
-		// var stupidArray = qubits.selectAll(".qubit");
-		// stupidArray.forEach(function (qubit) {console.log(this);});
-		$(".qubit").each(function () {
-			$this = $(this);
-			// $this.data("entang", []);
-			console.log($this.index());
-		});
-		// for each (var qubit in qubits) {console.log("D");}
+		// // console.log(qubits);
+		// // console.log(qubits.selectAll(".qubit").indexOf());
+		// // var stupidArray = qubits.selectAll(".qubit");
+		// // stupidArray.forEach(function (qubit) {console.log(this);});
+		// $(".qubit").each(function () {
+		// 	$this = $(this);
+		// 	// $this.data("entang", []);
+		// 	console.log($this.index());
+		// 	// 1 qb got me: 0
+		// 	// 2 qb got me: 0 and 1
+		// 	// 3 qb got me: 0, 1, and 3
+		// 	// 4 qb got me: 0, 1, 2, and 4
+		// 	// etc.
+		// });
+
+		// Make my own for loop because what is up with those index numbers?
+		// Hope the qubits come in the right order to line up with the matrix,
+		// probably won't know till later
+		// Give the right starting matrix values for each qubit
+		// Sure, this needs to be more dynamic later, we'll figure
+		// it out then.
+		for (var indx = 0; indx < $(".qubit").length; indx++) {
+			var qbtMatrix = [];
+			// Populate with enough 0's
+			for (var indx2 = 0; indx2 < $(".qubit").length; indx2++) {
+				qbtMatrix.push(0);
+			}
+			// Fill this qubit up with it's own ammount
+			qbtMatrix[indx] = 10;
+			$($(".qubit")[indx]).data("qbt-matrix", qbtMatrix);
+			// console.log(qbtMatrix);
+			// console.log($($(".qubit")[indx]).data("qbt-matrix"));
+		}
+
+		var matrix = [];
+		for (var indx = 0; indx < $(".qubit").length; indx++) {
+			matrix.push($($(".qubit")[indx]).data("qbt-matrix"));
+		}
+		// console.log(matrix);
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime. How?
@@ -167,16 +196,9 @@ function VisualizerObject(containerID) {
 			// but for now, destroy the old one and make a new one
 			$(".entang").remove();
 
-			var entangMatrix = [];
-
-			for(var indx = 0; indx < numQubits - 1; indx++ ) {
-				entangMatrix.push([]);
-			}
-			// console.log(entangMatrix);
-
 			setTimeout(function () {
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.createChord(0, arrangeRadius-qubitRadius, center);}
+				entang.createChord(matrix, arrangeRadius-qubitRadius, center);}
 				, animTime);
 		}
 
