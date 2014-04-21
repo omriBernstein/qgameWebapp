@@ -147,49 +147,9 @@ function VisualizerObject(containerID) {
 		}
 
 	// --- ENTANGLEMENT --- //
-	// Need to wait till here so have correct values
+	// Need to wait till here so have correct values?
 	// For some reason odd amounts of qubits put the whole thing off center
 
-		// // console.log(qubits);
-		// // console.log(qubits.selectAll(".qubit").indexOf());
-		// // var stupidArray = qubits.selectAll(".qubit");
-		// // stupidArray.forEach(function (qubit) {console.log(this);});
-		// $(".qubit").each(function () {
-		// 	$this = $(this);
-		// 	// $this.data("entang", []);
-		// 	console.log($this.index());
-		// 	// 1 qb got me: 0
-		// 	// 2 qb got me: 0 and 1
-		// 	// 3 qb got me: 0, 1, and 3
-		// 	// 4 qb got me: 0, 1, 2, and 4
-		// 	// etc.
-		// });
-
-		// Make my own for loop because what is up with those index numbers?
-		// Hope the qubits come in the right order to line up with the matrix,
-		// probably won't know till later
-		// Give the right starting matrix values for each qubit
-		// Sure, this needs to be more dynamic later, we'll figure
-		// it out then.
-		for (var indx = 0; indx < $(".qubit").length; indx++) {
-			var qbtMatrix = [];
-			// Populate with enough 0's
-			for (var indx2 = 0; indx2 < $(".qubit").length; indx2++) {
-				qbtMatrix.push(0);
-			}
-			// Fill this qubit up with it's own ammount
-			qbtMatrix[indx] = 100;
-			$($(".qubit")[indx]).data("qbt-matrix", qbtMatrix);
-			// console.log(qbtMatrix);
-			// console.log($($(".qubit")[indx]).data("qbt-matrix"));
-		}
-
-		var matrix = [];
-		for (var indx = 0; indx < $(".qubit").length; indx++) {
-			matrix.push($($(".qubit")[indx]).data("qbt-matrix"));
-		}
-
-		var matrixRow = 0;
 		// Let's try with d3 again
 		d3.selectAll(".qubit").each(function (dat, indx) {
 			// Assign an array to the qubit object without destroying
@@ -197,9 +157,6 @@ function VisualizerObject(containerID) {
 			d3.select(this).data()[0].entang = entang.createRow(indx, numQubits);
 			
 			console.log(d3.select(this).data()[0].entang);
-
-
-
 			// d3.select(this).data([0123]); // console.log gets [83]
 		});
 
