@@ -12,6 +12,28 @@
 
 var entang = {
 
+	/* (int, int) -> array of ints
+
+	Create one row of the matrix for the qubit
+	*/
+	createRow: function (indx, numQubits) {
+
+		// Make one array for reach qubit with the right number of 0's
+		var newRow = [];
+		for (var indx2 = 0; indx2 < numQubits; indx2++) {
+			newRow.push(0);
+		}
+		// Give it some starting value for itself
+		newRow[indx] = 100;
+
+		return newRow;
+	},
+
+	/* 
+
+	Create the initial matrix for the qubits
+	*/
+
 	/* (Array of arrays of ints, num, str) -> None
 
 	In future matrix should be passed in.
@@ -111,11 +133,11 @@ var entang = {
 
 		// Returns an event handler for fading a given chord group.
 		function fade(opacity) {
-		  return function(g, i) {
+		  return function(g, indx) {
 		    svg.selectAll(".chord path")
-		        .filter(function(d) { return d.source.index != i && d.target.index != i
+		        .filter(function(dat) { return dat.source.index != indx && dat.target.index != indx
 		        	// Added by knod to keep own chords hidden (for qromp)
-		        	&& d.target.index != d.target.subindex; })
+		        	&& dat.target.index != dat.target.subindex; })
 		      .transition()
 		        .style("opacity", opacity);
 		  };
@@ -130,8 +152,8 @@ var entang = {
 			svg.selectAll(".chord path")
 				// Get the paths whose index and subindex match
 				// (the path is refering to its own section)
-				.filter(function(dsomething) {
-					return dsomething.target.index == dsomething.target.subindex;
+				.filter(function (dat) {
+					return dat.target.index == dat.target.subindex;
 				})
 				.style("opacity", 0);
 		}

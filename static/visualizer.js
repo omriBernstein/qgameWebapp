@@ -178,7 +178,7 @@ function VisualizerObject(containerID) {
 				qbtMatrix.push(0);
 			}
 			// Fill this qubit up with it's own ammount
-			qbtMatrix[indx] = 10;
+			qbtMatrix[indx] = 100;
 			$($(".qubit")[indx]).data("qbt-matrix", qbtMatrix);
 			// console.log(qbtMatrix);
 			// console.log($($(".qubit")[indx]).data("qbt-matrix"));
@@ -188,7 +188,23 @@ function VisualizerObject(containerID) {
 		for (var indx = 0; indx < $(".qubit").length; indx++) {
 			matrix.push($($(".qubit")[indx]).data("qbt-matrix"));
 		}
-		// console.log(matrix);
+
+		var matrixRow = 0;
+		// Let's try with d3 again
+		d3.selectAll(".qubit").each(function (dat, indx) {
+			// Assign an array to the qubit object without destroying
+			// the previous data object (entang.js)
+			d3.select(this).data()[0].entang = entang.createRow(indx, numQubits);
+			
+			console.log(d3.select(this).data()[0].entang);
+
+
+
+			// d3.select(this).data([0123]); // console.log gets [83]
+		});
+
+		function createMatrix (dat, index) {}
+
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime. How?
