@@ -7,25 +7,29 @@
 	<script src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js" charset="utf-8"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.18.1/math.min.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 	<script src="panels.js"></script>
 	<title>qromp - learnable quantum programming</title>
 </head>
 <body>
-	<div id="header-back"></div>
-	<div id="scroller">
-		<main><div class='main-container'>
-			<div id="header">
+	<!-- <div id="header-back"></div> -->
+	<!-- <div id='scroller'> -->
+		<header>
+			<div id="header-container">
 				<div id="banner">
 					<span id="title">qromp</span>
 					<span id="tagline">learnable quantum programming</span>
 				</div><!--		
-		 --><div id="header-menu">
+				--><div id="header-menu">
 					<input type="file" id="hidden-file-input"/>
 					<span class="button" id="export">export</span>
 					<span class="button" id="import">import</span>
 					<span class="button" id="about">about</span>
 				</div>
 			</div>
+		</header>
+
+		<main>
 			<div class='panel panel-app'>
 				<div id="app">
 			  		<div id="editor">
@@ -150,11 +154,54 @@ utheta 2 1.570796</li>
 					</div>
 				</div>
 			</div>
-			<span class='panel panel-about panel-right'>
-				(About)
-			</span>
-		</div></main>
-	</div>
+			<div class='panel panel-about'>
+				<div class='about'>
+					<div class='arrow button'>back</div>
+
+					<!-- The paragraph text here should have the same formatting as #guide-detail>div - make it a class and not be directed at div? Or maybe just for the <p> tag?-->
+
+					<h1>About qromp</h1>
+
+					<!-- <p><strike>This quantum computer simulator and visualizer is an ongoing project, which began as my Hampshire College Division III project. The website can as both an IDE and learning environment for quantum programming. The primary goal, realized or not, is to bring quantum computer programming to a wider audience, and in a more digestible, immersive, and learnable way. Quantum computer programming is challenging, and its explanations are often riddled with general abstractions about parallel universes or such. That's all well and good, but hopefully this website can be a tool for learning about it "hands on". Inspiration and ideas are taken heavily from Bret Victor's fantastic article: <a href="http://worrydream.com/LearnableProgramming/">Learnable Programming</a>. To contact me with feedback or hatemail (or both), feel free to email ob08@hapmshire.edu.</strike></p> -->
+
+					<p>Quantum computer programming is challenging, and its explanations are often riddled with general abstractions about parallel universes or such. That's all well and good, but hopefully this website can be a tool for learning about it "hands on". The aim of this quantum computer simulator is to provide both an IDE and learning environment for quantum programming. Our primary goal, realized or not, is to bring quantum computer programming to a wider audience in a more digestible, immersive, and learnable way.</p>
+
+					<p>This project began as a Hampshire College Division III project and we hope to move forward from there. Inspiration and ideas are taken heavily from Bret Victor's fantastic article: <a href="http://worrydream.com/LearnableProgramming/">Learnable Programming</a>.</p>
+
+					<p>To contact me with feedback or hatemail (or both), feel free to email ob08@hapmshire.edu.</p>
+
+					<p>The project is supported by a number of wonderful people, institutions, and code libraries:</p>
+
+					<h1>people...</h1>
+					<ul>
+						<li><a href="http://www.sethtoles.com/">Seth Toles</a></li>
+						<li><a href="https://github.com/knod">"Knod"</a></li>
+						<li><a href="http://faculty.hampshire.edu/lspector/">Lee Spector</a></li>
+						<li><a href="https://www.hampshire.edu/faculty/hbernstein.htm">Herb Bernstein</a></li>
+						<li><a href="http://bork.hampshire.edu/josiah/">Josiah Erikson</a></li>
+						<li><a href="http://www.arndt-bruenner.de/">Arndt Br&uumlnner</a></li>
+					</ul>
+
+					<h1>institutions...</h1>
+					<ul>
+						<li><a href="http://www.hampshire.edu/cs/">Hampshire College School of Cognitive Science</a></li>
+						<li><a href="http://sites.hampshire.edu/ci-lab/">Computational Intelligence Laboratory</a></li>
+					</ul>
+
+					<h1>code libraries...</h1>
+					<ul>
+						<li><a href="http://d3js.org/">d3</a></li>
+						<li><a href="https://github.com/clojure/clojurescript">ClojureScript</a> (try it out <a href="http://clojurescript.net/">here</a>)</li>
+						<li><a href="http://mathjs.org/">math.js</a></li>
+						<li><a href="https://raw.githubusercontent.com/omriBernstein/qromp/master/libs/arndt.js">arndt.js</a> (eigenvalue calculator, repurposed from <a href="http://www.arndt-bruenner.de/mathe/scripts/engl_eigenwert2.htm">Arndt Br&uumlnner's website</a>)</li>
+					</ul>
+
+					<p><em>The live developing project can be found <a href="https://github.com/omriBernstein/qgame">here</a> for the backend quantum computer simulator, qgame, and <a href="https://github.com/omriBernstein/qromp">here</a> for the frontend visualizer and website.<em></p>
+				</div> <!-- end class='about' -->
+
+			</div>
+		</main>
+	<!-- </div> -->
 	<script src="visualizer.js"></script>
 	<script src="qromp.js"></script>
 	<script src="setup.js"></script>

@@ -15,6 +15,7 @@ body {
 }
 
 main {
+	position: relative;
 	padding: 0 2rem;
 	margin: 0 auto;
 	height: 63rem;
@@ -49,6 +50,8 @@ ul {
 	margin-top: .4rem;
 }
 
+p {font-size: 1.4rem;}
+
 li:hover {
 	text-decoration: underline;
 }
@@ -75,14 +78,14 @@ li:hover {
 
 /*--- Top level divs ---*/
 
-#header-back {
-	position: absolute;
-	width: 100%;
-	height: 4.3rem;
-	background-color: $light-back;
-	border-bottom: .3rem solid $medium-border;
-	z-index: -1;
-}
+// #header-back {
+// 	position: absolute;
+// 	width: 100%;
+// 	height: 4.3rem;
+// 	background-color: $light-back;
+// 	border-bottom: .3rem solid $medium-border;
+// 	z-index: -1;
+// }
 
 #scroller {
 	width: 100%;
@@ -90,10 +93,27 @@ li:hover {
 	overflow-x: auto;
 }
 
-#header {
+header {
+	// -webkit-box-sizing: border-box;
+	// -moz-box-sizing: border-box;
+	// box-sizing: border-box;
 	width: 100%;
+	min-width: 99rem; // Why does this work?
 	height: 4.3rem;
+	/*Transition*/
 	margin-bottom: 1rem;
+	// padding: 0 2rem;
+	background-color: $light-back;
+	border-bottom: .3rem solid $medium-border;
+}
+
+#header-container {
+	padding: 0 2rem;
+	margin: 0 auto;
+	height: 63rem;
+	min-width: 95rem;
+	max-width: 110rem;
+	position: relative;
 }
 
 #guide {
@@ -107,4 +127,95 @@ li:hover {
 	float: right;
 	margin-left: 1rem;
 	width: 70%;
+}
+
+/*--- Panels ---*/
+
+// .main-container {
+// 	position: relative;
+// 	width: 100%;
+// 	height: 100%;
+// }
+
+.panel {
+	position: absolute;
+	left: 0;
+	padding: 0 2rem;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 1rem;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.panel-app {
+}
+
+
+/*--- About panel ---*/
+
+.panel-about {
+	display: none;
+}
+
+.about {
+	position: absolute;
+	width: 50%;
+	left: 25%;
+	padding: 1rem 2rem;
+	margin: 0 0 1rem 0;
+	border: 1px solid #ddd;
+	background-color: white;
+	cursor: auto;
+	font-size: 1.3rem;
+}
+
+/*http://css-tricks.com/snippets/css/css-triangle/*/
+/*http://www.yuiblog.com/blog/2010/11/22/css-quick-tip-css-arrows-and-shapes-without-markup/*/
+
+.arrow {
+	cursor: pointer; cursor: hand;
+	position: absolute;
+	left: -11rem;
+	top: 0rem;
+	display: inline-block;
+	margin-left: 1rem;
+	padding: .3rem 1rem;
+	font-size: 1.6rem;
+	text-align: center;
+	font-weight: 300;
+
+}
+
+// .arrow-text {
+// 	font-size: 1.6rem;
+// 	text-align: center;
+// 	font-weight: 300;
+// 	padding: .3rem 1rem;
+// 	// Inherits from .button
+// 	background-color: inherit;
+// }
+
+// Haven't gotten the arrow to change color with hover correclty yet
+// .arrow-text:before {
+// 	left: -2.4rem;
+// 	top: 0;
+// 	content: ' ';
+// 	height: 0;
+// 	position: absolute;
+// 	width: 0;
+// 	border: 1.25rem solid transparent;
+// 	border-right-color: #9986b3;
+// }
+
+.about li {text-decoration: none;}
+
+.about a {
+	color: $button-back;
+	&:hover {
+		color: $button-back-hover;
+		text-decoration: underline;
+	}
+	text-decoration: none;
 }
