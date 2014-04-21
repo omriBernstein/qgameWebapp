@@ -30,6 +30,8 @@ var entang = {
 		  [0, 0, 0, 100]
 		];
 
+		var rotation = -(360/matrix.length)/2;
+
 		var chord = d3.layout.chord()
 		    .padding(.05)
 		    .sortSubgroups(d3.descending)
@@ -50,7 +52,7 @@ var entang = {
 		svg = d3.select("#qubit-svg")
 		  .append("g")
 		  	.attr("class", "entang")
-		    .attr("transform", "translate(" + center + ")");
+		    .attr("transform", "translate(" + center + ") rotate(" + rotation + ")");
 
 		svg.append("g").selectAll("path")
 		    .data(chord.groups)
