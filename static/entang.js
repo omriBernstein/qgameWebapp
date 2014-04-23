@@ -22,7 +22,25 @@ var entang = {
 	, arcForGroups: null
 	, pathForChords: null
 	, entangSVG: null
+	, oldLayoutChord: null
 
+	// Just for testing
+	/* (int, int) -> array of ints
+
+	Create one row of the matrix for the qubit
+	*/
+	, createRow: function (indx, numQubits) {
+
+		// Make one array for reach qubit with the right number of 0's
+		var newRow = [];
+		for (var indx2 = 0; indx2 < numQubits; indx2++) {
+			newRow.push(0);
+		}
+		// Give it some starting value for itself
+		newRow[indx] = 100;
+
+		return newRow;
+	}
 
 	/* (num, num, Array of Array of ints, int) -> None
 
@@ -66,8 +84,18 @@ var entang = {
 		    .radius(innerRadius)
 	    ;
 
+		// This is just for testing purposes
+		var entangMatrix = entangMatrix || 
+			[
+			  [100, 20, 30, 0],
+			  [20, 100, 0, 0],
+			  [30, 0, 100, 0],
+			  [0, 0, 0, 0],
+			]
+		;
+
 	    // Rotate the diagram to line it up with the qubits
-		var rotation = -(360/matrix.length)/2;
+		var rotation = -(360/entangMatrix.length)/2;
 
 		// Place the element that will have the diagram
 	    entang.entangSVG = d3.select("#qubit-svg")
@@ -78,7 +106,7 @@ var entang = {
 		;
 
 		// Call the function that will animate the diagram's appearance
-		entang.updateChord(center, outerRadius, matrix);
+		entang.updateChord(center, outerRadius, entangMatrix);
 	}
 
 	/* (num, num, Array of Arrays of ints) -> None
@@ -99,16 +127,7 @@ var entang = {
 			, arcForGroups = entang.arcForGroups
 			, pathForChords = entang.pathForChords
 			, entangSVG = entang.entangSVG
-		;
-
-		// This is just for testing purposes
-		var newEntangMatrix = newEntangMatrix || 
-			[
-			  [100, 20, 30, 0],
-			  [20, 100, 0, 0],
-			  [30, 0, 100, 0],
-			  [0, 0, 0, 0],
-			]
+			, oldLayoutChord = entang.oldLayoutChord
 		;
 
 		// I'm not sure why this isn't just an array, but afraid to change
@@ -119,12 +138,120 @@ var entang = {
 
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldLayoutChord)
-		var newLayoutChord = newChord(newEntangMatrix);
+		var newLayoutChord = entang.newChord(newEntangMatrix);
 
+
+		// --- SOURCES (3) --- \\
+		// *** GROUPS(?), creation, exit (removal), entrance (added), animation *** \\
+		// I don't really understand this. And what's considered a group?
+		// ~~~ Changed some names among other things
+		/* Create/update "group" elements */
+		var groupG = entangSVG.selectAll("g.group")
+			.data(newLayoutChord.groups(), function (d) {
+				return d.index; 
+				//use a key function in case the 
+				//groups are sorted differently between updates
+		});
+
+		// ~~~ When groupG is destroyed? Or perhaps when data of groupG
+		// is taken out?
+		groupG.exit()
+			.transition()
+				.duration(1500)
+				.attr("opacity", 0)
+				.remove(); //remove after transitions are complete
+
+		// ~~~ When new data is added, add a new element with the same
+		// class
+		var newGroups = groupG.enter().append("g")
+			.attr("class", "group");
+		//the enter selection is stored in a variable so we can
+		//enter the <path>, <text>, and <title> elements as well
+		// ~~~ (qromp skips this part, wouldn't work as our labels)
+
+		//create the arc paths and set the constant attributes
+		//(those based on the group index, not on the value)
+		// ~~ id's and colors
+		newGroups.append("path")
+			.attr("id", function (d) {
+				return "group" + d.index;
+				//using d.index and not i to maintain consistency
+				//even if groups are sorted
+			})
+			// ~~~ qromp color versions
+			.style("fill", function(d) { return entangColors(d.index); })
+			.style("stroke", function(d) { return entangColors(d.index); })
+			;
+
+		// ~~~ After the colors are done, hide all the things that need hiding
+		// ~~~ Here or later? Need to test.
+		entang.hideOwn();
+
+		//update the paths to match the layout
+		// ~~~ Got rid of opacity change to uncomplicate the hide stuff
+		groupG.select("path") 
+			.transition()
+				.duration(1500)
+			// ~~~ arcTween is homemade in here
+			.attrTween("d", entang.arcTween( oldLayoutChord ))
+			;
+
+		// ~~~ Skip ticks/labels
+
+		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
+		// *** Also event handler for fading *** \\
+
+		/* Create/update the chord paths */
+		var chordPaths = entangSVG.selectAll("path.chord")
+			// ~~~ I don't understand what this does
+			.data(newLayoutChord.chords(), entang.chordKey );
+				//specify a key function to match chords
+				//between updates
+
+		//create the new chord paths
+		var newChords = chordPaths.enter()
+			.append("path")
+			.attr("class", "chord");
+
+		//handle exiting paths:
+		chordPaths.exit().transition()
+			.duration(animTime)
+			.attr("opacity", 0)
+			.remove();
+
+		// ~~~ Hide stuff here instead? Need to test.
+		entang.hideOwn();
+
+// ~~~ !!! This is what's causing the black in the transition somehow !!!
+		//update the path shape
+		chordPaths.transition()
+			.duration(animTime)
+			// ~~~ Changing the colors here doesn't fix the black
+			.style("fill", function(d) { return entangColors(d.source.index); })
+			.style("stroke", function(d) { return entangColors(d.source.index); })
+			.attrTween("d", entang.chordTween( oldLayoutChord ))
+		;
+
+		// *** EVENT HANDLERS *** \\
+// ~~~ !!! Make this not in a function in future !!!
+		//add the mouseover/fade out behaviour to the groups
+		//this is reset on every update, so it will use the latest
+		//chordPaths selection
+		// ~~~ Our own version of fade, theirs was too complex
+		// ~~~ Could possibly do the whole thing in CSS?
+		groupG.on("mouseover", entang.fade(.1))
+			.on("mouseout", entang.fade(1))
+		;
+
+		oldLayoutChord = newLayoutChord; //save for next update
+
+		// --- END SOURCES (3) --- \\
+
+
+// For hide, maybe on the fill function use a filter to hide stuff then?
 
 		// At the very end, since I don't know where else to put it that
 		// it won't get overriden, animate the size change
-
 	}
 
 	/* (Array of Arrays of ints) -> None
@@ -144,6 +271,108 @@ var entang = {
 
 	}
 
+	// ~~~ Sources (3)
+	, arcTween: function (oldLayout) {
+	    //this function will be called once per update cycle
+	    
+	    //Create a key:value version of the old layout's groups array
+	    //so we can easily find the matching group 
+	    //even if the group index values don't match the array index
+	    //(because of sorting)
+	    var oldGroups = {};
+	    if (oldLayout) {
+	        oldLayout.groups().forEach( function(groupData) {
+	            oldGroups[ groupData.index ] = groupData;
+	        });
+	    }
+	    
+	    return function (d, i) {
+	        var tween;
+	        var old = oldGroups[d.index];
+	        if (old) { //there's a matching old group
+	            tween = d3.interpolate(old, d);
+	        }
+	        else {
+	            //create a zero-width arc object
+	            var emptyArc = {startAngle:d.startAngle,
+	                            endAngle:d.startAngle};
+	            tween = d3.interpolate(emptyArc, d);
+	        }
+	        
+	        return function (t) {
+	            return entang.arcForGroups( tween(t) );
+	        };
+	    };
+	}  // end arcTween()
+
+	, chordKey: function (data) {
+	    return (data.source.index < data.target.index) ?
+	        data.source.index  + "-" + data.target.index:
+	        data.target.index  + "-" + data.source.index;
+	    
+	    //create a key that will represent the relationship
+	    //between these two groups *regardless*
+	    //of which group is called 'source' and which 'target'
+	}
+
+	, chordTween: function (oldLayout) {
+	    //this function will be called once per update cycle
+	    
+	    //Create a key:value version of the old layout's chords array
+	    //so we can easily find the matching chord 
+	    //(which may not have a matching index)
+	    
+	    var oldChords = {};
+	    
+	    if (oldLayout) {
+	        oldLayout.chords().forEach( function(chordData) {
+	            oldChords[ entang.chordKey(chordData) ] = chordData;
+	        });
+	    }
+	    
+	    return function (d, i) {
+	        //this function will be called for each active chord
+	        
+	        var tween;
+	        var old = oldChords[ entang.chordKey(d) ];
+	        if (old) {
+	            //old is not undefined, i.e.
+	            //there is a matching old chord value
+	            
+	            //check whether source and target have been switched:
+	            if (d.source.index != old.source.index ){
+	                //swap source and target to match the new data
+	                old = {
+	                    source: old.target,
+	                    target: old.source
+	                };
+	            }
+	            
+	            tween = d3.interpolate(old, d);
+	        }
+	        else {
+	            //create a zero-width chord object
+	            var emptyChord = {
+	                source: { startAngle: d.source.startAngle,
+	                         endAngle: d.source.startAngle},
+	                target: { startAngle: d.target.startAngle,
+	                         endAngle: d.target.startAngle}
+	            };
+	            tween = d3.interpolate( emptyChord, d );
+	        }
+
+	        return function (t) {
+	            //this function calculates the intermediary shapes
+	            return entang.pathForChords(tween(t));
+	        };
+	    };
+	}  // end chordTween()
+
+	// ~~~ end Sources (3)
+
+
+	// *** From first chord diagram example *** //
+	// Returns an event handler for fading a given chord group.
 	/* (num) -> No idea
 
 	Uses a number between 0 and 1 (opacity) to animate the fading
@@ -152,10 +381,12 @@ var entang = {
 	*/
 	, fade: function (opacity) {
 	  return function(g, indx) {
-	    svg.selectAll(".chord path")
-	        .filter(function(dat) { return dat.source.index != indx && dat.target.index != indx
+	    d3.selectAll(".chord")
+	        .filter(function(dat) {
+	        	return dat.source.index != indx && dat.target.index != indx
 	        	// Added by knod to keep own chords hidden (for qromp)
-	        	&& dat.target.index != dat.target.subindex; })
+	        	&& dat.target.index != dat.target.subindex; 
+	        })
 	      .transition()
 	        .style("opacity", opacity);
 	  };
@@ -170,7 +401,7 @@ var entang = {
 	*/
 	, hideOwn: function () {
 		// Unless the path crosses to somewhere, it's opacity will be 0
-		svg.selectAll(".chord path")
+		d3.selectAll(".chord")
 			// Get the paths whose index and subindex match
 			// (the path is refering to its own section)
 			.filter(function (dat) {

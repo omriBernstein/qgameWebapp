@@ -171,7 +171,7 @@ function VisualizerObject(containerID) {
 			setTimeout(function () {
 				$(".entang").remove();
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.createChord(entangMatrix, arrangeRadius-qubitRadius, center);}
+				entang.initChord(center, arrangeRadius-qubitRadius, false, animTime);}
 				, animTime);
 		}
 
