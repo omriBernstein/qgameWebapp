@@ -53,17 +53,17 @@ var entang = {
 	It will start things off with a scale of 1 and adjustments will
 	be made from using outerRadius to calculate the new scale.
 	*/
-	, initChord: function (center, outerRadius, entangMatrix, animTime) {
+	, initChord: function (center, firstOuterRadius, entangMatrix, animTime) {
 
 		// --- SETUP --- \\
 		// *** All this stuff will only be calculated once
 		// * Establishing object variables
 		// This will be used to get the scale in future when there
 		// are new outer radii
-		entang.firstOuterRadius = outerRadius;
+		entang.firstOuterRadius = firstOuterRadius;
 		entang.animTime = animTime;
 		// * This is used to establish the next object variable
-		var innerRadius = outerRadius/1.1;
+		var innerRadius = firstOuterRadius/1.1;
 		// *** These initial values will only be calculated once,
 		// but later on the function will be used.
 		// Why make a function not look like a function? I don't know.
@@ -76,7 +76,7 @@ var entang = {
 		// of bridges? Or sections around the circle? What?
 		entang.arcForGroups = d3.svg.arc()
 			.innerRadius(innerRadius)
-			.outerRadius(outerRadius);
+			.outerRadius(firstOuterRadius);
 
 		// Sources (3): create the chord path data generator for the chords
 		// What are we calling chords? Seen chord used for different things
@@ -113,7 +113,7 @@ entang.updateChord("100, 100", 400,
 		;
 
 		// Call the function that will animate the diagram's appearance
-		entang.updateChord(center, outerRadius, entangMatrix);
+		entang.updateChord(center, firstOuterRadius, entangMatrix);
 	}
 
 	/* (num, num, Array of Arrays of ints) -> None
@@ -139,9 +139,13 @@ entang.updateChord("100, 100", 400,
 			]
 		;
 
+		// To rotate the diagram to line it up with the qubits
+		var rotation = -(360/newEntangMatrix.length)/2
+			, scale = newRadius/entang.firstOuterRadius
+		;
+
 		// Bring some things (that will be used repeatedly) into scope
 		var animTime = entang.animTime
-			, scale = newRadius/entang.outerRadius
 			, arcForGroups = entang.arcForGroups
 			, pathForChords = entang.pathForChords
 			, entangSVG = entang.entangSVG
@@ -157,7 +161,6 @@ entang.updateChord("100, 100", 400,
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldLayoutChord)
 		var newLayoutChord = entang.newChord(newEntangMatrix);
-
 
 		// --- SOURCES (3) --- \\
 		// *** GROUPS(?), creation, exit (removal), entrance (added), animation *** \\
@@ -257,15 +260,23 @@ entang.updateChord("100, 100", 400,
 			.on("mouseout", entang.fade(1))
 		;
 
+		// ~~~ At the very end, since I don't know where else to put it that
+		// ~~~ it won't get overriden, animate the size and pos change
+		d3.selectAll(".entang")
+			.transition()
+			.duration(animTime)
+			.attr("transform", "translate(" + newCenter
+				+ ") rotate(" + rotation
+				+ ")"
+			+ " scale(" + scale + ")"
+			)
+			;
+
 		entang.oldLayoutChord = newLayoutChord; //save for next update
 
 		// --- END SOURCES (3) --- \\
 
-
 // For hide, maybe on the fill function use a filter to hide stuff then?
-
-		// At the very end, since I don't know where else to put it that
-		// it won't get overriden, animate the size change
 	}
 
 	/* (Array of Arrays of ints) -> None
