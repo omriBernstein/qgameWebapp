@@ -10,6 +10,8 @@ function VisualizerObject(containerID) {
 		margin = .9,
 		qubitScale = .4,
 		animTime = 500;
+	// Temp
+	var chordCreated = false;
 
 	this.render = function(qubitStates) {
 			// Environment info
@@ -35,6 +37,13 @@ function VisualizerObject(containerID) {
 				qubitRadius = arrangeRadius * p;
 				yOffset = arrangeRadius * (1 - Math.cos(theta / 2));
 			}
+
+			// Temp
+			if (chordCreated) {
+				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
+				entang.updateChord(center, arrangeRadius-qubitRadius, false);
+			}
+			else {createEntang(); chordCreated = true;}
 		}
 
 	// --- QUBITS --- //
@@ -149,36 +158,36 @@ function VisualizerObject(containerID) {
 	// --- ENTANGLEMENT --- //
 	// Need to wait till here so have correct values for now
 
-		var entangMatrix = [];
+		// var entangMatrix = [];
 
-		// Let's try with d3 again
-		d3.selectAll(".qubit").each(function (dat, indx) {
-			// Assign an array to the qubit object without destroying
-			// the previous data object (entang.js)
-			d3.select(this).data()[0].entang = entang.createRow(indx, numQubits);
-			// Put that array into the entanglement matrix array
-			entangMatrix.push(d3.select(this).data()[0].entang);
+		// // Let's try with d3 again
+		// d3.selectAll(".qubit").each(function (dat, indx) {
+		// 	// Assign an array to the qubit object without destroying
+		// 	// the previous data object (entang.js)
+		// 	d3.select(this).data()[0].entang = entang.createRow(indx, numQubits);
+		// 	// Put that array into the entanglement matrix array
+		// 	entangMatrix.push(d3.select(this).data()[0].entang);
 
-			// d3.select(this).data([0123]); // console.log gets [83]
-		});
+		// 	// d3.select(this).data([0123]); // console.log gets [83]
+		// });
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime.
 			// Ideally, if the diagram already exists, just transition it...
 			// but for now, destroy the old one and make a new one
-			$(".entang").remove();
+			// $(".entang").remove();
 
 			setTimeout(function () {
-				$(".entang").remove();
+				// $(".entang").remove();
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
 				entang.initChord(center, arrangeRadius-qubitRadius, false, animTime);}
 				, animTime);
 		}
 
-		if (numQubits > 1) {
-			createEntang();
-		}
-		else {$(".entang").remove();}
+		// if (numQubits > 1) {
+		// 	createEntang();
+		// }
+		// else {$(".entang").remove();}
 
 	}  // end this.render()
 }

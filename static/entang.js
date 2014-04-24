@@ -93,7 +93,14 @@ var entang = {
 			  [0, 0, 0, 0],
 			]
 		;
-
+		/*
+entang.updateChord("100, 100", 400, 
+	matrix = [
+			  [100, 0, 10, 0],
+			  [0, 100, 30, 10],
+			  [10, 30, 100, 0],
+			  [0, 10, 0, 0],
+			] */
 	    // Rotate the diagram to line it up with the qubits
 		var rotation = -(360/entangMatrix.length)/2;
 
@@ -121,6 +128,17 @@ var entang = {
 	, updateChord: function (newCenter, newRadius, newEntangMatrix) {
 
 		// *** SETUP *** \\
+
+		// Temp for testing
+		var newEntangMatrix = newEntangMatrix || 
+			[
+			  [100, 20, 30, 0],
+			  [20, 100, 0, 0],
+			  [30, 0, 100, 0],
+			  [0, 0, 0, 0],
+			]
+		;
+
 		// Bring some things (that will be used repeatedly) into scope
 		var animTime = entang.animTime
 			, scale = newRadius/entang.outerRadius
@@ -191,7 +209,7 @@ var entang = {
 		// ~~~ Got rid of opacity change to uncomplicate the hide stuff
 		groupG.select("path") 
 			.transition()
-				.duration(1500)
+				.duration(animTime)
 			// ~~~ arcTween is homemade in here
 			.attrTween("d", entang.arcTween( oldLayoutChord ))
 			;
@@ -243,7 +261,7 @@ var entang = {
 			.on("mouseout", entang.fade(1))
 		;
 
-		oldLayoutChord = newLayoutChord; //save for next update
+		entang.oldLayoutChord = newLayoutChord; //save for next update
 
 		// --- END SOURCES (3) --- \\
 
@@ -409,6 +427,7 @@ var entang = {
 			})
 			.style("opacity", 0);
 	}
+}
 
 	// /* (int, int) -> array of ints
 
@@ -564,4 +583,4 @@ var entang = {
 
 	// },
 
-}
+// }
