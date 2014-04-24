@@ -10,7 +10,7 @@ function VisualizerObject(containerID) {
 		margin = .9,
 		qubitScale = .4,
 		animTime = 500;
-	// Temp
+	// Must put in new version
 	var chordCreated = false;
 
 	this.render = function(qubitStates) {
@@ -37,13 +37,6 @@ function VisualizerObject(containerID) {
 				qubitRadius = arrangeRadius * p;
 				yOffset = arrangeRadius * (1 - Math.cos(theta / 2));
 			}
-
-			// Temp
-			if (chordCreated) {
-				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.updateChord(center, arrangeRadius-qubitRadius, false);
-			}
-			else {createEntang(); chordCreated = true;}
 		}
 
 	// --- QUBITS --- //
@@ -156,7 +149,20 @@ function VisualizerObject(containerID) {
 		}
 
 	// --- ENTANGLEMENT --- //
-	// Need to wait till here so have correct values for now
+		// Temp for testing
+		var entangMatrix = false;
+
+		// If there's a chord diagram existing
+		if (chordCreated) {
+			var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
+			// If qubits are reduced to one or less, scale it to 0 (disappears)
+			if (numQubits <= 1) { entang.updateChord(center, 0, entangMatrix); }
+			// Otherwise, usually, just animate the change in the diagram
+			else { entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix); }
+		}
+		// Only create the entanglement vis once there's more than 1 qubit,
+		// otherwise there's a stupd overlay or weird animation.
+		else if (numQubits > 1) {createEntang(); chordCreated = true;}
 
 		// var entangMatrix = [];
 
@@ -180,7 +186,9 @@ function VisualizerObject(containerID) {
 			setTimeout(function () {
 				// $(".entang").remove();
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.initChord(center, arrangeRadius-qubitRadius, false, animTime);}
+				entang.initChord(center, arrangeRadius-qubitRadius, entangMatrix, animTime);
+				// entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix);
+			}
 				, animTime);
 		}
 

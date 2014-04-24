@@ -6,7 +6,7 @@
 * 
 * Sources:
 * (1) http://bl.ocks.org/mbostock/4062006
-* (2) http://mkweb.bcgsc.ca/circos/guide/tables/
+* (2) http://fleetinbeing.net/d3e/chord.html
 * (3) http://stackoverflow.com/questions/21813723/change-and-transition-dataset-in-chord-diagram-with-d3
 * 
 * Currently just creates a chord diagram with arbitrary
@@ -42,11 +42,14 @@ var entang = {
 		return newRow;
 	}
 
+// !!! This only takes care of entanglement that shows that things
+// when they can be fully entangled. !!!
+
 	/* (num, num, Array of Array of ints, int) -> None
 
 	Creates a placeholder for the chord diagram centered at
-	center with an outer radius of outerRadius, matrix values of
-	matrix and assigns the animation time animTime passed to it.
+	center with an outer radius of firstOuterRadius, matrix values of
+	entangMatrix and assigns the animation time animTime passed to it.
 
 	It gives values to a lot of the entang properties.
 
@@ -93,14 +96,7 @@ var entang = {
 			  [0, 0, 0, 0],
 			]
 		;
-		/*
-entang.updateChord("100, 100", 400, 
-	matrix = [
-			  [100, 0, 10, 0],
-			  [0, 100, 30, 10],
-			  [10, 30, 100, 0],
-			  [0, 10, 0, 0],
-			] */
+
 	    // Rotate the diagram to line it up with the qubits
 		var rotation = -(360/entangMatrix.length)/2;
 
@@ -121,9 +117,8 @@ entang.updateChord("100, 100", 400,
 	Handles animating the creation of and changes to the chord
 	diagram. Uses newCenter to animate the move to the new
 	centerpoint (I hope), newRadius (and entang.firstOuterRadius)
-	to get the new scale of the object
-	(scale = newRadius/entang.outerRadius; perhaps?), and
-	newEntangMatrix to move the various paths to correct locations.
+	to get the new scale of the object, and newEntangMatrix to move
+	the various paths to correct locations.
 	*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix) {
 
@@ -267,9 +262,7 @@ entang.updateChord("100, 100", 400,
 			.duration(animTime)
 			.attr("transform", "translate(" + newCenter
 				+ ") rotate(" + rotation
-				+ ")"
-			+ " scale(" + scale + ")"
-			)
+				+ ") scale(" + scale + ")")
 			;
 
 		entang.oldLayoutChord = newLayoutChord; //save for next update
@@ -277,7 +270,7 @@ entang.updateChord("100, 100", 400,
 		// --- END SOURCES (3) --- \\
 
 // For hide, maybe on the fill function use a filter to hide stuff then?
-	}
+	}  // end updateChord()
 
 	/* (Array of Arrays of ints) -> None
 
@@ -395,14 +388,12 @@ entang.updateChord("100, 100", 400,
 
 	// ~~~ end Sources (3)
 
-
-	// *** From first chord diagram example *** //
-	// Returns an event handler for fading a given chord group.
 	/* (num) -> No idea
 
 	Uses a number between 0 and 1 (opacity) to animate the fading
 	out (or in) the filtered paths. I don't know what kind of thing
-	it returns.
+	it returns. Sources (1) (I think says "Returns an event handler
+	for fading a given chord group.")
 	*/
 	, fade: function (opacity) {
 	  return function(g, indx) {
