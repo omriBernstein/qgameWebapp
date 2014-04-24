@@ -201,10 +201,6 @@ entang.updateChord("100, 100", 400,
 			.style("stroke", function(d) { return entangColors(d.index); })
 			;
 
-		// ~~~ After the colors are done, hide all the things that need hiding
-		// ~~~ Here or later? Need to test.
-		entang.hideOwn();
-
 		//update the paths to match the layout
 		// ~~~ Got rid of opacity change to uncomplicate the hide stuff
 		groupG.select("path") 
