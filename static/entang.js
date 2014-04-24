@@ -93,18 +93,22 @@ var entang = {
 			  [100, 20, 30, 0],
 			  [20, 100, 0, 0],
 			  [30, 0, 100, 0],
-			  [0, 0, 0, 0],
+			  // [0, 0, 0, 0],
 			]
 		;
 
 	    // Rotate the diagram to line it up with the qubits
 		var rotation = -(360/entangMatrix.length)/2;
 
+	// *** Chords that will show full entanglement outline *** \\
+
+
+	// *** Chord dia. that will show partial entanglement with paths *** \\
 		// Place the element that will have the diagram
 	    entang.entangSVG = d3.select("#qubit-svg")
 			.append("g")
 				// Unique class for scaling the size of the whole thing
-				.attr("class", "entang")
+				.attr("class", "part-entang")
 				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
 		;
 
@@ -121,7 +125,6 @@ var entang = {
 	the various paths to correct locations.
 	*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix) {
-
 		// *** SETUP *** \\
 
 		// Temp for testing
@@ -130,9 +133,23 @@ var entang = {
 			  [100, 20, 30, 0],
 			  [20, 100, 0, 0],
 			  [30, 0, 100, 0],
-			  [0, 0, 0, 0],
+			  // [0, 0, 0, 0],
 			]
 		;
+		center = newCenter
+		radius = newRadius
+		/* To put in inspector once chord dia. is visible (test)
+
+		matrix = [
+		  [100, 0, 10, 0],
+		  [0, 100, 30, 10],
+		  [10, 30, 100, 0],
+		  [0, 10, 0, 0],
+		]
+
+		entang.updateChord(center, radius, matrix)
+		*/
+		// end testing
 
 		// To rotate the diagram to line it up with the qubits
 		var rotation = -(360/newEntangMatrix.length)/2
@@ -257,7 +274,7 @@ var entang = {
 
 		// ~~~ At the very end, since I don't know where else to put it that
 		// ~~~ it won't get overriden, animate the size and pos change
-		d3.selectAll(".entang")
+		d3.selectAll(".part-entang")
 			.transition()
 			.duration(animTime)
 			.attr("transform", "translate(" + newCenter
