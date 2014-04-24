@@ -52,12 +52,13 @@ var entang = {
 		for (var indx = 0; indx < numQubits; indx++) {newRow.push(1);}
 		// Fill the matrix with the right number of those rows
 		for (var indx = 0; indx < numQubits; indx++) {newMatrix.push(newRow);}
-		console.log(newMatrix);
 		return newMatrix;
 	}
 
 // !!! This only takes care of entanglement that shows that things
 // when they can be fully entangled. !!!
+// Should there be separate functions for updating outer sections and
+// connecting paths?
 
 	/* (str, num, Array of Array of ints, int) -> None
 
@@ -193,7 +194,7 @@ var entang = {
 
 	// *** FULL ENTANGLEMENT *** \\
 		var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
-		// var newFullEntangLayout = entang.newChord(newFullMatrix);
+		var newFullEntangLayout = entang.newChord(newFullMatrix);
 
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
@@ -269,10 +270,23 @@ var entang = {
 			.attr("class", "chord");
 
 		//handle exiting paths:
+
 		chordPaths.exit().transition()
 			.duration(animTime)
 			.attr("opacity", 0)
 			.remove();
+
+		// Can't get this function to work. Wanted to remove repetition.
+		// chordPaths.exit().call(removeElements(this));
+
+		// function removeElements (thisElement) {
+		// 	console.log(thisElement);
+		// 	thisElement.transition()
+		// 	// Uncaught TypeError: undefined is not a function
+		// 		.duration(animTime)
+		// 		.attr("opacity", 0)
+		// 		.remove(); //remove after transitions are complete
+		// }
 
 		// ~~~ Hide stuff here instead? Need to test.
 		entang.hideOwn();
