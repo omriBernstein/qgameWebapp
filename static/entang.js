@@ -194,10 +194,11 @@ var entang = {
 		;
 
 		// I'm not sure why this isn't just an array, but afraid to change
-		var entangColors = d3.scale.ordinal()
-			.domain(d3.range(4))
-			.range(["#9986b3", "red", "green", "blue"])
-		;
+		var entangColors = ["#9986b3", "red", "green", "blue"];
+		// var entangColors = d3.scale.ordinal()
+		// 	.domain(d3.range(4))
+		// 	.range(["#9986b3", "red", "green", "blue"])
+		// ;
 
 	// --- ARCS --- \\
 	// *** Functions *** \\
@@ -215,7 +216,7 @@ var entang = {
 					//groups are sorted differently between updates
 			});
 			return groupOfArcs;
-		}
+		};
 
 		/* (d3 collection?) -> None
 
@@ -227,7 +228,40 @@ var entang = {
 					.duration(animTime)
 					.attr("opacity", 0)
 					.remove(); //remove after transitions are complete
-		}
+		};
+
+		/* 
+
+		Updates arcs that are added. Can this be outside of update?
+		*/
+		function addArcs (groupOfArcs, selector) {
+			// Add a new element to the DOM
+			var newGroups = groupOfArcs.enter().append("g")
+				.attr("class", "group");
+
+			//create the arc paths and set the constant attributes
+			//(those based on the group index, not on the value)
+			// ~~ id's and colors
+			newGroups.append("path")
+				.attr("id", function (dat) {
+					return selector + dat.index;
+					//using dat.index and not i to maintain consistency
+					//even if groups are sorted (knod: huh?)
+				})
+				// ~~~ qromp color versions
+				.style("fill", function (dat) { 
+					if (selector == "part-group") {return  entangColors[0]; }
+					else {return "none";}
+				})
+				.style("stroke", function (dat) { 
+					if (selector == "part-group") {return  entangColors[0];}
+					else {return "black";}
+				})
+			;
+
+			return newGroups;
+		};
+
 
 		updateFull();
 
@@ -254,33 +288,31 @@ var entang = {
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
 			// is taken out?
 			removeArcs(groupG);
-			// groupG.exit()
-			// 	.transition()
-			// 		.duration(animTime)
-			// 		.attr("opacity", 0)
-			// 		.remove(); //remove after transitions are complete
 
-			// ~~~ When new data is added, add a new element with the same
-			// class
-			var newGroups = groupG.enter().append("g")
-				.attr("class", "group");
-			//the enter selection is stored in a variable so we can
-			//enter the <path>, <text>, and <title> elements as well
-			// ~~~ (qromp skips this part, wouldn't work as our labels)
 
-			//create the arc paths and set the constant attributes
-			//(those based on the group index, not on the value)
-			// ~~ id's and colors
-			newGroups.append("path")
-				.attr("id", function (d) {
-					return "group" + d.index;
-					//using d.index and not i to maintain consistency
-					//even if groups are sorted
-				})
-				// ~~~ qromp color versions
-				.style("fill", function(d) { return entangColors(d.index); })
-				.style("stroke", function(d) { return entangColors(d.index); })
-				;
+
+var newGroups = addArcs(groupG, "part-group");
+			// // ~~~ When new data is added, add a new element with the same
+			// // class
+			// var newGroups = groupG.enter().append("g")
+			// 	.attr("class", "group");
+			// //the enter selection is stored in a variable so we can
+			// //enter the <path>, <text>, and <title> elements as well
+			// // ~~~ (qromp skips this part, wouldn't work as our labels)
+
+			// //create the arc paths and set the constant attributes
+			// //(those based on the group index, not on the value)
+			// // ~~ id's and colors
+			// newGroups.append("path")
+			// 	.attr("id", function (d) {
+			// 		return "group" + d.index;
+			// 		//using d.index and not i to maintain consistency
+			// 		//even if groups are sorted
+			// 	})
+			// 	// ~~~ qromp color versions
+			// 	.style("fill", function(d) { return entangColors(d.index); })
+			// 	.style("stroke", function(d) { return entangColors(d.index); })
+			// 	;
 
 			//update the paths to match the layout
 			// ~~~ Got rid of opacity change to uncomplicate the hide stuff
@@ -335,8 +367,8 @@ var entang = {
 			chordPaths.transition()
 				.duration(animTime)
 				// ~~~ Changing the colors here doesn't fix the black
-				.style("fill", function(d) { return entangColors(d.source.index); })
-				.style("stroke", function(d) { return entangColors(d.source.index); })
+				.style("fill", function(d) { return entangColors[d.source.index]; })
+				.style("stroke", function(d) { return entangColors[d.source.index]; })
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		};  // end updatePart()
