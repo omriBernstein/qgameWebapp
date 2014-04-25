@@ -199,6 +199,7 @@ var entang = {
 
 		// Color for potential
 		var partArcColor = "#9986b3";
+		var fullArcFill = "none", fullArcStroke = "gray";
 		// Just an array of colors now
 		var bridgeColors = ["#9986b3", "red", "green", "blue"];
 		// // I'm not sure why this isn't just an array, but afraid to change
@@ -293,23 +294,47 @@ var entang = {
 			;
 		}
 
+	// *** FULL ENTANGLEMENT *** \\
+		var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
+		// (need this var later)
+		var newFullLayout = entang.newChord(newFullMatrix);
+
 		updateFull();
 
-	// *** FULL ENTANGLEMENT *** \\
 		function updateFull () {
-			var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
-			var newFullEntangLayout = entang.newChord(newFullMatrix);
+			// Container's new elements: create data. Also get all elements?
+			var groupG = fullEntangElem.selectAll(".full-entang .group")
+				//use a key function in case the groups are
+				// sorted differently between updates
+				.data(newFullLayout.groups(), function (d) {return d.index;});
+
+			// Animate removal of paths
+			removeElems(groupG);
+
+			// Add new top-level items with class
+			var newGroups = groupG.enter().append("g").attr("class", "group");
+			// Add next-level items with index id
+			newGroups.append("path");
+			// Color paths
+			newGroups.style("fill", fullArcFill)
+				.style("stroke", fullArcStroke);
+
+			// Animate addition of paths
+			groupG.select("path").transition()  // groupOfArcs.transition() works too
+					.duration(animTime)
+				.attrTween("d", entang.arcTween( oldFullLayout ))
+			;
 		}  // end updateFull()
 
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
-		// we'll transition to (from oldPartLayout)
+		// we'll transition to (from oldPartLayout) (need this var later)
 		var newPartLayout = entang.newChord(newEntangMatrix, 0.5);
 
 		updatePart();
 
 		function updatePart () {
-			// *** GROUPS(?), creation *** \\
+		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
 			var groupG = partEntangElem.selectAll(".part-entang .group")
 				//use a key function in case the groups are
@@ -333,7 +358,7 @@ var entang = {
 				.attrTween("d", entang.arcTween( oldPartLayout ))
 			;
 
-			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
+		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// Doesn't need as much automation - not reused
 			// Container's new elements: create data. Also get all elements?
 			var chordPaths = partEntangElem.selectAll("path.chord")
@@ -387,9 +412,8 @@ var entang = {
 				+ ") scale(" + scale + ")")
 			;
 
+		entang.oldFullLayout = newFullLayout; //save for next update
 		entang.oldPartLayout = newPartLayout; //save for next update
-
-		// --- END SOURCES (3) --- \\
 
 // For hide, maybe on the fill function use a filter to hide stuff then?
 	}  // end updateChord()
