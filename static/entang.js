@@ -106,10 +106,9 @@ var entang = {
 		// This is just for testing purposes
 		var entangMatrix = entangMatrix || 
 			[
-			  [100, 20, 30, 0],
-			  [20, 100, 0, 0],
-			  [30, 0, 100, 0],
-			  // [0, 0, 0, 0],
+			  [100, 20, 30],
+			  [20, 130, 0],
+			  [30, 0, 120],
 			]
 		;
 
@@ -152,25 +151,17 @@ var entang = {
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
 			[
-			  [100, 20, 30, 0],
-			  [20, 100, 0, 0],
-			  [30, 0, 100, 0],
-			  // [0, 0, 0, 0],
+			  [100, 20, 30],
+			  [20, 130, 0],
+			  [30, 0, 120],
 			]
 		;
 		center = newCenter
 		radius = newRadius
 		/* To put in inspector once chord dia. is visible (test)
-
-		matrix = [
-		  [100, 0, 10, 0],
-		  [0, 100, 30, 10],
-		  [10, 30, 100, 0],
-		  [0, 10, 0, 0],
-		]
-
-		entang.updateChord(center, radius, matrix)
-		*/
+		matrix = [[100, 0, 10, 30], [0, 100, 30, 10],
+		  [10, 30, 100, 0], [0, 10, 30, 100],]
+		entang.updateChord(center, radius, matrix)*/
 		// end testing
 
 		// To rotate the diagram to line it up with the qubits
@@ -199,7 +190,7 @@ var entang = {
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldLayoutChord)
-		var newLayoutChord = entang.newChord(newEntangMatrix);
+		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
 
 		// --- SOURCES (3) --- \\
 		// *** GROUPS(?), creation, exit (removal), entrance (added), animation *** \\
@@ -217,7 +208,7 @@ var entang = {
 		// is taken out?
 		groupG.exit()
 			.transition()
-				.duration(1500)
+				.duration(animTime)
 				.attr("opacity", 0)
 				.remove(); //remove after transitions are complete
 
@@ -335,15 +326,15 @@ var entang = {
 	matrix.
 	Just breaking things up in to smaller chunks
 	*/
-	, newChord: function (matrix) {
+	, newChord: function (matrix, arcPadding) {
+		var arcPadding = arcPadding || 0.03;
 		return d3.layout.chord()
 			// padding between sections
-			.padding(0.03)
+			.padding(arcPadding)
 			.sortSubgroups(d3.descending)
 			.sortChords(d3.ascending)
 			.matrix(matrix)
 		;
-
 	}
 
 	// ~~~ Sources (3)
