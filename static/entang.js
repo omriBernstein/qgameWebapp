@@ -567,7 +567,8 @@ var entang = {
 }
 
 
-/* Compare procedures for arcs vs. bridges
+/* Compare update procedures for arcs vs. bridges
+// (easier to see when in color)
 // --- Both --- \\
 // Container's new elements: create data. Also get all elements?
 // Animate removal of paths
@@ -657,12 +658,12 @@ var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data( newLayoutChord.chords(), entang.chordKey );
 
+// Animate removal of paths
+removeElems(chordPaths);
+
 // Add new top-level items with class
 var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
-
-// Animate removal of paths
-removeElems(chordPaths);
 
 // Color paths
 chordPaths
