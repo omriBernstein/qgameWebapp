@@ -313,7 +313,7 @@ var entang = {
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldPartLayout)
-		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
+		var newPartLayout = entang.newChord(newEntangMatrix, 0.5);
 
 		updatePart();
 		function updatePart () {
@@ -321,7 +321,7 @@ var entang = {
 			// I don't really understand this. And what's considered a group?
 			// ~~~ Changed some names among other things
 			/* Create/update "group" elements */
-			var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord);
+			var groupG = createArcs(partEntangElem, ".part-entang .group", newPartLayout);
 
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
 			// is taken out? Also animates that? Transition to fewer arcs
@@ -340,7 +340,7 @@ var entang = {
 			/* Create/update the chord paths */
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
-				.data(newLayoutChord.chords(), entang.chordKey );
+				.data(newPartLayout.chords(), entang.chordKey );
 					//specify a key function to match chords
 					//between updates
 
@@ -395,7 +395,7 @@ var entang = {
 				+ ") scale(" + scale + ")")
 			;
 
-		entang.oldPartLayout = newLayoutChord; //save for next update
+		entang.oldPartLayout = newPartLayout; //save for next update
 
 		// --- END SOURCES (3) --- \\
 
@@ -573,7 +573,7 @@ var entang = {
 // - Collection of arcs in group (groupG)
 // - Div that has arc groups (partEntangElem)
 // - Selectors to select just the arcs (".part-entang .group")
-// - layout.chord() established for these arcs (newLayoutChord)
+// - layout.chord() established for these arcs (newPartLayout)
 // - What to get from teh layout.chord() (.groups())
 // - How to create the index (function (d) {return d.index;})
 
@@ -589,7 +589,7 @@ var entang = {
 var groupG = partEntangElem.selectAll(".part-entang .group")  // this is groupG
 				//use a key function in case the groups are
 				// sorted differently between updates
-				.data(newLayoutChord.groups(), function (d) {return d.index;});
+				.data(newPartLayout.groups(), function (d) {return d.index;});
 
 // Animate removal of paths
 removeElems(groupG);
@@ -634,7 +634,7 @@ groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 // - Collection of bridges in group (chordPaths)
 // - Div that has bridge groups (partEntangElem)
 // - Selectors to select just the bridges ("path.chord")
-// - layout.chord() established for these bridges (newLayoutChord)
+// - layout.chord() established for these bridges (newPartLayout)
 // - What to get from teh layout.chord() (.chords())
 // - How to create the index (entang.chordKey)
 
@@ -647,7 +647,7 @@ groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 // Container's new elements: create data. Also get all elements?
 var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
-				.data( newLayoutChord.chords(), entang.chordKey );
+				.data( newPartLayout.chords(), entang.chordKey );
 
 // Animate removal of paths
 removeElems(chordPaths);
