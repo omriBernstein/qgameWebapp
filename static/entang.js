@@ -347,13 +347,17 @@ var entang = {
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
 
+			chordPaths
+				// ~~~ Changing the colors here doesn't fix the black
+				.style("fill", function(d) { return bridgeColors[d.source.index]; })
+				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
+			;
+
 	// ~~~ !!! This is what's causing the black in the transition somehow !!!
 			//update the path shape
 			chordPaths.transition()
 				.duration(animTime)
-				// ~~~ Changing the colors here doesn't fix the black
-				.style("fill", function(d) { return bridgeColors[d.source.index]; })
-				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
+				
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		}  // end updatePart()
