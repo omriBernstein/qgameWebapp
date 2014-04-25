@@ -585,6 +585,8 @@ var entang = {
 // - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
 // - Animation Time (animTime)
 
+// - Previous layout.chord()
+
 // Container's new elements: create data. Also get all elements?
 var groupG = partEntangElem.selectAll(".part-entang .group")  // this is groupG
 				//use a key function in case the groups are
@@ -610,23 +612,14 @@ newGroups.append("path")
 // Color paths
 newGroups // newGroups.select("path") works too (this may be because all colored the same)
 				// ~~~ qromp color versions
-				.style("fill", function (dat) {
-					// Color for arcs indicating entanglement potential
-					if (selector == "part-group") {return  partArcColor; }
-					// Color for showing full entanglement
-					else {return "none";}
-				})
-				.style("stroke", function (dat) {
-					// Same
-					if (selector == "part-group") {return  partArcColor;}
-					else {return "black";}
-				})
+				.style("fill", partArcColor)
+				.style("stroke", partArcColor)
 			;
 
 // Animate addition of paths
 groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 					.duration(animTime)
-				.attrTween("d", entang.arcTween( thisLayout ))
+				.attrTween("d", entang.arcTween( oldPartLayout ))
 			;
 
 // --- Bridges --- \\
