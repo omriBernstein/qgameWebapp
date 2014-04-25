@@ -21,6 +21,15 @@
 * will fix it (it can't just be shifted one spot over)
 */
 
+// Maybe make the empty divs out here to start
+// Usint jQuery doesn't work. Obviously something implicit is being passed
+// // $(".part-entang .group")
+// groupG
+// 			.on("mouseover", entang.fade(.1))
+// 			.on("mouseout", entang.fade(1))
+// 		;
+
+
 var entang = {
 
 	firstOuterRadius: null
@@ -230,7 +239,6 @@ var entang = {
 		Can this be outside of update?
 		*/
 		function createArcs (thisDiv, thisSelector, thisLayout) {
-
 			// Maybe we can do d3.selectAll() instead of thisDiv.selectAll()
 			var groupOfArcs = thisDiv.selectAll(thisSelector)
 				.data(thisLayout.groups(), function (d) {
@@ -313,6 +321,12 @@ var entang = {
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
 		var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord);
+		console.log("groupG");
+		console.log(groupG);
+		console.log("The code from which groupG is derived:");
+		// Doesn't yet have the correct values, not enough time?
+		console.log(partEntangElem.selectAll(".part-entang .group"));
+		
 
 		updatePart();
 		function updatePart () {
@@ -372,7 +386,11 @@ var entang = {
 		//chordPaths selection
 		// ~~~ Our own version of fade, theirs was too complex
 		// ~~~ Could possibly do the whole thing in CSS?
-		groupG.on("mouseover", entang.fade(.1))
+		// partEntangElem.selectAll(".part-entang .group") takes a while to
+		// have the correct values
+		console.log("Wait, and then the code from which groupG is derived:");
+		console.log(partEntangElem.selectAll(".part-entang .group"));
+		partEntangElem.selectAll(".part-entang .group").on("mouseover", entang.fade(.1))
 			.on("mouseout", entang.fade(1))
 		;
 
