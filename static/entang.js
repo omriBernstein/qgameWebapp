@@ -13,6 +13,8 @@
 * values with one alteration - the chords that go back
 * to the parent are hidden (opacity 0). It doesn't even
 * show up yet.
+* 
+* Arcs don't look pixelated when large, unlike last attempt
 */
 
 var entang = {
@@ -197,7 +199,7 @@ var entang = {
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
-		var groupG = entangSVG.selectAll("g.group")
+		var groupG = entangSVG.selectAll(".part-entang .group")
 			.data(newLayoutChord.groups(), function (d) {
 				return d.index; 
 				//use a key function in case the 
