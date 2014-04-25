@@ -25,7 +25,8 @@ var entang = {
 	, pathForChords: null
 	, fullEntangElem: null
 	, partEntangElem: null
-	, oldLayoutChord: null
+	, oldFullLayout: null
+	, oldPartLayout: null
 
 	// Just for testing
 	/* (int, int) -> array of ints
@@ -71,7 +72,9 @@ var entang = {
 				.attr("transform", "translate(" + center
 					+ ") rotate(" + rotation
 					//To help pixelation when big
-					+ ") scale(0.5)")
+					+ ")"
+				// + " scale(0.5)"
+				)
 		;
 	}
 
@@ -139,22 +142,10 @@ var entang = {
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Place the element that will have the diagram
 		entang.partEntangElem = entang.attachChord("entang part-entang", center, rotation);
-	 //    entang.partEntangElem = d3.select("#qubit-svg")
-		// 	.append("g")
-		// 		// Unique class for scaling the size of the whole thing
-		// 		.attr("class", "entang part-entang")
-		// 		.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
-		// ;
 
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
 		// Place the element that will have the diagram
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, rotation);
-	 //    entang.fullEntangElem = d3.select("#qubit-svg")
-		// 	.append("g")
-		// 		// Unique class for scaling the size of the whole thing
-		// 		.attr("class", "entang full-entang")
-		// 		.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
-		// ;
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
@@ -196,8 +187,10 @@ var entang = {
 		var animTime = entang.animTime
 			, arcForGroups = entang.arcForGroups
 			, pathForChords = entang.pathForChords
+			, fullEntangElem = entang.fullEntangElem
 			, partEntangElem = entang.partEntangElem
-			, oldLayoutChord = entang.oldLayoutChord
+			, oldFullLayout = entang.oldFullLayout
+			, oldPartLayout = entang.oldPartLayout
 		;
 
 		// I'm not sure why this isn't just an array, but afraid to change
@@ -212,7 +205,7 @@ var entang = {
 
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
-		// we'll transition to (from oldLayoutChord)
+		// we'll transition to (from oldPartLayout)
 		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
 
 		// --- SOURCES (3) --- \\
@@ -263,7 +256,7 @@ var entang = {
 			.transition()
 				.duration(animTime)
 			// ~~~ arcTween is homemade in here
-			.attrTween("d", entang.arcTween( oldLayoutChord ))
+			.attrTween("d", entang.arcTween( oldPartLayout ))
 			;
 
 		// ~~~ Skip ticks/labels
@@ -312,7 +305,7 @@ var entang = {
 			// ~~~ Changing the colors here doesn't fix the black
 			.style("fill", function(d) { return entangColors(d.source.index); })
 			.style("stroke", function(d) { return entangColors(d.source.index); })
-			.attrTween("d", entang.chordTween( oldLayoutChord ))
+			.attrTween("d", entang.chordTween( oldPartLayout ))
 		;
 
 		// *** EVENT HANDLERS *** \\
@@ -336,7 +329,7 @@ var entang = {
 				+ ") scale(" + scale + ")")
 			;
 
-		entang.oldLayoutChord = newLayoutChord; //save for next update
+		entang.oldPartLayout = newLayoutChord; //save for next update
 
 		// --- END SOURCES (3) --- \\
 
