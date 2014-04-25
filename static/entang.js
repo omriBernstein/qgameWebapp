@@ -316,6 +316,9 @@ var entang = {
 		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
 
 		// --- SOURCES (3) --- \\
+
+		updatePart();
+		function updatePart () {
 		// *** GROUPS(?), creation *** \\
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
@@ -326,10 +329,6 @@ var entang = {
 		console.log("The code from which groupG is derived:");
 		// Doesn't yet have the correct values, not enough time?
 		console.log(partEntangElem.selectAll(".part-entang .group"));
-		
-
-		updatePart();
-		function updatePart () {
 
 		// *** GROUPS(?), exit (removal), entrance (added), animation *** \\
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
