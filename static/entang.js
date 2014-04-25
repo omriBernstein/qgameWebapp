@@ -25,7 +25,6 @@ var entang = {
 	, pathForChords: null
 	, fullEntangElem: null
 	, partEntangElem: null
-	, entangSVG: null
 	, oldLayoutChord: null
 
 	// Just for testing
@@ -57,6 +56,23 @@ var entang = {
 		// Fill the matrix with the right number of those rows
 		for (var indx = 0; indx < numQubits; indx++) {newMatrix.push(newRow);}
 		return newMatrix;
+	}
+
+	/* (str) -> d3 element?
+
+	Adds a chord to the svg element. This is very specific to the current
+	setup, not very general
+	*/
+	, attachChord: function (classNames, center, rotation) {
+		return d3.select("#qubit-svg")
+			.append("g")
+				// Unique class for scaling the size of the whole thing
+				.attr("class", classNames)
+				.attr("transform", "translate(" + center
+					+ ") rotate(" + rotation
+					//To help pixelation when big
+					+ ") scale(0.5)")
+		;
 	}
 
 // !!! This only takes care of entanglement that shows that things
@@ -122,20 +138,23 @@ var entang = {
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Place the element that will have the diagram
-	    entang.partEntangElem = d3.select("#qubit-svg")
-			.append("g")
-				// Unique class for scaling the size of the whole thing
-				.attr("class", "entang part-entang")
-				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
-		;
+		entang.partEntangElem = entang.attachChord("entang part-entang", center, rotation);
+	 //    entang.partEntangElem = d3.select("#qubit-svg")
+		// 	.append("g")
+		// 		// Unique class for scaling the size of the whole thing
+		// 		.attr("class", "entang part-entang")
+		// 		.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
+		// ;
 
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
 		// Place the element that will have the diagram
-	    entang.fullEntangElem = d3.select("#qubit-svg")
-			.append("g")
-				// Unique class for scaling the size of the whole thing
-				.attr("class", "entang full-entang")
-				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
+		entang.fullEntangElem = entang.attachChord("entang full-entang", center, rotation);
+	 //    entang.fullEntangElem = d3.select("#qubit-svg")
+		// 	.append("g")
+		// 		// Unique class for scaling the size of the whole thing
+		// 		.attr("class", "entang full-entang")
+		// 		.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
+		// ;
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
