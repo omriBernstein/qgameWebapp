@@ -115,14 +115,6 @@ var entang = {
 
 	    // Rotate the diagram to line it up with the qubits
 		var rotation = -(360/entangMatrix.length)/2;
-
-	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
-		// Place the element that will have the diagram
-	    entang.entangSVG = d3.select("#qubit-svg")
-			.append("g")
-				// Unique class for scaling the size of the whole thing
-				.attr("class", "entang full-entang")
-				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
 		;
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
@@ -133,6 +125,14 @@ var entang = {
 				.attr("class", "entang part-entang")
 				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
 		;
+
+	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
+		// Place the element that will have the diagram
+	    entang.entangSVG = d3.select("#qubit-svg")
+			.append("g")
+				// Unique class for scaling the size of the whole thing
+				.attr("class", "entang full-entang")
+				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
