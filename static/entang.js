@@ -332,9 +332,10 @@ var entang = {
 
 			// Add next-level items with index id
 			newGroups.append("path")
-				//using dat.index and not i to maintain consistency
-				//even if groups are sorted (knod: huh?)
-				.attr("id", function (dat) {return "part-group" + dat.index;})
+				// //using dat.index and not i to maintain consistency
+				// //even if groups are sorted (knod: huh?
+				// // not sure of it's function, don't think it's needed for qromp
+				// .attr("id", function (dat) {return "part-group" + dat.index;})
 				;
 
 			// Color paths
