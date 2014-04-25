@@ -321,19 +321,11 @@ var entang = {
 
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
-
 			// Add next-level items with index id
-			newGroups.append("path")
-				// //using dat.index and not i to maintain consistency
-				// //even if groups are sorted (knod: huh?
-				// // not sure of it's function, don't think it's needed for qromp
-				// .attr("id", function (dat) {return "part-group" + dat.index;})
-				;
-
+			newGroups.append("path");
 			// Color paths
 			newGroups.style("fill", partArcColor)
-				.style("stroke", partArcColor)
-			;
+				.style("stroke", partArcColor);
 
 			// Animate addition of paths
 			groupG.select("path").transition()  // groupOfArcs.transition() works too
@@ -346,22 +338,20 @@ var entang = {
 			// Container's new elements: create data. Also get all elements?
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
-				.data(newPartLayout.chords(), entang.chordKey );
+				.data(newPartLayout.chords(), entang.chordKey )
 					//specify a key function to match chords
 					//between updates
+				;
 
 			// Animate removal of paths
 			removeElems(chordPaths);
 
 			// Add new top-level items with class
 			var newChords = chordPaths.enter().append("path").attr("class", "chord");
-
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
-
-			// Color paths
-			// Changing the colors earlier fixes the black!
+			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
