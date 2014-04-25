@@ -275,7 +275,11 @@ var entang = {
 		have been added, I think removal of arcs anims itself.
 		*/
 		function animAddedArcs (groupOfArcs, thisLayout) {
-
+			groupOfArcs.select("path") 
+				.transition()
+					.duration(animTime)
+				.attrTween("d", entang.arcTween( thisLayout ))
+			;
 		};
 
 		updateFull();
@@ -301,7 +305,7 @@ var entang = {
 		updatePart();
 		function updatePart () {
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
-			// is taken out?
+			// is taken out? Also animates that?
 			removeArcs(groupG);
 
 			//the enter selection is stored in a variable so we can
@@ -331,16 +335,18 @@ var entang = {
 			// 	.style("stroke", function(d) { return bridgeColors(d.index); })
 			// 	;
 
-			//update the paths to match the layout
-			// ~~~ Got rid of opacity change to uncomplicate the hide stuff
-			groupG.select("path") 
-				.transition()
-					.duration(animTime)
-				// ~~~ arcTween is homemade in here
-				.attrTween("d", entang.arcTween( oldPartLayout ))
-				;
+			// Animate the added paths?
+			animAddedArcs(groupG, oldPartLayout);
+			// //update the paths to match the layout
+			// // ~~~ Got rid of opacity change to uncomplicate the hide stuff
+			// groupG.select("path") 
+			// 	.transition()
+			// 		.duration(animTime)
+			// 	// ~~~ arcTween is homemade in here
+			// 	.attrTween("d", entang.arcTween( oldPartLayout ))
+			// 	;
 
-			// ~~~ Skip ticks/labels
+			// // ~~~ Skip ticks/labels
 
 			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// *** Also event handler for fading *** \\
