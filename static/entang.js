@@ -23,6 +23,8 @@ var entang = {
 	, animTime: null
 	, arcForGroups: null
 	, pathForChords: null
+	, fullEntangElem: null
+	, partEntangElem: null
 	, entangSVG: null
 	, oldLayoutChord: null
 
@@ -120,7 +122,7 @@ var entang = {
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Place the element that will have the diagram
-	    entang.entangSVG = d3.select("#qubit-svg")
+	    entang.partEntangElem = d3.select("#qubit-svg")
 			.append("g")
 				// Unique class for scaling the size of the whole thing
 				.attr("class", "entang part-entang")
@@ -129,11 +131,11 @@ var entang = {
 
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
 		// Place the element that will have the diagram
-	  //   entang.entangSVG = d3.select("#qubit-svg")
-			// .append("g")
-			// 	// Unique class for scaling the size of the whole thing
-			// 	.attr("class", "entang full-entang")
-			// 	.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
+	    entang.fullEntangElem = d3.select("#qubit-svg")
+			.append("g")
+				// Unique class for scaling the size of the whole thing
+				.attr("class", "entang full-entang")
+				.attr("transform", "translate(" + center + ") rotate(" + rotation + ")")
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
@@ -175,7 +177,7 @@ var entang = {
 		var animTime = entang.animTime
 			, arcForGroups = entang.arcForGroups
 			, pathForChords = entang.pathForChords
-			, entangSVG = entang.entangSVG
+			, partEntangElem = entang.partEntangElem
 			, oldLayoutChord = entang.oldLayoutChord
 		;
 
@@ -199,7 +201,7 @@ var entang = {
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
-		var groupG = entangSVG.selectAll(".part-entang .group")
+		var groupG = partEntangElem.selectAll(".part-entang .group")
 			.data(newLayoutChord.groups(), function (d) {
 				return d.index; 
 				//use a key function in case the 
@@ -251,7 +253,7 @@ var entang = {
 		// *** Also event handler for fading *** \\
 
 		/* Create/update the chord paths */
-		var chordPaths = entangSVG.selectAll("path.chord")
+		var chordPaths = partEntangElem.selectAll("path.chord")
 			// ~~~ I don't understand what this does
 			.data(newLayoutChord.chords(), entang.chordKey );
 				//specify a key function to match chords
