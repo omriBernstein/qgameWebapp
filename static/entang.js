@@ -21,15 +21,6 @@
 * will fix it (it can't just be shifted one spot over)
 */
 
-// Maybe make the empty divs out here to start
-// Usint jQuery doesn't work. Obviously something implicit is being passed
-// // $(".part-entang .group")
-// groupG
-// 			.on("mouseover", entang.fade(.1))
-// 			.on("mouseout", entang.fade(1))
-// 		;
-
-
 var entang = {
 
 	firstOuterRadius: null
@@ -384,12 +375,10 @@ var entang = {
 		}  // end updatePart()
 
 		// *** EVENT HANDLERS *** \\
-// ~~~ !!! Make this not in a function in future !!!
 		//add the mouseover/fade out behaviour to the groups
 		//this is reset on every update, so it will use the latest
 		//chordPaths selection
 		// ~~~ Our own version of fade, theirs was too complex
-		// ~~~ Could possibly do the whole thing in CSS?
 		// partEntangElem.selectAll(".part-entang .group") takes a while to
 		// have the correct values
 		console.log("Wait, and then the code from which groupG is derived:");
