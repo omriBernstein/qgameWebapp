@@ -207,8 +207,23 @@ var entang = {
 		// 	.range(["#9986b3", "red", "green", "blue"])
 		// ;
 
+	// *** FUNCTIONS *** \\
+
+	// --- ALL --- \\
+		/* (d3 collection?) -> None
+
+		Update (and animate?) removal of elements. Can this be
+		outside of update?
+		*/
+		function removeElems (groupOfElems) {
+			groupOfElems.exit()
+				.transition()
+					.duration(animTime)
+					.attr("opacity", 0)
+					.remove(); //remove after transitions are complete
+		}
+
 	// --- ARCS --- \\
-	// *** Functions *** \\
 		/* (?, str, layout.chord()?) -> d3 collection of objects?
 
 		Creates new arcs (those outside sections) for chord diagram.
@@ -225,18 +240,8 @@ var entang = {
 			return groupOfArcs;
 		}
 
-		/* (d3 collection?) -> None
-
-		Update (and animate?) removal of elements. Can this be
-		outside of update?
-		*/
-		function removeElems (groupOfElems) {
-			groupOfElems.exit()
-				.transition()
-					.duration(animTime)
-					.attr("opacity", 0)
-					.remove(); //remove after transitions are complete
-		}
+// May be better to add paths the regular way, then make an
+// append function for arcs then make a color function?
 
 		/* (d3 collection?, str) -> d3 collection?
 
@@ -323,7 +328,7 @@ var entang = {
 			animAddedArcs(groupG, oldPartLayout);
 
 			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
-			// *** Also event handler for fading *** \\
+			// Doesn't need as much automation - not reused
 			/* Create/update the chord paths */
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
@@ -332,8 +337,7 @@ var entang = {
 					//between updates
 
 			//create the new chord paths
-			var newChords = chordPaths.enter()
-				.append("path")
+			var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
 
 			//handle (and animate?) exiting paths:
@@ -536,6 +540,66 @@ var entang = {
 			.style("opacity", 0);
 	}
 }
+
+
+/* Compare procedures for arcs vs. bridges
+// Arcs
+var groupOfArcs = thisDiv.selectAll(thisSelector)
+				.data(thisLayout.groups(), function (d) {
+					return d.index; //use a key function in case the 
+					//groups are sorted differently between updates
+			});
+
+var newGroups = groupOfArcs.enter().append("g")
+				.attr("class", "group");
+
+newGroups.append("path")
+				.attr("id", function (dat) {
+					return selector + dat.index;
+					//using dat.index and not i to maintain consistency
+					//even if groups are sorted (knod: huh?)
+				})
+				// ~~~ qromp color versions
+				.style("fill", function (dat) {
+					// Color for arcs indicating entanglement potential
+					if (selector == "part-group") {return  partArcColor; }
+					// Color for showing full entanglement
+					else {return "none";}
+				})
+				.style("stroke", function (dat) {
+					// Same
+					if (selector == "part-group") {return  partArcColor;}
+					else {return "black";}
+				})
+			;
+
+removeElems(chordPaths);
+
+groupOfArcs.select("path") 
+				.transition()
+					.duration(animTime)
+				.attrTween("d", entang.arcTween( thisLayout ))
+			;
+
+// Bridges
+var chordPaths = partEntangElem.selectAll("path.chord")
+				// ~~~ I don't understand what this does
+				.data(newLayoutChord.chords(), entang.chordKey );
+
+var newChords = chordPaths.enter().append("path")
+				.attr("class", "chord");
+
+removeElems(chordPaths);
+
+chordPaths.transition()
+				.duration(animTime)
+				// ~~~ Changing the colors here doesn't fix the black
+				.style("fill", function(d) { return bridgeColors[d.source.index]; })
+				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
+				.attrTween("d", entang.chordTween( oldPartLayout ))
+			;
+		}
+*/
 
 	// /* (int, int) -> array of ints
 
