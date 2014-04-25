@@ -77,7 +77,7 @@ var entang = {
 					+ ") rotate(" + rotation
 					//To help pixelation when big
 					+ ")"
-				// + " scale(0.5)"
+				// + " scale(1)"
 				)
 		;
 	}
@@ -140,7 +140,10 @@ var entang = {
 		;
 
 	    // Rotate the diagram to line it up with the qubits
-		var rotation = -(360/entangMatrix.length)/2;
+	    // Need to give arcPadding to newChord() somehow
+		var arcPadding = 1
+			, arcPaddingDeg = arcPadding * (180/Math.PI)
+			, rotation = -(360/entangMatrix.length + arcPaddingDeg)/2
 		;
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
@@ -183,7 +186,9 @@ var entang = {
 		// end testing
 
 		// To rotate the diagram to line it up with the qubits
-		var rotation = -(360/newEntangMatrix.length)/2
+		var arcPadding = 1
+			, arcPaddingDeg = arcPadding * (180/Math.PI)
+			, rotation = -(360/newEntangMatrix.length - arcPaddingDeg)/2
 			, scale = newRadius/entang.firstOuterRadius
 		;
 
@@ -329,7 +334,7 @@ var entang = {
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldPartLayout) (need this var later)
-		var newPartLayout = entang.newChord(newEntangMatrix, 0.5);
+		var newPartLayout = entang.newChord(newEntangMatrix, 1.5);
 
 		updatePart();
 
@@ -425,7 +430,7 @@ var entang = {
 	Just breaking things up in to smaller chunks
 	*/
 	, newChord: function (matrix, arcPadding) {
-		var arcPadding = arcPadding || 0.03;
+		var arcPadding = arcPadding || 1;
 		return d3.layout.chord()
 			// padding between sections
 			.padding(arcPadding)
