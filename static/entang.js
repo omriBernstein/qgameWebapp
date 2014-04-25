@@ -315,22 +315,14 @@ var entang = {
 		// we'll transition to (from oldPartLayout)
 		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
 
-		// --- SOURCES (3) --- \\
-
 		updatePart();
 		function updatePart () {
-		// *** GROUPS(?), creation *** \\
-		// I don't really understand this. And what's considered a group?
-		// ~~~ Changed some names among other things
-		/* Create/update "group" elements */
-		var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord);
-		console.log("groupG");
-		console.log(groupG);
-		console.log("The code from which groupG is derived:");
-		// Doesn't yet have the correct values, not enough time?
-		console.log(partEntangElem.selectAll(".part-entang .group"));
+			// *** GROUPS(?), creation *** \\
+			// I don't really understand this. And what's considered a group?
+			// ~~~ Changed some names among other things
+			/* Create/update "group" elements */
+			var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord);
 
-		// *** GROUPS(?), exit (removal), entrance (added), animation *** \\
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
 			// is taken out? Also animates that? Transition to fewer arcs
 			removeElems(groupG);
