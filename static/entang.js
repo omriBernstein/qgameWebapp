@@ -247,23 +247,18 @@ var entang = {
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
-		var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord)
-		// var groupG = partEntangElem.selectAll(".part-entang .group")
-		// 	.data(newLayoutChord.groups(), function (d) {
-		// 		return d.index; 
-		// 		//use a key function in case the 
-		// 		//groups are sorted differently between updates
-		// });
+		var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord);
 
 		updatePart();
 		function updatePart () {
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
 			// is taken out?
-			groupG.exit()
-				.transition()
-					.duration(animTime)
-					.attr("opacity", 0)
-					.remove(); //remove after transitions are complete
+			removeArcs(groupG);
+			// groupG.exit()
+			// 	.transition()
+			// 		.duration(animTime)
+			// 		.attr("opacity", 0)
+			// 		.remove(); //remove after transitions are complete
 
 			// ~~~ When new data is added, add a new element with the same
 			// class
