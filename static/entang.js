@@ -11,8 +11,8 @@
 * 
 * Currently just creates a chord diagram with arbitrary
 * values with one alteration - the chords that go back
-* to the parent are hidden (opacity 0). It doesn't even
-* show up yet.
+* to the parent are hidden (opacity 0). It is animated,
+* but doesn't show partial potential for entanglement.
 * 
 * Arcs don't look pixelated when large, unlike last attempt
 */
@@ -193,9 +193,12 @@ var entang = {
 			, oldPartLayout = entang.oldPartLayout
 		;
 
-		// I'm not sure why this isn't just an array, but afraid to change
-		var entangColors = ["#9986b3", "red", "green", "blue"];
-		// var entangColors = d3.scale.ordinal()
+		// Color for potential
+		var partArcColor = "#9986b3";
+		// Just an array of colors now
+		var bridgeColors = ["#9986b3", "red", "green", "blue"];
+		// // I'm not sure why this isn't just an array, but afraid to change
+		// var bridgeColors = d3.scale.ordinal()
 		// 	.domain(d3.range(4))
 		// 	.range(["#9986b3", "red", "green", "blue"])
 		// ;
@@ -220,7 +223,8 @@ var entang = {
 
 		/* (d3 collection?) -> None
 
-		Update arcs that are removed. Can this be outside of update?
+		Update (and animate?) arcs that are removed. Can this be
+		outside of update?
 		*/
 		function removeArcs (groupOfArcs) {
 			groupOfArcs.exit()
@@ -230,7 +234,7 @@ var entang = {
 					.remove(); //remove after transitions are complete
 		};
 
-		/* 
+		/* (d3 collection?, str) -> d3 collection?
 
 		Updates arcs that are added. Can this be outside of update?
 		*/
@@ -249,12 +253,15 @@ var entang = {
 					//even if groups are sorted (knod: huh?)
 				})
 				// ~~~ qromp color versions
-				.style("fill", function (dat) { 
-					if (selector == "part-group") {return  entangColors[0]; }
+				.style("fill", function (dat) {
+					// Color for arcs indicating entanglement potential
+					if (selector == "part-group") {return  partArcColor; }
+					// Color for showing full entanglement
 					else {return "none";}
 				})
-				.style("stroke", function (dat) { 
-					if (selector == "part-group") {return  entangColors[0];}
+				.style("stroke", function (dat) {
+					// Same
+					if (selector == "part-group") {return  partArcColor;}
 					else {return "black";}
 				})
 			;
@@ -262,6 +269,14 @@ var entang = {
 			return newGroups;
 		};
 
+		/* (d3 collection?, layout.chord?) -> None
+
+		I think this only takes care of the animation for arcs that
+		have been added, I think removal of arcs anims itself.
+		*/
+		function animAddedArcs (groupOfArcs, thisLayout) {
+
+		};
 
 		updateFull();
 
@@ -289,9 +304,11 @@ var entang = {
 			// is taken out?
 			removeArcs(groupG);
 
+			//the enter selection is stored in a variable so we can
+			//enter the <path>, <text>, and <title> elements as well
+			// ~~~ (qromp skips this part, wouldn't work as our labels)
+			var newGroups = addArcs(groupG, "part-group");
 
-
-var newGroups = addArcs(groupG, "part-group");
 			// // ~~~ When new data is added, add a new element with the same
 			// // class
 			// var newGroups = groupG.enter().append("g")
@@ -310,8 +327,8 @@ var newGroups = addArcs(groupG, "part-group");
 			// 		//even if groups are sorted
 			// 	})
 			// 	// ~~~ qromp color versions
-			// 	.style("fill", function(d) { return entangColors(d.index); })
-			// 	.style("stroke", function(d) { return entangColors(d.index); })
+			// 	.style("fill", function(d) { return bridgeColors(d.index); })
+			// 	.style("stroke", function(d) { return bridgeColors(d.index); })
 			// 	;
 
 			//update the paths to match the layout
@@ -367,8 +384,8 @@ var newGroups = addArcs(groupG, "part-group");
 			chordPaths.transition()
 				.duration(animTime)
 				// ~~~ Changing the colors here doesn't fix the black
-				.style("fill", function(d) { return entangColors[d.source.index]; })
-				.style("stroke", function(d) { return entangColors[d.source.index]; })
+				.style("fill", function(d) { return bridgeColors[d.source.index]; })
+				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		};  // end updatePart()
