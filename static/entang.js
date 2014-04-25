@@ -569,31 +569,47 @@ var entang = {
 
 /* Compare procedures for arcs vs. bridges
 // --- Both --- \\
-// Create data for container?
+// Container's new elements: create data. Also get all elements?
 // Animate removal of paths
-// Add top-level items with class
+// Add new top-level items with class
 // (Add next-level items with index id not included, that's just for Arcs)
 // Color paths
 // Animate addition of paths
 
 // --- Arcs --- \\
-// Create data for container?
-var groupOfArcs = thisDiv.selectAll(thisSelector)
+// Specific vars needed:
+// - Collection of arcs in group (groupG)
+// - Div that has arc groups (partEntangElem)
+// - Selectors to select just the arcs (".part-entang .group")
+// - layout.chord() established for these arcs (newLayoutChord)
+// - What to get from teh layout.chord() (.groups())
+// - How to create the index (function (d) {return d.index;})
+
+// - Collection of new arcs (newGroups)
+// - Class for new arcs ("group")
+
+// - id starter to append to paths in the new arcs ("part-group")
+
+// - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
+// - Animation Time (animTime)
+
+// Container's new elements: create data. Also get all elements?
+var groupG = partEntangElem.selectAll(".part-entang .group")  // this is groupG
 				//use a key function in case the groups are
 				// sorted differently between updates
-				.data(thisLayout.groups(), function (d) {return d.index;});
+				.data(newLayoutChord.groups(), function (d) {return d.index;});
 
 // Animate removal of paths
 removeElems(groupG);
 
-// Add top-level items with class
-var newGroups = groupOfArcs.enter().append("g")
+// Add new top-level items with class
+var newGroups = groupG.enter().append("g")
 				.attr("class", "group");
 
 // Add next-level items with index id
 newGroups.append("path")
 				.attr("id", function (dat) {
-					return selector + dat.index;
+					return "part-group" + dat.index;
 					//using dat.index and not i to maintain consistency
 					//even if groups are sorted (knod: huh?)
 				})
@@ -622,12 +638,26 @@ groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 			;
 
 // --- Bridges --- \\
-// Create data for container?
+// Specific vars needed:
+// - Collection of bridges in group (chordPaths)
+// - Div that has bridge groups (partEntangElem)
+// - Selectors to select just the bridges ("path.chord")
+// - layout.chord() established for these bridges (newLayoutChord)
+// - What to get from teh layout.chord() (.chords())
+// - How to create the index (entang.chordKey)
+
+// - Collection of new bridges (newChords)
+// - *Class* to append to bridges ("chord")
+
+// - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
+// - Animation Time (animTime)
+
+// Container's new elements: create data. Also get all elements?
 var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data( newLayoutChord.chords(), entang.chordKey );
 
-// Add top-level items with class
+// Add new top-level items with class
 var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
 
