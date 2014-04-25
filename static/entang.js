@@ -296,7 +296,7 @@ var entang = {
 		var newLayoutChord = entang.newChord(newEntangMatrix, 0.5);
 
 		// --- SOURCES (3) --- \\
-		// *** GROUPS(?), creation, exit (removal), entrance (added), animation *** \\
+		// *** GROUPS(?), creation *** \\
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
@@ -304,53 +304,22 @@ var entang = {
 
 		updatePart();
 		function updatePart () {
+
+		// *** GROUPS(?), exit (removal), entrance (added), animation *** \\
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
-			// is taken out? Also animates that?
+			// is taken out? Also animates that? Transition to fewer arcs
 			removeArcs(groupG);
 
-			//the enter selection is stored in a variable so we can
+			//the enter() selection is stored in a variable so we can
 			//enter the <path>, <text>, and <title> elements as well
 			// ~~~ (qromp skips this part, wouldn't work as our labels)
 			var newGroups = addArcs(groupG, "part-group");
 
-			// // ~~~ When new data is added, add a new element with the same
-			// // class
-			// var newGroups = groupG.enter().append("g")
-			// 	.attr("class", "group");
-			// //the enter selection is stored in a variable so we can
-			// //enter the <path>, <text>, and <title> elements as well
-			// // ~~~ (qromp skips this part, wouldn't work as our labels)
-
-			// //create the arc paths and set the constant attributes
-			// //(those based on the group index, not on the value)
-			// // ~~ id's and colors
-			// newGroups.append("path")
-			// 	.attr("id", function (d) {
-			// 		return "group" + d.index;
-			// 		//using d.index and not i to maintain consistency
-			// 		//even if groups are sorted
-			// 	})
-			// 	// ~~~ qromp color versions
-			// 	.style("fill", function(d) { return bridgeColors(d.index); })
-			// 	.style("stroke", function(d) { return bridgeColors(d.index); })
-			// 	;
-
-			// Animate the added paths?
+			// Animate the added paths? Tween to new layout
 			animAddedArcs(groupG, oldPartLayout);
-			// //update the paths to match the layout
-			// // ~~~ Got rid of opacity change to uncomplicate the hide stuff
-			// groupG.select("path") 
-			// 	.transition()
-			// 		.duration(animTime)
-			// 	// ~~~ arcTween is homemade in here
-			// 	.attrTween("d", entang.arcTween( oldPartLayout ))
-			// 	;
-
-			// // ~~~ Skip ticks/labels
 
 			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// *** Also event handler for fading *** \\
-
 			/* Create/update the chord paths */
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
