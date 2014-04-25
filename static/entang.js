@@ -9,12 +9,16 @@
 * (2) http://fleetinbeing.net/d3e/chord.html
 * (3) http://stackoverflow.com/questions/21813723/change-and-transition-dataset-in-chord-diagram-with-d3
 * 
-* Currently just creates a chord diagram with arbitrary
+* Notes:
+* - Currently just creates a chord diagram with arbitrary
 * values with one alteration - the chords that go back
 * to the parent are hidden (opacity 0). It is animated,
 * but doesn't show partial potential for entanglement.
-* 
-* Arcs don't look pixelated when large, unlike last attempt
+* - Arcs don't look pixelated when large, unlike last attempt
+* - I think because of the order this puts the connections in,
+* there are straight lines going across the middle sometimes.
+* I'm not sure how, but I believe adjusting the indexes somehow
+* will fix it (it can't just be shifted one spot over)
 */
 
 var entang = {
@@ -223,11 +227,11 @@ var entang = {
 
 		/* (d3 collection?) -> None
 
-		Update (and animate?) arcs that are removed. Can this be
+		Update (and animate?) removal of elements. Can this be
 		outside of update?
 		*/
-		function removeArcs (groupOfArcs) {
-			groupOfArcs.exit()
+		function removeElems (groupOfElems) {
+			groupOfElems.exit()
 				.transition()
 					.duration(animTime)
 					.attr("opacity", 0)
@@ -308,7 +312,7 @@ var entang = {
 		// *** GROUPS(?), exit (removal), entrance (added), animation *** \\
 			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
 			// is taken out? Also animates that? Transition to fewer arcs
-			removeArcs(groupG);
+			removeElems(groupG);
 
 			//the enter() selection is stored in a variable so we can
 			//enter the <path>, <text>, and <title> elements as well
@@ -332,26 +336,11 @@ var entang = {
 				.append("path")
 				.attr("class", "chord");
 
-			//handle exiting paths:
+			//handle (and animate?) exiting paths:
+			removeElems(chordPaths);
 
-			chordPaths.exit().transition()
-				.duration(animTime)
-				.attr("opacity", 0)
-				.remove();
-
-			// Can't get this function to work. Wanted to remove repetition.
-			// chordPaths.exit().call(removeElements(this));
-
-			// function removeElements (thisElement) {
-			// 	console.log(thisElement);
-			// 	thisElement.transition()
-			// 	// Uncaught TypeError: undefined is not a function
-			// 		.duration(animTime)
-			// 		.attr("opacity", 0)
-			// 		.remove(); //remove after transitions are complete
-			// }
-
-			// ~~~ Hide stuff here instead? Need to test.
+			// Hide paths that don't go anywhere (to leave blank space
+			// to indicate un-entangled area)
 			entang.hideOwn();
 
 	// ~~~ !!! This is what's causing the black in the transition somehow !!!
