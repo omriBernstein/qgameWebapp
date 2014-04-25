@@ -611,22 +611,19 @@ var groupG = partEntangElem.selectAll(".part-entang .group")  // this is groupG
 removeElems(groupG);
 
 // Add new top-level items with class
-var newGroups = groupG.enter().append("g")
-				.attr("class", "group");
+var newGroups = groupG.enter().append("g").attr("class", "group");
 
 // Add next-level items with index id
 newGroups.append("path")
-				.attr("id", function (dat) {
-					return "part-group" + dat.index;
-					//using dat.index and not i to maintain consistency
-					//even if groups are sorted (knod: huh?)
-				})
-			;
+				// //using dat.index and not i to maintain consistency
+				// //even if groups are sorted (knod: huh?
+				// // not sure of it's function, don't think it's needed for qromp
+				// .attr("id", function (dat) {return "part-group" + dat.index;})
+				;
 
 // Color paths
-newGroups // newGroups.select("path") works too (this may be because all colored the same)
-				// ~~~ qromp color versions
-				.style("fill", partArcColor)
+// newGroups.select("path") works too (this may be because all colored the same)
+newGroups.style("fill", partArcColor)
 				.style("stroke", partArcColor)
 			;
 
