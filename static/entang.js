@@ -553,8 +553,8 @@ var entang = {
 // --- Both --- \\
 // Create data for container?
 // Animate removal of paths
-// (Add groups not included, that's just for Arcs)
-// Add paths (with index id for arcs, with class for bridge)
+// Add top-level items with class
+// (Add next-level items with index id not included, that's just for Arcs)
 // Color paths
 // Animate addition of paths
 
@@ -568,11 +568,11 @@ var groupOfArcs = thisDiv.selectAll(thisSelector)
 // Animate removal of paths
 removeElems(groupG);
 
-// Add groups
+// Add top-level items with class
 var newGroups = groupOfArcs.enter().append("g")
 				.attr("class", "group");
 
-// Add paths with index id
+// Add next-level items with index id
 newGroups.append("path")
 				.attr("id", function (dat) {
 					return selector + dat.index;
@@ -609,7 +609,7 @@ var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data( newLayoutChord.chords(), entang.chordKey );
 
-// Add paths with class
+// Add top-level items with class
 var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
 
