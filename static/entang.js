@@ -261,6 +261,9 @@ var entang = {
 					//using dat.index and not i to maintain consistency
 					//even if groups are sorted (knod: huh?)
 				})
+				;
+
+			newGroups
 				// ~~~ qromp color versions
 				.style("fill", function (dat) {
 					// Color for arcs indicating entanglement potential
@@ -580,7 +583,7 @@ newGroups.append("path")
 			;
 
 // Color paths
-newGroups
+newGroups // (newGroups.select("path") works too)
 				// ~~~ qromp color versions
 				.style("fill", function (dat) {
 					// Color for arcs indicating entanglement potential
@@ -596,7 +599,7 @@ newGroups
 			;
 
 // Animate addition of paths
-groupOfArcs.select("path").transition()
+groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 					.duration(animTime)
 				.attrTween("d", entang.arcTween( thisLayout ))
 			;
