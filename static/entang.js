@@ -199,6 +199,36 @@ var entang = {
 			.range(["#9986b3", "red", "green", "blue"])
 		;
 
+	// --- ARCS --- \\
+	// *** Functions *** \\
+		/* (?, str, layout.chord()?) -> d3 collection of objects?
+
+		Creates new arcs (those outside sections) for chord diagram.
+		Can this be outside of update?
+		*/
+		function createArcs (thisDiv, thisSelector, thisLayout) {
+
+			// Maybe we can do d3.selectAll() instead of thisDiv.selectAll()
+			var groupOfArcs = thisDiv.selectAll(thisSelector)
+				.data(thisLayout.groups(), function (d) {
+					return d.index; //use a key function in case the 
+					//groups are sorted differently between updates
+			});
+			return groupOfArcs;
+		}
+
+		/* (d3 collection?) -> None
+
+		Update arcs that are removed. Can this be outside of update?
+		*/
+		function removeArcs (groupOfArcs) {
+			groupOfArcs.exit()
+				.transition()
+					.duration(animTime)
+					.attr("opacity", 0)
+					.remove(); //remove after transitions are complete
+		}
+
 		updateFull();
 
 	// *** FULL ENTANGLEMENT *** \\
@@ -217,12 +247,13 @@ var entang = {
 		// I don't really understand this. And what's considered a group?
 		// ~~~ Changed some names among other things
 		/* Create/update "group" elements */
-		var groupG = partEntangElem.selectAll(".part-entang .group")
-			.data(newLayoutChord.groups(), function (d) {
-				return d.index; 
-				//use a key function in case the 
-				//groups are sorted differently between updates
-		});
+		var groupG = createArcs(partEntangElem, ".part-entang .group", newLayoutChord)
+		// var groupG = partEntangElem.selectAll(".part-entang .group")
+		// 	.data(newLayoutChord.groups(), function (d) {
+		// 		return d.index; 
+		// 		//use a key function in case the 
+		// 		//groups are sorted differently between updates
+		// });
 
 		updatePart();
 		function updatePart () {
