@@ -318,22 +318,35 @@ var entang = {
 		updatePart();
 		function updatePart () {
 			// *** GROUPS(?), creation *** \\
-			// I don't really understand this. And what's considered a group?
-			// ~~~ Changed some names among other things
-			/* Create/update "group" elements */
-			var groupG = createArcs(partEntangElem, ".part-entang .group", newPartLayout);
+			// Container's new elements: create data. Also get all elements?
+			var groupG = partEntangElem.selectAll(".part-entang .group")
+				//use a key function in case the groups are
+				// sorted differently between updates
+				.data(newPartLayout.groups(), function (d) {return d.index;});
 
-			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
-			// is taken out? Also animates that? Transition to fewer arcs
+			// Animate removal of paths
 			removeElems(groupG);
 
-			//the enter() selection is stored in a variable so we can
-			//enter the <path>, <text>, and <title> elements as well
-			// ~~~ (qromp skips this part, wouldn't work as our labels)
-			var newGroups = addArcs(groupG, "part-group");
+			// Add new top-level items with class
+			var newGroups = groupG.enter().append("g").attr("class", "group");
 
-			// Animate the added paths? Tween to new layout
-			animAddedArcs(groupG, oldPartLayout);
+			// Add next-level items with index id
+			newGroups.append("path")
+				//using dat.index and not i to maintain consistency
+				//even if groups are sorted (knod: huh?)
+				.attr("id", function (dat) {return "part-group" + dat.index;})
+				;
+
+			// Color paths
+			newGroups.style("fill", partArcColor)
+				.style("stroke", partArcColor)
+			;
+
+			// Animate addition of paths
+			groupG.select("path").transition()  // groupOfArcs.transition() works too
+					.duration(animTime)
+				.attrTween("d", entang.arcTween( oldPartLayout ))
+			;
 
 			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// Doesn't need as much automation - not reused
@@ -617,7 +630,7 @@ newGroups // newGroups.select("path") works too (this may be because all colored
 			;
 
 // Animate addition of paths
-groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
+groupG.select("path").transition()  // groupG.transition() works too
 					.duration(animTime)
 				.attrTween("d", entang.arcTween( oldPartLayout ))
 			;
