@@ -547,22 +547,40 @@ var entang = {
 
 
 /* Compare procedures for arcs vs. bridges
-// Arcs
+// --- Both --- \\
+// Create data for container?
+// Animate removal of paths
+// (Add groups not included, that's just for Arcs)
+// Add paths with index id
+// Color paths
+// Animate addition of paths
+
+// --- Arcs --- \\
+// Create data for container?
 var groupOfArcs = thisDiv.selectAll(thisSelector)
 				.data(thisLayout.groups(), function (d) {
 					return d.index; //use a key function in case the 
 					//groups are sorted differently between updates
 			});
 
+// Animate removal of paths
+removeElems(groupG);
+
+// Add groups
 var newGroups = groupOfArcs.enter().append("g")
 				.attr("class", "group");
 
+// Add paths with index id
 newGroups.append("path")
 				.attr("id", function (dat) {
 					return selector + dat.index;
 					//using dat.index and not i to maintain consistency
 					//even if groups are sorted (knod: huh?)
 				})
+			;
+
+// Color paths
+newGroups
 				// ~~~ qromp color versions
 				.style("fill", function (dat) {
 					// Color for arcs indicating entanglement potential
@@ -577,29 +595,34 @@ newGroups.append("path")
 				})
 			;
 
-removeElems(chordPaths);
-
-groupOfArcs.select("path") 
-				.transition()
+// Animate addition of paths
+groupOfArcs.select("path").transition()
 					.duration(animTime)
 				.attrTween("d", entang.arcTween( thisLayout ))
 			;
 
-// Bridges
+// --- Bridges --- \\
+// Create data for container?
 var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data(newLayoutChord.chords(), entang.chordKey );
 
+// Add paths
 var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
 
+// Animate removal of paths
 removeElems(chordPaths);
 
-chordPaths.transition()
-				.duration(animTime)
+// Color paths
+chordPaths
 				// ~~~ Changing the colors here doesn't fix the black
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
+
+// Animate addition of paths
+chordPaths.transition()
+				.duration(animTime)
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		}
