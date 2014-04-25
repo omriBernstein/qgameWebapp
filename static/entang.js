@@ -213,9 +213,6 @@ var entang = {
 		// 	.range(["#9986b3", "red", "green", "blue"])
 		// ;
 
-	// *** FUNCTIONS *** \\
-
-	// --- ALL --- \\
 		/* (d3 collection?) -> None
 
 		Update (and animate?) removal of elements. Can this be
@@ -227,76 +224,6 @@ var entang = {
 					.duration(animTime)
 					.attr("opacity", 0)
 					.remove(); //remove after transitions are complete
-		}
-
-	// --- ARCS --- \\
-		/* (?, str, layout.chord()?) -> d3 collection of objects?
-
-		Creates new arcs (those outside sections) for chord diagram.
-		Can this be outside of update?
-		*/
-		function createArcs (thisDiv, thisSelector, thisLayout) {
-			// Maybe we can do d3.selectAll() instead of thisDiv.selectAll()
-			var groupOfArcs = thisDiv.selectAll(thisSelector)
-				.data(thisLayout.groups(), function (d) {
-					return d.index; //use a key function in case the 
-					//groups are sorted differently between updates
-			});
-			return groupOfArcs;
-		}
-
-// May be better to add paths the regular way, then make an
-// append function for arcs then make a color function?
-
-		/* (d3 collection?, str) -> d3 collection?
-
-		Updates arcs that are added. Can this be outside of update?
-		*/
-		function addArcs (groupOfArcs, selector) {
-			// Add a new element to the DOM
-			var newGroups = groupOfArcs.enter().append("g")
-				.attr("class", "group");
-
-			//create the arc paths and set the constant attributes
-			//(those based on the group index, not on the value)
-			// ~~ id's and colors
-			newGroups.append("path")
-				.attr("id", function (dat) {
-					return selector + dat.index;
-					//using dat.index and not i to maintain consistency
-					//even if groups are sorted (knod: huh?)
-				})
-				;
-
-			newGroups
-				// ~~~ qromp color versions
-				.style("fill", function (dat) {
-					// Color for arcs indicating entanglement potential
-					if (selector == "part-group") {return  partArcColor; }
-					// Color for showing full entanglement
-					else {return "none";}
-				})
-				.style("stroke", function (dat) {
-					// Same
-					if (selector == "part-group") {return  partArcColor;}
-					else {return "black";}
-				})
-			;
-
-			return newGroups;
-		}  // end addArcs()
-
-		/* (d3 collection?, layout.chord?) -> None
-
-		I think this only takes care of the animation for arcs that
-		have been added, I think removal of arcs anims itself.
-		*/
-		function animAddedArcs (groupOfArcs, thisLayout) {
-			groupOfArcs.select("path") 
-				.transition()
-					.duration(animTime)
-				.attrTween("d", entang.arcTween( thisLayout ))
-			;
 		}
 
 	// *** FULL ENTANGLEMENT *** \\
