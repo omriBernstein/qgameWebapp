@@ -316,6 +316,7 @@ var entang = {
 		var newPartLayout = entang.newChord(newEntangMatrix, 0.5);
 
 		updatePart();
+
 		function updatePart () {
 			// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
@@ -351,35 +352,33 @@ var entang = {
 
 			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// Doesn't need as much automation - not reused
-			/* Create/update the chord paths */
+			// Container's new elements: create data. Also get all elements?
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data(newPartLayout.chords(), entang.chordKey );
 					//specify a key function to match chords
 					//between updates
 
-			//create the new chord paths
-			var newChords = chordPaths.enter().append("path")
-				.attr("class", "chord");
-
-			//handle (and animate?) exiting paths:
+			// Animate removal of paths
 			removeElems(chordPaths);
+
+			// Add new top-level items with class
+			var newChords = chordPaths.enter().append("path").attr("class", "chord");
 
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
 
+			// Color paths
+			// Changing the colors earlier fixes the black!
 			chordPaths
-				// ~~~ Changing the colors here doesn't fix the black
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
 			;
 
-	// ~~~ !!! This is what's causing the black in the transition somehow !!!
-			//update the path shape
+			// Animate addition/shape change of paths
 			chordPaths.transition()
 				.duration(animTime)
-				
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		}  // end updatePart()
@@ -580,7 +579,7 @@ var entang = {
 // Add new top-level items with class
 // (Add next-level items with index id not included, that's just for Arcs)
 // Color paths
-// Animate addition of paths
+// Animate transition of paths (addition and, if needed, shape change)
 
 // --- Arcs --- \\
 // Specific vars needed:
@@ -595,6 +594,7 @@ var entang = {
 // - Class for new arcs ("group")
 
 // - id starter to append to paths in the new arcs ("part-group")
+	// not sure of it's function, don't think it's needed for qromp
 
 // - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
 // - Animation Time (animTime)
@@ -657,8 +657,7 @@ var chordPaths = partEntangElem.selectAll("path.chord")
 removeElems(chordPaths);
 
 // Add new top-level items with class
-var newChords = chordPaths.enter().append("path")
-				.attr("class", "chord");
+var newChords = chordPaths.enter().append("path").attr("class", "chord");
 
 // Color paths
 chordPaths
@@ -666,7 +665,7 @@ chordPaths
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
 
-// Animate addition of paths
+// Animate addition/shape change of paths
 chordPaths.transition()
 				.duration(animTime)
 				.attrTween("d", entang.chordTween( oldPartLayout ))
