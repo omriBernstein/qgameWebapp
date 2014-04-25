@@ -141,7 +141,7 @@ var entang = {
 
 	    // Rotate the diagram to line it up with the qubits
 	    // Need to give arcPadding to newChord() somehow
-		var arcPadding = 1
+		var arcPadding = entangMatrix.length/(entangMatrix.length/.5)
 			, arcPaddingDeg = arcPadding * (180/Math.PI)
 			, rotation = -(360/entangMatrix.length + arcPaddingDeg)/2
 		;
@@ -186,7 +186,7 @@ var entang = {
 		// end testing
 
 		// To rotate the diagram to line it up with the qubits
-		var arcPadding = 1
+		var arcPadding = newEntangMatrix.length/(newEntangMatrix.length/.5)
 			, arcPaddingDeg = arcPadding * (180/Math.PI)
 			, rotation = -(360/newEntangMatrix.length - arcPaddingDeg)/2
 			, scale = newRadius/entang.firstOuterRadius
@@ -302,7 +302,7 @@ var entang = {
 	// *** FULL ENTANGLEMENT *** \\
 		var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
 		// (need this var later)
-		var newFullLayout = entang.newChord(newFullMatrix);
+		var newFullLayout = entang.newChord(newFullMatrix, arcPadding);
 
 		updateFull();
 
@@ -334,7 +334,10 @@ var entang = {
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
 		// we'll transition to (from oldPartLayout) (need this var later)
-		var newPartLayout = entang.newChord(newEntangMatrix, 1.5);
+		// This is a test amount - it is meant to be a percentage
+		// Percent entanglement potential that is unavailable to the qubit
+		var degCantEntang = (2 * Math.PI) * 0.1;
+		var newPartLayout = entang.newChord(newEntangMatrix, degCantEntang);
 
 		updatePart();
 
