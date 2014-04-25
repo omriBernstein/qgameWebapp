@@ -149,7 +149,7 @@ var entang = {
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
-	}
+	}  // end initChord()
 
 	/* (str, num, Array of Arrays of ints) -> None
 
@@ -219,7 +219,7 @@ var entang = {
 					//groups are sorted differently between updates
 			});
 			return groupOfArcs;
-		};
+		}
 
 		/* (d3 collection?) -> None
 
@@ -232,7 +232,7 @@ var entang = {
 					.duration(animTime)
 					.attr("opacity", 0)
 					.remove(); //remove after transitions are complete
-		};
+		}
 
 		/* (d3 collection?, str) -> d3 collection?
 
@@ -267,7 +267,7 @@ var entang = {
 			;
 
 			return newGroups;
-		};
+		}  // end addArcs()
 
 		/* (d3 collection?, layout.chord?) -> None
 
@@ -280,7 +280,7 @@ var entang = {
 					.duration(animTime)
 				.attrTween("d", entang.arcTween( thisLayout ))
 			;
-		};
+		}
 
 		updateFull();
 
@@ -288,7 +288,7 @@ var entang = {
 		function updateFull () {
 			var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
 			var newFullEntangLayout = entang.newChord(newFullMatrix);
-		};  // end updateFull()
+		}  // end updateFull()
 
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
@@ -363,7 +363,7 @@ var entang = {
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
-		};  // end updatePart()
+		}  // end updatePart()
 
 		// *** EVENT HANDLERS *** \\
 // ~~~ !!! Make this not in a function in future !!!
