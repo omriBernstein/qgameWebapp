@@ -339,8 +339,8 @@ var entang = {
 			//handle (and animate?) exiting paths:
 			removeElems(chordPaths);
 
-			// Hide paths that don't go anywhere (to leave blank space
-			// to indicate un-entangled area)
+			// Before they're animated, hide paths that don't go anywhere
+			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
 
 	// ~~~ !!! This is what's causing the black in the transition somehow !!!
