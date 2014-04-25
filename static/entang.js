@@ -199,9 +199,13 @@ var entang = {
 			.range(["#9986b3", "red", "green", "blue"])
 		;
 
+		updateFull();
+
 	// *** FULL ENTANGLEMENT *** \\
-		var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
-		var newFullEntangLayout = entang.newChord(newFullMatrix);
+		function updateFull () {
+			var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
+			var newFullEntangLayout = entang.newChord(newFullMatrix);
+		};  // end updateFull()
 
 	// *** PARTIAL ENTANGLEMENT *** \\
 		// Make and store a new layout.chord() with the new matrix that
@@ -220,93 +224,96 @@ var entang = {
 				//groups are sorted differently between updates
 		});
 
-		// ~~~ When groupG is destroyed? Or perhaps when data of groupG
-		// is taken out?
-		groupG.exit()
-			.transition()
+		updatePart();
+		function updatePart () {
+			// ~~~ When groupG is destroyed? Or perhaps when data of groupG
+			// is taken out?
+			groupG.exit()
+				.transition()
+					.duration(animTime)
+					.attr("opacity", 0)
+					.remove(); //remove after transitions are complete
+
+			// ~~~ When new data is added, add a new element with the same
+			// class
+			var newGroups = groupG.enter().append("g")
+				.attr("class", "group");
+			//the enter selection is stored in a variable so we can
+			//enter the <path>, <text>, and <title> elements as well
+			// ~~~ (qromp skips this part, wouldn't work as our labels)
+
+			//create the arc paths and set the constant attributes
+			//(those based on the group index, not on the value)
+			// ~~ id's and colors
+			newGroups.append("path")
+				.attr("id", function (d) {
+					return "group" + d.index;
+					//using d.index and not i to maintain consistency
+					//even if groups are sorted
+				})
+				// ~~~ qromp color versions
+				.style("fill", function(d) { return entangColors(d.index); })
+				.style("stroke", function(d) { return entangColors(d.index); })
+				;
+
+			//update the paths to match the layout
+			// ~~~ Got rid of opacity change to uncomplicate the hide stuff
+			groupG.select("path") 
+				.transition()
+					.duration(animTime)
+				// ~~~ arcTween is homemade in here
+				.attrTween("d", entang.arcTween( oldPartLayout ))
+				;
+
+			// ~~~ Skip ticks/labels
+
+			// *** CHORD PATHS, creation, entrance, exit, animation *** \\
+			// *** Also event handler for fading *** \\
+
+			/* Create/update the chord paths */
+			var chordPaths = partEntangElem.selectAll("path.chord")
+				// ~~~ I don't understand what this does
+				.data(newLayoutChord.chords(), entang.chordKey );
+					//specify a key function to match chords
+					//between updates
+
+			//create the new chord paths
+			var newChords = chordPaths.enter()
+				.append("path")
+				.attr("class", "chord");
+
+			//handle exiting paths:
+
+			chordPaths.exit().transition()
 				.duration(animTime)
 				.attr("opacity", 0)
-				.remove(); //remove after transitions are complete
+				.remove();
 
-		// ~~~ When new data is added, add a new element with the same
-		// class
-		var newGroups = groupG.enter().append("g")
-			.attr("class", "group");
-		//the enter selection is stored in a variable so we can
-		//enter the <path>, <text>, and <title> elements as well
-		// ~~~ (qromp skips this part, wouldn't work as our labels)
+			// Can't get this function to work. Wanted to remove repetition.
+			// chordPaths.exit().call(removeElements(this));
 
-		//create the arc paths and set the constant attributes
-		//(those based on the group index, not on the value)
-		// ~~ id's and colors
-		newGroups.append("path")
-			.attr("id", function (d) {
-				return "group" + d.index;
-				//using d.index and not i to maintain consistency
-				//even if groups are sorted
-			})
-			// ~~~ qromp color versions
-			.style("fill", function(d) { return entangColors(d.index); })
-			.style("stroke", function(d) { return entangColors(d.index); })
-			;
+			// function removeElements (thisElement) {
+			// 	console.log(thisElement);
+			// 	thisElement.transition()
+			// 	// Uncaught TypeError: undefined is not a function
+			// 		.duration(animTime)
+			// 		.attr("opacity", 0)
+			// 		.remove(); //remove after transitions are complete
+			// }
 
-		//update the paths to match the layout
-		// ~~~ Got rid of opacity change to uncomplicate the hide stuff
-		groupG.select("path") 
-			.transition()
+			// ~~~ Hide stuff here instead? Need to test.
+			entang.hideOwn();
+
+	// ~~~ !!! This is what's causing the black in the transition somehow !!!
+			//update the path shape
+			chordPaths.transition()
 				.duration(animTime)
-			// ~~~ arcTween is homemade in here
-			.attrTween("d", entang.arcTween( oldPartLayout ))
+				// ~~~ Changing the colors here doesn't fix the black
+				.style("fill", function(d) { return entangColors(d.source.index); })
+				.style("stroke", function(d) { return entangColors(d.source.index); })
+				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
-
-		// ~~~ Skip ticks/labels
-
-		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
-		// *** Also event handler for fading *** \\
-
-		/* Create/update the chord paths */
-		var chordPaths = partEntangElem.selectAll("path.chord")
-			// ~~~ I don't understand what this does
-			.data(newLayoutChord.chords(), entang.chordKey );
-				//specify a key function to match chords
-				//between updates
-
-		//create the new chord paths
-		var newChords = chordPaths.enter()
-			.append("path")
-			.attr("class", "chord");
-
-		//handle exiting paths:
-
-		chordPaths.exit().transition()
-			.duration(animTime)
-			.attr("opacity", 0)
-			.remove();
-
-		// Can't get this function to work. Wanted to remove repetition.
-		// chordPaths.exit().call(removeElements(this));
-
-		// function removeElements (thisElement) {
-		// 	console.log(thisElement);
-		// 	thisElement.transition()
-		// 	// Uncaught TypeError: undefined is not a function
-		// 		.duration(animTime)
-		// 		.attr("opacity", 0)
-		// 		.remove(); //remove after transitions are complete
-		// }
-
-		// ~~~ Hide stuff here instead? Need to test.
-		entang.hideOwn();
-
-// ~~~ !!! This is what's causing the black in the transition somehow !!!
-		//update the path shape
-		chordPaths.transition()
-			.duration(animTime)
-			// ~~~ Changing the colors here doesn't fix the black
-			.style("fill", function(d) { return entangColors(d.source.index); })
-			.style("stroke", function(d) { return entangColors(d.source.index); })
-			.attrTween("d", entang.chordTween( oldPartLayout ))
-		;
+		};  // end updatePart()
 
 		// *** EVENT HANDLERS *** \\
 // ~~~ !!! Make this not in a function in future !!!
