@@ -554,17 +554,16 @@ var entang = {
 // Create data for container?
 // Animate removal of paths
 // (Add groups not included, that's just for Arcs)
-// Add paths with index id
+// Add paths (with index id for arcs, with class for bridge)
 // Color paths
 // Animate addition of paths
 
 // --- Arcs --- \\
 // Create data for container?
 var groupOfArcs = thisDiv.selectAll(thisSelector)
-				.data(thisLayout.groups(), function (d) {
-					return d.index; //use a key function in case the 
-					//groups are sorted differently between updates
-			});
+				//use a key function in case the groups are
+				// sorted differently between updates
+				.data(thisLayout.groups(), function (d) {return d.index;});
 
 // Animate removal of paths
 removeElems(groupG);
@@ -583,7 +582,7 @@ newGroups.append("path")
 			;
 
 // Color paths
-newGroups // (newGroups.select("path") works too)
+newGroups // newGroups.select("path") works too (this may be because all colored the same)
 				// ~~~ qromp color versions
 				.style("fill", function (dat) {
 					// Color for arcs indicating entanglement potential
@@ -608,9 +607,9 @@ groupOfArcs.select("path").transition()  // groupOfArcs.transition() works too
 // Create data for container?
 var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
-				.data(newLayoutChord.chords(), entang.chordKey );
+				.data( newLayoutChord.chords(), entang.chordKey );
 
-// Add paths
+// Add paths with class
 var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord");
 
