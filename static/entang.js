@@ -1,4 +1,4 @@
-/* 
+/*
 * visualizer.js
 * Created by: knod
 * Date created: 04/20/14
@@ -31,6 +31,7 @@ var entang = {
 	, partEntangElem: null
 	, oldFullLayout: null
 	, oldPartLayout: null
+	, colorCount: 0
 
 	// Just for testing
 	/* (int, int) -> array of ints
@@ -196,6 +197,7 @@ var entang = {
 			, partEntangElem = entang.partEntangElem
 			, oldFullLayout = entang.oldFullLayout
 			, oldPartLayout = entang.oldPartLayout
+			// , colorCount = entang.colorCount
 		;
 
 		// Color for potential
@@ -308,16 +310,42 @@ var entang = {
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
 
+// Colors experiments
+
+// jQuery changes the color number of a bridge/chord each time its matrix
+// values change while d3 indexes and subindexes seem to stay the same for
+// the changed bridge/chord
+
+// What we really need to do is assign each a data value of a color and use that,
+// doesn't matter what color we assign to start with.
+			console.log("jQuery:");
+			$(".chord").each(function () {
+				$this = $(this);
+				// console.log(!$this.data("color"));
+				if (($this.css("opacity") > 0) && !$this.data("color")) {
+					$this.data("color", entang.colorCount);
+					entang.colorCount += 1;
+				}
+				if ($this.css("opacity") > 0){
+					console.log("Path: ");
+					console.log($(this).data());
+					console.log(this);
+				}
+			});
+
 // From hideOwn()
-			d3.selectAll(".chord")
-				// Get the paths whose index and subindex match
-				// (the path is refering to its own section)
-				.filter(function (dat) {
-					return dat.target.index != dat.target.subindex;
-				})
-				.filter(function (dat) {
-					console.log(dat.target.index * 10 + dat.target.subindex);
-				});
+			// d3.selectAll(".chord")
+			// 	// Get the paths whose index and subindex match
+			// 	// (the path is refering to its own section)
+			// 	.filter(function (dat) {
+			// 		return dat.target.index != dat.target.subindex;
+			// 	})
+			// 	.filter(function (dat) {
+			// 		console.log("Path:");
+			// 		console.log(dat.target.index * 10 + dat.target.subindex);
+			// 		console.log(this);
+			// 	});
+// end colors experiments
 
 			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
@@ -634,8 +662,10 @@ console.log("matrix: " + xx);
 
 To put in inspector once chord dia. is visible (test):
 Test 1:
-matrix = [[100, 0, 10, 30], [0, 100, 30, 10],
-  [10, 30, 100, 0], [0, 10, 30, 100],]
+matrix = [[100, 50, 10, 30],
+	[50, 200, 30, 10],
+  	[10, 30, 500, 0],
+  	[0, 10, 30, 70]]
 entang.updateChord(center, radius, matrix)
 
 Test 2:
@@ -650,4 +680,11 @@ matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 2],
 [80, 21, 45, 9, 65, 98, 70, 53, 95, 93],
 [18, 78, 83, 43, 56, 32, 50, 45, 68, 46]]
 entang.updateChord(center, radius, matrix)
+
+Test 3:
+matrix = [[100, 10, 30],
+	[10, 130, 0],
+	[30, 0, 120]]
+entang.updateChord(center, radius, matrix)
 */
+//
