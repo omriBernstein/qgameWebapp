@@ -20,6 +20,9 @@
 * I'm not sure how, but I believe adjusting the indexes somehow
 * will fix it (it can't just be shifted one spot over)
 * - I really don't know how to manipulate the data here
+* - Making sure chord data would have custom elements:
+* jsl6906		before line 29 you can do: var chordData =
+* newPartLayout.chords().forEach(function(d) { //assign d.something; }));
 */
 
 var entang = {
@@ -295,137 +298,20 @@ var entang = {
 			;
 
 		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
-			// Doesn't need as much automation - not reused
 			// Container's new elements: create data. Also get all elements?
-
-// jsl6906		before line 29 you can do: var chordData = newPartLayout.chords().forEach(function(d) { //assign d.something; }));			4:10
-// jsl6906		then change line 31 to: .data(chordData, ..)
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
-				.data(newPartLayout.chords(), entang.chordKey )
-					//specify a key function to match chords
-					//between updates
-				// .filter(function (dat) {
-				// 	return dat.target.index != dat.target.subindex;
-				// })
-					// .call(function (dat) {
-					// 	console.log("index and subindex: " + dat.index + ", " + dat.subindex);
-					// 	if (dat.target.index != dat.target.subindex) {
-					// 		dat.colorCount = entang.colorCount;
-					// 		// console.log(this.colorCount);
-					// 		entang.colorCount += 1;
-					// 	}
-					// })
-				// .filter(function (dat) {
-				// 	console.log("this:")
-				// 	console.log(this);
-				// 	console.log("index and subindex: " + dat.target.index + ", " + dat.target.subindex);
-				// 	if (dat.target.index != dat.target.subindex) {
-				// 		dat.colorCount = entang.colorCount;
-				// 		// console.log(this.colorCount);
-				// 		entang.colorCount += 1;
-				// 	}
-				// 	return this;
-				// })
-				// .filter(function () {console.log("chordPaths this:");console.log(this);return this})
-				// .call(function (dat) {console.log("chordPaths dat this:");console.log(dat);})
-				// .each(function () {
-				// 	console.log(this);
-				// })
-				;
-			console.log("chordPaths:")
-			console.log(chordPaths);
+				.data(newPartLayout.chords(), entang.chordKey );
 
 			// Animate removal of paths
 			removeElems(chordPaths);
 
 			// Add new top-level items with class
-			var newChords = chordPaths.enter().append("path")
-				.attr("class", "chord")
-				// .filter(function (dat) {
-				// 	return dat.target.index != dat.target.subindex;
-				// })
-					// .filter(function (dat) {
-					// 	// console.log("Path:");
-					// 	// console.log(dat.target.index * 10 + dat.target.subindex);
-					// 	// console.log(this);
-					// 	this.colorCount = entang.colorCount;
-					// 	// console.log(this.colorCount);
-					// 	entang.colorCount += 1;
-					// // });
-					// .each(function (dat) {
-					// 	dat.colorCount = entang.colorCount;
-					// 	// console.log(this.colorCount);
-					// 	entang.colorCount += 1;
-					// })
-					// .filter(function (dat) {
-					// 	console.log(this);
-					// 	console.log("index and subindex: " + dat.target.index + ", " + dat.target.subindex);
-					// 	if (dat.target.index != dat.target.subindex) {
-					// 		dat.colorCount = entang.colorCount;
-					// 		// console.log(this.colorCount);
-					// 		entang.colorCount += 1;
-					// 	}
-					// 	return this;
-					// })
-			;
+			var newChords = chordPaths.enter().append("path").attr("class", "chord");
 
-			// console.log(newChords);
-			// d3.selectAll(".chord").each(function (dat) {
-			// 	if (dat.target.index != dat.target.subindex) {
-			// 		dat.colorCount = entang.colorCount;
-			// 		entang.colorCount += 1;
-			// 	}
-			// });
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
-
-// Colors experiments
-
-// Every time a bridge/chord's matrix value is changed, jQuery seems to treat
-// it as a new object, changing its color number, while d3 indexes and subindexes
-// seem to stay the same. This may be because of the way the animation stuff is
-// set up, not sure.
-
-// This means that assigning a bridge/chord a color value with jQuery won't work,
-// it has to be done using d3 somehow.
-
-// What we really need to do is assign each a data value of a color and use that,
-// doesn't matter what color we assign to start with.
-			// console.log("jQuery:");
-			// $(".chord").each(function () {
-			// 	$this = $(this);
-			// 	// console.log(!$this.data("color"));
-			// 	if (($this.css("opacity") > 0) && !$this.data("color")) {
-			// 		$this.data("color", entang.colorCount);
-			// 		entang.colorCount += 1;
-			// 	}
-			// 	if ($this.css("opacity") > 0){
-			// 		console.log("Path: ");
-			// 		console.log($(this).data());
-			// 		console.log(this);
-			// 	}
-			// });
-
-// From hideOwn()
-			// d3.selectAll(".chord")
-			// // 	// Get the paths whose index and subindex match
-			// // 	// (the path is refering to its own section)
-			// 	.filter(function (dat) {
-			// 		return dat.target.index != dat.target.subindex;
-			// 	})
-			// 		.filter(function (dat) {
-			// 			console.log("Path:");
-			// 	// 		console.log(dat.target.index * 10 + dat.target.subindex);
-			// 			console.log("this:");
-			// 			console.log(this);
-			// 	// 		this.colorCount = entang.colorCount;
-			// 			console.log("dat.colorCount:");
-			// 			console.log(dat.colorCount);
-			// 	// 		entang.colorCount += 1;
-			// 		});
-// end colors experiments
 
 			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
@@ -519,22 +405,12 @@ var entang = {
 	}  // end arcTween()
 
 	, chordKey: function (data) {
-		// var dataValues = [];
-		// var key, chordColor;
-		// key = (data.source.index < data.target.index) ?
-	 //        data.source.index  + "-" + data.target.index:
-	 //        data.target.index  + "-" + data.source.index;
-	 //    chordColor = entang.colorCount;
-	 //    entang.colorCount += 1;
-
-	 //    return [key, chordColor];
-	    return (data.source.index < data.target.index) ?
-	        data.source.index  + "-" + data.target.index:
-	        data.target.index  + "-" + data.source.index;
-	    
 	    //create a key that will represent the relationship
 	    //between these two groups *regardless*
 	    //of which group is called 'source' and which 'target'
+	    return (data.source.index < data.target.index) ?
+	        data.source.index  + "-" + data.target.index:
+	        data.target.index  + "-" + data.source.index;
 	}
 
 	, chordTween: function (oldLayout) {
@@ -589,8 +465,6 @@ var entang = {
 	        };
 	    };
 	}  // end chordTween()
-
-	// ~~~ end Sources (3)
 
 	/* (num) -> No idea
 
