@@ -271,8 +271,6 @@ var entang = {
 		updatePart();
 
 		function updatePart () {
-
-			console.log("New call:")
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
 			var groupG = partEntangElem.selectAll(".part-entang .group")
@@ -309,14 +307,14 @@ var entang = {
 			// Add new top-level items with class
 			var newChords = chordPaths.enter().append("path").attr("class", "chord");
 
-			// Before they're animated, hide paths that don't go anywhere
-			// (blank space to indicate un-entangled area)
-			entang.hideOwn();
-
 			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
 				.style("fill", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
 				.style("stroke", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
+				// Hide the paths that don't go anywhere (blank space
+				// to indicate un-entangled area)
+				.filter(function (dat) {return dat.target.index == dat.target.subindex;})
+					.style("opacity", 0)
 			;
 
 			// Animate addition/shape change of paths
@@ -484,24 +482,6 @@ var entang = {
 	      .transition()
 	        .style("opacity", opacity);
 	  };
-	}
-
-	/* Custom code for qromp */
-	/* (None) -> None
-
-	Hides non-pairwise paths - paths that don't make a bridge
-	between one section or another. I'm not sure how else to do
-	this, so I've just decided to put a barnacle on this ship.
-	*/
-	, hideOwn: function () {
-		// Unless the path crosses to somewhere, it's opacity will be 0
-		d3.selectAll(".chord")
-			// Get the paths whose index and subindex match
-			// (the path is refering to its own section)
-			.filter(function (dat) {
-				return dat.target.index == dat.target.subindex;
-			})
-			.style("opacity", 0);
 	}
 }
 
