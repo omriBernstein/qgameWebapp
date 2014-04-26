@@ -305,46 +305,66 @@ var entang = {
 			removeElems(chordPaths);
 
 			// Add new top-level items with class
-			var newChords = chordPaths.enter().append("path").attr("class", "chord");
+			var newChords = chordPaths.enter().append("path")
+				.attr("class", "chord")
+				.filter(function (dat) {
+					return dat.target.index != dat.target.subindex;
+				})
+					.filter(function (dat) {
+						// console.log("Path:");
+						// console.log(dat.target.index * 10 + dat.target.subindex);
+						// console.log(this);
+						this.colorCount = entang.colorCount;
+						// console.log(this.colorCount);
+						entang.colorCount += 1;
+					});
+				;
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
 
 // Colors experiments
 
-// jQuery changes the color number of a bridge/chord each time its matrix
-// values change while d3 indexes and subindexes seem to stay the same for
-// the changed bridge/chord
+// Every time a bridge/chord's matrix value is changed, jQuery seems to treat
+// it as a new object, changing its color number, while d3 indexes and subindexes
+// seem to stay the same. This may be because of the way the animation stuff is
+// set up, not sure.
+
+// This means that assigning a bridge/chord a color value with jQuery won't work,
+// it has to be done using d3 somehow.
 
 // What we really need to do is assign each a data value of a color and use that,
 // doesn't matter what color we assign to start with.
-			console.log("jQuery:");
-			$(".chord").each(function () {
-				$this = $(this);
-				// console.log(!$this.data("color"));
-				if (($this.css("opacity") > 0) && !$this.data("color")) {
-					$this.data("color", entang.colorCount);
-					entang.colorCount += 1;
-				}
-				if ($this.css("opacity") > 0){
-					console.log("Path: ");
-					console.log($(this).data());
-					console.log(this);
-				}
-			});
+			// console.log("jQuery:");
+			// $(".chord").each(function () {
+			// 	$this = $(this);
+			// 	// console.log(!$this.data("color"));
+			// 	if (($this.css("opacity") > 0) && !$this.data("color")) {
+			// 		$this.data("color", entang.colorCount);
+			// 		entang.colorCount += 1;
+			// 	}
+			// 	if ($this.css("opacity") > 0){
+			// 		console.log("Path: ");
+			// 		console.log($(this).data());
+			// 		console.log(this);
+			// 	}
+			// });
 
 // From hideOwn()
-			// d3.selectAll(".chord")
+			d3.selectAll(".chord")
 			// 	// Get the paths whose index and subindex match
 			// 	// (the path is refering to its own section)
-			// 	.filter(function (dat) {
-			// 		return dat.target.index != dat.target.subindex;
-			// 	})
-			// 	.filter(function (dat) {
-			// 		console.log("Path:");
-			// 		console.log(dat.target.index * 10 + dat.target.subindex);
-			// 		console.log(this);
-			// 	});
+				.filter(function (dat) {
+					return dat.target.index != dat.target.subindex;
+				})
+					.filter(function (dat) {
+						console.log("Path:");
+				// 		console.log(dat.target.index * 10 + dat.target.subindex);
+						console.log(this);
+				// 		this.colorCount = entang.colorCount;
+						console.log(this.colorCount);
+				// 		entang.colorCount += 1;
+					});
 // end colors experiments
 
 			// Color paths - changing the colors before anim fixes the black!
