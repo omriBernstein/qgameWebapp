@@ -265,8 +265,8 @@ var entang = {
 		// we'll transition to (from oldPartLayout) (need this var later)
 		// This is a test amount - it is meant to be a percentage
 		// Percent entanglement potential that is unavailable to the qubit
-		var degCantEntang = (2 * Math.PI) * 0.1;
-		var newPartLayout = entang.newChord(newEntangMatrix, degCantEntang);
+		var degCantEntang = 0.1;
+		var newPartLayout = entang.newChord(newEntangMatrix, (2 * Math.PI) * degCantEntang);
 
 		updatePart();
 
