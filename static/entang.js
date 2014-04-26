@@ -179,10 +179,6 @@ var entang = {
 		;
 		center = newCenter
 		radius = newRadius
-		/* To put in inspector once chord dia. is visible (test)
-		matrix = [[100, 0, 10, 30], [0, 100, 30, 10],
-		  [10, 30, 100, 0], [0, 10, 30, 100],]
-		entang.updateChord(center, radius, matrix)*/
 		// end testing
 
 		// To rotate the diagram to line it up with the qubits
@@ -311,6 +307,18 @@ var entang = {
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
+
+// From hideOwn()
+			d3.selectAll(".chord")
+				// Get the paths whose index and subindex match
+				// (the path is refering to its own section)
+				.filter(function (dat) {
+					return dat.target.index != dat.target.subindex;
+				})
+				.filter(function (dat) {
+					console.log(dat.target.index * 10 + dat.target.subindex);
+				});
+
 			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
@@ -331,8 +339,6 @@ var entang = {
 		// ~~~ Our own version of fade, theirs was too complex
 		// partEntangElem.selectAll(".part-entang .group") takes a while to
 		// have the correct values
-		console.log("Wait, and then the code from which groupG is derived:");
-		console.log(partEntangElem.selectAll(".part-entang .group"));
 		partEntangElem.selectAll(".part-entang .group").on("mouseover", entang.fade(.1))
 			.on("mouseout", entang.fade(1))
 		;
@@ -609,4 +615,39 @@ chordPaths.transition()
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
 		}
+*/
+
+/* For testing (Not really robust enough to be considered a testing suite)
+Create a matrix:
+var numQubits = 10;
+var xx = [];
+var row = [];
+for (var indx = 0; indx < numQubits; indx ++) {
+	for (var indx2 = 0; indx2 < numQubits; indx2 ++) {
+		row.push(Math.round(Math.random() * 100));
+	}
+	console.log(row);
+	xx.push(row);
+	row = []
+}
+console.log("matrix: " + xx);
+
+To put in inspector once chord dia. is visible (test):
+Test 1:
+matrix = [[100, 0, 10, 30], [0, 100, 30, 10],
+  [10, 30, 100, 0], [0, 10, 30, 100],]
+entang.updateChord(center, radius, matrix)
+
+Test 2:
+matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 2],
+[51, 52, 74, 98, 35, 41, 29, 28, 99, 28],
+[64, 15, 11, 30, 76, 8, 14, 73, 59, 55],
+[20, 40, 48, 70, 43, 79, 38, 37, 52, 68],
+[46, 34, 72, 73, 28, 49, 30, 46, 86, 71],
+[87, 35, 40, 81, 3, 22, 52, 25, 30, 13],
+[51, 55, 88, 6, 92, 17, 5, 68, 60, 98],
+[79, 53, 89, 94, 68, 73, 96, 37, 83, 63],
+[80, 21, 45, 9, 65, 98, 70, 53, 95, 93],
+[18, 78, 83, 43, 56, 32, 50, 45, 68, 46]]
+entang.updateChord(center, radius, matrix)
 */
