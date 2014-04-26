@@ -19,6 +19,7 @@
 * there are straight lines going across the middle sometimes.
 * I'm not sure how, but I believe adjusting the indexes somehow
 * will fix it (it can't just be shifted one spot over)
+* - I really don't know how to manipulate the data here
 */
 
 var entang = {
@@ -204,7 +205,7 @@ var entang = {
 		var partArcColor = "#9986b3";
 		var fullArcFill = "none", fullArcStroke = "gray";
 		// Just an array of colors now
-		var bridgeColors = ["#9986b3", "red", "green", "blue"];
+		var bridgeColors = ["#9986b3", "red", "green", "blue", "purple", "pink"];
 		// // I'm not sure why this isn't just an array, but afraid to change
 		// var bridgeColors = d3.scale.ordinal()
 		// 	.domain(d3.range(4))
@@ -267,6 +268,8 @@ var entang = {
 		updatePart();
 
 		function updatePart () {
+
+			console.log("New call:")
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
 			var groupG = partEntangElem.selectAll(".part-entang .group")
@@ -294,12 +297,44 @@ var entang = {
 		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// Doesn't need as much automation - not reused
 			// Container's new elements: create data. Also get all elements?
+
+// jsl6906		before line 29 you can do: var chordData = newPartLayout.chords().forEach(function(d) { //assign d.something; }));			4:10
+// jsl6906		then change line 31 to: .data(chordData, ..)
 			var chordPaths = partEntangElem.selectAll("path.chord")
 				// ~~~ I don't understand what this does
 				.data(newPartLayout.chords(), entang.chordKey )
 					//specify a key function to match chords
 					//between updates
+				// .filter(function (dat) {
+				// 	return dat.target.index != dat.target.subindex;
+				// })
+					// .call(function (dat) {
+					// 	console.log("index and subindex: " + dat.index + ", " + dat.subindex);
+					// 	if (dat.target.index != dat.target.subindex) {
+					// 		dat.colorCount = entang.colorCount;
+					// 		// console.log(this.colorCount);
+					// 		entang.colorCount += 1;
+					// 	}
+					// })
+				// .filter(function (dat) {
+				// 	console.log("this:")
+				// 	console.log(this);
+				// 	console.log("index and subindex: " + dat.target.index + ", " + dat.target.subindex);
+				// 	if (dat.target.index != dat.target.subindex) {
+				// 		dat.colorCount = entang.colorCount;
+				// 		// console.log(this.colorCount);
+				// 		entang.colorCount += 1;
+				// 	}
+				// 	return this;
+				// })
+				// .filter(function () {console.log("chordPaths this:");console.log(this);return this})
+				// .call(function (dat) {console.log("chordPaths dat this:");console.log(dat);})
+				// .each(function () {
+				// 	console.log(this);
+				// })
 				;
+			console.log("chordPaths:")
+			console.log(chordPaths);
 
 			// Animate removal of paths
 			removeElems(chordPaths);
@@ -307,18 +342,41 @@ var entang = {
 			// Add new top-level items with class
 			var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord")
-				.filter(function (dat) {
-					return dat.target.index != dat.target.subindex;
-				})
-					.filter(function (dat) {
-						// console.log("Path:");
-						// console.log(dat.target.index * 10 + dat.target.subindex);
-						// console.log(this);
-						this.colorCount = entang.colorCount;
-						// console.log(this.colorCount);
-						entang.colorCount += 1;
-					});
-				;
+				// .filter(function (dat) {
+				// 	return dat.target.index != dat.target.subindex;
+				// })
+					// .filter(function (dat) {
+					// 	// console.log("Path:");
+					// 	// console.log(dat.target.index * 10 + dat.target.subindex);
+					// 	// console.log(this);
+					// 	this.colorCount = entang.colorCount;
+					// 	// console.log(this.colorCount);
+					// 	entang.colorCount += 1;
+					// // });
+					// .each(function (dat) {
+					// 	dat.colorCount = entang.colorCount;
+					// 	// console.log(this.colorCount);
+					// 	entang.colorCount += 1;
+					// })
+					// .filter(function (dat) {
+					// 	console.log(this);
+					// 	console.log("index and subindex: " + dat.target.index + ", " + dat.target.subindex);
+					// 	if (dat.target.index != dat.target.subindex) {
+					// 		dat.colorCount = entang.colorCount;
+					// 		// console.log(this.colorCount);
+					// 		entang.colorCount += 1;
+					// 	}
+					// 	return this;
+					// })
+			;
+
+			// console.log(newChords);
+			// d3.selectAll(".chord").each(function (dat) {
+			// 	if (dat.target.index != dat.target.subindex) {
+			// 		dat.colorCount = entang.colorCount;
+			// 		entang.colorCount += 1;
+			// 	}
+			// });
 			// Before they're animated, hide paths that don't go anywhere
 			// (blank space to indicate un-entangled area)
 			entang.hideOwn();
@@ -351,26 +409,28 @@ var entang = {
 			// });
 
 // From hideOwn()
-			d3.selectAll(".chord")
-			// 	// Get the paths whose index and subindex match
-			// 	// (the path is refering to its own section)
-				.filter(function (dat) {
-					return dat.target.index != dat.target.subindex;
-				})
-					.filter(function (dat) {
-						console.log("Path:");
-				// 		console.log(dat.target.index * 10 + dat.target.subindex);
-						console.log(this);
-				// 		this.colorCount = entang.colorCount;
-						console.log(this.colorCount);
-				// 		entang.colorCount += 1;
-					});
+			// d3.selectAll(".chord")
+			// // 	// Get the paths whose index and subindex match
+			// // 	// (the path is refering to its own section)
+			// 	.filter(function (dat) {
+			// 		return dat.target.index != dat.target.subindex;
+			// 	})
+			// 		.filter(function (dat) {
+			// 			console.log("Path:");
+			// 	// 		console.log(dat.target.index * 10 + dat.target.subindex);
+			// 			console.log("this:");
+			// 			console.log(this);
+			// 	// 		this.colorCount = entang.colorCount;
+			// 			console.log("dat.colorCount:");
+			// 			console.log(dat.colorCount);
+			// 	// 		entang.colorCount += 1;
+			// 		});
 // end colors experiments
 
 			// Color paths - changing the colors before anim fixes the black!
 			chordPaths
-				.style("fill", function(d) { return bridgeColors[d.source.index]; })
-				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
+				.style("fill", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
+				.style("stroke", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
 			;
 
 			// Animate addition/shape change of paths
@@ -459,6 +519,15 @@ var entang = {
 	}  // end arcTween()
 
 	, chordKey: function (data) {
+		// var dataValues = [];
+		// var key, chordColor;
+		// key = (data.source.index < data.target.index) ?
+	 //        data.source.index  + "-" + data.target.index:
+	 //        data.target.index  + "-" + data.source.index;
+	 //    chordColor = entang.colorCount;
+	 //    entang.colorCount += 1;
+
+	 //    return [key, chordColor];
 	    return (data.source.index < data.target.index) ?
 	        data.source.index  + "-" + data.target.index:
 	        data.target.index  + "-" + data.source.index;
