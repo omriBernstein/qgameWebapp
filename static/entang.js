@@ -122,20 +122,13 @@ var entang = {
 			]
 		;
 
-	    // Rotate the diagram to line it up with the qubits
-	    // Need to give arcPadding to newChord() somehow
-		var fullPadding = entangMatrix.length/(entangMatrix.length/.5)
-			, fullPaddingDeg = fullPadding * (180/Math.PI)
-			, rotation = -(360/entangMatrix.length + fullPaddingDeg)/2
-		;
-
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Place the element that will have the diagram
-		entang.partEntangElem = entang.attachChord("entang part-entang", center, rotation);
+		entang.partEntangElem = entang.attachChord("entang part-entang", center, 0);
 
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
 		// Place the element that will have the diagram
-		entang.fullEntangElem = entang.attachChord("entang full-entang", center, rotation);
+		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 
 		// Call the function that will animate the diagram's appearance
 		entang.updateChord(center, firstOuterRadius, entangMatrix);
