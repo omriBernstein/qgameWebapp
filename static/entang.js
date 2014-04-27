@@ -37,27 +37,10 @@ var entang = {
 	, oldFullLayout: null
 	, oldPartLayout: null
 
-	// Just for testing
-	/* (int, int) -> array of ints
-
-	Create one row of the matrix for the qubit
-	*/
-	, createRow: function (indx, numQubits) {
-
-		// Make one array for reach qubit with the right number of 0's
-		var newRow = [];
-		for (var indx2 = 0; indx2 < numQubits; indx2++) {
-			newRow.push(0);
-		}
-		// Give it some starting value for itself
-		newRow[indx] = 100;
-
-		return newRow;
-	}
-
 	/* (int) -> Array of Arrays of ints
 
-	Creates a matrix of numQubits size with no pair-wise paths
+	Creates a matrix with numQubits arrays filled with numQubit values,
+	all equal to each other.
 	*/
 	, newFullEntangMatrix: function (numQubits) {
 		var newMatrix = [], newRow = [];
@@ -86,11 +69,6 @@ var entang = {
 				)
 		;
 	}
-
-// !!! This only takes care of entanglement that shows that things
-// when they can be fully entangled. !!!
-// Should there be separate functions for updating outer sections and
-// connecting paths?
 
 	/* (str, num, Array of Array of ints, int) -> None
 
@@ -146,9 +124,9 @@ var entang = {
 
 	    // Rotate the diagram to line it up with the qubits
 	    // Need to give arcPadding to newChord() somehow
-		var arcPadding = entangMatrix.length/(entangMatrix.length/.5)
-			, arcPaddingDeg = arcPadding * (180/Math.PI)
-			, rotation = -(360/entangMatrix.length + arcPaddingDeg)/2
+		var fullPadding = entangMatrix.length/(entangMatrix.length/.5)
+			, fullPaddingDeg = fullPadding * (180/Math.PI)
+			, rotation = -(360/entangMatrix.length + fullPaddingDeg)/2
 		;
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
@@ -188,15 +166,15 @@ var entang = {
 
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
-			, arcPadding = newNumQubits/(newNumQubits/0.5)
+			, fullPadding = newNumQubits/(newNumQubits/0.5)
 			// Radians of the outlined part of the full entang arcs
 			// (to get a percentage from for the partial entang arcs)
-			, fullArcRad = (2 * Math.PI)/newNumQubits - arcPadding
+			, fullArcRad = (2 * Math.PI)/newNumQubits - fullPadding
 			// To help calculate rotation, which is given in degrees
-			, arcPaddingDeg = arcPadding * (180/Math.PI);
+			, fullPaddingDeg = fullPadding * (180/Math.PI);
 
 		// To rotate the diagram to line it up with the qubits
-		var rotation = -(360/newNumQubits - arcPaddingDeg)/2
+		var rotation = -(360/newNumQubits - fullPaddingDeg)/2
 			// Size of diagram so it's relative to qubits
 			, scale = newRadius/entang.firstOuterRadius
 		;
@@ -207,8 +185,6 @@ var entang = {
 			, pathForChords = entang.pathForChords
 			, fullEntangElem = entang.fullEntangElem
 			, partEntangElem = entang.partEntangElem
-			, oldFullLayout = entang.oldFullLayout
-			, oldPartLayout = entang.oldPartLayout
 		;
 
 		// Color for potential
@@ -241,7 +217,7 @@ var entang = {
 		function updateFull () {
 			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
 			// (need this var later)
-			var newFullLayout = entang.newChord(newFullMatrix, arcPadding);
+			var newFullLayout = entang.newChord(newFullMatrix, fullPadding);
 
 			// Container's new elements: create data. Also get all elements?
 			var groupG = fullEntangElem.selectAll(".full-entang .group")
@@ -263,7 +239,7 @@ var entang = {
 			// Animate addition of paths
 			groupG.select("path").transition()  // groupOfArcs.transition() works too
 					.duration(animTime)
-				.attrTween("d", entang.arcTween( oldFullLayout ))
+				.attrTween("d", entang.arcTween( entang.oldFullLayout ))
 			;
 
 			entang.oldFullLayout = newFullLayout; //save for next update
@@ -279,7 +255,7 @@ var entang = {
 			// Percent entanglement potential that is unavailable to the qubit
 			var percentCantEntang = 0.5;
 			var newPartLayout = entang.newChord(newEntangMatrix,
-				(fullArcRad * percentCantEntang) + arcPadding);
+				(fullArcRad * percentCantEntang) + fullPadding);
 
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
@@ -302,7 +278,7 @@ var entang = {
 			// Animate addition of paths
 			groupG.select("path").transition()  // groupOfArcs.transition() works too
 					.duration(animTime)
-				.attrTween("d", entang.arcTween( oldPartLayout ))
+				.attrTween("d", entang.arcTween( entang.oldPartLayout ))
 			;
 
 		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
@@ -330,11 +306,21 @@ var entang = {
 			// Animate addition/shape change of paths
 			chordPaths.transition()
 				.duration(animTime)
-				.attrTween("d", entang.chordTween( oldPartLayout ))
+				.attrTween("d", entang.chordTween( entang.oldPartLayout ))
 			;
 
 			entang.oldPartLayout = newPartLayout; //save for next update
 		}  // end updatePart()
+
+		// At the very end, since I don't know where else to put it that
+		// it won't get overriden, animate the size and pos change
+		d3.selectAll(".entang")
+			.transition()
+			.duration(animTime)
+			.attr("transform", "translate(" + newCenter
+				+ ") rotate(" + rotation
+				+ ") scale(" + scale + ")")
+			;
 
 		// *** EVENT HANDLERS *** \\
 		//add the mouseover/fade out behaviour to the groups
@@ -346,16 +332,6 @@ var entang = {
 		partEntangElem.selectAll(".part-entang .group").on("mouseover", entang.fade(.1))
 			.on("mouseout", entang.fade(1))
 		;
-
-		// At the very end, since I don't know where else to put it that
-		// it won't get overriden, animate the size and pos change
-		d3.selectAll(".entang")
-			.transition()
-			.duration(animTime)
-			.attr("transform", "translate(" + newCenter
-				+ ") rotate(" + rotation
-				+ ") scale(" + scale + ")")
-			;
 	}  // end updateChord()
 
 	/* (Array of Arrays of ints) -> None
