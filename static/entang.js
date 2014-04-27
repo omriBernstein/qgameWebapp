@@ -272,10 +272,6 @@ var entang = {
 		// we'll transition to (from oldPartLayout) (need this var later)
 		// This is a test amount - it is meant to be a percentage
 		// Percent entanglement potential that is unavailable to the qubit
-		// fullEntang endAngle - startAngle
-		console.log(fullEntangElem.selectAll(".full-entang .group").filter(function (dat){
-			return dat.startAngle;
-		}));
 		var percentCantEntang = 0.5;
 		var newPartLayout = entang.newChord(newEntangMatrix, (fullArcRad * percentCantEntang) + arcPadding);
 
@@ -309,7 +305,7 @@ var entang = {
 		// *** CHORD PATHS, creation, entrance, exit, animation *** \\
 			// Container's new elements: create data. Also get all elements?
 			var chordPaths = partEntangElem.selectAll("path.chord")
-				// ~~~ I don't understand what this does
+				// I don't understand what this does
 				.data(newPartLayout.chords(), entang.chordKey );
 
 			// Animate removal of paths
@@ -339,15 +335,15 @@ var entang = {
 		//add the mouseover/fade out behaviour to the groups
 		//this is reset on every update, so it will use the latest
 		//chordPaths selection
-		// ~~~ Our own version of fade, theirs was too complex
+		// The previous example's version of fade, theirs was too complex
 		// partEntangElem.selectAll(".part-entang .group") takes a while to
 		// have the correct values
 		partEntangElem.selectAll(".part-entang .group").on("mouseover", entang.fade(.1))
 			.on("mouseout", entang.fade(1))
 		;
 
-		// ~~~ At the very end, since I don't know where else to put it that
-		// ~~~ it won't get overriden, animate the size and pos change
+		// At the very end, since I don't know where else to put it that
+		// it won't get overriden, animate the size and pos change
 		d3.selectAll(".entang")
 			.transition()
 			.duration(animTime)
@@ -379,7 +375,7 @@ var entang = {
 		;
 	}
 
-	// ~~~ Sources (3)
+	// Sources (3)
 	, arcTween: function (oldLayout) {
 	    //this function will be called once per update cycle
 	    
@@ -576,7 +572,7 @@ groupG.select("path").transition()  // groupG.transition() works too
 
 // Container's new elements: create data. Also get all elements?
 var chordPaths = partEntangElem.selectAll("path.chord")
-				// ~~~ I don't understand what this does
+				// I don't understand what this does
 				.data( newPartLayout.chords(), entang.chordKey );
 
 // Animate removal of paths
@@ -587,7 +583,7 @@ var newChords = chordPaths.enter().append("path").attr("class", "chord");
 
 // Color paths
 chordPaths
-				// ~~~ Changing the colors here doesn't fix the black
+				// Changing the colors here doesn't fix the black
 				.style("fill", function(d) { return bridgeColors[d.source.index]; })
 				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
 
