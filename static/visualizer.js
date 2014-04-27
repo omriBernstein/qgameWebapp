@@ -163,7 +163,7 @@ function VisualizerObject(containerID) {
 		}
 		// Only create the entanglement dia once there's more than 1 qubit,
 		// otherwise there's a stupd overlay or weird animation.
-		if (numQubits > 1) {createEntang(); chordCreated = true;}
+		else if (numQubits > 1) {createEntang(); chordCreated = true;}
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime.

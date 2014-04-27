@@ -51,6 +51,15 @@ var entang = {
 		return newMatrix;
 	}
 
+	/* (int) -> Array of ints
+
+	Creates an array of length numQubits all filled with the number
+	denoted by padding (to keep info format consistent for setupChords()).
+	*/
+	, setupFullPadding: function (numQubits, padding) {
+
+	}
+
 	/* (str) -> d3 element?
 
 	Adds a chord to the svg element. This is very specific to the current
@@ -195,7 +204,7 @@ var entang = {
 		function updateFull () {
 			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
 			// (need this var later)
-			var newFullLayout = entang.newChord(newFullMatrix, fullPadding);
+			var newFullLayout = entang.setupChords(newFullMatrix, fullPadding);
 
 			// Container's new elements: create data. Also get all elements?
 			var groupG = fullEntangElem.selectAll(".full-entang .group")
@@ -232,7 +241,7 @@ var entang = {
 			// This is a test amount - it is meant to be a percentage
 			// Percent entanglement potential that is unavailable to the qubit
 			var percentCantEntang = 0.5;
-			var newPartLayout = entang.newChord(newEntangMatrix,
+			var newPartLayout = entang.setupChords(newEntangMatrix,
 				(fullArcRad * percentCantEntang) + fullPadding);
 
 		// *** GROUPS(?), creation *** \\
@@ -318,7 +327,7 @@ var entang = {
 	matrix.
 	Just breaking things up in to smaller chunks
 	*/
-	, newChord: function (matrix, arcPadding) {
+	, setupChords: function (matrix, arcPadding) {
 		var arcPadding = arcPadding || 1;
 		return d3.layout.chord()
 			// padding between sections
