@@ -25,6 +25,7 @@
 * newPartLayout.chords().forEach(function(d) { //assign d.something; }));
 */
 
+
 var entang = {
 
 	firstOuterRadius: null
@@ -35,7 +36,6 @@ var entang = {
 	, partEntangElem: null
 	, oldFullLayout: null
 	, oldPartLayout: null
-	, colorCount: 0
 
 	// Just for testing
 	/* (int, int) -> array of ints
@@ -186,10 +186,18 @@ var entang = {
 		radius = newRadius
 		// end testing
 
+		var newNumQubits = newEntangMatrix.length
+			// Padding between the full entanglement arcs
+			, arcPadding = newNumQubits/(newNumQubits/0.5)
+			// Radians of the outlined part of the full entang arcs
+			// (to get a percentage from for the partial entang arcs)
+			, fullArcRad = (2 * Math.PI)/newNumQubits - arcPadding
+			// To help calculate rotation, which is given in degrees
+			, arcPaddingDeg = arcPadding * (180/Math.PI);
+
 		// To rotate the diagram to line it up with the qubits
-		var arcPadding = newEntangMatrix.length/(newEntangMatrix.length/.5)
-			, arcPaddingDeg = arcPadding * (180/Math.PI)
-			, rotation = -(360/newEntangMatrix.length - arcPaddingDeg)/2
+		var rotation = -(360/newNumQubits - arcPaddingDeg)/2
+			// Size of diagram so it's relative to qubits
 			, scale = newRadius/entang.firstOuterRadius
 		;
 
@@ -201,7 +209,6 @@ var entang = {
 			, partEntangElem = entang.partEntangElem
 			, oldFullLayout = entang.oldFullLayout
 			, oldPartLayout = entang.oldPartLayout
-			// , colorCount = entang.colorCount
 		;
 
 		// Color for potential
@@ -229,7 +236,7 @@ var entang = {
 		}
 
 	// *** FULL ENTANGLEMENT *** \\
-		var newFullMatrix = entang.newFullEntangMatrix(newEntangMatrix.length);
+		var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
 		// (need this var later)
 		var newFullLayout = entang.newChord(newFullMatrix, arcPadding);
 
@@ -265,8 +272,12 @@ var entang = {
 		// we'll transition to (from oldPartLayout) (need this var later)
 		// This is a test amount - it is meant to be a percentage
 		// Percent entanglement potential that is unavailable to the qubit
-		var degCantEntang = 0.1;
-		var newPartLayout = entang.newChord(newEntangMatrix, (2 * Math.PI) * degCantEntang);
+		// fullEntang endAngle - startAngle
+		console.log(fullEntangElem.selectAll(".full-entang .group").filter(function (dat){
+			return dat.startAngle;
+		}));
+		var percentCantEntang = 0.5;
+		var newPartLayout = entang.newChord(newEntangMatrix, (fullArcRad * percentCantEntang) + arcPadding);
 
 		updatePart();
 
@@ -612,22 +623,50 @@ matrix = [[100, 50, 10, 30],
 entang.updateChord(center, radius, matrix)
 
 Test 2:
-matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 2],
-[51, 52, 74, 98, 35, 41, 29, 28, 99, 28],
-[64, 15, 11, 30, 76, 8, 14, 73, 59, 55],
-[20, 40, 48, 70, 43, 79, 38, 37, 52, 68],
-[46, 34, 72, 73, 28, 49, 30, 46, 86, 71],
-[87, 35, 40, 81, 3, 22, 52, 25, 30, 13],
-[51, 55, 88, 6, 92, 17, 5, 68, 60, 98],
-[79, 53, 89, 94, 68, 73, 96, 37, 83, 63],
-[80, 21, 45, 9, 65, 98, 70, 53, 95, 93],
-[18, 78, 83, 43, 56, 32, 50, 45, 68, 46]]
-entang.updateChord(center, radius, matrix)
-
-Test 3:
 matrix = [[100, 10, 30],
 	[10, 130, 0],
 	[30, 0, 120]]
+entang.updateChord(center, radius, matrix)
+
+Test 3
+// console.log("[65, 2, 61, 54, 66, 51, 45, 59, 22, 2]" + ((65+2+61+54+66+51+45+59+22+2)-520));
+// console.log("[51, 52, 74, 98, 35, 41, 29, 28, 99, 28]" + ((51+52+74+98+35+41+29+28+99+28)-520));
+// console.log("[64, 15, 11, 30, 76, 8, 14, 73, 59, 55]" + ((64+15+11+30+76+8+14+73+59+55)-520));
+// console.log("[20, 40, 48, 70, 43, 79, 38, 37, 52, 68]" + ((20+40+48+70+43+79+38+37+52+68)-520));
+// console.log("[46, 34, 72, 73, 28, 49, 30, 46, 86, 71]" + ((46+34+72+73+28+49+30+46+86+71)-520));
+// console.log("[87, 35, 40, 81, 3, 22, 52, 25, 30, 13]" + ((87+35+40+81+3+22+52+25+30+13)-520));
+// console.log("[51, 55, 88, 6, 92, 17, 5, 68, 60, 98]" + ((51+55+88+6+92+17+5+68+60+98)-520));
+// console.log("[79, 53, 89, 94, 68, 73, 96, 37, 83, 63]" + ((79+53+89+94+68+73+96+37+83+63)-520));
+// console.log("[80, 21, 45, 9, 65, 98, 70, 53, 95, 93]" + ((80+21+45+9+65+98+70+53+95+93)-520));
+// console.log("[18, 78, 83, 43, 56, 32, 50, 45, 68, 46]" + ((18+78+83+43+56+32+50+45+68+46)-520));
+// console.log("-------------------------");
+// console.log("[65, 2, 61, 54, 66, 51, 45, 59, 22, 95]" + ((65+2+61+54+66+51+45+59+22+95)-520));
+// console.log("[51, 52, 74, 98, 20, 41, 29, 28, 99, 28]" + ((51+52+74+98+20+41+29+28+99+28)-520));
+// console.log("[64, 15, 11, 45, 76, 108, 14, 73, 59, 55]" + ((64+15+11+45+76+108+14+73+59+55)-520));
+// console.log("[45, 40, 48, 70, 43, 79, 38, 37, 52, 68]" + ((45+40+48+70+43+79+38+37+52+68)-520));
+// console.log("[31, 34, 72, 73, 28, 49, 15, 31, 86, 71]" + ((46+34+72+73+28+49+15+46+86+71)-520));
+// console.log("[87, 35, 40, 81, 103, 22, 52, 25, 62, 13]" + ((87+35+40+81+103+22+52+25+62+13)-520));
+// console.log("[51, 55, 88, 6, 92, 17, 5, 68, 60, 78]" + ((51+55+88+6+92+17+5+68+60+78)-520));
+// console.log("[64, 3, 89, 44, 68, 73, 46, 37, 83, 13]" + ((64+3+89+44+68+73+46+37+83+13)-520));
+// console.log("[80, 21, 45, 9, 65, 89, 70, 53, 45, 43]" + ((80+21+45+9+65+89+70+53+45+43)-520));
+// console.log("[18, 78, 83, 43, 56, 32, 50, 45, 68, 47]" + ((18+78+83+43+56+32+50+45+68+47)-520));
+
+// console.log(((65+2+61+54+66+51+45+59+22+2) + (51+52+74+98+35+41+29+28+99+28)
+// + (64+15+11+30+76+8+14+73+59+55) + (20+40+48+70+43+79+38+37+52+68)
+// + (46+34+72+73+28+49+30+46+86+71) + (87+35+40+81+3+22+52+25+30+13)
+// + (51+55+88+6+92+17+5+68+60+98) + (79+53+89+94+68+73+96+37+83+63)
+// + (80+21+45+9+65+98+70+53+95+93) + (18+78+83+43+56+32+50+45+68+46))/10); // 520.8
+
+matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 95],
+[51, 52, 74, 98, 20, 41, 29, 28, 99, 28],
+[64, 15, 11, 45, 76, 108, 14, 73, 59, 55],
+[45, 40, 48, 70, 43, 79, 38, 37, 52, 68],
+[31, 34, 72, 73, 28, 49, 15, 31, 86, 71],
+[87, 35, 40, 81, 103, 22, 52, 25, 62, 13],
+[51, 55, 88, 6, 92, 17, 5, 68, 60, 78],
+[64, 3, 89, 44, 68, 73, 46, 37, 83, 13],
+[80, 21, 45, 9, 65, 89, 70, 53, 45, 43],
+[18, 78, 83, 43, 56, 32, 50, 45, 68, 47]]
 entang.updateChord(center, radius, matrix)
 */
 //
