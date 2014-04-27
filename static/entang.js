@@ -70,19 +70,19 @@ var entang = {
 		;
 	}
 
-	/* (str, num, Array of Array of ints, int) -> None
+	/* (str, num, int) -> None
 
 	Creates a placeholder for the chord diagram centered at center
-	("num, num") with an outer radius of firstOuterRadius, matrix
-	values of entangMatrix and assigns the animation time animTime
-	passed to it.
+	("num, num") with an outer radius of firstOuterRadius, and assigns
+	the animation time animTime passed to it. (After this, the script
+	calling this will call the update function pasing it the matrix)
 
-	It gives values to a lot of the entang properties.
+	It gives values to a some of the entang properties.
 
 	It will start things off with a scale of 1 and adjustments will
 	be made from using outerRadius to calculate the new scale.
 	*/
-	, initChord: function (center, firstOuterRadius, entangMatrix, animTime) {
+	, initChord: function (center, firstOuterRadius, animTime) {
 
 		// --- SETUP --- \\
 		// *** All this stuff will only be calculated once
@@ -109,18 +109,7 @@ var entang = {
 
 		// Sources (3): create the chord path data generator for the chords
 		// What are we calling chords? Seen chord used for different things
-		entang.pathForChords = d3.svg.chord()
-		    .radius(innerRadius)
-	    ;
-
-		// This is just for testing purposes
-		var entangMatrix = entangMatrix || 
-			[
-			  [100, 20, 30],
-			  [20, 130, 0],
-			  [30, 0, 120],
-			]
-		;
+		entang.pathForChords = d3.svg.chord().radius(innerRadius);
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Place the element that will have the diagram
@@ -129,9 +118,6 @@ var entang = {
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
 		// Place the element that will have the diagram
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
-
-		// Call the function that will animate the diagram's appearance
-		entang.updateChord(center, firstOuterRadius, entangMatrix);
 	}  // end initChord()
 
 	/* (str, num, Array of Arrays of ints) -> None
@@ -144,7 +130,6 @@ var entang = {
 	*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix) {
 		// *** SETUP *** \\
-
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
 			[
