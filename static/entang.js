@@ -57,7 +57,9 @@ var entang = {
 	denoted by padding (to keep info format consistent for setupChords()).
 	*/
 	, setupFullPadding: function (numQubits, padding) {
-
+		var paddingArray = []
+		for (var indx = 0; indx < numQubits; indx++) {paddingArray.push(padding);}
+		return paddingArray;
 	}
 
 	/* (str) -> d3 element?
@@ -154,6 +156,8 @@ var entang = {
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
 			, fullPadding = newNumQubits/(newNumQubits/0.5)
+			// Turn that into an array so setupChords() can process it
+			, fullPadArray = entang.setupFullPadding(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
 			// (to get a percentage from for the partial entang arcs)
 			, fullArcRad = (2 * Math.PI)/newNumQubits - fullPadding
@@ -241,6 +245,8 @@ var entang = {
 			// This is a test amount - it is meant to be a percentage
 			// Percent entanglement potential that is unavailable to the qubit
 			var percentCantEntang = 0.5;
+			// var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
+			// var cantEntangArray = setupFullPadding(newNumQubits, cantEntangRad;
 			var newPartLayout = entang.setupChords(newEntangMatrix,
 				(fullArcRad * percentCantEntang) + fullPadding);
 
