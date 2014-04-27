@@ -236,13 +236,13 @@ var entang = {
 		}
 
 	// *** FULL ENTANGLEMENT *** \\
-		var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
-		// (need this var later)
-		var newFullLayout = entang.newChord(newFullMatrix, arcPadding);
-
 		updateFull();
 
 		function updateFull () {
+			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
+			// (need this var later)
+			var newFullLayout = entang.newChord(newFullMatrix, arcPadding);
+
 			// Container's new elements: create data. Also get all elements?
 			var groupG = fullEntangElem.selectAll(".full-entang .group")
 				//use a key function in case the groups are
@@ -265,19 +265,22 @@ var entang = {
 					.duration(animTime)
 				.attrTween("d", entang.arcTween( oldFullLayout ))
 			;
+
+			entang.oldFullLayout = newFullLayout; //save for next update
 		}  // end updateFull()
 
 	// *** PARTIAL ENTANGLEMENT *** \\
-		// Make and store a new layout.chord() with the new matrix that
-		// we'll transition to (from oldPartLayout) (need this var later)
-		// This is a test amount - it is meant to be a percentage
-		// Percent entanglement potential that is unavailable to the qubit
-		var percentCantEntang = 0.5;
-		var newPartLayout = entang.newChord(newEntangMatrix, (fullArcRad * percentCantEntang) + arcPadding);
-
 		updatePart();
 
 		function updatePart () {
+			// Make and store a new layout.chord() with the new matrix that
+			// we'll transition to (from oldPartLayout) (need this var later)
+			// This is a test amount - it is meant to be a percentage
+			// Percent entanglement potential that is unavailable to the qubit
+			var percentCantEntang = 0.5;
+			var newPartLayout = entang.newChord(newEntangMatrix,
+				(fullArcRad * percentCantEntang) + arcPadding);
+
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
 			var groupG = partEntangElem.selectAll(".part-entang .group")
@@ -329,6 +332,8 @@ var entang = {
 				.duration(animTime)
 				.attrTween("d", entang.chordTween( oldPartLayout ))
 			;
+
+			entang.oldPartLayout = newPartLayout; //save for next update
 		}  // end updatePart()
 
 		// *** EVENT HANDLERS *** \\
@@ -351,11 +356,6 @@ var entang = {
 				+ ") rotate(" + rotation
 				+ ") scale(" + scale + ")")
 			;
-
-		entang.oldFullLayout = newFullLayout; //save for next update
-		entang.oldPartLayout = newPartLayout; //save for next update
-
-// For hide, maybe on the fill function use a filter to hide stuff then?
 	}  // end updateChord()
 
 	/* (Array of Arrays of ints) -> None
