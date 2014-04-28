@@ -98,8 +98,11 @@ var entang = {
 		;
 
 		var newNumQubits = newEntangMatrix.length
-			// Padding between the full entanglement arcs
-			, fullPadding = newNumQubits/(newNumQubits*2)
+			// Padding between the full entanglement arcs (using newNumQubits and mapping)
+			// Want 1-ish or less for 3 qubits, want .2-ish for 10 qubits.
+			// Mapping?: low2 + (high2 - low2) * (value - low1) / (high1 - low1)
+			// 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
+			, fullPadding = 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
 			// Turn that into an array so setupChords() can process it
 			, fullPadArray = entang.setupPad(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
@@ -634,6 +637,10 @@ matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 95],
 [64, 3, 89, 44, 68, 73, 46, 37, 83, 13],
 [80, 21, 45, 9, 65, 89, 70, 53, 45, 43],
 [18, 78, 83, 43, 56, 32, 50, 45, 68, 47]]
+entang.updateChord(center, radius, matrix)
+
+Test 4:
+matrix = [[1, 4], [4, 1]]
 entang.updateChord(center, radius, matrix)
 */
 //
