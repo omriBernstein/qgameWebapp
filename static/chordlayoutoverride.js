@@ -51,31 +51,23 @@ d3.layout.chord = function() {
       });
     }
 
-	            console.log("groupIndex"); console.log(groupIndex);
-// Let's get this party started!
-// If .padding() isn't given an array do the usual thing
-if(!padding.length) {
+	// Let's get this party started!
+	// If .padding() isn't given an array, do the usual thing
+	if(!padding.length) {
 	    // Convert the sum to scaling factor for [0, 2pi].
 	    // TODO Allow start and end angle to be specified.
 	    // TODO Allow padding to be specified as percentage?
 	    k = ((2*Math.PI) - padding * n) / k;
-console.log("k: " + k);
 
 	    // Compute the start and end angle for each group and subgroup.
 	    // Note: Opera has a bug reordering object literal properties!
 	    x = 0, i = -1; while (++i < n) {
-console.log("i: " + i);
 	      x0 = x, j = -1; while (++j < n) {
 	        var di = groupIndex[i],
 	            dj = subgroupIndex[di][j],
 	            v = matrix[di][dj],
 	            a0 = x,
 	            a1 = x += v * k;
-console.log("groupIndex[i]: " + groupIndex[i]);
-console.log("subgroupIndex[di][j]: " + subgroupIndex[di][j]);
-console.log("matrix[di][dj]: " + matrix[di][dj]);
-console.log("a0: " + a0);
-console.log("a1: " + a1);
 	        subgroups[di + "-" + dj] = {
 	          index: di,
 	          subindex: dj,
@@ -92,51 +84,43 @@ console.log("a1: " + a1);
 	      };
 	      x += padding;
 	    }
-}
+	}
 
-// if .padding() is given an array, do my thing instead
-else {
-	x = 0, i = -1;
-	for (var indx = 0; indx < padding.length; indx ++) {
-	    // Convert the sum to scaling factor for [0, 2pi].
-	    // TODO Allow start and end angle to be specified.
-	    // TODO Allow padding to be specified as percentage?
-	    newk = ((2*Math.PI) - padding[indx] * n) / k;
-console.log("k: " + k);
-	    // Compute the start and end angle for each group and subgroup.
-	    // Note: Opera has a bug reordering object literal properties!
-	    // x = 0, i = -1; while (++i < n) {
-console.log("array indx: " + indx);
-	      x0 = x, j = -1; while (++j < n) {
-	        var di = groupIndex[indx],
-	            dj = subgroupIndex[di][j],
-	            v = matrix[di][dj],
-	            a0 = x,
-	            a1 = x += v * newk;
-console.log("array groupIndex[indx]" + groupIndex[indx]);
-console.log("subgroupIndex[di][j]: " + subgroupIndex[di][j]);
-console.log("matrix[di][dj]: " + matrix[di][dj]);
-console.log("a0: " + a0);
-console.log("a1: " + a1);
-	        subgroups[di + "-" + dj] = {
-	          index: di,
-	          subindex: dj,
-	          startAngle: a0,
-	          endAngle: a1,
-	          value: v
-	        };
-	      }  // while (++j < n)
-	      groups[di] = {
-	        index: di,
-	        startAngle: x0,
-	        endAngle: x,
-	        value: (x - x0) / newk
-	      };
-	      x += padding[indx];
-	    // }  // end while (++i < n)
-	}  // end for padding.length
-}
-console.log("k: " + k);
+	// if .padding() is given an array, do my thing instead
+	else {
+		x = 0, i = -1;
+		for (var indx = 0; indx < padding.length; indx ++) {
+		    // Convert the sum to scaling factor for [0, 2pi].
+		    // TODO Allow start and end angle to be specified.
+		    // TODO Allow padding to be specified as percentage?
+		    newk = ((2*Math.PI) - padding[indx] * n) / k;
+		    // Compute the start and end angle for each group and subgroup.
+		    // Note: Opera has a bug reordering object literal properties!
+		    x0 = x, j = -1;
+		    while (++j < n) {
+		        var di = groupIndex[indx],
+		            dj = subgroupIndex[di][j],
+		            v = matrix[di][dj],
+		            a0 = x,
+		            a1 = x += v * newk;
+	        	subgroups[di + "-" + dj] = {
+			        index: di,
+			        subindex: dj,
+			        startAngle: a0,
+			        endAngle: a1,
+			        value: v
+		        };
+		    }  // while (++j < n)
+		      groups[di] = {
+		        index: di,
+		        startAngle: x0,
+		        endAngle: x,
+		        value: (x - x0) / newk
+		      };
+		      x += padding[indx];
+		}  // end for padding.length
+	}
+
     // Generate chords for each (non-empty) subgroup-subgroup link.
     i = -1; while (++i < n) {
       j = i - 1; while (++j < n) {

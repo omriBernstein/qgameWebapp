@@ -10,27 +10,25 @@
 * (3) http://stackoverflow.com/questions/21813723/change-and-transition-dataset-in-chord-diagram-with-d3
 * 
 * Notes:
-* - Currently just creates a chord diagram with arbitrary
-* values with one alteration - the chords that go back
-* to the parent are hidden (opacity 0). It is animated,
-* but doesn't show partial potential for entanglement.
-* - Arcs don't look pixelated when large, unlike last attempt
+* - Creates a chord diagram that animates when changed and shows the
+* difference between potential entanglement and full entanglement (I think)
+* (or at least it has potential to once values are plugged in dynamically)
 * - I think because of the order this puts the connections in,
 * there are straight lines going across the middle sometimes.
 * I'm not sure how, but I believe adjusting the indexes somehow
 * will fix it (it can't just be shifted one spot over)
-* - I really don't know how to manipulate the data here
-* - Making sure chord data would have custom elements:
+* - Maybe how to give chord data custom properties:
 * jsl6906		before line 29 you can do: var chordData =
 * newPartLayout.chords().forEach(function(d) { //assign d.something; }));
+* (I think: d.something = otherthing)
 */
 
 var entang = {
 
 	firstOuterRadius: null
 	, animTime: null
-	, arcForGroups: null
-	, pathForChords: null
+	// , arcForGroups: null
+	// , pathForChords: null
 	, fullEntangElem: null
 	, partEntangElem: null
 	, oldFullLayout: null
@@ -72,12 +70,22 @@ var entang = {
 				// Unique class for scaling the size of the whole thing
 				.attr("class", classNames)
 				.attr("transform", "translate(" + center
-					+ ") rotate(" + rotation
-					//To help pixelation when big
-					+ ")"
-				// + " scale(1)"
+					+ ") rotate(" + rotation + ")"
 				)
 		;
+	}
+
+	/* (d3 collection?) -> None
+
+	Update (and animate?) removal of elements. Can this be
+	outside of update?
+	*/
+	, removeElems: function (groupOfElems) {
+		groupOfElems.exit()
+			.transition()
+				.duration(entang.animTime)
+				.attr("opacity", 0)
+				.remove(); //remove after transitions are complete
 	}
 
 	/* (str, num, int) -> None
@@ -121,11 +129,11 @@ var entang = {
 		entang.pathForChords = d3.svg.chord().radius(innerRadius);
 
 	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
-		// Place the element that will have the diagram
+		// Element that will show partial entanglement and the "bridges"/chords
 		entang.partEntangElem = entang.attachChord("entang part-entang", center, 0);
 
 	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
-		// Place the element that will have the diagram
+		// Element that will show full entanglement. On top for debugging visibility
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 	}  // end initChord()
 
@@ -151,6 +159,12 @@ var entang = {
 		radius = newRadius
 		// end testing
 
+		// Bring some things (that will be used repeatedly) into scope
+		var animTime = entang.animTime
+			, fullEntangElem = entang.fullEntangElem
+			, partEntangElem = entang.partEntangElem
+		;
+
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
 			, fullPadding = newNumQubits/(newNumQubits/0.5)
@@ -168,37 +182,12 @@ var entang = {
 			, scale = newRadius/entang.firstOuterRadius
 		;
 
-		// Bring some things (that will be used repeatedly) into scope
-		var animTime = entang.animTime
-			, arcForGroups = entang.arcForGroups
-			, pathForChords = entang.pathForChords
-			, fullEntangElem = entang.fullEntangElem
-			, partEntangElem = entang.partEntangElem
-		;
-
-		// Color for potential
+		// Color for potential and full entanglement arcs(/groups?)
 		var partArcColor = "#9986b3";
 		var fullArcFill = "none", fullArcStroke = "gray";
-		// Just an array of colors now
+		// An array of colors for bridges/chords
 		var bridgeColors = ["#9986b3", "red", "green", "blue", "purple", "pink"];
-		// // I'm not sure why this isn't just an array, but afraid to change
-		// var bridgeColors = d3.scale.ordinal()
-		// 	.domain(d3.range(4))
-		// 	.range(["#9986b3", "red", "green", "blue"])
-		// ;
 
-		/* (d3 collection?) -> None
-
-		Update (and animate?) removal of elements. Can this be
-		outside of update?
-		*/
-		function removeElems (groupOfElems) {
-			groupOfElems.exit()
-				.transition()
-					.duration(animTime)
-					.attr("opacity", 0)
-					.remove(); //remove after transitions are complete
-		}
 
 	// *** FULL ENTANGLEMENT *** \\
 		updateFull();
@@ -215,7 +204,7 @@ var entang = {
 				.data(newFullLayout.groups(), function (d) {return d.index;});
 
 			// Animate removal of paths
-			removeElems(groupG);
+			entang.removeElems(groupG);
 
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
@@ -246,10 +235,7 @@ var entang = {
 			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
 			var cantEntangArray = entang.setupFullPadding(newNumQubits, cantEntangRad);
 			cantEntangArray[1] += 0.5;
-			var newPartLayout = entang.setupChords(newEntangMatrix
-				, cantEntangArray
-				// , (fullArcRad * percentCantEntang) + fullPadding
-				);
+			var newPartLayout = entang.setupChords(newEntangMatrix, cantEntangArray);
 
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
@@ -259,7 +245,7 @@ var entang = {
 				.data(newPartLayout.groups(), function (d) {return d.index;});
 
 			// Animate removal of paths
-			removeElems(groupG);
+			entang.removeElems(groupG);
 
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
@@ -283,7 +269,7 @@ var entang = {
 				.data(newPartLayout.chords(), entang.chordKey );
 
 			// Animate removal of paths
-			removeElems(chordPaths);
+			entang.removeElems(chordPaths);
 
 			// Add new top-level items with class
 			var newChords = chordPaths.enter().append("path").attr("class", "chord");
@@ -298,17 +284,6 @@ var entang = {
 					.style("opacity", 0)
 			;
 
-// d3.selectAll(".part-entang .group")
-// 	.filter(function (dat) {
-// 		console.log( dat.startAngle + ", " + dat.endAngle);
-// 		dat.endAngle = dat.startAngle + (0.05 * (2 * Math.PI));
-// 	});
-// d3.selectAll(".chord")
-// 	.filter(function (dat) {
-// 		console.log( dat.startAngle + ", " + dat.endAngle);
-// 		dat.endAngle = dat.startAngle + (0.05 * (2 * Math.PI));
-// 	});
-
 			// Animate addition/shape change of paths
 			chordPaths.transition()
 				.duration(animTime)
@@ -318,6 +293,7 @@ var entang = {
 			entang.oldPartLayout = newPartLayout; //save for next update
 		}  // end updatePart()
 
+	// *** Final Size Change *** \\
 		// At the very end, since I don't know where else to put it that
 		// it won't get overriden, animate the size and pos change
 		d3.selectAll(".entang")
