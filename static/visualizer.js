@@ -165,12 +165,9 @@ function VisualizerObject(containerID) {
 		// otherwise there's a stupd overlay or weird animation.
 		else if (numQubits > 1) {createEntang(); chordCreated = true;}
 
+		// Instantiate entanglement chord diagram, then animate its appearance
 		function createEntang () {
-		// Need to wait till the qubits are done animating, animTime.
-			// Ideally, if the diagram already exists, just transition it...
-			// but for now, destroy the old one and make a new one
-			// $(".entang").remove();
-
+			// Need to wait till the qubits are done animating, animTime
 			setTimeout(function () {
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
 				entang.initChord(center, arrangeRadius-qubitRadius, animTime);
