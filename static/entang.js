@@ -77,8 +77,7 @@ var entang = {
 
 	/* (d3 collection?) -> None
 
-	Update (and animate?) removal of elements. Can this be
-	outside of update?
+	Update (and animate?) removal of elements.
 	*/
 	, removeElems: function (groupOfElems) {
 		groupOfElems.exit()
@@ -145,7 +144,7 @@ var entang = {
 	to get the new scale of the object, and newEntangMatrix to move
 	the various paths to correct locations.
 	*/
-	, updateChord: function (newCenter, newRadius, newEntangMatrix) {
+	, updateChord: function (newCenter, newRadius, newEntangMatrix, paddingMatrix) {
 		// *** SETUP *** \\
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
@@ -235,6 +234,7 @@ var entang = {
 			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
 			var cantEntangArray = entang.setupFullPadding(newNumQubits, cantEntangRad);
 			cantEntangArray[1] += 0.5;
+			cantEntangArray = paddingArray || cantEntangArray;
 			var newPartLayout = entang.setupChords(newEntangMatrix, cantEntangArray);
 
 		// *** GROUPS(?), creation *** \\
@@ -316,14 +316,14 @@ var entang = {
 		;
 	}  // end updateChord()
 
-	/* (Array of Arrays of ints) -> None
+	/* (Array of Arrays of ints, num or Array of ints) -> None
 
 	Creates a new chord layout with matrix as it's
 	matrix.
 	Just breaking things up in to smaller chunks
 	*/
 	, setupChords: function (matrix, arcPadding) {
-		var arcPadding = arcPadding || 1;
+		var arcPadding = arcPadding || 0.1;
 		return d3.layout.chord()
 			// padding between sections
 			.padding(arcPadding)
