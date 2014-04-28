@@ -104,7 +104,7 @@ var entang = {
 			// Want 1-ish or less for 3 qubits, want .2-ish for 10 qubits.
 			// Mapping?: low2 + (high2 - low2) * (value - low1) / (high1 - low1)
 			// 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
-			, fullPadding = 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
+			, fullPadding = 1 + (0.3 - 1) * (newNumQubits - 3) / (10 - 3)
 			// Turn that into an array so setupChords() can process it
 			, fullPadArray = entang.setupPad(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
