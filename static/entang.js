@@ -25,7 +25,6 @@
 * newPartLayout.chords().forEach(function(d) { //assign d.something; }));
 */
 
-
 var entang = {
 
 	firstOuterRadius: null
@@ -94,7 +93,6 @@ var entang = {
 	be made from using outerRadius to calculate the new scale.
 	*/
 	, initChord: function (center, firstOuterRadius, animTime) {
-
 		// --- SETUP --- \\
 		// *** All this stuff will only be calculated once
 		// * Establishing object variables
@@ -156,7 +154,7 @@ var entang = {
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
 			, fullPadding = newNumQubits/(newNumQubits/0.5)
-			// Turn that into an array so setupChords() can process it
+			// // Turn that into an array so setupChords() can process it
 			, fullPadArray = entang.setupFullPadding(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
 			// (to get a percentage from for the partial entang arcs)
@@ -208,7 +206,7 @@ var entang = {
 		function updateFull () {
 			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
 			// (need this var later)
-			var newFullLayout = entang.setupChords(newFullMatrix, fullPadding);
+			var newFullLayout = entang.setupChords(newFullMatrix, fullPadArray);
 
 			// Container's new elements: create data. Also get all elements?
 			var groupG = fullEntangElem.selectAll(".full-entang .group")
@@ -244,11 +242,14 @@ var entang = {
 			// we'll transition to (from oldPartLayout) (need this var later)
 			// This is a test amount - it is meant to be a percentage
 			// Percent entanglement potential that is unavailable to the qubit
-			var percentCantEntang = 0.5;
-			// var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
-			// var cantEntangArray = setupFullPadding(newNumQubits, cantEntangRad;
-			var newPartLayout = entang.setupChords(newEntangMatrix,
-				(fullArcRad * percentCantEntang) + fullPadding);
+			var percentCantEntang = 0.1;
+			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
+			var cantEntangArray = entang.setupFullPadding(newNumQubits, cantEntangRad);
+			cantEntangArray[1] += 0.5;
+			var newPartLayout = entang.setupChords(newEntangMatrix
+				, cantEntangArray
+				// , (fullArcRad * percentCantEntang) + fullPadding
+				);
 
 		// *** GROUPS(?), creation *** \\
 			// Container's new elements: create data. Also get all elements?
@@ -262,6 +263,7 @@ var entang = {
 
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
+
 			// Add next-level items with index id
 			newGroups.append("path");
 			// Color paths
@@ -295,6 +297,17 @@ var entang = {
 				.filter(function (dat) {return dat.target.index == dat.target.subindex;})
 					.style("opacity", 0)
 			;
+
+// d3.selectAll(".part-entang .group")
+// 	.filter(function (dat) {
+// 		console.log( dat.startAngle + ", " + dat.endAngle);
+// 		dat.endAngle = dat.startAngle + (0.05 * (2 * Math.PI));
+// 	});
+// d3.selectAll(".chord")
+// 	.filter(function (dat) {
+// 		console.log( dat.startAngle + ", " + dat.endAngle);
+// 		dat.endAngle = dat.startAngle + (0.05 * (2 * Math.PI));
+// 	});
 
 			// Animate addition/shape change of paths
 			chordPaths.transition()
