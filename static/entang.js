@@ -72,7 +72,7 @@ var entang = {
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 	}  // end initChord()
 
-	/* (str, num, Array of Arrays of ints) -> None
+	/* (str, num, Array of Arrays of ints, Array of ints) -> None
 
 	Handles animating the creation of and changes to the chord
 	diagram. Uses newCenter ("num, num") to animate the move to the new
@@ -80,7 +80,9 @@ var entang = {
 	to get the new scale of the object, and newEntangMatrix to move
 	the various paths to correct locations, and newPadArray to show
 	entanglement potential.
-	*/
+
+	newEntangMatrix.length should == newPadArray.length
+*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix, newPadArray) {
 		// *** SETUP *** \\
 		// Temp for testing
