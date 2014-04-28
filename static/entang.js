@@ -66,12 +66,9 @@ var entang = {
 		// What are we calling chords? Seen chord used for different things
 		entang.pathForChords = d3.svg.chord().radius(innerRadius);
 
-	// *** PARTIAL ENTANGLEMENT (this one has paths) *** \\
 		// Element that will show partial entanglement and the "bridges"/chords
 		entang.partEntangElem = entang.attachChord("entang part-entang", center, 0);
-
-	// *** FULL ENTANGLEMENT OUTLINE (no paths) *** \\
-		// Element that will show full entanglement. On top for debugging visibility
+		// Element that will show full entanglement. On top for debugging visibility.
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 	}  // end initChord()
 
@@ -81,20 +78,17 @@ var entang = {
 	diagram. Uses newCenter ("num, num") to animate the move to the new
 	centerpoint (I hope), newRadius (and entang.firstOuterRadius)
 	to get the new scale of the object, and newEntangMatrix to move
-	the various paths to correct locations.
+	the various paths to correct locations, and newPadArray to show
+	entanglement potential.
 	*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix, newPadArray) {
 		// *** SETUP *** \\
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
-			[
-			  [100, 20, 30],
+			[[100, 20, 30],
 			  [20, 130, 0],
-			  [30, 0, 120],
-			]
-		;
-		center = newCenter
-		radius = newRadius
+			  [30, 0, 120]];
+		center = newCenter; radius = newRadius;
 		// end testing
 
 		// Bring some things (that will be used repeatedly) into scope
@@ -121,48 +115,48 @@ var entang = {
 		;
 
 		// Color for potential and full entanglement arcs(/groups?)
-		var partArcColor = "#9986b3";
-		var fullArcFill = "none", fullArcStroke = "gray";
+		var partArcColor = "#9986b3", fullArcFill = "none", fullArcStroke = "gray";
 		// An array of colors for bridges/chords
 		var bridgeColors = ["#9986b3", "red", "green", "blue", "purple", "pink"];
 
+	// *** BUSINESS *** \\
+		updateFull();  // Full Entanglement
+		updatePart();  // Partial Entanglement
 
-	// *** FULL ENTANGLEMENT *** \\
-		updateFull();
-
-		function updateFull () {
-			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
-			// (need this var later)
-			var newFullLayout = entang.setupChords(newFullMatrix, fullPadArray);
-
-			// Container's new elements: create data. Also get all elements?
-			var groupG = fullEntangElem.selectAll(".full-entang .group")
-				//use a key function in case the groups are
-				// sorted differently between updates
-				.data(newFullLayout.groups(), function (d) {return d.index;});
-
-			// Animate removal of paths
-			entang.removeElems(groupG);
-
-			// Add new top-level items with class
-			var newGroups = groupG.enter().append("g").attr("class", "group");
-			// Add next-level items and their colors
-			newGroups.append("path")
-				.style("fill", fullArcFill)
-				.style("stroke", fullArcStroke);
-
-			// Animate addition of paths
-			groupG.select("path").transition()  // groupOfArcs.transition() works too
-					.duration(animTime)
-				.attrTween("d", entang.arcTween( entang.oldFullLayout ))
+	// --- Final Size and Pos Change Animation --- \\
+		// Don't know where else to put it so it won't get overridden
+		d3.selectAll(".entang")
+			.transition()
+			.duration(animTime)
+			.attr("transform", "translate(" + newCenter
+				+ ") rotate(" + rotation
+				+ ") scale(" + scale + ")")
 			;
 
-			entang.oldFullLayout = newFullLayout; //save for next update
-		}  // end updateFull()
+	// *** EVENT HANDLERS *** \\
+		//add the mouseover/fade out behaviour to the groups
+		//this is reset on every update, so it will use the latest
+		//chordPaths selection
+		// The previous example's version of fade, this person's was too complex
+		// partEntangElem.selectAll(".part-entang .group") takes a while to
+		// have the correct values
+		partEntangElem.selectAll(".part-entang .group")
+			.on("mouseover", entang.fade(.1))
+			.on("mouseout", entang.fade(1))
+		;
 
-	// *** PARTIAL ENTANGLEMENT *** \\
-		updatePart();
+	// *** FUNCTIONS *** \\
+	// --- Partial Entanglement --- \\
+		/* (None) -> None
 
+		Animates the updating of the partial entanglement arcs and bridges/chords,
+		including creation, removal, and addition of arcs (creation is just
+		addition of arcs and bridges from 0). The arcs will only take up some of
+		the space displayed by the full entanglement arcs and will correspond to
+		the individual qubit's probability.
+
+		They need the variables declared inside updateChord().
+		*/
 		function updatePart () {
 			// This is a test amount - it is meant to be a percentage
 			// Percent entanglement potential that is unavailable to the qubit
@@ -229,27 +223,47 @@ var entang = {
 			entang.oldPartLayout = newPartLayout; //save for next update
 		}  // end updatePart()
 
-	// *** Final Size and Pos Change Animation *** \\
-		// Don't know where else to put it so it won't get overriden
-		d3.selectAll(".entang")
-			.transition()
-			.duration(animTime)
-			.attr("transform", "translate(" + newCenter
-				+ ") rotate(" + rotation
-				+ ") scale(" + scale + ")")
+	// --- Full Entanglement --- \\
+		/* (None) -> None
+
+		Animates the updating of the full entanglement arcs, including creation,
+		removal, and addition of arcs (creation is just addition of arcs from 0).
+		These arcs will be superimposed on top of the partial arcs. They will
+		mark the size of the maximum entanglement potential as a comparison point.
+
+		They need the variables declared inside updateChord(). Basically the
+		same as the top part of updatePart(). Has no chords/bridges.
+		*/
+		function updateFull () {
+			var newFullMatrix = entang.newFullEntangMatrix(newNumQubits);
+			// (need this var later)
+			var newFullLayout = entang.setupChords(newFullMatrix, fullPadArray);
+
+			// Container's new elements: create data. Also get all elements?
+			var groupG = fullEntangElem.selectAll(".full-entang .group")
+				//use a key function in case the groups are
+				// sorted differently between updates
+				.data(newFullLayout.groups(), function (d) {return d.index;});
+
+			// Animate removal of paths
+			entang.removeElems(groupG);
+
+			// Add new top-level items with class
+			var newGroups = groupG.enter().append("g").attr("class", "group");
+			// Add next-level items and their colors
+			newGroups.append("path")
+				.style("fill", fullArcFill)
+				.style("stroke", fullArcStroke);
+
+			// Animate addition of paths
+			groupG.select("path").transition()  // groupOfArcs.transition() works too
+					.duration(animTime)
+				.attrTween("d", entang.arcTween( entang.oldFullLayout ))
 			;
 
-	// *** EVENT HANDLERS *** \\
-		//add the mouseover/fade out behaviour to the groups
-		//this is reset on every update, so it will use the latest
-		//chordPaths selection
-		// The previous example's version of fade, this person's was too complex
-		// partEntangElem.selectAll(".part-entang .group") takes a while to
-		// have the correct values
-		partEntangElem.selectAll(".part-entang .group")
-			.on("mouseover", entang.fade(.1))
-			.on("mouseout", entang.fade(1))
-		;
+			entang.oldFullLayout = newFullLayout; //save for next update
+		}  // end updateFull()
+
 	}  // end updateChord()
 
 	/* (int) -> Array of Arrays of ints
