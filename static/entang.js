@@ -99,7 +99,7 @@ var entang = {
 
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
-			, fullPadding = newNumQubits/(newNumQubits/0.5)
+			, fullPadding = newNumQubits/(newNumQubits*2)
 			// Turn that into an array so setupChords() can process it
 			, fullPadArray = entang.setupPad(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
@@ -584,15 +584,15 @@ console.log("matrix: " + xx);
 To put in inspector once chord dia. is visible (test):
 Test 1:
 matrix = [[100, 50, 10, 30],
-	[50, 200, 30, 10],
-  	[10, 30, 500, 0],
-  	[0, 10, 30, 70]]
+	[50, 100, 30, 10],
+  	[10, 30, 150, 0],
+  	[0, 10, 30, 150]]
 entang.updateChord(center, radius, matrix)
 
 Test 2:
 matrix = [[100, 10, 30],
 	[10, 130, 0],
-	[30, 0, 120]]
+	[30, 0, 110]]
 entang.updateChord(center, radius, matrix)
 
 Test 3
