@@ -150,7 +150,7 @@ function VisualizerObject(containerID) {
 
 	// --- ENTANGLEMENT --- //
 		// Temp for testing
-		var entangMatrix = false;
+		var entangMatrix = false, paddingArray = false;
 
 		// If there's a chord diagram existing (because of delay on creation
 		// this has to come first so it won't fire the first time numQubits > 1)
@@ -159,7 +159,7 @@ function VisualizerObject(containerID) {
 			// If qubits are reduced to one or less, scale it to 0 (disappears)
 			if (numQubits <= 1) { entang.updateChord(center, 0, entangMatrix); }
 			// Otherwise, usually, just animate the change in the diagram
-			else { entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix); }
+			else { entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix, paddingArray); }
 		}
 		// Only create the entanglement dia once there's more than 1 qubit,
 		// otherwise there's a stupd overlay or weird animation.
@@ -174,7 +174,7 @@ function VisualizerObject(containerID) {
 			setTimeout(function () {
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
 				entang.initChord(center, arrangeRadius-qubitRadius, animTime);
-				entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix);
+				entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix, paddingArray);
 			}
 				, animTime);
 		}  // end createEntang()
