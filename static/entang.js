@@ -144,7 +144,7 @@ var entang = {
 	to get the new scale of the object, and newEntangMatrix to move
 	the various paths to correct locations.
 	*/
-	, updateChord: function (newCenter, newRadius, newEntangMatrix, paddingMatrix) {
+	, updateChord: function (newCenter, newRadius, newEntangMatrix, newPadArray) {
 		// *** SETUP *** \\
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
@@ -234,7 +234,7 @@ var entang = {
 			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
 			var cantEntangArray = entang.setupFullPadding(newNumQubits, cantEntangRad);
 			cantEntangArray[1] += 0.5;
-			cantEntangArray = paddingArray || cantEntangArray;
+			cantEntangArray = newPadArray || cantEntangArray;
 			var newPartLayout = entang.setupChords(newEntangMatrix, cantEntangArray);
 
 		// *** GROUPS(?), creation *** \\
