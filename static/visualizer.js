@@ -10,6 +10,8 @@ function VisualizerObject(containerID) {
 		margin = .9,
 		qubitScale = .4,
 		animTime = 500;
+	// Must put in new version
+	var chordCreated = false;
 
 	this.render = function(qubitStates) {
 			// Environment info
@@ -147,38 +149,35 @@ function VisualizerObject(containerID) {
 		}
 
 	// --- ENTANGLEMENT --- //
-	// Need to wait till here so have correct values for now
+		// Temp for testing
+		var entangMatrix = false;
 
-		var entangMatrix = [];
-
-		// Let's try with d3 again
-		d3.selectAll(".qubit").each(function (dat, indx) {
-			// Assign an array to the qubit object without destroying
-			// the previous data object (entang.js)
-			d3.select(this).data()[0].entang = entang.createRow(indx, numQubits);
-			// Put that array into the entanglement matrix array
-			entangMatrix.push(d3.select(this).data()[0].entang);
-
-			// d3.select(this).data([0123]); // console.log gets [83]
-		});
+		// If there's a chord diagram existing (because of delay on creation
+		// this has to come first so it won't fire the first time numQubits > 1)
+		if (chordCreated) {
+			var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
+			// If qubits are reduced to one or less, scale it to 0 (disappears)
+			if (numQubits <= 1) { entang.updateChord(center, 0, entangMatrix); }
+			// Otherwise, usually, just animate the change in the diagram
+			else { entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix); }
+		}
+		// Only create the entanglement dia once there's more than 1 qubit,
+		// otherwise there's a stupd overlay or weird animation.
+		else if (numQubits > 1) {createEntang(); chordCreated = true;}
 
 		function createEntang () {
 		// Need to wait till the qubits are done animating, animTime.
 			// Ideally, if the diagram already exists, just transition it...
 			// but for now, destroy the old one and make a new one
-			$(".entang").remove();
+			// $(".entang").remove();
 
 			setTimeout(function () {
-				$(".entang").remove();
 				var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
-				entang.createChord(entangMatrix, arrangeRadius-qubitRadius, center);}
+				entang.initChord(center, arrangeRadius-qubitRadius, animTime);
+				entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix);
+			}
 				, animTime);
-		}
-
-		if (numQubits > 1) {
-			createEntang();
-		}
-		else {$(".entang").remove();}
+		}  // end createEntang()
 
 	}  // end this.render()
 }
