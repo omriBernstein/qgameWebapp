@@ -53,16 +53,15 @@ var entang = {
 	Creates an array of length numQubits all filled with the number
 	denoted by padding (to keep info format consistent for setupChords()).
 	*/
-	, setupFullPadding: function (numQubits, padding) {
+	, setupPad: function (numQubits, padding) {
 		var paddingArray = []
 		for (var indx = 0; indx < numQubits; indx++) {paddingArray.push(padding);}
 		return paddingArray;
 	}
 
-	/* (str) -> d3 element?
+	/* (str, num, num) -> d3 element?
 
-	Adds a chord to the svg element. This is very specific to the current
-	setup, not very general
+	Adds an element to the svg element with the given classNames, center, and rotation
 	*/
 	, attachChord: function (classNames, center, rotation) {
 		return d3.select("#qubit-svg")
@@ -77,7 +76,7 @@ var entang = {
 
 	/* (d3 collection?) -> None
 
-	Update (and animate?) removal of elements.
+	Update and animate removal of elements.
 	*/
 	, removeElems: function (groupOfElems) {
 		groupOfElems.exit()
@@ -92,12 +91,9 @@ var entang = {
 	Creates a placeholder for the chord diagram centered at center
 	("num, num") with an outer radius of firstOuterRadius, and assigns
 	the animation time animTime passed to it. (After this, the script
-	calling this will call the update function pasing it the matrix)
+	calling this will call the update function passing it the matrix)
 
 	It gives values to a some of the entang properties.
-
-	It will start things off with a scale of 1 and adjustments will
-	be made from using outerRadius to calculate the new scale.
 	*/
 	, initChord: function (center, firstOuterRadius, animTime) {
 		// --- SETUP --- \\
@@ -109,13 +105,8 @@ var entang = {
 		entang.animTime = animTime;
 		// * This is used to establish the next object variable
 		var innerRadius = firstOuterRadius/1.1;
-		// *** These initial values will only be calculated once,
-		// but later on the function will be used.
-		// Why make a function not look like a function? I don't know.
-		// * Still establishing object variables
-		// It's a pain that this doesn't look like a function, but later
-		// looks like a function later, but I think it's just changing
-		// values.
+		// It's a pain that this doesn't look like a function now, but later
+		// does - I think the function just changes values?
 		// Sources (3): create the arc path data generator for the groups
 		// What are the groups? There are lots of groups! Are these groups
 		// of bridges? Or sections around the circle? What?
@@ -167,8 +158,8 @@ var entang = {
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs
 			, fullPadding = newNumQubits/(newNumQubits/0.5)
-			// // Turn that into an array so setupChords() can process it
-			, fullPadArray = entang.setupFullPadding(newNumQubits, fullPadding)
+			// Turn that into an array so setupChords() can process it
+			, fullPadArray = entang.setupPad(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
 			// (to get a percentage from for the partial entang arcs)
 			, fullArcRad = (2 * Math.PI)/newNumQubits - fullPadding
@@ -207,10 +198,9 @@ var entang = {
 
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
-			// Add next-level items with index id
-			newGroups.append("path");
-			// Color paths
-			newGroups.style("fill", fullArcFill)
+			// Add next-level items and their colors
+			newGroups.append("path")
+				.style("fill", fullArcFill)
 				.style("stroke", fullArcStroke);
 
 			// Animate addition of paths
@@ -226,15 +216,16 @@ var entang = {
 		updatePart();
 
 		function updatePart () {
-			// Make and store a new layout.chord() with the new matrix that
-			// we'll transition to (from oldPartLayout) (need this var later)
 			// This is a test amount - it is meant to be a percentage
 			// Percent entanglement potential that is unavailable to the qubit
 			var percentCantEntang = 0.1;
 			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
-			var cantEntangArray = entang.setupFullPadding(newNumQubits, cantEntangRad);
-			cantEntangArray[1] += 0.5;
+			var cantEntangArray = entang.setupPad(newNumQubits, cantEntangRad);
+			cantEntangArray[1] += 0.1;
 			cantEntangArray = newPadArray || cantEntangArray;
+
+			// Make and store a new layout.chord() with the new matrix that
+			// we'll transition to (from oldPartLayout)
 			var newPartLayout = entang.setupChords(newEntangMatrix, cantEntangArray);
 
 		// *** GROUPS(?), creation *** \\
@@ -250,10 +241,9 @@ var entang = {
 			// Add new top-level items with class
 			var newGroups = groupG.enter().append("g").attr("class", "group");
 
-			// Add next-level items with index id
-			newGroups.append("path");
-			// Color paths
-			newGroups.style("fill", partArcColor)
+			// Add next-level items and their colors
+			newGroups.append("path")
+				.style("fill", partArcColor)
 				.style("stroke", partArcColor);
 
 			// Animate addition of paths
@@ -271,11 +261,9 @@ var entang = {
 			// Animate removal of paths
 			entang.removeElems(chordPaths);
 
-			// Add new top-level items with class
-			var newChords = chordPaths.enter().append("path").attr("class", "chord");
-
-			// Color paths - changing the colors before anim fixes the black!
-			chordPaths
+			// Add new top-level items with class and colors based on array
+			var newChords = chordPaths.enter().append("path")
+				.attr("class", "chord")
 				.style("fill", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
 				.style("stroke", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
 				// Hide the paths that don't go anywhere (blank space
@@ -293,9 +281,8 @@ var entang = {
 			entang.oldPartLayout = newPartLayout; //save for next update
 		}  // end updatePart()
 
-	// *** Final Size Change *** \\
-		// At the very end, since I don't know where else to put it that
-		// it won't get overriden, animate the size and pos change
+	// *** Final Size and Pos Change Animation *** \\
+		// Don't know where else to put it so it won't get overriden
 		d3.selectAll(".entang")
 			.transition()
 			.duration(animTime)
@@ -304,29 +291,41 @@ var entang = {
 				+ ") scale(" + scale + ")")
 			;
 
-		// *** EVENT HANDLERS *** \\
+	// *** EVENT HANDLERS *** \\
 		//add the mouseover/fade out behaviour to the groups
 		//this is reset on every update, so it will use the latest
 		//chordPaths selection
-		// The previous example's version of fade, theirs was too complex
+		// The previous example's version of fade, this person's was too complex
 		// partEntangElem.selectAll(".part-entang .group") takes a while to
 		// have the correct values
-		partEntangElem.selectAll(".part-entang .group").on("mouseover", entang.fade(.1))
+		partEntangElem.selectAll(".part-entang .group")
+			.on("mouseover", entang.fade(.1))
 			.on("mouseout", entang.fade(1))
 		;
 	}  // end updateChord()
 
-	/* (Array of Arrays of ints, num or Array of ints) -> None
+	/* (Array of Arrays of ints, Array of ints) -> None
 
-	Creates a new chord layout with matrix as it's
-	matrix.
-	Just breaking things up in to smaller chunks
+	Creates a new chord layout with matrix as it's matrix and
+	arcPadding as an array (whose length is equal to matrix's length)
+	of numbers, the padding for each arc around the circle.
+
+	(ONLY GIVE THIS AN ARRAY. We can actually give a number or no input
+	as well, but please don't take advantange and confuse the issue.)
 	*/
-	, setupChords: function (matrix, arcPadding) {
-		var arcPadding = arcPadding || 0.1;
+	, setupChords: function (matrix, arcPadArray) {
+		var arcPadArray = arcPadArray || 0.1;
+
+		// If an array is given for padding, but it's length is not the
+		// same as the matrix, give a warning.
+		if (arcPadArray.length
+			&& (arcPadArray.length != matrix.length)) {
+			console.log("Your padding array is too short or too long, weird things may happen!");
+		}
+
 		return d3.layout.chord()
 			// padding between sections
-			.padding(arcPadding)
+			.padding(arcPadArray)
 			.sortSubgroups(d3.descending)
 			.sortChords(d3.ascending)
 			.matrix(matrix)
@@ -429,7 +428,7 @@ var entang = {
 	    };
 	}  // end chordTween()
 
-	/* (num) -> No idea
+	/* (num) -> No idea (d3 collection of ".chord"?)
 
 	Uses a number between 0 and 1 (opacity) to animate the fading
 	out (or in) the filtered paths. I don't know what kind of thing
