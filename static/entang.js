@@ -469,21 +469,7 @@ var entang = {
 }
 
 /* For testing (Not really robust enough to be considered a testing suite)
-Create a matrix:
-var numQubits = 10;
-var xx = [];
-var row = [];
-for (var indx = 0; indx < numQubits; indx ++) {
-	for (var indx2 = 0; indx2 < numQubits; indx2 ++) {
-		row.push(Math.round(Math.random() * 100));
-	}
-	console.log(row);
-	xx.push(row);
-	row = []
-}
-console.log("matrix: " + xx);
-
-To put in inspector once chord dia. is visible (test):
+To put in inspector console once chord diagram is visible:
 Test 1:
 matrix = [[100, 50, 10, 30],
 	[50, 100, 30, 10],
