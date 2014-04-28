@@ -34,58 +34,6 @@ var entang = {
 	, oldFullLayout: null
 	, oldPartLayout: null
 
-	/* (int) -> Array of Arrays of ints
-
-	Creates a matrix with numQubits arrays filled with numQubit values,
-	all equal to each other.
-	*/
-	, newFullEntangMatrix: function (numQubits) {
-		var newMatrix = [], newRow = [];
-		// Every row is the same, filled with the right number of 1's
-		for (var indx = 0; indx < numQubits; indx++) {newRow.push(1);}
-		// Fill the matrix with the right number of those rows
-		for (var indx = 0; indx < numQubits; indx++) {newMatrix.push(newRow);}
-		return newMatrix;
-	}
-
-	/* (int) -> Array of ints
-
-	Creates an array of length numQubits all filled with the number
-	denoted by padding (to keep info format consistent for setupChords()).
-	*/
-	, setupPad: function (numQubits, padding) {
-		var paddingArray = []
-		for (var indx = 0; indx < numQubits; indx++) {paddingArray.push(padding);}
-		return paddingArray;
-	}
-
-	/* (str, num, num) -> d3 element?
-
-	Adds an element to the svg element with the given classNames, center, and rotation
-	*/
-	, attachChord: function (classNames, center, rotation) {
-		return d3.select("#qubit-svg")
-			.append("g")
-				// Unique class for scaling the size of the whole thing
-				.attr("class", classNames)
-				.attr("transform", "translate(" + center
-					+ ") rotate(" + rotation + ")"
-				)
-		;
-	}
-
-	/* (d3 collection?) -> None
-
-	Update and animate removal of elements.
-	*/
-	, removeElems: function (groupOfElems) {
-		groupOfElems.exit()
-			.transition()
-				.duration(entang.animTime)
-				.attr("opacity", 0)
-				.remove(); //remove after transitions are complete
-	}
-
 	/* (str, num, int) -> None
 
 	Creates a placeholder for the chord diagram centered at center
@@ -304,6 +252,46 @@ var entang = {
 		;
 	}  // end updateChord()
 
+	/* (int) -> Array of Arrays of ints
+
+	Creates a matrix with numQubits arrays filled with numQubit values,
+	all equal to each other.
+	*/
+	, newFullEntangMatrix: function (numQubits) {
+		var newMatrix = [], newRow = [];
+		// Every row is the same, filled with the right number of 1's
+		for (var indx = 0; indx < numQubits; indx++) {newRow.push(1);}
+		// Fill the matrix with the right number of those rows
+		for (var indx = 0; indx < numQubits; indx++) {newMatrix.push(newRow);}
+		return newMatrix;
+	}
+
+	/* (int) -> Array of ints
+
+	Creates an array of length numQubits all filled with the number
+	denoted by padding (to keep info format consistent for setupChords()).
+	*/
+	, setupPad: function (numQubits, padding) {
+		var paddingArray = []
+		for (var indx = 0; indx < numQubits; indx++) {paddingArray.push(padding);}
+		return paddingArray;
+	}
+
+	/* (str, num, num) -> d3 element?
+
+	Adds an element to the svg element with the given classNames, center, and rotation
+	*/
+	, attachChord: function (classNames, center, rotation) {
+		return d3.select("#qubit-svg")
+			.append("g")
+				// Unique class for scaling the size of the whole thing
+				.attr("class", classNames)
+				.attr("transform", "translate(" + center
+					+ ") rotate(" + rotation + ")"
+				)
+		;
+	}
+
 	/* (Array of Arrays of ints, Array of ints) -> None
 
 	Creates a new chord layout with matrix as it's matrix and
@@ -330,6 +318,18 @@ var entang = {
 			.sortChords(d3.ascending)
 			.matrix(matrix)
 		;
+	}
+
+	/* (d3 collection?) -> None
+
+	Update and animate removal of elements.
+	*/
+	, removeElems: function (groupOfElems) {
+		groupOfElems.exit()
+			.transition()
+				.duration(entang.animTime)
+				.attr("opacity", 0)
+				.remove(); //remove after transitions are complete
 	}
 
 	// Sources (3)
