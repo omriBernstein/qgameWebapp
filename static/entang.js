@@ -209,8 +209,10 @@ var entang = {
 			// Add new top-level items with class and colors based on array
 			var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord")
-				.style("fill", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
-				.style("stroke", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
+				.style("fill", function(dat) {return bridgeColors[(dat.target.index
+					* 10 + dat.target.subindex) % 6]; })
+				.style("stroke", function(dat) {return bridgeColors[(dat.target.index
+					* 10 + dat.target.subindex) % 6]; })
 				// Hide the paths that don't go anywhere (blank space
 				// to indicate un-entangled area)
 				.filter(function (dat) {return dat.target.index == dat.target.subindex;})
