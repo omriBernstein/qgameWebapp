@@ -182,4 +182,29 @@ $(document).ready(function() {
 		}
 		downloadLink.click();
 	}
+
+	// *** GUIDE DATA *** \\
+	// <a class="guide-link button" data-target="#l-start">getting started</a>
+	// <a class="guide-link button" data-target="#l-quantum-computers">on quantum computers</a>
+	// <a class="guide-link button" data-target="#l-qubits">on qubits</a>
+	// <a class="guide-link button" data-target="#l-gates">on quantum gates</a>
+	// <a class="guide-link button" data-target="#l-oracles">on oracles</a>
+	// <a class="guide-link button" data-target="#l-grovers">Grover's algorithm</a>
+	// <h1>examples</h1>
+	// <a class="guide-link button" data-target="#e-deutsch-jozsa">Deutsch-Jozsa algorithm</a>
+	// <a class="guide-link button" data-target="#e-grovers">Grover's algorithm</a>
+	// <a class="guide-link button" data-target="#e-shors">Shor's algorithm</a>
+	// <h1>documentation</h1>
+	// <a class="guide-link button" data-target="#l-qnot">qnot</a>
+	// <a class="guide-link button" data-target="#l-cnot">cnot</a>
+	// <a class="guide-link button" data-target="#l-srn">srn</a>
+	// <a class="guide-link button" data-target="#l-nand">nand</a>
+	// <a class="guide-link button" data-target="#l-hadamard">hadamard</a>
+	// <a class="guide-link button" data-target="#l-utheta">utheta</a>
+	// <a class="guide-link button" data-target="#l-cphase">cphase</a>
+	// <a class="guide-link button" data-target="#l-u2">u2</a>
+	// <a class="guide-link button" data-target="#l-swap">swap</a>
+	// <a class="guide-link button" data-target="#l-measure">measure</a>
+	// <a class="guide-link button" data-target="#l-end">end</a>
+	// <a class="guide-link button" data-target="#l-oracle">oracle</a>
 });
