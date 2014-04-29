@@ -72,7 +72,7 @@ var entang = {
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 	}  // end initChord()
 
-	/* (str, num, Array of Arrays of ints) -> None
+	/* (str, num, Array of Arrays of ints, Array of ints) -> None
 
 	Handles animating the creation of and changes to the chord
 	diagram. Uses newCenter ("num, num") to animate the move to the new
@@ -80,7 +80,9 @@ var entang = {
 	to get the new scale of the object, and newEntangMatrix to move
 	the various paths to correct locations, and newPadArray to show
 	entanglement potential.
-	*/
+
+	newEntangMatrix.length must == newPadArray.length
+*/
 	, updateChord: function (newCenter, newRadius, newEntangMatrix, newPadArray) {
 		// *** SETUP *** \\
 		// Temp for testing
@@ -99,10 +101,8 @@ var entang = {
 
 		var newNumQubits = newEntangMatrix.length
 			// Padding between the full entanglement arcs (using newNumQubits and mapping)
-			// Want 1-ish or less for 3 qubits, want .2-ish for 10 qubits.
-			// Mapping?: low2 + (high2 - low2) * (value - low1) / (high1 - low1)
-			// 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
-			, fullPadding = 1 + (0.2 - 1) * (newNumQubits - 3) / (10 - 3)
+			// Mapping: low2 + (high2 - low2) * (value - low1) / (high1 - low1)
+			, fullPadding = 1 + (0.3 - 1) * (newNumQubits - 3) / (10 - 3)
 			// Turn that into an array so setupChords() can process it
 			, fullPadArray = entang.setupPad(newNumQubits, fullPadding)
 			// Radians of the outlined part of the full entang arcs
@@ -209,8 +209,10 @@ var entang = {
 			// Add new top-level items with class and colors based on array
 			var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord")
-				.style("fill", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
-				.style("stroke", function(dat) {return bridgeColors[(dat.target.index * 10 + dat.target.subindex) % 6]; })
+				.style("fill", function(dat) {return bridgeColors[(dat.target.index
+					* 10 + dat.target.subindex) % 6]; })
+				.style("stroke", function(dat) {return bridgeColors[(dat.target.index
+					* 10 + dat.target.subindex) % 6]; })
 				// Hide the paths that don't go anywhere (blank space
 				// to indicate un-entangled area)
 				.filter(function (dat) {return dat.target.index == dat.target.subindex;})
@@ -466,125 +468,8 @@ var entang = {
 	}
 }
 
-
-/* Compare update procedures for arcs vs. bridges
-// (easier to see when in color)
-// --- Both --- \\
-// Container's new elements: create data. Also get all elements?
-// Animate removal of paths
-// Add new top-level items with class
-// (Add next-level items with index id not included, that's just for Arcs)
-// Color paths
-// Animate transition of paths (addition and, if needed, shape change)
-
-// --- Arcs --- \\
-// Specific vars needed:
-// - Collection of arcs in group (groupG)
-// - Div that has arc groups (partEntangElem)
-// - Selectors to select just the arcs (".part-entang .group")
-// - layout.chord() established for these arcs (newPartLayout)
-// - What to get from teh layout.chord() (.groups())
-// - How to create the index (function (d) {return d.index;})
-
-// - Collection of new arcs (newGroups)
-// - Class for new arcs ("group")
-
-// - id starter to append to paths in the new arcs ("part-group")
-	// not sure of it's function, don't think it's needed for qromp
-
-// - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
-// - Animation Time (animTime)
-
-// - Previous layout.chord()
-
-// Container's new elements: create data. Also get all elements?
-var groupG = partEntangElem.selectAll(".part-entang .group")  // this is groupG
-				//use a key function in case the groups are
-				// sorted differently between updates
-				.data(newPartLayout.groups(), function (d) {return d.index;});
-
-// Animate removal of paths
-removeElems(groupG);
-
-// Add new top-level items with class
-var newGroups = groupG.enter().append("g").attr("class", "group");
-
-// Add next-level items with index id
-newGroups.append("path")
-				// //using dat.index and not i to maintain consistency
-				// //even if groups are sorted (knod: huh?
-				// // not sure of it's function, don't think it's needed for qromp
-				// .attr("id", function (dat) {return "part-group" + dat.index;})
-				;
-
-// Color paths
-// newGroups.select("path") works too (this may be because all colored the same)
-newGroups.style("fill", partArcColor)
-				.style("stroke", partArcColor)
-			;
-
-// Animate addition of paths
-groupG.select("path").transition()  // groupG.transition() works too
-					.duration(animTime)
-				.attrTween("d", entang.arcTween( oldPartLayout ))
-			;
-
-// --- Bridges --- \\
-// Specific vars needed:
-// - Collection of bridges in group (chordPaths)
-// - Div that has bridge groups (partEntangElem)
-// - Selectors to select just the bridges ("path.chord")
-// - layout.chord() established for these bridges (newPartLayout)
-// - What to get from teh layout.chord() (.chords())
-// - How to create the index (entang.chordKey)
-
-// - Collection of new bridges (newChords)
-// - *Class* to append to bridges ("chord")
-
-// - Colors for fill and stroke (partArcColor, partArcColor) or ("none", "black")
-// - Animation Time (animTime)
-
-// Container's new elements: create data. Also get all elements?
-var chordPaths = partEntangElem.selectAll("path.chord")
-				// I don't understand what this does
-				.data( newPartLayout.chords(), entang.chordKey );
-
-// Animate removal of paths
-removeElems(chordPaths);
-
-// Add new top-level items with class
-var newChords = chordPaths.enter().append("path").attr("class", "chord");
-
-// Color paths
-chordPaths
-				// Changing the colors here doesn't fix the black
-				.style("fill", function(d) { return bridgeColors[d.source.index]; })
-				.style("stroke", function(d) { return bridgeColors[d.source.index]; })
-
-// Animate addition/shape change of paths
-chordPaths.transition()
-				.duration(animTime)
-				.attrTween("d", entang.chordTween( oldPartLayout ))
-			;
-		}
-*/
-
 /* For testing (Not really robust enough to be considered a testing suite)
-Create a matrix:
-var numQubits = 10;
-var xx = [];
-var row = [];
-for (var indx = 0; indx < numQubits; indx ++) {
-	for (var indx2 = 0; indx2 < numQubits; indx2 ++) {
-		row.push(Math.round(Math.random() * 100));
-	}
-	console.log(row);
-	xx.push(row);
-	row = []
-}
-console.log("matrix: " + xx);
-
-To put in inspector once chord dia. is visible (test):
+To put in inspector console once chord diagram is visible:
 Test 1:
 matrix = [[100, 50, 10, 30],
 	[50, 100, 30, 10],
@@ -598,35 +483,7 @@ matrix = [[100, 10, 30],
 	[30, 0, 110]]
 entang.updateChord(center, radius, matrix)
 
-Test 3
-// console.log("[65, 2, 61, 54, 66, 51, 45, 59, 22, 2]" + ((65+2+61+54+66+51+45+59+22+2)-520));
-// console.log("[51, 52, 74, 98, 35, 41, 29, 28, 99, 28]" + ((51+52+74+98+35+41+29+28+99+28)-520));
-// console.log("[64, 15, 11, 30, 76, 8, 14, 73, 59, 55]" + ((64+15+11+30+76+8+14+73+59+55)-520));
-// console.log("[20, 40, 48, 70, 43, 79, 38, 37, 52, 68]" + ((20+40+48+70+43+79+38+37+52+68)-520));
-// console.log("[46, 34, 72, 73, 28, 49, 30, 46, 86, 71]" + ((46+34+72+73+28+49+30+46+86+71)-520));
-// console.log("[87, 35, 40, 81, 3, 22, 52, 25, 30, 13]" + ((87+35+40+81+3+22+52+25+30+13)-520));
-// console.log("[51, 55, 88, 6, 92, 17, 5, 68, 60, 98]" + ((51+55+88+6+92+17+5+68+60+98)-520));
-// console.log("[79, 53, 89, 94, 68, 73, 96, 37, 83, 63]" + ((79+53+89+94+68+73+96+37+83+63)-520));
-// console.log("[80, 21, 45, 9, 65, 98, 70, 53, 95, 93]" + ((80+21+45+9+65+98+70+53+95+93)-520));
-// console.log("[18, 78, 83, 43, 56, 32, 50, 45, 68, 46]" + ((18+78+83+43+56+32+50+45+68+46)-520));
-// console.log("-------------------------");
-// console.log("[65, 2, 61, 54, 66, 51, 45, 59, 22, 95]" + ((65+2+61+54+66+51+45+59+22+95)-520));
-// console.log("[51, 52, 74, 98, 20, 41, 29, 28, 99, 28]" + ((51+52+74+98+20+41+29+28+99+28)-520));
-// console.log("[64, 15, 11, 45, 76, 108, 14, 73, 59, 55]" + ((64+15+11+45+76+108+14+73+59+55)-520));
-// console.log("[45, 40, 48, 70, 43, 79, 38, 37, 52, 68]" + ((45+40+48+70+43+79+38+37+52+68)-520));
-// console.log("[31, 34, 72, 73, 28, 49, 15, 31, 86, 71]" + ((46+34+72+73+28+49+15+46+86+71)-520));
-// console.log("[87, 35, 40, 81, 103, 22, 52, 25, 62, 13]" + ((87+35+40+81+103+22+52+25+62+13)-520));
-// console.log("[51, 55, 88, 6, 92, 17, 5, 68, 60, 78]" + ((51+55+88+6+92+17+5+68+60+78)-520));
-// console.log("[64, 3, 89, 44, 68, 73, 46, 37, 83, 13]" + ((64+3+89+44+68+73+46+37+83+13)-520));
-// console.log("[80, 21, 45, 9, 65, 89, 70, 53, 45, 43]" + ((80+21+45+9+65+89+70+53+45+43)-520));
-// console.log("[18, 78, 83, 43, 56, 32, 50, 45, 68, 47]" + ((18+78+83+43+56+32+50+45+68+47)-520));
-
-// console.log(((65+2+61+54+66+51+45+59+22+2) + (51+52+74+98+35+41+29+28+99+28)
-// + (64+15+11+30+76+8+14+73+59+55) + (20+40+48+70+43+79+38+37+52+68)
-// + (46+34+72+73+28+49+30+46+86+71) + (87+35+40+81+3+22+52+25+30+13)
-// + (51+55+88+6+92+17+5+68+60+98) + (79+53+89+94+68+73+96+37+83+63)
-// + (80+21+45+9+65+98+70+53+95+93) + (18+78+83+43+56+32+50+45+68+46))/10); // 520.8
-
+Test 3:
 matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 95],
 [51, 52, 74, 98, 20, 41, 29, 28, 99, 28],
 [64, 15, 11, 45, 76, 108, 14, 73, 59, 55],
