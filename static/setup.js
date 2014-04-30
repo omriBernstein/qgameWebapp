@@ -205,24 +205,24 @@ $(document).ready(function() {
 		+ "\n</div>"
 	);  // end #l-start.html
 
-	$("#l-quant-comp").html();  // end #l-quant-comp.html
-	$("#l-qubits").html(); // end #l-qubits.html
-	$("#l-gates").html(); // end #l-gates.html
-	$("#l-oracles").html(); // end #l-oracles.html
-	$("#l-grovers").html(); // end #l-grovers.html
-	$("#e-deutsch-jozsa").html(); // end #e-deutsch-jozsa.html
-	$("#e-grovers").html(); // end #e-grovers.html
-	$("#e-shors").html(); // end #e-shors.html
-	$("#d-qnot").html(); // end #d-qnot.html
-	$("#d-cnot").html(); // end #d-cnot.html
-	$("#d-srn").html(); // end #d-srn.html
-	$("#d-nand").html(); // end #d-nand.html
-	$("#d-hadamard").html(); // end #d-hadamard.html
-	$("#d-utheta").html(); // end #d-utheta.html
-	$("#d-cphase").html(); // end #d-cphase.html
-	$("#d-u2").html(); // end #d-u2.html
-	$("#d-swap").html(); // end #d-swap.html
-	$("#d-measure").html(); // end #d-measure.html
-	$("#d-end").html(); // end #d-end.html
-	$("#d-oracle").html(); // end #d-oracle.html
+	$("#l-quant-comp").html("Stuff about quantum computers");  // end #l-quant-comp.html
+	$("#l-qubits").html("Stuff about qubits"); // end #l-qubits.html
+	$("#l-gates").html("Stuff about gates"); // end #l-gates.html
+	$("#l-oracles").html("Stuff about oracles"); // end #l-oracles.html
+	$("#l-grovers").html("Stuff about grovers"); // end #l-grovers.html
+	$("#e-deutsch-jozsa").html("Stuff about deutsch-jozsa"); // end #e-deutsch-jozsa.html
+	$("#e-grovers").html("Stuff about grovers"); // end #e-grovers.html
+	$("#e-shors").html("Stuff about shors"); // end #e-shors.html
+	$("#d-qnot").html("Stuff about qnot"); // end #d-qnot.html
+	$("#d-cnot").html("Stuff about cnot"); // end #d-cnot.html
+	$("#d-srn").html("Stuff about srn"); // end #d-srn.html
+	$("#d-nand").html("Stuff about nand"); // end #d-nand.html
+	$("#d-hadamard").html("Stuff about hadamard"); // end #d-hadamard.html
+	$("#d-utheta").html("Stuff about utheta"); // end #d-utheta.html
+	$("#d-cphase").html("Stuff about cphase"); // end #d-cphase.html
+	$("#d-u2").html("Stuff about u2"); // end #d-u2.html
+	$("#d-swap").html("Stuff about swap"); // end #d-swap.html
+	$("#d-measure").html("Stuff about measure"); // end #d-measure.html
+	$("#d-end").html("Stuff about end"); // end #d-end.html
+	$("#d-oracle").html("Stuff about oracle"); // end #d-oracle.html
 });
