@@ -184,27 +184,45 @@ $(document).ready(function() {
 	}
 
 	// *** GUIDE DATA *** \\
-	// <a class="guide-link button" data-target="#l-start">getting started</a>
-	// <a class="guide-link button" data-target="#l-quantum-computers">on quantum computers</a>
-	// <a class="guide-link button" data-target="#l-qubits">on qubits</a>
-	// <a class="guide-link button" data-target="#l-gates">on quantum gates</a>
-	// <a class="guide-link button" data-target="#l-oracles">on oracles</a>
-	// <a class="guide-link button" data-target="#l-grovers">Grover's algorithm</a>
-	// <h1>examples</h1>
-	// <a class="guide-link button" data-target="#e-deutsch-jozsa">Deutsch-Jozsa algorithm</a>
-	// <a class="guide-link button" data-target="#e-grovers">Grover's algorithm</a>
-	// <a class="guide-link button" data-target="#e-shors">Shor's algorithm</a>
-	// <h1>documentation</h1>
-	// <a class="guide-link button" data-target="#d-qnot">qnot</a>
-	// <a class="guide-link button" data-target="#d-cnot">cnot</a>
-	// <a class="guide-link button" data-target="#d-srn">srn</a>
-	// <a class="guide-link button" data-target="#d-nand">nand</a>
-	// <a class="guide-link button" data-target="#d-hadamard">hadamard</a>
-	// <a class="guide-link button" data-target="#d-utheta">utheta</a>
-	// <a class="guide-link button" data-target="#d-cphase">cphase</a>
-	// <a class="guide-link button" data-target="#d-u2">u2</a>
-	// <a class="guide-link button" data-target="#d-swap">swap</a>
-	// <a class="guide-link button" data-target="#d-measure">measure</a>
-	// <a class="guide-link button" data-target="#d-end">end</a>
-	// <a class="guide-link button" data-target="#d-oracle">oracle</a>
+	// One option:
+	$("#l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn all about stuff..."
+		+ "\n<div class='example-list'>"
+		+ "\nClick on an example (feature incomplete):"
+		+ "\n<ul>"
+			+ "\n<li class='example'>u2 0 1 0.3 1.6 1</li>"
+				+ "\n<li class='example'>hadamard 0</li>"
+				+ "\n<li class='example'>utheta 0 0.6</li>"
+				+ "\n<li class='example'>hadamard 2<br>"
++ "\nhadamard 1<br>"
++ "\nutheta 0 0.785398<br>"
++ "\nnand 0 2 1<br>"
++ "\nhadamard 2<br>"
++ "\ncnot 2 1<br>"
++ "\nhadamard 2<br>"
++ "\nutheta 1 1.570796<br>"
++ "\nutheta 2 1.570796</li>"
+			+ "\n</ul>"
+		+ "\n</div>"
+	);  // end #l-start.html
+
+	$("#l-quant-comp").html();  // end #l-quant-comp.html
+	$("#l-qubits").html(); // end #l-qubits.html
+	$("#l-gates").html(); // end #l-gates.html
+	$("#l-oracles").html(); // end #l-oracles.html
+	$("#l-grovers").html(); // end #l-grovers.html
+	$("#e-deutsch-jozsa").html(); // end #e-deutsch-jozsa.html
+	$("#e-grovers").html(); // end #e-grovers.html
+	$("#e-shors").html(); // end #e-shors.html
+	$("#d-qnot").html(); // end #d-qnot.html
+	$("#d-cnot").html(); // end #d-cnot.html
+	$("#d-srn").html(); // end #d-srn.html
+	$("#d-nand").html(); // end #d-nand.html
+	$("#d-hadamard").html(); // end #d-hadamard.html
+	$("#d-utheta").html(); // end #d-utheta.html
+	$("#d-cphase").html(); // end #d-cphase.html
+	$("#d-u2").html(); // end #d-u2.html
+	$("#d-swap").html(); // end #d-swap.html
+	$("#d-measure").html(); // end #d-measure.html
+	$("#d-end").html(); // end #d-end.html
+	$("#d-oracle").html(); // end #d-oracle.html
 });
