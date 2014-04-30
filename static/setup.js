@@ -183,8 +183,7 @@ $(document).ready(function() {
 		downloadLink.click();
 	}
 
-	// *** GUIDE DATA *** \\
-	// One option:
+	// *** GUIDE HTML *** \\
 	$("#l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn all about stuff..."
 		+ "\n<div class='example-list'>"
 		+ "\nClick on an example (feature incomplete):"
