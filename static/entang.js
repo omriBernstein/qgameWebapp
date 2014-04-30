@@ -206,7 +206,7 @@ var entang = {
 			// Animate removal of paths
 			entang.removeElems(chordPaths);
 
-			// Add new top-level items with class and colors based on array
+			// Add new top-level items with class and colors based on array and element indexes
 			var newChords = chordPaths.enter().append("path")
 				.attr("class", "chord")
 				.style("fill", function(dat) {return bridgeColors[(dat.target.index

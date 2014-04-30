@@ -182,4 +182,46 @@ $(document).ready(function() {
 		}
 		downloadLink.click();
 	}
+
+	// *** GUIDE HTML *** \\
+	$("#l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn all about stuff..."
+		+ "\n<div class='example-list'>"
+		+ "\nClick on an example (feature incomplete):"
+		+ "\n<ul>"
+			+ "\n<li class='example'>u2 0 1 0.3 1.6 1</li>"
+				+ "\n<li class='example'>hadamard 0</li>"
+				+ "\n<li class='example'>utheta 0 0.6</li>"
+				+ "\n<li class='example'>hadamard 2<br>"
++ "\nhadamard 1<br>"
++ "\nutheta 0 0.785398<br>"
++ "\nnand 0 2 1<br>"
++ "\nhadamard 2<br>"
++ "\ncnot 2 1<br>"
++ "\nhadamard 2<br>"
++ "\nutheta 1 1.570796<br>"
++ "\nutheta 2 1.570796</li>"
+			+ "\n</ul>"
+		+ "\n</div>"
+	);  // end #l-start.html
+
+	$("#l-quant-comp").html("Stuff about quantum computers");  // end #l-quant-comp.html
+	$("#l-qubits").html("Stuff about qubits"); // end #l-qubits.html
+	$("#l-gates").html("Stuff about gates"); // end #l-gates.html
+	$("#l-oracles").html("Stuff about oracles"); // end #l-oracles.html
+	$("#l-grovers").html("Stuff about grovers"); // end #l-grovers.html
+	$("#e-deutsch-jozsa").html("Stuff about deutsch-jozsa"); // end #e-deutsch-jozsa.html
+	$("#e-grovers").html("Stuff about grovers"); // end #e-grovers.html
+	$("#e-shors").html("Stuff about shors"); // end #e-shors.html
+	$("#d-qnot").html("Stuff about qnot"); // end #d-qnot.html
+	$("#d-cnot").html("Stuff about cnot"); // end #d-cnot.html
+	$("#d-srn").html("Stuff about srn"); // end #d-srn.html
+	$("#d-nand").html("Stuff about nand"); // end #d-nand.html
+	$("#d-hadamard").html("Stuff about hadamard"); // end #d-hadamard.html
+	$("#d-utheta").html("Stuff about utheta"); // end #d-utheta.html
+	$("#d-cphase").html("Stuff about cphase"); // end #d-cphase.html
+	$("#d-u2").html("Stuff about u2"); // end #d-u2.html
+	$("#d-swap").html("Stuff about swap"); // end #d-swap.html
+	$("#d-measure").html("Stuff about measure"); // end #d-measure.html
+	$("#d-end").html("Stuff about end"); // end #d-end.html
+	$("#d-oracle").html("Stuff about oracle"); // end #d-oracle.html
 });
