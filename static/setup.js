@@ -40,14 +40,14 @@ $(document).ready(function() {
 		$("#hidden-file-input").click();
 	});
 
-	$("#export").on('click', exportProgram);
+	$("#export").on("click", exportProgram);
 
 	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);
 		$guideMenu.addClass("hidden");
 		$guideDetail.removeClass("hidden");
-		$("#guide-item-title").text($this.text());
+		$(".guide-item-title").text($this.text());
 		$($this.data("target")).addClass("current");
 	});
 	
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		var $current = $guideDetail.addClass("hidden").children(".current");
 		setTimeout(function() {$current.removeClass("current");}, 450)
 	});
-	
+
 	// --- Toggle visibility of reference drawer --- \\
 	$("#reference-handle").click(function() {
 		var $this = $(this);
@@ -91,6 +91,12 @@ $(document).ready(function() {
 				$dragged.css({"top": event.pageY - diffY, "left": event.pageX - diffX});
 			})
 	});
+	
+	// --- Open guide documentation content with ref "?" button --- \\
+	$(".reference-button").on("click", function () {
+		// We already have something to handle this. Use it.
+		$(".guide-item, " + $(this).data("target")).trigger("click");
+	})
 
 	// --- Set editor to example text --- \\
 	$(".example").on("click", function (evt) {
@@ -184,7 +190,7 @@ $(document).ready(function() {
 	}
 
 	// *** GUIDE HTML *** \\
-	$("#l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn all about stuff..."
+	$(".guide-item.l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn all about stuff..."
 		+ "\n<div class='example-list'>"
 		+ "\nClick on an example (feature incomplete):"
 		+ "\n<ul>"
@@ -204,24 +210,24 @@ $(document).ready(function() {
 		+ "\n</div>"
 	);  // end #l-start.html
 
-	$("#l-quant-comp").html("Stuff about quantum computers");  // end #l-quant-comp.html
-	$("#l-qubits").html("Stuff about qubits"); // end #l-qubits.html
-	$("#l-gates").html("Stuff about gates"); // end #l-gates.html
-	$("#l-oracles").html("Stuff about oracles"); // end #l-oracles.html
-	$("#l-grovers").html("Stuff about grovers"); // end #l-grovers.html
-	$("#e-deutsch-jozsa").html("Stuff about deutsch-jozsa"); // end #e-deutsch-jozsa.html
-	$("#e-grovers").html("Stuff about grovers"); // end #e-grovers.html
-	$("#e-shors").html("Stuff about shors"); // end #e-shors.html
-	$("#d-qnot").html("Stuff about qnot"); // end #d-qnot.html
-	$("#d-cnot").html("Stuff about cnot"); // end #d-cnot.html
-	$("#d-srn").html("Stuff about srn"); // end #d-srn.html
-	$("#d-nand").html("Stuff about nand"); // end #d-nand.html
-	$("#d-hadamard").html("Stuff about hadamard"); // end #d-hadamard.html
-	$("#d-utheta").html("Stuff about utheta"); // end #d-utheta.html
-	$("#d-cphase").html("Stuff about cphase"); // end #d-cphase.html
-	$("#d-u2").html("Stuff about u2"); // end #d-u2.html
-	$("#d-swap").html("Stuff about swap"); // end #d-swap.html
-	$("#d-measure").html("Stuff about measure"); // end #d-measure.html
-	$("#d-end").html("Stuff about end"); // end #d-end.html
-	$("#d-oracle").html("Stuff about oracle"); // end #d-oracle.html
+	$(".guide-item.l-quantcomp").html("Stuff about quantum computers");  // end .l-quantcomp.html
+	$(".guide-item.l-qubits").html("Stuff about qubits"); // end .l-qubits.html
+	$(".guide-item.l-gates").html("Stuff about gates"); // end .l-gates.html
+	$(".guide-item.l-oracles").html("Stuff about oracles"); // end .l-oracles.html
+	$(".guide-item.l-grovers").html("Stuff about grovers"); // end .l-grovers.html
+	$(".guide-item.e-deutschjozsa").html("Stuff about deutsch-jozsa"); // end .e-deutschjozsa.html
+	$(".guide-item.e-grovers").html("Stuff about grovers"); // end .e-grovers.html
+	$(".guide-item.e-shors").html("Stuff about shors"); // end .e-shors.html
+	$(".guide-item.d-qnot").html("Stuff about qnot"); // end .d-qnot.html
+	$(".guide-item.d-cnot").html("Stuff about cnot"); // end .d-cnot.html
+	$(".guide-item.d-srn").html("Stuff about srn"); // end .d-srn.html
+	$(".guide-item.d-nand").html("Stuff about nand"); // end .d-nand.html
+	$(".guide-item.d-hadamard").html("Stuff about hadamard"); // end .d-hadamard.html
+	$(".guide-item.d-utheta").html("Stuff about utheta"); // end .d-utheta.html
+	$(".guide-item.d-cphase").html("Stuff about cphase"); // end .d-cphase.html
+	$(".guide-item.d-u2").html("Stuff about u2"); // end .d-u2.html
+	$(".guide-item.d-swap").html("Stuff about swap"); // end .d-swap.html
+	$(".guide-item.d-measure").html("Stuff about measure"); // end .d-measure.html
+	$(".guide-item.d-end").html("Stuff about end"); // end .d-end.html
+	$(".guide-item.d-oracle").html("Stuff about oracle"); // end .d-oracle.html
 });
