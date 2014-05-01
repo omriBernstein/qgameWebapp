@@ -45,6 +45,10 @@ $(document).ready(function() {
 	// --- Open guide content --- \\
 	$(".guide-link").click(function() {
 		var $this = $(this);
+		// This means the text won't disappear when guide item is closed
+		// (won't need a delay before removing) and yet will have the
+		// correct text
+		$(".guide-item").removeClass("current");
 		$guideMenu.addClass("hidden");
 		$guideDetail.removeClass("hidden");
 		$(".guide-item-title").text($this.text());
@@ -55,7 +59,7 @@ $(document).ready(function() {
 	$("#guide-back").click(function() {
 		$guideMenu.removeClass("hidden");
 		var $current = $guideDetail.addClass("hidden").children(".current");
-		setTimeout(function() {$current.removeClass("current");}, 450)
+		// setTimeout(function() {$current.removeClass("current");}, 450)
 	});
 
 	// --- Toggle visibility of reference drawer --- \\
