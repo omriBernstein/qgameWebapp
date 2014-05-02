@@ -130,24 +130,35 @@ $(document).ready(function() {
 
 	function safeEvaluate() {
 		try {
-	    	evaluate(editor.getValue(), function(qubitStates) {
-		    	buildQubitArray(qubitStates);
+	    	evaluate(editor.getValue(), function(qubitStates, entangMatrix, paddingArray) {
+		    	buildQubitArray(qubitStates, entangMatrix, paddingArray);
 		    });
 	    } catch (e) {
+	    	//console.log(e);
 	    	//maybe put a little warning icon in the editor
 	    } 
 	}
 
-	function buildQubitArray(newStates) {
+	function buildQubitArray(newStates, newEntangMatrix, newPaddingArray) {
+		var fullEntangMatrix = newEntangMatrix || [[]],
+			fullPaddingArray = newPaddingArray || [];
 		if (newStates) {
 			computedStates = newStates;
 			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
 		}
 		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
 			fullStates.push(defaultQubit);
+			fullPaddingArray.push(2);
+			var lastRow = [];
+			for (var k = 0; k < fullEntangMatrix.length; k++) {
+				fullEntangMatrix[k].push(0);
+				lastRow.push(0);
+			}
+			lastRow.push(1);
+			fullEntangMatrix.push(lastRow);
 		}
 		numQubits = i;
-		visualizer.render(fullStates);
+		visualizer.render(fullStates, fullEntangMatrix, fullPaddingArray);
 	}
 
 	function readSingleFile(evt) {

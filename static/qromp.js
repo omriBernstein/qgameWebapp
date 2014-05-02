@@ -1,4 +1,4 @@
-(function(){
+;(function(){
 var COMPILED = !0, goog = goog || {};
 goog.global = this;
 goog.DEBUG = !0;
@@ -1810,50 +1810,50 @@ cljs.core._invoke = function() {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
     return B.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v, x);
-  }, a = function(a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V, Y) {
+  }, a = function(a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V, Y) {
     switch(arguments.length) {
       case 1:
         return b.call(this, a);
       case 2:
-        return c.call(this, a, E);
+        return c.call(this, a, F);
       case 3:
-        return d.call(this, a, E, z);
+        return d.call(this, a, F, z);
       case 4:
-        return e.call(this, a, E, z, C);
+        return e.call(this, a, F, z, C);
       case 5:
-        return f.call(this, a, E, z, C, I);
+        return f.call(this, a, F, z, C, I);
       case 6:
-        return g.call(this, a, E, z, C, I, K);
+        return g.call(this, a, F, z, C, I, K);
       case 7:
-        return h.call(this, a, E, z, C, I, K, G);
+        return h.call(this, a, F, z, C, I, K, H);
       case 8:
-        return k.call(this, a, E, z, C, I, K, G, H);
+        return k.call(this, a, F, z, C, I, K, H, E);
       case 9:
-        return l.call(this, a, E, z, C, I, K, G, H, F);
+        return l.call(this, a, F, z, C, I, K, H, E, G);
       case 10:
-        return m.call(this, a, E, z, C, I, K, G, H, F, J);
+        return m.call(this, a, F, z, C, I, K, H, E, G, J);
       case 11:
-        return n.call(this, a, E, z, C, I, K, G, H, F, J, M);
+        return n.call(this, a, F, z, C, I, K, H, E, G, J, M);
       case 12:
-        return r.call(this, a, E, z, C, I, K, G, H, F, J, M, O);
+        return r.call(this, a, F, z, C, I, K, H, E, G, J, M, O);
       case 13:
-        return p.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N);
+        return p.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N);
       case 14:
-        return s.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R);
+        return s.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R);
       case 15:
-        return q.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S);
+        return q.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S);
       case 16:
-        return u.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q);
+        return u.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q);
       case 17:
-        return x.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T);
+        return x.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T);
       case 18:
-        return v.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U);
+        return v.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U);
       case 19:
-        return t.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L);
+        return t.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L);
       case 20:
-        return w.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V);
+        return w.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V);
       case 21:
-        return B.call(this, a, E, z, C, I, K, G, H, F, J, M, O, N, R, S, Q, T, U, L, V, Y);
+        return B.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V, Y);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -20284,7 +20284,7 @@ var math = {js:{}};
     } else {
       var c;
       for ("\n" != y && ";" != y && "" != y && (a = l());"\n" == y || ";" == y;) {
-        b || (b = new F, a && (c = ";" != y, b.add(a, c))), e(), "\n" != y && ";" != y && "" != y && (a = l(), c = ";" != y, b.add(a, c));
+        b || (b = new G, a && (c = ";" != y, b.add(a, c))), e(), "\n" != y && ";" != y && "" != y && (a = l(), c = ";" != y, b.add(a, c));
       }
       b = b ? b : (a || (a = l()), a);
     }
@@ -20299,13 +20299,13 @@ var math = {js:{}};
       throw Error('Deprecated keyword "function". Functions can now be assigned without it, like "f(x) \x3d x^2".');
     }
     a = m();
-    return new H("ans", a);
+    return new E("ans", a);
   }
   function m() {
     var a, b, c, d = n();
     if ("\x3d" == y) {
       if (d instanceof Q) {
-        return a = d.name, e(), c = m(), new H(a, c);
+        return a = d.name, e(), c = m(), new E(a, c);
       }
       if (d instanceof O) {
         return e(), c = m(), new U(d, c);
@@ -20430,7 +20430,7 @@ var math = {js:{}};
                     throw Error(B("Number of columns must match (" + c[a].length + " !\x3d " + g + ")"));
                   }
                 }
-                b = new G(c);
+                b = new H(c);
               } else {
                 if ("]" != y) {
                   throw A("End of matrix ] expected");
@@ -20439,7 +20439,7 @@ var math = {js:{}};
                 b = c;
               }
             } else {
-              e(), b = new G([]);
+              e(), b = new H([]);
             }
             c = t(b);
           } else {
@@ -20490,7 +20490,7 @@ var math = {js:{}};
     for (var a = [m()], b = 1;"," == y;) {
       e(), f(), a[b] = m(), b++, f();
     }
-    return new G(a);
+    return new H(a);
   }
   function B(a) {
     var b = W - y.length + 1;
@@ -20500,13 +20500,13 @@ var math = {js:{}};
     return new SyntaxError(B(a));
   }
   b = c(117);
-  var E = (b.number.toNumber, b.string.isString), z = Array.isArray, C = b.types.type, I = (c(7), c(10)), K = (c(11), c(13)), G = c(104), H = c(105), F = c(106), J = c(107), M = c(109), O = c(108), N = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
+  var F = (b.number.toNumber, b.string.isString), z = Array.isArray, C = b.types.type, I = (c(7), c(10)), K = (c(11), c(13)), H = c(104), E = c(105), G = c(106), J = c(107), M = c(109), O = c(108), N = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
   "\x3d\x3d":!0, "!\x3d":!0, "\x3c":!0, "\x3e":!0, "\x3c\x3d":!0, "\x3e\x3d":!0}, Y = {mod:!0, to:!0, "in":!0}, Z = {}, X = "", W = 0, D = "", y = "", P = L.NULL;
   a.exports = function(a, b) {
     if (1 != arguments.length && 2 != arguments.length) {
       throw new SyntaxError("Wrong number of arguments: 1 or 2 expected");
     }
-    if (Z = "object" === C(b) ? b : {}, E(a)) {
+    if (Z = "object" === C(b) ? b : {}, F(a)) {
       return X = a || "", k();
     }
     if (z(a) || a instanceof I) {
@@ -21400,9 +21400,9 @@ var math = {js:{}};
   oilbarrels:"oilbarrel", hogsheads:"hogshead", grams:"gram", tons:"ton", tonnes:"tonne", grains:"grain", drams:"dram", ounces:"ounce", poundmasses:"poundmass", hundredweights:"hundredweight", sticks:"stick", seconds:"second", minutes:"minute", hours:"hour", days:"day", radians:"rad", degrees:"deg", gradients:"grad", cycles:"cycle", amperes:"ampere", moles:"mole"}, A;
   for (A in B) {
     if (B.hasOwnProperty(A)) {
-      var E = Object.create(w[B[A]]);
-      E.name = A;
-      w[A] = E;
+      var F = Object.create(w[B[A]]);
+      F.name = A;
+      w[A] = F;
     }
   }
   w.lt = w.l;
@@ -22302,11 +22302,11 @@ var math = {js:{}};
               if (l[0] != z[0]) {
                 throw new RangeError("Dimensions mismatch in multiplication. Length of A must match rows of B (A is " + l[0] + ", B is " + z[0] + "x" + z[1] + ", " + l[0] + " !\x3d " + z[0] + ")");
               }
-              for (var l = c, z = f, C = [], I = z.length, K = z[0].length, G = 0;K > G;G++) {
-                for (var H = null, F = 0;I > F;F++) {
-                  var J = a.multiply(l[F], z[F][G]), H = 0 === F ? J : a.add(H, J)
+              for (var l = c, z = f, C = [], I = z.length, K = z[0].length, H = 0;K > H;H++) {
+                for (var E = null, G = 0;I > G;G++) {
+                  var J = a.multiply(l[G], z[G][H]), E = 0 === G ? J : a.add(E, J)
                 }
-                C[G] = H;
+                C[H] = E;
               }
               return C;
             }
@@ -22322,12 +22322,12 @@ var math = {js:{}};
               C = [];
               I = l.length;
               K = l[0].length;
-              for (G = 0;I > G;G++) {
-                H = null;
-                for (F = 0;K > F;F++) {
-                  J = a.multiply(l[G][F], z[F]), H = 0 === F ? J : a.add(H, J);
+              for (H = 0;I > H;H++) {
+                E = null;
+                for (G = 0;K > G;G++) {
+                  J = a.multiply(l[H][G], z[G]), E = 0 === G ? J : a.add(E, J);
                 }
-                C[G] = H;
+                C[H] = E;
               }
               return C;
             }
@@ -22340,13 +22340,13 @@ var math = {js:{}};
               C = [];
               I = l.length;
               K = z[0].length;
-              G = l[0].length;
-              for (H = 0;I > H;H++) {
-                for (C[H] = [], F = 0;K > F;F++) {
-                  for (var J = null, M = 0;G > M;M++) {
-                    var O = a.multiply(l[H][M], z[M][F]), J = null === J ? O : a.add(J, O)
+              H = l[0].length;
+              for (E = 0;I > E;E++) {
+                for (C[E] = [], G = 0;K > G;G++) {
+                  for (var J = null, M = 0;H > M;M++) {
+                    var O = a.multiply(l[E][M], z[M][G]), J = null === J ? O : a.add(J, O)
                   }
-                  C[H][F] = J;
+                  C[E][G] = J;
                 }
               }
               return C;
@@ -25282,14 +25282,14 @@ var math = {js:{}};
         }
         a += "";
       }
-      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && E.test(a)) {
+      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && F.test(a)) {
         this.s = "-" == a.charAt(0) ? (a = a.slice(1), -1) : 1;
       } else {
         if (10 == b) {
           return n(a, p, s);
         }
-        if (a = z.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = E.test(a)) : (k = "[" + B.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
-        1, b), a = "NaN")) : l = E.test(a), !l) {
+        if (a = z.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = F.test(a)) : (k = "[" + B.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
+        1, b), a = "NaN")) : l = F.test(a), !l) {
           return this.c = this.e = null, "Infinity" != a && ("NaN" != a && g(m, 3), this.s = null), void(A = 0);
         }
       }
@@ -25421,7 +25421,7 @@ var math = {js:{}};
     }
     var r, p = 20, s = 4, q = -7, u = 21, x = -1E9, v = 1E9, t = !0, w = parseInt;
     e = f.prototype;
-    var B = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, E = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, z = String.prototype.trim || function() {
+    var B = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, F = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, z = String.prototype.trim || function() {
       return this.replace(/^\s+|\s+$/g, "");
     }, C = f(1);
     f.ROUND_UP = 0;
@@ -26350,7 +26350,7 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
                   var f = cljs.core._nth.call(null, l, b);
                   cljs.core.chunk_append.call(null, n, function() {
                     return function(b, c, f, g, h, k, l) {
-                      return function E(m) {
+                      return function F(m) {
                         return new cljs.core.LazySeq(null, function(b, c, f, g, h, k, l) {
                           return function() {
                             for (;;) {
@@ -26371,10 +26371,10 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
                                     }
                                     f = void 0;
                                   }
-                                  return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), E.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null);
+                                  return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), F.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null);
                                 }
                                 h = cljs.core.first.call(null, b);
-                                return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, c, h, d), E.call(null, cljs.core.rest.call(null, b)));
+                                return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, c, h, d), F.call(null, cljs.core.rest.call(null, b)));
                               }
                               return null;
                             }
@@ -27440,30 +27440,97 @@ qgame.simulator.interpreter.interpret = function() {
 var qromp = {evaluate:function(a, b) {
   var c = function(a) {
     return null;
-  }, d = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c], null)), e = cljs.core.first.call(null, d.call(null, a)), f = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(e))), g = cljs.core.map.call(null, 
-  cljs.core.comp.call(null, function(a, b, c, d) {
+  }, d = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c], null)), e = cljs.core.first.call(null, d.call(null, a)), f = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(e))), g = cljs.core.range.call(null, 
+  f), h = cljs.core.map.call(null, cljs.core.comp.call(null, function(a, b, c, d, e) {
     return function(a) {
       return qgame.utils.math.round.call(null, a, 4);
     };
-  }(c, d, e, f), function(a, b, c, d) {
+  }(c, d, e, f, g), function(a, b, c, d, e) {
     return function(a) {
       return qgame.utils.amplitudes.probability_of.call(null, c, a, 0);
     };
-  }(c, d, e, f)), cljs.core.range.call(null, f)), h = cljs.core.map.call(null, function(a, b, c, d, e) {
+  }(c, d, e, f, g)), g), k = cljs.core.map.call(null, function(a, b, c, d, e, f) {
     return function(a) {
       return qgame.utils.amplitudes.phase_of.call(null, c, a, 0);
     };
-  }(c, d, e, f, g), cljs.core.range.call(null, f)), k = cljs.core.map.call(null, function(a, b, c, d, e, f) {
+  }(c, d, e, f, g, h), g), l = cljs.core.map.call(null, function(a, b, c, d, e, f, g) {
     return function(a) {
       return qgame.utils.amplitudes.phase_of.call(null, c, a, 1);
     };
-  }(c, d, e, f, g, h), cljs.core.range.call(null, f)), c = cljs.core.map.call(null, function(a, b, c, d, e, f, g) {
+  }(c, d, e, f, g, h, k), g), m = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h) {
     return function(a, b, c) {
       return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "up", "up", 1013907981), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "down", "down", 1016993812), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
       c], null)], null);
     };
-  }(c, d, e, f, g, h, k), g, h, k);
-  return b.call(null, cljs.core.clj__GT_js.call(null, c));
+  }(c, d, e, f, g, h, k, l), h, k, l), n = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k) {
+    return function(a) {
+      return 1 - 2 * qgame.utils.math.abs.call(null, 0.5 - a);
+    };
+  }(c, d, e, f, g, h, k, l, m), h), r = cljs.core.vec.call(null, cljs.core.repeat.call(null, f, cljs.core.vec.call(null, cljs.core.repeat.call(null, f, 0)))), p = function(a, b, c, d, e, f, g, h, k, l, m) {
+    return function(a, b) {
+      var d = cljs.core.nth.call(null, b, 0, null), e = cljs.core.nth.call(null, b, 1, null), f = qgame.utils.amplitudes.tangle_of.call(null, c, d, e);
+      return cljs.core.assoc_in.call(null, cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [d, e], null), f * cljs.core.nth.call(null, l, d)), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [e, d], null), f * cljs.core.nth.call(null, l, e));
+    };
+  }(c, d, e, f, g, h, k, l, m, n, r), s = function() {
+    return function(a, b, c, d, e, f, g, h, k, l, m, n) {
+      return function E(p) {
+        return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n) {
+          return function() {
+            for (var q = p;;) {
+              var r = cljs.core.seq.call(null, q);
+              if (r) {
+                var s = r, t = cljs.core.first.call(null, s), u = cljs.core.nth.call(null, t, 0, null), v = cljs.core.nthnext.call(null, t, 1), r = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
+                  return function $(v) {
+                    return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
+                      return function() {
+                        for (;;) {
+                          var a = cljs.core.seq.call(null, v);
+                          if (a) {
+                            if (cljs.core.chunked_seq_QMARK_.call(null, a)) {
+                              var b = cljs.core.chunk_first.call(null, a), d = cljs.core.count.call(null, b), e = cljs.core.chunk_buffer.call(null, d);
+                              a: {
+                                for (var f = 0;;) {
+                                  if (f < d) {
+                                    var g = cljs.core._nth.call(null, b, f);
+                                    cljs.core.chunk_append.call(null, e, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, g], null));
+                                    f += 1;
+                                  } else {
+                                    b = !0;
+                                    break a;
+                                  }
+                                }
+                                b = void 0;
+                              }
+                              return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), $.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null);
+                            }
+                            e = cljs.core.first.call(null, a);
+                            return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, e], null), $.call(null, cljs.core.rest.call(null, a)));
+                          }
+                          return null;
+                        }
+                      };
+                    }(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u), null, null);
+                  };
+                }(q, t, u, v, s, r, a, b, c, d, e, f, g, h, k, l, m, n);
+                if (v = cljs.core.seq.call(null, r.call(null, v))) {
+                  return cljs.core.concat.call(null, v, E.call(null, cljs.core.rest.call(null, q)));
+                }
+                q = cljs.core.rest.call(null, q);
+              } else {
+                return null;
+              }
+            }
+          };
+        }(a, b, c, d, e, f, g, h, k, l, m, n), null, null);
+      };
+    }(c, d, e, f, g, h, k, l, m, n, r, p).call(null, cljs.core.take.call(null, f, cljs.core.iterate.call(null, cljs.core.rest, g)));
+  }(), q = cljs.core.reduce.call(null, p, r, s), s = cljs.core.reduce.call(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q) {
+    return function(a, b) {
+      var c = 1 - cljs.core.reduce.call(null, cljs.core._PLUS_, cljs.core.nth.call(null, a, b));
+      return cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, b], null), c);
+    };
+  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q), q, g), q = cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core._, 2), n);
+  return b.call(null, cljs.core.clj__GT_js.call(null, m), cljs.core.clj__GT_js.call(null, s), cljs.core.clj__GT_js.call(null, q));
 }};
 window.evaluate = qromp.evaluate;
 

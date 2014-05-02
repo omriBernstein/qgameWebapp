@@ -13,7 +13,7 @@ function VisualizerObject(containerID) {
 	// Must put in new version
 	var chordCreated = false;
 
-	this.render = function(qubitStates) {
+	this.render = function(qubitStates, entangMatrix, paddingArray) {
 			// Environment info
 		var containerWidth = parseInt(container.style("width")),
 			containerHeight = parseInt(container.style("height")),
@@ -150,7 +150,7 @@ function VisualizerObject(containerID) {
 
 	// --- ENTANGLEMENT --- //
 		// Temp for testing
-		var entangMatrix = false, paddingArray = false;
+		//var entangMatrix = false, paddingArray = false;
 
 		// If there's a chord diagram existing (because of delay on creation
 		// this has to come first so it won't fire the first time numQubits > 1)
