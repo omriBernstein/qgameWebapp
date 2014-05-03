@@ -163,6 +163,7 @@ var entang = {
 		They need the variables declared inside updateChord().
 		*/
 		function updatePart () {
+			// Don't change newEntangCapacityArray
 			newPadArray = newEntangCapacityArray.slice(0);
 			// newPadArray should be an array of numbers representing
 			// the percent that the qubit CAN be entangled.
