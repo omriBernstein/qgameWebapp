@@ -28,6 +28,10 @@ $(document).ready(function() {
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
 
+
+	var default_EntangMatrix = [[1,0],[0,1]];
+	var default_PaddingArray = [0,0];
+
 	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
 	buildQubitArray();
@@ -130,9 +134,7 @@ $(document).ready(function() {
 
 	function safeEvaluate() {
 		try {
-	    	evaluate(editor.getValue(), function(qubitStates, entangMatrix, paddingArray) {
-		    	buildQubitArray(qubitStates, entangMatrix, paddingArray);
-		    });
+	    	evaluate(editor.getValue(), buildQubitArray);
 	    } catch (e) {
 	    	//console.log(e);
 	    	//maybe put a little warning icon in the editor
@@ -140,15 +142,17 @@ $(document).ready(function() {
 	}
 
 	function buildQubitArray(newStates, newEntangMatrix, newPaddingArray) {
-		var fullEntangMatrix = newEntangMatrix || [[]],
-			fullPaddingArray = newPaddingArray || [];
+		var fullEntangMatrix = newEntangMatrix || default_EntangMatrix,
+			fullPaddingArray = newPaddingArray || default_PaddingArray;
 		if (newStates) {
 			computedStates = newStates;
 			numQubits = (computedStates.length < userNum) ? userNum : computedStates.length;
 		}
 		for (var fullStates = computedStates.slice(0), i = computedStates.length; i < numQubits; i++) {
 			fullStates.push(defaultQubit);
-			fullPaddingArray.push(2);
+		}
+		for (var j = fullEntangMatrix.length; j < numQubits; j++) {
+			fullPaddingArray.push(0);
 			var lastRow = [];
 			for (var k = 0; k < fullEntangMatrix.length; k++) {
 				fullEntangMatrix[k].push(0);
@@ -157,7 +161,9 @@ $(document).ready(function() {
 			lastRow.push(1);
 			fullEntangMatrix.push(lastRow);
 		}
-		numQubits = i;
+		numQubits = i;//why is this line here?
+		default_EntangMatrix = fullEntangMatrix;
+		default_PaddingArray = fullPaddingArray;
 		visualizer.render(fullStates, fullEntangMatrix, fullPaddingArray);
 	}
 

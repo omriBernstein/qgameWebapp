@@ -158,7 +158,7 @@ function VisualizerObject(containerID) {
 		if (chordCreated) {
 			var center = containerWidth/2 + ", " + (containerHeight + yOffset)/2;
 			// If qubits are reduced to one or less, scale it to 0 (disappears)
-			if (numQubits <= 1) { entang.updateChord( center, 0, [[1, 0],[0, 1]] ); }
+			if (numQubits <= 1) { entang.updateChord( center, 0, [[1, 0],[0, 1]], [0, 0] ); }
 			// Otherwise, usually, just animate the change in the diagram
 			else { entang.updateChord(center, arrangeRadius-qubitRadius, entangMatrix, paddingArray); }
 		}

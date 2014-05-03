@@ -43,7 +43,7 @@
                                   (assoc-in mat [a a] unentangled)))
                              tangle-matrix
                               qubit-coll)
-        pad-array (map (partial - 2) tangle-capacities)]
+        pad-array (identity tangle-capacities)]
     (callback (clj->js qubit-states)
               (clj->js tangle-matrix)
               (clj->js pad-array))))

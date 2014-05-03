@@ -27529,7 +27529,7 @@ var qromp = {evaluate:function(a, b) {
       var c = 1 - cljs.core.reduce.call(null, cljs.core._PLUS_, cljs.core.nth.call(null, a, b));
       return cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, b], null), c);
     };
-  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q), q, g), q = cljs.core.map.call(null, cljs.core.partial.call(null, cljs.core._, 2), n);
+  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q), q, g), q = cljs.core.identity.call(null, n);
   return b.call(null, cljs.core.clj__GT_js.call(null, m), cljs.core.clj__GT_js.call(null, s), cljs.core.clj__GT_js.call(null, q));
 }};
 window.evaluate = qromp.evaluate;
