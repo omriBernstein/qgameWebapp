@@ -85,7 +85,7 @@ var entang = {
 
 	newEntangMatrix.length must == newPadArray.length
 */
-	, updateChord: function (newCenter, newRadius, newEntangMatrix, newPadArray) {
+	, updateChord: function (newCenter, newRadius, newEntangMatrix, newEntangCapacityArray) {
 		// *** SETUP *** \\
 		// Temp for testing
 		var newEntangMatrix = newEntangMatrix || 
@@ -163,6 +163,7 @@ var entang = {
 		They need the variables declared inside updateChord().
 		*/
 		function updatePart () {
+			newPadArray = newEntangCapacityArray.slice(0);
 			// newPadArray should be an array of numbers representing
 			// the percent that the qubit CAN be entangled.
 			if (newPadArray) {  // this check is just while newPadArray isn't solid
