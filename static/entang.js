@@ -72,7 +72,7 @@ var entang = {
 		entang.fullEntangElem = entang.attachChord("entang full-entang", center, 0);
 	}  // end initChord()
 
-	/* (str, num, Array of Arrays of ints, Array of ints) -> None
+	/* (str, num, Array of Arrays of ints, Array of nums) -> None
 
 	Handles animating the creation of and changes to the chord
 	diagram. Uses newCenter ("num, num") to animate the move to the new
@@ -80,6 +80,8 @@ var entang = {
 	to get the new scale of the object, and newEntangMatrix to move
 	the various paths to correct locations, and newPadArray to show
 	entanglement potential.
+
+	ADD MORE DETAILED DESCRIPTION OF newPadArray
 
 	newEntangMatrix.length must == newPadArray.length
 */
@@ -161,9 +163,22 @@ var entang = {
 		They need the variables declared inside updateChord().
 		*/
 		function updatePart () {
-			// This is a test amount - it is meant to be a percentage
-			// Percent entanglement potential that is unavailable to the qubit
+			// newPadArray should be an array of numbers representing
+			// the percent that the qubit CAN be entangled.
+			if (newPadArray) {  // this check is just while newPadArray isn't solid
+				for (var ii = 0; ii < newPadArray.length; ii++) {
+					// Convert the percent to radians of padding needed to
+					// display that percentage of entanglement potential
+					newPadArray[ii] = ((1 - newPadArray[ii]) * fullArcRad) + fullPadding;
+				}
+			}
+			else {console.log("You didn't pass in a padding array. Bad move.")}
+
+// Perhaps newPadArray should be called entangPercentPotentialArray or something
+
+			// This is a test amount - it is meant to be a percentage in decimals
 			var percentCantEntang = 0.1;
+			// Change that percentage to radians
 			var cantEntangRad = (percentCantEntang * fullArcRad) + fullPadding;
 			var cantEntangArray = entang.setupPad(newNumQubits, cantEntangRad);
 			cantEntangArray[1] += 0.1;
@@ -311,11 +326,35 @@ var entang = {
 		;
 	}
 
-	/* (Array of Arrays of ints, Array of ints) -> None
+	/* (Array of Arrays of ints, Array of nums) -> None
+
+	- matrix: An array of an array of ints representing the chord/path
+	connections/entanglements between the qubits
+	- arcPadArray: Each qubit can only be entangled a certain amount,
+	that's what the partial entanglement is about. The full entanglement
+	is an outline showing area that would be filled if the qubit was
+	full entangled. An array of numbers representing the entanglement
+	potential that is UNavailable to each qubit is passed into updateChord.
+	For example, a qubit that has a potential of 90% entanglement would
+	have the number 0.1 passed in to represent the unavailable space.
+	Each of those numbers is multiplied by the radian value of the full
+	potential entanglement, giving us the amount of radians that must
+	appear blank. Then that is added with the padding that each full
+	entanglement arc already has. That way the padding will line up
+	with the full entanglement padding. I should really just draw a picture.
+	(newPadArray[ii] * fullArcRad) + fullPadding
+
+	// Currently testing passing in the percentage of entanglement
+	// potential instead of the inverse. For example, if a qubit can
+	// be at most 90% entangled, 0.9 is passed in
 
 	Creates a new chord layout with matrix as it's matrix and
-	arcPadding as an array (whose length is equal to matrix's length)
+	arcPadArray as an array (whose length is equal to matrix's length)
 	of numbers, the padding for each arc around the circle.
+
+GET RID OF ALL THE PREVIOUS STUFF AND WRITE A BETTER DESCRIPTION OF arcPadArray
+It's in radians, derived from percent capacity that was converted to
+percent incapacity.
 
 	(ONLY GIVE THIS AN ARRAY. We can actually give a number or no input
 	as well, but please don't take advantange and confuse the issue.)
@@ -327,7 +366,7 @@ var entang = {
 		// same as the matrix, give a warning.
 		if (arcPadArray.length
 			&& (arcPadArray.length != matrix.length)) {
-			console.log("Your padding array is too short or too long, weird things may happen!");
+			console.log("Your padding array is not the same length as your matrix array, weird things may happen!");
 		}
 
 		return d3.layout.chord()
@@ -474,14 +513,16 @@ Test 1:
 matrix = [[100, 50, 10, 30],
 	[50, 100, 30, 10],
   	[10, 30, 150, 0],
-  	[0, 10, 30, 150]]
-entang.updateChord(center, radius, matrix)
+  	[0, 10, 30, 150]];
+potential = [1, 0.2, 0.7, 0.1];
+entang.updateChord(center, radius, matrix, potential)
 
 Test 2:
 matrix = [[100, 10, 30],
 	[10, 130, 0],
-	[30, 0, 110]]
-entang.updateChord(center, radius, matrix)
+	[30, 0, 110]];
+potential = [0.2, 0.7, 0.3];
+entang.updateChord(center, radius, matrix, potential)
 
 Test 3:
 matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 95],
@@ -493,11 +534,13 @@ matrix = [[65, 2, 61, 54, 66, 51, 45, 59, 22, 95],
 [51, 55, 88, 6, 92, 17, 5, 68, 60, 78],
 [64, 3, 89, 44, 68, 73, 46, 37, 83, 13],
 [80, 21, 45, 9, 65, 89, 70, 53, 45, 43],
-[18, 78, 83, 43, 56, 32, 50, 45, 68, 47]]
-entang.updateChord(center, radius, matrix)
+[18, 78, 83, 43, 56, 32, 50, 45, 68, 47]];
+potential = [1, 0.2, 0.7, 0.1, 0.5, 0.9, 0.95, 1, 1, 0.3];
+entang.updateChord(center, radius, matrix, potential)
 
 Test 4:
-matrix = [[1, 4], [4, 1]]
-entang.updateChord(center, radius, matrix)
+matrix = [[1, 4], [4, 1]];
+potential = [0.2, 1];
+entang.updateChord(center, radius, matrix, potential)
 */
 //
