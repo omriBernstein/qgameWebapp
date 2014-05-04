@@ -161,6 +161,28 @@ $(document).ready(function() {
 			lastRow.push(1);
 			fullEntangMatrix.push(lastRow);
 		}
+
+		if (numQubits > 1 && fullPaddingArray.length > numQubits) {
+			var newLastIndex = fullPaddingArray.length - numQubits;
+			fullPaddingArray = fullPaddingArray.slice(0, numQubits);
+			console.log(fullPaddingArray);
+			// Array to loop through
+			fullEntangMatrix = fullEntangMatrix.slice(0, numQubits);
+			// Array to change
+			var tempEntangMatrix = [];
+			for (var indx = 0; indx < fullEntangMatrix.length; indx++) {
+				// Array to loop through
+				var currentRow = fullEntangMatrix[indx];
+				// Array to change
+				var tempRow = fullEntangMatrix[indx];
+				tempRow = currentRow.slice(0, numQubits);
+				// Build temp array one row at a time
+				tempEntangMatrix.push(tempRow);
+			} // end for fullEntangMatrix.length
+			// Replace the old array with the array just built
+			fullEntangMatrix = tempEntangMatrix;
+		}
+
 		numQubits = i;//why is this line here?
 		default_EntangMatrix = fullEntangMatrix;
 		default_PaddingArray = fullPaddingArray;
