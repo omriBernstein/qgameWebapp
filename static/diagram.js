@@ -43,6 +43,9 @@ function CircuitObject(containerID) {
 
 	this.render = function(numQubits, expressions){
 		var containerHeight = parseInt(container.style("height"))
+			// I think there needs to be a minimum row height with
+			// overflow scroll, it gets pretty small. Maybe a steady
+			// height based on rem?
 			, rowHeight = containerHeight / numQubits
 			, columnWidth = rowHeight;
 
@@ -76,10 +79,27 @@ function CircuitObject(containerID) {
 			.style("margin", rowMargin + "px")
 			// .attr("padding", "calc(50%-" + (wireHeight/2) + "em")  // needed? abs pos for contents?
 			// .attr({"padding-right": "0", "padding-left": "0"})
-			.style("height", (rowHeight - (rowMargin * 2)) + "px")
+			// I don't know why this makes the bottom margin weird, wrong calculation, but how?
+			.style("height", (rowHeight - (rowMargin * 1.5)) + "px")
 			.style("background-color", "red")
-			.text("a;sldkjf");
+			.text("a;sldkjf")
 		;
+
+		// Animate existing rows?
+		row.transition()
+			.duration(animTime)
+			.style("margin", rowMargin + "px")
+			// .attr("padding", "calc(50%-" + (wireHeight/2) + "em")  // needed? abs pos for contents?
+			// .attr({"padding-right": "0", "padding-left": "0"})
+			// I don't know why this makes the bottom margin weird, wrong calculation, but how?
+			.style("height", (rowHeight - (rowMargin * 1.5)) + "px")
+			.style("background-color", "red")
+			.text("a;sldkjf")
+		;
+
+		row.exit().transition()
+			.duration(animTime)
+			.remove();
 
 	// --- WIRES --- \\
 		// // A wire is made up of a letter, a space, then a horizontal line
