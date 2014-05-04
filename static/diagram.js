@@ -56,12 +56,12 @@ function CircuitObject(containerID) {
 
 		var rowData = []
 		for(var i = 0; i < numQubits; i++) {
-			rowData[i] = rowNums[i];
+			rowData[i] = [ rowNums[i], "ABCDEFGHIJ"[i] ];
 		};
 
 		var wireData = [];
 		for(var i = 0; i < numQubits; i++) {
-			wireData[i] = ["ABCDEFGHIJ"[i], rowNums[i]];
+			wireData[i] = rowNums[i];
 		};
 
 		// TESTING NON-COMPONENT STUFF
@@ -71,52 +71,64 @@ function CircuitObject(containerID) {
 		// };
 
 	// --- ROWS --- \\
-		var row = container.selectAll(".d-row").data(rowData);
+		// container should have padding on the left and right = rowMargin or something
+		var rows = container.selectAll(".d-row").data(rowData);
 
 		// Add a row if needed
-		row.enter().append("div")
+		rows.enter().append("svg")
 			.attr("class", "d-row")
-			.style("margin", rowMargin + "px")
+			.style("margin", rowMargin + "px 0")
 			// .attr("padding", "calc(50%-" + (wireHeight/2) + "em")  // needed? abs pos for contents?
 			// .attr({"padding-right": "0", "padding-left": "0"})
-			// I don't know why this makes the bottom margin weird, wrong calculation, but how?
-			.style("height", (rowHeight - (rowMargin * 1.5)) + "px")
-			.style("background-color", "red")
-			.text("a;sldkjf")
+			// Why does 2.5 work?
+			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
+			.style("background-color", "lightgreen")
 		;
 
 		// Animate existing rows?
-		row.transition()
+		rows.transition()
 			.duration(animTime)
-			.style("margin", rowMargin + "px")
+			.style("margin", rowMargin + "px 0")
 			// .attr("padding", "calc(50%-" + (wireHeight/2) + "em")  // needed? abs pos for contents?
 			// .attr({"padding-right": "0", "padding-left": "0"})
-			// I don't know why this makes the bottom margin weird, wrong calculation, but how?
-			.style("height", (rowHeight - (rowMargin * 1.5)) + "px")
-			.style("background-color", "red")
-			.text("a;sldkjf")
+			// Why does 2.5 work?
+			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
+			.style("background-color", "lightgreen")
 		;
 
-		row.exit().transition()
+		rows.exit().transition()
 			.duration(animTime)
 			.remove();
 
 	// --- WIRES --- \\
-		// // A wire is made up of a letter, a space, then a horizontal line
-		// // It is vertically centered in row height
+		// A wire is made up of a letter, a space, then a horizontal line
+		// It is vertically centered in row height
+		var strokeWidth = 2, wireY = rowHeight/2 - strokeWidth
+			, labelSectionWidth = 50, wireWidth = $(".d-row").innerWidth();
 
-		// var wire = container.selectAll(".wire").data(wireData);
+		var wire = rows.selectAll(".wire").data(wireData);
 
-		// wire.enter().append("line")
-		// 	.attr("class", "wire");
+		wire.enter().append("line")
+			.attr("class", "wire")
+			.attr("x1", labelSectionWidth)
+			.attr("x2", wireWidth - labelSectionWidth/2)
+			.attr("y1", wireY)
+			.attr("y2", wireY)
+			.attr("stroke-width", strokeWidth)
+			.attr("stroke", "black")
+		;
 
-		// wire.attr("height", rowHeight)
-		// 	.attr("width", columnWidth * Math.max(5, 0))
-		// 		// componentData.length)
-		// ;
+		wire
+			.attr("x1", labelSectionWidth)
+			.attr("x2", wireWidth - labelSectionWidth/2)
+			.attr("y1", wireY)
+			.attr("y2", wireY)
+			.attr("stroke-width", strokeWidth)
+			.attr("stroke", "black")
+		;
 
-		// wire.exit()
-		// 	.remove();
+		wire.exit()
+			.remove();
 
 
 	// --- COMPONENTS --- \\
