@@ -1,8 +1,24 @@
+/*
+Notes:
+1 line high: qnot, srn, hadamard, utheta, u2, measure
+2 lines high: cnot, swap, cphase
+n lines high: oracle
+*/
+
 function CircuitObject(containerID) {
 	var container = d3.select("#" + containerID);
 
 	var componentSymbols = {
-		"hadamard": "H"
+		, "qnot": "X"
+		, "srn": "S"
+		, "hadamard": "H"
+		, "utheta": "U&theta;"  // I believe this is the correct code
+		, "cnot": "url(1)"  // An image?
+		, "swap": "url(2)"  // An image?
+		, "cphase": "url(3)"  // Possible image?
+		, "u2": "U"
+		, "measure": "M"
+		, "oracle": "O"
 	};
 
 	function Component(name, rows, columnNum) {
