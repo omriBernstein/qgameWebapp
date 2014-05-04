@@ -100,23 +100,50 @@ function CircuitObject(containerID) {
 			.duration(animTime)
 			.remove();
 
-	// // --- ROW NAMES --- \\
-	// 	var rowLabel = rows.selectAll(".row-label").data(rowData[1]);
+	// --- ROW NAMES --- \\
+		var labelRadius = rowHeight/3
+		// What to subtract from height?
+		, labelX = labelRadius + 3, labelY = rowHeight/2 - 4;
 
-	// 	rowLabel.enter().append("circle")
-	// 		.attr("r", 10)
-	// 		.style("color", "lightpurple")
-	// 	;
+		// When a new row enters, 
+		var rowLabel = rowEnter.append("g")
+			.attr("class", "row-label")
+			.attr("transform", "translate(" + labelX + ", " + labelY + ")")
+		;
+		// it gets a label with a background...
+		rowLabel.append("circle")
+			.attr("class", "label-backer")
+			.style("fill", "lightblue")
+		;
+		// ...and text
+		rowLabel.append("text")
+			.attr("class", "label-text")
+		;
 
-	// 	rowLabel.attr("r", 10)
-	// 		.style("color", "lightpurple")
-	// 	;
+		// Update label's stuff
+		container.selectAll(".row-label").transition()
+			.duration(animTime)
+			.attr("transform", "translate(" + labelX + ", " + labelY + ")")
+		;
+		container.selectAll(".label-backer")
+			.style("fill", "lightblue")
+			.attr("r", labelRadius)
+		;
+		container.selectAll(".label-text")
+			.data(rowData)
+			.text(function (dat) { return dat[1]; })
+			.attr("fill", "black")
+			.attr("font-size", (labelRadius/10) + "em")
+			.attr("dy", "0.38em")
+			.attr("dx", "-0.35em")
+		;
+
 
 
 	// --- WIRES --- \\
 		// A wire is vertically centered in row height
 		var strokeWidth = 2, wireY = rowHeight/2 - strokeWidth
-			, labelSectionWidth = 50, wireWidth = $(".d-row").innerWidth();
+			, wireWidth = $(".d-row").innerWidth(), labelSectionWidth = labelRadius * 2 + 10;
 
 		// When a new row enters, it gets a wire
 		rowEnter.append("line")
