@@ -70,7 +70,7 @@ function CircuitObject(containerID) {
 		// 	componentData[i] = expressionToComponent(expressions[i]);
 		// };
 
-	// --- ROWS --- \\
+	// --- ROWS --- \\ They contain the row label and the wire
 		// container should have padding on the left and right = rowMargin or something
 		var rows = container.selectAll(".d-row").data(rowData);
 
@@ -96,6 +96,7 @@ function CircuitObject(containerID) {
 			.style("background-color", "lightgreen")
 		;
 
+		// This removes all the contents as well
 		rows.exit().transition()
 			.duration(animTime)
 			.remove();
@@ -120,7 +121,7 @@ function CircuitObject(containerID) {
 			.attr("class", "label-text")
 		;
 
-		// Update label's stuff
+		// Update label's stuff to new dimensions
 		container.selectAll(".row-label").transition()
 			.duration(animTime)
 			.attr("transform", "translate(" + labelX + ", " + labelY + ")")
@@ -137,8 +138,6 @@ function CircuitObject(containerID) {
 			.attr("dy", "0.38em")
 			.attr("dx", "-0.35em")
 		;
-
-
 
 	// --- WIRES --- \\
 		// A wire is vertically centered in row height
@@ -186,10 +185,12 @@ function CircuitObject(containerID) {
 // *** TESTS *** \\
 $(document).on("ready", function () {
 	var TESTING = true;
-	diagram = new CircuitObject("diagram");
-	diagram.render(3, "x")
+	if (TESTING) {
+		diagram = new CircuitObject("diagram");
+		diagram.render(3, "x")
 
-	// Further tests
-	// diagram.render(5, "x")
-	// diagram.render(1, "x")
+		// Further tests
+		// diagram.render(5, "x")
+		// diagram.render(1, "x")
+	}
 });
