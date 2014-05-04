@@ -6,7 +6,8 @@ n lines high: oracle
 */
 
 function CircuitObject(containerID) {
-	var container = d3.select("#" + containerID);
+	var container = d3.select("#" + containerID)
+	, wireHeight = 3;
 
 	var componentSymbols = {
 		, "qnot": "X"
@@ -32,8 +33,8 @@ function CircuitObject(containerID) {
 		var fnName = expression._fn_meta._name,
 			qubits = [];
 			lineNum = expression._line_number;
-		for(i=0;i<expression._qubits.lenth;i++){
-			qubits[i]=expression._qubits[i]._value;
+		for(var i = 0; i < expression._qubits.lenth; i++){
+			qubits[i] = expression._qubits[i]._value;
 		};
 		return new Component(fnName, qubits, lineNum);
 	}
@@ -43,15 +44,23 @@ function CircuitObject(containerID) {
 			rowHeight = containerHeight / numQubits,
 			columnWidth = rowHeight;
 
+		var wireData = [];
+		for(var i = 0; i < numQubits; i++) {
+			wireData[i].name = "ABCDEFGHIJ"[i];
+			// wireData[i].index = [1, 2, 3, 4, 5 ,6, 7, 8, 9, 10][i];
+		};
+
 		var componentData = [];
-		for(i=0;i<expressions.length;i++) {
+		for(var i = 0; i < expressions.length; i++) {
 			componentData[i] = expressionToComponent(expressions[i]);
 		};
 
-		var wireData = [];
-		for(i=0;i<numQubits;i++) {
-			wireData[i].name = "ABCDEFGHIJ"[i];
-		};
+	// --- ROWS --- \\
+		// var row = container.selectAll(".d-row").data
+
+	// --- WIRES --- \\
+		// A wire is made up of a letter, a space, then a horizontal line
+		// It is vertically centered in row height
 
 		var wire = container.selectAll(".wire").data(wireData);
 
@@ -59,11 +68,14 @@ function CircuitObject(containerID) {
 			.attr("class", "wire");
 
 		wire.attr("height", rowHeight)
-			.attr("width", columnWidth * componentData.length);
+			.attr("width", columnWidth * componentData.length)
+		;
 
 		wire.exit()
 			.remove();
 
+
+	// --- COMPONENTS --- \\
 		var component = conatiner.selectAll(".component").data(componentData);
 
 		function positionComponent(cmpnt) {
