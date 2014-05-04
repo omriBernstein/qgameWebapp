@@ -74,8 +74,8 @@ function CircuitObject(containerID) {
 		// container should have padding on the left and right = rowMargin or something
 		var rows = container.selectAll(".d-row").data(rowData);
 
-		// Add a row if needed
-		rows.enter().append("svg")
+		// Add a row if needed (variable will be used to add labels and wires)
+		var rowEnter = rows.enter().append("svg")
 			.attr("class", "d-row")
 			.style("margin", rowMargin + "px 0")
 			// .attr("padding", "calc(50%-" + (wireHeight/2) + "em")  // needed? abs pos for contents?
@@ -100,16 +100,32 @@ function CircuitObject(containerID) {
 			.duration(animTime)
 			.remove();
 
+	// // --- ROW NAMES --- \\
+	// 	var rowLabel = rows.selectAll(".row-label").data(rowData[1]);
+
+	// 	rowLabel.enter().append("circle")
+	// 		.attr("r", 10)
+	// 		.style("color", "lightpurple")
+	// 	;
+
+	// 	rowLabel.attr("r", 10)
+	// 		.style("color", "lightpurple")
+	// 	;
+
+
 	// --- WIRES --- \\
-		// A wire is made up of a letter, a space, then a horizontal line
-		// It is vertically centered in row height
+		// A wire is vertically centered in row height
 		var strokeWidth = 2, wireY = rowHeight/2 - strokeWidth
 			, labelSectionWidth = 50, wireWidth = $(".d-row").innerWidth();
 
-		var wire = rows.selectAll(".wire").data(wireData);
-
-		wire.enter().append("line")
+		// When a new row enters, it gets a wire
+		rowEnter.append("line")
 			.attr("class", "wire")
+		;
+
+		// All wires are updated to new dimensions
+		container.selectAll(".wire").transition()
+			.duration(animTime)
 			.attr("x1", labelSectionWidth)
 			.attr("x2", wireWidth - labelSectionWidth/2)
 			.attr("y1", wireY)
@@ -117,18 +133,6 @@ function CircuitObject(containerID) {
 			.attr("stroke-width", strokeWidth)
 			.attr("stroke", "black")
 		;
-
-		wire
-			.attr("x1", labelSectionWidth)
-			.attr("x2", wireWidth - labelSectionWidth/2)
-			.attr("y1", wireY)
-			.attr("y2", wireY)
-			.attr("stroke-width", strokeWidth)
-			.attr("stroke", "black")
-		;
-
-		wire.exit()
-			.remove();
 
 
 	// --- COMPONENTS --- \\
