@@ -56,28 +56,28 @@ function VisualizerObject(containerID) {
 		qubitsEnter.append("circle")
 			.attr("class", "qubit-back");
 
-		//Labeling stuff---working but not correctly aligned
+		// Update each qubit-back
+		qubits.select(".qubit-back").transition()
+			.duration(animTime)
+			.attr("r", qubitRadius);
+
+		// Labeling stuff---working but not correctly aligned
 		qubitsEnter.append("svg:text")
 		  	.attr({"class": "qubit-label"})
 		  	.text(function(d, i) { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i] })
 		  	;
-		
+
+		// Update label's properties
 		qubits.selectAll(".qubit-label").transition()
 			.duration(animTime)
 			.attr({"font-size": "2.3em"})
-		  	.attr("x", -5)
-		  	.attr("y", -(qubitRadius+labelHeight));
-
+			.attr("x", -5)
+			.attr("y", -(qubitRadius+labelHeight));
 
 		// Update qubit arrangement
 		qubits.transition()
 			.duration(animTime)
 			.attr("transform", function(d, i) { return positionQubit(i) + "scale(1)" });
-
-		// Update each qubit-back
-		qubits.select(".qubit-back").transition()
-			.duration(animTime)
-			.attr("r", qubitRadius);
 		
 		// Remove qubits if necessary
 		qubits.exit().transition()
