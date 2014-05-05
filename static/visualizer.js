@@ -7,9 +7,10 @@
 
 function VisualizerObject(containerID) {
 	var container = d3.select("#" + containerID),
-		margin = .9,
-		qubitScale = .4,
+		margin = 0.9,
+		qubitScale = 0.5,
 		animTime = 500;
+		//labelHeight = 15;
 	// Must put in new version
 	var chordCreated = false;
 
@@ -40,6 +41,9 @@ function VisualizerObject(containerID) {
 			}
 		}
 
+		//Account for label spacing needed
+		//qubitRadius -= labelHeight;
+
 	// --- QUBITS --- //
 		var qubits = container.selectAll(".qubit").data(qubitStates);
 		
@@ -49,6 +53,18 @@ function VisualizerObject(containerID) {
 			.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"})
 		  .append("circle")
 			.attr("class", "qubit-back");
+
+		//Labeling stuff---not working!
+		/*
+		container.selectAll(".qubits>g")
+		  .append("svg:text")
+		  	.attr({"class": "qubit-label",
+		  		"font-size": "2.3em",
+		  		"transform": "rotate(180deg)"})
+		  	.text(function(d, i) { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i] })
+		  	.attr("x", -5)
+		  	.attr("y", qubitRadius);
+		*/
 
 		// Update qubit arrangement
 		qubits.transition()

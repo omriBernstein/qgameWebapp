@@ -18,6 +18,12 @@
 	box-sizing: $argument;
 }
 
+@mixin box-shadow($arguments...) {
+  -moz-box-shadow: $arguments;
+  -webkit-box-shadow: $arguments;
+  box-shadow: $arguments;
+}
+
 @mixin user-select($argument) {
 	-webkit-user-select: $argument;      
 	-moz-user-select: $argument;
