@@ -246,9 +246,9 @@ function CircuitObject(containerID) {
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp, componentData[columnNum]);
 			}
+			else if(comptSymb) {}
 
-
-			function singleLine (parent, component) {
+			function singleLine (parent) {
 				// Add square
 				parent.append("rect").attr("class", "comp-backer")
 					.attr({ "width": colRealWidth + "px"
@@ -258,7 +258,7 @@ function CircuitObject(containerID) {
 				;
 				// Add text
 				parent.append("text").attr("class", "comp-text")
-					.text(componentData[columnNum].sym)
+					.text(comptSymb)
 					.attr("fill", "black")
 					.attr("font-size", fontSize + "em")
 					// Use component height to always be at center vertically
