@@ -245,25 +245,6 @@ function CircuitObject(containerID) {
 			// Draw different components differently
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp, componentData[columnNum]);
-				// Add the shape (right now just singles)
-				thisComp.append("rect").attr("class", "comp-backer")
-					.attr({ "width": colRealWidth + "px"
-						, "height": compHeight + "px"
-					})
-					.style({"stroke": "gray", "fill": "#FFFFCC"})
-				;
-				// Add the text, if any
-				thisComp.append("text").attr("class", "comp-text")
-					.text(componentData[columnNum].sym)
-					.attr("fill", "black")
-					.attr("font-size", fontSize + "em")
-					// Use component height to always be at center vertically
-					.attr({"x": colRealWidth/2, "y": compHeight/2})
-					// Makes x and y represent the middle point of the text
-					.attr("text-anchor", "middle")
-					// It's not exactly vertically middle
-					.attr("dy", "0.3em")
-				;
 			}
 
 
