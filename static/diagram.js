@@ -154,6 +154,11 @@ function CircuitObject(containerID) {
 		;
 
 	// --- COLUMNS --- \\
+// Other possibility
+// column1.append(component1 at the right place) (ask for y pos of relevant row);
+// column2.append(component2 at the right place) (ask for y pos of relevant row);
+// remove all
+
 		// What determines the number of columns?
 		var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);  // Works because no neg nums
 		var colColor = "lightgray";
@@ -168,7 +173,7 @@ function CircuitObject(containerID) {
 			.attr("class", "d-col")
 			.style({"position": "absolute", "top": "0"})
 			.style("left", function (dat) {
-				return (dat + .97) * columnWidth + dat * 1;
+				return (dat + 0.97) * columnWidth + dat * 1;
 			})
 			.style("margin", rowMargin + "px 0")
 			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
@@ -182,7 +187,7 @@ function CircuitObject(containerID) {
 			.duration(animTime)
 			.style({"position": "absolute", "top": "0"})
 			.style("left", function (dat) {
-				return (dat + .97) * columnWidth + dat * 1;
+				return (dat + 0.97) * columnWidth + dat * 1;
 			})
 			.style("margin", rowMargin + "px 0")
 			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
@@ -197,33 +202,54 @@ function CircuitObject(containerID) {
 			.remove();
 
 	// --- COMPONENTS --- \\
+		var actualRowHeight = $(".d-row").innerHeight()  // Should be smaller to give space for padding
+		, padding = 3;
+
+
+		var grid = [], gridRow = [];
+		for (var row = 0; row < numQubits; row++) {
+			for (var col = 0; col < numCols; col++) {
+				// Add column values to row till row is full
+				gridRow.push(col);
+				// really gridRow.push([row * whatever, col * whatever]);
+			}
+			// Add row to grid
+			grid.push[gridRow];
+			// Reset the row to blank
+			gridRow = [];
+		}
+
 		var componentData = [];
 		for(var i = 0; i < expressions.length; i++) {
 			componentData[i] = expressionToComponent(expressions[i]);
+			console.log(componentData[i]);
 		};
 
-		var component = container.selectAll(".component").data(componentData);
+		// var component = container.selectAll(".component").data(componentData);
 
-		// component.enter().append("rect")
-		// 	.attr("width", columnWidth)
-		// 	.attr("height", rowHeight)
-		// 	.attr("transform", positionComponent)
-		// 	.attr("contents", function(d) {return d.sym});
+		// component.enter().call(function (compts) {
+		// 	console.log(compts[0]);
+		// })
+		// // component.enter().append("rect")
+		// // 	.attr("width", columnWidth)
+		// // 	.attr("height", rowHeight)
+		// // 	.attr("transform", positionComponent)
+		// // 	.attr("contents", function(d) {return d.sym});
 
-		// component.exit()
-		// 	.remove();
+		// // component.exit()
+		// // 	.remove();
 
-		function singleLIne (letter) {
+		// function singleLine (letter) {
 
-		}
+		// }
 
-		function doubleLine (name) {
+		// function doubleLine (name) {
 
-		}
+		// }
 
-		function oracleLines (numLines, lastQubit) {
+		// function oracleLines (numLines, lastQubit) {
 
-		}
+		// }
 
 		// function positionComponent(cmpnt) {
 		// 	return "translate("
@@ -241,9 +267,9 @@ $(document).on("ready", function () {
 		diagram = new CircuitObject("diagram");
 
 		// Tests without components:
-		// diagram.render(3, "x")
-		// diagram.render(5, "x")
-		// diagram.render(1, "x")
+		// diagram.render(3, "x");
+		// diagram.render(5, "x");
+		// diagram.render(1, "x");
 
 		// Tests with comoponents
 		compData = 
