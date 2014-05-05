@@ -244,9 +244,15 @@ function CircuitObject(containerID) {
 
 			// Draw different components differently
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
-				singleLine(thisComp, componentData[columnNum]);
+				singleLine(thisComp);
 			}
-			else if(comptSymb) {}
+			else if(comptSymb == "cnot") {
+				cnotCompt(thisComp);
+			}
+
+			// These don't work inside the functinos for some reason
+			// even though they print correctly
+			var colXCenter = colRealWidth/2, colYCenter = compHeight/2;
 
 			function singleLine (parent) {
 				// Add square
@@ -261,7 +267,8 @@ function CircuitObject(containerID) {
 					.text(comptSymb)
 					.attr("fill", "black")
 					.attr("font-size", fontSize + "em")
-					// Use component height to always be at center vertically
+					// Use component height to always be at center
+					// colXCenter doesn't work here for some reason
 					.attr({"x": colRealWidth/2, "y": compHeight/2})
 					// Makes x and y represent the middle point of the text
 					.attr("text-anchor", "middle")
@@ -269,6 +276,21 @@ function CircuitObject(containerID) {
 					.attr("dy", "0.3em")
 				;
 			}
+
+			function cnotCompt (parent) {
+				parent.append("circle").attr("class", "cnot-target")
+					.attr("cy", colXCenter)
+				;
+			}
+
+			// These should be added to css stuff
+			d3.selectAll(".cnot-target")
+				.attr("r", labelRadius/2)
+				.attr("cx", colXCenter)
+				.style("fill", "black")
+			;
+
+
 
 		}  // end for columns
 
