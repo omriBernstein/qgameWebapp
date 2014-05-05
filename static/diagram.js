@@ -235,8 +235,7 @@ function CircuitObject(containerID) {
 
 			// Add the shape (right now just singles)
 			thisComp.append("rect").attr("class", "comp-backer")
-				.attr({ 
-					"width": colRealWidth + "px"
+				.attr({ "width": colRealWidth + "px"
 					, "height": compHeight + "px"
 				})
 				.style({"stroke": "gray", "fill": "#FFFFCC"})
@@ -247,7 +246,7 @@ function CircuitObject(containerID) {
 				.attr("fill", "black")
 				.attr("font-size", fontSize + "em")
 				// Use component height to always be at center vertically
-				.attr({"x": colRealWidth/2, "y": compHeight/2`})
+				.attr({"x": colRealWidth/2, "y": compHeight/2})
 				// Makes x and y represent the middle point of the text
 				.attr("text-anchor", "middle")
 				// It's not exactly vertically middle
@@ -258,7 +257,24 @@ function CircuitObject(containerID) {
 
 	// --- Drawing components --- \\
 		function singleLine (parent, component) {
-			parent.append
+			// Add square
+			parent.append("rect").attr("class", "comp-backer")
+				.attr({ "width": colRealWidth + "px"
+					, "height": compHeight + "px"
+				})
+				.style({"stroke": "gray", "fill": "#FFFFCC"})
+			;
+			// Add text
+			parent.append("text").attr("class", "comp-text")
+				.text(componentData[columnNum].sym)
+				.attr("fill", "black")
+				.attr("font-size", fontSize + "em")
+				// Use component height to always be at center vertically
+				.attr({"x": colRealWidth/2, "y": compHeight/2})
+				// Makes x and y represent the middle point of the text
+				.attr("text-anchor", "middle")
+				// It's not exactly vertically middle
+				.attr("dy", "0.3em")
 			;
 		}
 
