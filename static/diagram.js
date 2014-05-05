@@ -16,9 +16,9 @@ function CircuitObject(containerID) {
 		, "srn": "S"
 		, "hadamard": "H"
 		, "utheta": "U&theta;"  // I believe this is the correct code
-		, "cnot": "url"  // An image?
-		, "swap": "url"  // An image?
-		, "cphase": "url"  // Possible image?
+		, "cnot": "cnot"  // An image?
+		, "swap": "swap"  // An image?
+		, "cphase": "cphase"  // Possible image?
 		, "u2": "U"
 		, "measure": "M"
 		, "oracle": "O"
@@ -30,6 +30,10 @@ function CircuitObject(containerID) {
 		this.columnNum = columnNum;
 		return this;
 	}
+
+	// function singleRowComponent(parent, letter) {
+	// 	parent.append
+	// }
 
 	function expressionToComponent(expression) {
 		var fnName = expression._fn_meta._name,
@@ -58,12 +62,6 @@ function CircuitObject(containerID) {
 		for(var i = 0; i < numQubits; i++) {
 			wireData[i] = rowNums[i];
 		};
-
-		// TESTING NON-COMPONENT STUFF
-		// var componentData = [];
-		// for(var i = 0; i < expressions.length; i++) {
-		// 	componentData[i] = expressionToComponent(expressions[i]);
-		// };
 
 	// --- ROWS --- \\ They contain the row label and the wire
 		// container should have padding on the left and right = rowMargin or something
@@ -193,25 +191,20 @@ function CircuitObject(containerID) {
 			.style({"background-color": "lightgray", "stroke": "black"})
 		;
 
-		// This removes all the contents as well
+		// Remove cols whose data no longer exists
 		cols.exit().transition()
 			.duration(animTime)
 			.remove();
 
-
-
-
 	// --- COMPONENTS --- \\
-		// var component = conatiner.selectAll(".component").data(componentData);
+		var componentData = [];
+		for(var i = 0; i < expressions.length; i++) {
+			componentData[i] = expressionToComponent(expressions[i]);
+		};
 
-		// function positionComponent(cmpnt) {
-		// 	return "translate("
-		// 		cmpnt.columnNum * columnWidth + ","
-		// 		Math.min(cmpnt.rows) * rowHeight + 
-		// 	")"
-		// }
+		var component = container.selectAll(".component").data(componentData);
 
-		// component.enter().append("")
+		// component.enter().append("rect")
 		// 	.attr("width", columnWidth)
 		// 	.attr("height", rowHeight)
 		// 	.attr("transform", positionComponent)
@@ -219,6 +212,25 @@ function CircuitObject(containerID) {
 
 		// component.exit()
 		// 	.remove();
+
+		function singleLIne (letter) {
+
+		}
+
+		function doubleLine (name) {
+
+		}
+
+		function oracleLines (numLines, lastQubit) {
+
+		}
+
+		// function positionComponent(cmpnt) {
+		// 	return "translate("
+		// 		cmpnt.columnNum * columnWidth + ","
+		// 		Math.min(cmpnt.rows) * rowHeight + 
+		// 	")"
+		// }
 	}
 }
 
@@ -227,10 +239,28 @@ $(document).on("ready", function () {
 	var TESTING = true;
 	if (TESTING) {
 		diagram = new CircuitObject("diagram");
-		diagram.render(3, "x")
 
-		// Further tests
+		// Tests without components:
+		// diagram.render(3, "x")
 		// diagram.render(5, "x")
 		// diagram.render(1, "x")
+
+		// Tests with comoponents
+		compData = 
+		[
+			{
+				_fn_meta : {_name : "hadamard"}
+				, _line_number : 0
+				, _qubits : [{_value: 0}]
+			}
+			, {
+				_fn_meta : {_name : "cnot"}
+				, _line_number : 1
+				, _qubits : [{_value: 0}, {_value: 1}]
+			}
+		]
+		;
+		diagram.render(2, compData)
+		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
 	}
 });
