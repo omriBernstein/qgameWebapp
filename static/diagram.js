@@ -12,37 +12,44 @@ function CircuitObject(containerID) {
 	, animTime = 500;
 
 	var componentSymbols = {
-		"qnot": "X"
-		, "srn": "S"
-		, "hadamard": "H"
-		, "utheta": "U&theta;"  // I believe this is the correct code
-		, "cnot": "cnot"  // An image?
-		, "swap": "swap"  // An image?
-		, "cphase": "cphase"  // Possible image?
-		, "u2": "U"
-		, "measure": "M"
-		, "oracle": "O"
-	};
+			"qnot": "X"
+			, "srn": "S"
+			, "hadamard": "H"
+			, "utheta": "U\u03B8"  // I believe this is the correct code
+			, "cnot": "cnot"  // An image?
+			, "swap": "swap"  // An image?
+			, "cphase": "cphase"  // Possible image?
+			, "u2": "U"
+			, "measure": "M"
+			, "oracle": "O"  // I don't even know
+		}
+		, singeLineCompArray = ["X", "S", "H", "U\u03B8", "U", "M"]
+	;
 
-	function Component(name, rows, columnNum) {
+
+
+	function Component(name, qubitsArray, hasTarget, columnNum) {
 		this.sym = componentSymbols[name];
-		this.rows = rows;
+		this.rows = {
+			start: Math.min.apply( null, qubitsArray )
+			, control: hasTarget == true ? qubitsArray[0] : false
+			, target: hasTarget == true ? qubitsArray[qubitsArray.length - 1] : false
+		};
 		this.columnNum = columnNum;
 		return this;
 	}
 
-	// function singleRowComponent(parent, letter) {
-	// 	parent.append
-	// }
-
 	function expressionToComponent(expression) {
 		var fnName = expression._fn_meta._name,
-			qubits = [];
+			qubits = [],
+			hasTarget = expression._has_target,
 			lineNum = expression._line_number;
-		for(var i = 0; i < expression._qubits.lenth; i++){
+		for(var i = 0; i < expression._qubits.length; i++){
 			qubits[i] = expression._qubits[i]._value;
 		};
-		return new Component(fnName, qubits, lineNum);
+
+
+		return new Component(fnName, qubits, hasTarget, lineNum);
 	}
 
 	this.render = function(numQubits, expressions){
@@ -75,7 +82,7 @@ function CircuitObject(containerID) {
 			// .attr({"padding-right": "0", "padding-left": "0"})
 			// Why does 2.5 work?
 			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
-			.style("background-color", "lightgreen")
+			// .style("background-color", "lightgreen")
 		;
 
 		// Animate existing rows?
@@ -86,7 +93,7 @@ function CircuitObject(containerID) {
 			// .attr({"padding-right": "0", "padding-left": "0"})
 			// Why does 2.5 work?
 			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
-			.style("background-color", "lightgreen")
+			// .style("background-color", "lightgreen")
 		;
 
 		// This removes all the contents as well
@@ -159,7 +166,7 @@ function CircuitObject(containerID) {
 		var componentData = [];
 		for(var i = 0; i < expressions.length; i++) {
 			componentData[i] = expressionToComponent(expressions[i]);
-			console.log(componentData[i]);
+			// console.log(componentData[i]);
 		};
 
 		// Maybe make list of components for each column and then use *that*
@@ -202,6 +209,13 @@ function CircuitObject(containerID) {
 		for (var columnNum = 0; columnNum < numCols; columnNum++) {
 			var rowYCoord = $($(".d-row")[0]).position().top;
 			var thisID = "#d-col" + columnNum;
+			var comptSymb = componentData[columnNum].sym
+				// The row with the lowest index
+				, comptStartRow = componentData[columnNum].rows.start
+				, comptControlRow = componentData[columnNum].rows.control
+				, comptTargetRow = componentData[columnNum].rows.target
+			;
+			var comptLineWidth = "2px";
 
 			var thisCol = container.append("svg").attr("class", "d-col")
 				.attr("id", thisID)
@@ -213,19 +227,12 @@ function CircuitObject(containerID) {
 					, "margin": rowMargin + "px 0" // Space from top
 					, "width": colRealWidth + "px"
 					// , "height": "100%"  // Not sure if we need height anymore
-					, "background-color": "lightgray", "border": "1px solid black"
+					// , "background-color": "lightgray", "border": "1px solid black"
 				})
 			;
-			// || 0 because of errors right now
 			// The top of this component's top row
-			var compFirstRow = componentData[columnNum].rows[0] || 0
-				, compRowTop = $($(".d-row")[compFirstRow]).position().top
-				// The bottom of this component's bottom row
-				// (for multi-row components. May do this differently)
-				, compLastRow = componentData[columnNum].rows[-1] || 0
-				, compRowBottom = ($($(".d-row")[compLastRow]).position().top)
-					+ colRealWidth
-				, compHeight = compRowBottom - compRowTop;
+			var compRowTop = $($(".d-row")[comptStartRow]).position().top
+				, compHeight = colRealWidth;
 			;
 
 			// Not sure if we need to make a group
@@ -233,50 +240,95 @@ function CircuitObject(containerID) {
 				.attr("transform", "translate(0, " + compRowTop + ")")
 			;
 
-			// Add the shape (right now just singles)
-			thisComp.append("rect").attr("class", "comp-backer")
-				.attr({ "width": colRealWidth + "px"
-					, "height": compHeight + "px"
-				})
-				.style({"stroke": "gray", "fill": "#FFFFCC"})
+			// Draw different components differently
+			if (singeLineCompArray.indexOf(comptSymb) > -1) {
+				singleLine(thisComp);
+			}
+			else if(comptSymb == "cnot") {
+				cnotCompt(thisComp);
+			}
+
+			// These don't work inside the functinos for some reason
+			// even though they print correctly
+			var colXCenter = colRealWidth/2, colYCenter = compHeight/2;
+
+			function singleLine (parent) {
+				// Add square
+				parent.append("rect").attr("class", "comp-backer")
+					.attr({ "width": colRealWidth + "px"
+						, "height": compHeight + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+				;
+				// Add text
+				parent.append("text").attr("class", "component-symbol compt-text")
+					.text(comptSymb)
+					.attr("fill", "black")
+					.attr("font-size", fontSize + "em")
+					// Makes x and y represent the middle point of the text
+					.attr("text-anchor", "middle")
+					// It's not exactly vertically middle
+					.attr("dy", "0.3em")
+				;
+			}
+
+			function cnotCompt (parent) {
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, lineTop = Math.min(controlCY, targetCY)
+					, lineBottom = Math.max(controlCY, targetCY)
+				;
+
+				// Control y position
+				parent.append("circle").attr("class", "component-symbol cnot-control")
+					.attr("cy", controlCY)
+				;
+				// Target y position
+				parent.append("circle").attr("class", "component-symbol cnot-target")
+					.attr("cy", targetCY)
+				;
+				// Connecting line start and end
+				parent.append("line").attr("class", "component-symbol cnot-line")
+					.attr("y1", lineTop)
+					.attr("y2", lineBottom)
+					// add a line here coming from the bottom
+				;
+
+			}
+
+			// These should be added to css stuff? Hmm, not sure of "y"
+			// Well, at least some of these should
+
+			// Center everything
+			d3.selectAll(".component-symbol")
+				// "50%" doesn't work with y for some reason
+				.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
 			;
-			// Add the text, if any
-			thisComp.append("text").attr("class", "comp-text")
-				.text(componentData[columnNum].sym)
-				.attr("fill", "black")
-				.attr("font-size", fontSize + "em")
-				// Use component height to always be at center vertically
-				.attr({"x": colRealWidth/2, "y": compHeight/2})
-				// Makes x and y represent the middle point of the text
-				.attr("text-anchor", "middle")
-				// It's not exactly vertically middle
-				.attr("dy", "0.3em")
+			// Size and x pos of component control
+			d3.selectAll(".cnot-control")
+				.attr("r", labelRadius/2)
+				.style("fill", "black")
 			;
 
-		}
+			// Size and y pos of component target
+			d3.selectAll(".cnot-target")
+				.attr("r", labelRadius)
+				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
+			;
+
+			// Width and x pos of cnot connecting line
+			d3.selectAll(".cnot-line")
+				.attr("x1", colXCenter)
+				.attr("x2", colXCenter)
+				.attr("stroke-width", comptLineWidth)
+				.attr("stroke", "black")
+			;
+
+		}  // end for columns
 
 	// --- Drawing components --- \\
-		function singleLine (parent, component) {
-			// Add square
-			parent.append("rect").attr("class", "comp-backer")
-				.attr({ "width": colRealWidth + "px"
-					, "height": compHeight + "px"
-				})
-				.style({"stroke": "gray", "fill": "#FFFFCC"})
-			;
-			// Add text
-			parent.append("text").attr("class", "comp-text")
-				.text(componentData[columnNum].sym)
-				.attr("fill", "black")
-				.attr("font-size", fontSize + "em")
-				// Use component height to always be at center vertically
-				.attr({"x": colRealWidth/2, "y": compHeight/2})
-				// Makes x and y represent the middle point of the text
-				.attr("text-anchor", "middle")
-				// It's not exactly vertically middle
-				.attr("dy", "0.3em")
-			;
-		}
 
 		// var colEnter = cols.enter().append("svg")
 		// 	.attr("class", "d-col")
@@ -361,8 +413,8 @@ function CircuitObject(containerID) {
 		// 		Math.min(cmpnt.rows) * rowHeight + 
 		// 	")"
 		// }
-	}
-}
+	}  // end this.render()
+}  // End CircuitObject()
 
 // *** TESTS *** \\
 $(document).on("ready", function () {
@@ -382,14 +434,15 @@ $(document).on("ready", function () {
 				_fn_meta : {_name : "hadamard"}
 				, _line_number : 0
 				, _qubits : [{_value: 0}]
+				, _has_target : false
 			}
 			, {
 				_fn_meta : {_name : "cnot"}
 				, _line_number : 1
 				, _qubits : [{_value: 0}, {_value: 1}]
+				, _has_target : true
 			}
-		]
-		;
+		];
 		diagram.render(2, compData)
 		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
 	}
