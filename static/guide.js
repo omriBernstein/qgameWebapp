@@ -33,8 +33,21 @@ $(".guide-item.e-grovers").html("Stuff about grovers"); // end .e-grovers.html
 
 $(".guide-item.e-shors").html("Stuff about shors"); // end .e-shors.html
 
-$(".guide-item.d-qnot").html("The qnot operation flips a single qubit. It will swap that qubit's UP and DOWN lines. This is called qnot because it is like a normal not operation, but quantum.
-<br><br><span class='example'>qnot A</span>"); // end .d-qnot.html
+$(".guide-item.d-qnot").html("The qnot operation flips a single qubit. It will swap that qubit's UP and DOWN lines. This is called qnot because it is like an ordinary not operation, but quantum. For example:
+<br><span class='example'>qnot A</span>
+<br><br>Notice that flipping can have no effect, if the UP and DOWN states happen to be the same:
+<br><span class='example'>hadamard A\n
+<br>qnot A</span>
+<br><br>On the other hand, remember that even if the UP and DOWN states have the same probability (line length), qnot will swap their phase (angle), e.g.:
+<br><span class='example'>qnot A\n
+<br>hadamard A\n
+<br>qnot A</span>
+<br><br>Notice also that order of operations is really important. As in:
+<br><span class='example'>hadamard A\n
+<br>qnot A</span>
+<br>Is not the same as:
+<br><span class='example'>qnot A\n
+<br>hadamard A</span>"); // end .d-qnot.html
 
 $(".guide-item.d-cnot").html("Stuff about cnot"); // end .d-cnot.html
 
@@ -59,13 +72,3 @@ $(".guide-item.d-measure").html("Stuff about measure"); // end .d-measure.html
 $(".guide-item.d-else").html("Stuff about else"); // end .d-measure.html
 
 $(".guide-item.d-end").html("Stuff about end"); // end .d-end.html
-
-/*
-Change "lesson, examples & documentation" to just "guide"
-@mixin shadow($arguments...) {
-  -moz-box-shadow: $arguments;
-  -webkit-box-shadow: $arguments;
-  box-shadow: $arguments;
-}
-Some stuff: -webkit-box-shadow: 0 0 1.2rem 0.3rem #640064;
-*/
