@@ -241,6 +241,10 @@ function CircuitObject(containerID) {
 			;
 
 			var comptSymb = componentData[columnNum].sym
+				, comptStartRow = componentData[columnNum].rows.start
+				, comptEndRow = componentData[columnNum].rows.end
+				, comptTarget = componentData[columnNum].rows.target
+			;
 
 			// Draw different components differently
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
@@ -263,13 +267,10 @@ function CircuitObject(containerID) {
 					.style({"stroke": "gray", "fill": "#FFFFCC"})
 				;
 				// Add text
-				parent.append("text").attr("class", "comp-text")
+				parent.append("text").attr("class", "component-symbol compt-text")
 					.text(comptSymb)
 					.attr("fill", "black")
 					.attr("font-size", fontSize + "em")
-					// Use component height to always be at center
-					// colXCenter doesn't work here for some reason
-					.attr({"x": colRealWidth/2, "y": compHeight/2})
 					// Makes x and y represent the middle point of the text
 					.attr("text-anchor", "middle")
 					// It's not exactly vertically middle
@@ -278,19 +279,26 @@ function CircuitObject(containerID) {
 			}
 
 			function cnotCompt (parent) {
-				parent.append("circle").attr("class", "cnot-control")
-					.attr("cy", colXCenter)
+				parent.append("circle").attr("class", "component-symbol cnot-control")
+					.attr("cy", colXCenter)  // Always half-way down first compt
 				;
+
+				parent.append("circle").attr("class", "component-symbol cnot-target")
 			}
 
 			// These should be added to css stuff
+			d3.selectAll(".component-symbol")
+				.attr({"x": colXCenter, "y":  colXCenter, "cx": colXCenter})
+			;
+
 			d3.selectAll(".cnot-control")
 				.attr("r", labelRadius/2)
-				.attr("cx", colXCenter)
 				.style("fill", "black")
 			;
 
-
+			d3.selectAll(".cnot-target")
+				.attr("r", labelRadius)
+			;
 
 		}  // end for columns
 
