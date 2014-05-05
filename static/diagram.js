@@ -96,6 +96,7 @@ function CircuitObject(containerID) {
 
 	// --- Row Names --- \\
 		var labelRadius = rowHeight/3
+		, fontSize = labelRadius/10
 		// What to subtract from height?
 		, labelX = labelRadius + 3, labelY = rowHeight/2 - 4;
 
@@ -127,7 +128,7 @@ function CircuitObject(containerID) {
 			.data(rowData)
 			.text(function (dat) { return dat[1]; })
 			.attr("fill", "black")
-			.attr("font-size", (labelRadius/10) + "em")
+			.attr("font-size", fontSize + "em")
 			.attr("dy", "0.38em")
 			.attr("dx", "-0.35em")
 		;
@@ -153,14 +154,35 @@ function CircuitObject(containerID) {
 			.attr("stroke", "black")
 		;
 
+	// --- COMPONENTS --- \\
+
+		var componentData = [];
+		for(var i = 0; i < expressions.length; i++) {
+			componentData[i] = expressionToComponent(expressions[i]);
+			console.log(componentData[i]);
+		};
+
+		// Maybe make list of components for each column and then use *that*
+		// to make numCols
+
+
 	// --- COLUMNS --- \\
 // Other possibility
+// remove all columns
 // column1.append(component1 at the right place) (ask for y pos of relevant row);
 // column2.append(component2 at the right place) (ask for y pos of relevant row);
 // remove all
 
-		// What determines the number of columns?
-		var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);  // Works because no neg nums
+		$(".d-col").remove();
+
+		// What we'd see if we gave columns a background
+		var colRealWidth = $(".d-row").innerHeight();
+		// Space that has the column in it, gives a gap between columns
+		var colAreaWidth = columnWidth;
+		// Works because no negative numbers. -1 to give gap for labels at start
+		// Use number of components instead?
+		// var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);
+		var numCols = componentData.length;
 		var colColor = "lightgray";
 
 		var colData = []  // I'm not always sure what data is for
@@ -168,62 +190,122 @@ function CircuitObject(containerID) {
 
 		var cols = container.selectAll(".d-col").data(colData);
 
-		// Add a row if needed (variable will be used to add labels and wires)
-		var colEnter = cols.enter().append("svg")
-			.attr("class", "d-col")
-			.style({"position": "absolute", "top": "0"})
-			.style("left", function (dat) {
-				return (dat + 0.97) * columnWidth + dat * 1;
-			})
-			.style("margin", rowMargin + "px 0")
-			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-			// Don't know how this will fare with size change
-			.style("height", "98%")
-			.style({"background-color": "lightgray", "stroke": "black"})
-		;
+		// $(".d-col").attr({
+		// 	"position": "absolute", "top": "0"
+		// 	, "width": colRealWidth + "px"
+		// 	// , "height": "100%"  // Not sure if we need height anymore
+		// 	, "background-color": "lightgray", "border": "1px solid black"
+		// });
 
-		// Animate existing rows?
-		cols.transition()
-			.duration(animTime)
-			.style({"position": "absolute", "top": "0"})
-			.style("left", function (dat) {
-				return (dat + 0.97) * columnWidth + dat * 1;
-			})
-			.style("margin", rowMargin + "px 0")
-			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-			// Don't know how this will fare with size change
-			.style("height", "98%")
-			.style({"background-color": "lightgray", "stroke": "black"})
-		;
+		var colXPos = columnWidth;
 
-		// Remove cols whose data no longer exists
-		cols.exit().transition()
-			.duration(animTime)
-			.remove();
+		for (var columnNum = 0; columnNum < numCols; columnNum++) {
+			var rowYCoord = $($(".d-row")[0]).position().top;
+			var thisID = "#d-col" + columnNum;
 
-	// --- COMPONENTS --- \\
-		var actualRowHeight = $(".d-row").innerHeight()  // Should be smaller to give space for padding
-		, padding = 3;
+			var thisCol = container.append("svg").attr("class", "d-col")
+				.attr("id", thisID)
+				// .data("index", columnNum)  // Needed?
+				// .data()  // Needed?
+				.style({
+					"position": "absolute", "top": "0"
+					, "left": (colXPos + (columnWidth * columnNum)) + "px"
+					, "margin": rowMargin + "px 0" // Space from top
+					, "width": colRealWidth + "px"
+					// , "height": "100%"  // Not sure if we need height anymore
+					, "background-color": "lightgray", "border": "1px solid black"
+				})
+			;
 
+			// || 0 because of errors right now
+			// The top of this component's top row
+			var compFirstRow = componentData[columnNum].rows[0] || 0
+				, compRowTop = $($(".d-row")[compFirstRow]).position().top
+				// The bottom of this component's bottom row
+				// (for multi-row components. May do this differently)
+				, compLastRow = componentData[columnNum].rows[-1] || 0
+				, compRowBottom = ($($(".d-row")[compLastRow]).position().top)
+					+ colRealWidth
+			;
 
-		var grid = [], gridRow = [];
-		for (var row = 0; row < numQubits; row++) {
-			for (var col = 0; col < numCols; col++) {
-				// Add column values to row till row is full
-				gridRow.push(col);
-				// really gridRow.push([row * whatever, col * whatever]);
-			}
-			// Add row to grid
-			grid.push[gridRow];
-			// Reset the row to blank
-			gridRow = [];
+			// Add the shape (right now just singles)
+			thisCol.append("rect").attr("class", "comp-backer")
+					.attr({ "x": 0, "y": compRowTop
+					, "width": colRealWidth + "px", "height": colRealWidth + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+			;
+			// Add the text, if any
+			// thisCol.append
+
 		}
 
-		var componentData = [];
-		for(var i = 0; i < expressions.length; i++) {
-			componentData[i] = expressionToComponent(expressions[i]);
-			console.log(componentData[i]);
-		};
+	// --- Drawing components --- \\
+		function singleLine (parent, component) {
+			parent.append("div").attr("class", "single-comp")
+				.attr({"position": "absolute"
+					, "font-size": fontSize
+					, "padding": "calc(50% -" + fontSize/2 + "em)"
+					, "background-color": "yellow"
+				})
+				.text(letter)
+			;
+		}
+
+		// var colEnter = cols.enter().append("svg")
+		// 	.attr("class", "d-col")
+		// 	.style({"position": "absolute", "top": "0"})
+		// 	.style("left", function (dat) {
+		// 		return (dat + 0.97) * columnWidth + dat * 1;
+		// 	})
+		// 	.style("margin", rowMargin + "px 0")
+		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
+		// 	// Don't know how this will fare with size change
+		// 	.style("height", "98%")
+		// 	.style({"background-color": "lightgray", "stroke": "black"})
+		// ;
+
+		// // Animate existing rows?
+		// cols.transition()
+		// 	.duration(animTime)
+		// 	.style({"position": "absolute", "top": "0"})
+		// 	.style("left", function (dat) {
+		// 		return (dat + 0.97) * columnWidth + dat * 1;
+		// 	})
+		// 	.style("margin", rowMargin + "px 0")
+		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
+		// 	// Don't know how this will fare with size change
+		// 	.style("height", "98%")
+		// 	.style({"background-color": "lightgray", "stroke": "black"})
+		// ;
+
+		// // Remove cols whose data no longer exists
+		// cols.exit().transition()
+		// 	.duration(animTime)
+		// 	.remove();
+
+	// --- (old) COMPONENTS --- \\
+		// var actualRowHeight = $(".d-row").innerHeight()  // Should be smaller to give space for padding
+		// , padding = 3;
+
+
+		// var grid = [], gridRow = [];
+		// for (var row = 0; row < numQubits; row++) {
+		// 	for (var col = 0; col < numCols; col++) {
+		// 		// Add column values to row till row is full
+		// 		gridRow.push(col);
+		// 		// really gridRow.push([row * whatever, col * whatever]);
+		// 	}
+		// 	// Add row to grid
+		// 	grid.push[gridRow];
+		// 	// Reset the row to blank
+		// 	gridRow = [];
+		// }
+
+		// var componentData = [];
+		// for(var i = 0; i < expressions.length; i++) {
+		// 	componentData[i] = expressionToComponent(expressions[i]);
+		// };
 
 		// var component = container.selectAll(".component").data(componentData);
 
@@ -238,10 +320,6 @@ function CircuitObject(containerID) {
 
 		// // component.exit()
 		// // 	.remove();
-
-		// function singleLine (letter) {
-
-		// }
 
 		// function doubleLine (name) {
 
