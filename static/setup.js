@@ -99,6 +99,13 @@ $(document).ready(function() {
 				$dragged.css({"top": event.pageY - diffY, "left": event.pageX - diffX});
 			})
 	});
+
+	$(".reference-item").dblclick(function() {
+		var currentLine = editor.getSession().getLine(editor.getCursorPosition().row),
+			toInsert = (currentLine ? "\n" : "") + $(this).text().trim();
+		editor.navigateLineEnd();
+		editor.insert(toInsert);
+	});
 	
 	// --- Open guide documentation content with ref "?" button --- \\
 	$(".reference-button").on("click", function () {
