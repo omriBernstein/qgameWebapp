@@ -278,13 +278,13 @@ function CircuitObject(containerID) {
 			}
 
 			function cnotCompt (parent) {
-				parent.append("circle").attr("class", "cnot-target")
+				parent.append("circle").attr("class", "cnot-control")
 					.attr("cy", colXCenter)
 				;
 			}
 
 			// These should be added to css stuff
-			d3.selectAll(".cnot-target")
+			d3.selectAll(".cnot-control")
 				.attr("r", labelRadius/2)
 				.attr("cx", colXCenter)
 				.style("fill", "black")
