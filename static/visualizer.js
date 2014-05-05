@@ -73,7 +73,7 @@ function VisualizerObject(containerID) {
 			.duration(animTime)
 			.attr({"font-size": "2.3em"})
 			//.attr("y", -(qubitRadius+labelHeight))
-			.attr("transform", function(dat, i) {console.log("i:"+i); return positionLabel(i) })
+			.attr("transform", function(dat, i) { return positionLabel(i) })
 			.attr("text-anchor", "middle")
 			.attr("dy", "0.38em");
 

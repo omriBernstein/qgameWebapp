@@ -12,37 +12,44 @@ function CircuitObject(containerID) {
 	, animTime = 500;
 
 	var componentSymbols = {
-		"qnot": "X"
-		, "srn": "S"
-		, "hadamard": "H"
-		, "utheta": "U&theta;"  // I believe this is the correct code
-		, "cnot": "cnot"  // An image?
-		, "swap": "swap"  // An image?
-		, "cphase": "cphase"  // Possible image?
-		, "u2": "U"
-		, "measure": "M"
-		, "oracle": "O"
-	};
+			"qnot": "X"
+			, "srn": "S"
+			, "hadamard": "H"
+			, "utheta": "U\u03B8"  // I believe this is the correct code
+			, "cnot": "cnot"  // An image?
+			, "swap": "swap"  // An image?
+			, "cphase": "cphase"  // Possible image?
+			, "u2": "U"
+			, "measure": "M"
+			, "oracle": "O"  // I don't even know
+		}
+		, singeLineCompArray = ["X", "S", "H", "U\u03B8", "U", "M"]
+	;
 
-	function Component(name, rows, columnNum) {
+
+
+	function Component(name, qubitsArray, hasTarget, columnNum) {
 		this.sym = componentSymbols[name];
-		this.rows = rows;
+		this.rows = {
+			start: Math.max.apply( Math, qubitsArray )
+			, end: Math.min.apply( Math, qubitsArray )
+			, target: hasTarget ? qubitsArray[qubitsArray.length - 1] : false
+		};
 		this.columnNum = columnNum;
 		return this;
 	}
 
-	// function singleRowComponent(parent, letter) {
-	// 	parent.append
-	// }
-
 	function expressionToComponent(expression) {
 		var fnName = expression._fn_meta._name,
-			qubits = [];
+			qubits = [],
+			hasTarget = expression._has_target,
 			lineNum = expression._line_number;
-		for(var i = 0; i < expression._qubits.lenth; i++){
+		for(var i = 0; i < expression._qubits.length; i++){
 			qubits[i] = expression._qubits[i]._value;
 		};
-		return new Component(fnName, qubits, lineNum);
+
+
+		return new Component(fnName, qubits, hasTarget, lineNum);
 	}
 
 	this.render = function(numQubits, expressions){
@@ -233,50 +240,58 @@ function CircuitObject(containerID) {
 				.attr("transform", "translate(0, " + compRowTop + ")")
 			;
 
-			// Add the shape (right now just singles)
-			thisComp.append("rect").attr("class", "comp-backer")
-				.attr({ "width": colRealWidth + "px"
-					, "height": compHeight + "px"
-				})
-				.style({"stroke": "gray", "fill": "#FFFFCC"})
-			;
-			// Add the text, if any
-			thisComp.append("text").attr("class", "comp-text")
-				.text(componentData[columnNum].sym)
-				.attr("fill", "black")
-				.attr("font-size", fontSize + "em")
-				// Use component height to always be at center vertically
-				.attr({"x": colRealWidth/2, "y": compHeight/2})
-				// Makes x and y represent the middle point of the text
-				.attr("text-anchor", "middle")
-				// It's not exactly vertically middle
-				.attr("dy", "0.3em")
-			;
+			var comptSymb = componentData[columnNum].sym
 
-		}
+			// Draw different components differently
+			if (singeLineCompArray.indexOf(comptSymb) > -1) {
+				singleLine(thisComp, componentData[columnNum]);
+				// Add the shape (right now just singles)
+				thisComp.append("rect").attr("class", "comp-backer")
+					.attr({ "width": colRealWidth + "px"
+						, "height": compHeight + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+				;
+				// Add the text, if any
+				thisComp.append("text").attr("class", "comp-text")
+					.text(componentData[columnNum].sym)
+					.attr("fill", "black")
+					.attr("font-size", fontSize + "em")
+					// Use component height to always be at center vertically
+					.attr({"x": colRealWidth/2, "y": compHeight/2})
+					// Makes x and y represent the middle point of the text
+					.attr("text-anchor", "middle")
+					// It's not exactly vertically middle
+					.attr("dy", "0.3em")
+				;
+			}
+
+
+			function singleLine (parent, component) {
+				// Add square
+				parent.append("rect").attr("class", "comp-backer")
+					.attr({ "width": colRealWidth + "px"
+						, "height": compHeight + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+				;
+				// Add text
+				parent.append("text").attr("class", "comp-text")
+					.text(componentData[columnNum].sym)
+					.attr("fill", "black")
+					.attr("font-size", fontSize + "em")
+					// Use component height to always be at center vertically
+					.attr({"x": colRealWidth/2, "y": compHeight/2})
+					// Makes x and y represent the middle point of the text
+					.attr("text-anchor", "middle")
+					// It's not exactly vertically middle
+					.attr("dy", "0.3em")
+				;
+			}
+
+		}  // end for columns
 
 	// --- Drawing components --- \\
-		function singleLine (parent, component) {
-			// Add square
-			parent.append("rect").attr("class", "comp-backer")
-				.attr({ "width": colRealWidth + "px"
-					, "height": compHeight + "px"
-				})
-				.style({"stroke": "gray", "fill": "#FFFFCC"})
-			;
-			// Add text
-			parent.append("text").attr("class", "comp-text")
-				.text(componentData[columnNum].sym)
-				.attr("fill", "black")
-				.attr("font-size", fontSize + "em")
-				// Use component height to always be at center vertically
-				.attr({"x": colRealWidth/2, "y": compHeight/2})
-				// Makes x and y represent the middle point of the text
-				.attr("text-anchor", "middle")
-				// It's not exactly vertically middle
-				.attr("dy", "0.3em")
-			;
-		}
 
 		// var colEnter = cols.enter().append("svg")
 		// 	.attr("class", "d-col")
@@ -361,8 +376,8 @@ function CircuitObject(containerID) {
 		// 		Math.min(cmpnt.rows) * rowHeight + 
 		// 	")"
 		// }
-	}
-}
+	}  // end this.render()
+}  // End CircuitObject()
 
 // *** TESTS *** \\
 $(document).on("ready", function () {
@@ -382,14 +397,15 @@ $(document).on("ready", function () {
 				_fn_meta : {_name : "hadamard"}
 				, _line_number : 0
 				, _qubits : [{_value: 0}]
+				, _has_target : false
 			}
 			, {
 				_fn_meta : {_name : "cnot"}
 				, _line_number : 1
 				, _qubits : [{_value: 0}, {_value: 1}]
+				, _has_target : true
 			}
-		]
-		;
+		];
 		diagram.render(2, compData)
 		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
 	}
