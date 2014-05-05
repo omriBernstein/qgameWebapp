@@ -49,11 +49,6 @@ function CircuitObject(containerID) {
 			, rowHeight = containerHeight / numQubits
 			, columnWidth = rowHeight;
 
-		// // Other possibility - for absolute positioned rows
-		// // if space is needed between rows
-		// var sectionHeight = containerHeight / numQubits
-		// , rowH = sectionHeight - 3;
-
 		var rowData = []
 		for(var i = 0; i < numQubits; i++) {
 			rowData[i] = [ rowNums[i], "ABCDEFGHIJ"[i] ];
@@ -101,7 +96,7 @@ function CircuitObject(containerID) {
 			.duration(animTime)
 			.remove();
 
-	// --- ROW NAMES --- \\
+	// --- Row Names --- \\
 		var labelRadius = rowHeight/3
 		// What to subtract from height?
 		, labelX = labelRadius + 3, labelY = rowHeight/2 - 4;
@@ -139,7 +134,7 @@ function CircuitObject(containerID) {
 			.attr("dx", "-0.35em")
 		;
 
-	// --- WIRES --- \\
+	// --- Wires --- \\
 		// A wire is vertically centered in row height
 		var strokeWidth = 2, wireY = rowHeight/2 - strokeWidth
 			, wireWidth = $(".d-row").innerWidth(), labelSectionWidth = labelRadius * 2 + 10;
@@ -159,6 +154,51 @@ function CircuitObject(containerID) {
 			.attr("stroke-width", strokeWidth)
 			.attr("stroke", "black")
 		;
+
+	// --- COLUMNS --- \\
+		// What determines the number of columns?
+		var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);  // Works because no neg nums
+		var colColor = "lightgray";
+
+		var colData = []  // I'm not always sure what data is for
+		for(var ii = 0; ii < numCols; ii++) { colData[ii] = ii; };
+
+		var cols = container.selectAll(".d-col").data(colData);
+
+		// Add a row if needed (variable will be used to add labels and wires)
+		var colEnter = cols.enter().append("svg")
+			.attr("class", "d-col")
+			.style({"position": "absolute", "top": "0"})
+			.style("left", function (dat) {
+				return (dat + .97) * columnWidth + dat * 1;
+			})
+			.style("margin", rowMargin + "px 0")
+			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
+			// Don't know how this will fare with size change
+			.style("height", "98%")
+			.style({"background-color": "lightgray", "stroke": "black"})
+		;
+
+		// Animate existing rows?
+		cols.transition()
+			.duration(animTime)
+			.style({"position": "absolute", "top": "0"})
+			.style("left", function (dat) {
+				return (dat + .97) * columnWidth + dat * 1;
+			})
+			.style("margin", rowMargin + "px 0")
+			.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
+			// Don't know how this will fare with size change
+			.style("height", "98%")
+			.style({"background-color": "lightgray", "stroke": "black"})
+		;
+
+		// This removes all the contents as well
+		cols.exit().transition()
+			.duration(animTime)
+			.remove();
+
+
 
 
 	// --- COMPONENTS --- \\
