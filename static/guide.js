@@ -15,14 +15,22 @@ var guide = {
 			+ "\n<li class='example'>u2 A 0 0 0 PI/2</li>"
 			+ "\n</ul>");  // end #l-start.html
 
-$(".guide-item.l-quantcomp").html("As we've said, quantum computers are strange. But really."
-	+ "<br><br>Let's start with something less bizarre. Ordinary computers perform operations by changing bits of information--where each bit has two possible states, ON or OFF. If you were a computer with only one bit, it would be like being able to hear only YES or NO, and being able to say only YES or NO--that's it."
-	+ "<br><br>With two bits, a computer has four states: ON+ON, ON+OFF, OFF+ON, or OFF+OFF. That's a little more interesting (well, to me at least). As you scale up, the number of possible states grows exponentially--with three bits there are eight states, with four bits there are sixteen states. On the other hand, the computer can only ever be in one of these states at a single time. This seems to make sense: if something is ON it can't also be OFF."
-	+ "<br><br>Well that's not completely the case for a quantum computer. Quantum computers can exist in what's called a superposition of states. When superposed, multiple possible states are represented simultaneously. For example, let's consider a quantum computer with one quantum bit, called a qubit."
-		+"<br><br>This quantum computer can be in the state UP or the state DOWN, or it can be in some combination. It can be half-UP and half-DOWN; one-third-UP and two-thirds-DOWN.");  // end .l-quantcomp.html
+		$(".guide-item.l-quantcomp").html("");  // end .l-quantcomp.html
 
-		$(".guide-item.l-qubits").html("A quantum bit is called a qubit. That won't do you any good unless you know what a bit is, though."
-		+ "<br><br>BLAH BLAH"); // end .l-qubits.html
+		$(".guide-item.l-aqubit").html("Let's start with ordinary bits. A bit is a piece of information with two possible states, ON or OFF. Ordinary computers (such as this one) perform all of their operations by changing bits of information. If you were a computer with only one bit, it would be like being able to hear only YES or NO, and being able to say only YES or NO--that's it. A bit can only ever be ON or OFF."
+		+ "<br><br>Well that's not completely the case for a quantum bit, called a qubit. A qubit can exist in what's called a superposition of states. When superposed, a qubit represents two states simultaneously. This qubit can be half ON and half OFF--in which case we would say it is fully superposed. There are other combinations. For example, it could be one-third ON and two-thirds OFF, or five-eighths ON and three-eighths OFF, or it could even be completely ON and not-at-all OFF."
+		+ "<br><br>Notice that these two numbers must always add up to one. This is no coincidence. Although a qubit represents two states simultaneously, each substate (ON or OFF) partially exists, sharing a piece of the 'whole existence' with the other substate."
+		+ "<br><br>Also notice that an ordinary bit is a particular kind of quantum bit, much like a square is a particular kind of rectangle. A qubit can be 100% ON and 0% OFF, in which case it is the same as a bit that is ON. This is like a rectangle just happening to have equal sides--it is technically also a square."); // end .l-aqubit.html
+
+		$(".guide-item.l-measurement").html("partial existence is probability | measurement in an ordinary computer | measurement in a quantum computer | limitation of quantum computers"); // end .l-measurement.html
+
+		$(".guide-item.l-manyqubits").html("The magic really happens when there is more than one qubit. Let's go back to the ordinary case again. A computer with two bits has four possible states: ON+ON, ON+OFF, OFF+ON, and ON+ON. Once again, it can only be in one of these states at any given time."
+		+ "<br><br>Yet a quantum computer with two qubits will be in some combination of all of the states at the same time. For example, it could be 50% ON+ON and 50% OFF+OFF. This means that the system as a whole half exists as ON+ON and half exists as OFF+OFF. Like before, these partial existences must sum to 100%, which means that the system is 0% ON+OFF and 0% OFF+ON."
+		+ "<br><br>This may or may not at first strike you as odd. Consider each qubit separately. The first qubit, let's call it A, is 50% ON and 50% OFF. If we were to measure it, there would be a 50% chance it'd be ON, and a 50% chance it'd be OFF. We can see this by paying attention to just the first substate: 50% <b>ON</b>+ON and 50% <b>OFF</b>+OFF. The second qubit, let's call it B, is 50% ON and 50% OFF for the same reasons."
+		+ "<br><br>But there's something else that's weird. If you measure one qubit, the other one collapses in the same manner. Think about it, when you measure A it will come out as ON or OFF. If A comes out as ON, then qubit B will also come out as ON, because there's only one possible situation in which A is ON, the one in which B is also ON. If A comes out as OFF, then qubit B will also come out as OFF, because there's only one possible situation in which A is OFF, the one in which B is also OFF."
+		+ "<br><br>Here, the combined qubits have no existence as ON+OFF or as ON+OFF, those states are both 0%. This is very different than having two independent qubits that are each separately superposed. When one is ON the other is also ON, when one is OFF the other is also OFF: these qubits are codependent! This is called entanglement, and is a big part of what makes quantum computers seem strange."); // end .l-manyqubits.html
+
+		$(".guide-item.l-phase").html("There's something you may be wondering: why do the lines rotate. Well, that's because each qubit actually has more information than just a probability. A qubit also has what's called a phase, and which we here represent with angles."); //end .l-phase.html
 
 		$(".guide-item.l-gates").html("Stuff about gates"); // end .l-gates.html
 
@@ -96,3 +104,8 @@ $(".guide-item.l-quantcomp").html("As we've said, quantum computers are strange.
 			$(".guide-item.d-end").html("Stuff about end"); // end .d-end.html
 		}
 	}
+
+/*into setup, in the future, something like this...
+$(document).on("mouseenter", ".qromp-div-reference", function(evt) {$("#"+evt.currentTarget.innerHtml).addClass("highlight")});
+$(document).on("mouseleave", ".qromp-div-reference", function(evt) {$("#"+evt.currentTarget.innerHtml).removeClass("highlight")});
+*/
