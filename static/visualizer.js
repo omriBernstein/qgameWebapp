@@ -10,7 +10,7 @@ function VisualizerObject(containerID) {
 		margin = 0.9,
 		qubitScale = 0.5,
 		animTime = 500;
-		//labelHeight = 15;
+		labelHeight = 15;
 	// Must put in new version
 	var chordCreated = false;
 
@@ -42,29 +42,32 @@ function VisualizerObject(containerID) {
 		}
 
 		//Account for label spacing needed
-		//qubitRadius -= labelHeight;
+		qubitRadius -= labelHeight;
 
 	// --- QUBITS --- //
 		var qubits = container.selectAll(".qubit").data(qubitStates);
 		
 		// Add qubits if necessary
-		qubits.enter().append("g")
+		var qubitsEnter = qubits.enter().append("g")
 			.attr("class", "qubit")
-			.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"})
-		  .append("circle")
+			.attr("transform", function(d, i) { return positionQubit(i) + "scale(0)"});
+
+		// Add a circle
+		qubitsEnter.append("circle")
 			.attr("class", "qubit-back");
 
-		//Labeling stuff---not working!
-		/*
-		container.selectAll(".qubits>g")
-		  .append("svg:text")
-		  	.attr({"class": "qubit-label",
-		  		"font-size": "2.3em",
-		  		"transform": "rotate(180deg)"})
+		//Labeling stuff---working but not correctly aligned
+		qubitsEnter.append("svg:text")
+		  	.attr({"class": "qubit-label"})
 		  	.text(function(d, i) { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i] })
+		  	;
+		
+		qubits.selectAll(".qubit-label").transition()
+			.duration(animTime)
+			.attr({"font-size": "2.3em"})
 		  	.attr("x", -5)
-		  	.attr("y", qubitRadius);
-		*/
+		  	.attr("y", -(qubitRadius+labelHeight));
+
 
 		// Update qubit arrangement
 		qubits.transition()
