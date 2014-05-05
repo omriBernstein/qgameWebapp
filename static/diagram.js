@@ -216,7 +216,6 @@ function CircuitObject(containerID) {
 					, "background-color": "lightgray", "border": "1px solid black"
 				})
 			;
-
 			// || 0 because of errors right now
 			// The top of this component's top row
 			var compFirstRow = componentData[columnNum].rows[0] || 0
@@ -226,29 +225,40 @@ function CircuitObject(containerID) {
 				, compLastRow = componentData[columnNum].rows[-1] || 0
 				, compRowBottom = ($($(".d-row")[compLastRow]).position().top)
 					+ colRealWidth
+				, compHeight = compRowBottom - compRowTop;
+			;
+
+			// Not sure if we need to make a group
+			var thisComp = thisCol.append("g").attr("class", "comp-group")
+				.attr("transform", "translate(0, " + compRowTop + ")")
 			;
 
 			// Add the shape (right now just singles)
-			thisCol.append("rect").attr("class", "comp-backer")
-					.attr({ "x": 0, "y": compRowTop
-					, "width": colRealWidth + "px", "height": colRealWidth + "px"
-					})
-					.style({"stroke": "gray", "fill": "#FFFFCC"})
+			thisComp.append("rect").attr("class", "comp-backer")
+				.attr({ 
+					"width": colRealWidth + "px"
+					, "height": compHeight + "px"
+				})
+				.style({"stroke": "gray", "fill": "#FFFFCC"})
 			;
 			// Add the text, if any
-			// thisCol.append
+			thisComp.append("text").attr("class", "comp-text")
+				.text(componentData[columnNum].sym)
+				.attr("fill", "black")
+				.attr("font-size", fontSize + "em")
+				// Use component height to always be at center vertically
+				.attr({"x": colRealWidth/2, "y": compHeight/2`})
+				// Makes x and y represent the middle point of the text
+				.attr("text-anchor", "middle")
+				// It's not exactly vertically middle
+				.attr("dy", "0.3em")
+			;
 
 		}
 
 	// --- Drawing components --- \\
 		function singleLine (parent, component) {
-			parent.append("div").attr("class", "single-comp")
-				.attr({"position": "absolute"
-					, "font-size": fontSize
-					, "padding": "calc(50% -" + fontSize/2 + "em)"
-					, "background-color": "yellow"
-				})
-				.text(letter)
+			parent.append
 			;
 		}
 
