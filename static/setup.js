@@ -233,7 +233,8 @@ $(document).ready(function() {
 	}
 
 	// *** GUIDE HTML *** \\
-	//TODO guide.loadHTML();
+	guide.loadHTML();
+	/*
 	$(".guide-item.l-start").html("Welcome to qromp, a quantum programming environment designed to help you learn about what that even means. This area over here is the guide. Directly to the right is the code editor where you may write quantum algorithms. You can click the its purple bar on the left to see the function reference. The reference shows not only which functions you can use, but also what type of arugments they take. Continuing right we arrive at the visualizer. This area visually represents the simulated quantum computer itself. Each circle is what's called a qubit. Down below is where the circuit diagram will go once it's built."
 		+ "<br/><br/>If you've made it this far, you're probably wondering what quantum programming is. It's the kind of computer programming that applies to quantum computers. A quantum computer is a very strange type of computer that is very different from an ordinary computer (most likely, you've only ever interacted with ordinary computers). The idea of quantum computing stems from the question: what if you built a computer that is based on quantum physics (as opposed to classical physics)?"
 		+ "<br/><br/>But to learn quantum computer programming, you don't need to know quantum mechanics--for the same reasons that you do not need to know electrical dynamics to be an ordinary-computer programmer. Of course, the whole field is quite young (certainly no more than 35 years old), so getting acquainted with quantum programming often involves getting your hands dirty (or clean, some may argue) with physics."
@@ -272,4 +273,5 @@ $(document).ready(function() {
 	$(".guide-item.d-measure").html("Stuff about measure"); // end .d-measure.html
 	$(".guide-item.d-end").html("Stuff about end"); // end .d-end.html
 	$(".guide-item.d-oracle").html("Stuff about oracle"); // end .d-oracle.html
+	*/
 });
