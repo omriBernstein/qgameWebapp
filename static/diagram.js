@@ -82,7 +82,7 @@ function CircuitObject(containerID) {
 			// .attr({"padding-right": "0", "padding-left": "0"})
 			// Why does 2.5 work?
 			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
-			.style("background-color", "lightgreen")
+			// .style("background-color", "lightgreen")
 		;
 
 		// Animate existing rows?
@@ -93,7 +93,7 @@ function CircuitObject(containerID) {
 			// .attr({"padding-right": "0", "padding-left": "0"})
 			// Why does 2.5 work?
 			.style("height", (rowHeight - (rowMargin * 2.5)) + "px")
-			.style("background-color", "lightgreen")
+			// .style("background-color", "lightgreen")
 		;
 
 		// This removes all the contents as well
@@ -166,7 +166,7 @@ function CircuitObject(containerID) {
 		var componentData = [];
 		for(var i = 0; i < expressions.length; i++) {
 			componentData[i] = expressionToComponent(expressions[i]);
-			console.log(componentData[i]);
+			// console.log(componentData[i]);
 		};
 
 		// Maybe make list of components for each column and then use *that*
@@ -227,7 +227,7 @@ function CircuitObject(containerID) {
 					, "margin": rowMargin + "px 0" // Space from top
 					, "width": colRealWidth + "px"
 					// , "height": "100%"  // Not sure if we need height anymore
-					, "background-color": "lightgray", "border": "1px solid black"
+					// , "background-color": "lightgray", "border": "1px solid black"
 				})
 			;
 			// The top of this component's top row
