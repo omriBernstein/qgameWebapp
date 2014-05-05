@@ -8,7 +8,7 @@
 function VisualizerObject(containerID) {
 	var container = d3.select("#" + containerID),
 		margin = 0.9,
-		qubitScale = 0.5,
+		qubitScale = 0.7,
 		animTime = 500;
 		labelHeight = 15;
 	// Must put in new version
@@ -64,15 +64,18 @@ function VisualizerObject(containerID) {
 		// Labeling stuff---working but not correctly aligned
 		qubitsEnter.append("svg:text")
 		  	.attr({"class": "qubit-label"})
+		  	.data(qubitStates)
 		  	.text(function(d, i) { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i] })
 		  	;
 
 		// Update label's properties
-		qubits.selectAll(".qubit-label").transition()
+		container.selectAll(".qubit-label").transition()
 			.duration(animTime)
 			.attr({"font-size": "2.3em"})
-			.attr("x", -5)
-			.attr("y", -(qubitRadius+labelHeight));
+			//.attr("y", -(qubitRadius+labelHeight))
+			.attr("transform", function(dat, i) {console.log("i:"+i); return positionLabel(i) })
+			.attr("text-anchor", "middle")
+			.attr("dy", "0.38em");
 
 		// Update qubit arrangement
 		qubits.transition()
@@ -85,6 +88,14 @@ function VisualizerObject(containerID) {
 			.attr("transform", function(d, i) { return positionQubit(i, true) + "scale(0)" })
 			.remove();
 
+		function positionLabel(index) {
+			var rotateDeg = 360 / numQubits,
+				rotate = "rotate(" + (rotateDeg * index) + ")",
+				translate = "translate(0, -" + (qubitRadius + labelHeight) + ")",
+				straighten = "rotate(-" + (rotateDeg * index) + ")";
+			return rotate + translate + straighten;
+		}
+
 		// Return a string with all of the appropriate transformations
 			// "remove" is a boolean used to indicate whether the transformed qubit is being removed
 		function positionQubit(index, remove) {
@@ -92,7 +103,7 @@ function VisualizerObject(containerID) {
 				rotateDeg = 360 / realNumQubits,
 				center = "translate(" + (containerWidth / 2) + ", " + ((containerHeight / 2) + yOffset / 2) + ")",
 				rotate = "rotate(" + (rotateDeg * index) + ")",
-				translate = "translate(0, -" + arrangeRadius + ")"
+				translate = "translate(0, -" + arrangeRadius + ")",
 				straighten = "rotate(-" + (rotateDeg * index) + ")";
 
 			return center + rotate + translate + straighten;
