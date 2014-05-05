@@ -37,28 +37,41 @@ $(".guide-item.l-quantcomp").html("As we've said, quantum computers are strange.
 		$(".guide-item.e-shors").html("Stuff about shors"); // end .e-shors.html
 
 		$(".guide-item.d-qnot").html("The qnot operation flips a single qubit. It will swap that qubit's UP and DOWN lines. This is called qnot because it is like an ordinary not operation, but quantum. For example:"
-			+ "<br><span class='example'>qnot A</span>"
+			+ "<br><div class='example'>qnot A</div>"
 			+ "<br><br>Notice that flipping can have no effect, if the UP and DOWN states happen to be the same:"
-			+ "<br><span class='example'>hadamard A\n"
-			+ "<br>qnot A</span>"
+			+ "<br><div class='example'>hadamard A\n"
+			+ "<br>qnot A</div>"
 			+ "<br><br>On the other hand, remember that even if the UP and DOWN states have the same probability (line length), qnot will swap their phase (angle), e.g.:"
-			+ "<br><span class='example'>qnot A\n"
+			+ "<br><div class='example'>qnot A\n"
 			+ "<br>hadamard A\n"
-			+ "<br>qnot A</span>"
+			+ "<br>qnot A</div>"
 			+ "<br><br>Notice also that order of operations is really important. As in:"
-			+ "<br><span class='example'>hadamard A\n"
-			+ "<br>qnot A</span>"
+			+ "<br><div class='example'>hadamard A\n"
+			+ "<br>qnot A</div>"
 			+ "<br>Is not the same as:"
-			+ "<br><span class='example'>qnot A\n"
-			+ "<br>hadamard A</span>"); // end .d-qnot.html
+			+ "<br><div class='example'>qnot A\n"
+			+ "<br>hadamard A</div>"); // end .d-qnot.html
 
 		$(".guide-item.d-cnot").html("cnot, a.k.a controlled not, takes two qubits, the first of which we'll call the control, and the second we'll call the target. cnot state-flips the target based on the DOWN probability of the control. If the control has 0% DOWN probability, the target is not at all flipped (in other words, nothing happens--its value doesn't change):"
-			+ "<br><span class='example'>#qubit A is 0% DOWN by default\n"
-			+ "<br>cnot A B</span>"
+			+ "<br><div class='example'>#qubit A is 0% DOWN by default\n"
+			+ "<br>cnot A B</div>"
 			+ "<br><br>If, on the other hand, the control has 100% DOWN probability, the target is completely flipped--which you may notice is equivalent to calling qnot on the target:"
-			+ "<br><span class='example'>qnot A\n"
-			+ "<br>cnot A B</span>"
-			+ "<br><br>Here's the neat part. If the control qubit is 50% DOWN, it half-flips the "); // end .d-cnot.html
+			+ "<br><div class='example'>qnot A\n"
+			+ "<br>cnot A B</div>"
+			+ "<br><br>Here's the neat part. If the control qubit is 50% DOWN, it half-flips the target:"
+			+ "<br><div class='example'>hadamard A\n"
+			+ "<br>cnot A B</div>"
+			+ "<br>In this case, where the control is 50% DOWN, the target will always end up fully superposed, i.e. 50% DOWN and 50% UP (what happens to phase is more complicated). This is because half-flipping any qubit state will put the UP and DOWN probabilities both smack dab in the middle."
+			+ "<br><br>When the target is already fully superposed, cnot will only ever affect phase (though sometimes it will affect neither). No matter how much or how little you flip a fully superposed target, it always ends up fully superposed again. For example, consider this superposed state:"
+			+ "<br><div class='example'>qnot A\n"
+			+ "<br>qnot B\n"
+			+ "<br>hadamard B</div>"
+			+ "<br>Now if we controlled not at the end like so:"
+			+ "<br><div class='example'>qnot A\n"
+			+ "<br>qnot B\n"
+			+ "<br>hadamard B\n"
+			+ "<br>cnot A B</div>"
+			+ "<br>The UP and DOWN phases of qubit B get swapped."); // end .d-cnot.html
 
 			$(".guide-item.d-srn").html("Stuff about srn"); // end .d-srn.html
 
