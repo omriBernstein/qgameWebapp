@@ -31,9 +31,9 @@ function CircuitObject(containerID) {
 	function Component(name, qubitsArray, hasTarget, columnNum) {
 		this.sym = componentSymbols[name];
 		this.rows = {
-			start: Math.max.apply( Math, qubitsArray )
-			, end: Math.min.apply( Math, qubitsArray )
-			, target: hasTarget ? qubitsArray[qubitsArray.length - 1] : false
+			start: Math.min.apply( null, qubitsArray )
+			, control: hasTarget == true ? qubitsArray[0] : false
+			, target: hasTarget == true ? qubitsArray[qubitsArray.length - 1] : false
 		};
 		this.columnNum = columnNum;
 		return this;
@@ -209,6 +209,13 @@ function CircuitObject(containerID) {
 		for (var columnNum = 0; columnNum < numCols; columnNum++) {
 			var rowYCoord = $($(".d-row")[0]).position().top;
 			var thisID = "#d-col" + columnNum;
+			var comptSymb = componentData[columnNum].sym
+				// The row with the lowest index
+				, comptStartRow = componentData[columnNum].rows.start
+				, comptControlRow = componentData[columnNum].rows.control
+				, comptTargetRow = componentData[columnNum].rows.target
+			;
+			var comptLineWidth = "2px";
 
 			var thisCol = container.append("svg").attr("class", "d-col")
 				.attr("id", thisID)
@@ -223,27 +230,14 @@ function CircuitObject(containerID) {
 					, "background-color": "lightgray", "border": "1px solid black"
 				})
 			;
-			// || 0 because of errors right now
 			// The top of this component's top row
-			var compFirstRow = componentData[columnNum].rows[0] || 0
-				, compRowTop = $($(".d-row")[compFirstRow]).position().top
-				// The bottom of this component's bottom row
-				// (for multi-row components. May do this differently)
-				, compLastRow = componentData[columnNum].rows[-1] || 0
-				, compRowBottom = ($($(".d-row")[compLastRow]).position().top)
-					+ colRealWidth
-				, compHeight = compRowBottom - compRowTop;
+			var compRowTop = $($(".d-row")[comptStartRow]).position().top
+				, compHeight = colRealWidth;
 			;
 
 			// Not sure if we need to make a group
 			var thisComp = thisCol.append("g").attr("class", "comp-group")
 				.attr("transform", "translate(0, " + compRowTop + ")")
-			;
-
-			var comptSymb = componentData[columnNum].sym
-				, comptStartRow = componentData[columnNum].rows.start
-				, comptEndRow = componentData[columnNum].rows.end
-				, comptTarget = componentData[columnNum].rows.target
 			;
 
 			// Draw different components differently
@@ -279,25 +273,57 @@ function CircuitObject(containerID) {
 			}
 
 			function cnotCompt (parent) {
-				parent.append("circle").attr("class", "component-symbol cnot-control")
-					.attr("cy", colXCenter)  // Always half-way down first compt
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, lineTop = Math.min(controlCY, targetCY)
+					, lineBottom = Math.max(controlCY, targetCY)
 				;
 
+				// Control y position
+				parent.append("circle").attr("class", "component-symbol cnot-control")
+					.attr("cy", controlCY)
+				;
+				// Target y position
 				parent.append("circle").attr("class", "component-symbol cnot-target")
+					.attr("cy", targetCY)
+				;
+				// Connecting line start and end
+				parent.append("line").attr("class", "component-symbol cnot-line")
+					.attr("y1", lineTop)
+					.attr("y2", lineBottom)
+					// add a line here coming from the bottom
+				;
+
 			}
 
-			// These should be added to css stuff
-			d3.selectAll(".component-symbol")
-				.attr({"x": colXCenter, "y":  colXCenter, "cx": colXCenter})
-			;
+			// These should be added to css stuff? Hmm, not sure of "y"
+			// Well, at least some of these should
 
+			// Center everything
+			d3.selectAll(".component-symbol")
+				// "50%" doesn't work with y for some reason
+				.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
+			;
+			// Size and x pos of component control
 			d3.selectAll(".cnot-control")
 				.attr("r", labelRadius/2)
 				.style("fill", "black")
 			;
 
+			// Size and y pos of component target
 			d3.selectAll(".cnot-target")
 				.attr("r", labelRadius)
+				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
+			;
+
+			// Width and x pos of cnot connecting line
+			d3.selectAll(".cnot-line")
+				.attr("x1", colXCenter)
+				.attr("x2", colXCenter)
+				.attr("stroke-width", comptLineWidth)
+				.attr("stroke", "black")
 			;
 
 		}  // end for columns
