@@ -76,6 +76,7 @@ $(document).ready(function() {
 		}
 		var animate = setInterval(function() {editor.resize();}, 20);
 		setTimeout(function() {clearInterval(animate); editor.resize();}, 450);
+		editor.focus();
 	});
 
 	// --- Handle dragging of reference item --- \\
@@ -90,9 +91,10 @@ $(document).ready(function() {
 				.css({"top": event.pageY - diffY, "left": event.pageX - diffX})
 				.appendTo("#scroller")
 				// when released
-				.mouseup(function(){
+				.mouseup(function(evt){
 					$document.off("mousemove.track");
 					$dragged.remove();
+					console.log(editor.renderer.screenToTextCoordinates(evt.x, evt.y));
 				});
 			// while dragging
 			$document.on("mousemove.track", function(){
@@ -106,6 +108,14 @@ $(document).ready(function() {
 		editor.navigateLineEnd();
 		editor.insert(toInsert);
 	});
+
+	window._editor_ = editor;
+
+	/*
+	editor.on("mouseup", function(e) {
+		console.log(e.getDocumentPosition());
+	});
+	*/
 	
 	// --- Open guide documentation content with ref "?" button --- \\
 	$(".reference-button").on("click", function () {
