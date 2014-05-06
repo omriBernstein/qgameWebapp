@@ -79,29 +79,50 @@ $(document).ready(function() {
 		editor.focus();
 	});
 
-	// --- Handle dragging of reference item --- \\
-	$(".reference-item").mousedown(function(){
-		var $this = $(this),
-			$document = $(document),
-			offset = $this.offset(),
-			diffX = event.pageX - offset.left,
-			diffY = event.pageY - offset.top,
-			$dragged = $this.clone()
-				.attr("id", "dragged")
-				.css({"top": event.pageY - diffY, "left": event.pageX - diffX})
-				.appendTo("#scroller")
-				// when released
-				.mouseup(function(evt){
-					$document.off("mousemove.track");
-					$dragged.remove();
-					console.log(editor.renderer.screenToTextCoordinates(evt.x, evt.y));
-				});
-			// while dragging
-			$document.on("mousemove.track", function(){
-				$dragged.css({"top": event.pageY - diffY, "left": event.pageX - diffX});
-			})
+	// --- Handle dragging of reference item (take two) --- \\
+	var referenceItems = document.querySelectorAll(".reference-item");
+	[].forEach.call(referenceItems, function(refItem) {
+		var prevBackgroundColor = refItem.style.backgroundColor,
+			prevColor = refItem.style.color;
+		refItem.addEventListener("dragstart", function(evt) {
+			evt.dataTransfer.setData("text/html", $(this).text().trim());
+			this.style.backgroundColor = "rgba(0,0,0,0)";
+			this.style.color = "#000";
+			var icons = this.querySelectorAll(".icon");
+			[].forEach.call(icons, function(icon) {
+				icon.style.opacity = "0";
+			});
+		}, false);
+		refItem.addEventListener("dragend", function() {
+			this.style.backgroundColor = prevBackgroundColor;
+			this.style.color = prevColor;
+			var icons = this.querySelectorAll(".icon");
+			[].forEach.call(icons, function(icon) {
+				icon.style.opacity = "1";
+			});
+			editor.focus();
+		}, false);
 	});
 
+	// Hovering over code area with dragged referenced item, changes cursor row
+	document.getElementById("code-area").addEventListener("dragover", function(evt) {
+		evt.preventDefault();
+		var pos = editor.renderer.screenToTextCoordinates(evt.x, evt.y);
+		editor.navigateTo(pos.row, 0);
+	}, false);
+
+	// Dropping into code area inserts at beginning of hovered line, followed by a line break if line is non-empty
+	document.getElementById("code-area").addEventListener("drop", function(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+		var currentLine = editor.getSession().getLine(editor.getCursorPosition().row),
+			toInsert =  evt.dataTransfer.getData("text/html") + (currentLine ? "\n" : "");
+		editor.insert(toInsert);
+		if(currentLine){editor.navigateLeft();}
+		editor.focus();
+	}, false);
+
+	// Double clicking reference item loads it into next line
 	$(".reference-item").dblclick(function() {
 		var currentLine = editor.getSession().getLine(editor.getCursorPosition().row),
 			toInsert = (currentLine ? "\n" : "") + $(this).text().trim();
@@ -109,14 +130,6 @@ $(document).ready(function() {
 		editor.insert(toInsert);
 		editor.focus();
 	});
-
-	window._editor_ = editor;
-
-	/*
-	editor.on("mouseup", function(e) {
-		console.log(e.getDocumentPosition());
-	});
-	*/
 	
 	// --- Open guide documentation content with ref "?" button --- \\
 	$(".reference-button").on("click", function () {

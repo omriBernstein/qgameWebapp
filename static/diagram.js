@@ -215,7 +215,7 @@ function CircuitObject(containerID) {
 				, comptControlRow = componentData[columnNum].rows.control
 				, comptTargetRow = componentData[columnNum].rows.target
 			;
-			var comptLineWidth = "2px";
+			var comptLineWidth = 2;
 
 			var thisCol = container.append("svg").attr("class", "d-col")
 				.attr("id", thisID)
@@ -289,6 +289,15 @@ function CircuitObject(containerID) {
 				parent.append("circle").attr("class", "component-symbol cnot-target")
 					.attr("cy", targetCY)
 				;
+				// Crossing lines
+				parent.append("line").attr("class", "component-symbol cnot-cross-vert")
+					.attr("y1", targetCY-labelRadius)
+					.attr("y2", targetCY+labelRadius)
+				;
+				parent.append("line").attr("class", "component-symbol cnot-cross-horiz")
+					.attr("y1", targetCY+1)
+					.attr("y2", targetCY+1)
+				;
 				// Connecting line start and end
 				parent.append("line").attr("class", "component-symbol cnot-line")
 					.attr("y1", lineTop)
@@ -316,6 +325,20 @@ function CircuitObject(containerID) {
 			d3.selectAll(".cnot-target")
 				.attr("r", labelRadius)
 				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
+			;
+
+			// Width and x pos of cnot crossing lines
+			d3.selectAll(".cnot-cross-vert")
+				.attr("x1", colXCenter)
+				.attr("x2", colXCenter)
+				.attr("stroke-width", 2*comptLineWidth)
+				.attr("stroke", "black")
+			;
+			d3.selectAll(".cnot-cross-horiz")
+				.attr("x1", colXCenter-labelRadius)
+				.attr("x2", colXCenter+labelRadius)
+				.attr("stroke-width", 2*comptLineWidth)
+				.attr("stroke", "black")
 			;
 
 			// Width and x pos of cnot connecting line
