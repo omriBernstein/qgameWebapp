@@ -107,6 +107,7 @@ $(document).ready(function() {
 			toInsert = (currentLine ? "\n" : "") + $(this).text().trim();
 		editor.navigateLineEnd();
 		editor.insert(toInsert);
+		editor.focus();
 	});
 
 	window._editor_ = editor;
