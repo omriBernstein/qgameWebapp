@@ -167,9 +167,32 @@ function CircuitObject(containerID) {
 		// Remove everything so it doesn't look weird during transition
 		$(".d-col").remove();
 
+		// This works to get rid of an extra component that is appearing
+		// It doesn't appear the first time an opperation is run, but
+		// seems to happen when further operations are run, which seems
+		// to imply something is going on at the end of the component
+		// setTimeout function? But nothing appears till the next
+		// opperation is run. Weird. Without the component setTimeout()
+		// There's no issue with this ghost appearing (also, things were
+		// being removed just after // --- COLUMNS --- \\)
+		// It actually seems to imply a component is being created
+		// elsewhere, except that's impossible...? The extra component
+		// Also has a font that's too big and too thick and is in a wierd
+		// non-column location. It seems to take the current or, if there
+		// is no current one, previous singleton in the first column and
+		// warp it a bit. This is to try and catch it as early as
+		// possible so it has the least flicker.
+		setTimeout( function () {
+			$(".d-col").remove();
+		}, animTime - 15);
+
 		// Wait till rows are in the right place before using their
 		// positions to place components
 		setTimeout( function () {
+			// Putting it here too, just in case the previous one
+			// doesn't catch it, but here makes a noticable flicker.
+			$(".d-col").remove();
+
 			var componentData = [];
 			for(var i = 0; i < expressions.length; i++) {
 				componentData[i] = expressionToComponent(expressions[i]);
