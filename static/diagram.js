@@ -32,6 +32,7 @@ function CircuitObject(containerID) {
 		this.sym = componentSymbols[name];
 		this.rows = {
 			start: Math.min.apply( null, qubitsArray )
+			, end: Math.max.apply( null, qubitsArray )
 			, control: hasTarget == true ? qubitsArray[0] : false
 			, target: hasTarget == true ? qubitsArray[qubitsArray.length - 1] : false
 		};
