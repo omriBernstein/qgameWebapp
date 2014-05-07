@@ -18,7 +18,7 @@ function CircuitObject(containerID) {
 			, "utheta": "U\u03B8"  // I believe this is the correct code
 			, "cnot": "cnot"  // An image?
 			, "swap": "swap"  // An image?
-			, "cphase": "cphase"  // Possible image?
+			, "cphase": "R"  // Possible image?
 			, "u2": "U"
 			, "measure": "M"
 			, "oracle": "O"  // I don't even know
@@ -244,9 +244,16 @@ function CircuitObject(containerID) {
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp);
 			}
-			else if(comptSymb == "cnot") {
+			else if (comptSymb == "cnot") {
 				cnotCompt(thisComp);
 			}
+			else if (comptSymb == "swap") {
+				swapCompt(thisComp);
+			}
+			// "R" is used for cphase to get that letter in the box
+			else if (comptSymb == "R") {cphaseCompt(thisComp);}
+
+			else {console.log("Unrecognized component symbol: " + comptSymb)}
 
 			// These don't work inside the functinos for some reason
 			// even though they print correctly
@@ -277,52 +284,145 @@ function CircuitObject(containerID) {
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
 						+ colXCenter
-					, lineTop = Math.min(controlCY, targetCY)
-					, lineBottom = Math.max(controlCY, targetCY)
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
 				;
 
 				// Control y position
-				parent.append("circle").attr("class", "component-symbol cnot-control")
+				parent.append("circle").attr("class", "component-symbol compt-control")
 					.attr("cy", controlCY)
 				;
 				// Target y position
-				parent.append("circle").attr("class", "component-symbol cnot-target")
+				parent.append("circle").attr("class", "component-symbol compt-target")
 					.attr("cy", targetCY)
 				;
 				// Crossing lines
-				parent.append("line").attr("class", "component-symbol cnot-cross-vert")
+				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-vert")
 					.attr("y1", targetCY-labelRadius)
 					.attr("y2", targetCY+labelRadius)
 				;
-				parent.append("line").attr("class", "component-symbol cnot-cross-horiz")
+				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-horiz")
 					.attr("y1", targetCY+1)
 					.attr("y2", targetCY+1)
 				;
 				// Connecting line start and end
-				parent.append("line").attr("class", "component-symbol cnot-line")
-					.attr("y1", lineTop)
-					.attr("y2", lineBottom)
-					// add a line here coming from the bottom
+				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+					.attr("y1", higherRowYCenter)
+					.attr("y2", lowerRowYCenter)
 				;
 
-			}
+			}  // end cnotCompt()
+
+			function swapCompt (parent) {
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				;
+
+				// Center both the x's and the line
+				var swapGroup = parent.append("g").attr("class", "component-symbol swap-group")
+					.attr("transform", "translate(" + colXCenter + ", "
+						+ 0 + ")")
+				;
+				// Connecting line start and end
+				swapGroup.append("line").attr("class", "component-symbol compt-line swap-connecting-line")
+					.attr("y1", higherRowYCenter + 1)
+					.attr("y2", lowerRowYCenter + 1)
+				;
+
+				var xLength = colXCenter/3.5;
+
+				// Get the topX to the right place
+				var topX = swapGroup.append("g").attr("class", "component-symbol topX")
+					.attr("transform", "translate(" + 0 + ", "
+						+ (colXCenter + 1) + ")")
+				;
+				// Slash from top left to bottom right (tLbR)
+				topX.append("line").attr("class", "component-symbol compt-line XtLbR");
+				// Slash from top right to bottom left (tRbL)
+				topX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+				var bottomX = swapGroup.append("g").attr("class", "component-symbol bottomX")
+					.attr("transform", "translate(" + 0 + ", "
+						+ (lowerRowYCenter + 1) + ")")
+				;
+				// Slash from top left to bottom right (tLbR)
+				bottomX.append("line").attr("class", "component-symbol compt-line XtLbR");
+				// Slash from top right to bottom left (tRbL)
+				bottomX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+				// Get the x slashes at the right angles
+				d3.selectAll(".XtLbR")
+					.attr({"y1": -xLength, "y2": xLength})
+					.attr({"x1": -xLength, "x2": xLength})
+				;
+				d3.selectAll(".XtRbL")
+					.attr({"y1": -xLength, "y2": xLength})
+					.attr({"x1": xLength, "x2": -xLength})
+				;
+
+			}  // end swapCompt()
+
+			function cphaseCompt (parent) {
+				console.log("blah")
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				;
+
+				// SPECIAL FOR cphase
+				var targetRowTop = targetCY = $($(".d-row")[comptTargetRow]).position().top;
+
+				// Control y position
+				parent.append("circle").attr("class", "component-symbol compt-control")
+					.attr("cy", controlCY)
+				;
+
+				// Connecting line start and end
+				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+					.attr("y1", higherRowYCenter)
+					.attr("y2", lowerRowYCenter)
+				;
+
+				// Add single line component with "R" in it
+				var cphaseSquareGroup = parent.append("g")
+					.attr("class", "component-symbol cphase-square-group")
+					.attr("transform", "translate(0, " + targetRowTop + ")")
+				;
+
+				singleLine(cphaseSquareGroup);
+			}  // end cphaseCompt()
+
+
+
+			// Target and control should be their own functions? Maybe the
+			// class attributes below are enough.
+			function comptTarget(parent) {}
+
+			function comptControl(parent) {}
+
 
 			// These should be added to css stuff? Hmm, not sure of "y"
 			// Well, at least some of these should
-
 			// Center everything
 			d3.selectAll(".component-symbol")
 				// "50%" doesn't work with y for some reason
 				.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
 			;
 			// Size and x pos of component control
-			d3.selectAll(".cnot-control")
+			d3.selectAll(".compt-control")
 				.attr("r", labelRadius/2)
 				.style("fill", "black")
 			;
 
 			// Size and y pos of component target
-			d3.selectAll(".cnot-target")
+			d3.selectAll(".compt-target")
 				.attr("r", labelRadius)
 				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
 			;
@@ -342,9 +442,14 @@ function CircuitObject(containerID) {
 			;
 
 			// Width and x pos of cnot connecting line
-			d3.selectAll(".cnot-line")
+			d3.selectAll(".connecting-vert-line")
 				.attr("x1", colXCenter)
 				.attr("x2", colXCenter)
+				.attr("stroke-width", comptLineWidth)
+				.attr("stroke", "black")
+			;
+
+			d3.selectAll(".compt-line")
 				.attr("stroke-width", comptLineWidth)
 				.attr("stroke", "black")
 			;
@@ -460,7 +565,7 @@ $(document).on("ready", function () {
 				, _has_target : false
 			}
 			, {
-				_fn_meta : {_name : "cnot"}
+				_fn_meta : {_name : "cphase"}
 				, _line_number : 1
 				, _qubits : [{_value: 0}, {_value: 1}]
 				, _has_target : true
