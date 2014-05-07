@@ -522,6 +522,5 @@ $(document).on("ready", function () {
 			}
 		];
 		diagram.render(compData.length, compData)
-		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
 	}
 });
