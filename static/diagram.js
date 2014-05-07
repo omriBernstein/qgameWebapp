@@ -54,11 +54,11 @@ function CircuitObject(containerID) {
 	}
 
 	this.render = function(numQubits, expressions){
-		var containerHeight = parseInt(container.style("height"))
+		var adjustedContainerHeight = parseInt(container.style("height")) - 2
 			// I think there needs to be a minimum row height with
 			// overflow scroll, it gets pretty small. Maybe a steady
 			// height based on rem?
-			, rowHeight = containerHeight / numQubits
+			, rowHeight = adjustedContainerHeight / numQubits
 			, columnWidth = rowHeight;
 
 		var rowData = []
@@ -164,327 +164,355 @@ function CircuitObject(containerID) {
 		;
 
 	// --- COMPONENTS --- \\
-
-		var componentData = [];
-		for(var i = 0; i < expressions.length; i++) {
-			componentData[i] = expressionToComponent(expressions[i]);
-			// console.log(componentData[i]);
-		};
-
-		// Maybe make list of components for each column and then use *that*
-		// to make numCols
-
-
-	// --- COLUMNS --- \\
-// Other possibility
-// remove all columns
-// column1.append(component1 at the right place) (ask for y pos of relevant row);
-// column2.append(component2 at the right place) (ask for y pos of relevant row);
-// remove all
-
+		// Remove everything so it doesn't look weird during transition
 		$(".d-col").remove();
 
-		// What we'd see if we gave columns a background
-		var colRealWidth = $(".d-row").innerHeight();
-		// Space that has the column in it, gives a gap between columns
-		var colAreaWidth = columnWidth;
-		// Works because no negative numbers. -1 to give gap for labels at start
-		// Use number of components instead?
-		// var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);
-		var numCols = componentData.length;
-		var colColor = "lightgray";
+		// This works to get rid of an extra component that is appearing
+		// It doesn't appear the first time an opperation is run, but
+		// seems to happen when further operations are run, which seems
+		// to imply something is going on at the end of the component
+		// setTimeout function? But nothing appears till the next
+		// opperation is run. Weird. Without the component setTimeout()
+		// There's no issue with this ghost appearing (also, things were
+		// being removed just after // --- COLUMNS --- \\)
+		// It actually seems to imply a component is being created
+		// elsewhere, except that's impossible...? The extra component
+		// Also has a font that's too big and too thick and is in a wierd
+		// non-column location. It seems to take the current or, if there
+		// is no current one, previous singleton in the first column and
+		// warp it a bit. This is to try and catch it as early as
+		// possible so it has the least flicker.
+		setTimeout( function () {
+			$(".d-col").remove();
+		}, animTime - 15);
 
-		var colData = []  // I'm not always sure what data is for
-		for(var ii = 0; ii < numCols; ii++) { colData[ii] = ii; };
+		// Wait till rows are in the right place before using their
+		// positions to place components
+		setTimeout( function () {
+			// Putting it here too, just in case the previous one
+			// doesn't catch it, but here makes a noticable flicker.
+			$(".d-col").remove();
 
-		var cols = container.selectAll(".d-col").data(colData);
+			var componentData = [];
+			for(var i = 0; i < expressions.length; i++) {
+				componentData[i] = expressionToComponent(expressions[i]);
+				// console.log(componentData[i]);
+			};
 
-		// $(".d-col").attr({
-		// 	"position": "absolute", "top": "0"
-		// 	, "width": colRealWidth + "px"
-		// 	// , "height": "100%"  // Not sure if we need height anymore
-		// 	, "background-color": "lightgray", "border": "1px solid black"
-		// });
+			// Maybe make list of components for each column and then use *that*
+			// to make numCols
 
-		var colXPos = columnWidth * 1.2;
 
-		for (var columnNum = 0; columnNum < numCols; columnNum++) {
-			var rowYCoord = $($(".d-row")[0]).position().top;
-			var thisID = "#d-col" + columnNum;
-			var comptSymb = componentData[columnNum].sym
-				// The row with the lowest index
-				, comptStartRow = componentData[columnNum].rows.start
-				, comptEndRow = componentData[columnNum].rows.end
-				, comptControlRow = componentData[columnNum].rows.control
-				, comptTargetRow = componentData[columnNum].rows.target
-			;
-			var comptLineWidth = 2;
+		// --- COLUMNS --- \\
+	// Other possibility
+	// remove all columns
+	// column1.append(component1 at the right place) (ask for y pos of relevant row);
+	// column2.append(component2 at the right place) (ask for y pos of relevant row);
+	// remove all
 
-			var thisCol = container.append("svg").attr("class", "d-col")
-				.attr("id", thisID)
-				// .data("index", columnNum)  // Needed?
-				// .data()  // Needed?
-				.style({
-					"position": "absolute", "top": "0"
-					, "left": (colXPos + (columnWidth * columnNum)) + "px"
-					, "margin": rowMargin + "px 0" // Space from top
-					, "width": colRealWidth + "px"
-					// , "height": "100%"  // Not sure if we need height anymore
-					// , "background-color": "lightgray", "border": "1px solid black"
-				})
-			;
-			// The top of this component's top row
-			var compRowTop = $($(".d-row")[comptStartRow]).position().top;
+			// What we'd see if we gave columns a background
+			var colRealWidth = $(".d-row").innerHeight();
+			// Space that has the column in it, gives a gap between columns
+			var colAreaWidth = columnWidth;
+			// Works because no negative numbers. -1 to give gap for labels at start
+			// Use number of components instead?
+			// var numCols = (Math.floor($(".d-row").innerWidth()/columnWidth) - 1);
+			var numCols = componentData.length;
+			var colColor = "lightgray";
 
-			// Not sure if we need to make a group
-			var thisComp = thisCol.append("g").attr("class", "comp-group")
-				.attr("transform", "translate(0, " + compRowTop + ")")
-			;
+			var colData = []  // I'm not always sure what data is for
+			for(var ii = 0; ii < numCols; ii++) { colData[ii] = ii; };
 
-			// Draw different components differently
-			if (singeLineCompArray.indexOf(comptSymb) > -1) {
-				singleLine(thisComp);
-			}
-			else if (comptSymb == "cnot") {cnotCompt(thisComp);}
-			else if (comptSymb == "swap") {swapCompt(thisComp);}
-			// "R" is used for cphase to get that letter in the box
-			else if (comptSymb == "R") {cphaseCompt(thisComp);}
-			else if (comptSymb == "O") {oracleCompt(thisComp);}
+			var cols = container.selectAll(".d-col").data(colData);
 
-			else {console.log("Unrecognized component symbol: " + comptSymb)}
+			// $(".d-col").attr({
+			// 	"position": "absolute", "top": "0"
+			// 	, "width": colRealWidth + "px"
+			// 	// , "height": "100%"  // Not sure if we need height anymore
+			// 	, "background-color": "lightgray", "border": "1px solid black"
+			// });
 
-			// These don't work inside the functinos for some reason
-			// even though they print correctly
-			var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
+			var colXPos = columnWidth * 1.2;
 
-			function singleLine (parent) {
-				// Add square
-				parent.append("rect").attr("class", "comp-backer")
-					.attr({ "width": colRealWidth + "px"
-						, "height": colRealWidth + "px"
+			for (var columnNum = 0; columnNum < numCols; columnNum++) {
+				var rowYCoord = $($(".d-row")[0]).position().top;
+				var thisID = "#d-col" + columnNum;
+				var comptSymb = componentData[columnNum].sym
+					// The row with the lowest index
+					, comptStartRow = componentData[columnNum].rows.start
+					, comptEndRow = componentData[columnNum].rows.end
+					, comptControlRow = componentData[columnNum].rows.control
+					, comptTargetRow = componentData[columnNum].rows.target
+				;
+				var comptLineWidth = 2;
+
+				var thisCol = container.append("svg").attr("class", "d-col")
+					.attr("id", thisID)
+					// .data("index", columnNum)  // Needed?
+					// .data()  // Needed?
+					.style({
+						"position": "absolute", "top": "0"
+						, "left": (colXPos + (columnWidth * columnNum)) + "px"
+						, "margin": rowMargin + "px 0" // Space from top
+						, "width": colRealWidth + "px"
+						// , "height": "100%"  // Not sure if we need height anymore
+						// , "background-color": "lightgray", "border": "1px solid black"
 					})
-					.style({"stroke": "black", "fill": "white"})
 				;
-				// Add text
-				parent.append("text").attr("class", "component-symbol compt-text")
-					.text(comptSymb)
-					.attr("fill", "black")
-					.attr("font-size", fontSize + "em")
-					// Makes x and y represent the middle point of the text
-					.attr("text-anchor", "middle")
-					// It's not exactly vertically middle
-					.attr("dy", "0.3em")
-				;
-			}
+				// The top of this component's top row
+				var compRowTop = $($(".d-row")[comptStartRow]).position().top;
+				console.log(comptStartRow);
 
-			function cnotCompt (parent) {
-				var controlCY = $($(".d-row")[comptControlRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, targetCY = $($(".d-row")[comptTargetRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, higherRowYCenter = Math.min(controlCY, targetCY)
-					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				// Not sure if we need to make a group
+				var thisComp = thisCol.append("g").attr("class", "comp-group")
+					.attr("transform", "translate(0, " + compRowTop + ")")
 				;
 
-				// Control y position
-				parent.append("circle").attr("class", "component-symbol compt-control")
-					.attr("cy", controlCY + 1)
+				// These don't work inside the functinos for some reason
+				// even though they print correctly
+				var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
+
+				// Draw different components differently
+				if (singeLineCompArray.indexOf(comptSymb) > -1) {
+					singleLine(thisComp);
+				}
+				else if (comptSymb == "cnot") {cnotCompt(thisComp);}
+				else if (comptSymb == "swap") {swapCompt(thisComp);}
+				// "R" is used for cphase to get that letter in the box
+				else if (comptSymb == "R") {cphaseCompt(thisComp);}
+				else if (comptSymb == "O") {oracleCompt(thisComp);}
+
+				else {console.log("Unrecognized component symbol: " + comptSymb)}
+
+				function singleLine (parent) {
+					// Add square
+					parent.append("rect").attr("class", "comp-backer")
+						.attr({ "width": colRealWidth + "px"
+							, "height": colRealWidth + "px"
+						})
+						.style({"stroke": "black", "fill": "white"})
+					;
+					// Add text
+					parent.append("text").attr("class", "component-symbol compt-text")
+						.text(comptSymb)
+						.attr("fill", "black")
+						.attr("font-size", fontSize + "em")
+						// Makes x and y represent the middle point of the text
+						.attr("text-anchor", "middle")
+						// It's not exactly vertically middle
+						.attr("dy", "0.3em")
+					;
+				}
+
+				function cnotCompt (parent) {
+					var controlCY = $($(".d-row")[comptControlRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, targetCY = $($(".d-row")[comptTargetRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, higherRowYCenter = Math.min(controlCY, targetCY)
+						, lowerRowYCenter = Math.max(controlCY, targetCY)
+					;
+
+					// Control y position
+					parent.append("circle").attr("class", "component-symbol compt-control")
+						.attr("cy", controlCY + 1)
+					;
+					// Target y position
+					parent.append("circle").attr("class", "component-symbol compt-target")
+						.attr("cy", targetCY)
+					;
+					// Crossing lines
+					parent.append("line").attr("class", "component-symbol compt-line cnot-cross-vert")
+						.attr("y1", targetCY-labelRadius)
+						.attr("y2", targetCY+labelRadius)
+					;
+					parent.append("line").attr("class", "component-symbol compt-line cnot-cross-horiz")
+						.attr("y1", targetCY+1)
+						.attr("y2", targetCY+1)
+					;
+					// Connecting line start and end
+					parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+						.attr("y1", higherRowYCenter)
+						.attr("y2", lowerRowYCenter)
+					;
+
+				}  // end cnotCompt()
+
+				// Very similar to cnotCompt()
+				function cphaseCompt (parent) {
+					var controlCY = $($(".d-row")[comptControlRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, targetCY = $($(".d-row")[comptTargetRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, higherRowYCenter = Math.min(controlCY, targetCY)
+						, lowerRowYCenter = Math.max(controlCY, targetCY)
+					;
+					// SPECIAL FOR cphase, need top of target row
+					var targetRowTop = $($(".d-row")[comptTargetRow]).position().top;
+
+					// Control y position
+					parent.append("circle").attr("class", "component-symbol compt-control")
+						.attr("cy", controlCY + 1)
+					;
+
+					// Connecting line start and end
+					parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+						.attr("y1", higherRowYCenter)
+						.attr("y2", lowerRowYCenter)
+					;
+
+					// Add single line component with "R" in it
+					var cphaseSquareGroup = parent.append("g")
+						.attr("class", "component-symbol cphase-square-group")
+						.attr("transform", "translate(0, " + (targetRowTop - compRowTop) + ")")
+					;
+					singleLine(cphaseSquareGroup);
+				}  // end cphaseCompt()
+
+				function swapCompt (parent) {
+					var controlCY = $($(".d-row")[comptControlRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, targetCY = $($(".d-row")[comptTargetRow]).position().top
+							- compRowTop
+							+ colXCenter
+						, higherRowYCenter = Math.min(controlCY, targetCY)
+						, lowerRowYCenter = Math.max(controlCY, targetCY)
+					;
+
+					// Center both the x's and the line
+					var swapGroup = parent.append("g").attr("class", "component-symbol swap-group")
+						.attr("transform", "translate(" + colXCenter + ", "
+							+ 0 + ")")
+					;
+					// Connecting line start and end
+					swapGroup.append("line").attr("class", "component-symbol compt-line swap-connecting-line")
+						.attr("y1", higherRowYCenter + 1)
+						.attr("y2", lowerRowYCenter + 1)
+					;
+
+					var xLength = colXCenter/3.5;
+
+					// Get the topX to the right place
+					var topX = swapGroup.append("g").attr("class", "component-symbol topX")
+						.attr("transform", "translate(" + 0 + ", "
+							+ (colXCenter + 1) + ")")
+					;
+					// Slash from top left to bottom right (tLbR)
+					topX.append("line").attr("class", "component-symbol compt-line XtLbR");
+					// Slash from top right to bottom left (tRbL)
+					topX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+					var bottomX = swapGroup.append("g").attr("class", "component-symbol bottomX")
+						.attr("transform", "translate(" + 0 + ", "
+							+ (lowerRowYCenter + 1) + ")")
+					;
+					// Slash from top left to bottom right (tLbR)
+					bottomX.append("line").attr("class", "component-symbol compt-line XtLbR");
+					// Slash from top right to bottom left (tRbL)
+					bottomX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+					// Get the x slashes at the right angles
+					d3.selectAll(".XtLbR")
+						.attr({"y1": -xLength, "y2": xLength})
+						.attr({"x1": -xLength, "x2": xLength})
+					;
+					d3.selectAll(".XtRbL")
+						.attr({"y1": -xLength, "y2": xLength})
+						.attr({"x1": xLength, "x2": -xLength})
+					;
+				}  // end swapCompt()
+
+				function oracleCompt(parent) {
+					// This gets the top of the last row of the oracle,
+					// then adds a row width to it to get it to fill that last row
+					var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colRealWidth
+						, topRowTop = $($(".d-row")[comptStartRow]).position().top
+						oracleHeight = bottomRowBottom - topRowTop
+					;
+
+					// Add square
+					parent.append("rect").attr("class", "comp-backer")
+						.attr({ "width": colRealWidth + "px"
+							, "height": (oracleHeight) + "px"
+						})
+						.style({"stroke": "black", "fill": "white"})
+					;
+					// Add text (add "component-symbol" back later when we've figured out
+						// a way for it to not interfere)
+					parent.append("text").attr("class", // "component-symbol
+							"compt-text oracle-symbol")
+						.text(comptSymb)
+						.attr("fill", "black")
+						.attr("font-size", fontSize + "em")
+						.attr({"x": "50%", "y":  oracleHeight/2})
+						// Makes x and y represent the middle point of the text
+						.attr("text-anchor", "middle")
+						// It's not exactly vertically middle
+						.attr("dy", "0.3em")
+					;
+				}  // end oracleCompt()
+
+
+				// Target and control should be their own functions? Maybe the
+				// class attributes below are enough.
+				function comptTarget(parent) {}
+
+				function comptControl(parent) {}
+
+
+				// These should be added to css stuff? Hmm, not sure of "y"
+				// Well, at least some of these should
+				// Center everything
+				d3.selectAll(".component-symbol")
+					// "50%" doesn't work with y for some reason
+					.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
 				;
-				// Target y position
-				parent.append("circle").attr("class", "component-symbol compt-target")
-					.attr("cy", targetCY)
-				;
-				// Crossing lines
-				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-vert")
-					.attr("y1", targetCY-labelRadius)
-					.attr("y2", targetCY+labelRadius)
-				;
-				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-horiz")
-					.attr("y1", targetCY+1)
-					.attr("y2", targetCY+1)
-				;
-				// Connecting line start and end
-				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
-					.attr("y1", higherRowYCenter)
-					.attr("y2", lowerRowYCenter)
+				// Size and x pos of component control
+				d3.selectAll(".compt-control")
+					.attr("r", labelRadius/2)
+					.style("fill", "black")
 				;
 
-			}  // end cnotCompt()
-
-			// Very similar to cnotCompt()
-			function cphaseCompt (parent) {
-				var controlCY = $($(".d-row")[comptControlRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, targetCY = $($(".d-row")[comptTargetRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, higherRowYCenter = Math.min(controlCY, targetCY)
-					, lowerRowYCenter = Math.max(controlCY, targetCY)
-				;
-				// SPECIAL FOR cphase, need top of target row
-				var targetRowTop = $($(".d-row")[comptTargetRow]).position().top;
-
-				// Control y position
-				parent.append("circle").attr("class", "component-symbol compt-control")
-					.attr("cy", controlCY + 1)
+				// Size and y pos of component target
+				d3.selectAll(".compt-target")
+					.attr("r", labelRadius)
+					.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
 				;
 
-				// Connecting line start and end
-				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
-					.attr("y1", higherRowYCenter)
-					.attr("y2", lowerRowYCenter)
+				// Width and x pos of cnot crossing lines
+				d3.selectAll(".cnot-cross-vert")
+					.attr("x1", colXCenter)
+					.attr("x2", colXCenter)
+					.attr("stroke-width", 2*comptLineWidth)
+					.attr("stroke", "black")
+				;
+				d3.selectAll(".cnot-cross-horiz")
+					.attr("x1", colXCenter-labelRadius)
+					.attr("x2", colXCenter+labelRadius)
+					.attr("stroke-width", 2*comptLineWidth)
+					.attr("stroke", "black")
 				;
 
-				// Add single line component with "R" in it
-				var cphaseSquareGroup = parent.append("g")
-					.attr("class", "component-symbol cphase-square-group")
-					.attr("transform", "translate(0, " + (targetRowTop - compRowTop) + ")")
-				;
-				singleLine(cphaseSquareGroup);
-			}  // end cphaseCompt()
-
-			function swapCompt (parent) {
-				var controlCY = $($(".d-row")[comptControlRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, targetCY = $($(".d-row")[comptTargetRow]).position().top
-						- compRowTop
-						+ colXCenter
-					, higherRowYCenter = Math.min(controlCY, targetCY)
-					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				// Width and x pos of cnot connecting line
+				d3.selectAll(".connecting-vert-line")
+					.attr("x1", colXCenter)
+					.attr("x2", colXCenter)
+					.attr("stroke-width", comptLineWidth)
+					.attr("stroke", "black")
 				;
 
-				// Center both the x's and the line
-				var swapGroup = parent.append("g").attr("class", "component-symbol swap-group")
-					.attr("transform", "translate(" + colXCenter + ", "
-						+ 0 + ")")
-				;
-				// Connecting line start and end
-				swapGroup.append("line").attr("class", "component-symbol compt-line swap-connecting-line")
-					.attr("y1", higherRowYCenter + 1)
-					.attr("y2", lowerRowYCenter + 1)
+				d3.selectAll(".compt-line")
+					.attr("stroke-width", comptLineWidth)
+					.attr("stroke", "black")
 				;
 
-				var xLength = colXCenter/3.5;
-
-				// Get the topX to the right place
-				var topX = swapGroup.append("g").attr("class", "component-symbol topX")
-					.attr("transform", "translate(" + 0 + ", "
-						+ (colXCenter + 1) + ")")
-				;
-				// Slash from top left to bottom right (tLbR)
-				topX.append("line").attr("class", "component-symbol compt-line XtLbR");
-				// Slash from top right to bottom left (tRbL)
-				topX.append("line").attr("class", "component-symbol compt-line XtRbL");
-
-				var bottomX = swapGroup.append("g").attr("class", "component-symbol bottomX")
-					.attr("transform", "translate(" + 0 + ", "
-						+ (lowerRowYCenter + 1) + ")")
-				;
-				// Slash from top left to bottom right (tLbR)
-				bottomX.append("line").attr("class", "component-symbol compt-line XtLbR");
-				// Slash from top right to bottom left (tRbL)
-				bottomX.append("line").attr("class", "component-symbol compt-line XtRbL");
-
-				// Get the x slashes at the right angles
-				d3.selectAll(".XtLbR")
-					.attr({"y1": -xLength, "y2": xLength})
-					.attr({"x1": -xLength, "x2": xLength})
-				;
-				d3.selectAll(".XtRbL")
-					.attr({"y1": -xLength, "y2": xLength})
-					.attr({"x1": xLength, "x2": -xLength})
-				;
-			}  // end swapCompt()
-
-			function oracleCompt(parent) {
-				// This gets the top of the last row of the oracle,
-				// then adds a row width to it to get it to fill that last row
-				var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colRealWidth
-					, topRowTop = $($(".d-row")[comptStartRow]).position().top
-					oracleHeight = bottomRowBottom - topRowTop
-				;
-
-				// Add square
-				parent.append("rect").attr("class", "comp-backer")
-					.attr({ "width": colRealWidth + "px"
-						, "height": (oracleHeight) + "px"
-					})
-					.style({"stroke": "black", "fill": "white"})
-				;
-				// Add text (add "component-symbol" back later when we've figured out
-					// a way for it to not interfere)
-				parent.append("text").attr("class", // "component-symbol
-						"compt-text oracle-symbol")
-					.text(comptSymb)
-					.attr("fill", "black")
-					.attr("font-size", fontSize + "em")
-					.attr({"x": "50%", "y":  oracleHeight/2})
-					// Makes x and y represent the middle point of the text
-					.attr("text-anchor", "middle")
-					// It's not exactly vertically middle
-					.attr("dy", "0.3em")
-				;
-			}  // end oracleCompt()
-
-
-			// Target and control should be their own functions? Maybe the
-			// class attributes below are enough.
-			function comptTarget(parent) {}
-
-			function comptControl(parent) {}
-
-
-			// These should be added to css stuff? Hmm, not sure of "y"
-			// Well, at least some of these should
-			// Center everything
-			d3.selectAll(".component-symbol")
-				// "50%" doesn't work with y for some reason
-				.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
-			;
-			// Size and x pos of component control
-			d3.selectAll(".compt-control")
-				.attr("r", labelRadius/2)
-				.style("fill", "black")
-			;
-
-			// Size and y pos of component target
-			d3.selectAll(".compt-target")
-				.attr("r", labelRadius)
-				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
-			;
-
-			// Width and x pos of cnot crossing lines
-			d3.selectAll(".cnot-cross-vert")
-				.attr("x1", colXCenter)
-				.attr("x2", colXCenter)
-				.attr("stroke-width", 2*comptLineWidth)
-				.attr("stroke", "black")
-			;
-			d3.selectAll(".cnot-cross-horiz")
-				.attr("x1", colXCenter-labelRadius)
-				.attr("x2", colXCenter+labelRadius)
-				.attr("stroke-width", 2*comptLineWidth)
-				.attr("stroke", "black")
-			;
-
-			// Width and x pos of cnot connecting line
-			d3.selectAll(".connecting-vert-line")
-				.attr("x1", colXCenter)
-				.attr("x2", colXCenter)
-				.attr("stroke-width", comptLineWidth)
-				.attr("stroke", "black")
-			;
-
-			d3.selectAll(".compt-line")
-				.attr("stroke-width", comptLineWidth)
-				.attr("stroke", "black")
-			;
-
-		}  // end for columns
+			}  // end for columns
+		}, animTime + 5);  // end setTimeout for components
 	}  // end this.render()
 }  // End CircuitObject()
 

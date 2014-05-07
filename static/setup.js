@@ -15,6 +15,12 @@
 */
 
 $(document).ready(function() {
+	// Temporary till in css
+	// !!! PROBLEM - vertical overlow is caused as well
+	// when components are added
+	$("#diagram").css("overflow-x", "auto");
+	$("#diagram").css("overflow-y", "hidden");
+
 	// *** VARIABLE DECLARATION ***\\
 	var // Keep track of qubit states and count
 		userNum = 1,
