@@ -213,6 +213,7 @@ function CircuitObject(containerID) {
 			var comptSymb = componentData[columnNum].sym
 				// The row with the lowest index
 				, comptStartRow = componentData[columnNum].rows.start
+				, comptEndRow = componentData[columnNum].rows.end
 				, comptControlRow = componentData[columnNum].rows.control
 				, comptTargetRow = componentData[columnNum].rows.target
 			;
@@ -232,9 +233,7 @@ function CircuitObject(containerID) {
 				})
 			;
 			// The top of this component's top row
-			var compRowTop = $($(".d-row")[comptStartRow]).position().top
-				, compHeight = colRealWidth;
-			;
+			var compRowTop = $($(".d-row")[comptStartRow]).position().top;
 
 			// Not sure if we need to make a group
 			var thisComp = thisCol.append("g").attr("class", "comp-group")
@@ -257,10 +256,13 @@ function CircuitObject(containerID) {
 			var colXCenter = colRealWidth/2, colYCenter = compHeight/2;
 
 			function singleLine (parent) {
+				// Get bottom of square
+
+
 				// Add square
 				parent.append("rect").attr("class", "comp-backer")
 					.attr({ "width": colRealWidth + "px"
-						, "height": compHeight + "px"
+						, "height": colRealWidth + "px"
 					})
 					.style({"stroke": "gray", "fill": "#FFFFCC"})
 				;
@@ -391,9 +393,13 @@ function CircuitObject(containerID) {
 					.attr({"y1": -xLength, "y2": xLength})
 					.attr({"x1": xLength, "x2": -xLength})
 				;
-
 			}  // end swapCompt()
 
+			function oracleCompt(parent) {
+				var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colXCenter;
+
+
+			}  // end oracleCompt()
 
 
 			// Target and control should be their own functions? Maybe the
