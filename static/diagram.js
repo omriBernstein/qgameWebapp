@@ -313,6 +313,38 @@ function CircuitObject(containerID) {
 
 			}  // end cnotCompt()
 
+			// Very similar to cnotCompt()
+			function cphaseCompt (parent) {
+				console.log("blah")
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				;
+				// SPECIAL FOR cphase, need top of target row
+				var targetRowTop = targetCY = $($(".d-row")[comptTargetRow]).position().top;
+
+				// Control y position
+				parent.append("circle").attr("class", "component-symbol compt-control")
+					.attr("cy", controlCY)
+				;
+
+				// Connecting line start and end
+				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+					.attr("y1", higherRowYCenter)
+					.attr("y2", lowerRowYCenter)
+				;
+
+				// Add single line component with "R" in it
+				var cphaseSquareGroup = parent.append("g")
+					.attr("class", "component-symbol cphase-square-group")
+					.attr("transform", "translate(0, " + targetRowTop + ")")
+				;
+				singleLine(cphaseSquareGroup);
+			}  // end cphaseCompt()
+
 			function swapCompt (parent) {
 				var controlCY = $($(".d-row")[comptControlRow]).position().top
 						+ colXCenter
@@ -365,39 +397,6 @@ function CircuitObject(containerID) {
 				;
 
 			}  // end swapCompt()
-
-			function cphaseCompt (parent) {
-				console.log("blah")
-				var controlCY = $($(".d-row")[comptControlRow]).position().top
-						+ colXCenter
-					, targetCY = $($(".d-row")[comptTargetRow]).position().top
-						+ colXCenter
-					, higherRowYCenter = Math.min(controlCY, targetCY)
-					, lowerRowYCenter = Math.max(controlCY, targetCY)
-				;
-
-				// SPECIAL FOR cphase
-				var targetRowTop = targetCY = $($(".d-row")[comptTargetRow]).position().top;
-
-				// Control y position
-				parent.append("circle").attr("class", "component-symbol compt-control")
-					.attr("cy", controlCY)
-				;
-
-				// Connecting line start and end
-				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
-					.attr("y1", higherRowYCenter)
-					.attr("y2", lowerRowYCenter)
-				;
-
-				// Add single line component with "R" in it
-				var cphaseSquareGroup = parent.append("g")
-					.attr("class", "component-symbol cphase-square-group")
-					.attr("transform", "translate(0, " + targetRowTop + ")")
-				;
-
-				singleLine(cphaseSquareGroup);
-			}  // end cphaseCompt()
 
 
 
