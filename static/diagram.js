@@ -241,6 +241,10 @@ function CircuitObject(containerID) {
 				.attr("transform", "translate(0, " + compRowTop + ")")
 			;
 
+			// These don't work inside the functinos for some reason
+			// even though they print correctly
+			var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
+
 			// Draw different components differently
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp);
@@ -252,10 +256,6 @@ function CircuitObject(containerID) {
 			else if (comptSymb == "O") {oracleCompt(thisComp);}
 
 			else {console.log("Unrecognized component symbol: " + comptSymb)}
-
-			// These don't work inside the functinos for some reason
-			// even though they print correctly
-			var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
 
 			function singleLine (parent) {
 				// Add square
