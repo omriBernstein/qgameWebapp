@@ -24,6 +24,7 @@ $(document).ready(function() {
 		// Instantiate editor and visualizer
 		editor = ace.edit("code-area"),
 		visualizer = new VisualizerObject("qubit-svg"),
+		diagram = new CircuitObject("diagram"),
 		// Store often-used elements
 		$guideMenu = $("#guide-menu"),
 		$guideDetail = $("#guide-detail");
@@ -31,6 +32,7 @@ $(document).ready(function() {
 
 	var default_EntangMatrix = [[1,0],[0,1]];
 	var default_PaddingArray = [0,0];
+	var default_Expressions = [];
 
 	// *** INITIALIZATION *** \\
 	editor.getSession().setUseWrapMode(true);
@@ -172,7 +174,7 @@ $(document).ready(function() {
 	    } 
 	}
 
-	function buildQubitArray(newStates, newEntangMatrix, newPaddingArray) {
+	function buildQubitArray(newStates, newEntangMatrix, newPaddingArray, newExpressions) {
 		var fullEntangMatrix = newEntangMatrix || default_EntangMatrix,
 			fullPaddingArray = newPaddingArray || default_PaddingArray;
 		if (newStates) {
@@ -217,7 +219,9 @@ $(document).ready(function() {
 		numQubits = i;//why is this line here?
 		default_EntangMatrix = fullEntangMatrix;
 		default_PaddingArray = fullPaddingArray;
+		default_Expressions = newExpressions || default_Expressions;
 		visualizer.render(fullStates, fullEntangMatrix, fullPaddingArray);
+		diagram.render(numQubits, default_Expressions);
 	}
 
 	function readSingleFile(evt) {

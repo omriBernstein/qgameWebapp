@@ -1760,7 +1760,7 @@ cljs.core._invoke = function() {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
     return r.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t);
-  }, x = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r) {
+  }, w = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r) {
     if (a ? a.cljs$core$IFn$_invoke$arity$17 : a) {
       return a.cljs$core$IFn$_invoke$arity$17(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r);
     }
@@ -1774,86 +1774,86 @@ cljs.core._invoke = function() {
     if (a ? a.cljs$core$IFn$_invoke$arity$18 : a) {
       return a.cljs$core$IFn$_invoke$arity$18(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u);
     }
-    var w;
-    w = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if (!w && (w = cljs.core._invoke._, !w)) {
+    var x;
+    x = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if (!x && (x = cljs.core._invoke._, !x)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return w.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u);
-  }, t = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w) {
+    return x.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u);
+  }, t = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x) {
     if (a ? a.cljs$core$IFn$_invoke$arity$19 : a) {
-      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w);
+      return a.cljs$core$IFn$_invoke$arity$19(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x);
     }
     var v;
     v = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
     if (!v && (v = cljs.core._invoke._, !v)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return v.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w);
-  }, w = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v) {
+    return v.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x);
+  }, x = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v) {
     if (a ? a.cljs$core$IFn$_invoke$arity$20 : a) {
-      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v);
+      return a.cljs$core$IFn$_invoke$arity$20(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v);
     }
-    var x;
-    x = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if (!x && (x = cljs.core._invoke._, !x)) {
+    var w;
+    w = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if (!w && (w = cljs.core._invoke._, !w)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return x.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v);
-  }, B = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v, x) {
+    return w.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v);
+  }, z = function(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v, w) {
     if (a ? a.cljs$core$IFn$_invoke$arity$21 : a) {
-      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v, x);
+      return a.cljs$core$IFn$_invoke$arity$21(a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v, w);
     }
-    var B;
-    B = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
-    if (!B && (B = cljs.core._invoke._, !B)) {
+    var z;
+    z = cljs.core._invoke[goog.typeOf(null == a ? null : a)];
+    if (!z && (z = cljs.core._invoke._, !z)) {
       throw cljs.core.missing_protocol.call(null, "IFn.-invoke", a);
     }
-    return B.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, w, v, x);
-  }, a = function(a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V, Y) {
+    return z.call(null, a, b, c, d, e, f, g, h, k, l, s, m, p, n, q, t, r, u, x, v, w);
+  }, a = function(a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T, U, L, V, Y) {
     switch(arguments.length) {
       case 1:
         return b.call(this, a);
       case 2:
-        return c.call(this, a, F);
+        return c.call(this, a, E);
       case 3:
-        return d.call(this, a, F, z);
+        return d.call(this, a, E, B);
       case 4:
-        return e.call(this, a, F, z, C);
+        return e.call(this, a, E, B, C);
       case 5:
-        return f.call(this, a, F, z, C, I);
+        return f.call(this, a, E, B, C, I);
       case 6:
-        return g.call(this, a, F, z, C, I, K);
+        return g.call(this, a, E, B, C, I, K);
       case 7:
-        return h.call(this, a, F, z, C, I, K, H);
+        return h.call(this, a, E, B, C, I, K, F);
       case 8:
-        return k.call(this, a, F, z, C, I, K, H, E);
+        return k.call(this, a, E, B, C, I, K, F, H);
       case 9:
-        return l.call(this, a, F, z, C, I, K, H, E, G);
+        return l.call(this, a, E, B, C, I, K, F, H, G);
       case 10:
-        return m.call(this, a, F, z, C, I, K, H, E, G, J);
+        return m.call(this, a, E, B, C, I, K, F, H, G, J);
       case 11:
-        return n.call(this, a, F, z, C, I, K, H, E, G, J, M);
+        return n.call(this, a, E, B, C, I, K, F, H, G, J, N);
       case 12:
-        return r.call(this, a, F, z, C, I, K, H, E, G, J, M, O);
+        return r.call(this, a, E, B, C, I, K, F, H, G, J, N, O);
       case 13:
-        return p.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N);
+        return p.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M);
       case 14:
-        return s.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R);
+        return s.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R);
       case 15:
-        return q.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S);
+        return q.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S);
       case 16:
-        return u.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q);
+        return u.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q);
       case 17:
-        return x.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T);
+        return w.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T);
       case 18:
-        return v.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U);
+        return v.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T, U);
       case 19:
-        return t.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L);
+        return t.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T, U, L);
       case 20:
-        return w.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V);
+        return x.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T, U, L, V);
       case 21:
-        return B.call(this, a, F, z, C, I, K, H, E, G, J, M, O, N, R, S, Q, T, U, L, V, Y);
+        return z.call(this, a, E, B, C, I, K, F, H, G, J, N, O, M, R, S, Q, T, U, L, V, Y);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -1873,11 +1873,11 @@ cljs.core._invoke = function() {
   a.cljs$core$IFn$_invoke$arity$14 = s;
   a.cljs$core$IFn$_invoke$arity$15 = q;
   a.cljs$core$IFn$_invoke$arity$16 = u;
-  a.cljs$core$IFn$_invoke$arity$17 = x;
+  a.cljs$core$IFn$_invoke$arity$17 = w;
   a.cljs$core$IFn$_invoke$arity$18 = v;
   a.cljs$core$IFn$_invoke$arity$19 = t;
-  a.cljs$core$IFn$_invoke$arity$20 = w;
-  a.cljs$core$IFn$_invoke$arity$21 = B;
+  a.cljs$core$IFn$_invoke$arity$20 = x;
+  a.cljs$core$IFn$_invoke$arity$21 = z;
   return a;
 }();
 cljs.core.ICloneable = function() {
@@ -6299,31 +6299,31 @@ cljs.core.apply_to = function(a, b, c) {
   if (14 === b) {
     return a.cljs$core$IFn$_invoke$arity$14 ? a.cljs$core$IFn$_invoke$arity$14(c, d, e, f, g, a, h, k, l, m, n, r, p, s) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s);
   }
-  var q = cljs.core._first.call(null, u), x = cljs.core._rest.call(null, u);
+  var q = cljs.core._first.call(null, u), w = cljs.core._rest.call(null, u);
   if (15 === b) {
     return a.cljs$core$IFn$_invoke$arity$15 ? a.cljs$core$IFn$_invoke$arity$15(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q);
   }
-  var u = cljs.core._first.call(null, x), v = cljs.core._rest.call(null, x);
+  var u = cljs.core._first.call(null, w), v = cljs.core._rest.call(null, w);
   if (16 === b) {
     return a.cljs$core$IFn$_invoke$arity$16 ? a.cljs$core$IFn$_invoke$arity$16(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u);
   }
-  var x = cljs.core._first.call(null, v), t = cljs.core._rest.call(null, v);
+  var w = cljs.core._first.call(null, v), t = cljs.core._rest.call(null, v);
   if (17 === b) {
-    return a.cljs$core$IFn$_invoke$arity$17 ? a.cljs$core$IFn$_invoke$arity$17(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x);
+    return a.cljs$core$IFn$_invoke$arity$17 ? a.cljs$core$IFn$_invoke$arity$17(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w);
   }
-  var v = cljs.core._first.call(null, t), w = cljs.core._rest.call(null, t);
+  var v = cljs.core._first.call(null, t), x = cljs.core._rest.call(null, t);
   if (18 === b) {
-    return a.cljs$core$IFn$_invoke$arity$18 ? a.cljs$core$IFn$_invoke$arity$18(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v);
+    return a.cljs$core$IFn$_invoke$arity$18 ? a.cljs$core$IFn$_invoke$arity$18(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v);
   }
-  t = cljs.core._first.call(null, w);
-  w = cljs.core._rest.call(null, w);
+  t = cljs.core._first.call(null, x);
+  x = cljs.core._rest.call(null, x);
   if (19 === b) {
-    return a.cljs$core$IFn$_invoke$arity$19 ? a.cljs$core$IFn$_invoke$arity$19(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v, t) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v, t);
+    return a.cljs$core$IFn$_invoke$arity$19 ? a.cljs$core$IFn$_invoke$arity$19(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v, t) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v, t);
   }
-  var B = cljs.core._first.call(null, w);
-  cljs.core._rest.call(null, w);
+  var z = cljs.core._first.call(null, x);
+  cljs.core._rest.call(null, x);
   if (20 === b) {
-    return a.cljs$core$IFn$_invoke$arity$20 ? a.cljs$core$IFn$_invoke$arity$20(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v, t, B) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, x, v, t, B);
+    return a.cljs$core$IFn$_invoke$arity$20 ? a.cljs$core$IFn$_invoke$arity$20(c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v, t, z) : a.call(null, c, d, e, f, g, a, h, k, l, m, n, r, p, s, q, u, w, v, t, z);
   }
   throw Error("Only up to 20 arguments supported on functions");
 };
@@ -20289,7 +20289,7 @@ var math = {js:{}};
       b = b ? b : (a || (a = l()), a);
     }
     if (a = b, "" != y) {
-      throw P == L.DELIMITER ? Error(B("Unknown operator " + y)) : A('Unexpected part "' + y + '"');
+      throw P == L.DELIMITER ? Error(z("Unknown operator " + y)) : A('Unexpected part "' + y + '"');
     }
     return a;
   }
@@ -20299,13 +20299,13 @@ var math = {js:{}};
       throw Error('Deprecated keyword "function". Functions can now be assigned without it, like "f(x) \x3d x^2".');
     }
     a = m();
-    return new E("ans", a);
+    return new H("ans", a);
   }
   function m() {
     var a, b, c, d = n();
     if ("\x3d" == y) {
       if (d instanceof Q) {
-        return a = d.name, e(), c = m(), new E(a, c);
+        return a = d.name, e(), c = m(), new H(a, c);
       }
       if (d instanceof O) {
         return e(), c = m(), new U(d, c);
@@ -20315,7 +20315,7 @@ var math = {js:{}};
         if (b = [], d.object instanceof Q ? (a = d.object.name, d.params.forEach(function(a, c) {
           a instanceof Q ? b[c] = a.name : f = !1;
         })) : f = !1, f) {
-          return e(), c = m(), new M(a, b, c);
+          return e(), c = m(), new N(a, b, c);
         }
       }
       throw A("Invalid left hand side of assignment operator \x3d");
@@ -20336,7 +20336,7 @@ var math = {js:{}};
     var a, b, c, d;
     a = p();
     for (b = {"\x3d\x3d":"equal", "!\x3d":"unequal", "\x3c":"smaller", "\x3e":"larger", "\x3c\x3d":"smallereq", "\x3e\x3d":"largereq"};y in b;) {
-      c = y, d = b[c], e(), a = [a, p()], a = new N(c, d, a);
+      c = y, d = b[c], e(), a = [a, p()], a = new M(c, d, a);
     }
     return a;
   }
@@ -20344,7 +20344,7 @@ var math = {js:{}};
     var a, b, c, d;
     a = s();
     for (b = {to:"to", "in":"to"};y in b;) {
-      c = y, d = b[c], e(), a = [a, s()], a = new N(c, d, a);
+      c = y, d = b[c], e(), a = [a, s()], a = new M(c, d, a);
     }
     return a;
   }
@@ -20352,7 +20352,7 @@ var math = {js:{}};
     var a, b, c, d;
     a = q();
     for (b = {"+":"add", "-":"subtract"};y in b;) {
-      c = y, d = b[c], e(), a = [a, q()], a = new N(c, d, a);
+      c = y, d = b[c], e(), a = [a, q()], a = new M(c, d, a);
     }
     return a;
   }
@@ -20360,18 +20360,18 @@ var math = {js:{}};
     var a, b, c, d;
     a = u();
     for (b = {"*":"multiply", ".*":"emultiply", "/":"divide", "./":"edivide", "%":"mod", mod:"mod"};y in b;) {
-      c = y, d = b[c], e(), a = [a, u()], a = new N(c, d, a);
+      c = y, d = b[c], e(), a = [a, u()], a = new M(c, d, a);
     }
     return a;
   }
   function u() {
     var a, b;
-    return a = x(), (P == L.SYMBOL || "in" == y) && (b = y, e(), a = new T(a, b)), a;
+    return a = w(), (P == L.SYMBOL || "in" == y) && (b = y, e(), a = new T(a, b)), a;
   }
-  function x() {
+  function w() {
     var a, b, c;
     if ("-" == y) {
-      c = (a = y, e(), b = [x()], new N(a, "unary", b));
+      c = (a = y, e(), b = [w()], new M(a, "unary", b));
     } else {
       var d, f, g;
       a = [v()];
@@ -20379,7 +20379,7 @@ var math = {js:{}};
         b.push(y), e(), a.push(v());
       }
       for (d = a.pop();a.length;) {
-        f = a.pop(), c = b.pop(), g = "^" == c ? "pow" : "epow", d = [f, d], d = new N(c, g, d);
+        f = a.pop(), c = b.pop(), g = "^" == c ? "pow" : "epow", d = [f, d], d = new M(c, g, d);
       }
       c = d;
     }
@@ -20415,10 +20415,10 @@ var math = {js:{}};
         } else {
           if ("[" == y) {
             if (e(), f(), "]" != y) {
-              if (c = w(), ";" == y) {
+              if (c = x(), ";" == y) {
                 b = 1;
                 for (c = [c];";" == y;) {
-                  e(), f(), c[b] = w(), b++, f();
+                  e(), f(), c[b] = x(), b++, f();
                 }
                 if ("]" != y) {
                   throw A("End of matrix ] expected");
@@ -20427,10 +20427,10 @@ var math = {js:{}};
                 g = 0 < c.length ? c[0].length : 0;
                 for (a = 1;b > a;a++) {
                   if (c[a].length != g) {
-                    throw Error(B("Number of columns must match (" + c[a].length + " !\x3d " + g + ")"));
+                    throw Error(z("Number of columns must match (" + c[a].length + " !\x3d " + g + ")"));
                   }
                 }
-                b = new H(c);
+                b = new F(c);
               } else {
                 if ("]" != y) {
                   throw A("End of matrix ] expected");
@@ -20439,7 +20439,7 @@ var math = {js:{}};
                 b = c;
               }
             } else {
-              e(), b = new H([]);
+              e(), b = new F([]);
             }
             c = t(b);
           } else {
@@ -20464,7 +20464,7 @@ var math = {js:{}};
     }
     a = b;
     for (b = {"!":"factorial", "'":"transpose"};y in b;) {
-      c = y, g = b[c], e(), a = [a], a = new N(c, g, a);
+      c = y, g = b[c], e(), a = [a], a = new M(c, g, a);
     }
     return a;
   }
@@ -20486,30 +20486,30 @@ var math = {js:{}};
     }
     return a;
   }
-  function w() {
+  function x() {
     for (var a = [m()], b = 1;"," == y;) {
       e(), f(), a[b] = m(), b++, f();
     }
-    return new H(a);
+    return new F(a);
   }
-  function B(a) {
+  function z(a) {
     var b = W - y.length + 1;
     return void 0 === b ? a : a + " (char " + b + ")";
   }
   function A(a) {
-    return new SyntaxError(B(a));
+    return new SyntaxError(z(a));
   }
   b = c(117);
-  var F = (b.number.toNumber, b.string.isString), z = Array.isArray, C = b.types.type, I = (c(7), c(10)), K = (c(11), c(13)), H = c(104), E = c(105), G = c(106), J = c(107), M = c(109), O = c(108), N = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
+  var E = (b.number.toNumber, b.string.isString), B = Array.isArray, C = b.types.type, I = (c(7), c(10)), K = (c(11), c(13)), F = c(104), H = c(105), G = c(106), J = c(107), N = c(109), O = c(108), M = c(111), R = c(112), S = c(113), Q = c(114), T = c(115), U = c(116), L = {NULL:0, DELIMITER:1, NUMBER:2, SYMBOL:3, UNKNOWN:4}, V = {",":!0, "(":!0, ")":!0, "[":!0, "]":!0, '"':!0, "\n":!0, ";":!0, "+":!0, "-":!0, "*":!0, ".*":!0, "/":!0, "./":!0, "%":!0, "^":!0, ".^":!0, "!":!0, "'":!0, "\x3d":!0, ":":!0, 
   "\x3d\x3d":!0, "!\x3d":!0, "\x3c":!0, "\x3e":!0, "\x3c\x3d":!0, "\x3e\x3d":!0}, Y = {mod:!0, to:!0, "in":!0}, Z = {}, X = "", W = 0, D = "", y = "", P = L.NULL;
   a.exports = function(a, b) {
     if (1 != arguments.length && 2 != arguments.length) {
       throw new SyntaxError("Wrong number of arguments: 1 or 2 expected");
     }
-    if (Z = "object" === C(b) ? b : {}, F(a)) {
+    if (Z = "object" === C(b) ? b : {}, E(a)) {
       return X = a || "", k();
     }
-    if (z(a) || a instanceof I) {
+    if (B(a) || a instanceof I) {
       return K.deepMap(a, function(a) {
         return X = a || "", k();
       });
@@ -21194,7 +21194,7 @@ var math = {js:{}};
     if (null != a && !u(a)) {
       throw new TypeError("First parameter in Unit constructor must be a number");
     }
-    if (null != b && !x(b)) {
+    if (null != b && !w(b)) {
       throw new TypeError("Second parameter in Unit constructor must be a string");
     }
     if (null != b) {
@@ -21261,9 +21261,9 @@ var math = {js:{}};
     return a || null;
   }
   function m(a) {
-    for (var b in w) {
-      if (w.hasOwnProperty(b) && q.endsWith(a, b)) {
-        var c = w[b], d = a.substring(0, a.length - b.length), d = c.prefixes[d];
+    for (var b in x) {
+      if (x.hasOwnProperty(b) && q.endsWith(a, b)) {
+        var c = x[b], d = a.substring(0, a.length - b.length), d = c.prefixes[d];
         if (void 0 !== d) {
           return{unit:c, prefix:d};
         }
@@ -21273,9 +21273,9 @@ var math = {js:{}};
   }
   var n, r, p;
   c = c(117);
-  var s = c.number, q = c.string, u = c.number.isNumber, x = c.string.isString;
+  var s = c.number, q = c.string, u = c.number.isNumber, w = c.string.isString;
   d.parse = function(a) {
-    if (n = a, r = -1, p = "", !x(n)) {
+    if (n = a, r = -1, p = "", !w(n)) {
       return null;
     }
     g();
@@ -21313,7 +21313,7 @@ var math = {js:{}};
   };
   d.prototype.to = function(a) {
     var b;
-    if (x(a)) {
+    if (w(a)) {
       if (b = new d(null, a), !this.equalBase(b)) {
         throw Error("Units do not match");
       }
@@ -21380,7 +21380,7 @@ var math = {js:{}};
   var v = {name:"", value:1, scientific:!0}, t = {NONE:{}, LENGTH:{}, MASS:{}, TIME:{}, CURRENT:{}, TEMPERATURE:{}, LUMINOUS_INTENSITY:{}, AMOUNT_OF_SUBSTANCE:{}, FORCE:{}, SURFACE:{}, VOLUME:{}, ANGLE:{}, BIT:{}};
   BASE_UNIT_NONE = {};
   UNIT_NONE = {name:"", base:BASE_UNIT_NONE, value:1, offset:0};
-  var w = {meter:{name:"meter", base:t.LENGTH, prefixes:c.LONG, value:1, offset:0}, inch:{name:"inch", base:t.LENGTH, prefixes:c.NONE, value:0.0254, offset:0}, foot:{name:"foot", base:t.LENGTH, prefixes:c.NONE, value:0.3048, offset:0}, yard:{name:"yard", base:t.LENGTH, prefixes:c.NONE, value:0.9144, offset:0}, mile:{name:"mile", base:t.LENGTH, prefixes:c.NONE, value:1609.344, offset:0}, link:{name:"link", base:t.LENGTH, prefixes:c.NONE, value:0.201168, offset:0}, rod:{name:"rod", base:t.LENGTH, prefixes:c.NONE, 
+  var x = {meter:{name:"meter", base:t.LENGTH, prefixes:c.LONG, value:1, offset:0}, inch:{name:"inch", base:t.LENGTH, prefixes:c.NONE, value:0.0254, offset:0}, foot:{name:"foot", base:t.LENGTH, prefixes:c.NONE, value:0.3048, offset:0}, yard:{name:"yard", base:t.LENGTH, prefixes:c.NONE, value:0.9144, offset:0}, mile:{name:"mile", base:t.LENGTH, prefixes:c.NONE, value:1609.344, offset:0}, link:{name:"link", base:t.LENGTH, prefixes:c.NONE, value:0.201168, offset:0}, rod:{name:"rod", base:t.LENGTH, prefixes:c.NONE, 
   value:5.02921, offset:0}, chain:{name:"chain", base:t.LENGTH, prefixes:c.NONE, value:20.1168, offset:0}, angstrom:{name:"angstrom", base:t.LENGTH, prefixes:c.NONE, value:1E-10, offset:0}, m:{name:"m", base:t.LENGTH, prefixes:c.SHORT, value:1, offset:0}, "in":{name:"in", base:t.LENGTH, prefixes:c.NONE, value:0.0254, offset:0}, ft:{name:"ft", base:t.LENGTH, prefixes:c.NONE, value:0.3048, offset:0}, yd:{name:"yd", base:t.LENGTH, prefixes:c.NONE, value:0.9144, offset:0}, mi:{name:"mi", base:t.LENGTH, 
   prefixes:c.NONE, value:1609.344, offset:0}, li:{name:"li", base:t.LENGTH, prefixes:c.NONE, value:0.201168, offset:0}, rd:{name:"rd", base:t.LENGTH, prefixes:c.NONE, value:5.02921, offset:0}, ch:{name:"ch", base:t.LENGTH, prefixes:c.NONE, value:20.1168, offset:0}, mil:{name:"mil", base:t.LENGTH, prefixes:c.NONE, value:2.54E-5, offset:0}, m2:{name:"m2", base:t.SURFACE, prefixes:c.SQUARED, value:1, offset:0}, sqin:{name:"sqin", base:t.SURFACE, prefixes:c.NONE, value:6.4516E-4, offset:0}, sqft:{name:"sqft", 
   base:t.SURFACE, prefixes:c.NONE, value:0.09290304, offset:0}, sqyd:{name:"sqyd", base:t.SURFACE, prefixes:c.NONE, value:0.83612736, offset:0}, sqmi:{name:"sqmi", base:t.SURFACE, prefixes:c.NONE, value:2589988.110336, offset:0}, sqrd:{name:"sqrd", base:t.SURFACE, prefixes:c.NONE, value:25.29295, offset:0}, sqch:{name:"sqch", base:t.SURFACE, prefixes:c.NONE, value:404.6873, offset:0}, sqmil:{name:"sqmil", base:t.SURFACE, prefixes:c.NONE, value:6.4516E-10, offset:0}, m3:{name:"m3", base:t.VOLUME, 
@@ -21396,22 +21396,22 @@ var math = {js:{}};
   base:t.CURRENT, prefixes:c.LONG, value:1, offset:0}, K:{name:"K", base:t.TEMPERATURE, prefixes:c.NONE, value:1, offset:0}, degC:{name:"degC", base:t.TEMPERATURE, prefixes:c.NONE, value:1, offset:273.15}, degF:{name:"degF", base:t.TEMPERATURE, prefixes:c.NONE, value:1 / 1.8, offset:459.67}, degR:{name:"degR", base:t.TEMPERATURE, prefixes:c.NONE, value:1 / 1.8, offset:0}, kelvin:{name:"kelvin", base:t.TEMPERATURE, prefixes:c.NONE, value:1, offset:0}, celsius:{name:"celsius", base:t.TEMPERATURE, prefixes:c.NONE, 
   value:1, offset:273.15}, fahrenheit:{name:"fahrenheit", base:t.TEMPERATURE, prefixes:c.NONE, value:1 / 1.8, offset:459.67}, rankine:{name:"rankine", base:t.TEMPERATURE, prefixes:c.NONE, value:1 / 1.8, offset:0}, mol:{name:"mol", base:t.AMOUNT_OF_SUBSTANCE, prefixes:c.NONE, value:1, offset:0}, mole:{name:"mole", base:t.AMOUNT_OF_SUBSTANCE, prefixes:c.NONE, value:1, offset:0}, cd:{name:"cd", base:t.LUMINOUS_INTENSITY, prefixes:c.NONE, value:1, offset:0}, candela:{name:"candela", base:t.LUMINOUS_INTENSITY, 
   prefixes:c.NONE, value:1, offset:0}, N:{name:"N", base:t.FORCE, prefixes:c.SHORT, value:1, offset:0}, newton:{name:"newton", base:t.FORCE, prefixes:c.LONG, value:1, offset:0}, lbf:{name:"lbf", base:t.FORCE, prefixes:c.NONE, value:4.4482216152605, offset:0}, poundforce:{name:"poundforce", base:t.FORCE, prefixes:c.NONE, value:4.4482216152605, offset:0}, b:{name:"b", base:t.BIT, prefixes:c.BINARY_SHORT, value:1, offset:0}, bits:{name:"bits", base:t.BIT, prefixes:c.BINARY_LONG, value:1, offset:0}, 
-  B:{name:"B", base:t.BIT, prefixes:c.BINARY_SHORT, value:8, offset:0}, bytes:{name:"bytes", base:t.BIT, prefixes:c.BINARY_LONG, value:8, offset:0}}, B = {meters:"meter", inches:"inch", feet:"foot", yards:"yard", miles:"mile", links:"link", rods:"rod", chains:"chain", angstroms:"angstrom", litres:"litre", teaspoons:"teaspoon", tablespoons:"tablespoon", minims:"minim", fluiddrams:"fluiddram", fluidounces:"fluidounce", gills:"gill", cups:"cup", pints:"pint", quarts:"quart", gallons:"gallon", beerbarrels:"beerbarrel", 
+  B:{name:"B", base:t.BIT, prefixes:c.BINARY_SHORT, value:8, offset:0}, bytes:{name:"bytes", base:t.BIT, prefixes:c.BINARY_LONG, value:8, offset:0}}, z = {meters:"meter", inches:"inch", feet:"foot", yards:"yard", miles:"mile", links:"link", rods:"rod", chains:"chain", angstroms:"angstrom", litres:"litre", teaspoons:"teaspoon", tablespoons:"tablespoon", minims:"minim", fluiddrams:"fluiddram", fluidounces:"fluidounce", gills:"gill", cups:"cup", pints:"pint", quarts:"quart", gallons:"gallon", beerbarrels:"beerbarrel", 
   oilbarrels:"oilbarrel", hogsheads:"hogshead", grams:"gram", tons:"ton", tonnes:"tonne", grains:"grain", drams:"dram", ounces:"ounce", poundmasses:"poundmass", hundredweights:"hundredweight", sticks:"stick", seconds:"second", minutes:"minute", hours:"hour", days:"day", radians:"rad", degrees:"deg", gradients:"grad", cycles:"cycle", amperes:"ampere", moles:"mole"}, A;
-  for (A in B) {
-    if (B.hasOwnProperty(A)) {
-      var F = Object.create(w[B[A]]);
-      F.name = A;
-      w[A] = F;
+  for (A in z) {
+    if (z.hasOwnProperty(A)) {
+      var E = Object.create(x[z[A]]);
+      E.name = A;
+      x[A] = E;
     }
   }
-  w.lt = w.l;
-  w.liter = w.litre;
-  w.liters = w.litres;
-  w.lb = w.lbm;
+  x.lt = x.l;
+  x.liter = x.litre;
+  x.liters = x.litres;
+  x.lb = x.lbm;
   d.PREFIXES = c;
   d.BASE_UNITS = t;
-  d.UNITS = w;
+  d.UNITS = x;
   a.exports = d;
   b.isUnit = d.isUnit;
   b.isPlainUnit = d.isPlainUnit;
@@ -22122,10 +22122,10 @@ var math = {js:{}};
           if (0 == c || 0 == e) {
             return 0;
           }
-          for (var x = c * e;0 != e;) {
+          for (var w = c * e;0 != e;) {
             b = e, e = c % b, c = b;
           }
-          return Math.abs(x / c);
+          return Math.abs(w / c);
         }
         if (n(c) || n(e)) {
           return g.deepMap2(c, e, p);
@@ -22249,8 +22249,8 @@ var math = {js:{}};
     function b(a, c) {
       return 0 == a.im ? 0 == c.im ? new h(a.re * c.re, 0) : 0 == c.re ? new h(0, a.re * c.im) : new h(a.re * c.re, a.re * c.im) : 0 == a.re ? 0 == c.im ? new h(0, a.im * c.re) : 0 == c.re ? new h(-a.im * c.im, 0) : new h(-a.im * c.im, a.im * c.re) : 0 == c.im ? new h(a.re * c.re, a.im * c.re) : 0 == c.re ? new h(-a.im * c.im, a.re * c.im) : new h(a.re * c.re - a.im * c.im, a.re * c.im + a.im * c.re);
     }
-    var f = c(117), g = c(220), h = c(7), k = c(10), l = c(11), m = c(13), n = f.array, r = f.number.isNumber, p = f.number.toNumber, s = f.number.toBigNumber, q = f["boolean"].isBoolean, u = h.isComplex, x = Array.isArray, v = l.isUnit;
-    a.multiply = function w(c, f) {
+    var f = c(117), g = c(220), h = c(7), k = c(10), l = c(11), m = c(13), n = f.array, r = f.number.isNumber, p = f.number.toNumber, s = f.number.toBigNumber, q = f["boolean"].isBoolean, u = h.isComplex, w = Array.isArray, v = l.isUnit;
+    a.multiply = function x(c, f) {
       if (2 != arguments.length) {
         throw new a.error.ArgumentsError("multiply", arguments.length, 2);
       }
@@ -22274,103 +22274,103 @@ var math = {js:{}};
         }
       }
       if (c instanceof g) {
-        return r(f) ? f = s(f) : q(f) && (f = new g(f ? 1 : 0)), f instanceof g ? c.times(f) : w(p(c), f);
+        return r(f) ? f = s(f) : q(f) && (f = new g(f ? 1 : 0)), f instanceof g ? c.times(f) : x(p(c), f);
       }
       if (f instanceof g) {
-        return r(c) ? c = s(c) : q(c) && (c = new g(c ? 1 : 0)), c instanceof g ? c.times(f) : w(c, p(f));
+        return r(c) ? c = s(c) : q(c) && (c = new g(c ? 1 : 0)), c instanceof g ? c.times(f) : x(c, p(f));
       }
       if (v(c) && r(f)) {
         return res = c.clone(), res.value *= f, res;
       }
-      if (x(c)) {
-        if (x(f)) {
-          var l = n.size(c), z = n.size(f);
+      if (w(c)) {
+        if (w(f)) {
+          var l = n.size(c), B = n.size(f);
           if (1 == l.length) {
-            if (1 == z.length) {
-              if (l[0] != z[0]) {
-                throw new RangeError("Dimensions mismatch in multiplication. Length of A must match length of B (A is " + l[0] + ", B is " + z[0] + l[0] + " !\x3d " + z[0] + ")");
+            if (1 == B.length) {
+              if (l[0] != B[0]) {
+                throw new RangeError("Dimensions mismatch in multiplication. Length of A must match length of B (A is " + l[0] + ", B is " + B[0] + l[0] + " !\x3d " + B[0] + ")");
               }
-              var l = c, z = f, C = null;
+              var l = c, B = f, C = null;
               if (l.length) {
                 for (var I = C = 0, K = l.length;K > I;I++) {
-                  C = a.add(C, a.multiply(l[I], z[I]));
+                  C = a.add(C, a.multiply(l[I], B[I]));
                 }
               }
               return C;
             }
-            if (2 == z.length) {
-              if (l[0] != z[0]) {
-                throw new RangeError("Dimensions mismatch in multiplication. Length of A must match rows of B (A is " + l[0] + ", B is " + z[0] + "x" + z[1] + ", " + l[0] + " !\x3d " + z[0] + ")");
+            if (2 == B.length) {
+              if (l[0] != B[0]) {
+                throw new RangeError("Dimensions mismatch in multiplication. Length of A must match rows of B (A is " + l[0] + ", B is " + B[0] + "x" + B[1] + ", " + l[0] + " !\x3d " + B[0] + ")");
               }
-              for (var l = c, z = f, C = [], I = z.length, K = z[0].length, H = 0;K > H;H++) {
-                for (var E = null, G = 0;I > G;G++) {
-                  var J = a.multiply(l[G], z[G][H]), E = 0 === G ? J : a.add(E, J)
+              for (var l = c, B = f, C = [], I = B.length, K = B[0].length, F = 0;K > F;F++) {
+                for (var H = null, G = 0;I > G;G++) {
+                  var J = a.multiply(l[G], B[G][F]), H = 0 === G ? J : a.add(H, J)
                 }
-                C[H] = E;
+                C[F] = H;
               }
               return C;
             }
-            throw Error("Can only multiply a 1 or 2 dimensional matrix (B has " + z.length + " dimensions)");
+            throw Error("Can only multiply a 1 or 2 dimensional matrix (B has " + B.length + " dimensions)");
           }
           if (2 == l.length) {
-            if (1 == z.length) {
-              if (l[1] != z[0]) {
-                throw new RangeError("Dimensions mismatch in multiplication. Columns of A must match length of B (A is " + l[0] + "x" + l[0] + ", B is " + z[0] + ", " + l[1] + " !\x3d " + z[0] + ")");
+            if (1 == B.length) {
+              if (l[1] != B[0]) {
+                throw new RangeError("Dimensions mismatch in multiplication. Columns of A must match length of B (A is " + l[0] + "x" + l[0] + ", B is " + B[0] + ", " + l[1] + " !\x3d " + B[0] + ")");
               }
               l = c;
-              z = f;
+              B = f;
               C = [];
               I = l.length;
               K = l[0].length;
-              for (H = 0;I > H;H++) {
-                E = null;
+              for (F = 0;I > F;F++) {
+                H = null;
                 for (G = 0;K > G;G++) {
-                  J = a.multiply(l[H][G], z[G]), E = 0 === G ? J : a.add(E, J);
+                  J = a.multiply(l[F][G], B[G]), H = 0 === G ? J : a.add(H, J);
                 }
-                C[H] = E;
+                C[F] = H;
               }
               return C;
             }
-            if (2 == z.length) {
-              if (l[1] != z[0]) {
-                throw new RangeError("Dimensions mismatch in multiplication. Columns of A must match rows of B (A is " + l[0] + "x" + l[1] + ", B is " + z[0] + "x" + z[1] + ", " + l[1] + " !\x3d " + z[0] + ")");
+            if (2 == B.length) {
+              if (l[1] != B[0]) {
+                throw new RangeError("Dimensions mismatch in multiplication. Columns of A must match rows of B (A is " + l[0] + "x" + l[1] + ", B is " + B[0] + "x" + B[1] + ", " + l[1] + " !\x3d " + B[0] + ")");
               }
               l = c;
-              z = f;
+              B = f;
               C = [];
               I = l.length;
-              K = z[0].length;
-              H = l[0].length;
-              for (E = 0;I > E;E++) {
-                for (C[E] = [], G = 0;K > G;G++) {
-                  for (var J = null, M = 0;H > M;M++) {
-                    var O = a.multiply(l[E][M], z[M][G]), J = null === J ? O : a.add(J, O)
+              K = B[0].length;
+              F = l[0].length;
+              for (H = 0;I > H;H++) {
+                for (C[H] = [], G = 0;K > G;G++) {
+                  for (var J = null, N = 0;F > N;N++) {
+                    var O = a.multiply(l[H][N], B[N][G]), J = null === J ? O : a.add(J, O)
                   }
-                  C[E][G] = J;
+                  C[H][G] = J;
                 }
               }
               return C;
             }
-            throw Error("Can only multiply a 1 or 2 dimensional matrix (B has " + z.length + " dimensions)");
+            throw Error("Can only multiply a 1 or 2 dimensional matrix (B has " + B.length + " dimensions)");
           }
           throw Error("Can only multiply a 1 or 2 dimensional matrix (A has " + l.length + " dimensions)");
         }
-        return f instanceof k ? new k(w(c, f.valueOf())) : m.deepMap2(c, f, w);
+        return f instanceof k ? new k(x(c, f.valueOf())) : m.deepMap2(c, f, x);
       }
       if (c instanceof k) {
-        return new k(f instanceof k ? w(c.valueOf(), f.valueOf()) : w(c.valueOf(), f));
+        return new k(f instanceof k ? x(c.valueOf(), f.valueOf()) : x(c.valueOf(), f));
       }
-      if (x(f)) {
-        return m.deepMap2(c, f, w);
+      if (w(f)) {
+        return m.deepMap2(c, f, x);
       }
       if (f instanceof k) {
-        return new k(m.deepMap2(c, f.valueOf(), w));
+        return new k(m.deepMap2(c, f.valueOf(), x));
       }
       if (q(c)) {
-        return w(+c, f);
+        return x(+c, f);
       }
       if (q(f)) {
-        return w(c, +f);
+        return x(c, +f);
       }
       throw new a.error.UnsupportedTypeError("multiply", c, f);
     };
@@ -22412,17 +22412,17 @@ var math = {js:{}};
         if (!m(f) || !q(f) || 0 > f) {
           throw new TypeError("For A^b, b must be a positive integer (value is " + f + ")");
         }
-        var B = l.size(c);
-        if (2 != B.length) {
-          throw Error("For A^b, A must be 2 dimensional (A has " + B.length + " dimensions)");
+        var z = l.size(c);
+        if (2 != z.length) {
+          throw Error("For A^b, A must be 2 dimensional (A has " + z.length + " dimensions)");
         }
-        if (B[0] != B[1]) {
-          throw Error("For A^b, A must be square (size is " + B[0] + "x" + B[1] + ")");
+        if (z[0] != z[1]) {
+          throw Error("For A^b, A must be square (size is " + z[0] + "x" + z[1] + ")");
         }
-        for (var B = a.eye(B[0]).valueOf(), A = c;1 <= f;) {
-          1 == (1 & f) && (B = a.multiply(A, B)), f >>= 1, A = a.multiply(A, A);
+        for (var z = a.eye(z[0]).valueOf(), A = c;1 <= f;) {
+          1 == (1 & f) && (z = a.multiply(A, z)), f >>= 1, A = a.multiply(A, A);
         }
-        return B;
+        return z;
       }
       if (c instanceof k) {
         return new k(v(c.valueOf(), f));
@@ -22655,7 +22655,7 @@ var math = {js:{}};
 }, function(a, b, c) {
   a.exports = function(a) {
     var b = c(117), f = c(220), g = c(7), h = (c(10), c(11)), k = c(13), l = b.number.toNumber, m = b.number.toBigNumber, n = b["boolean"].isBoolean, r = b.number.isNumber, p = g.isComplex, s = h.isUnit, q = k.isCollection;
-    a.subtract = function x(b, c) {
+    a.subtract = function w(b, c) {
       if (2 != arguments.length) {
         throw new a.error.ArgumentsError("subtract", arguments.length, 2);
       }
@@ -22677,10 +22677,10 @@ var math = {js:{}};
         }
       }
       if (b instanceof f) {
-        return r(c) ? c = m(c) : n(c) && (c = new f(c ? 1 : 0)), c instanceof f ? b.minus(c) : x(l(b), c);
+        return r(c) ? c = m(c) : n(c) && (c = new f(c ? 1 : 0)), c instanceof f ? b.minus(c) : w(l(b), c);
       }
       if (c instanceof f) {
-        return r(b) ? b = m(b) : n(b) && (b = new f(b ? 1 : 0)), b instanceof f ? b.minus(c) : x(b, l(c));
+        return r(b) ? b = m(b) : n(b) && (b = new f(b ? 1 : 0)), b instanceof f ? b.minus(c) : w(b, l(c));
       }
       if (s(b) && s(c)) {
         if (!b.equalBase(c)) {
@@ -22696,13 +22696,13 @@ var math = {js:{}};
         return e.value -= c.value, e.fixPrefix = !1, e;
       }
       if (q(b) || q(c)) {
-        return k.deepMap2(b, c, x);
+        return k.deepMap2(b, c, w);
       }
       if (n(b)) {
-        return x(+b, c);
+        return w(+b, c);
       }
       if (n(c)) {
-        return x(b, +c);
+        return w(b, +c);
       }
       throw new a.error.UnsupportedTypeError("subtract", b, c);
     };
@@ -22795,10 +22795,10 @@ var math = {js:{}};
           if (!l(b) || !l(c)) {
             throw Error("Parameters in function xgcd must be integer numbers");
           }
-          for (var e = b, q = c, u, x, v = 0, t = 1, w = 1, B = 0;q;) {
-            u = Math.floor(e / q), x = e % q, e = v, v = t - u * v, t = e, e = w, w = B - u * w, B = e, e = q, q = x;
+          for (var e = b, q = c, u, w, v = 0, t = 1, x = 1, z = 0;q;) {
+            u = Math.floor(e / q), w = e % q, e = v, v = t - u * v, t = e, e = x, x = z - u * x, z = e, e = q, q = w;
           }
-          return 0 > e ? [-e, e ? -t : 0, -B] : [e, e ? t : 0, B];
+          return 0 > e ? [-e, e ? -t : 0, -z] : [e, e ? t : 0, z];
         }
         if (b instanceof f) {
           return n(g(b), c);
@@ -23108,10 +23108,10 @@ var math = {js:{}};
     }
     var f = c(117), g = c(10), h = c(13), k = f.object, l = f.array, m = f.number.isNumber, n = f.number.isInteger, r = h.isCollection;
     a.concat = function() {
-      var c, f, h = arguments.length, u = -1, x = !1, v = [];
+      var c, f, h = arguments.length, u = -1, w = !1, v = [];
       for (c = 0;h > c;c++) {
         var t = arguments[c];
-        if (t instanceof g && (x = !0), c == h - 1 && m(t)) {
+        if (t instanceof g && (w = !0), c == h - 1 && m(t)) {
           if (f = u, u = t, !n(u) || 0 > u) {
             throw new TypeError("Dimension number must be a positive integer (dim \x3d " + u + ")");
           }
@@ -23122,8 +23122,8 @@ var math = {js:{}};
           if (!r(t)) {
             throw new a.error.UnsupportedTypeError("concat", t);
           }
-          var w = k.clone(t).valueOf(), t = l.size(t.valueOf());
-          if (v[c] = w, f = u, u = t.length - 1, 0 < c && u != f) {
+          var x = k.clone(t).valueOf(), t = l.size(t.valueOf());
+          if (v[c] = x, f = u, u = t.length - 1, 0 < c && u != f) {
             throw new RangeError("Dimension mismatch (" + f + " !\x3d " + u + ")");
           }
         }
@@ -23134,7 +23134,7 @@ var math = {js:{}};
       for (c = v.shift();v.length;) {
         c = b(c, v.shift(), u, 0);
       }
-      return x ? new g(c) : c;
+      return w ? new g(c) : c;
     };
   };
 }, function(a, b, c) {
@@ -23178,9 +23178,9 @@ var math = {js:{}};
                     }
                     if (q != s) {
                       for (var u = 0;n > u;u++) {
-                        var x = c[q][u];
+                        var w = c[q][u];
                         c[q][u] = c[s][u];
-                        c[s][u] = x;
+                        c[s][u] = w;
                       }
                       r *= -1;
                     }
@@ -23191,8 +23191,8 @@ var math = {js:{}};
                     r *= q;
                     for (q = 0;e > q;q++) {
                       if (q != s) {
-                        for (x = c[q][p], u = 0;n > u;u++) {
-                          c[q][u] -= c[s][u] * x;
+                        for (w = c[q][p], u = 0;n > u;u++) {
+                          c[q][u] -= c[s][u] * w;
                         }
                       }
                     }
@@ -23225,7 +23225,7 @@ var math = {js:{}};
       } else {
         f = 0;
       }
-      var x = 0 < f ? f : 0, v = 0 > f ? -f : 0;
+      var w = 0 < f ? f : 0, v = 0 > f ? -f : 0;
       if (!(c instanceof g)) {
         if (!k(c)) {
           throw new TypeError("First parameter in function diag must be a Matrix or Array");
@@ -23237,19 +23237,19 @@ var math = {js:{}};
         case 1:
           s = c.valueOf();
           var t = new g;
-          t.resize([s.length + v, s.length + x], 0);
+          t.resize([s.length + v, s.length + w], 0);
           p = t.valueOf();
           u = s.length;
           for (q = 0;u > q;q++) {
-            p[q + v][q + x] = h.clone(s[q]);
+            p[q + v][q + w] = h.clone(s[q]);
           }
           return "array" === b.matrix ? t.valueOf() : t;
         case 2:
           s = [];
           p = c.valueOf();
-          u = Math.min(q[0] - v, q[1] - x);
+          u = Math.min(q[0] - v, q[1] - w);
           for (q = 0;u > q;q++) {
-            s[q] = h.clone(p[q + v][q + x]);
+            s[q] = h.clone(p[q + v][q + w]);
           }
           return "array" === b.matrix ? s : new g(s);
         default:
@@ -23272,21 +23272,21 @@ var math = {js:{}};
           throw new a.error.ArgumentsError("eye", f.length, 0, 2);
         }
       }
-      var u = f[0] instanceof g, x = f[0], v = f[1];
-      if (x instanceof g && (x = l(x)), v instanceof g && (v = l(v)), !m(x) || !n(x) || 1 > x) {
+      var u = f[0] instanceof g, w = f[0], v = f[1];
+      if (w instanceof g && (w = l(w)), v instanceof g && (v = l(v)), !m(w) || !n(w) || 1 > w) {
         throw Error("Parameters in function eye must be positive integers");
       }
       if (v && (!m(v) || !n(v) || 1 > v)) {
         throw Error("Parameters in function eye must be positive integers");
       }
-      x = new h;
+      w = new h;
       v = u ? new g(1) : 1;
       u = u ? new g(0) : 0;
-      x.resize(f.map(l), u);
-      for (var f = a.min(f), u = x.valueOf(), t = 0;f > t;t++) {
+      w.resize(f.map(l), u);
+      for (var f = a.min(f), u = w.valueOf(), t = 0;f > t;t++) {
         u[t][t] = v;
       }
-      return q ? x : x.valueOf();
+      return q ? w : w.valueOf();
     };
   };
 }, function(a, b, c) {
@@ -23318,7 +23318,7 @@ var math = {js:{}};
           throw Error("Cannot calculate inverse, determinant is zero");
         }
         c != q && (r = p[q], p[q] = p[c], p[c] = r, r = s[q], s[q] = s[c], s[c] = r);
-        var u = p[q], x = s[q];
+        var u = p[q], w = s[q];
         for (c = 0;e > c;c++) {
           var v = p[c], t = s[c];
           if (c != q) {
@@ -23328,7 +23328,7 @@ var math = {js:{}};
                 v[g] = a.add(v[g], a.multiply(n, u[g]));
               }
               for (g = 0;f > g;g++) {
-                t[g] = a.add(t[g], a.multiply(n, x[g]));
+                t[g] = a.add(t[g], a.multiply(n, w[g]));
               }
             }
           } else {
@@ -23477,33 +23477,33 @@ var math = {js:{}};
           return null;
       }
     }
-    var m = c(117), n = c(220), r = c(10), p = (c(13), m["boolean"].isBoolean), s = m.string.isString, q = m.number.isNumber, u = m.number.toNumber, x = m.number.toBigNumber;
+    var m = c(117), n = c(220), r = c(10), p = (c(13), m["boolean"].isBoolean), s = m.string.isString, q = m.number.isNumber, u = m.number.toNumber, w = m.number.toBigNumber;
     a.range = function() {
-      var c, m, w;
-      w = Array.prototype.slice.call(arguments);
-      var B = !1;
-      switch(p(w[w.length - 1]) && (B = w.pop() ? !0 : !1), w.length) {
+      var c, m, x;
+      x = Array.prototype.slice.call(arguments);
+      var z = !1;
+      switch(p(x[x.length - 1]) && (z = x.pop() ? !0 : !1), x.length) {
         case 1:
-          if (!s(w[0])) {
+          if (!s(x[0])) {
             throw new TypeError("Two or three numbers or a single string expected in function range");
           }
-          w = l(w[0]);
-          if (!w) {
-            throw new SyntaxError('String "' + w + '" is no valid range');
+          x = l(x[0]);
+          if (!x) {
+            throw new SyntaxError('String "' + x + '" is no valid range');
           }
-          c = w.start;
-          m = w.end;
-          w = w.step;
+          c = x.start;
+          m = x.end;
+          x = x.step;
           break;
         case 2:
-          c = w[0];
-          m = w[1];
-          w = 1;
+          c = x[0];
+          m = x[1];
+          x = 1;
           break;
         case 3:
-          c = w[0];
-          m = w[1];
-          w = w[2];
+          c = x[0];
+          m = x[1];
+          x = x[2];
           break;
         default:
           throw new a.error.ArgumentsError("range", arguments.length, 2, 4);;
@@ -23514,33 +23514,33 @@ var math = {js:{}};
       if (!(q(m) || m instanceof n)) {
         throw new TypeError("Parameter end must be a number");
       }
-      if (!(q(w) || w instanceof n)) {
+      if (!(q(x) || x instanceof n)) {
         throw new TypeError("Parameter step must be a number");
       }
-      if (!p(B)) {
+      if (!p(z)) {
         throw new TypeError("Parameter includeEnd must be a boolean");
       }
-      if (c instanceof n || m instanceof n || w instanceof n) {
+      if (c instanceof n || m instanceof n || x instanceof n) {
         var A = !0;
-        c instanceof n || (c = x(c));
-        m instanceof n || (m = x(m));
-        w instanceof n || (w = x(w));
-        c instanceof n && m instanceof n && w instanceof n || (A = !1, c = u(c), m = u(m), w = u(w));
+        c instanceof n || (c = w(c));
+        m instanceof n || (m = w(m));
+        x instanceof n || (x = w(x));
+        c instanceof n && m instanceof n && x instanceof n || (A = !1, c = u(c), m = u(m), x = u(x));
       }
-      c = (A ? B ? k : h : B ? g : f)(c, m, w);
+      c = (A ? z ? k : h : z ? g : f)(c, m, x);
       return "array" === b.matrix ? c : new r(c);
     };
   };
 }, function(a, b, c) {
   a.exports = function(a, b) {
     var f = c(117), g = c(220), h = c(10), k = f.array, l = f.object.clone, m = f.string.isString, n = f.number.toNumber, r = f.number.isNumber, p = f.number.isInteger, s = k.isArray;
-    a.resize = function(c, f, x) {
+    a.resize = function(c, f, w) {
       if (2 != arguments.length && 3 != arguments.length) {
         throw new a.error.ArgumentsError("resize", arguments.length, 2, 3);
       }
       var v = c instanceof h ? !0 : s(c) ? !1 : "array" !== b.matrix;
       if (c instanceof h && (c = c.valueOf()), f instanceof h && (f = f.valueOf()), f.length && f[0] instanceof g && (f = f.map(n)), m(c)) {
-        var t = c, w = f, v = x;
+        var t = c, x = f, v = w;
         if (void 0 !== v) {
           if (!m(v) || 1 !== v.length) {
             throw new TypeError("Single character expected as defaultValue");
@@ -23548,21 +23548,21 @@ var math = {js:{}};
         } else {
           v = " ";
         }
-        if (1 !== w.length) {
-          throw Error("Dimension mismatch: (" + w.length + " !\x3d 1)");
+        if (1 !== x.length) {
+          throw Error("Dimension mismatch: (" + x.length + " !\x3d 1)");
         }
-        var B = w[0];
-        if (!r(B) || !p(B)) {
+        var z = x[0];
+        if (!r(z) || !p(z)) {
           throw new TypeError("Size must contain numbers");
         }
-        if (t.length > B) {
-          v = t.substring(0, B);
+        if (t.length > z) {
+          v = t.substring(0, z);
         } else {
-          if (t.length < B) {
-            for (var w = t, A = 0, t = B - t.length;t > A;A++) {
-              w += v;
+          if (t.length < z) {
+            for (var x = t, A = 0, t = z - t.length;t > A;A++) {
+              x += v;
             }
-            v = w;
+            v = x;
           } else {
             v = t;
           }
@@ -23577,7 +23577,7 @@ var math = {js:{}};
       }
       s(c) || (c = [c]);
       c = l(c);
-      t = k.resize(c, f, x);
+      t = k.resize(c, f, w);
       return v ? new h(t) : t;
     };
   };
@@ -23733,8 +23733,8 @@ var math = {js:{}};
             throw new RangeError("Cannot transpose a 2D matrix with no rows(size: " + h.format(c) + ")");
           }
           for (var u = 0;e > u;u++) {
-            for (var c = s[u] = [], x = 0;n > x;x++) {
-              c[x] = q(p[x][u]);
+            for (var c = s[u] = [], w = 0;n > w;w++) {
+              c[w] = q(p[w][u]);
             }
           }
           return 0 == n && (s[0] = []), r ? new f(s) : s;
@@ -24084,8 +24084,8 @@ var math = {js:{}};
       if (m(c)) {
         var q;
         q = c.re;
-        var u = c.im, x = new g(u * u - q * q + 1, -2 * q * u), x = a.sqrt(x);
-        q = x instanceof g ? new g(x.re - u, x.im + q) : new g(x - u, q);
+        var u = c.im, w = new g(u * u - q * q + 1, -2 * q * u), w = a.sqrt(w);
+        q = w instanceof g ? new g(w.re - u, w.im + q) : new g(w - u, q);
         q = a.log(q);
         return q instanceof g ? new g(q.im, -q.re) : new g(0, -q);
       }
@@ -24112,7 +24112,7 @@ var math = {js:{}};
         return Math.atan(c);
       }
       if (m(c)) {
-        var q = c.re, u = c.im, x = q * q + (1 - u) * (1 - u), q = new g((1 - u * u - q * q) / x, -2 * q / x), q = a.log(q);
+        var q = c.re, u = c.im, w = q * q + (1 - u) * (1 - u), q = new g((1 - u * u - q * q) / w, -2 * q / w), q = a.log(q);
         return q instanceof g ? new g(-0.5 * q.im, 0.5 * q.re) : new g(0, 0.5 * q);
       }
       if (n(c)) {
@@ -24203,8 +24203,8 @@ var math = {js:{}};
         return 1 / Math.tan(c);
       }
       if (n(c)) {
-        var x = Math.exp(-4 * c.im) - 2 * Math.exp(-2 * c.im) * Math.cos(2 * c.re) + 1;
-        return new g(2 * Math.exp(-2 * c.im) * Math.sin(2 * c.re) / x, (Math.exp(-4 * c.im) - 1) / x);
+        var w = Math.exp(-4 * c.im) - 2 * Math.exp(-2 * c.im) * Math.cos(2 * c.re) + 1;
+        return new g(2 * Math.exp(-2 * c.im) * Math.sin(2 * c.re) / w, (Math.exp(-4 * c.im) - 1) / w);
       }
       if (r(c)) {
         if (!c.hasBase(h.BASE_UNITS.ANGLE)) {
@@ -24235,8 +24235,8 @@ var math = {js:{}};
         return 1 / Math.sin(c);
       }
       if (n(c)) {
-        var x = 0.25 * (Math.exp(-2 * c.im) + Math.exp(2 * c.im)) - 0.5 * Math.cos(2 * c.re);
-        return new g(0.5 * Math.sin(c.re) * (Math.exp(-c.im) + Math.exp(c.im)) / x, 0.5 * Math.cos(c.re) * (Math.exp(-c.im) - Math.exp(c.im)) / x);
+        var w = 0.25 * (Math.exp(-2 * c.im) + Math.exp(2 * c.im)) - 0.5 * Math.cos(2 * c.re);
+        return new g(0.5 * Math.sin(c.re) * (Math.exp(-c.im) + Math.exp(c.im)) / w, 0.5 * Math.cos(c.re) * (Math.exp(-c.im) - Math.exp(c.im)) / w);
       }
       if (r(c)) {
         if (!c.hasBase(h.BASE_UNITS.ANGLE)) {
@@ -24267,8 +24267,8 @@ var math = {js:{}};
         return 1 / Math.cos(c);
       }
       if (n(c)) {
-        var x = 0.25 * (Math.exp(-2 * c.im) + Math.exp(2 * c.im)) + 0.5 * Math.cos(2 * c.re);
-        return new g(0.5 * Math.cos(c.re) * (Math.exp(-c.im) + Math.exp(c.im)) / x, 0.5 * Math.sin(c.re) * (Math.exp(c.im) - Math.exp(-c.im)) / x);
+        var w = 0.25 * (Math.exp(-2 * c.im) + Math.exp(2 * c.im)) + 0.5 * Math.cos(2 * c.re);
+        return new g(0.5 * Math.cos(c.re) * (Math.exp(-c.im) + Math.exp(c.im)) / w, 0.5 * Math.sin(c.re) * (Math.exp(c.im) - Math.exp(-c.im)) / w);
       }
       if (r(c)) {
         if (!c.hasBase(h.BASE_UNITS.ANGLE)) {
@@ -24330,8 +24330,8 @@ var math = {js:{}};
         return Math.tan(c);
       }
       if (n(c)) {
-        var x = Math.exp(-4 * c.im) + 2 * Math.exp(-2 * c.im) * Math.cos(2 * c.re) + 1;
-        return new g(2 * Math.exp(-2 * c.im) * Math.sin(2 * c.re) / x, (1 - Math.exp(-4 * c.im)) / x);
+        var w = Math.exp(-4 * c.im) + 2 * Math.exp(-2 * c.im) * Math.cos(2 * c.re) + 1;
+        return new g(2 * Math.exp(-2 * c.im) * Math.sin(2 * c.re) / w, (1 - Math.exp(-4 * c.im)) / w);
       }
       if (r(c)) {
         if (!c.hasBase(h.BASE_UNITS.ANGLE)) {
@@ -25282,14 +25282,14 @@ var math = {js:{}};
         }
         a += "";
       }
-      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && F.test(a)) {
+      if ("string" != typeof a && (a = (e = "number" == typeof a || "[object Number]" == Object.prototype.toString.call(a)) && 0 === a && 0 > 1 / a ? "-0" : a + ""), m = a, b === c && E.test(a)) {
         this.s = "-" == a.charAt(0) ? (a = a.slice(1), -1) : 1;
       } else {
         if (10 == b) {
           return n(a, p, s);
         }
-        if (a = z.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = F.test(a)) : (k = "[" + B.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
-        1, b), a = "NaN")) : l = F.test(a), !l) {
+        if (a = B.call(a).replace(/^\+(?!-)/, ""), this.s = "-" == a.charAt(0) ? (a = a.replace(/^-(?!-)/, ""), -1) : 1, null != b ? b != (0 | b) && t || (r = !(2 <= b && 65 > b)) ? (g(b, 2), l = E.test(a)) : (k = "[" + z.slice(0, b |= 0) + "]+", a = a.replace(/\.$/, "").replace(/^\./, "0."), (l = RegExp("^" + k + "(?:\\." + k + ")?$", 37 > b ? "i" : "").test(a)) ? (e && (15 < a.replace(/^0\.0*|\./, "").length && g(m, 0), e = !e), a = h(a, 10, b, this.s)) : "Infinity" != a && "NaN" != a && (g(m, 
+        1, b), a = "NaN")) : l = E.test(a), !l) {
           return this.c = this.e = null, "Infinity" != a && ("NaN" != a && g(m, 3), this.s = null), void(A = 0);
         }
       }
@@ -25300,7 +25300,7 @@ var math = {js:{}};
       if (b = a.length, e && 15 < b && 15 < a.slice(d).length && g(m, 0), A = 0, (c -= d + 1) > v) {
         this.c = this.e = null;
       } else {
-        if (d == b || x > c) {
+        if (d == b || w > c) {
           this.c = [this.e = 0];
         } else {
           for (;"0" == a.charAt(--b);) {
@@ -25326,7 +25326,7 @@ var math = {js:{}};
           g = l.length;
           for (f = 0;g > f;l[f] *= d, f++) {
           }
-          l[0] += B.indexOf(a.charAt(h));
+          l[0] += z.indexOf(a.charAt(h));
           for (f = 0;f < l.length;f++) {
             l[f] > b - 1 && (null == l[f + 1] && (l[f + 1] = 0), l[f + 1] += l[f] / b ^ 0, l[f] %= b);
           }
@@ -25334,7 +25334,7 @@ var math = {js:{}};
         return l.reverse();
       }
       function g(a) {
-        for (var b = 0, c = a.length, d = "";c > b;d += B.charAt(a[b++])) {
+        for (var b = 0, c = a.length, d = "";c > b;d += z.charAt(a[b++])) {
         }
         return d;
       }
@@ -25353,8 +25353,8 @@ var math = {js:{}};
       return a;
     }
     function k(a, b, c, d, e, g) {
-      var h, k, l, n, q = b.slice(), r = h = b.length, s = a.length, t = a.slice(0, h), u = t.length, w = new f(C), A = w.c = [], z = 0, B = p + (w.e = c) + 1;
-      w.s = d;
+      var h, k, l, n, q = b.slice(), r = h = b.length, s = a.length, t = a.slice(0, h), u = t.length, x = new f(C), z = x.c = [], A = 0, B = p + (x.e = c) + 1;
+      x.s = d;
       for (d = 0 > B ? 0 : B;u++ < h;t.push(0)) {
       }
       q.unshift(0);
@@ -25385,10 +25385,10 @@ var math = {js:{}};
           for (;!t[0];t.shift()) {
           }
         }
-        A[z++] = l ? k : ++k;
+        z[A++] = l ? k : ++k;
         t[0] && l ? t[u] = a[r] || 0 : t = [a[r]];
       } while ((r++ < s || null != t[0]) && d--);
-      return A[0] || 1 == z || (--w.e, A.shift()), z > B && m(w, p, e, g, null != t[0]), w.e > v ? w.c = w.e = null : w.e < x && (w.c = [w.e = 0]), w;
+      return z[0] || 1 == A || (--x.e, z.shift()), A > B && m(x, p, e, g, null != t[0]), x.e > v ? x.c = x.e = null : x.e < w && (x.c = [x.e = 0]), x;
     }
     function l(a, b, c) {
       var d = b - (a = new f(a)).e, e = a.c;
@@ -25419,9 +25419,9 @@ var math = {js:{}};
       var d = s;
       return s = c, a = new f(a), a.c && m(a, b, 10), s = d, a;
     }
-    var r, p = 20, s = 4, q = -7, u = 21, x = -1E9, v = 1E9, t = !0, w = parseInt;
+    var r, p = 20, s = 4, q = -7, u = 21, w = -1E9, v = 1E9, t = !0, x = parseInt;
     e = f.prototype;
-    var B = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, F = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, z = String.prototype.trim || function() {
+    var z = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_", A = 0, E = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, B = String.prototype.trim || function() {
       return this.replace(/^\s+|\s+$/g, "");
     }, C = f(1);
     f.ROUND_UP = 0;
@@ -25435,14 +25435,14 @@ var math = {js:{}};
     f.ROUND_HALF_FLOOR = 8;
     f.config = function() {
       var a, b, c = 0, d = {}, e = arguments, f = e[0], h = function(a, b, c) {
-        return!((r = b > a || a > c) || w(a) != a && 0 !== a);
+        return!((r = b > a || a > c) || x(a) != a && 0 !== a);
       }, k = f && "object" == typeof f ? function() {
         return f.hasOwnProperty(b) ? null != (a = f[b]) : void 0;
       } : function() {
         return e.length > c ? null != (a = e[c++]) : void 0;
       };
-      return k(b = "DECIMAL_PLACES") && (h(a, 0, 1E9) ? p = 0 | a : g(a, b, "config")), d[b] = p, k(b = "ROUNDING_MODE") && (h(a, 0, 8) ? s = 0 | a : g(a, b, "config")), d[b] = s, k(b = "EXPONENTIAL_AT") && (h(a, -1E9, 1E9) ? q = -(u = ~~(0 > a ? -a : +a)) : !r && a && h(a[0], -1E9, 0) && h(a[1], 0, 1E9) ? (q = ~~a[0], u = ~~a[1]) : g(a, b, "config", 1)), d[b] = [q, u], k(b = "RANGE") && (h(a, -1E9, 1E9) && ~~a ? x = -(v = ~~(0 > a ? -a : +a)) : !r && a && h(a[0], -1E9, -1) && h(a[1], 1, 1E9) ? (x = 
-      ~~a[0], v = ~~a[1]) : g(a, b, "config", 1, 1)), d[b] = [x, v], k(b = "ERRORS") && (a === !!a || 1 === a || 0 === a ? (r = A = 0, w = (t = !!a) ? parseInt : parseFloat) : g(a, b, "config", 0, 0, 1)), d[b] = t, d;
+      return k(b = "DECIMAL_PLACES") && (h(a, 0, 1E9) ? p = 0 | a : g(a, b, "config")), d[b] = p, k(b = "ROUNDING_MODE") && (h(a, 0, 8) ? s = 0 | a : g(a, b, "config")), d[b] = s, k(b = "EXPONENTIAL_AT") && (h(a, -1E9, 1E9) ? q = -(u = ~~(0 > a ? -a : +a)) : !r && a && h(a[0], -1E9, 0) && h(a[1], 0, 1E9) ? (q = ~~a[0], u = ~~a[1]) : g(a, b, "config", 1)), d[b] = [q, u], k(b = "RANGE") && (h(a, -1E9, 1E9) && ~~a ? w = -(v = ~~(0 > a ? -a : +a)) : !r && a && h(a[0], -1E9, -1) && h(a[1], 1, 1E9) ? (w = 
+      ~~a[0], v = ~~a[1]) : g(a, b, "config", 1, 1)), d[b] = [w, v], k(b = "ERRORS") && (a === !!a || 1 === a || 0 === a ? (r = A = 0, x = (t = !!a) ? parseInt : parseFloat) : g(a, b, "config", 0, 0, 1)), d[b] = t, d;
     };
     e.abs = e.absoluteValue = function() {
       var a = new f(this);
@@ -25560,7 +25560,7 @@ var math = {js:{}};
       }
       for (;0 == h[0];h.shift(), --l) {
       }
-      return(x > l || !h[0]) && (h[0] || (a.s = 3 == s ? -1 : 1), h = [l = 0]), a.c = h, a.e = l, a;
+      return(w > l || !h[0]) && (h[0] || (a.s = 3 == s ? -1 : 1), h = [l = 0]), a.c = h, a.e = l, a;
     };
     e.modulo = e.mod = function(a, b) {
       var c = this, d = c.c, e = (A = 9, a = new f(a, b)).c, g = c.s, h = a.s;
@@ -25604,7 +25604,7 @@ var math = {js:{}};
     };
     e.toPower = e.pow = function(a) {
       var b = 0 == 0 * a ? 0 | a : a, c = new f(this), d = new f(C);
-      if (((r = -1E6 > a || 1E6 < a) && (b = 1 * a / 0) || w(a) != a && 0 !== a && !(b = 0 / 0)) && !g(a, "exponent", "pow") || !b) {
+      if (((r = -1E6 > a || 1E6 < a) && (b = 1 * a / 0) || x(a) != a && 0 !== a && !(b = 0 / 0)) && !g(a, "exponent", "pow") || !b) {
         return new f(Math.pow(c.toS(), b));
       }
       for (b = 0 > b ? -b : b;1 & b && (d = d.times(c)), b >>= 1, b;) {
@@ -25613,7 +25613,7 @@ var math = {js:{}};
       return 0 > a ? C.div(d) : d;
     };
     e.round = function(a, b) {
-      return a = null == a || ((r = 0 > a || 1E9 < a) || w(a) != a) && !g(a, "decimal places", "round") ? 0 : 0 | a, b = null == b || ((r = 0 > b || 8 < b) || w(b) != b && 0 !== b) && !g(b, "mode", "round") ? s : 0 | b, n(this, a, b);
+      return a = null == a || ((r = 0 > a || 1E9 < a) || x(a) != a) && !g(a, "decimal places", "round") ? 0 : 0 | a, b = null == b || ((r = 0 > b || 8 < b) || x(b) != b && 0 !== b) && !g(b, "mode", "round") ? s : 0 | b, n(this, a, b);
     };
     e.squareRoot = e.sqrt = function() {
       var a, b, c, d, e = this.c, g = this.s, h = this.e, k = p, l = s, n = new f("0.5");
@@ -25666,17 +25666,17 @@ var math = {js:{}};
       !c[0] && c.shift();
       for (h = c.length;!c[--h];c.pop()) {
       }
-      return a.c = a.e > v ? a.e = null : a.e < x ? [a.e = 0] : c, a;
+      return a.c = a.e > v ? a.e = null : a.e < w ? [a.e = 0] : c, a;
     };
     e.toExponential = e.toE = function(a) {
-      return l(this, (null == a || ((r = 0 > a || 1E9 < a) || w(a) != a && 0 !== a) && !g(a, "decimal places", "toE")) && this.c ? this.c.length - 1 : 0 | a, 1);
+      return l(this, (null == a || ((r = 0 > a || 1E9 < a) || x(a) != a && 0 !== a) && !g(a, "decimal places", "toE")) && this.c ? this.c.length - 1 : 0 | a, 1);
     };
     e.toFixed = e.toF = function(a) {
       var b, c, d;
-      return null == a || ((r = 0 > a || 1E9 < a) || w(a) != a && 0 !== a) && !g(a, "decimal places", "toF") || (d = this.e + (0 | a)), b = q, a = u, q = -(u = 1 / 0), d == c ? c = this.toS() : (c = l(this, d), 0 > this.s && this.c && (this.c[0] ? 0 > c.indexOf("-") && (c = "-" + c) : c = c.replace(/^-/, ""))), q = b, u = a, c;
+      return null == a || ((r = 0 > a || 1E9 < a) || x(a) != a && 0 !== a) && !g(a, "decimal places", "toF") || (d = this.e + (0 | a)), b = q, a = u, q = -(u = 1 / 0), d == c ? c = this.toS() : (c = l(this, d), 0 > this.s && this.c && (this.c[0] ? 0 > c.indexOf("-") && (c = "-" + c) : c = c.replace(/^-/, ""))), q = b, u = a, c;
     };
     e.toFraction = e.toFr = function(a) {
-      var b, c, d, e, h, k, l, m = e = new f(C), n = d = new f("0"), q = this.c, u = v, w = p, x = s, z = new f(C);
+      var b, c, d, e, h, k, l, m = e = new f(C), n = d = new f("0"), q = this.c, u = v, x = p, w = s, z = new f(C);
       if (!q) {
         return this.toS();
       }
@@ -25688,10 +25688,10 @@ var math = {js:{}};
       for (s = 1;b = k.div(z), h = e.plus(b.times(n)), 1 != h.cmp(a);) {
         e = n, n = h, m = d.plus(b.times(h = m)), d = h, z = k.minus(b.times(h = z)), k = h;
       }
-      return h = a.minus(e).div(n), d = d.plus(h.times(m)), e = e.plus(h.times(n)), d.s = m.s = this.s, p = 2 * l, s = x, c = 1 > m.div(n).minus(this).abs().cmp(d.div(e).minus(this).abs()) ? [m.toS(), n.toS()] : [d.toS(), e.toS()], v = u, p = w, c;
+      return h = a.minus(e).div(n), d = d.plus(h.times(m)), e = e.plus(h.times(n)), d.s = m.s = this.s, p = 2 * l, s = w, c = 1 > m.div(n).minus(this).abs().cmp(d.div(e).minus(this).abs()) ? [m.toS(), n.toS()] : [d.toS(), e.toS()], v = u, p = x, c;
     };
     e.toPrecision = e.toP = function(a) {
-      return null == a || ((r = 1 > a || 1E9 < a) || w(a) != a) && !g(a, "precision", "toP") ? this.toS() : l(this, 0 | --a, 2);
+      return null == a || ((r = 1 > a || 1E9 < a) || x(a) != a) && !g(a, "precision", "toP") ? this.toS() : l(this, 0 | --a, 2);
     };
     e.toString = e.toS = function(a) {
       var b, c, d, e = this.e;
@@ -26350,7 +26350,7 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
                   var f = cljs.core._nth.call(null, l, b);
                   cljs.core.chunk_append.call(null, n, function() {
                     return function(b, c, f, g, h, k, l) {
-                      return function F(m) {
+                      return function E(m) {
                         return new cljs.core.LazySeq(null, function(b, c, f, g, h, k, l) {
                           return function() {
                             for (;;) {
@@ -26371,10 +26371,10 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
                                     }
                                     f = void 0;
                                   }
-                                  return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), F.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null);
+                                  return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), E.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, h), null);
                                 }
                                 h = cljs.core.first.call(null, b);
-                                return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, c, h, d), F.call(null, cljs.core.rest.call(null, b)));
+                                return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, c, h, d), E.call(null, cljs.core.rest.call(null, b)));
                               }
                               return null;
                             }
@@ -26393,7 +26393,7 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
           var r = cljs.core.first.call(null, k);
           return cljs.core.cons.call(null, function() {
             return function(b, c, f) {
-              return function x(g) {
+              return function w(g) {
                 return new cljs.core.LazySeq(null, function(b, c, f) {
                   return function() {
                     for (;;) {
@@ -26414,10 +26414,10 @@ qgame.utils.amplitudes.reduced_density_matrix = function(a, b) {
                             }
                             f = void 0;
                           }
-                          return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), x.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), null);
+                          return f ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), w.call(null, cljs.core.chunk_rest.call(null, c))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, k), null);
                         }
                         k = cljs.core.first.call(null, c);
-                        return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, b, k, d), x.call(null, cljs.core.rest.call(null, c)));
+                        return cljs.core.cons.call(null, qgame.utils.amplitudes.reduced_entry.call(null, a, b, k, d), w.call(null, cljs.core.rest.call(null, c)));
                       }
                       return null;
                     }
@@ -27440,51 +27440,57 @@ qgame.simulator.interpreter.interpret = function() {
 var qromp = {evaluate:function(a, b) {
   var c = function(a) {
     return null;
-  }, d = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c], null)), e = cljs.core.first.call(null, d.call(null, a)), f = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 1792075714)).cljs$core$IFn$_invoke$arity$1(e))), g = cljs.core.range.call(null, 
-  f), h = cljs.core.map.call(null, cljs.core.comp.call(null, function(a, b, c, d, e) {
+  }, d = cljs.core.atom.call(null, null), e = function(a, b) {
+    return function(a) {
+      a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+      a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "program", "program", 704516598));
+      return cljs.core.reset_BANG_.call(null, b, a);
+    };
+  }(c, d), f = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109), e], null)), g = cljs.core.first.call(null, f.call(null, a)), h = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 
+  1792075714)).cljs$core$IFn$_invoke$arity$1(g))), k = cljs.core.range.call(null, h), l = cljs.core.map.call(null, cljs.core.comp.call(null, function(a, b, c, d, e, f, g) {
     return function(a) {
       return qgame.utils.math.round.call(null, a, 4);
     };
-  }(c, d, e, f, g), function(a, b, c, d, e) {
+  }(c, d, e, f, g, h, k), function(a, b, c, d, e, f, g) {
     return function(a) {
-      return qgame.utils.amplitudes.probability_of.call(null, c, a, 0);
+      return qgame.utils.amplitudes.probability_of.call(null, e, a, 0);
     };
-  }(c, d, e, f, g)), g), k = cljs.core.map.call(null, function(a, b, c, d, e, f) {
+  }(c, d, e, f, g, h, k)), k), m = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h) {
     return function(a) {
-      return qgame.utils.amplitudes.phase_of.call(null, c, a, 0);
+      return qgame.utils.amplitudes.phase_of.call(null, e, a, 0);
     };
-  }(c, d, e, f, g, h), g), l = cljs.core.map.call(null, function(a, b, c, d, e, f, g) {
+  }(c, d, e, f, g, h, k, l), k), n = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k) {
     return function(a) {
-      return qgame.utils.amplitudes.phase_of.call(null, c, a, 1);
+      return qgame.utils.amplitudes.phase_of.call(null, e, a, 1);
     };
-  }(c, d, e, f, g, h, k), g), m = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h) {
+  }(c, d, e, f, g, h, k, l, m), k), r = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k, l) {
     return function(a, b, c) {
       return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "up", "up", 1013907981), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), b], null), new cljs.core.Keyword(null, "down", "down", 1016993812), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "prob", "prob", 1017353927), 1 - a, new cljs.core.Keyword(null, "phase", "phase", 1120533741), 
       c], null)], null);
     };
-  }(c, d, e, f, g, h, k, l), h, k, l), n = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k) {
+  }(c, d, e, f, g, h, k, l, m, n), l, m, n), p = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k, l, m) {
     return function(a) {
       return 1 - 2 * qgame.utils.math.abs.call(null, 0.5 - a);
     };
-  }(c, d, e, f, g, h, k, l, m), h), r = cljs.core.vec.call(null, cljs.core.repeat.call(null, f, cljs.core.vec.call(null, cljs.core.repeat.call(null, f, 0)))), p = function(a, b, c, d, e, f, g, h, k, l, m) {
+  }(c, d, e, f, g, h, k, l, m, n, r), l), s = cljs.core.vec.call(null, cljs.core.repeat.call(null, h, cljs.core.vec.call(null, cljs.core.repeat.call(null, h, 0)))), q = function(a, b, c, d, e, f, g, h, k, l, m, n, p) {
     return function(a, b) {
-      var d = cljs.core.nth.call(null, b, 0, null), e = cljs.core.nth.call(null, b, 1, null), f = qgame.utils.amplitudes.tangle_of.call(null, c, d, e);
-      return cljs.core.assoc_in.call(null, cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [d, e], null), f * cljs.core.nth.call(null, l, d)), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [e, d], null), f * cljs.core.nth.call(null, l, e));
+      var c = cljs.core.nth.call(null, b, 0, null), d = cljs.core.nth.call(null, b, 1, null), f = qgame.utils.amplitudes.tangle_of.call(null, e, c, d);
+      return cljs.core.assoc_in.call(null, cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, d], null), f * cljs.core.nth.call(null, n, c)), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [d, c], null), f * cljs.core.nth.call(null, n, d));
     };
-  }(c, d, e, f, g, h, k, l, m, n, r), s = function() {
-    return function(a, b, c, d, e, f, g, h, k, l, m, n) {
-      return function E(p) {
-        return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n) {
+  }(c, d, e, f, g, h, k, l, m, n, r, p, s), u = function() {
+    return function(a, b, c, d, e, f, g, h, k, l, m, n, p, q) {
+      return function M(r) {
+        return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q) {
           return function() {
-            for (var q = p;;) {
-              var r = cljs.core.seq.call(null, q);
-              if (r) {
-                var s = r, t = cljs.core.first.call(null, s), u = cljs.core.nth.call(null, t, 0, null), v = cljs.core.nthnext.call(null, t, 1), r = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
-                  return function $(v) {
-                    return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
+            for (var s = r;;) {
+              var t = cljs.core.seq.call(null, s);
+              if (t) {
+                var u = t, v = cljs.core.first.call(null, u), x = cljs.core.nth.call(null, v, 0, null), w = cljs.core.nthnext.call(null, v, 1), t = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u, v, w) {
+                  return function aa(x) {
+                    return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u, v, w) {
                       return function() {
                         for (;;) {
-                          var a = cljs.core.seq.call(null, v);
+                          var a = cljs.core.seq.call(null, x);
                           if (a) {
                             if (cljs.core.chunked_seq_QMARK_.call(null, a)) {
                               var b = cljs.core.chunk_first.call(null, a), d = cljs.core.count.call(null, b), e = cljs.core.chunk_buffer.call(null, d);
@@ -27501,36 +27507,90 @@ var qromp = {evaluate:function(a, b) {
                                 }
                                 b = void 0;
                               }
-                              return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), $.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null);
+                              return b ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), aa.call(null, cljs.core.chunk_rest.call(null, a))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, e), null);
                             }
                             e = cljs.core.first.call(null, a);
-                            return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, e], null), $.call(null, cljs.core.rest.call(null, a)));
+                            return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [c, e], null), aa.call(null, cljs.core.rest.call(null, a)));
                           }
                           return null;
                         }
                       };
-                    }(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u), null, null);
+                    }(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u, v, w), null, null);
                   };
-                }(q, t, u, v, s, r, a, b, c, d, e, f, g, h, k, l, m, n);
-                if (v = cljs.core.seq.call(null, r.call(null, v))) {
-                  return cljs.core.concat.call(null, v, E.call(null, cljs.core.rest.call(null, q)));
+                }(s, v, x, w, u, t, a, b, c, d, e, f, g, h, k, l, m, n, p, q);
+                if (w = cljs.core.seq.call(null, t.call(null, w))) {
+                  return cljs.core.concat.call(null, w, M.call(null, cljs.core.rest.call(null, s)));
                 }
-                q = cljs.core.rest.call(null, q);
+                s = cljs.core.rest.call(null, s);
               } else {
                 return null;
               }
             }
           };
-        }(a, b, c, d, e, f, g, h, k, l, m, n), null, null);
+        }(a, b, c, d, e, f, g, h, k, l, m, n, p, q), null, null);
       };
-    }(c, d, e, f, g, h, k, l, m, n, r, p).call(null, cljs.core.take.call(null, f, cljs.core.iterate.call(null, cljs.core.rest, g)));
-  }(), q = cljs.core.reduce.call(null, p, r, s), s = cljs.core.reduce.call(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q) {
+    }(c, d, e, f, g, h, k, l, m, n, r, p, s, q).call(null, cljs.core.take.call(null, h, cljs.core.iterate.call(null, cljs.core.rest, k)));
+  }(), w = cljs.core.reduce.call(null, q, s, u), v = cljs.core.reduce.call(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s) {
     return function(a, b) {
       var c = 1 - cljs.core.reduce.call(null, cljs.core._PLUS_, cljs.core.nth.call(null, a, b));
       return cljs.core.assoc_in.call(null, a, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [b, b], null), c);
     };
-  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q), q, g), q = cljs.core.identity.call(null, n);
-  return b.call(null, cljs.core.clj__GT_js.call(null, m), cljs.core.clj__GT_js.call(null, s), cljs.core.clj__GT_js.call(null, q));
+  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q, u, w), w, k), u = function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, u, v) {
+    return function(w) {
+      return function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
+        return function $(v) {
+          return new cljs.core.LazySeq(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u) {
+            return function() {
+              for (;;) {
+                var w = cljs.core.seq.call(null, v);
+                if (w) {
+                  var x = w;
+                  if (cljs.core.chunked_seq_QMARK_.call(null, x)) {
+                    var y = cljs.core.chunk_first.call(null, x), z = cljs.core.count.call(null, y), A = cljs.core.chunk_buffer.call(null, z);
+                    return function() {
+                      for (var v = 0;;) {
+                        if (v < z) {
+                          var B = cljs.core._nth.call(null, y, v);
+                          cljs.core.chunk_append.call(null, A, function() {
+                            var C = B, D = cljs.core.seq_QMARK_.call(null, C) ? cljs.core.apply.call(null, cljs.core.hash_map, C) : C, E = cljs.core.get.call(null, D, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516)), G = cljs.core.seq_QMARK_.call(null, E) ? cljs.core.apply.call(null, cljs.core.hash_map, E) : E, F = cljs.core.get.call(null, G, new cljs.core.Keyword(null, "name", "name", 1017277949)), H = cljs.core.get.call(null, D, new cljs.core.Keyword(null, "line-number", "line-number", 
+                            4279856820)), I = cljs.core.get.call(null, D, new cljs.core.Keyword(null, "qubits", "qubits", 4360074396)), C = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u, v, w, x, y, z, B, A, C, D, E, F, G, H, I) {
+                              return function(a) {
+                                a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+                                a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "value", "value", 1125876963));
+                                return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "_value", "_value", 3845646308), a], null);
+                              };
+                            }(v, C, D, E, G, F, H, I, B, y, z, A, x, w, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u), I), F = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "_fn_meta", "_fn_meta", 2648512847), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "_name", "_name", 1105012444), F], null), new cljs.core.Keyword(null, "_line_number", "_line_number", 788357031), H, new cljs.core.Keyword(null, "_qubits", "_qubits", 2773578171), C], null);
+                            return cljs.core.assoc.call(null, F, new cljs.core.Keyword(null, "_has_target", "_has_target", 4297516007), cljs.core.contains_QMARK_.call(null, new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["cnot", null, "cphase", null], null), null), (new cljs.core.Keyword(null, "_name", "_name", 1105012444)).cljs$core$IFn$_invoke$arity$1((new cljs.core.Keyword(null, "_fn_meta", "_fn_meta", 2648512847)).cljs$core$IFn$_invoke$arity$1(F))));
+                          }());
+                          v += 1;
+                        } else {
+                          return!0;
+                        }
+                      }
+                    }() ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, A), $.call(null, cljs.core.chunk_rest.call(null, x))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, A), null);
+                  }
+                  var B = cljs.core.first.call(null, x);
+                  return cljs.core.cons.call(null, function() {
+                    var v = B, y = cljs.core.seq_QMARK_.call(null, v) ? cljs.core.apply.call(null, cljs.core.hash_map, v) : v, z = cljs.core.get.call(null, y, new cljs.core.Keyword(null, "fn-meta", "fn-meta", 4539079516)), A = cljs.core.seq_QMARK_.call(null, z) ? cljs.core.apply.call(null, cljs.core.hash_map, z) : z, C = cljs.core.get.call(null, A, new cljs.core.Keyword(null, "name", "name", 1017277949)), D = cljs.core.get.call(null, y, new cljs.core.Keyword(null, "line-number", "line-number", 4279856820)), 
+                    E = cljs.core.get.call(null, y, new cljs.core.Keyword(null, "qubits", "qubits", 4360074396)), v = cljs.core.map.call(null, function(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E) {
+                      return function(a) {
+                        a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
+                        a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "value", "value", 1125876963));
+                        return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "_value", "_value", 3845646308), a], null);
+                      };
+                    }(v, y, z, A, C, D, E, B, x, w, a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u), E), C = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "_fn_meta", "_fn_meta", 2648512847), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "_name", "_name", 1105012444), C], null), new cljs.core.Keyword(null, "_line_number", "_line_number", 788357031), D, new cljs.core.Keyword(null, "_qubits", "_qubits", 2773578171), v], null);
+                    return cljs.core.assoc.call(null, C, new cljs.core.Keyword(null, "_has_target", "_has_target", 4297516007), cljs.core.contains_QMARK_.call(null, new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["cnot", null, "cphase", null], null), null), (new cljs.core.Keyword(null, "_name", "_name", 1105012444)).cljs$core$IFn$_invoke$arity$1((new cljs.core.Keyword(null, "_fn_meta", "_fn_meta", 2648512847)).cljs$core$IFn$_invoke$arity$1(C))));
+                  }(), $.call(null, cljs.core.rest.call(null, x)));
+                }
+                return null;
+              }
+            };
+          }(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, t, u), null, null);
+        };
+      }(a, b, c, d, e, f, g, h, k, l, m, n, p, q, r, s, u, v).call(null, w);
+    };
+  }(c, d, e, f, g, h, k, l, m, n, r, p, s, q, u, w, v, p).call(null, cljs.core.deref.call(null, d));
+  return b.call(null, cljs.core.clj__GT_js.call(null, r), cljs.core.clj__GT_js.call(null, v), cljs.core.clj__GT_js.call(null, p), cljs.core.clj__GT_js.call(null, u));
 }};
 window.evaluate = qromp.evaluate;
 

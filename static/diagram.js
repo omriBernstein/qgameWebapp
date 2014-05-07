@@ -116,7 +116,7 @@ function CircuitObject(containerID) {
 		// it gets a label with a background...
 		rowLabel.append("circle")
 			.attr("class", "label-backer")
-			.style("fill", "lightblue")
+			.style("fill", "none")
 		;
 		// ...and text
 		rowLabel.append("text")
@@ -129,7 +129,7 @@ function CircuitObject(containerID) {
 			.attr("transform", "translate(" + labelX + ", " + labelY + ")")
 		;
 		container.selectAll(".label-backer")
-			.style("fill", "lightblue")
+			.style("fill", "none")
 			.attr("r", labelRadius)
 		;
 		container.selectAll(".label-text")
@@ -144,7 +144,8 @@ function CircuitObject(containerID) {
 	// --- Wires --- \\
 		// A wire is vertically centered in row height
 		var strokeWidth = 2, wireY = rowHeight/2 - strokeWidth
-			, wireWidth = $(".d-row").innerWidth(), labelSectionWidth = labelRadius * 2 + 10;
+			, wireWidth = $(".d-row").innerWidth()
+			, labelSectionWidth = labelRadius * 2 + 10;
 
 		// When a new row enters, it gets a wire
 		rowEnter.append("line")
@@ -205,7 +206,7 @@ function CircuitObject(containerID) {
 		// 	, "background-color": "lightgray", "border": "1px solid black"
 		// });
 
-		var colXPos = columnWidth;
+		var colXPos = columnWidth * 1.2;
 
 		for (var columnNum = 0; columnNum < numCols; columnNum++) {
 			var rowYCoord = $($(".d-row")[0]).position().top;
@@ -262,7 +263,7 @@ function CircuitObject(containerID) {
 					.attr({ "width": colRealWidth + "px"
 						, "height": colRealWidth + "px"
 					})
-					.style({"stroke": "gray", "fill": "#FFFFCC"})
+					.style({"stroke": "black", "fill": "white"})
 				;
 				// Add text
 				parent.append("text").attr("class", "component-symbol compt-text")
@@ -278,8 +279,10 @@ function CircuitObject(containerID) {
 
 			function cnotCompt (parent) {
 				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, higherRowYCenter = Math.min(controlCY, targetCY)
 					, lowerRowYCenter = Math.max(controlCY, targetCY)
@@ -313,8 +316,10 @@ function CircuitObject(containerID) {
 			// Very similar to cnotCompt()
 			function cphaseCompt (parent) {
 				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, higherRowYCenter = Math.min(controlCY, targetCY)
 					, lowerRowYCenter = Math.max(controlCY, targetCY)
@@ -336,15 +341,17 @@ function CircuitObject(containerID) {
 				// Add single line component with "R" in it
 				var cphaseSquareGroup = parent.append("g")
 					.attr("class", "component-symbol cphase-square-group")
-					.attr("transform", "translate(0, " + targetRowTop + ")")
+					.attr("transform", "translate(0, " + (targetRowTop - compRowTop) + ")")
 				;
 				singleLine(cphaseSquareGroup);
 			}  // end cphaseCompt()
 
 			function swapCompt (parent) {
 				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						- compRowTop
 						+ colXCenter
 					, higherRowYCenter = Math.min(controlCY, targetCY)
 					, lowerRowYCenter = Math.max(controlCY, targetCY)
@@ -406,7 +413,7 @@ function CircuitObject(containerID) {
 					.attr({ "width": colRealWidth + "px"
 						, "height": (oracleHeight) + "px"
 					})
-					.style({"stroke": "gray", "fill": "#FFFFCC"})
+					.style({"stroke": "black", "fill": "white"})
 				;
 				// Add text (add "component-symbol" back later when we've figured out
 					// a way for it to not interfere)
@@ -482,6 +489,7 @@ function CircuitObject(containerID) {
 }  // End CircuitObject()
 
 // *** TESTS *** \\
+/*
 $(document).on("ready", function () {
 	var TESTING = true;
 	if (TESTING) {
@@ -521,6 +529,7 @@ $(document).on("ready", function () {
 				, _has_target : false
 			}
 		];
-		diagram.render(10, compData)
+		diagram.render(4, compData)
 	}
 });
+*/

@@ -9,8 +9,13 @@
 
 (defn evaluate [input callback]
   (let [on-err (fn [_] nil)
-        with-err (partial qgame/interpret {:on-err on-err :on-warn on-err})
-        output (-> input with-err first)
+        compiled (atom nil)
+        pre-exec (fn [{program :program}]
+                   (reset! compiled program))
+        with-specs (partial qgame/interpret
+                            {:on-err on-err :on-warn on-err
+                             :pre-exec pre-exec})
+        output (-> input with-specs first)
         num-qubits (-> output :amplitudes count g/bit-size)
         qubit-coll (range num-qubits)
         up-state-probs (map (comp #(m/round % 4)
@@ -41,12 +46,28 @@
         tangle-matrix (reduce (fn [mat a]
                                 (let [unentangled (- 1 (reduce + (nth mat a)))]
                                   (assoc-in mat [a a] unentangled)))
-                             tangle-matrix
+                              tangle-matrix
                               qubit-coll)
-        pad-array (identity tangle-capacities)]
+        pad-array tangle-capacities
+        to-circuit-expressions (fn [program]
+                                 (for [expression program]
+                                   (let [{{name :name} :fn-meta
+                                          line-number :line-number
+                                          qubits :qubits} expression
+                                         qubits (map (fn [{v :value}]
+                                                       {:_value v})
+                                                     qubits)
+                                         leaner {:_fn_meta {:_name name}
+                                                 :_line_number line-number
+                                                 :_qubits qubits}]
+                                     (->> leaner :_fn_meta :_name
+                                          (contains? #{"cnot" "cphase"})
+                                          (assoc leaner :_has_target)))))
+        circuit-expressions (to-circuit-expressions @compiled)]
     (callback (clj->js qubit-states)
               (clj->js tangle-matrix)
-              (clj->js pad-array))))
+              (clj->js pad-array)
+              (clj->js circuit-expressions))))
 
 ;(defn into-group
 ;  [pred group x]
