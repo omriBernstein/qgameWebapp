@@ -245,12 +245,8 @@ function CircuitObject(containerID) {
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp);
 			}
-			else if (comptSymb == "cnot") {
-				cnotCompt(thisComp);
-			}
-			else if (comptSymb == "swap") {
-				swapCompt(thisComp);
-			}
+			else if (comptSymb == "cnot") {cnotCompt(thisComp);}
+			else if (comptSymb == "swap") {swapCompt(thisComp);}
 			// "R" is used for cphase to get that letter in the box
 			else if (comptSymb == "R") {cphaseCompt(thisComp);}
 
@@ -316,7 +312,6 @@ function CircuitObject(containerID) {
 
 			// Very similar to cnotCompt()
 			function cphaseCompt (parent) {
-				console.log("blah")
 				var controlCY = $($(".d-row")[comptControlRow]).position().top
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
@@ -565,13 +560,19 @@ $(document).on("ready", function () {
 				, _has_target : false
 			}
 			, {
-				_fn_meta : {_name : "cphase"}
+				_fn_meta : {_name : "cnot"}
 				, _line_number : 1
 				, _qubits : [{_value: 0}, {_value: 1}]
 				, _has_target : true
 			}
+			, {
+				_fn_meta : {_name : "cphase"}
+				, _line_number : 2
+				, _qubits : [{_value: 2}, {_value: 0}]
+				, _has_target : true
+			}
 		];
-		diagram.render(2, compData)
+		diagram.render(compData.length, compData)
 		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
 	}
 });
