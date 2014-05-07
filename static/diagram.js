@@ -287,7 +287,7 @@ function CircuitObject(containerID) {
 
 				// Control y position
 				parent.append("circle").attr("class", "component-symbol compt-control")
-					.attr("cy", controlCY)
+					.attr("cy", controlCY + 1)
 				;
 				// Target y position
 				parent.append("circle").attr("class", "component-symbol compt-target")
@@ -320,11 +320,11 @@ function CircuitObject(containerID) {
 					, lowerRowYCenter = Math.max(controlCY, targetCY)
 				;
 				// SPECIAL FOR cphase, need top of target row
-				var targetRowTop = targetCY = $($(".d-row")[comptTargetRow]).position().top;
+				var targetRowTop = $($(".d-row")[comptTargetRow]).position().top;
 
 				// Control y position
 				parent.append("circle").attr("class", "component-symbol compt-control")
-					.attr("cy", controlCY)
+					.attr("cy", controlCY + 1)
 				;
 
 				// Connecting line start and end
@@ -521,6 +521,6 @@ $(document).on("ready", function () {
 				, _has_target : false
 			}
 		];
-		diagram.render(compData.length, compData)
+		diagram.render(10, compData)
 	}
 });
