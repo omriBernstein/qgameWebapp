@@ -27446,7 +27446,7 @@ var qromp = {evaluate:function(a, b) {
       a = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "program", "program", 704516598));
       return cljs.core.reset_BANG_.call(null, b, a);
     };
-  }(c, d), f = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109), e], null)), g = cljs.core.first.call(null, f.call(null, a)), h = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 
+  }(c, d), f = cljs.core.partial.call(null, qgame.simulator.interpreter.interpret, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "on-err", "on-err", 4294768617), c, new cljs.core.Keyword(null, "on-warn", "on-warn", 3936972070), c, new cljs.core.Keyword(null, "pre-exec", "pre-exec", 3967568109), e], null)), g = cljs.core.rand_nth.call(null, f.call(null, a)), h = qgame.utils.general.bit_size.call(null, cljs.core.count.call(null, (new cljs.core.Keyword(null, "amplitudes", "amplitudes", 
   1792075714)).cljs$core$IFn$_invoke$arity$1(g))), k = cljs.core.range.call(null, h), l = cljs.core.map.call(null, cljs.core.comp.call(null, function(a, b, c, d, e, f, g) {
     return function(a) {
       return qgame.utils.math.round.call(null, a, 4);

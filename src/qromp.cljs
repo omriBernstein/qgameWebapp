@@ -15,7 +15,7 @@
         with-specs (partial qgame/interpret
                             {:on-err on-err :on-warn on-err
                              :pre-exec pre-exec})
-        output (-> input with-specs first)
+        output (-> input with-specs rand-nth)
         num-qubits (-> output :amplitudes count g/bit-size)
         qubit-coll (range num-qubits)
         up-state-probs (map (comp #(m/round % 4)
