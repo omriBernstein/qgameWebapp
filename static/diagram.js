@@ -18,7 +18,7 @@ function CircuitObject(containerID) {
 			, "utheta": "U\u03B8"  // I believe this is the correct code
 			, "cnot": "cnot"  // An image?
 			, "swap": "swap"  // An image?
-			, "cphase": "cphase"  // Possible image?
+			, "cphase": "R"  // Possible image?
 			, "u2": "U"
 			, "measure": "M"
 			, "oracle": "O"  // I don't even know
@@ -32,6 +32,7 @@ function CircuitObject(containerID) {
 		this.sym = componentSymbols[name];
 		this.rows = {
 			start: Math.min.apply( null, qubitsArray )
+			, end: Math.max.apply( null, qubitsArray )
 			, control: hasTarget == true ? qubitsArray[0] : false
 			, target: hasTarget == true ? qubitsArray[qubitsArray.length - 1] : false
 		};
@@ -212,6 +213,7 @@ function CircuitObject(containerID) {
 			var comptSymb = componentData[columnNum].sym
 				// The row with the lowest index
 				, comptStartRow = componentData[columnNum].rows.start
+				, comptEndRow = componentData[columnNum].rows.end
 				, comptControlRow = componentData[columnNum].rows.control
 				, comptTargetRow = componentData[columnNum].rows.target
 			;
@@ -231,9 +233,7 @@ function CircuitObject(containerID) {
 				})
 			;
 			// The top of this component's top row
-			var compRowTop = $($(".d-row")[comptStartRow]).position().top
-				, compHeight = colRealWidth;
-			;
+			var compRowTop = $($(".d-row")[comptStartRow]).position().top;
 
 			// Not sure if we need to make a group
 			var thisComp = thisCol.append("g").attr("class", "comp-group")
@@ -244,19 +244,23 @@ function CircuitObject(containerID) {
 			if (singeLineCompArray.indexOf(comptSymb) > -1) {
 				singleLine(thisComp);
 			}
-			else if(comptSymb == "cnot") {
-				cnotCompt(thisComp);
-			}
+			else if (comptSymb == "cnot") {cnotCompt(thisComp);}
+			else if (comptSymb == "swap") {swapCompt(thisComp);}
+			// "R" is used for cphase to get that letter in the box
+			else if (comptSymb == "R") {cphaseCompt(thisComp);}
+			else if (comptSymb == "O") {oracleCompt(thisComp);}
+
+			else {console.log("Unrecognized component symbol: " + comptSymb)}
 
 			// These don't work inside the functinos for some reason
 			// even though they print correctly
-			var colXCenter = colRealWidth/2, colYCenter = compHeight/2;
+			var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
 
 			function singleLine (parent) {
 				// Add square
 				parent.append("rect").attr("class", "comp-backer")
 					.attr({ "width": colRealWidth + "px"
-						, "height": compHeight + "px"
+						, "height": colRealWidth + "px"
 					})
 					.style({"stroke": "gray", "fill": "#FFFFCC"})
 				;
@@ -277,52 +281,171 @@ function CircuitObject(containerID) {
 						+ colXCenter
 					, targetCY = $($(".d-row")[comptTargetRow]).position().top
 						+ colXCenter
-					, lineTop = Math.min(controlCY, targetCY)
-					, lineBottom = Math.max(controlCY, targetCY)
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
 				;
 
 				// Control y position
-				parent.append("circle").attr("class", "component-symbol cnot-control")
-					.attr("cy", controlCY)
+				parent.append("circle").attr("class", "component-symbol compt-control")
+					.attr("cy", controlCY + 1)
 				;
 				// Target y position
-				parent.append("circle").attr("class", "component-symbol cnot-target")
+				parent.append("circle").attr("class", "component-symbol compt-target")
 					.attr("cy", targetCY)
 				;
 				// Crossing lines
-				parent.append("line").attr("class", "component-symbol cnot-cross-vert")
+				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-vert")
 					.attr("y1", targetCY-labelRadius)
 					.attr("y2", targetCY+labelRadius)
 				;
-				parent.append("line").attr("class", "component-symbol cnot-cross-horiz")
+				parent.append("line").attr("class", "component-symbol compt-line cnot-cross-horiz")
 					.attr("y1", targetCY+1)
 					.attr("y2", targetCY+1)
 				;
 				// Connecting line start and end
-				parent.append("line").attr("class", "component-symbol cnot-line")
-					.attr("y1", lineTop)
-					.attr("y2", lineBottom)
-					// add a line here coming from the bottom
+				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+					.attr("y1", higherRowYCenter)
+					.attr("y2", lowerRowYCenter)
 				;
 
-			}
+			}  // end cnotCompt()
+
+			// Very similar to cnotCompt()
+			function cphaseCompt (parent) {
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				;
+				// SPECIAL FOR cphase, need top of target row
+				var targetRowTop = $($(".d-row")[comptTargetRow]).position().top;
+
+				// Control y position
+				parent.append("circle").attr("class", "component-symbol compt-control")
+					.attr("cy", controlCY + 1)
+				;
+
+				// Connecting line start and end
+				parent.append("line").attr("class", "component-symbol compt-line connecting-vert-line")
+					.attr("y1", higherRowYCenter)
+					.attr("y2", lowerRowYCenter)
+				;
+
+				// Add single line component with "R" in it
+				var cphaseSquareGroup = parent.append("g")
+					.attr("class", "component-symbol cphase-square-group")
+					.attr("transform", "translate(0, " + targetRowTop + ")")
+				;
+				singleLine(cphaseSquareGroup);
+			}  // end cphaseCompt()
+
+			function swapCompt (parent) {
+				var controlCY = $($(".d-row")[comptControlRow]).position().top
+						+ colXCenter
+					, targetCY = $($(".d-row")[comptTargetRow]).position().top
+						+ colXCenter
+					, higherRowYCenter = Math.min(controlCY, targetCY)
+					, lowerRowYCenter = Math.max(controlCY, targetCY)
+				;
+
+				// Center both the x's and the line
+				var swapGroup = parent.append("g").attr("class", "component-symbol swap-group")
+					.attr("transform", "translate(" + colXCenter + ", "
+						+ 0 + ")")
+				;
+				// Connecting line start and end
+				swapGroup.append("line").attr("class", "component-symbol compt-line swap-connecting-line")
+					.attr("y1", higherRowYCenter + 1)
+					.attr("y2", lowerRowYCenter + 1)
+				;
+
+				var xLength = colXCenter/3.5;
+
+				// Get the topX to the right place
+				var topX = swapGroup.append("g").attr("class", "component-symbol topX")
+					.attr("transform", "translate(" + 0 + ", "
+						+ (colXCenter + 1) + ")")
+				;
+				// Slash from top left to bottom right (tLbR)
+				topX.append("line").attr("class", "component-symbol compt-line XtLbR");
+				// Slash from top right to bottom left (tRbL)
+				topX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+				var bottomX = swapGroup.append("g").attr("class", "component-symbol bottomX")
+					.attr("transform", "translate(" + 0 + ", "
+						+ (lowerRowYCenter + 1) + ")")
+				;
+				// Slash from top left to bottom right (tLbR)
+				bottomX.append("line").attr("class", "component-symbol compt-line XtLbR");
+				// Slash from top right to bottom left (tRbL)
+				bottomX.append("line").attr("class", "component-symbol compt-line XtRbL");
+
+				// Get the x slashes at the right angles
+				d3.selectAll(".XtLbR")
+					.attr({"y1": -xLength, "y2": xLength})
+					.attr({"x1": -xLength, "x2": xLength})
+				;
+				d3.selectAll(".XtRbL")
+					.attr({"y1": -xLength, "y2": xLength})
+					.attr({"x1": xLength, "x2": -xLength})
+				;
+			}  // end swapCompt()
+
+			function oracleCompt(parent) {
+				// This gets the top of the last row of the oracle,
+				// then adds a row width to it to get it to fill that last row
+				var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colRealWidth
+					, topRowTop = $($(".d-row")[comptStartRow]).position().top
+					oracleHeight = bottomRowBottom - topRowTop
+				;
+
+				// Add square
+				parent.append("rect").attr("class", "comp-backer")
+					.attr({ "width": colRealWidth + "px"
+						, "height": (oracleHeight) + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+				;
+				// Add text (add "component-symbol" back later when we've figured out
+					// a way for it to not interfere)
+				parent.append("text").attr("class", // "component-symbol
+						"compt-text oracle-symbol")
+					.text(comptSymb)
+					.attr("fill", "black")
+					.attr("font-size", fontSize + "em")
+					.attr({"x": "50%", "y":  oracleHeight/2})
+					// Makes x and y represent the middle point of the text
+					.attr("text-anchor", "middle")
+					// It's not exactly vertically middle
+					.attr("dy", "0.3em")
+				;
+			}  // end oracleCompt()
+
+
+			// Target and control should be their own functions? Maybe the
+			// class attributes below are enough.
+			function comptTarget(parent) {}
+
+			function comptControl(parent) {}
+
 
 			// These should be added to css stuff? Hmm, not sure of "y"
 			// Well, at least some of these should
-
 			// Center everything
 			d3.selectAll(".component-symbol")
 				// "50%" doesn't work with y for some reason
 				.attr({"x": "50%", "y":  colXCenter, "cx": "50%"})
 			;
 			// Size and x pos of component control
-			d3.selectAll(".cnot-control")
+			d3.selectAll(".compt-control")
 				.attr("r", labelRadius/2)
 				.style("fill", "black")
 			;
 
 			// Size and y pos of component target
-			d3.selectAll(".cnot-target")
+			d3.selectAll(".compt-target")
 				.attr("r", labelRadius)
 				.attr({"fill": "none", "stroke-width": "2px", "stroke": "black"})
 			;
@@ -342,100 +465,19 @@ function CircuitObject(containerID) {
 			;
 
 			// Width and x pos of cnot connecting line
-			d3.selectAll(".cnot-line")
+			d3.selectAll(".connecting-vert-line")
 				.attr("x1", colXCenter)
 				.attr("x2", colXCenter)
 				.attr("stroke-width", comptLineWidth)
 				.attr("stroke", "black")
 			;
 
+			d3.selectAll(".compt-line")
+				.attr("stroke-width", comptLineWidth)
+				.attr("stroke", "black")
+			;
+
 		}  // end for columns
-
-	// --- Drawing components --- \\
-
-		// var colEnter = cols.enter().append("svg")
-		// 	.attr("class", "d-col")
-		// 	.style({"position": "absolute", "top": "0"})
-		// 	.style("left", function (dat) {
-		// 		return (dat + 0.97) * columnWidth + dat * 1;
-		// 	})
-		// 	.style("margin", rowMargin + "px 0")
-		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-		// 	// Don't know how this will fare with size change
-		// 	.style("height", "98%")
-		// 	.style({"background-color": "lightgray", "stroke": "black"})
-		// ;
-
-		// // Animate existing rows?
-		// cols.transition()
-		// 	.duration(animTime)
-		// 	.style({"position": "absolute", "top": "0"})
-		// 	.style("left", function (dat) {
-		// 		return (dat + 0.97) * columnWidth + dat * 1;
-		// 	})
-		// 	.style("margin", rowMargin + "px 0")
-		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-		// 	// Don't know how this will fare with size change
-		// 	.style("height", "98%")
-		// 	.style({"background-color": "lightgray", "stroke": "black"})
-		// ;
-
-		// // Remove cols whose data no longer exists
-		// cols.exit().transition()
-		// 	.duration(animTime)
-		// 	.remove();
-
-	// --- (old) COMPONENTS --- \\
-		// var actualRowHeight = $(".d-row").innerHeight()  // Should be smaller to give space for padding
-		// , padding = 3;
-
-
-		// var grid = [], gridRow = [];
-		// for (var row = 0; row < numQubits; row++) {
-		// 	for (var col = 0; col < numCols; col++) {
-		// 		// Add column values to row till row is full
-		// 		gridRow.push(col);
-		// 		// really gridRow.push([row * whatever, col * whatever]);
-		// 	}
-		// 	// Add row to grid
-		// 	grid.push[gridRow];
-		// 	// Reset the row to blank
-		// 	gridRow = [];
-		// }
-
-		// var componentData = [];
-		// for(var i = 0; i < expressions.length; i++) {
-		// 	componentData[i] = expressionToComponent(expressions[i]);
-		// };
-
-		// var component = container.selectAll(".component").data(componentData);
-
-		// component.enter().call(function (compts) {
-		// 	console.log(compts[0]);
-		// })
-		// // component.enter().append("rect")
-		// // 	.attr("width", columnWidth)
-		// // 	.attr("height", rowHeight)
-		// // 	.attr("transform", positionComponent)
-		// // 	.attr("contents", function(d) {return d.sym});
-
-		// // component.exit()
-		// // 	.remove();
-
-		// function doubleLine (name) {
-
-		// }
-
-		// function oracleLines (numLines, lastQubit) {
-
-		// }
-
-		// function positionComponent(cmpnt) {
-		// 	return "translate("
-		// 		cmpnt.columnNum * columnWidth + ","
-		// 		Math.min(cmpnt.rows) * rowHeight + 
-		// 	")"
-		// }
 	}  // end this.render()
 }  // End CircuitObject()
 
@@ -444,11 +486,6 @@ $(document).on("ready", function () {
 	var TESTING = true;
 	if (TESTING) {
 		diagram = new CircuitObject("diagram");
-
-		// Tests without components:
-		// diagram.render(3, "x");
-		// diagram.render(5, "x");
-		// diagram.render(1, "x");
 
 		// Tests with comoponents
 		compData = 
@@ -465,8 +502,25 @@ $(document).on("ready", function () {
 				, _qubits : [{_value: 0}, {_value: 1}]
 				, _has_target : true
 			}
+			, {
+				_fn_meta : {_name : "cphase"}
+				, _line_number : 2
+				, _qubits : [{_value: 2}, {_value: 0}]
+				, _has_target : true
+			}
+			, {
+				_fn_meta : {_name : "oracle"}
+				, _line_number : 3
+				, _qubits : [{_value: 3}, {_value: 0}, {_value: 2}]
+				, _has_target : false
+			}
+			, {
+				_fn_meta : {_name : "oracle"}
+				, _line_number : 3
+				, _qubits : [{_value: 1}, {_value: 2}]
+				, _has_target : false
+			}
 		];
-		diagram.render(2, compData)
-		// singleRowComponent(d3.select(".d-col"), componentSymbols.qnot);
+		diagram.render(10, compData)
 	}
 });
