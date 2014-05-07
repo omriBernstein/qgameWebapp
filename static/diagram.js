@@ -54,11 +54,11 @@ function CircuitObject(containerID) {
 	}
 
 	this.render = function(numQubits, expressions){
-		var containerHeight = parseInt(container.style("height"))
+		var adjustedContainerHeight = parseInt(container.style("height")) - 2
 			// I think there needs to be a minimum row height with
 			// overflow scroll, it gets pretty small. Maybe a steady
 			// height based on rem?
-			, rowHeight = containerHeight / numQubits
+			, rowHeight = adjustedContainerHeight / numQubits
 			, columnWidth = rowHeight;
 
 		var rowData = []
