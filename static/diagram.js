@@ -248,17 +248,15 @@ function CircuitObject(containerID) {
 			else if (comptSymb == "swap") {swapCompt(thisComp);}
 			// "R" is used for cphase to get that letter in the box
 			else if (comptSymb == "R") {cphaseCompt(thisComp);}
+			else if (comptSymb == "O") {oracleCompt(thisComp);}
 
 			else {console.log("Unrecognized component symbol: " + comptSymb)}
 
 			// These don't work inside the functinos for some reason
 			// even though they print correctly
-			var colXCenter = colRealWidth/2, colYCenter = compHeight/2;
+			var colXCenter = colRealWidth/2, colYCenter = colRealWidth/2;
 
 			function singleLine (parent) {
-				// Get bottom of square
-
-
 				// Add square
 				parent.append("rect").attr("class", "comp-backer")
 					.attr({ "width": colRealWidth + "px"
@@ -396,9 +394,33 @@ function CircuitObject(containerID) {
 			}  // end swapCompt()
 
 			function oracleCompt(parent) {
-				var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colXCenter;
+				// This gets the top of the last row of the oracle,
+				// then adds a row width to it to get it to fill that last row
+				var bottomRowBottom = $($(".d-row")[comptEndRow]).position().top + colRealWidth
+					, topRowTop = $($(".d-row")[comptStartRow]).position().top
+					oracleHeight = bottomRowBottom - topRowTop
+				;
 
-
+				// Add square
+				parent.append("rect").attr("class", "comp-backer")
+					.attr({ "width": colRealWidth + "px"
+						, "height": (oracleHeight) + "px"
+					})
+					.style({"stroke": "gray", "fill": "#FFFFCC"})
+				;
+				// Add text (add "component-symbol" back later when we've figured out
+					// a way for it to not interfere)
+				parent.append("text").attr("class", // "component-symbol
+						"compt-text oracle-symbol")
+					.text(comptSymb)
+					.attr("fill", "black")
+					.attr("font-size", fontSize + "em")
+					.attr({"x": "50%", "y":  oracleHeight/2})
+					// Makes x and y represent the middle point of the text
+					.attr("text-anchor", "middle")
+					// It's not exactly vertically middle
+					.attr("dy", "0.3em")
+				;
 			}  // end oracleCompt()
 
 
@@ -576,6 +598,18 @@ $(document).on("ready", function () {
 				, _line_number : 2
 				, _qubits : [{_value: 2}, {_value: 0}]
 				, _has_target : true
+			}
+			, {
+				_fn_meta : {_name : "oracle"}
+				, _line_number : 3
+				, _qubits : [{_value: 3}, {_value: 0}, {_value: 2}]
+				, _has_target : false
+			}
+			, {
+				_fn_meta : {_name : "oracle"}
+				, _line_number : 3
+				, _qubits : [{_value: 1}, {_value: 2}]
+				, _has_target : false
 			}
 		];
 		diagram.render(compData.length, compData)
