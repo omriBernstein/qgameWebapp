@@ -90,3 +90,12 @@
 	border-top: 0.1rem solid #000;
 	border-bottom: 0.1rem solid #000;
 }
+
+.highlighter {
+	color: #640064;
+	cursor: default;
+}
+
+.highlighter:hover {
+	font-style: italic;
+}
