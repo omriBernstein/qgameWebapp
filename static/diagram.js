@@ -478,92 +478,6 @@ function CircuitObject(containerID) {
 			;
 
 		}  // end for columns
-
-	// --- Drawing components --- \\
-
-		// var colEnter = cols.enter().append("svg")
-		// 	.attr("class", "d-col")
-		// 	.style({"position": "absolute", "top": "0"})
-		// 	.style("left", function (dat) {
-		// 		return (dat + 0.97) * columnWidth + dat * 1;
-		// 	})
-		// 	.style("margin", rowMargin + "px 0")
-		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-		// 	// Don't know how this will fare with size change
-		// 	.style("height", "98%")
-		// 	.style({"background-color": "lightgray", "stroke": "black"})
-		// ;
-
-		// // Animate existing rows?
-		// cols.transition()
-		// 	.duration(animTime)
-		// 	.style({"position": "absolute", "top": "0"})
-		// 	.style("left", function (dat) {
-		// 		return (dat + 0.97) * columnWidth + dat * 1;
-		// 	})
-		// 	.style("margin", rowMargin + "px 0")
-		// 	.style("width", (rowHeight - (rowMargin * 2.5)) + "px")
-		// 	// Don't know how this will fare with size change
-		// 	.style("height", "98%")
-		// 	.style({"background-color": "lightgray", "stroke": "black"})
-		// ;
-
-		// // Remove cols whose data no longer exists
-		// cols.exit().transition()
-		// 	.duration(animTime)
-		// 	.remove();
-
-	// --- (old) COMPONENTS --- \\
-		// var actualRowHeight = $(".d-row").innerHeight()  // Should be smaller to give space for padding
-		// , padding = 3;
-
-
-		// var grid = [], gridRow = [];
-		// for (var row = 0; row < numQubits; row++) {
-		// 	for (var col = 0; col < numCols; col++) {
-		// 		// Add column values to row till row is full
-		// 		gridRow.push(col);
-		// 		// really gridRow.push([row * whatever, col * whatever]);
-		// 	}
-		// 	// Add row to grid
-		// 	grid.push[gridRow];
-		// 	// Reset the row to blank
-		// 	gridRow = [];
-		// }
-
-		// var componentData = [];
-		// for(var i = 0; i < expressions.length; i++) {
-		// 	componentData[i] = expressionToComponent(expressions[i]);
-		// };
-
-		// var component = container.selectAll(".component").data(componentData);
-
-		// component.enter().call(function (compts) {
-		// 	console.log(compts[0]);
-		// })
-		// // component.enter().append("rect")
-		// // 	.attr("width", columnWidth)
-		// // 	.attr("height", rowHeight)
-		// // 	.attr("transform", positionComponent)
-		// // 	.attr("contents", function(d) {return d.sym});
-
-		// // component.exit()
-		// // 	.remove();
-
-		// function doubleLine (name) {
-
-		// }
-
-		// function oracleLines (numLines, lastQubit) {
-
-		// }
-
-		// function positionComponent(cmpnt) {
-		// 	return "translate("
-		// 		cmpnt.columnNum * columnWidth + ","
-		// 		Math.min(cmpnt.rows) * rowHeight + 
-		// 	")"
-		// }
 	}  // end this.render()
 }  // End CircuitObject()
 
@@ -572,11 +486,6 @@ $(document).on("ready", function () {
 	var TESTING = true;
 	if (TESTING) {
 		diagram = new CircuitObject("diagram");
-
-		// Tests without components:
-		// diagram.render(3, "x");
-		// diagram.render(5, "x");
-		// diagram.render(1, "x");
 
 		// Tests with comoponents
 		compData = 
